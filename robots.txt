@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tramdungchill.vn/sitemap.xml
+
+# Cho phep tat ca bot crawl
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block khong can thiet
+Disallow: /docs/
+Disallow: /plans/
