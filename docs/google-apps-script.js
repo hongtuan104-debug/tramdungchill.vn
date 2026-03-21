@@ -5,7 +5,7 @@
    HUONG DAN:
    1. Vao https://script.google.com → New Project
    2. Copy TOAN BO code nay vao
-   3. Sua TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID
+   3. Sua TELEGRAM_BOT_TOKEN va danh sach TELEGRAM_CHAT_IDS
    4. Deploy → New deployment → Web app
       - Execute as: Me
       - Who has access: Anyone
@@ -14,7 +14,16 @@
 
 // ========== CAU HINH ==========
 var TELEGRAM_BOT_TOKEN = 'THAY_TOKEN_BOT_TELEGRAM_VAO_DAY';
-var TELEGRAM_CHAT_ID = 'THAY_CHAT_ID_VAO_DAY';
+
+// Danh sach nhan vien nhan thong bao
+// Them/xoa nguoi: them/xoa dong trong mang ben duoi
+var TELEGRAM_CHAT_IDS = [
+  { id: 'CHAT_ID_CHU_QUAN', name: 'Chu quan' },
+  // { id: 'CHAT_ID_NHAN_VIEN_1', name: 'Nhan vien 1' },
+  // { id: 'CHAT_ID_NHAN_VIEN_2', name: 'Nhan vien 2' },
+  // Muon them nguoi: bo dau // o dau dong, thay CHAT_ID va ten
+];
+
 var SHEET_NAME = 'DatBan'; // Ten sheet
 // ==============================
 
@@ -106,6 +115,7 @@ function saveToSheet(data) {
 
 function sendTelegram(data) {
   if (TELEGRAM_BOT_TOKEN === 'THAY_TOKEN_BOT_TELEGRAM_VAO_DAY') return;
+  if (TELEGRAM_CHAT_IDS.length === 0) return;
 
   // Map dip dac biet
   var occasionMap = {
@@ -143,14 +153,21 @@ function sendTelegram(data) {
 
   var url = 'https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage';
 
-  UrlFetchApp.fetch(url, {
-    method: 'post',
-    contentType: 'application/json',
-    payload: JSON.stringify({
-      chat_id: TELEGRAM_CHAT_ID,
-      text: msg,
-      parse_mode: 'Markdown'
-    })
+  // Gui thong bao cho TAT CA nhan vien trong danh sach
+  TELEGRAM_CHAT_IDS.forEach(function(person) {
+    try {
+      UrlFetchApp.fetch(url, {
+        method: 'post',
+        contentType: 'application/json',
+        payload: JSON.stringify({
+          chat_id: person.id,
+          text: msg,
+          parse_mode: 'Markdown'
+        })
+      });
+    } catch (err) {
+      Logger.log('Khong gui duoc cho ' + person.name + ': ' + err);
+    }
   });
 }
 
