@@ -49,7 +49,7 @@ const SITE_CONFIG = {
 
     // Webhook dat ban - Dan URL Google Apps Script vao day
     // Xem huong dan: docs/SETUP-WEBHOOK.md
-    webhookUrl: '',
+    webhookUrl: 'https://script.google.com/macros/s/AKfycbw3y1TpNm_mFkHtWqWXj9CVmMvQV_l7Hd1bOEh7NBE-prRnyNztHNHiQQqntvHOlSBG/exec',
 
     // Telegram Bot (de trong neu chua setup)
     telegram: {
