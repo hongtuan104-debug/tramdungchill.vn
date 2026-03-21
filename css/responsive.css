@@ -32,10 +32,11 @@
 
 /* Experience cards - stack at 1024px for readable text */
 @media (max-width: 1024px) {
-    .exp-card { grid-template-columns: 1fr; }
-    .exp-card-img { min-height: 280px; }
+    .exp-card { grid-template-columns: 1fr; overflow: visible; }
+    .exp-card-img { min-height: 280px; overflow: hidden; }
     .exp-train .exp-card-content { order: 2; }
     .exp-train .exp-card-img { order: 1; }
+    .exp-card-content { word-wrap: break-word; overflow-wrap: break-word; }
 }
 
 @media (max-width: 900px) {
@@ -57,6 +58,11 @@
     .nav-right {
         position: relative;
         z-index: 1003;
+        gap: 8px;
+    }
+    .lang-toggle {
+        padding: 0 10px;
+        height: 34px;
     }
 
     .nav-menu {

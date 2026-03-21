@@ -11,6 +11,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -28,7 +29,7 @@ a { text-decoration: none; color: inherit; transition: all 0.3s var(--ease); }
 ul { list-style: none; }
 button { border: none; background: none; cursor: pointer; font-family: inherit; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
 /* Selection color */
 ::selection { background: var(--gold); color: var(--night); }

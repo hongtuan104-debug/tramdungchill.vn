@@ -26,6 +26,7 @@
     box-shadow: var(--shadow-soft);
     transition: all 0.4s var(--ease);
     border: 1px solid var(--border);
+    max-width: 100%;
 }
 
 .exp-card:hover {
