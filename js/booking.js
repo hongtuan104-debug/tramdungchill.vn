@@ -25,8 +25,10 @@ function initBookingForm() {
             return;
         }
 
-        // Phone validation (Vietnamese: 10 digits starting with 0)
-        const cleanPhone = data.phone.replace(/[\.\s\-]/g, '');
+        // Phone validation (Vietnamese: 0xxx or +84xxx or 84xxx)
+        var cleanPhone = data.phone.replace(/[\.\s\-\(\)]/g, '');
+        if (/^\+84/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(3);
+        if (/^84[0-9]{9}$/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(2);
         if (!/^0[0-9]{9}$/.test(cleanPhone)) {
             showNotification('Số điện thoại không hợp lệ (cần 10 số)!', 'error');
             return;
