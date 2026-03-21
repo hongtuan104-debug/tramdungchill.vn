@@ -40,14 +40,13 @@ function initBookingForm() {
         // Format message
         const message = formatZaloMessage(data);
 
-        // Try sending via webhook
-        const webhookUrl = form.dataset.webhook;
+        // Gui du lieu qua webhook (Google Apps Script)
+        const webhookUrl = SITE_CONFIG.webhookUrl;
         if (webhookUrl) {
             try {
                 await fetch(webhookUrl, {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify({
                         name: data.name,
                         phone: data.phone,
