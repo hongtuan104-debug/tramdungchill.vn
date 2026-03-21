@@ -30,13 +30,15 @@
     .map-embed { min-height: 350px; }
 }
 
-/* Experience cards - stack at 900px, not 1024px */
-@media (max-width: 900px) {
+/* Experience cards - stack at 1024px for readable text */
+@media (max-width: 1024px) {
     .exp-card { grid-template-columns: 1fr; }
     .exp-card-img { min-height: 280px; }
     .exp-train .exp-card-content { order: 2; }
     .exp-train .exp-card-img { order: 1; }
+}
 
+@media (max-width: 900px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 220px;
