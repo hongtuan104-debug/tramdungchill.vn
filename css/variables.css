@@ -1,0 +1,50 @@
+/* ============================================
+   VARIABLES — CSS Custom Properties
+   ============================================ */
+
+/* ============================================
+   TRẠM DỪNG CHILL - Premium Design
+   Theme: Sunset Gold + Night Warmth
+   ============================================ */
+
+:root {
+    /* Sunset palette */
+    --gold: #D4A853;
+    --gold-light: #F0D48A;
+    --gold-dark: #B8922E;
+    --sunset: #E8814F;
+    --sunset-deep: #C8572A;
+    --ember: #A5451F;
+
+    /* Night palette */
+    --night: #0F0D0A;
+    --night-soft: #1A1612;
+    --charcoal: #2C2420;
+    --wood: #3D3229;
+    --smoke: #8B7D6B;
+
+    /* Light palette */
+    --cream: #FDF8F3;
+    --linen: #F5EDE3;
+    --parchment: #EDE4D8;
+    --white: #FFFFFF;
+    --border: #E0D5C7;
+
+    /* Typography */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-accent: 'Dancing Script', cursive;
+
+    /* Effects */
+    --shadow-soft: 0 4px 20px rgba(15, 13, 10, 0.08);
+    --shadow-medium: 0 8px 30px rgba(15, 13, 10, 0.12);
+    --shadow-heavy: 0 12px 50px rgba(15, 13, 10, 0.2);
+    --shadow-gold: 0 4px 25px rgba(212, 168, 83, 0.3);
+    --glow-gold: 0 0 40px rgba(212, 168, 83, 0.15);
+
+    --radius: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 50px;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}

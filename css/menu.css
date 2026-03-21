@@ -1,0 +1,128 @@
+/* ============================================
+   MENU — Menu Section
+   ============================================ */
+
+/* ============================================
+   MENU SECTION
+   ============================================ */
+.menu-section {
+    padding: 110px 0;
+    background: var(--linen);
+    position: relative;
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, var(--cream), var(--linen));
+}
+
+.menu-section .container { position: relative; }
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding: 6px;
+    background: var(--white);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-soft);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-tab {
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--smoke);
+    transition: all 0.3s var(--ease);
+}
+
+.menu-tab:hover { color: var(--sunset-deep); }
+
+.menu-tab.active {
+    background: var(--sunset-deep);
+    color: var(--white);
+    box-shadow: 0 2px 10px rgba(200,87,42,0.3);
+}
+
+.menu-panel { display: none; }
+.menu-panel.active { display: block; animation: fadePanel 0.4s ease; }
+
+@keyframes fadePanel {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    background: var(--white);
+    border-radius: var(--radius);
+    transition: all 0.3s var(--ease);
+    border: 1px solid transparent;
+}
+
+.menu-item:hover {
+    border-color: var(--gold);
+    box-shadow: var(--glow-gold);
+    transform: translateX(4px);
+}
+
+.menu-item-info { display: flex; align-items: center; gap: 10px; flex: 1; }
+
+.menu-item-info h4 {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--night-soft);
+}
+
+.menu-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.5px;
+}
+
+.menu-badge.hot {
+    background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
+    color: var(--white);
+}
+
+.menu-price {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sunset-deep);
+    white-space: nowrap;
+    margin-left: 16px;
+}
+
+.menu-note, .menu-drink-note {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.85rem;
+    color: var(--smoke);
+    font-style: italic;
+}

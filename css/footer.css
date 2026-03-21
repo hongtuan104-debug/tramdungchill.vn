@@ -1,0 +1,82 @@
+/* ============================================
+   FOOTER — Footer Section
+   ============================================ */
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--night);
+    color: rgba(255,255,255,0.6);
+    padding: 64px 0 28px;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+}
+
+.footer-logo {
+    font-family: var(--font-accent);
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+
+.footer-social { display: flex; gap: 10px; }
+
+.footer-social a {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s var(--ease);
+}
+
+.footer-social a:hover {
+    background: var(--gold);
+    color: var(--night);
+    transform: translateY(-3px);
+}
+
+.footer-nav h4, .footer-contact h4 {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.footer-nav li { margin-bottom: 10px; }
+
+.footer-nav a {
+    font-size: 0.88rem;
+    transition: all 0.3s var(--ease);
+}
+
+.footer-nav a:hover {
+    color: var(--gold-light);
+    padding-left: 6px;
+}
+
+.footer-contact li {
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+}
+
+.footer-contact a:hover { color: var(--gold-light); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.78rem;
+    opacity: 0.4;
+}

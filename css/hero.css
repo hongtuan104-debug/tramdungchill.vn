@@ -1,0 +1,271 @@
+/* ============================================
+   HERO — Hero Section & Related Animations
+   ============================================ */
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-slider { position: absolute; inset: 0; }
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+    will-change: opacity, transform;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    animation: slowZoom 10s ease-out forwards;
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            rgba(15, 13, 10, 0.5) 0%,
+            rgba(15, 13, 10, 0.15) 35%,
+            rgba(15, 13, 10, 0.1) 50%,
+            rgba(15, 13, 10, 0.5) 85%,
+            rgba(15, 13, 10, 0.8) 100%
+        );
+    z-index: 1;
+}
+
+/* Firefly particles */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--gold), 0 0 12px rgba(212,168,83,0.3);
+    animation: float var(--duration) ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes float {
+    0%, 100% { opacity: 0; transform: translateY(0) translateX(0); }
+    25% { opacity: 0.8; }
+    50% { opacity: 0.4; transform: translateY(calc(var(--dy))) translateX(calc(var(--dx))); }
+    75% { opacity: 0.7; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--white);
+    padding: 0 24px;
+    max-width: 800px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    background: rgba(212, 168, 83, 0.15);
+    border: 1px solid rgba(212, 168, 83, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title { margin-bottom: 20px; }
+
+.hero-title-sub {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+.hero-title-main {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: clamp(3.2rem, 9vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--white);
+    text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    background: linear-gradient(180deg, var(--white) 0%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.divider-line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.divider-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.9;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Time indicator dots */
+.hero-time-bar {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 12px;
+}
+
+.time-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    position: relative;
+}
+
+.time-dot.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(212,168,83,0.5);
+}
+
+.time-dot::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.time-dot:hover::after,
+.time-dot.active::after { opacity: 1; }
+
+/* Scroll hint */
+.hero-scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.mouse {
+    width: 22px;
+    height: 34px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    position: relative;
+}
+
+.mouse-wheel {
+    width: 3px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 3px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(12px); opacity: 0; }
+}
+
+/* Animations */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.9s var(--ease) forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}

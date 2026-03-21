@@ -25,7 +25,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- CSS Architecture (modular) -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/review.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/ui-overlays.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
     <!-- Schema.org for Restaurant -->
     <script type="application/ld+json">
@@ -235,103 +250,9 @@
                 <p class="section-desc">Tươi ngon mỗi ngày — từ nướng BBQ, lẩu nóng đến đồ uống mát lạnh</p>
             </div>
 
-            <div class="menu-tabs" role="tablist">
-                <button class="menu-tab active" data-tab="bestseller" role="tab" id="tab-bestseller" aria-controls="bestseller" aria-selected="true">Best Seller</button>
-                <button class="menu-tab" data-tab="nuong" role="tab" id="tab-nuong" aria-controls="nuong" aria-selected="false">Nướng Tại Bàn</button>
-                <button class="menu-tab" data-tab="laurai" role="tab" id="tab-laurai" aria-controls="laurai" aria-selected="false">Món Lai Rai</button>
-                <button class="menu-tab" data-tab="lau" role="tab" id="tab-lau" aria-controls="lau" aria-selected="false">Lẩu</button>
-                <button class="menu-tab" data-tab="com" role="tab" id="tab-com" aria-controls="com" aria-selected="false">No Cái Bụng</button>
-                <button class="menu-tab" data-tab="ankem" role="tab" id="tab-ankem" aria-controls="ankem" aria-selected="false">Ăn Kèm</button>
-                <button class="menu-tab" data-tab="douong" role="tab" id="tab-douong" aria-controls="douong" aria-selected="false">Đồ Uống</button>
-            </div>
-
-            <div class="menu-content">
-                <!-- Best Seller -->
-                <div class="menu-panel active" id="bestseller" role="tabpanel" aria-labelledby="tab-bestseller" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Bò Tảng Nướng Phô Mai Trứng Muối</h4><span class="menu-badge hot">Best</span></div><span class="menu-price">199K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ba Chỉ Bò Cuộn Kim Châm</h4></div><span class="menu-price">127K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ba Chỉ Bò Nướng Muối Tiêu</h4></div><span class="menu-price">150K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ốc Nhồi Thịt</h4></div><span class="menu-price">165K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Sườn Cay Thái Lan</h4><span class="menu-badge hot">Hot</span></div><span class="menu-price">250K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Cá Tầm Lúc Lắc</h4></div><span class="menu-price">157K</span></div>
-                    </div>
-                </div>
-
-                <!-- Nướng Tại Bàn -->
-                <div class="menu-panel" id="nuong" role="tabpanel" aria-labelledby="tab-nuong" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ba Chỉ Heo Nướng Ngũ Vị</h4></div><span class="menu-price">122K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ba Chỉ Heo Hàn Quốc</h4></div><span class="menu-price">160K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Sườn Que Nướng</h4></div><span class="menu-price">145K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Chân Gà Nướng Muối Ớt</h4></div><span class="menu-price">95K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Cánh Gà Nướng Muối Ớt</h4></div><span class="menu-price">125K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ếch Nướng Muối Ớt</h4></div><span class="menu-price">135K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Tôm Nướng Muối Ớt</h4></div><span class="menu-price">140K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Mực Ướp Sate</h4></div><span class="menu-price">155K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Cá Tầm Nướng</h4></div><span class="menu-price">157K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Bạch Tuột Nướng</h4></div><span class="menu-price">150K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Vây Cá Hồi Nướng Muối Ớt</h4></div><span class="menu-price">125K</span></div>
-                    </div>
-                </div>
-
-                <!-- Món Lai Rai -->
-                <div class="menu-panel" id="laurai" role="tabpanel" aria-labelledby="tab-laurai" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Tôm Chiên Trứng Muối</h4></div><span class="menu-price">150K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Ếch Chiên Nước Mắm</h4></div><span class="menu-price">150K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Cánh Gà Chiên Nước Mắm</h4></div><span class="menu-price">140K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Bò Lúc Lắc</h4></div><span class="menu-price">155K</span></div>
-                    </div>
-                </div>
-
-                <!-- Lẩu -->
-                <div class="menu-panel" id="lau" role="tabpanel" aria-labelledby="tab-lau" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Lẩu Gà Lá É</h4></div><span class="menu-price">260K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Lẩu Hải Sản</h4></div><span class="menu-price">300K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Lẩu Cá Tầm</h4></div><span class="menu-price">300K</span></div>
-                    </div>
-                </div>
-
-                <!-- No Cái Bụng -->
-                <div class="menu-panel" id="com" role="tabpanel" aria-labelledby="tab-com" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Mì Xào Hải Sản</h4></div><span class="menu-price">127K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Mì Xào Bò</h4></div><span class="menu-price">130K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Cơm Chiên Cao Nguyên</h4></div><span class="menu-price">135K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Cơm Chiên Hải Sản</h4></div><span class="menu-price">110K</span></div>
-                    </div>
-                </div>
-
-                <!-- Ăn Kèm -->
-                <div class="menu-panel" id="ankem" role="tabpanel" aria-labelledby="tab-ankem" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Chả Ram Tôm Đất</h4></div><span class="menu-price">95K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Khoai Tây Chiên</h4></div><span class="menu-price">65K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Khoai Lang Kén</h4></div><span class="menu-price">65K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Salad Trộn Dầu Giấm</h4></div><span class="menu-price">85K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Xúc Xích Đức</h4></div><span class="menu-price">15K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Kim Chi</h4></div><span class="menu-price">30K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Rau Thêm</h4></div><span class="menu-price">20K</span></div>
-                    </div>
-                </div>
-
-                <!-- Đồ Uống -->
-                <div class="menu-panel" id="douong" role="tabpanel" aria-labelledby="tab-douong" tabindex="0">
-                    <div class="menu-grid">
-                        <div class="menu-item"><div class="menu-item-info"><h4>Coca Cola / Pepsi / 7Up</h4></div><span class="menu-price">20K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Nước suối</h4></div><span class="menu-price">10K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Bia Tiger / Heineken</h4></div><span class="menu-price">25K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Bia Sài Gòn</h4></div><span class="menu-price">20K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Trà đào cam sả</h4></div><span class="menu-price">39K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Trà vải</h4></div><span class="menu-price">39K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Nước ép cam / dưa hấu</h4></div><span class="menu-price">35K</span></div>
-                        <div class="menu-item"><div class="menu-item-info"><h4>Sữa đậu nành</h4></div><span class="menu-price">25K</span></div>
-                    </div>
-                    <p class="menu-drink-note">* Giá đồ uống có thể thay đổi. Vui lòng hỏi nhân viên để biết thêm.</p>
-                </div>
-            </div>
+            <!-- Menu rendered dynamically by js/menu-renderer.js from data/menu-data.js -->
+            <div class="menu-tabs" role="tablist"></div>
+            <div class="menu-content"></div>
 
             <div class="menu-note">
                 <p>* Giá đã bao gồm VAT. Menu có thể thay đổi theo mùa.</p>
@@ -612,8 +533,21 @@
         </div>
     </div>
 
-    <!-- QR Code library -->
+    <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-    <script src="script.js"></script>
+
+    <!-- Data Files (load first) -->
+    <script src="data/site-config.js"></script>
+    <script src="data/menu-data.js"></script>
+
+    <!-- Application Modules -->
+    <script src="js/utils.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/menu-renderer.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/scroll-ui.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

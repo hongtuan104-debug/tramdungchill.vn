@@ -1,0 +1,70 @@
+/* ============================================
+   REVIEW — Review / QR Section
+   ============================================ */
+
+/* ============================================
+   REVIEW / QR SECTION
+   ============================================ */
+.review-section {
+    padding: 100px 0;
+    background: var(--linen);
+}
+
+.review-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.review-left .section-title { text-align: left; }
+
+.review-desc {
+    font-size: 1rem;
+    color: var(--smoke);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.review-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.review-stars span {
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+
+.review-qr {
+    display: flex;
+    justify-content: center;
+}
+
+.qr-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+}
+
+.qr-code img, .qr-code canvas { max-width: 100%; }
+
+.qr-card p {
+    font-size: 0.9rem;
+    color: var(--smoke);
+    font-weight: 500;
+}

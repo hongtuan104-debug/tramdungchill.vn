@@ -1,0 +1,98 @@
+/* ============================================
+   COMPONENTS — Buttons & Section Headers
+   ============================================ */
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    border: 2px solid transparent;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+.btn-golden {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--night);
+    border-color: var(--gold);
+}
+
+.btn-golden:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+    filter: brightness(1.1);
+}
+
+.btn-glass {
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    border-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+}
+
+.btn-glass:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-3px);
+}
+
+.btn-full { width: 100%; justify-content: center; }
+.btn-sm { padding: 11px 22px; font-size: 0.88rem; }
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section-header { text-align: center; margin-bottom: 64px; }
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    background: linear-gradient(135deg, rgba(212,168,83,0.1), rgba(212,168,83,0.05));
+    padding: 6px 18px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(212,168,83,0.2);
+    margin-bottom: 16px;
+}
+
+.section-tag.light {
+    color: var(--gold-light);
+    border-color: rgba(212,168,83,0.3);
+    background: rgba(212,168,83,0.1);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    color: var(--night-soft);
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
+.section-title em {
+    font-style: italic;
+    color: var(--sunset-deep);
+}
+
+.section-title.light { color: var(--white); }
+.section-title.light em { color: var(--gold-light); }
+
+.section-desc {
+    font-size: 1.05rem;
+    color: var(--smoke);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
