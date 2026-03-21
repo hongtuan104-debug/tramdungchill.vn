@@ -89,14 +89,17 @@
                 </div>
             </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Trang chủ</a></li>
-                <li><a href="#experience" class="nav-link">Trải nghiệm</a></li>
-                <li><a href="#menu" class="nav-link">Menu</a></li>
-                <li><a href="#gallery" class="nav-link">Không gian</a></li>
-                <li><a href="#review" class="nav-link">Đánh giá</a></li>
-                <li><a href="#booking" class="nav-link nav-cta">Đặt bàn</a></li>
+                <li><a href="#home" class="nav-link active" data-i18n="nav.home">Trang chủ</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Trải nghiệm</a></li>
+                <li><a href="#menu" class="nav-link" data-i18n="nav.menu">Menu</a></li>
+                <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Không gian</a></li>
+                <li><a href="#review" class="nav-link" data-i18n="nav.review">Đánh giá</a></li>
+                <li><a href="#booking" class="nav-link nav-cta" data-i18n="nav.booking">Đặt bàn</a></li>
             </ul>
             <div class="nav-right">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch to English">
+                    <span class="lang-flag">EN</span>
+                </button>
                 <a href="tel:0989765070" class="nav-phone">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span>0989.765.070</span>
@@ -128,7 +131,7 @@
                 <span>111 Huỳnh Tấn Phát, P11, Đà Lạt</span>
             </div>
             <h1 class="hero-title animate-fade-up delay-1">
-                <span class="hero-title-sub">Tiệm Nướng</span>
+                <span class="hero-title-sub" data-i18n="hero.subtitle">Tiệm Nướng</span>
                 <span class="hero-title-main">Trạm Dừng Chill</span>
             </h1>
             <div class="hero-divider animate-fade-up delay-2">
@@ -138,15 +141,15 @@
                 <span class="divider-dot"></span>
                 <span class="divider-line"></span>
             </div>
-            <p class="hero-description animate-fade-up delay-3">
+            <p class="hero-description animate-fade-up delay-3" data-i18n="hero.description">
                 Nơi bạn vừa ăn nướng ngắm xe lửa, hoàng hôn<br>và nhà lồng lên đèn lung linh
             </p>
             <div class="hero-buttons animate-fade-up delay-4">
                 <a href="#booking" class="btn btn-golden">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Đặt Bàn Ngay
+                    <span data-i18n="hero.cta">Đặt Bàn Ngay</span>
                 </a>
-                <a href="#menu" class="btn btn-glass">Xem Menu</a>
+                <a href="#menu" class="btn btn-glass" data-i18n="hero.menu">Xem Menu</a>
             </div>
         </div>
 
@@ -161,7 +164,7 @@
             <div class="mouse">
                 <div class="mouse-wheel"></div>
             </div>
-            <span>Cuộn xuống</span>
+            <span data-i18n="hero.scroll">Cuộn xuống</span>
         </div>
     </section>
 
@@ -169,8 +172,8 @@
     <section class="experience" id="experience">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Trải nghiệm độc đáo</span>
-                <h2 class="section-title">Ba khoảnh khắc<br><em>chỉ có tại Trạm Dừng Chill</em></h2>
+                <span class="section-tag" data-i18n="exp.tag">Trải nghiệm độc đáo</span>
+                <h2 class="section-title" data-i18n="exp.title">Ba khoảnh khắc<br><em>chỉ có tại Trạm Dừng Chill</em></h2>
             </div>
 
             <!-- Timeline experience -->
@@ -182,12 +185,12 @@
                     </div>
                     <div class="exp-card-content">
                         <span class="exp-number">01</span>
-                        <h3>Hoàng Hôn Vàng</h3>
-                        <p>Ngồi nướng BBQ ngắm hoàng hôn buông xuống thung lũng Đà Lạt. Ánh nắng vàng rực phủ lên những nhà lồng trải dài tít tắp — khoảnh khắc đẹp nhất mà bạn chỉ tìm thấy ở đây.</p>
+                        <h3 data-i18n="exp.1.title">Hoàng Hôn Vàng</h3>
+                        <p data-i18n="exp.1.desc">Ngồi nướng BBQ ngắm hoàng hôn buông xuống thung lũng Đà Lạt. Ánh nắng vàng rực phủ lên những nhà lồng trải dài tít tắp — khoảnh khắc đẹp nhất mà bạn chỉ tìm thấy ở đây.</p>
                         <div class="exp-tag-list">
-                            <span class="exp-tag">View 180°</span>
-                            <span class="exp-tag">Hoàng hôn</span>
-                            <span class="exp-tag">Check-in</span>
+                            <span class="exp-tag" data-i18n="exp.1.tag1">View 180°</span>
+                            <span class="exp-tag" data-i18n="exp.1.tag2">Hoàng hôn</span>
+                            <span class="exp-tag" data-i18n="exp.1.tag3">Check-in</span>
                         </div>
                     </div>
                 </div>
@@ -195,12 +198,12 @@
                 <div class="exp-card exp-train">
                     <div class="exp-card-content">
                         <span class="exp-number">02</span>
-                        <h3>Xe Lửa Đà Lạt</h3>
-                        <p>Đoàn tàu lửa cổ kính chạy ngang qua ngay dưới chân quán. Tiếng còi tàu vang lên giữa bữa nướng — trải nghiệm "chill" chỉ có một không hai trên cả Đà Lạt.</p>
+                        <h3 data-i18n="exp.2.title">Xe Lửa Đà Lạt</h3>
+                        <p data-i18n="exp.2.desc">Đoàn tàu lửa cổ kính chạy ngang qua ngay dưới chân quán. Tiếng còi tàu vang lên giữa bữa nướng — trải nghiệm "chill" chỉ có một không hai trên cả Đà Lạt.</p>
                         <div class="exp-tag-list">
-                            <span class="exp-tag">Tàu lửa cổ</span>
-                            <span class="exp-tag">View độc lạ</span>
-                            <span class="exp-tag">Cực chill</span>
+                            <span class="exp-tag" data-i18n="exp.2.tag1">Tàu lửa cổ</span>
+                            <span class="exp-tag" data-i18n="exp.2.tag2">View độc lạ</span>
+                            <span class="exp-tag" data-i18n="exp.2.tag3">Cực chill</span>
                         </div>
                     </div>
                     <div class="exp-card-img">
@@ -216,12 +219,12 @@
                     </div>
                     <div class="exp-card-content">
                         <span class="exp-number">03</span>
-                        <h3>Biển Sao Nhà Lồng</h3>
-                        <p>Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh giữa thung lũng. Nướng BBQ, nhấm nhi đồ uống, ngắm view triệu đô — đêm Đà Lạt chưa bao giờ đẹp đến thế.</p>
+                        <h3 data-i18n="exp.3.title">Biển Sao Nhà Lồng</h3>
+                        <p data-i18n="exp.3.desc">Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh giữa thung lũng. Nướng BBQ, nhấm nhi đồ uống, ngắm view triệu đô — đêm Đà Lạt chưa bao giờ đẹp đến thế.</p>
                         <div class="exp-tag-list">
-                            <span class="exp-tag">View đêm</span>
-                            <span class="exp-tag">Lãng mạn</span>
-                            <span class="exp-tag">Triệu like</span>
+                            <span class="exp-tag" data-i18n="exp.3.tag1">View đêm</span>
+                            <span class="exp-tag" data-i18n="exp.3.tag2">Lãng mạn</span>
+                            <span class="exp-tag" data-i18n="exp.3.tag3">Triệu like</span>
                         </div>
                     </div>
                 </div>
@@ -232,10 +235,10 @@
                 <div class="occasions-content">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     <div>
-                        <h4>Sinh nhật & Kỷ niệm</h4>
-                        <p>Setup bàn tiệc lãng mạn với hoa, nến, bảng chúc mừng — tạo kỷ niệm đáng nhớ bên người thương.</p>
+                        <h4 data-i18n="exp.occasion.title">Sinh nhật & Kỷ niệm</h4>
+                        <p data-i18n="exp.occasion.desc">Setup bàn tiệc lãng mạn với hoa, nến, bảng chúc mừng — tạo kỷ niệm đáng nhớ bên người thương.</p>
                     </div>
-                    <a href="#booking" class="btn btn-golden btn-sm">Đặt tiệc ngay</a>
+                    <a href="#booking" class="btn btn-golden btn-sm" data-i18n="exp.occasion.cta">Đặt tiệc ngay</a>
                 </div>
             </div>
         </div>
@@ -245,9 +248,9 @@
     <section class="menu-section" id="menu">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Thực đơn</span>
-                <h2 class="section-title">Menu Tiệm Nướng</h2>
-                <p class="section-desc">Tươi ngon mỗi ngày — từ nướng BBQ, lẩu nóng đến đồ uống mát lạnh</p>
+                <span class="section-tag" data-i18n="menu.tag">Thực đơn</span>
+                <h2 class="section-title" data-i18n="menu.title">Menu Tiệm Nướng</h2>
+                <p class="section-desc" data-i18n="menu.desc">Tươi ngon mỗi ngày — từ nướng BBQ, lẩu nóng đến đồ uống mát lạnh</p>
             </div>
 
             <!-- Menu rendered dynamically by js/menu-renderer.js from data/menu-data.js -->
@@ -255,7 +258,7 @@
             <div class="menu-content"></div>
 
             <div class="menu-note">
-                <p>* Giá đã bao gồm VAT. Menu có thể thay đổi theo mùa.</p>
+                <p data-i18n="menu.note">* Giá đã bao gồm VAT. Menu có thể thay đổi theo mùa.</p>
             </div>
         </div>
     </section>
@@ -264,16 +267,16 @@
     <section class="gallery-section" id="gallery">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Không gian</span>
-                <h2 class="section-title">Khoảnh khắc tại<br><em>Trạm Dừng Chill</em></h2>
+                <span class="section-tag" data-i18n="gallery.tag">Không gian</span>
+                <h2 class="section-title" data-i18n="gallery.title">Khoảnh khắc tại<br><em>Trạm Dừng Chill</em></h2>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item gallery-tall"><img src="assets/images/gallery-1.jpg" alt="View hoàng hôn tại Trạm Dừng Chill" loading="lazy"><div class="gallery-caption"><span>Hoàng hôn</span></div></div>
-                <div class="gallery-item"><img src="assets/images/gallery-2.jpg" alt="Toàn cảnh quán ban đêm" loading="lazy"><div class="gallery-caption"><span>Quán về đêm</span></div></div>
-                <div class="gallery-item"><img src="assets/images/gallery-3.jpg" alt="Tiệc sinh nhật" loading="lazy"><div class="gallery-caption"><span>Tiệc sinh nhật</span></div></div>
-                <div class="gallery-item gallery-wide"><img src="assets/images/gallery-4.jpg" alt="Hẹn hò tại quán" loading="lazy"><div class="gallery-caption"><span>Hẹn hò</span></div></div>
-                <div class="gallery-item"><img src="assets/images/gallery-5.jpg" alt="View xe lửa" loading="lazy"><div class="gallery-caption"><span>View xe lửa</span></div></div>
-                <div class="gallery-item gallery-tall"><img src="assets/images/gallery-6.jpg" alt="Kỷ niệm Đà Lạt" loading="lazy"><div class="gallery-caption"><span>Kỷ niệm</span></div></div>
+                <div class="gallery-item gallery-tall"><img src="assets/images/gallery-1.jpg" alt="View hoàng hôn tại Trạm Dừng Chill" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.1">Hoàng hôn</span></div></div>
+                <div class="gallery-item"><img src="assets/images/gallery-2.jpg" alt="Toàn cảnh quán ban đêm" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.2">Quán về đêm</span></div></div>
+                <div class="gallery-item"><img src="assets/images/gallery-3.jpg" alt="Tiệc sinh nhật" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.3">Tiệc sinh nhật</span></div></div>
+                <div class="gallery-item gallery-wide"><img src="assets/images/gallery-4.jpg" alt="Hẹn hò tại quán" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.4">Hẹn hò</span></div></div>
+                <div class="gallery-item"><img src="assets/images/gallery-5.jpg" alt="View xe lửa" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.5">View xe lửa</span></div></div>
+                <div class="gallery-item gallery-tall"><img src="assets/images/gallery-6.jpg" alt="Kỷ niệm Đà Lạt" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.6">Kỷ niệm</span></div></div>
             </div>
         </div>
     </section>
@@ -283,15 +286,15 @@
         <div class="container">
             <div class="review-wrapper">
                 <div class="review-left">
-                    <span class="section-tag">Đánh giá</span>
-                    <h2 class="section-title" style="text-align:left">Bạn thấy quán<br>thế nào?</h2>
-                    <p class="review-desc">Mỗi đánh giá của bạn giúp Trạm Dừng Chill phục vụ tốt hơn. Quét QR hoặc bấm nút bên dưới để chia sẻ trải nghiệm của bạn!</p>
+                    <span class="section-tag" data-i18n="review.tag">Đánh giá</span>
+                    <h2 class="section-title" style="text-align:left" data-i18n="review.title">Bạn thấy quán<br>thế nào?</h2>
+                    <p class="review-desc" data-i18n="review.desc">Mỗi đánh giá của bạn giúp Trạm Dừng Chill phục vụ tốt hơn. Quét QR hoặc bấm nút bên dưới để chia sẻ trải nghiệm của bạn!</p>
                     <div class="review-stars">
                         <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                     </div>
                     <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" class="btn btn-golden">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        Đánh giá trên Google Maps
+                        <span data-i18n="review.cta">Đánh giá trên Google Maps</span>
                     </a>
                 </div>
                 <div class="review-qr">
@@ -299,7 +302,7 @@
                         <div class="qr-code" id="qrCode">
                             <!-- QR generated by JS -->
                         </div>
-                        <p>Quét QR để đánh giá</p>
+                        <p data-i18n="review.qr">Quét QR để đánh giá</p>
                     </div>
                 </div>
             </div>
@@ -312,22 +315,22 @@
         <div class="container">
             <div class="booking-wrapper">
                 <div class="booking-info">
-                    <span class="section-tag light">Đặt bàn</span>
-                    <h2 class="section-title light">Đặt bàn trước<br>để có <em>chỗ đẹp nhất</em></h2>
-                    <p class="booking-desc">Quán thường đông vào buổi chiều tối và cuối tuần. Đặt bàn trước để được chọn vị trí view hoàng hôn hoặc nhà lồng đêm!</p>
+                    <span class="section-tag light" data-i18n="booking.tag">Đặt bàn</span>
+                    <h2 class="section-title light" data-i18n="booking.title">Đặt bàn trước<br>để có <em>chỗ đẹp nhất</em></h2>
+                    <p class="booking-desc" data-i18n="booking.desc">Quán thường đông vào buổi chiều tối và cuối tuần. Đặt bàn trước để được chọn vị trí view hoàng hôn hoặc nhà lồng đêm!</p>
 
                     <div class="booking-features">
                         <div class="booking-feature">
                             <div class="feature-icon">&#9745;</div>
-                            <span>Xác nhận qua Zalo trong 15 phút</span>
+                            <span data-i18n="booking.feat1">Xác nhận qua Zalo trong 15 phút</span>
                         </div>
                         <div class="booking-feature">
                             <div class="feature-icon">&#9745;</div>
-                            <span>Chọn vị trí view đẹp nhất</span>
+                            <span data-i18n="booking.feat2">Chọn vị trí view đẹp nhất</span>
                         </div>
                         <div class="booking-feature">
                             <div class="feature-icon">&#9745;</div>
-                            <span>Setup sinh nhật / kỷ niệm miễn phí</span>
+                            <span data-i18n="booking.feat3">Setup sinh nhật / kỷ niệm miễn phí</span>
                         </div>
                     </div>
 
@@ -335,14 +338,14 @@
                         <a href="tel:0989765070" class="contact-card">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             <div>
-                                <strong>Hotline</strong>
+                                <strong data-i18n="booking.hotline">Hotline</strong>
                                 <span>0989.765.070</span>
                             </div>
                         </a>
                         <div class="contact-card">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                             <div>
-                                <strong>Mở cửa</strong>
+                                <strong data-i18n="booking.hours">Mở cửa</strong>
                                 <span>15:00 - 23:00</span>
                             </div>
                         </div>
@@ -351,35 +354,35 @@
 
                 <div class="booking-form-wrapper">
                     <form class="booking-form" id="bookingForm">
-                        <h3>Đặt bàn online</h3>
-                        <p class="form-subtitle">Điền thông tin bên dưới, chúng tôi sẽ xác nhận qua Zalo</p>
+                        <h3 data-i18n="booking.form.title">Đặt bàn online</h3>
+                        <p class="form-subtitle" data-i18n="booking.form.subtitle">Điền thông tin bên dưới, chúng tôi sẽ xác nhận qua Zalo</p>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Họ và tên *</label>
-                                <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn" autocomplete="name">
+                                <label for="name" data-i18n="booking.form.name">Họ và tên *</label>
+                                <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn" data-i18n-ph="booking.form.name.ph" autocomplete="name">
                             </div>
                             <div class="form-group">
-                                <label for="phone">Số điện thoại *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="0xxx.xxx.xxx" autocomplete="tel">
+                                <label for="phone" data-i18n="booking.form.phone">Số điện thoại *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="0xxx.xxx.xxx" data-i18n-ph="booking.form.phone.ph" autocomplete="tel">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="date">Ngày đến *</label>
+                                <label for="date" data-i18n="booking.form.date">Ngày đến *</label>
                                 <input type="date" id="date" name="date" required>
                             </div>
                             <div class="form-group">
-                                <label for="time">Giờ đến *</label>
+                                <label for="time" data-i18n="booking.form.time">Giờ đến *</label>
                                 <select id="time" name="time" required>
-                                    <option value="">Chọn giờ</option>
-                                    <option value="15:00">15:00 - Hoàng hôn vàng</option>
+                                    <option value="" data-i18n="booking.form.time.ph">Chọn giờ</option>
+                                    <option value="15:00" data-i18n="booking.form.time.1500">15:00 - Hoàng hôn vàng</option>
                                     <option value="15:30">15:30</option>
                                     <option value="16:00">16:00</option>
                                     <option value="16:30">16:30</option>
-                                    <option value="17:00">17:00 - Hoàng hôn</option>
+                                    <option value="17:00" data-i18n="booking.form.time.1700">17:00 - Hoàng hôn</option>
                                     <option value="17:30">17:30</option>
                                     <option value="18:00">18:00</option>
-                                    <option value="18:30">18:30 - Nhà lồng lên đèn</option>
+                                    <option value="18:30" data-i18n="booking.form.time.1830">18:30 - Nhà lồng lên đèn</option>
                                     <option value="19:00">19:00</option>
                                     <option value="19:30">19:30</option>
                                     <option value="20:00">20:00</option>
@@ -391,40 +394,40 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="guests">Số khách *</label>
+                                <label for="guests" data-i18n="booking.form.guests">Số khách *</label>
                                 <select id="guests" name="guests" required>
-                                    <option value="">Chọn số khách</option>
-                                    <option value="2">2 khách</option>
-                                    <option value="3">3 khách</option>
-                                    <option value="4">4 khách</option>
-                                    <option value="5">5 khách</option>
-                                    <option value="6">6 khách</option>
-                                    <option value="7-10">7 - 10 khách</option>
-                                    <option value="10+">Trên 10 khách</option>
+                                    <option value="" data-i18n="booking.form.guests.ph">Chọn số khách</option>
+                                    <option value="2" data-i18n="booking.form.guests.2">2 khách</option>
+                                    <option value="3" data-i18n="booking.form.guests.3">3 khách</option>
+                                    <option value="4" data-i18n="booking.form.guests.4">4 khách</option>
+                                    <option value="5" data-i18n="booking.form.guests.5">5 khách</option>
+                                    <option value="6" data-i18n="booking.form.guests.6">6 khách</option>
+                                    <option value="7-10" data-i18n="booking.form.guests.7">7 - 10 khách</option>
+                                    <option value="10+" data-i18n="booking.form.guests.10">Trên 10 khách</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="occasion">Dịp đặc biệt</label>
+                                <label for="occasion" data-i18n="booking.form.occasion">Dịp đặc biệt</label>
                                 <select id="occasion" name="occasion">
-                                    <option value="">Không có</option>
-                                    <option value="birthday">Sinh nhật</option>
-                                    <option value="anniversary">Kỷ niệm</option>
-                                    <option value="date">Hẹn hò</option>
-                                    <option value="gathering">Họp mặt bạn bè</option>
-                                    <option value="company">Công ty / team</option>
-                                    <option value="other">Khác</option>
+                                    <option value="" data-i18n="booking.form.occasion.none">Không có</option>
+                                    <option value="birthday" data-i18n="booking.form.occasion.birthday">Sinh nhật</option>
+                                    <option value="anniversary" data-i18n="booking.form.occasion.anniversary">Kỷ niệm</option>
+                                    <option value="date" data-i18n="booking.form.occasion.date">Hẹn hò</option>
+                                    <option value="gathering" data-i18n="booking.form.occasion.gathering">Họp mặt bạn bè</option>
+                                    <option value="company" data-i18n="booking.form.occasion.company">Công ty / team</option>
+                                    <option value="other" data-i18n="booking.form.occasion.other">Khác</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group full-width">
-                            <label for="note">Ghi chú</label>
-                            <textarea id="note" name="note" rows="3" placeholder="Yêu cầu đặc biệt: vị trí view sunset, setup sinh nhật..."></textarea>
+                            <label for="note" data-i18n="booking.form.note">Ghi chú</label>
+                            <textarea id="note" name="note" rows="3" placeholder="Yêu cầu đặc biệt: vị trí view sunset, setup sinh nhật..." data-i18n-ph="booking.form.note.ph"></textarea>
                         </div>
                         <button type="submit" class="btn btn-golden btn-full" id="submitBtn">
-                            <span class="btn-text">Gửi Yêu Cầu Đặt Bàn</span>
-                            <span class="btn-loading" style="display:none">Đang gửi...</span>
+                            <span class="btn-text" data-i18n="booking.form.submit">Gửi Yêu Cầu Đặt Bàn</span>
+                            <span class="btn-loading" style="display:none" data-i18n="booking.form.loading">Đang gửi...</span>
                         </button>
-                        <p class="form-hint">Miễn phí đặt bàn. Xác nhận qua Zalo trong 15 phút.</p>
+                        <p class="form-hint" data-i18n="booking.form.hint">Miễn phí đặt bàn. Xác nhận qua Zalo trong 15 phút.</p>
                     </form>
                 </div>
             </div>
@@ -436,13 +439,13 @@
         <div class="container">
             <div class="map-wrapper">
                 <div class="map-info-card">
-                    <h3>Đường đến<br>Trạm Dừng Chill</h3>
+                    <h3 data-i18n="map.title">Đường đến<br>Trạm Dừng Chill</h3>
                     <div class="map-address">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         <p>111 Huỳnh Tấn Phát,<br>Phường 11, TP. Đà Lạt,<br>Lâm Đồng</p>
                     </div>
                     <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" class="btn btn-golden btn-sm">
-                        Chỉ đường Google Maps
+                        <span data-i18n="map.cta">Chỉ đường Google Maps</span>
                     </a>
                 </div>
                 <div class="map-embed">
@@ -458,7 +461,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <h3 class="footer-logo">Trạm Dừng Chill</h3>
-                    <p>Nơi bạn vừa ăn nướng ngắm xe lửa, hoàng hôn và nhà lồng lên đèn lung linh.</p>
+                    <p data-i18n="footer.desc">Nơi bạn vừa ăn nướng ngắm xe lửa, hoàng hôn và nhà lồng lên đèn lung linh.</p>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/tiemnuongtramdungchill" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -472,26 +475,26 @@
                     </div>
                 </div>
                 <div class="footer-nav">
-                    <h4>Menu</h4>
+                    <h4 data-i18n="footer.link.title">Liên kết</h4>
                     <ul>
-                        <li><a href="#home">Trang chủ</a></li>
-                        <li><a href="#experience">Trải nghiệm</a></li>
-                        <li><a href="#menu">Thực đơn</a></li>
-                        <li><a href="#gallery">Không gian</a></li>
-                        <li><a href="#booking">Đặt bàn</a></li>
+                        <li><a href="#home" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="#experience" data-i18n="nav.experience">Trải nghiệm</a></li>
+                        <li><a href="#menu" data-i18n="nav.menu">Thực đơn</a></li>
+                        <li><a href="#gallery" data-i18n="nav.gallery">Không gian</a></li>
+                        <li><a href="#booking" data-i18n="nav.booking">Đặt bàn</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>Liên hệ</h4>
+                    <h4 data-i18n="footer.contact.title">Liên hệ</h4>
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
-                        <li>15:00 - 23:00 hàng ngày</li>
+                        <li data-i18n="footer.hours.value">15:00 - 23:00 hàng ngày</li>
                         <li>111 Huỳnh Tấn Phát, P11, Đà Lạt</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="currentYear">2025</span> Tiệm Nướng Trạm Dừng Chill. Made with love in Đà Lạt.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Tiệm Nướng Trạm Dừng Chill. Đà Lạt, Việt Nam.</p>
             </div>
         </div>
     </footer>
@@ -539,6 +542,7 @@
     <!-- Data Files (load first) -->
     <script src="data/site-config.js"></script>
     <script src="data/menu-data.js"></script>
+    <script src="data/translations.js"></script>
 
     <!-- Application Modules -->
     <script src="js/utils.js"></script>
@@ -547,6 +551,7 @@
     <script src="js/menu-renderer.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/booking.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/scroll-ui.js"></script>
     <script src="js/app.js"></script>
 </body>

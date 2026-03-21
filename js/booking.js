@@ -21,7 +21,9 @@ function initBookingForm() {
 
         // Validation
         if (!data.name || !data.phone || !data.date || !data.time || !data.guests) {
-            showNotification('Vui lòng điền đầy đủ thông tin bắt buộc!', 'error');
+            var lang = document.documentElement.lang || 'vi';
+            var msg = (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang]['notify.required']) || 'Vui lòng điền đầy đủ thông tin bắt buộc!';
+            showNotification(msg, 'error');
             return;
         }
 
@@ -30,7 +32,9 @@ function initBookingForm() {
         if (/^\+84/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(3);
         if (/^84[0-9]{9}$/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(2);
         if (!/^0[0-9]{9}$/.test(cleanPhone)) {
-            showNotification('Số điện thoại không hợp lệ (cần 10 số)!', 'error');
+            var lang = document.documentElement.lang || 'vi';
+            var msg = (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang]['notify.phone']) || 'Số điện thoại không hợp lệ (cần 10 số)!';
+            showNotification(msg, 'error');
             return;
         }
 

@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initSmoothScroll();
     initScrollUI();
+    initI18n();
     initQRCode();
     initModalClose();
     setMinDate();
