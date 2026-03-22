@@ -9,4 +9,12 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/"/>
   </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog.html"/>
+  </url>
 </urlset>

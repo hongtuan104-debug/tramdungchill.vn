@@ -13,6 +13,7 @@ var TRANSLATIONS = {
     'nav.menu': 'Menu',
     'nav.gallery': 'Không gian',
     'nav.review': 'Đánh giá',
+    'nav.blog': 'Blog',
     'nav.booking': 'Đặt bàn',
 
     // Hero
@@ -135,6 +136,7 @@ var TRANSLATIONS = {
     'nav.menu': 'Menu',
     'nav.gallery': 'Gallery',
     'nav.review': 'Reviews',
+    'nav.blog': 'Blog',
     'nav.booking': 'Book a Table',
 
     // Hero
