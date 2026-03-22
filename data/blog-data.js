@@ -603,5 +603,521 @@ var BLOG_ARTICLES = [
 
                             <h3>Kết luận</h3>
                             <p>Kết hợp nướng BBQ view đẹp + chợ đêm Đà Lạt là công thức cho buổi tối hoàn hảo! <a href="index.html#booking">Đặt bàn tại Trạm Dừng Chill</a> trước để chắc chắn có chỗ, đặc biệt cuối tuần.</p>`
+    },
+    {
+        id: 'nuong-da-lat-mua-dong',
+        title: 'Nướng BBQ Đà Lạt Mùa Đông — Trải Nghiệm Ấm Áp Giữa Trời Lạnh 2026',
+        category: 'Ẩm thực',
+        date: '2026-03-25',
+        image: 'assets/images/hero-night.jpg',
+        imageAlt: 'Nướng BBQ Đà Lạt mùa đông ấm áp giữa trời lạnh 2026',
+        badge: 'Mới',
+        featured: false,
+        excerpt: 'Đà Lạt mùa đông nhiệt độ xuống 10-15°C — lý tưởng để ngồi quanh <strong>bếp nướng BBQ nóng hổi</strong> giữa trời lạnh. Khám phá trải nghiệm nướng mùa đông đặc biệt nhất phố núi!',
+        body: `<h3>Đà Lạt mùa đông lạnh cỡ nào?</h3>
+                            <p>Từ tháng 11 đến tháng 2, <strong>Đà Lạt mùa đông</strong> có nhiệt độ ban đêm xuống còn 10-15°C, thậm chí dưới 10°C vào những đêm lạnh nhất. Sương mù dày đặc phủ kín thung lũng từ chiều muộn, tạo nên khung cảnh huyền ảo mà chỉ Đà Lạt mới có.</p>
+                            <p>Đây cũng chính là thời điểm lý tưởng nhất để thưởng thức <strong>nướng BBQ Đà Lạt</strong> — ngồi ngoài trời se lạnh, tay cầm que nướng nóng hổi, miệng nhâm nhi đồ uống ấm.</p>
+
+                            <h3>Vì sao nướng BBQ mùa đông Đà Lạt đặc biệt?</h3>
+                            <p><strong>Cảm giác ấm áp:</strong> Bếp than hồng tỏa nhiệt giữa trời lạnh, tạo cảm giác quây quần ấm cúng như lửa trại. Mùi thịt nướng thơm lừng hoà vào không khí se lạnh — trải nghiệm mà Sài Gòn hay Hà Nội nóng bức không thể có được.</p>
+                            <p><strong>View sương mù:</strong> Buổi chiều, sương bắt đầu phủ xuống thung lũng. Bạn vừa nướng vừa ngắm lớp sương trắng bao quanh — lãng mạn như phim Hàn Quốc.</p>
+                            <p><strong>Đồ uống mùa đông:</strong> Trà gừng nóng, rượu vang ấm, chocolate nóng — những thức uống chỉ ngon trọn vẹn khi trời lạnh.</p>
+
+                            <h3>Nên mặc gì khi đi ăn nướng mùa đông Đà Lạt?</h3>
+                            <p>Mang áo khoác dày, khăn choàng cổ và giày kín. Nhiều quán nướng ngoài trời nên bạn sẽ ngồi trong gió lạnh — nhưng đừng lo, bếp nướng sẽ giữ ấm cho bạn! Tip: mang thêm áo mưa nhẹ phòng khi có sương đêm.</p>
+
+                            <h3>Top quán nướng BBQ Đà Lạt mùa đông nên ghé</h3>
+                            <p>Đứng đầu danh sách là <a href="index.html">Trạm Dừng Chill</a> — quán nướng có <strong>view hoàng hôn + xe lửa + biển sao nhà lồng</strong>. Mùa đông, khi sương phủ xuống thung lũng, đèn nhà lồng lên sáng xuyên qua lớp sương mờ ảo tạo hiệu ứng "biển sao trong mây" vô cùng đặc biệt.</p>
+                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
+                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
+
+                            <h3>Combo mùa đông hoàn hảo</h3>
+                            <p>Set nướng hải sản + lẩu nấm nóng + trà gừng mật ong = công thức ấm bụng hoàn hảo cho đêm đông Đà Lạt. Gọi thêm rượu vang Đà Lạt để tăng cảm giác lãng mạn!</p>
+
+                            <h3>Kết luận</h3>
+                            <p><strong>Nướng BBQ Đà Lạt mùa đông</strong> là trải nghiệm mà ai đến phố núi cũng nên thử ít nhất một lần. Đừng để cái lạnh cản bước — hãy biến nó thành gia vị cho bữa nướng đáng nhớ! <a href="index.html#booking">Đặt bàn ngay</a> tại Trạm Dừng Chill để có chỗ đẹp nhất.</p>`
+    },
+    {
+        id: 'quan-nuong-da-lat-duoi-100k',
+        title: 'Quán Nướng Đà Lạt Dưới 100K — Top 5 Quán Ngon Rẻ Cho Sinh Viên 2026',
+        category: 'Giá rẻ',
+        date: '2026-03-28',
+        image: 'assets/images/gallery-1.jpg',
+        imageAlt: 'Quán nướng Đà Lạt dưới 100K giá rẻ cho sinh viên 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Sinh viên hay dân du lịch tiết kiệm muốn ăn <strong>nướng BBQ Đà Lạt dưới 100K</strong>? Hoàn toàn được! Đây là 5 quán ngon, view đẹp mà ví không "cháy".',
+        body: `<h3>Ăn nướng Đà Lạt dưới 100K có ngon không?</h3>
+                            <p>Nhiều người nghĩ <strong>quán nướng Đà Lạt</strong> toàn đắt đỏ — nhưng thật ra, có rất nhiều quán ngon giá chỉ từ 60-95K/người. Bí quyết là chọn đúng quán và gọi đúng set combo tiết kiệm. Dưới đây là 5 gợi ý "ngon - bổ - rẻ" dành riêng cho sinh viên và dân du lịch tiết kiệm.</p>
+
+                            <h3>1. Trạm Dừng Chill — Set nướng từ 95K/người</h3>
+                            <p>Đúng vậy, <a href="index.html">Trạm Dừng Chill</a> có set nướng khởi điểm chỉ <strong>95.000đ/người</strong> — bao gồm thịt nướng, rau sống, nước chấm và cơm. Với giá này bạn được ngồi view hoàng hôn + xe lửa + biển sao nhà lồng — view "triệu đô" giá sinh viên!</p>
+                            <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo chia nhau sẽ rẻ hơn gọi lẻ 30%.</p>
+
+                            <h3>2. Nướng vỉa hè Hoà Bình — 30-60K/người</h3>
+                            <p>Xiên que, bắp nướng, khoai lang nướng, trứng cút nướng — street food kiểu Đà Lạt. Ngồi trên vỉa hè gần quảng trường Lâm Viên, vừa ăn vừa ngắm phố đêm. Giá siêu rẻ, phù hợp sinh viên túi mỏng.</p>
+
+                            <h3>3. BBQ Sinh Viên Đà Lạt — 90K/set 2 người</h3>
+                            <p>Nằm gần Đại học Đà Lạt, quán chuyên phục vụ sinh viên với set nướng 2 người chỉ 180K (tức 90K/người). Menu đơn giản nhưng đầy đủ: ba chỉ, nem nướng, rau sống, nước chấm.</p>
+
+                            <h3>4. Quán Nướng Gia Đình Phố Núi — 88K/người</h3>
+                            <p>Quán gia đình bình dân trên đường đi Langbiang. Set lẩu nướng cho 4 người chỉ 350K, chia ra mỗi người chưa tới 90K. Đồ ăn tươi, không gian thoáng mát.</p>
+
+                            <h3>5. Nướng Than Hoa Phan Bội Châu — 80K/người</h3>
+                            <p>Cách chợ đêm 300m, nướng than hoa chính hiệu. Set 1 người gồm thịt heo, xúc xích, rau sống với giá chỉ 80K. Ăn xong đi bộ ra chợ đêm dạo mát.</p>
+
+                            <h3>Kết luận</h3>
+                            <p><strong>Quán nướng Đà Lạt dưới 100K</strong> hoàn toàn có thể ngon và view đẹp nếu bạn biết chọn. Trong danh sách trên, <a href="index.html">Trạm Dừng Chill</a> là sự cân bằng tốt nhất giữa giá cả và trải nghiệm. <a href="index.html#booking">Đặt bàn ngay</a> để chắc có chỗ!</p>`
+    },
+    {
+        id: 'buffet-nuong-da-lat',
+        title: 'Buffet Nướng Đà Lạt Giá Bao Nhiêu? So Sánh 5 Quán Hot Nhất 2026',
+        category: 'Ẩm thực',
+        date: '2026-03-31',
+        image: 'assets/images/gallery-2.jpg',
+        imageAlt: 'Buffet nướng Đà Lạt giá bao nhiêu so sánh quán hot 2026',
+        badge: 'Nổi bật',
+        featured: false,
+        excerpt: '<strong>Buffet nướng Đà Lạt</strong> giá bao nhiêu? Ăn ở đâu ngon và đáng tiền nhất? Bài viết so sánh chi tiết 5 quán buffet nướng hot nhất Đà Lạt hiện tại!',
+        body: `<h3>Buffet nướng Đà Lạt có gì hấp dẫn?</h3>
+                            <p>Khác với buffet nướng ở Sài Gòn hay Hà Nội, <strong>buffet nướng Đà Lạt</strong> có lợi thế đặc biệt: thời tiết mát mẻ 18-22°C, ngồi nướng ngoài trời không nóng bức. Nhiều quán còn có view đồi thông, thung lũng hoặc hồ — ăn buffet mà như đi picnic sang chảnh!</p>
+
+                            <h3>Bảng so sánh giá 5 quán buffet nướng Đà Lạt</h3>
+                            <p><strong>1. Trạm Dừng Chill:</strong> Set combo từ 95K-300K/người (gọi món, không buffet) — chất lượng cao, view đẹp nhất<br>
+                            <strong>2. Buffet Đồi Thông:</strong> 159K/người — ăn không giới hạn, view rừng thông<br>
+                            <strong>3. K-BBQ Đà Lạt:</strong> 199K/người — phong cách Hàn Quốc, banchan miễn phí<br>
+                            <strong>4. BBQ Garden:</strong> 179K/người — sân vườn, set hải sản<br>
+                            <strong>5. Nướng & Lẩu 99:</strong> 129K/người — giá rẻ nhất, menu cơ bản</p>
+
+                            <h3>Buffet hay gọi món — Chọn kiểu nào?</h3>
+                            <p>Nếu bạn ăn khoẻ và muốn thử nhiều món thì buffet là lựa chọn. Nhưng nếu bạn muốn <strong>chất lượng từng miếng thịt</strong> và trải nghiệm view đẹp, gọi set combo tại <a href="index.html">Trạm Dừng Chill</a> sẽ đáng tiền hơn. Thịt bò Mỹ, hải sản tươi, gà nướng mật ong — mỗi món đều được chọn lọc kỹ.</p>
+
+                            <h3>Nên đi buffet nướng lúc mấy giờ?</h3>
+                            <p>Thời điểm vàng là 16:30-17:00. Đến sớm để chọn chỗ đẹp, bắt đầu nướng khi hoàng hôn buông xuống. Các quán thường đông từ 18:00 trở đi, đặc biệt cuối tuần — nên <strong>đặt bàn trước</strong> là rất cần thiết.</p>
+
+                            <h3>Tip ăn buffet nướng Đà Lạt</h3>
+                            <p>Đừng ăn quá no trước khi đi. Ưu tiên nướng hải sản trước (tôm, mực, sò) rồi mới đến thịt. Uống nước ấm thay vì nước đá để dạ dày tiêu hoá tốt hơn trong trời lạnh.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Dù chọn buffet hay gọi món, trải nghiệm <strong>nướng BBQ Đà Lạt</strong> luôn đáng nhớ. Nếu muốn view đẹp + đồ ăn chất lượng, <a href="index.html#booking">đặt bàn tại Trạm Dừng Chill</a> — nơi có tỷ lệ giá/trải nghiệm tốt nhất Đà Lạt!</p>`
+    },
+    {
+        id: 'da-lat-cho-nguoi-nuoc-ngoai',
+        title: 'Best BBQ Restaurant in Da Lat for Foreign Tourists — Local Guide 2026',
+        category: 'Travel',
+        date: '2026-04-03',
+        image: 'assets/images/hero-sunset.jpg',
+        imageAlt: 'Best BBQ restaurant Da Lat for foreign tourists sunset view 2026',
+        badge: 'Mới',
+        featured: false,
+        excerpt: 'Looking for the <strong>best BBQ restaurant in Da Lat</strong>? This local guide covers the top spots with stunning views, English-friendly menus, and authentic Vietnamese grilling experiences for tourists in 2026.',
+        body: `<h3>Why Da Lat is Vietnam's BBQ Paradise</h3>
+                            <p><strong>Da Lat</strong> sits at 1,500 meters above sea level in Vietnam's Central Highlands, with year-round temperatures of 18-25°C. Unlike Saigon or Hanoi where grilling outdoors means sweating, Da Lat's cool climate makes outdoor BBQ a magical experience — especially at sunset when the valley turns golden.</p>
+
+                            <h3>Top Pick: Tram Dung Chill — The Triple-View BBQ Experience</h3>
+                            <p><a href="index.html">Tram Dung Chill</a> is the most unique <strong>BBQ restaurant in Da Lat</strong> for tourists. Located at 111 Huynh Tan Phat, Ward 11, this outdoor grill offers three breathtaking views in one evening:</p>
+                            <p><strong>5:00 PM:</strong> Golden sunset over the valley<br>
+                            <strong>5:30-6:30 PM:</strong> A vintage French-era train passes right below the restaurant<br>
+                            <strong>7:00 PM onwards:</strong> Thousands of greenhouse lights create a "sea of stars" effect across the valley</p>
+                            <p><strong>Price:</strong> 95,000-300,000 VND/person (approx. $4-12 USD)<br>
+                            <strong>Hours:</strong> 3:00 PM - 11:00 PM daily<br>
+                            <strong>English menu:</strong> Available | <strong>Zalo booking:</strong> Confirmed within 15 minutes</p>
+
+                            <h3>What to Order as a Tourist</h3>
+                            <p><strong>Must-try items:</strong> US beef BBQ set, honey-grilled chicken, seafood platter (shrimp, squid, scallops), and hot pot combo. Vegetarian options are available on request. Don't miss the local Da Lat wine — a surprisingly good regional specialty!</p>
+
+                            <h3>Other BBQ Options for Tourists</h3>
+                            <p><strong>BBQ Garden Da Lat:</strong> Pine forest setting, buffet style, 179K VND/person<br>
+                            <strong>K-BBQ Da Lat:</strong> Korean-style grilling, 199K VND/person<br>
+                            <strong>Street BBQ near Lam Vien Square:</strong> Budget option from 30-60K VND, authentic street food experience</p>
+
+                            <h3>Practical Tips for Foreign Visitors</h3>
+                            <p>Bring a jacket — evenings drop to 15-18°C. Most restaurants accept cash (VND) only, so visit an ATM beforehand. Grab (Vietnam's Uber) works well in Da Lat for transportation. Book your table in advance for weekend evenings.</p>
+
+                            <h3>Conclusion</h3>
+                            <p>For the <strong>best BBQ experience in Da Lat</strong>, arrive at <a href="index.html">Tram Dung Chill</a> by 5:00 PM to catch all three views. It's one of those rare restaurants where the scenery is as memorable as the food. <a href="index.html#booking">Book your table here</a>.</p>`
+    },
+    {
+        id: 'quan-nuong-da-lat-mo-khuya',
+        title: 'Quán Nướng Đà Lạt Mở Khuya — 5 Địa Điểm Ăn Đêm View Đẹp 2026',
+        category: 'Ẩm thực',
+        date: '2026-04-06',
+        image: 'assets/images/gallery-3.jpg',
+        imageAlt: 'Quán nướng Đà Lạt mở khuya ăn đêm view đẹp 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Nửa đêm đói bụng ở Đà Lạt? Đây là 5 <strong>quán nướng Đà Lạt mở khuya</strong> cho bạn thỏa sức ăn đêm, view đẹp, vibe chill giữa phố núi!',
+        body: `<h3>Ăn khuya ở Đà Lạt — Đặc sản đêm phố núi</h3>
+                            <p>Đà Lạt về đêm lạnh và yên tĩnh, nhưng không thiếu nơi ăn uống! <strong>Quán nướng Đà Lạt mở khuya</strong> là lựa chọn yêu thích của dân du lịch thích "cú đêm" — ngồi ngoài trời se lạnh, nướng thịt than hoa, uống bia hoặc trà nóng. Cảm giác này chỉ Đà Lạt mới có.</p>
+
+                            <h3>1. Trạm Dừng Chill — Mở đến 23:00</h3>
+                            <p><a href="index.html">Trạm Dừng Chill</a> phục vụ đến 23h hàng đêm — đủ thời gian cho bữa nướng khuya thoải mái. Từ 19h trở đi, <strong>biển sao nhà lồng</strong> lên đèn lung linh tạo backdrop cực đẹp. Gọi set nướng + lẩu nóng cho đêm lạnh, giá từ 95K/người.</p>
+                            <p><strong>Tip:</strong> Đến lúc 20h-20h30, ăn nướng ngắm biển sao, 22h30 xong xuôi về khách sạn vừa kịp!</p>
+
+                            <h3>2. Nướng vỉa hè Hoà Bình — Mở đến 23:30</h3>
+                            <p>Khu vực quảng trường Lâm Viên có nhiều hàng nướng vỉa hè mở rất khuya. Xiên que, bắp nướng, trứng cút — giá 30-60K. Ăn xong dạo chợ đêm (mở đến 23h30).</p>
+
+                            <h3>3. Quán ốc đêm Bùi Thị Xuân — Mở đến 00:00</h3>
+                            <p>Ốc xào, nghêu nướng, chả mực — đồ nhậu đêm kiểu Sài Gòn giữa phố núi. Mở đến nửa đêm, giá 150-250K cho 2 người, có bia tươi.</p>
+
+                            <h3>4. BBQ đêm đường Phan Đình Phùng — Mở đến 23:00</h3>
+                            <p>Dãy quán nướng bình dân trên phố Phan Đình Phùng, phục vụ từ chiều đến 23h. Nướng than hoa, lẩu nóng, giá 100-180K/người. Không gian nhỏ nhưng ấm cúng.</p>
+
+                            <h3>5. Quán nhậu sân thượng trung tâm — Mở đến 00:30</h3>
+                            <p>Nướng + cocktail trên sân thượng nhìn xuống phố đêm Đà Lạt. Mở muộn nhất trong danh sách — đến 00:30. View đèn thành phố lung linh, giá 150-300K/người.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Muốn ăn <strong>nướng khuya ở Đà Lạt</strong> vừa ngon vừa view đẹp? Hãy đến <a href="index.html">Trạm Dừng Chill</a> từ 20h để ngắm biển sao nhà lồng lung linh. <a href="index.html#booking">Đặt bàn trước</a> vì cuối tuần rất đông khách buổi tối!</p>`
+    },
+    {
+        id: 'nuong-hai-san-da-lat',
+        title: 'Nướng Hải Sản Đà Lạt — Top 5 Quán Hải Sản Nướng Tươi Sống 2026',
+        category: 'Hải sản',
+        date: '2026-04-09',
+        image: 'assets/images/gallery-4.jpg',
+        imageAlt: 'Nướng hải sản Đà Lạt quán tươi sống tôm mực sò 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Ai nói lên Đà Lạt không có hải sản tươi? Đây là 5 <strong>quán nướng hải sản Đà Lạt</strong> đồ tươi sống, nướng tại bàn, giá hợp lý cho dân mê hải sản!',
+        body: `<h3>Hải sản ở Đà Lạt có tươi không?</h3>
+                            <p>Câu hỏi nhiều người thắc mắc: Đà Lạt ở trên núi, <strong>hải sản Đà Lạt</strong> có tươi không? Câu trả lời là CÓ! Nhờ hệ thống vận chuyển lạnh hiện đại, hải sản từ Phan Thiết, Nha Trang, Phan Rang được đưa lên Đà Lạt chỉ trong 3-4 tiếng — vẫn còn tươi roi rói. Nhiều quán nhập hải sản mỗi ngày, đảm bảo chất lượng.</p>
+
+                            <h3>1. Trạm Dừng Chill — Set nướng hải sản view triệu đô</h3>
+                            <p><a href="index.html">Trạm Dừng Chill</a> có set <strong>nướng hải sản Đà Lạt</strong> gồm tôm sú, mực ống, sò điệp, nghêu nướng mỡ hành — tất cả nướng trên bếp than hoa ngay tại bàn. Vừa nướng vừa ngắm hoàng hôn và biển sao nhà lồng. Giá set hải sản từ 200K/người.</p>
+                            <p><strong>Món hot:</strong> Tôm sú nướng muối ớt, mực nướng sa tế, sò điệp nướng phô mai</p>
+
+                            <h3>2. Quán Hải Sản Nguyễn Chí Thanh</h3>
+                            <p>Chuyên hải sản nướng: mực, tôm, cua, sò. Hải sản nhập hàng ngày từ Nha Trang, bể chứa sống tại quán. Giá 200-350K/2 người, cách chợ đêm 500m.</p>
+
+                            <h3>3. Nướng Hải Sản Biển Xanh</h3>
+                            <p>Quán nướng hải sản quy mô lớn, có bể hải sản sống cho khách chọn. Menu đa dạng từ ốc, cua, cá đến bạch tuộc. Set nướng cho nhóm 4 người từ 500K.</p>
+
+                            <h3>4. BBQ Hải Sản Sân Vườn</h3>
+                            <p>Nướng hải sản kiểu sân vườn, giữa vườn hoa Đà Lạt. Không gian lãng mạn, phù hợp couple. Giá trung bình 250K/người.</p>
+
+                            <h3>5. Quán Ốc & Hải Sản Bùi Thị Xuân</h3>
+                            <p>Phong cách bình dân, đồ ăn tươi ngon, giá hợp lý. Nổi tiếng với ốc xào, nghêu nướng mỡ hành, chả mực chiên. Giá 150-200K/2 người, mở đến khuya.</p>
+
+                            <h3>Kết luận</h3>
+                            <p><strong>Nướng hải sản Đà Lạt</strong> hoàn toàn xứng đáng để thử — đồ tươi, giá tốt, không gian mát mẻ. Muốn kết hợp hải sản nướng + view đẹp nhất? <a href="index.html#booking">Đặt bàn tại Trạm Dừng Chill</a> để vừa ăn hải sản vừa ngắm biển sao!</p>`
+    },
+    {
+        id: 'quan-nuong-da-lat-nhom-ban',
+        title: 'Quán Nướng Đà Lạt Cho Nhóm Bạn — 6 Quán Vui, View Đẹp, Giá Hợp Lý 2026',
+        category: 'Nhóm bạn',
+        date: '2026-04-12',
+        image: 'assets/images/gallery-5.jpg',
+        imageAlt: 'Quán nướng Đà Lạt cho nhóm bạn vui view đẹp giá rẻ 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Rủ hội bạn đi Đà Lạt mà chưa biết ăn ở đâu? Đây là 6 <strong>quán nướng Đà Lạt cho nhóm bạn</strong> — vui, view đẹp, giá hợp lý, chụp hình mỏi tay!',
+        body: `<h3>Tiêu chí chọn quán nướng cho nhóm bạn</h3>
+                            <p>Đi nhóm bạn 5-15 người, bạn cần quán có: không gian rộng, bàn lớn ngồi được cả nhóm, giá chia đầu người hợp lý, view đẹp để chụp hình, và quan trọng nhất — vibe vui vẻ! Dưới đây là 6 <strong>quán nướng Đà Lạt cho nhóm bạn</strong> đáp ứng tất cả.</p>
+
+                            <h3>1. Trạm Dừng Chill — View 3 trong 1, vibe chill nhất</h3>
+                            <p><a href="index.html">Trạm Dừng Chill</a> là lựa chọn số 1 cho nhóm bạn vì: không gian ngoài trời thoáng đãng, bàn lớn cho 6-12 người, view hoàng hôn + xe lửa + biển sao nhà lồng. Cả nhóm vừa nướng vừa chụp hình, khoảnh khắc xe lửa chạy qua ai cũng hào hứng!</p>
+                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Tip:</strong> Gọi set combo cho nhóm tiết kiệm 30%</p>
+                            <p>👉 <a href="index.html#booking"><strong>Đặt bàn cho nhóm ngay</strong></a></p>
+
+                            <h3>2. Nướng Đồi Thông — Buffet nhóm đông</h3>
+                            <p>Buffet nướng 159K/người, ăn không giới hạn — lý tưởng cho nhóm bạn ăn khoẻ. Không gian giữa rừng thông, có sân rộng cho các hoạt động nhóm, chụp hình đẹp.</p>
+
+                            <h3>3. BBQ Garden — Sân vườn cho nhóm lớn</h3>
+                            <p>Sân vườn rộng, nhận nhóm 20-30 người. Có loa nhạc, đèn trang trí, setup tiệc theo yêu cầu. Giá buffet 179K/người, có set riêng cho nhóm.</p>
+
+                            <h3>4. K-BBQ Đà Lạt — Fan K-food tập trung</h3>
+                            <p>Nướng kiểu Hàn Quốc, banchan miễn phí refill. Nhóm bạn nào mê phim Hàn sẽ thích nơi này. Buffet 199K/người, có phòng riêng cho nhóm 8-12 người.</p>
+
+                            <h3>5. Quán Nướng Camping Style</h3>
+                            <p>Concept cắm trại, ngồi ghế xếp quanh bếp lửa. Vibe phượt cực chất, chụp hình "triệu like". Giá 120-180K/người, có đàn guitar cho nhóm muốn hát.</p>
+
+                            <h3>6. Nướng & Lẩu Rooftop</h3>
+                            <p>Trên sân thượng nhìn xuống phố đêm Đà Lạt, có cocktail và bia craft. Phù hợp nhóm bạn thích vibe bar kết hợp ăn uống. Giá 150-250K/người.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Đi nhóm bạn thì phải chọn nơi có view đẹp + không gian rộng + giá chia ra hợp lý. <a href="index.html">Trạm Dừng Chill</a> đáp ứng cả 3 — và thêm bonus là xe lửa cổ chạy qua! <a href="index.html#booking">Đặt bàn trước</a> vì cuối tuần nhóm đông rất khó có chỗ.</p>`
+    },
+    {
+        id: 'lau-nuong-da-lat-mua-lanh',
+        title: 'Lẩu Nướng Đà Lạt Mùa Lạnh — 5 Combo Ấm Bụng, View Sương Mù 2026',
+        category: 'Lẩu',
+        date: '2026-04-15',
+        image: 'assets/images/gallery-6.jpg',
+        imageAlt: 'Lẩu nướng Đà Lạt mùa lạnh combo ấm bụng view sương mù 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Trời Đà Lạt lạnh mà không ăn <strong>lẩu nướng</strong> thì phí lắm! Đây là 5 combo lẩu nướng ấm bụng nhất, view sương mù lãng mạn cho chuyến đi 2026.',
+        body: `<h3>Lẩu nướng — Combo hoàn hảo cho Đà Lạt mùa lạnh</h3>
+                            <p>Khi nhiệt độ Đà Lạt xuống 15-18°C, không gì tuyệt vời hơn ngồi ngoài trời với <strong>nồi lẩu nóng bốc khói</strong> một bên và <strong>bếp nướng than hồng</strong> một bên. Combo <strong>lẩu nướng Đà Lạt</strong> vừa ấm bụng, vừa thỏa mãn cả hai "phe" — phe thích nướng và phe thích lẩu!</p>
+
+                            <h3>5 Combo lẩu nướng đáng thử nhất</h3>
+                            <p><strong>Combo 1 — Lẩu thái + nướng hải sản:</strong> Nước lẩu tom yum chua cay ấm bụng, kết hợp tôm, mực, sò nướng than hoa. Set cho 2 người từ 280K.</p>
+                            <p><strong>Combo 2 — Lẩu nấm + nướng bò Mỹ:</strong> Lẩu nấm thanh ngọt cho ai không ăn cay, bò Mỹ nướng medium rare mềm tan. Set cho 2 người từ 350K.</p>
+                            <p><strong>Combo 3 — Lẩu gà lá é + nướng ba chỉ:</strong> Đặc sản Đà Lạt! Gà thả vườn nấu lẩu lá é thơm phức, ba chỉ heo nướng giòn rụm. Set cho 4 người từ 450K.</p>
+                            <p><strong>Combo 4 — Lẩu bò nhúng giấm + nướng combo:</strong> Lẩu bò nhúng giấm chua nhẹ, kết hợp set nướng tổng hợp (bò, gà, xúc xích). Set cho 4 người từ 500K.</p>
+                            <p><strong>Combo 5 — Lẩu Kim Chi + nướng Hàn Quốc:</strong> Cho fan K-food — lẩu Kim Chi đậm vị, thịt nướng kiểu Hàn kèm banchan. Set cho 2 người từ 300K.</p>
+
+                            <h3>Ở đâu ăn lẩu nướng view đẹp nhất?</h3>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được ăn <strong>lẩu nướng Đà Lạt</strong> với view sương mù phủ thung lũng, đèn nhà lồng lấp lánh xuyên sương. Menu có đầy đủ combo lẩu + nướng từ 95K/người, phục vụ nhóm 2-20 người.</p>
+
+                            <h3>Mẹo ăn lẩu nướng Đà Lạt</h3>
+                            <p>Gọi lẩu trước để nước sôi, trong lúc chờ thì nướng đồ ăn. Uống trà gừng nóng hoặc rượu vang ấm kèm theo — ấm bụng gấp đôi! Mang khăn lau vì ăn nướng + lẩu sẽ dính mùi — nhưng đó là "mùi hương kỷ niệm" của Đà Lạt!</p>
+
+                            <h3>Kết luận</h3>
+                            <p><strong>Lẩu nướng Đà Lạt mùa lạnh</strong> = công thức ấm bụng + ấm lòng hoàn hảo. Ghé <a href="index.html#booking">Trạm Dừng Chill</a> để thưởng thức combo lẩu nướng giữa view sương mù lung linh!</p>`
+    },
+    {
+        id: 'quan-nuong-gan-ho-tuyen-lam',
+        title: 'Quán Nướng Gần Hồ Tuyền Lâm — 5 Quán BBQ View Hồ Đẹp Nhất 2026',
+        category: 'Địa điểm',
+        date: '2026-04-18',
+        image: 'assets/images/hero-couple.jpg',
+        imageAlt: 'Quán nướng gần hồ Tuyền Lâm Đà Lạt view hồ đẹp 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Hồ Tuyền Lâm là điểm đến lãng mạn nhất Đà Lạt. Vậy <strong>quán nướng gần hồ Tuyền Lâm</strong> nào view đẹp, đồ ăn ngon? Đây là 5 gợi ý cho bạn!',
+        body: `<h3>Hồ Tuyền Lâm — Viên ngọc của Đà Lạt</h3>
+                            <p><strong>Hồ Tuyền Lâm</strong> nằm cách trung tâm Đà Lạt khoảng 7km về phía Nam, được bao bọc bởi rừng thông xanh mướt. Đây là hồ nước ngọt lớn nhất Đà Lạt, với mặt hồ phẳng lặng phản chiếu bầu trời — đặc biệt đẹp lúc bình minh và hoàng hôn.</p>
+
+                            <h3>1. Nướng & Chill Ven Hồ — View hồ trực diện</h3>
+                            <p>Quán nướng nằm sát bờ hồ Tuyền Lâm, bàn ăn nhìn thẳng ra mặt hồ. Buổi chiều, sương mù bắt đầu lan trên mặt nước — khung cảnh như tranh vẽ. Giá 200-350K/người, có set hải sản và thịt nướng.</p>
+
+                            <h3>2. BBQ Đồi Thông Tuyền Lâm</h3>
+                            <p>Nướng giữa rừng thông ven hồ, không khí trong lành. Buffet nướng 180K/người, có khu camping cho ai muốn ở lại qua đêm. View hồ từ trên đồi cao rất ấn tượng.</p>
+
+                            <h3>3. Quán Nướng Sân Vườn Hoa Hồng</h3>
+                            <p>Nướng giữa vườn hoa hồng, cách hồ Tuyền Lâm 1km. Không gian lãng mạn cho couple, giá 150-250K/người. Có live nhạc acoustic vào tối thứ 7.</p>
+
+                            <h3>4. Trạm Dừng Chill — View thung lũng + nhà lồng (cách hồ 10 phút)</h3>
+                            <p>Tuy không nằm sát hồ, nhưng <a href="index.html">Trạm Dừng Chill</a> chỉ cách hồ Tuyền Lâm 10 phút xe — và bù lại có <strong>view độc nhất Đà Lạt</strong>: hoàng hôn + xe lửa cổ + biển sao nhà lồng. Nhiều du khách ghé thăm hồ Tuyền Lâm chiều rồi chạy lên Trạm Dừng Chill ăn nướng ngắm hoàng hôn.</p>
+                            <p><strong>Gợi ý lịch trình:</strong> 14h-16h tham quan hồ Tuyền Lâm → 16h30 đến <a href="index.html#booking">Trạm Dừng Chill đặt bàn</a> → nướng BBQ ngắm 3 view.</p>
+
+                            <h3>5. Resort BBQ Tuyền Lâm</h3>
+                            <p>Một số resort ven hồ có dịch vụ BBQ ngoài trời cho khách lưu trú và khách vãng lai. Giá cao hơn (300-500K/người) nhưng không gian sang trọng, phục vụ chuyên nghiệp.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Khu vực hồ Tuyền Lâm có nhiều <strong>quán nướng view đẹp</strong>, nhưng nếu muốn trải nghiệm view đa dạng nhất Đà Lạt, hãy kết hợp: chiều ở hồ → tối ăn nướng tại <a href="index.html#booking">Trạm Dừng Chill</a>. Đảm bảo chuyến đi trọn vẹn!</p>`
+    },
+    {
+        id: 'dat-tiec-da-lat',
+        title: 'Đặt Tiệc Đà Lạt — Hướng Dẫn Tổ Chức Tiệc Ngoài Trời View Triệu Đô 2026',
+        category: 'Sự kiện',
+        date: '2026-04-21',
+        image: 'assets/images/hero-sunset.jpg',
+        imageAlt: 'Đặt tiệc Đà Lạt tổ chức tiệc ngoài trời view đẹp 2026',
+        badge: 'Nổi bật',
+        featured: false,
+        excerpt: 'Muốn <strong>đặt tiệc ở Đà Lạt</strong> cho sinh nhật, kỷ niệm, hay tiệc công ty? Đây là hướng dẫn chi tiết từ A-Z để tổ chức tiệc ngoài trời view triệu đô!',
+        body: `<h3>Vì sao nên tổ chức tiệc ngoài trời ở Đà Lạt?</h3>
+                            <p>Đà Lạt có khí hậu mát mẻ quanh năm, phong cảnh đẹp như châu Âu — lý tưởng cho <strong>tiệc ngoài trời Đà Lạt</strong>. Không nóng bức như Sài Gòn, không ẩm ướt như Hà Nội, bạn có thể tổ chức tiệc outdoor thoải mái từ chiều đến tối mà khách không khó chịu.</p>
+
+                            <h3>Các loại tiệc phổ biến ở Đà Lạt</h3>
+                            <p><strong>Tiệc sinh nhật:</strong> Setup bàn hoa nến, bánh kem, bảng chúc mừng. Phù hợp 10-30 người.<br>
+                            <strong>Tiệc kỷ niệm couple:</strong> Dinner riêng tư 2 người, setup lãng mạn với nến và hoa hồng.<br>
+                            <strong>Tiệc công ty / team building:</strong> Nhóm 20-50 người, nướng BBQ + mini game.<br>
+                            <strong>Tiệc gia đình:</strong> Họp mặt gia đình, tiệc mừng thọ, kỷ niệm ngày cưới.</p>
+
+                            <h3>Đặt tiệc ở đâu view đẹp nhất?</h3>
+                            <p><a href="index.html">Trạm Dừng Chill</a> là địa điểm <strong>đặt tiệc Đà Lạt</strong> được yêu thích nhất nhờ:</p>
+                            <p>✓ View hoàng hôn + xe lửa + biển sao nhà lồng — backdrop tiệc triệu đô<br>
+                            ✓ Setup sinh nhật & kỷ niệm <strong>MIỄN PHÍ</strong> (hoa, nến, bảng chúc mừng)<br>
+                            ✓ Nhận tiệc nhóm 10-50 người, có menu riêng cho đoàn<br>
+                            ✓ Đặt bàn online, xác nhận qua Zalo trong 15 phút</p>
+
+                            <h3>Chi phí tổ chức tiệc ở Đà Lạt</h3>
+                            <p><strong>Tiệc sinh nhật nhỏ (10 người):</strong> 1-2 triệu (đồ ăn + setup)<br>
+                            <strong>Tiệc nhóm bạn (20 người):</strong> 2-4 triệu<br>
+                            <strong>Tiệc công ty (30-50 người):</strong> 5-15 triệu tuỳ menu<br>
+                            Tại Trạm Dừng Chill, setup tiệc miễn phí — bạn chỉ trả tiền đồ ăn từ 95K/người!</p>
+
+                            <h3>Quy trình đặt tiệc tại Trạm Dừng Chill</h3>
+                            <p><strong>Bước 1:</strong> Liên hệ qua <a href="index.html#booking">form đặt bàn</a> hoặc Zalo, cho biết số người + ngày giờ.<br>
+                            <strong>Bước 2:</strong> Nhân viên tư vấn menu và setup trong 15 phút.<br>
+                            <strong>Bước 3:</strong> Xác nhận đặt cọc (nếu nhóm lớn).<br>
+                            <strong>Bước 4:</strong> Đến ngày, quán setup sẵn — bạn chỉ cần đến và tận hưởng!</p>
+
+                            <h3>Kết luận</h3>
+                            <p><strong>Đặt tiệc Đà Lạt</strong> dễ hơn bạn nghĩ — đặc biệt khi có đội ngũ Trạm Dừng Chill hỗ trợ setup miễn phí! <a href="index.html#booking">Liên hệ đặt tiệc ngay</a> để chọn ngày đẹp và vị trí view tốt nhất.</p>`
+    },
+    {
+        id: 'quan-nuong-da-lat-co-phong-rieng',
+        title: 'Quán Nướng Đà Lạt Có Phòng Riêng — 5 Quán Riêng Tư Cho Đôi Và Nhóm 2026',
+        category: 'Riêng tư',
+        date: '2026-04-24',
+        image: 'assets/images/gallery-4.jpg',
+        imageAlt: 'Quán nướng Đà Lạt có phòng riêng riêng tư cho đôi và nhóm 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Cần không gian riêng tư để hẹn hò hoặc họp nhóm? Đây là 5 <strong>quán nướng Đà Lạt có phòng riêng</strong> — yên tĩnh, view đẹp, phù hợp cho đôi và nhóm bạn.',
+        body: `<h3>Khi nào cần quán nướng có phòng riêng?</h3>
+                            <p>Không phải lúc nào bạn cũng muốn ngồi chung với đám đông. Date night lãng mạn, sinh nhật bất ngờ, họp nhóm bạn thân, hoặc tiệc gia đình — đều cần không gian <strong>quán nướng Đà Lạt có phòng riêng</strong> để thoải mái trò chuyện và tận hưởng.</p>
+
+                            <h3>1. Trạm Dừng Chill — Khu vực riêng ngoài trời</h3>
+                            <p>Tuy không có phòng kín, nhưng <a href="index.html">Trạm Dừng Chill</a> có các <strong>khu vực bàn riêng biệt</strong> ngoài trời, cách xa nhau đủ để có không gian riêng tư. View thoáng đãng 180°, không bị bít bùng như phòng kín. Nhóm 6-12 người có thể book riêng một khu vực.</p>
+                            <p><strong>Ưu điểm:</strong> View hoàng hôn + xe lửa + biển sao — phòng riêng nào có view bằng!</p>
+                            <p>👉 <a href="index.html#booking"><strong>Đặt khu vực riêng</strong></a></p>
+
+                            <h3>2. K-BBQ Đà Lạt — Phòng VIP Hàn Quốc</h3>
+                            <p>Phòng riêng kiểu Hàn Quốc cho 8-12 người, có bếp nướng gas tại bàn. Không gian ấm cúng, cách âm tốt. Buffet nướng 199K/người, cần đặt trước 1 ngày cho phòng VIP.</p>
+
+                            <h3>3. Nhà Hàng Sân Vườn Riêng Tư</h3>
+                            <p>Các nhà hàng sân vườn quanh Đà Lạt có khu bàn riêng giữa vườn hoa, được ngăn bằng hàng rào cây xanh. Phù hợp couple muốn không gian lãng mạn. Giá 200-350K/người.</p>
+
+                            <h3>4. BBQ Villa — Thuê biệt thự nướng BBQ</h3>
+                            <p>Xu hướng mới: thuê biệt thự có sân vườn, tự mua đồ nướng BBQ. Hoàn toàn riêng tư, nhóm 8-15 người lý tưởng. Giá thuê villa 1-2 triệu/đêm, cộng thêm chi phí đồ ăn.</p>
+
+                            <h3>5. Resort BBQ Tuyền Lâm</h3>
+                            <p>Một số resort ven hồ Tuyền Lâm có dịch vụ BBQ riêng cho nhóm nhỏ, khu vực tách biệt với khách khác. View hồ, phục vụ chuyên nghiệp. Giá 300-500K/người nhưng rất xứng đáng cho dịp đặc biệt.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Muốn <strong>không gian riêng tư</strong> mà vẫn có view đẹp? <a href="index.html">Trạm Dừng Chill</a> là sự cân bằng tốt nhất — khu vực bàn riêng ngoài trời với view mà phòng VIP nào cũng phải ghen tị! <a href="index.html#booking">Đặt bàn ngay</a> và yêu cầu khu vực riêng biệt.</p>`
+    },
+    {
+        id: 'do-uong-da-lat-ngon',
+        title: 'Đồ Uống Đà Lạt Ngon — 8 Thức Uống Phải Thử Khi Đi Nướng BBQ 2026',
+        category: 'Đồ uống',
+        date: '2026-04-27',
+        image: 'assets/images/gallery-1.jpg',
+        imageAlt: 'Đồ uống Đà Lạt ngon thức uống phải thử khi đi nướng BBQ 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Ăn nướng mà không có <strong>đồ uống Đà Lạt ngon</strong> thì thiếu mất nửa trải nghiệm! Đây là 8 thức uống "phải thử" khi đi BBQ ở phố núi.',
+        body: `<h3>Đồ uống Đà Lạt — Đặc biệt nhờ khí hậu</h3>
+                            <p>Nhờ khí hậu mát mẻ và đất đai màu mỡ, Đà Lạt sản xuất ra nhiều nguyên liệu pha đồ uống tuyệt vời: cà phê Arabica, dâu tây, bơ, atiso, rượu vang... <strong>Đồ uống Đà Lạt</strong> có hương vị riêng mà không nơi nào bắt chước được.</p>
+
+                            <h3>1. Rượu Vang Đà Lạt — Đỉnh cao khi ăn nướng</h3>
+                            <p>Rượu vang dâu tằm hoặc vang nho sản xuất ngay tại Đà Lạt — uống khi trời lạnh, kèm thịt nướng = combo hoàn hảo. Giá 80-150K/chai tại quán, siêu hợp lý!</p>
+
+                            <h3>2. Trà Gừng Mật Ong — Ấm bụng mùa lạnh</h3>
+                            <p>Thức uống ấm bụng số 1 khi <strong>ăn nướng Đà Lạt</strong> mùa lạnh. Gừng tươi Đà Lạt thơm cay nhẹ, kết hợp mật ong rừng — vừa ngon vừa tốt cho sức khoẻ.</p>
+
+                            <h3>3. Bia Tươi — Kinh điển không thể thiếu</h3>
+                            <p>Bia tươi lạnh uống ngoài trời 18°C — cảm giác khác hẳn uống bia ở Sài Gòn nóng 35°C! Nhiều quán nướng Đà Lạt có bia tươi từ 15-25K/cốc.</p>
+
+                            <h3>4. Sinh Tố Bơ Đà Lạt — Đặc sản phải thử</h3>
+                            <p>Bơ Đà Lạt béo, dẻo, pha sinh tố đặc quánh thơm lừng. Uống sau bữa nướng như một món tráng miệng hoàn hảo. Giá 30-45K/ly.</p>
+
+                            <h3>5. Cà Phê Sữa Đá — Arabica Đà Lạt</h3>
+                            <p>Cà phê Arabica Cầu Đất pha phin — thơm, thanh, ít đắng. Uống sữa đá buổi chiều trước khi ăn nướng, hoặc cà phê nóng sau bữa. Đây là thức <strong>đồ uống Đà Lạt</strong> kinh điển nhất!</p>
+
+                            <h3>6. Nước Ép Dâu Tây Tươi</h3>
+                            <p>Dâu tây Đà Lạt tươi, ép tại chỗ. Vị chua ngọt thanh mát, giải ngấy sau bữa nướng nhiều thịt. Giá 25-40K/ly.</p>
+
+                            <h3>7. Trà Atiso — Thanh nhiệt, tốt cho gan</h3>
+                            <p>Ăn nướng xong uống trà atiso thanh nhiệt — combo khoa học của dân Đà Lạt! Trà atiso nóng hoặc đá đều ngon, giá 20-30K/ly.</p>
+
+                            <h3>8. Chocolate Nóng — Cho đêm lạnh lãng mạn</h3>
+                            <p>Chocolate nóng uống giữa đêm Đà Lạt 15°C — lãng mạn cực kỳ! Nhiều quán nướng và cafe có chocolate nóng chất lượng, giá 35-50K/ly.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Đến <a href="index.html">Trạm Dừng Chill</a> ăn nướng, đừng quên thử các <strong>đồ uống Đà Lạt</strong> đặc trưng — từ rượu vang ấm đến sinh tố bơ béo ngậy! <a href="index.html#booking">Đặt bàn ngay</a> và khám phá menu đồ uống phong phú.</p>`
+    },
+    {
+        id: 'kinh-nghiem-du-lich-da-lat',
+        title: 'Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu — 10 Điều Cần Biết Trước Khi Đi 2026',
+        category: 'Du lịch',
+        date: '2026-04-30',
+        image: 'assets/images/gallery-2.jpg',
+        imageAlt: 'Kinh nghiệm du lịch Đà Lạt lần đầu 10 điều cần biết 2026',
+        badge: 'Mới',
+        featured: false,
+        excerpt: 'Lần đầu đi Đà Lạt? Đây là 10 <strong>kinh nghiệm du lịch Đà Lạt</strong> thiết thực nhất — từ mang gì, ở đâu, ăn gì đến di chuyển ra sao. Đọc xong là yên tâm lên đường!',
+        body: `<h3>1. Thời tiết Đà Lạt — Mang áo khoác dù mùa nào</h3>
+                            <p>Đà Lạt quanh năm 18-25°C ban ngày, nhưng đêm xuống 12-18°C. Dù đi mùa hè vẫn cần áo khoác! <strong>Kinh nghiệm du lịch Đà Lạt</strong> số 1: mang áo khoác dày + khăn choàng + áo mưa nhẹ.</p>
+
+                            <h3>2. Di chuyển đến Đà Lạt</h3>
+                            <p><strong>Bay:</strong> Sân bay Liên Khương, từ Sài Gòn bay 50 phút, giá 500K-1.5 triệu.<br>
+                            <strong>Xe khách:</strong> Từ Sài Gòn 6-7 tiếng, giá 200-350K.<br>
+                            <strong>Tự lái:</strong> Đường đèo đẹp nhưng cần cẩn thận, nên đi ban ngày.</p>
+
+                            <h3>3. Ở đâu ở Đà Lạt?</h3>
+                            <p>Trung tâm (gần chợ đêm): tiện di chuyển, giá 300-800K/đêm. Ngoại ô (Hồ Tuyền Lâm, Cầu Đất): yên tĩnh, view đẹp, giá 400K-1.5 triệu. Book trước 1-2 tuần qua app Agoda hoặc Booking.</p>
+
+                            <h3>4. Di chuyển trong Đà Lạt</h3>
+                            <p>Thuê xe máy 100-150K/ngày là phổ biến nhất. Grab cũng có nhưng ít xe hơn Sài Gòn. Nên thuê xe ở các shop uy tín gần trung tâm, kiểm tra phanh và đèn trước khi đi.</p>
+
+                            <h3>5. Ăn gì ở Đà Lạt?</h3>
+                            <p>Sáng: bánh mì xíu mại, phở gà. Trưa: bún bò, cơm tấm. Chiều: cafe + kem bơ. <strong>Tối: nướng BBQ view đẹp</strong> tại <a href="index.html">Trạm Dừng Chill</a> — highlight ẩm thực không thể bỏ qua!</p>
+
+                            <h3>6. Mang gì khi đi Đà Lạt?</h3>
+                            <p>Áo khoác dày, giày kín (tránh dép lê), kem chống nắng (nắng vùng cao mạnh), áo mưa, pin sạc dự phòng, máy ảnh. Nếu đi cắm trại: túi ngủ, đèn pin.</p>
+
+                            <h3>7. Nên đi Đà Lạt mấy ngày?</h3>
+                            <p>Lý tưởng nhất là 3 ngày 2 đêm hoặc 4 ngày 3 đêm. Đủ thời gian khám phá trung tâm + ngoại ô + ăn uống thoải mái mà không vội.</p>
+
+                            <h3>8. Cẩn thận giao thông Đà Lạt</h3>
+                            <p>Đường đèo dốc, sương mù buổi sáng và tối — lái xe máy cần cẩn thận. Mang kính chống sương, đi chậm ở khúc cua, bật đèn xe khi trời tối.</p>
+
+                            <h3>9. Mua sắm & quà Đà Lạt</h3>
+                            <p>Mứt dâu, cà phê Arabica, trà atiso, rượu vang — mua ở chợ Đà Lạt hoặc các shop đặc sản uy tín. Hỏi giá trước, tránh bị "chặt chém".</p>
+
+                            <h3>10. Buổi tối làm gì ở Đà Lạt?</h3>
+                            <p>Ăn nướng ngắm view → dạo chợ đêm → uống sữa đậu nành nóng. Gợi ý: đến <a href="index.html#booking">Trạm Dừng Chill</a> từ 16h30, ăn nướng ngắm hoàng hôn, 20h chạy về chợ đêm. Công thức tối hoàn hảo!</p>
+
+                            <h3>Kết luận</h3>
+                            <p>10 <strong>kinh nghiệm du lịch Đà Lạt</strong> trên sẽ giúp bạn có chuyến đi suôn sẻ và đáng nhớ. Đặc biệt, đừng bỏ qua trải nghiệm nướng BBQ view đẹp — đó là "linh hồn" của đêm Đà Lạt!</p>`
+    },
+    {
+        id: 'quan-nuong-da-lat-view-nha-long',
+        title: 'Quán Nướng Đà Lạt View Nhà Lồng — Ngắm Biển Sao Lung Linh Về Đêm 2026',
+        category: 'View đẹp',
+        date: '2026-05-03',
+        image: 'assets/images/hero-night.jpg',
+        imageAlt: 'Quán nướng Đà Lạt view nhà lồng biển sao lung linh về đêm 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Bạn đã bao giờ nghe về "biển sao nhà lồng" Đà Lạt chưa? Đây là hiện tượng khi hàng ngàn <strong>nhà lồng Đà Lạt</strong> đồng loạt lên đèn tạo nên cảnh tượng lung linh như biển sao giữa thung lũng.',
+        body: `<h3>Nhà lồng Đà Lạt — "Biển sao" giữa thung lũng</h3>
+                            <p><strong>Nhà lồng Đà Lạt</strong> (hay nhà kính) là hệ thống nhà kính trồng hoa và rau của nông dân. Đà Lạt có hàng chục ngàn nhà lồng trải dài khắp các thung lũng. Mỗi đêm, khi đèn trong nhà lồng bật lên để kích thích cây trồng, toàn bộ thung lũng biến thành "biển sao" lung linh — hiện tượng mà chỉ Đà Lạt mới có.</p>
+
+                            <h3>Ngắm biển sao nhà lồng ở đâu đẹp nhất?</h3>
+                            <p>Địa điểm lý tưởng nhất để ngắm <strong>view nhà lồng Đà Lạt</strong> là từ trên cao — nơi bạn có tầm nhìn rộng xuống thung lũng. <a href="index.html">Trạm Dừng Chill</a> nằm ở vị trí "vàng" trên đồi cao, nhìn thẳng xuống thung lũng nhà lồng. Từ 19h trở đi, đèn nhà lồng bắt đầu lên — cả thung lũng sáng lấp lánh!</p>
+
+                            <h3>3 giai đoạn ngắm nhà lồng tại Trạm Dừng Chill</h3>
+                            <p><strong>17:00-18:00:</strong> Hoàng hôn buông xuống, ánh nắng vàng chiếu qua nhà lồng tạo hiệu ứng ánh kim.<br>
+                            <strong>18:00-19:00:</strong> Trời chạng vạng, xe lửa cổ chạy qua, nhà lồng bắt đầu lên đèn từ từ.<br>
+                            <strong>19:00-23:00:</strong> "Biển sao" lung linh rực rỡ nhất! Hàng ngàn đèn nhà lồng sáng trắng, vàng, tím xen kẽ tạo nên quang cảnh mê hồn.</p>
+
+                            <h3>Nướng BBQ ngắm biển sao — Trải nghiệm chỉ có tại Đà Lạt</h3>
+                            <p>Tưởng tượng bạn ngồi ngoài trời 18°C, tay cầm que nướng thịt thơm phức, trước mắt là hàng ngàn ánh đèn nhà lồng lấp lánh như sao sa. Đây là trải nghiệm <strong>quán nướng Đà Lạt view nhà lồng</strong> mà nhiều du khách gọi là "khoảnh khắc đáng nhớ nhất chuyến đi".</p>
+
+                            <h3>Mùa nào view nhà lồng đẹp nhất?</h3>
+                            <p>Nhà lồng Đà Lạt sáng đèn quanh năm, nhưng đẹp nhất vào mùa khô (tháng 11-4) khi trời trong, ít mây che. Mùa mưa, sương mù có thể che một phần view nhưng lại tạo hiệu ứng "đèn trong sương" huyền ảo riêng.</p>
+
+                            <h3>Kết luận</h3>
+                            <p><strong>View nhà lồng Đà Lạt</strong> là trải nghiệm thị giác mà không hình ảnh nào diễn tả hết được — phải đến tận nơi để cảm nhận! <a href="index.html#booking">Đặt bàn tại Trạm Dừng Chill</a> và chọn vị trí nhìn thẳng xuống thung lũng để ngắm biển sao đẹp nhất.</p>`
+    },
+    {
+        id: 'an-gi-da-lat-cuoi-tuan',
+        title: 'Ăn Gì Ở Đà Lạt Cuối Tuần — Lịch Trình Ẩm Thực 2 Ngày Hoàn Hảo 2026',
+        category: 'Du lịch',
+        date: '2026-05-06',
+        image: 'assets/images/gallery-5.jpg',
+        imageAlt: 'Ăn gì ở Đà Lạt cuối tuần lịch trình ẩm thực 2 ngày 2026',
+        badge: '',
+        featured: false,
+        excerpt: 'Cuối tuần 2 ngày 1 đêm ở Đà Lạt — <strong>ăn gì ở Đà Lạt cuối tuần</strong> cho đáng? Đây là lịch trình ẩm thực chi tiết từ sáng đến khuya, không bỏ sót món nào!',
+        body: `<h3>Thứ 7 Sáng — Khởi đầu chuẩn Đà Lạt</h3>
+                            <p><strong>7:30 - Bánh mì xíu mại:</strong> Món sáng huyền thoại, quán nổi tiếng trên đường Nguyễn Văn Trỗi. Nước sốt đậm đà, xíu mại mềm mịn — chỉ 25K/ổ.</p>
+                            <p><strong>9:00 - Cafe phin Đà Lạt:</strong> Ghé quán cafe view đồi, gọi ly Arabica phin nóng. Ngồi ngắm sương tan trong nắng sớm — khoảnh khắc yên bình nhất.</p>
+
+                            <h3>Thứ 7 Trưa — Đặc sản phải thử</h3>
+                            <p><strong>11:30 - Lẩu gà lá é:</strong> Đặc sản vùng Langbiang, gà thả vườn nấu lẩu lá é thơm phức. Giá 180-250K/nồi cho 2-3 người.</p>
+                            <p><strong>13:00 - Kem bơ Đà Lạt:</strong> Tráng miệng không thể thiếu! Bơ Đà Lạt béo, dẻo, pha kem ngọt vừa. Giá 25-35K/ly.</p>
+
+                            <h3>Thứ 7 Chiều-Tối — Highlight ẩm thực</h3>
+                            <p><strong>16:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi set nướng hải sản + lẩu nấm, giá từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
+                            <p><strong>20:30 - Chợ đêm Đà Lạt:</strong> Ăn nướng xong, chạy xe 10 phút về chợ đêm. Bánh tráng nướng, ốc, sữa đậu nành nóng — <strong>ăn cuối tuần ở Đà Lạt</strong> phải ghé chợ đêm!</p>
+
+                            <h3>Chủ Nhật Sáng — Bữa sáng thong thả</h3>
+                            <p><strong>8:00 - Phở gà Đà Lạt:</strong> Nước dùng trong vắt, thịt gà ta săn chắc. Quán Phở Hiền trên Phan Đình Phùng là lựa chọn quen thuộc.</p>
+                            <p><strong>9:30 - Bánh căn + sữa đậu nành:</strong> Combo sáng chuẩn vị Đà Lạt — bánh căn giòn nóng chấm nước mắm ngọt, kèm ly sữa đậu nành nóng hổi.</p>
+
+                            <h3>Chủ Nhật Trưa — Bữa cuối trước khi về</h3>
+                            <p><strong>11:30 - Bún bò Huế Đà Lạt:</strong> Đà Lạt có cộng đồng Huế đông nên bún bò ở đây rất chuẩn vị. Tô bún nóng hổi trong trời se lạnh = hoàn hảo.</p>
+                            <p><strong>13:00 - Mua đặc sản:</strong> Mứt dâu, cà phê Arabica, rượu vang, trà atiso — mua ở chợ Đà Lạt rồi lên đường về.</p>
+
+                            <h3>Kết luận</h3>
+                            <p>Chỉ 2 ngày 1 đêm nhưng lịch trình <strong>ăn gì ở Đà Lạt cuối tuần</strong> này đảm bảo bạn thử đủ mọi đặc sản! Và nhớ — bữa tối thứ 7 tại <a href="index.html">Trạm Dừng Chill</a> sẽ là kỷ niệm ẩm thực đáng nhớ nhất. <a href="index.html#booking">Đặt bàn ngay</a>!</p>`
     }
 ];

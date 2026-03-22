@@ -14,7 +14,11 @@ function renderBlog() {
 
     grid.innerHTML = '';
 
-    BLOG_ARTICLES.forEach(function(article) {
+    // Len lich tu dong: chi hien bai viet co date <= hom nay
+    var today = new Date().toISOString().slice(0, 10);
+    var articles = BLOG_ARTICLES.filter(function(a) { return a.date <= today; });
+
+    articles.forEach(function(article) {
         var card = document.createElement('article');
         card.className = 'blog-card' + (article.featured ? ' blog-featured' : '');
         card.id = article.id;
