@@ -51,10 +51,10 @@ const SITE_CONFIG = {
     // Xem huong dan: docs/SETUP-WEBHOOK.md
     webhookUrl: 'https://script.google.com/macros/s/AKfycbw3y1TpNm_mFkHtWqWXj9CVmMvQV_l7Hd1bOEh7NBE-prRnyNztHNHiQQqntvHOlSBG/exec',
 
-    // Telegram Bot (de trong neu chua setup)
+    // Telegram Bot
     telegram: {
-        botToken: '',
-        chatId: '',
+        botToken: '8791984601:AAGO55X-O60N5ZhDgM8PvA_Czfg44s4Y2ow',
+        chatId: '6293463576',
     },
 
     googleMapsEmbed: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=111+Huỳnh+Tấn+Phát,+Phường+11,+Đà+Lạt,+Lâm+Đồng&zoom=16&language=vi',

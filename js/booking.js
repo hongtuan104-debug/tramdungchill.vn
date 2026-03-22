@@ -46,7 +46,7 @@ function initBookingForm() {
         // Format message
         const message = formatZaloMessage(data);
 
-        // Gui du lieu qua webhook (Google Apps Script)
+        // Gui du lieu qua webhook (Google Apps Script → Google Sheet)
         const webhookUrl = SITE_CONFIG.webhookUrl;
         if (webhookUrl) {
             try {
@@ -67,6 +67,38 @@ function initBookingForm() {
                 });
             } catch (err) {
                 console.warn('Webhook failed:', err);
+            }
+        }
+
+        // Gui thong bao Telegram
+        var tg = SITE_CONFIG.telegram;
+        if (tg && tg.botToken && tg.chatId) {
+            try {
+                var occasionNames = {'birthday':'Sinh nhật','anniversary':'Kỷ niệm','date':'Hẹn hò','gathering':'Họp mặt bạn bè','company':'Công ty / team','other':'Khác'};
+                var dd = data.date.split('-');
+                var dateStr = dd[2] + '/' + dd[1] + '/' + dd[0];
+                var tgMsg = '🔔 ĐẶT BÀN MỚI\n\n';
+                tgMsg += '👤 Tên: ' + data.name + '\n';
+                tgMsg += '📱 SĐT: ' + data.phone + '\n';
+                tgMsg += '📅 Ngày: ' + dateStr + '\n';
+                tgMsg += '⏰ Giờ: ' + data.time + '\n';
+                tgMsg += '👥 Số khách: ' + data.guests + '\n';
+                if (data.occasion) tgMsg += '🎉 Dịp: ' + (occasionNames[data.occasion] || data.occasion) + '\n';
+                if (data.note) tgMsg += '📝 Ghi chú: ' + data.note + '\n';
+                tgMsg += '\n🕐 ' + new Date().toLocaleString('vi-VN') + '\n';
+                tgMsg += '🌐 tramdungchill.vn';
+
+                await fetch('https://api.telegram.org/bot' + tg.botToken + '/sendMessage', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: tg.chatId,
+                        text: tgMsg,
+                        parse_mode: 'HTML'
+                    })
+                });
+            } catch (err) {
+                console.warn('Telegram failed:', err);
             }
         }
 
