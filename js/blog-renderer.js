@@ -1,0 +1,61 @@
+/* ============================================
+   Blog Renderer - Tram Dung Chill
+   Render bai viet tu data/blog-data.js
+   ============================================ */
+
+function formatDateVi(dateStr) {
+    var parts = dateStr.split('-');
+    return parts[2] + '/' + parts[1] + '/' + parts[0];
+}
+
+function renderBlog() {
+    var grid = document.querySelector('.blog-grid');
+    if (!grid || typeof BLOG_ARTICLES === 'undefined') return;
+
+    grid.innerHTML = '';
+
+    BLOG_ARTICLES.forEach(function(article) {
+        var card = document.createElement('article');
+        card.className = 'blog-card' + (article.featured ? ' blog-featured' : '');
+        card.id = article.id;
+
+        card.innerHTML =
+            '<div class="blog-card-img">' +
+                '<img src="' + article.image + '" alt="' + article.imageAlt + '" loading="lazy">' +
+                (article.badge ? '<span class="blog-badge">' + article.badge + '</span>' : '') +
+            '</div>' +
+            '<div class="blog-card-content">' +
+                '<div class="blog-meta">' +
+                    '<time datetime="' + article.date + '">' + formatDateVi(article.date) + '</time>' +
+                    '<span class="blog-category">' + article.category + '</span>' +
+                '</div>' +
+                '<h2><a href="#' + article.id + '">' + article.title + '</a></h2>' +
+                '<p>' + article.excerpt + '</p>' +
+                '<div class="blog-full-content">' + article.body + '</div>' +
+                '<a href="#' + article.id + '" class="blog-read-more" onclick="this.closest(\'.blog-card\').classList.toggle(\'expanded\'); return false;">Đọc tiếp →</a>' +
+            '</div>';
+
+        grid.appendChild(card);
+    });
+
+    // Auto-insert share buttons
+    initBlogShare();
+}
+
+function initBlogShare() {
+    document.querySelectorAll('.blog-card').forEach(function(card) {
+        var id = card.id;
+        var title = card.querySelector('h2 a') ? card.querySelector('h2 a').textContent : '';
+        var url = 'https://tramdungchill.vn/blog.html#' + id;
+        var shareDiv = document.createElement('div');
+        shareDiv.className = 'blog-share';
+        shareDiv.innerHTML = '<span class="blog-share-label">Chia s\u1ebb:</span>' +
+            '<a class="blog-share-btn blog-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '" target="_blank" rel="noopener" aria-label="Chia s\u1ebb Facebook" title="Chia s\u1ebb l\u00ean Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>' +
+            '<a class="blog-share-btn blog-share-zalo" href="https://zalo.me/share?url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener" aria-label="Chia s\u1ebb Zalo" title="Chia s\u1ebb qua Zalo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 14.5h-2l3.5-5H10V9h4v2.5l-3.5 5zm6 0h-2l3.5-5H16V9h4v2.5l-3.5 5z"/></svg></a>' +
+            '<button class="blog-share-btn blog-share-copy" onclick="navigator.clipboard.writeText(\'' + url + '\');this.classList.add(\'copied\');setTimeout(function(){document.querySelector(\'.copied\').classList.remove(\'copied\')},2000)" aria-label="Copy link" title="Sao ch\u00e9p link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>';
+        var readMore = card.querySelector('.blog-read-more');
+        if (readMore) {
+            readMore.parentNode.insertBefore(shareDiv, readMore);
+        }
+    });
+}

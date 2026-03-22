@@ -93,8 +93,7 @@ function initBookingForm() {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: tg.chatId,
-                        text: tgMsg,
-                        parse_mode: 'HTML'
+                        text: tgMsg
                     })
                 });
             } catch (err) {
