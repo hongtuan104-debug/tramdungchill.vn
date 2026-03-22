@@ -2,9 +2,57 @@
    MENU PAGE — Dedicated Menu Page Styles
    ============================================ */
 
+/* Breadcrumb */
+.breadcrumb {
+    padding: 100px 0 0;
+    background: var(--night);
+}
+
+.breadcrumb ol {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--smoke);
+}
+
+.breadcrumb li::after {
+    content: '›';
+    color: var(--smoke);
+    font-size: 1.1rem;
+}
+
+.breadcrumb li:last-child::after {
+    display: none;
+}
+
+.breadcrumb li:last-child {
+    color: var(--gold);
+}
+
+.breadcrumb a {
+    color: var(--smoke);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: var(--gold);
+}
+
 /* Menu Hero */
 .menu-hero {
-    padding: 160px 0 80px;
+    padding: 40px 0 80px;
     background: linear-gradient(135deg, var(--night) 0%, var(--night-soft) 50%, var(--charcoal) 100%);
     text-align: center;
     position: relative;

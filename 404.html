@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2VFBZDY6CD');
+    </script>
+
+    <title>404 - Không tìm thấy trang | Trạm Dừng Chill</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #0F0D0A;
+            color: #F5F0E8;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .error-container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .error-code {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 700;
+            color: #D4A853;
+            line-height: 1;
+            margin-bottom: 16px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(212, 168, 83, 0.3); }
+            50% { opacity: 0.75; text-shadow: 0 0 40px rgba(212, 168, 83, 0.15); }
+        }
+
+        .error-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: #F5F0E8;
+            margin-bottom: 12px;
+        }
+
+        .error-desc {
+            font-size: 1rem;
+            color: #A8A196;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .error-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .error-links a {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 1px solid rgba(212, 168, 83, 0.4);
+            border-radius: 6px;
+            color: #D4A853;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .error-links a:hover {
+            background: #D4A853;
+            color: #0F0D0A;
+            border-color: #D4A853;
+        }
+
+        .error-links a.primary {
+            background: #D4A853;
+            color: #0F0D0A;
+            border-color: #D4A853;
+        }
+
+        .error-links a.primary:hover {
+            background: #c49a48;
+            border-color: #c49a48;
+        }
+
+        .error-phone {
+            font-size: 0.9rem;
+            color: #A8A196;
+        }
+
+        .error-phone a {
+            color: #D4A853;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .error-phone a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4A853, transparent);
+            margin: 0 auto 40px;
+        }
+
+        @media (max-width: 480px) {
+            .error-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .error-links a {
+                width: 100%;
+                max-width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Trang này không tồn tại</h1>
+        <p class="error-desc">Có thể bạn đã nhập sai địa chỉ hoặc trang đã được di chuyển.</p>
+        <div class="divider"></div>
+        <div class="error-links">
+            <a href="index.html" class="primary">Trang chủ</a>
+            <a href="menu.html">Menu</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#reservation">Đặt bàn</a>
+        </div>
+        <p class="error-phone">Hoặc gọi ngay: <a href="tel:0989765070">0989.765.070</a></p>
+    </div>
+</body>
+</html>
