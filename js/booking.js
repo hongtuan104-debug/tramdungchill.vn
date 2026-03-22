@@ -47,11 +47,13 @@ function initBookingForm() {
         const message = formatZaloMessage(data);
 
         // Gui du lieu qua webhook (Google Apps Script → Google Sheet)
+        // mode: 'no-cors' — GAS redirects POST, browser blocks cross-origin redirects
         const webhookUrl = SITE_CONFIG.webhookUrl;
         if (webhookUrl) {
             try {
                 await fetch(webhookUrl, {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify({
                         name: data.name,
@@ -70,7 +72,7 @@ function initBookingForm() {
             }
         }
 
-        // Gui thong bao Telegram
+        // Gui thong bao Telegram (qua URL params de tranh CORS preflight)
         var tg = SITE_CONFIG.telegram;
         if (tg && tg.botToken && tg.chatId) {
             try {
@@ -88,14 +90,10 @@ function initBookingForm() {
                 tgMsg += '\n🕐 ' + new Date().toLocaleString('vi-VN') + '\n';
                 tgMsg += '🌐 tramdungchill.vn';
 
-                await fetch('https://api.telegram.org/bot' + tg.botToken + '/sendMessage', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: tg.chatId,
-                        text: tgMsg
-                    })
-                });
+                var tgUrl = 'https://api.telegram.org/bot' + tg.botToken + '/sendMessage'
+                    + '?chat_id=' + encodeURIComponent(tg.chatId)
+                    + '&text=' + encodeURIComponent(tgMsg);
+                await fetch(tgUrl, { mode: 'no-cors' });
             } catch (err) {
                 console.warn('Telegram failed:', err);
             }
