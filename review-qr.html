@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Google Review - Trạm Dừng Chill</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0F0D0A;
+            color: #FDF8F3;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 600px;
+        }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            color: #D4A853;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #8B7D6B;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .qr-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 40px rgba(212, 168, 83, 0.2);
+        }
+        .qr-wrapper canvas {
+            display: block;
+        }
+        .stars {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            letter-spacing: 4px;
+        }
+        .cta-text {
+            font-size: 1.2rem;
+            color: #FDF8F3;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .cta-sub {
+            color: #8B7D6B;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        .print-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #2C2420;
+        }
+        .btn-print {
+            display: inline-block;
+            background: linear-gradient(135deg, #D4A853, #B8922E);
+            color: #0F0D0A;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-print:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(212, 168, 83, 0.4);
+        }
+        .info {
+            margin-top: 20px;
+            color: #8B7D6B;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        /* Print styles */
+        @media print {
+            body { background: white; color: #333; }
+            .btn-print, .print-section, .info { display: none; }
+            h1 { color: #333; }
+            .subtitle, .cta-sub { color: #666; }
+            .cta-text { color: #333; }
+            .qr-wrapper { box-shadow: none; border: 2px solid #eee; }
+            .container { padding: 20px; }
+        }
+
+        /* Printable card version */
+        .print-card {
+            display: none;
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 350px;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #D4A853;
+        }
+        .print-card h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #0F0D0A;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        .print-card .pc-sub {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        .print-card .pc-stars {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .print-card .pc-qr {
+            margin: 12px auto;
+        }
+        .print-card .pc-scan {
+            color: #D4A853;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .print-card .pc-thanks {
+            color: #999;
+            font-size: 0.8rem;
+        }
+        @media print {
+            .print-card {
+                display: block !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: 2px solid #D4A853;
+            }
+            .container > *:not(.print-card) { display: none; }
+            body { display: block; }
+            .container { display: block; max-width: 100%; }
+            /* Print 4 cards per page */
+            .print-cards-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                padding: 10px;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Trạm Dừng Chill</h1>
+        <p class="subtitle">Tiệm Nướng BBQ View Đẹp Nhất Đà Lạt</p>
+
+        <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+        <p class="cta-text">Bạn thích trải nghiệm tại quán?</p>
+        <p class="cta-sub">Quét mã QR để đánh giá trên Google — Giúp chúng mình phát triển!</p>
+
+        <div class="qr-wrapper">
+            <canvas id="qrCanvas"></canvas>
+        </div>
+
+        <div class="print-section">
+            <button class="btn-print" onclick="window.print()">In QR Code Đặt Tại Bàn</button>
+            <p class="info">
+                In trang này ra giấy, cắt và đặt tại mỗi bàn trong quán.<br>
+                Khách quét QR → Đánh giá Google → Tăng thứ hạng SEO!
+            </p>
+        </div>
+
+        <!-- Print version: 4 cards per page -->
+        <div class="print-cards-grid">
+            <div class="print-card">
+                <h2>Trạm Dừng Chill</h2>
+                <p class="pc-sub">Tiệm Nướng BBQ Đà Lạt</p>
+                <div class="pc-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+                <canvas class="pc-qr" id="qrPrint1" width="150" height="150"></canvas>
+                <p class="pc-scan">Quét QR để đánh giá</p>
+                <p class="pc-thanks">Cảm ơn bạn! Mỗi đánh giá giúp quán phát triển hơn.</p>
+            </div>
+            <div class="print-card">
+                <h2>Trạm Dừng Chill</h2>
+                <p class="pc-sub">Tiệm Nướng BBQ Đà Lạt</p>
+                <div class="pc-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+                <canvas class="pc-qr" id="qrPrint2" width="150" height="150"></canvas>
+                <p class="pc-scan">Quét QR để đánh giá</p>
+                <p class="pc-thanks">Cảm ơn bạn! Mỗi đánh giá giúp quán phát triển hơn.</p>
+            </div>
+            <div class="print-card">
+                <h2>Trạm Dừng Chill</h2>
+                <p class="pc-sub">Tiệm Nướng BBQ Đà Lạt</p>
+                <div class="pc-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+                <canvas class="pc-qr" id="qrPrint3" width="150" height="150"></canvas>
+                <p class="pc-scan">Quét QR để đánh giá</p>
+                <p class="pc-thanks">Cảm ơn bạn! Mỗi đánh giá giúp quán phát triển hơn.</p>
+            </div>
+            <div class="print-card">
+                <h2>Trạm Dừng Chill</h2>
+                <p class="pc-sub">Tiệm Nướng BBQ Đà Lạt</p>
+                <div class="pc-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+                <canvas class="pc-qr" id="qrPrint4" width="150" height="150"></canvas>
+                <p class="pc-scan">Quét QR để đánh giá</p>
+                <p class="pc-thanks">Cảm ơn bạn! Mỗi đánh giá giúp quán phát triển hơn.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script>
+        // Google Maps review link for Trạm Dừng Chill
+        var reviewUrl = 'https://search.google.com/local/writereview?placeid=ChIJTRAm0W4xbjYRG3_jJBpCLek';
+
+        function renderQR(canvasId, size) {
+            var qr = qrcode(0, 'M');
+            qr.addData(reviewUrl);
+            qr.make();
+            var canvas = document.getElementById(canvasId);
+            var ctx = canvas.getContext('2d');
+            var moduleCount = qr.getModuleCount();
+            var cellSize = size / moduleCount;
+            canvas.width = size;
+            canvas.height = size;
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, size, size);
+            ctx.fillStyle = '#0F0D0A';
+            for (var r = 0; r < moduleCount; r++) {
+                for (var c = 0; c < moduleCount; c++) {
+                    if (qr.isDark(r, c)) {
+                        ctx.fillRect(c * cellSize, r * cellSize, cellSize + 0.5, cellSize + 0.5);
+                    }
+                }
+            }
+        }
+
+        // Main QR
+        renderQR('qrCanvas', 250);
+
+        // Print QR cards
+        renderQR('qrPrint1', 150);
+        renderQR('qrPrint2', 150);
+        renderQR('qrPrint3', 150);
+        renderQR('qrPrint4', 150);
+    </script>
+</body>
+</html>

@@ -41,7 +41,7 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#D4A853">
 
-    <link rel="preload" as="image" href="assets/images/hero-sunset.jpg">
+    <link rel="preload" as="image" href="assets/images/hero-sunset.jpg" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -210,7 +210,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active" data-i18n="nav.home">Trang chủ</a></li>
                 <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Trải nghiệm</a></li>
-                <li><a href="#menu" class="nav-link" data-i18n="nav.menu">Menu</a></li>
+                <li><a href="menu.html" class="nav-link" data-i18n="nav.menu">Thực đơn</a></li>
                 <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">Không gian</a></li>
                 <li><a href="#review" class="nav-link" data-i18n="nav.review">Đánh giá</a></li>
                 <li><a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog</a></li>
@@ -600,7 +600,7 @@
                     <ul>
                         <li><a href="#home" data-i18n="nav.home">Trang chủ</a></li>
                         <li><a href="#experience" data-i18n="nav.experience">Trải nghiệm</a></li>
-                        <li><a href="#menu" data-i18n="nav.menu">Thực đơn</a></li>
+                        <li><a href="menu.html" data-i18n="nav.menu">Thực đơn</a></li>
                         <li><a href="#gallery" data-i18n="nav.gallery">Không gian</a></li>
                         <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                         <li><a href="#booking" data-i18n="nav.booking">Đặt bàn</a></li>
@@ -661,22 +661,22 @@
     </div>
 
     <!-- External Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 
     <!-- Data Files (load first) -->
-    <script src="data/site-config.js"></script>
-    <script src="data/menu-data.js"></script>
-    <script src="data/translations.js"></script>
+    <script defer src="data/site-config.js"></script>
+    <script defer src="data/menu-data.js"></script>
+    <script defer src="data/translations.js"></script>
 
     <!-- Application Modules -->
-    <script src="js/utils.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/hero.js"></script>
-    <script src="js/menu-renderer.js"></script>
-    <script src="js/gallery.js"></script>
-    <script src="js/booking.js"></script>
-    <script src="js/i18n.js"></script>
-    <script src="js/scroll-ui.js"></script>
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/navbar.js"></script>
+    <script defer src="js/hero.js"></script>
+    <script defer src="js/menu-renderer.js"></script>
+    <script defer src="js/gallery.js"></script>
+    <script defer src="js/booking.js"></script>
+    <script defer src="js/i18n.js"></script>
+    <script defer src="js/scroll-ui.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
