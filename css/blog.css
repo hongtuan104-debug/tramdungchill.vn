@@ -293,6 +293,14 @@
     margin-bottom: 10px;
 }
 
+.blog-full-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    margin: 16px 0;
+    display: block;
+}
+
 .blog-full-content a {
     color: var(--gold-dark);
     text-decoration: underline;

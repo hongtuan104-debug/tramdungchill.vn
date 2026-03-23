@@ -11,20 +11,26 @@ function initNavbar() {
 
     if (!navbar || !navToggle || !navMenu) return;
 
+    let scrollY = 0;
+
     function closeMenu() {
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('open');
         if (navOverlay) navOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
     }
 
     function openMenu() {
+        scrollY = window.scrollY;
         navToggle.classList.add('active');
         navToggle.setAttribute('aria-expanded', 'true');
         navMenu.classList.add('open');
         if (navOverlay) navOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('menu-open');
+        document.body.style.top = `-${scrollY}px`;
     }
 
     navToggle.addEventListener('click', () => {

@@ -2,10 +2,6 @@
    RESPONSIVE — All Media Queries
    ============================================ */
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-
 /* Large desktop */
 @media (min-width: 1440px) {
     .container { padding: 0 40px; }
@@ -30,7 +26,7 @@
     .map-embed { min-height: 350px; }
 }
 
-/* Experience cards - stack at 1024px for readable text */
+/* Experience cards — stack at 1024px for readable text */
 @media (max-width: 1024px) {
     .exp-card { grid-template-columns: 1fr; overflow: visible; }
     .exp-card-img { min-height: 280px; overflow: hidden; }
@@ -48,9 +44,12 @@
     .gallery-wide { grid-column: span 2; }
 }
 
-/* Mobile */
+/* ============================================
+   MOBILE — 768px and below
+   ============================================ */
 @media (max-width: 768px) {
-    /* Nav */
+
+    /* === NAVIGATION === */
     .nav-toggle { display: flex; }
     .nav-phone span { display: none; }
     .nav-phone { padding: 8px; border: none; }
@@ -60,55 +59,158 @@
         z-index: 1003;
         gap: 8px;
     }
+
     .lang-toggle {
         padding: 0 10px;
         height: 34px;
     }
 
+    /* Logo — prevent overflow on small screens */
+    .logo-main {
+        font-size: clamp(1rem, 3.5vw, 1.4rem);
+        white-space: nowrap;
+    }
+    .logo-sub {
+        font-size: clamp(0.5rem, 1.5vw, 0.6rem);
+    }
+
+    /* Full-screen mobile menu overlay */
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 280px;
+        left: 0;
+        right: 0;
+        width: 100%;
         height: 100vh;
-        background: var(--night);
+        height: 100dvh;
+        background: rgba(15, 13, 10, 0.97);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
         flex-direction: column;
-        padding: 90px 28px 28px;
-        gap: 4px;
-        transition: right 0.4s var(--ease);
-        box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+        align-items: center;
+        justify-content: center;
+        padding: 100px 32px 60px;
+        gap: 0;
+        transform: translateX(100%);
+        transition: transform 0.4s var(--ease);
         z-index: 1002;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .nav-menu.open { right: 0; }
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    /* Menu items — full width, elegant spacing */
+    .nav-menu li {
+        width: 100%;
+        max-width: 340px;
+        list-style: none;
+    }
 
     .nav-link {
-        padding: 14px 16px;
+        display: block;
+        padding: 14px 24px;
         width: 100%;
         border-radius: var(--radius);
-        font-size: 1rem;
+        font-size: 1.1rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        letter-spacing: 0.5px;
+        transition: all 0.3s var(--ease);
     }
 
-    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .nav-toggle.active span:nth-child(2) { opacity: 0; }
-    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .nav-link:hover,
+    .nav-link:active {
+        color: var(--gold);
+        background: rgba(212, 168, 83, 0.08);
+    }
 
-    /* Hero */
-    .hero { min-height: 100vh; min-height: 100dvh; }
+    .nav-menu li:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    /* CTA button in mobile menu — separate from nav links */
+    .nav-menu li:last-child {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-cta {
+        margin-top: 0;
+        padding: 16px 48px !important;
+        border-radius: var(--radius-full) !important;
+        font-size: 1.05rem !important;
+        width: 100%;
+        max-width: 340px;
+        text-align: center;
+        display: block;
+        border-bottom: none !important;
+    }
+
+    /* Hamburger toggle */
+    .nav-toggle {
+        position: relative;
+        z-index: 1003;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Prevent body scroll when menu open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    /* === HERO === */
+    .hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+    .hero-content { padding: 0 20px; }
     .hero-description br { display: none; }
+    .hero-description { font-size: 1.05rem; line-height: 1.75; }
     .hero-time-bar { bottom: 70px; }
-    .hero-scroll-hint { bottom: 16px; }
+    .hero-scroll-hint { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 
-    /* Sections */
-    .experience, .menu-section, .gallery-section, .review-section, .booking-section { padding: 70px 0; }
+    /* === SECTIONS — tighter padding === */
+    .experience,
+    .menu-section,
+    .gallery-section,
+    .review-section,
+    .booking-section {
+        padding: 70px 0;
+    }
     .section-header { margin-bottom: 44px; }
+    .container { padding: 0 20px; }
 
-    /* Experience */
-    .exp-card-content { padding: 30px 24px; }
-    .occasions-content { flex-direction: column; text-align: center; padding: 28px 24px; }
-    .occasions-content .btn { margin-left: 0; }
+    /* === EXPERIENCE === */
+    .exp-card-content {
+        padding: 28px 22px;
+    }
+    .exp-card-content h3 { font-size: 1.35rem; }
+    .exp-card-content p { font-size: 0.9rem; }
+    .occasions-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 24px;
+        gap: 16px;
+    }
+    .occasions-content .btn { margin-left: 0; width: 100%; max-width: 260px; }
 
-    /* Menu - horizontal scroll tabs */
+    /* === MENU TABS — horizontal scroll === */
     .menu-tabs {
         display: flex;
         flex-wrap: nowrap;
@@ -133,73 +235,181 @@
     .menu-grid { grid-template-columns: 1fr; }
     .menu-item { padding: 14px 16px; }
 
-    /* Gallery */
+    /* === GALLERY === */
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 180px;
+        gap: 8px;
     }
     .gallery-tall { grid-row: span 2; }
     .gallery-wide { grid-column: span 2; }
 
-    /* Review */
+    /* === REVIEW === */
     .review-left .section-title { text-align: center; }
     .review-desc { text-align: center; }
     .review-stars { justify-content: center; }
-    .review-left { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .review-left {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* QR card — fit mobile viewport */
+    .qr-card { padding: 24px; }
+    .qr-code { width: 160px; height: 160px; }
 
-    /* Booking */
-    .booking-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    /* === BOOKING === */
+    .booking-wrapper { grid-template-columns: 1fr; gap: 36px; }
+    .booking-info { padding-top: 0; text-align: center; }
+    .booking-info .section-title { text-align: center; }
+    .booking-features { align-items: center; }
     .booking-form-wrapper { padding: 28px 20px; }
     .form-row { grid-template-columns: 1fr; }
     .booking-contact-cards { flex-direction: column; }
+    .contact-card { justify-content: center; }
+    .form-group textarea { min-height: 100px; }
+    .form-group.full-width .btn { width: 100%; }
 
     /* iOS Safari: prevent auto-zoom on input focus */
     .form-group input,
     .form-group select,
     .form-group textarea {
         font-size: 16px;
+        min-height: 48px;
     }
 
-    /* Map */
+    /* === MAP === */
     .map-info-card { padding: 28px; }
 
-    /* Footer */
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    /* === FOOTER === */
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+    .footer-social { justify-content: center; }
+    .footer-nav ul { padding: 0; }
+    /* Space for FAB buttons at bottom */
+    .footer { padding-bottom: 80px; }
 
-    /* FAB */
+    /* === FAB === */
     .fab-container { bottom: 16px; right: 16px; }
+    .fab-call, .fab-zalo { width: 46px; height: 46px; }
+    .fab-book { padding: 12px 20px; font-size: 0.85rem; }
 
-    /* Lightbox mobile */
+    /* === LIGHTBOX === */
+    .lightbox-close {
+        top: 16px;
+        right: 16px;
+        font-size: 2rem;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .lightbox-prev, .lightbox-next {
         padding: 12px 16px;
         min-width: 48px;
         min-height: 48px;
     }
+
+    /* === BLOG — body images responsive === */
+    .blog-full-content img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        margin: 12px 0;
+    }
 }
 
-/* Small mobile */
+/* ============================================
+   SMALL MOBILE — 480px and below
+   ============================================ */
 @media (max-width: 480px) {
+
+    /* Sections — reduce padding further */
+    .experience,
+    .menu-section,
+    .gallery-section,
+    .review-section,
+    .booking-section {
+        padding: 50px 0;
+    }
+    .section-header { margin-bottom: 32px; }
+
+    /* Hero adjustments */
     .hero-title-sub {
         letter-spacing: 4px;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
     }
-    .hero-title-main { font-size: 2.8rem; }
+    .hero-title-main { font-size: 2.6rem; }
     .hero-badge {
         font-size: 0.72rem;
         padding: 5px 14px;
         max-width: 90%;
     }
-    .hero-description { font-size: 1rem; margin-bottom: 28px; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
-    .hero-buttons .btn { width: 100%; justify-content: center; }
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-time-bar { bottom: 50px; }
 
+    /* Gallery — single column */
     .gallery-grid {
         grid-template-columns: 1fr;
         grid-auto-rows: 220px;
     }
-    .gallery-tall, .gallery-wide { grid-column: span 1; grid-row: span 1; }
+    .gallery-tall, .gallery-wide {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 
+    /* Experience */
     .exp-number { font-size: 2rem; }
+    .exp-card-img { min-height: 220px; }
+    .exp-card-content { padding: 24px 18px; }
+    .exp-card-content h3 { font-size: 1.2rem; }
+
+    /* Booking */
+    .booking-form-wrapper { padding: 24px 16px; }
+    .booking-desc { font-size: 0.9rem; }
+
+    /* Contact cards — stack centered */
+    .contact-card {
+        padding: 14px 16px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    /* Blog cards */
+    .blog-card-content { padding: 18px; }
+    .blog-card-content h2 { font-size: 1.1rem; }
+    .blog-card-img { min-height: 180px; }
+
+    /* Footer */
+    .footer { padding: 48px 0 80px; }
+    .footer-logo { font-size: 1.5rem; }
+
+    /* Map — shorter on small screens */
+    .map-embed { min-height: 280px; }
+
+    /* Menu tabs mask — wider visible area */
+    .menu-tabs {
+        mask-image: linear-gradient(to right, transparent, black 8%, black 85%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 85%, transparent);
+    }
 
     /* Lightbox: buttons below image on small screens */
     .lightbox-img {
@@ -213,14 +423,40 @@
     }
     .lightbox-prev { left: calc(50% - 70px); }
     .lightbox-next { right: auto; left: calc(50% + 20px); }
+
+    /* Nav menu — tighter on small screens */
+    .nav-menu { padding: 90px 24px 40px; }
+    .nav-link { font-size: 1rem; padding: 13px 20px; }
 }
 
-/* Extra small */
+/* ============================================
+   EXTRA SMALL — 360px and below
+   ============================================ */
 @media (max-width: 360px) {
-    .booking-form-wrapper { padding: 20px 14px; }
+    .booking-form-wrapper { padding: 20px 12px; }
+    .hero-title-main { font-size: 2.2rem; }
+    .hero-content { padding: 0 16px; }
+    .container { padding: 0 14px; }
+    .exp-card-content { padding: 20px 14px; }
+    .nav-link { font-size: 1rem; padding: 14px 16px; }
+    .form-group label { font-size: 0.78rem; }
 }
 
-/* Reduced motion */
+/* ============================================
+   LANDSCAPE on small phones
+   ============================================ */
+@media (max-width: 768px) and (max-height: 500px) {
+    .hero { min-height: 100vh; }
+    .hero-time-bar { display: none; }
+    .hero-scroll-hint { display: none; }
+    .map-embed { min-height: 200px; }
+    .nav-menu { padding: 70px 32px 30px; }
+    .nav-link { padding: 10px 20px; font-size: 0.95rem; }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
