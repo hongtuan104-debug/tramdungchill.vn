@@ -4,15 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2VFBZDY6CD');
-    </script>
-
     <title>Quán Nướng Đà Lạt View Đẹp Nhất | Trạm Dừng Chill - BBQ Ngắm Xe Lửa & Hoàng Hôn</title>
     <meta name="description" content="Trạm Dừng Chill - Quán nướng BBQ view đẹp nhất Đà Lạt 2026. Vừa ăn nướng vừa ngắm xe lửa, hoàng hôn, nhà lồng lên đèn. Setup sinh nhật miễn phí. Đặt bàn: 0989.765.070">
     <meta name="keywords" content="quán nướng đà lạt, quán nướng đà lạt view đẹp, bbq đà lạt, quán nướng view hoàng hôn đà lạt, nướng bbq ngắm xe lửa, trạm dừng chill, nhà hàng đà lạt view đẹp, quán ăn đà lạt, nướng ngoài trời đà lạt, bbq restaurant da lat, best restaurant da lat vietnam, da lat sunset restaurant, quán nướng sinh nhật đà lạt">
@@ -42,17 +33,87 @@
     <meta name="theme-color" content="#D4A853">
     <meta name="google-site-verification" content="googlef9138a5a20ad2da4">
 
-    <link rel="preload" as="image" href="assets/images/hero-sunset.jpg" fetchpriority="high">
+    <!-- Resource hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.google.com">
     <link rel="dns-prefetch" href="https://maps.app.goo.gl">
-    <link rel="preload" href="css/style.css" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-    <!-- CSS (bundled) -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="assets/images/hero-sunset.jpg" fetchpriority="high">
+    <!-- Preload fonts CSS -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap" as="style">
+
+    <!-- Critical CSS — above-the-fold styles inlined for fast FCP -->
+    <style>
+    :root{--gold:#D4A853;--gold-light:#F0D48A;--gold-dark:#B8922E;--sunset:#E8814F;--sunset-deep:#C8572A;--ember:#A5451F;--night:#0F0D0A;--night-soft:#1A1612;--charcoal:#2C2420;--wood:#3D3229;--smoke:#8B7D6B;--cream:#FDF8F3;--linen:#F5EDE3;--parchment:#EDE4D8;--white:#FFFFFF;--border:#E0D5C7;--font-display:'Playfair Display',Georgia,serif;--font-body:'Inter',-apple-system,sans-serif;--font-accent:'Dancing Script',cursive;--shadow-soft:0 4px 20px rgba(15,13,10,0.08);--shadow-medium:0 8px 30px rgba(15,13,10,0.12);--shadow-heavy:0 12px 50px rgba(15,13,10,0.2);--shadow-gold:0 4px 25px rgba(212,168,83,0.3);--glow-gold:0 0 40px rgba(212,168,83,0.15);--radius:12px;--radius-lg:20px;--radius-xl:28px;--radius-full:50px;--ease:cubic-bezier(0.4,0,0.2,1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:80px;font-size:16px;overflow-x:hidden}
+    body{font-family:var(--font-body);color:var(--wood);background:var(--cream);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit;transition:all .3s var(--ease)}ul{list-style:none}button{border:none;background:none;cursor:pointer;font-family:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    ::selection{background:var(--gold);color:var(--night)}
+    .preloader{position:fixed;inset:0;z-index:9999;background:var(--night);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+    .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .preloader-inner{text-align:center;color:var(--gold)}
+    .preloader-flame{width:40px;height:40px;margin:0 auto 16px;border:3px solid rgba(212,168,83,0.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .preloader-inner p{font-family:var(--font-accent);font-size:1.5rem;letter-spacing:2px}
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s var(--ease)}
+    .navbar.scrolled{background:rgba(15,13,10,0.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:12px 0;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
+    .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:12px}
+    .logo-icon{color:var(--gold);font-size:1.4rem}
+    .logo-text-wrapper{display:flex;flex-direction:column}
+    .logo-sub{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:.8;line-height:1}
+    .logo-main{font-family:var(--font-accent);font-size:1.4rem;color:var(--white);font-weight:700;line-height:1.2}
+    .nav-menu{display:flex;align-items:center;gap:4px}
+    .nav-link{color:rgba(255,255,255,0.75);font-size:.88rem;font-weight:500;padding:8px 16px;border-radius:var(--radius-full);transition:all .3s var(--ease);letter-spacing:.3px}
+    .nav-cta{background:linear-gradient(135deg,var(--gold-dark),var(--gold))!important;color:var(--night)!important;font-weight:600!important}
+    .nav-right{display:flex;align-items:center;gap:16px}
+    .nav-phone{display:flex;align-items:center;gap:8px;color:var(--gold);font-size:.85rem;font-weight:600;padding:8px 16px;border:1px solid rgba(212,168,83,0.3);border-radius:var(--radius-full);transition:all .3s var(--ease)}
+    .lang-toggle{display:flex;align-items:center;justify-content:center;gap:5px;height:36px;padding:0 12px;border-radius:var(--radius-full);border:1px solid rgba(212,168,83,0.4);background:rgba(255,255,255,0.08);cursor:pointer;transition:all .3s var(--ease);position:relative;overflow:hidden}
+    .lang-globe{width:15px;height:15px;color:var(--gold);flex-shrink:0}
+    .lang-text{font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.5px;line-height:1}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;padding:10px;z-index:1001;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s var(--ease);border-radius:2px}
+    .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .hero-slider{position:absolute;inset:0}
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;will-change:opacity,transform}
+    .hero-slide.active{opacity:1;animation:slowZoom 10s ease-out forwards}
+    @keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,10,0.5) 0%,rgba(15,13,10,0.15) 35%,rgba(15,13,10,0.1) 50%,rgba(15,13,10,0.5) 85%,rgba(15,13,10,0.8) 100%);z-index:1}
+    .hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none}
+    .hero-content{position:relative;z-index:3;text-align:center;color:var(--white);padding:0 24px;max-width:800px}
+    .hero-badge{display:inline-block;padding:6px 20px;background:rgba(212,168,83,0.15);border:1px solid rgba(212,168,83,0.3);border-radius:var(--radius-full);font-size:.8rem;font-weight:500;color:var(--gold-light);letter-spacing:1px;margin-bottom:24px;backdrop-filter:blur(10px)}
+    .hero-title{margin-bottom:20px}
+    .hero-title-sub{display:block;font-family:var(--font-body);font-size:1rem;font-weight:300;letter-spacing:8px;text-transform:uppercase;opacity:.85;margin-bottom:8px}
+    .hero-title-main{display:block;font-family:var(--font-accent);font-size:clamp(3.2rem,9vw,6rem);font-weight:700;line-height:1.05;color:var(--white);text-shadow:0 4px 40px rgba(0,0,0,0.5);background:linear-gradient(180deg,var(--white) 0%,var(--gold-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-divider{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:24px}
+    .divider-line{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+    .divider-dot{width:4px;height:4px;background:var(--gold);border-radius:50%}
+    .hero-description{font-size:1.15rem;font-weight:300;line-height:1.9;opacity:.9;margin-bottom:40px;max-width:550px;margin-left:auto;margin-right:auto}
+    .hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:var(--radius-full);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .3s var(--ease);border:2px solid transparent;text-align:center;letter-spacing:.3px}
+    .btn-golden{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--night);border-color:var(--gold)}
+    .btn-glass{background:rgba(255,255,255,0.08);color:var(--white);border-color:rgba(255,255,255,0.25);backdrop-filter:blur(10px)}
+    .animate-fade-up{opacity:0;transform:translateY(30px);animation:fadeUp .9s var(--ease) forwards}
+    .delay-1{animation-delay:.15s}.delay-2{animation-delay:.3s}.delay-3{animation-delay:.5s}.delay-4{animation-delay:.7s}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    .hero-time-bar{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:12px}
+    .time-dot{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all .3s var(--ease);position:relative}
+    .time-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px rgba(212,168,83,0.5)}
+    .hero-scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;pointer-events:none}
+    .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--sunset));z-index:1001;transition:width .05s linear;box-shadow:0 0 8px rgba(212,168,83,0.5)}
+    </style>
+
+    <!-- Full CSS — async load (non-render-blocking) -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- Google Fonts — async load -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap"></noscript>
 
     <!-- Schema.org: generated dynamically by js/schema-generator.js -->
 
@@ -667,5 +728,9 @@
     <script defer src="js/i18n.js"></script>
     <script defer src="js/scroll-ui.js"></script>
     <script defer src="js/app.js"></script>
+
+    <!-- Google Analytics (GA4) — loaded last to not block rendering -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');</script>
 </body>
 </html>
