@@ -13,3 +13,6 @@ Allow: /
 # Block khong can thiet
 Disallow: /docs/
 Disallow: /plans/
+Disallow: /scripts/
+Disallow: /templates/
+Disallow: /node_modules/

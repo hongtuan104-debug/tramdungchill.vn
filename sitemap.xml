@@ -33,4 +33,44 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/review-qr.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/review-qr.html"/>
   </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/top-quan-nuong-da-lat.html</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/top-quan-nuong-da-lat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/top-quan-nuong-da-lat.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/sinh-nhat-da-lat.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/sinh-nhat-da-lat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/sinh-nhat-da-lat.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/hen-ho-da-lat.html</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/hen-ho-da-lat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/hen-ho-da-lat.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/quan-an-gia-dinh-da-lat.html</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/quan-an-gia-dinh-da-lat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/quan-an-gia-dinh-da-lat.html"/>
+  </url>
 </urlset>

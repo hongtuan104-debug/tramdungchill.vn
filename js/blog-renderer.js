@@ -33,10 +33,9 @@ function renderBlog() {
                     '<time datetime="' + article.date + '">' + formatDateVi(article.date) + '</time>' +
                     '<span class="blog-category">' + article.category + '</span>' +
                 '</div>' +
-                '<h2><a href="#' + article.id + '">' + article.title + '</a></h2>' +
+                '<h2><a href="blog/' + article.id + '.html">' + article.title + '</a></h2>' +
                 '<p>' + article.excerpt + '</p>' +
-                '<div class="blog-full-content">' + article.body + '</div>' +
-                '<a href="#' + article.id + '" class="blog-read-more" onclick="this.closest(\'.blog-card\').classList.toggle(\'expanded\'); return false;">Đọc tiếp →</a>' +
+                '<a href="blog/' + article.id + '.html" class="blog-read-more">Đọc tiếp →</a>' +
             '</div>';
 
         grid.appendChild(card);
@@ -79,9 +78,9 @@ function injectBlogSchema(articles) {
             },
             'mainEntityOfPage': {
                 '@type': 'WebPage',
-                '@id': 'https://tramdungchill.vn/blog.html#' + a.id
+                '@id': 'https://tramdungchill.vn/blog/' + a.id + '.html'
             },
-            'url': 'https://tramdungchill.vn/blog.html#' + a.id,
+            'url': 'https://tramdungchill.vn/blog/' + a.id + '.html',
             'inLanguage': a.category === 'English' ? 'en' : 'vi',
             'articleSection': a.category,
             'keywords': a.title.toLowerCase()
@@ -102,7 +101,7 @@ function initBlogShare() {
     document.querySelectorAll('.blog-card').forEach(function(card) {
         var id = card.id;
         var title = card.querySelector('h2 a') ? card.querySelector('h2 a').textContent : '';
-        var url = 'https://tramdungchill.vn/blog.html#' + id;
+        var url = 'https://tramdungchill.vn/blog/' + id + '.html';
         var shareDiv = document.createElement('div');
         shareDiv.className = 'blog-share';
         shareDiv.innerHTML = '<span class="blog-share-label">Chia s\u1ebb:</span>' +
