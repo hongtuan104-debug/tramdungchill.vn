@@ -66,7 +66,7 @@ var BLOG_ARTICLES = [
         title: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt — Chỉ Có Tại Trạm Dừng Chill",
         category: "Trải nghiệm",
         date: "2026-03-15",
-        image: "assets/images/blog/view-xe-lua-11.jpg",
+        image: "assets/images/blog/view-xe-lua-11b.jpg",
         imageAlt: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -89,7 +89,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>17:30 - 18:30:</strong> Xe lửa chạy qua, tiếng còi tàu vang lên giữa bữa nướng — khoảnh khắc check-in triệu like.</p>
-<img src="assets/images/blog/view-xe-lua-12.jpg" alt="nướng BBQ ngắm xe lửa Đà Lạt - xe lửa chạy ngang quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-12b.jpg" alt="nướng BBQ ngắm xe lửa Đà Lạt - xe lửa chạy ngang quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
