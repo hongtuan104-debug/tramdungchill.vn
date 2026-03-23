@@ -19,7 +19,7 @@ var SCHEMA_DATA = {
             postalCode: '670000',
             country: 'VN'
         },
-        geo: { latitude: 11.9404, longitude: 108.4380 },
+        geo: { latitude: 11.9404, longitude: 108.4583 },
         cuisine: ['Vietnamese BBQ', 'Korean BBQ', 'Hotpot', 'Grilled Seafood'],
         hours: { open: '15:00', close: '23:00' },
         priceRange: '₫95.000 - ₫300.000',
