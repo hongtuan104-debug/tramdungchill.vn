@@ -17,7 +17,8 @@ var BLOG_ARTICLES = [
                             <strong>Giờ mở cửa:</strong> 15:00 - 23:00 hàng ngày<br>
                             <strong>Giá:</strong> 95.000đ - 300.000đ/người</p>
                             <p>Đây là quán nướng duy nhất ở Đà Lạt có <strong>view ngắm xe lửa chạy ngang</strong> ngay dưới chân quán. Buổi chiều, bạn vừa nướng BBQ vừa ngắm hoàng hôn buông xuống thung lũng. Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh.</p>
-                            <p><strong>Điểm cộng:</strong> Setup sinh nhật & kỷ niệm MIỄN PHÍ, view 180° thoáng đãng, đặt bàn online xác nhận qua Zalo trong 15 phút.</p>
+
+                            <img src="assets/images/blog/mon-nuong-1.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Điểm cộng:</strong> Setup sinh nhật & kỷ niệm MIỄN PHÍ, view 180° thoáng đãng, đặt bàn online xác nhận qua Zalo trong 15 phút.</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt bàn Trạm Dừng Chill ngay</strong></a></p>
 
                             <h3>2. Phố Nướng Lạc Dương</h3>
@@ -26,7 +27,8 @@ var BLOG_ARTICLES = [
                             <h3>3. BBQ Garden Đà Lạt</h3>
                             <p>Quán nướng sân vườn giữa rừng thông, không khí mát mẻ. Có nhiều set combo cho 2-4 người. Giá từ 150.000đ/người.</p>
 
-                            <h3>4. Đồi Nướng BBQ</h3>
+
+                            <img src="assets/images/blog/mon-nuong-10.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Đồi Nướng BBQ</h3>
                             <p>Tọa lạc trên đồi cao, view toàn cảnh thành phố Đà Lạt về đêm. Phong cách camping, thích hợp cho nhóm trẻ. Giá từ 100.000đ/người.</p>
 
                             <h3>5. Nướng & Chill Hồ Tuyền Lâm</h3>
@@ -56,8 +58,11 @@ var BLOG_ARTICLES = [
 
                             <h3>3 khoảnh khắc không thể bỏ lỡ</h3>
                             <p><strong>15:00 - 17:30:</strong> Hoàng hôn vàng phủ lên thung lũng, ánh nắng chiếu qua hàng ngàn nhà lồng tạo nên khung cảnh lộng lẫy.</p>
-                            <p><strong>17:30 - 18:30:</strong> Xe lửa chạy qua, tiếng còi tàu vang lên giữa bữa nướng — khoảnh khắc check-in triệu like.</p>
-                            <p><strong>18:30 - 23:00:</strong> Nhà lồng đồng loạt lên đèn, tạo nên "biển sao" lung linh giữa đêm Đà Lạt.</p>
+
+                            <img src="assets/images/blog/view-xe-lua-10.jpg" alt="Đoàn tàu Đà Lạt - Trại Mát qua thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>17:30 - 18:30:</strong> Xe lửa chạy qua, tiếng còi tàu vang lên giữa bữa nướng — khoảnh khắc check-in triệu like.</p>
+
+                            <img src="assets/images/blog/view-xe-lua-11.jpg" alt="Xe lửa Đà Lạt chạy ngang quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/view-xe-lua-12.jpg" alt="View xe lửa cổ kính tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>18:30 - 23:00:</strong> Nhà lồng đồng loạt lên đèn, tạo nên "biển sao" lung linh giữa đêm Đà Lạt.</p>
 
                             <h3>Đặt bàn sớm để có chỗ đẹp</h3>
                             <p>Quán thường đông vào chiều tối và cuối tuần. <a href="index.html#booking"><strong>Đặt bàn trước</strong></a> để được chọn vị trí view hoàng hôn hoặc view xe lửa. Hotline: <a href="tel:0989765070">0989.765.070</a></p>`
@@ -78,10 +83,12 @@ var BLOG_ARTICLES = [
                             <h3>2. Picnic bên hồ Tuyền Lâm</h3>
                             <p>Thuê thuyền kayak, setup bàn picnic bên bờ hồ. Phù hợp cho nhóm nhỏ 4-6 người, không khí trong lành.</p>
 
-                            <h3>3. Tiệc tối trong rừng thông</h3>
+
+                            <img src="assets/images/blog/setup-sinh-nhat-2.jpg" alt="Tiệc sinh nhật tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Tiệc tối trong rừng thông</h3>
                             <p>Thuê một khoảng rừng thông, setup đèn fairy lights và bàn tiệc ngoài trời. Chi phí từ 2-3 triệu đồng.</p>
 
-                            <h3>4. Rooftop party ngắm thành phố</h3>
+
+                            <img src="assets/images/blog/setup-sinh-nhat-21.jpg" alt="Setup sinh nhật lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Rooftop party ngắm thành phố</h3>
                             <p>Các quán rooftop ở trung tâm Đà Lạt có view toàn cảnh thành phố về đêm. Thích hợp cho nhóm đông.</p>
 
                             <h3>5. Glamping sinh nhật</h3>
@@ -103,8 +110,11 @@ var BLOG_ARTICLES = [
         body: `<h3>Vì sao Trạm Dừng Chill lý tưởng cho date night?</h3>
                             <p><strong>View triệu đô:</strong> Hoàng hôn → xe lửa → biển sao nhà lồng, 3 khoảnh khắc lãng mạn trong 1 buổi tối.</p>
                             <p><strong>Không gian riêng tư:</strong> Bàn ngoài trời thoáng đãng, không ồn ào.</p>
-                            <p><strong>Đồ ăn ngon:</strong> BBQ tươi, lẩu nóng, đồ uống mát lạnh — đủ combo cho buổi hẹn hò hoàn hảo.</p>
-                            <p><strong>Tip:</strong> Đặt bàn lúc 17:00 để ngắm hoàng hôn, rồi ở lại đến tối ngắm nhà lồng lên đèn!</p>
+
+                            <img src="assets/images/blog/setup-hen-ho-12.jpg" alt="Không gian hẹn hò đôi lứa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Đồ ăn ngon:</strong> BBQ tươi, lẩu nóng, đồ uống mát lạnh — đủ combo cho buổi hẹn hò hoàn hảo.</p>
+
+                            <img src="assets/images/blog/setup-hen-ho-13.jpg" alt="Bàn setup cho cặp đôi tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/setup-hen-ho-14.jpg" alt="Setup hẹn hò lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Tip:</strong> Đặt bàn lúc 17:00 để ngắm hoàng hôn, rồi ở lại đến tối ngắm nhà lồng lên đèn!</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt bàn hẹn hò ngay</strong></a></p>`
     },
     {
@@ -122,13 +132,15 @@ var BLOG_ARTICLES = [
                             <strong>Giá:</strong> 95.000đ - 300.000đ/người<br>
                             <strong>Phù hợp:</strong> Gia đình 4-10 người</p>
                             <p>Không gian ngoài trời thoáng đãng, trẻ em có thể thoải mái vui chơi. Bố mẹ vừa nướng BBQ vừa ngắm <strong>hoàng hôn + xe lửa + nhà lồng lên đèn</strong>. Menu đa dạng từ hải sản, thịt bò, gà đến lẩu — ai cũng chọn được món ưa thích.</p>
-                            <p><strong>Bonus:</strong> Setup sinh nhật cho bé hoặc kỷ niệm gia đình <strong>MIỄN PHÍ</strong>!</p>
+
+                            <img src="assets/images/blog/khach-gia-dinh-11.jpg" alt="Khách gia đình tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Bonus:</strong> Setup sinh nhật cho bé hoặc kỷ niệm gia đình <strong>MIỄN PHÍ</strong>!</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt bàn cho gia đình ngay</strong></a></p>
 
                             <h3>2. Quán Gà Nướng Lá É</h3>
                             <p>Đặc sản Đà Lạt, gà thả vườn nướng lá é thơm phức. Không gian ấm cúng, giá bình dân. Phù hợp gia đình thích món Việt truyền thống.</p>
 
-                            <h3>3. Lẩu Bò Năm Ngón</h3>
+
+                            <img src="assets/images/blog/khach-gia-dinh-12.jpg" alt="Bữa ăn gia đình ấm cúng tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Lẩu Bò Năm Ngón</h3>
                             <p>Lẩu bò tơ tươi ngon, nước lèo đậm đà. Quán rộng rãi, có phòng riêng cho gia đình đông người. Giá từ 100.000đ/người.</p>
 
                             <h3>4. Nhà Hàng Sân Vườn Thông Xanh</h3>
@@ -156,7 +168,8 @@ var BLOG_ARTICLES = [
         body: `<h3>Buổi sáng (7:00 - 10:00): Đặc sản Đà Lạt</h3>
                             <p><strong>Bánh mì xíu mại:</strong> Món sáng huyền thoại của Đà Lạt. Nước sốt đặc biệt, xíu mại mềm mịn. Quán nổi tiếng nhất ở đường Nguyễn Văn Trỗi.</p>
                             <p><strong>Phở gà:</strong> Nước dùng trong vắt, thịt gà ta thả vườn. Phở Hiền ở đường Phan Đình Phùng là lựa chọn hàng đầu.</p>
-                            <p><strong>Sữa đậu nành nóng + bánh căn:</strong> Combo sáng chuẩn Đà Lạt, ấm bụng giữa trời se lạnh.</p>
+
+                            <img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Sữa đậu nành nóng + bánh căn:</strong> Combo sáng chuẩn Đà Lạt, ấm bụng giữa trời se lạnh.</p>
 
                             <h3>Buổi trưa (11:00 - 14:00): Món ngon đường phố</h3>
                             <p><strong>Bún bò Huế:</strong> Đà Lạt có cộng đồng người Huế đông, bún bò ở đây rất chuẩn vị.</p>
@@ -165,14 +178,16 @@ var BLOG_ARTICLES = [
 
                             <h3>Buổi chiều (14:00 - 17:00): Cafe & ngắm cảnh</h3>
                             <p><strong>Cafe view đồi:</strong> Đà Lạt nổi tiếng với hàng trăm quán cafe view đẹp. Gợi ý: Là Việt Coffee (cà phê specialty).</p>
-                            <p><strong>Kem bơ:</strong> Đặc sản Đà Lạt, béo ngậy từ bơ Đà Lạt tươi.</p>
+
+                            <img src="assets/images/blog/khong-gian-dem-11.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Kem bơ:</strong> Đặc sản Đà Lạt, béo ngậy từ bơ Đà Lạt tươi.</p>
                             <p><strong>Bánh tráng nướng:</strong> "Pizza Đà Lạt" — vỉa hè ở chợ đêm, giá chỉ 15.000đ.</p>
 
                             <h3>Buổi tối (17:00 - 23:00): Nướng BBQ ngắm view</h3>
                             <p>Đây là highlight của chuyến đi! Đến <a href="index.html"><strong>Trạm Dừng Chill</strong></a> lúc 17:00 để trải nghiệm trọn vẹn:</p>
                             <p><strong>17:00 - 18:00:</strong> Nướng BBQ ngắm hoàng hôn buông xuống thung lũng</p>
                             <p><strong>18:00 - 18:30:</strong> Xe lửa cổ chạy qua — khoảnh khắc check-in triệu like</p>
-                            <p><strong>18:30 - 23:00:</strong> Nhà lồng đồng loạt lên đèn — "biển sao" lung linh giữa đêm</p>
+
+                            <img src="assets/images/blog/khong-gian-dem-12.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>18:30 - 23:00:</strong> Nhà lồng đồng loạt lên đèn — "biển sao" lung linh giữa đêm</p>
                             <p><strong>Menu:</strong> BBQ hải sản, bò Mỹ, gà nướng, lẩu, đồ uống. Giá từ 95.000đ/người.</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt bàn Trạm Dừng Chill</strong></a> | Hotline: <a href="tel:0989765070">0989.765.070</a></p>
 
@@ -198,13 +213,15 @@ var BLOG_ARTICLES = [
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt<br>
                             <strong>View:</strong> Hoàng hôn + Xe lửa + Nhà lồng lên đèn</p>
                             <p>Với giá chỉ từ <strong>95.000đ/người</strong>, bạn được trải nghiệm nướng BBQ + lẩu nóng với view đẹp nhất Đà Lạt. Menu đa dạng: set nướng hải sản, bò Mỹ, gà nướng mật ong, lẩu thái, lẩu nấm...</p>
-                            <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo tiết kiệm hơn gọi lẻ 30%!</p>
+
+                            <img src="assets/images/blog/lau-11.jpg" alt="Lẩu nóng hổi tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo tiết kiệm hơn gọi lẻ 30%!</p>
                             <p>👉 <a href="index.html#booking"><strong>Xem menu & đặt bàn</strong></a></p>
 
                             <h3>2. Lẩu Nướng Đồi Thông</h3>
                             <p>Nướng ngoài trời giữa rừng thông, không khí se lạnh. Buffet nướng lẩu giá 159.000đ/người — ăn thoải mái không giới hạn. Phù hợp cho nhóm bạn đông.</p>
 
-                            <h3>3. BBQ Sinh Viên Đà Lạt</h3>
+
+                            <img src="assets/images/blog/lau-2.jpg" alt="Lẩu ngon mùa lạnh Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. BBQ Sinh Viên Đà Lạt</h3>
                             <p>Quán nướng bình dân gần trường Đại học Đà Lạt. Set nướng 2 người chỉ 180.000đ, có cả lẩu. Không gian nhỏ xinh, đông vui.</p>
 
                             <h3>4. Nướng & Lẩu Hàn Quốc K-BBQ</h3>
@@ -239,19 +256,22 @@ var BLOG_ARTICLES = [
                             <h3>1. Tiệc nướng BBQ ngoài trời — Gắn kết qua bếp lửa</h3>
                             <p>Không gì phá vỡ khoảng cách đồng nghiệp nhanh bằng cùng nhau nướng thịt! Tại <a href="index.html">Trạm Dừng Chill</a>, nhóm 20-50 người có thể book riêng khu vực ngoài trời, vừa nướng BBQ vừa ngắm hoàng hôn và xe lửa cổ chạy qua. Giá chỉ từ 95K/người, có set combo cho nhóm lớn.</p>
 
-                            <h3>2. Trò chơi teamwork giữa đồi thông</h3>
+
+                            <img src="assets/images/blog/khach-nhom-11.jpg" alt="Đoàn khách nhóm tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Trò chơi teamwork giữa đồi thông</h3>
                             <p>Tổ chức các mini game như kéo co, nhảy bao bố, chạy tiếp sức tại các khu du lịch có sân rộng. Nhiều đơn vị event Đà Lạt hỗ trợ dụng cụ và MC.</p>
 
                             <h3>3. Trekking khám phá rừng & thác</h3>
                             <p>Trekking Langbiang hoặc thác Datanla — vừa rèn thể lực vừa tăng tinh thần đồng đội. Đường đi an toàn, có guide chuyên nghiệp.</p>
 
-                            <h3>4. Workshop làm mứt, cà phê Đà Lạt</h3>
+
+                            <img src="assets/images/blog/khach-nhom-2.jpg" alt="Nhóm bạn vui vẻ tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Workshop làm mứt, cà phê Đà Lạt</h3>
                             <p>Trải nghiệm văn hoá địa phương qua workshop rang cà phê hoặc làm mứt dâu tây. Hoạt động sáng tạo phù hợp team marketing, design.</p>
 
                             <h3>5. Đua xe đạp quanh hồ Xuân Hương</h3>
                             <p>Chia đội đạp xe quanh hồ, kết hợp trả lời câu đố về Đà Lạt. Vui, khoẻ và chụp hình đẹp!</p>
 
-                            <h3>6. Lửa trại & karaoke buổi tối</h3>
+
+                            <img src="assets/images/blog/khach-nhom-21.jpg" alt="Tiệc nhóm bạn nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>6. Lửa trại & karaoke buổi tối</h3>
                             <p>Kết thúc ngày team building bằng lửa trại, đàn guitar và karaoke ngoài trời. Khoảnh khắc đáng nhớ nhất luôn là buổi tối!</p>
 
                             <h3>7. Nấu ăn đối kháng (Cooking Battle)</h3>
@@ -280,7 +300,8 @@ var BLOG_ARTICLES = [
                             <h3>1. Trạm Dừng Chill — Nướng BBQ ngắm biển sao nhà lồng</h3>
                             <p>Mở cửa từ 15:00 đến 23:00, <a href="index.html">Trạm Dừng Chill</a> là <strong>quán ăn Đà Lạt buổi tối</strong> có view đẹp nhất: hoàng hôn lúc 17h, xe lửa cổ chạy qua lúc 18h, và biển sao nhà lồng từ 19h trở đi. Menu nướng BBQ + lẩu từ 95K/người.</p>
 
-                            <h3>2. Quán lẩu bò sương mù — Ấm bụng đêm lạnh</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-13.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Quán lẩu bò sương mù — Ấm bụng đêm lạnh</h3>
                             <p>Lẩu bò nhúng sương mù trên đường Phan Đình Phùng — ngồi ngoài ban công, nhìn phố đêm Đà Lạt. Giá trung bình 200K/người.</p>
 
                             <h3>3. Chợ đêm Đà Lạt — Thiên đường ăn vặt</h3>
@@ -289,7 +310,8 @@ var BLOG_ARTICLES = [
                             <h3>4. Nhà hàng view đồi thông — Fine dining Đà Lạt</h3>
                             <p>Những nhà hàng trên cao nhìn xuống thung lũng, phục vụ món Âu-Á kết hợp. Không gian lãng mạn, phù hợp couple.</p>
 
-                            <h3>5. Quán nướng vỉa hè Hoà Bình</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-14.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>5. Quán nướng vỉa hè Hoà Bình</h3>
                             <p>Nướng bắp, khoai lang, trứng cút trên vỉa hè gần quảng trường Lâm Viên. Giá rẻ bất ngờ, chỉ 20-50K/phần.</p>
 
                             <h3>6. Quán ốc đêm đường Bùi Thị Xuân</h3>
@@ -317,19 +339,22 @@ var BLOG_ARTICLES = [
                             <h3>2. Trạm Dừng Chill — Check-in hoàng hôn + xe lửa</h3>
                             <p>Đây là địa điểm <strong>chụp hình đẹp Đà Lạt</strong> mà ít người biết: ngồi nướng BBQ với background hoàng hôn đỏ rực, xe lửa cổ chạy qua ngay trước mắt. Buổi tối, đèn nhà lồng lên sáng tạo hiệu ứng "biển sao" lung linh. Đến <a href="index.html">Trạm Dừng Chill</a> lúc 16h30-17h để bắt trọn golden hour!</p>
 
-                            <h3>3. Hồ Xuân Hương — Cổ điển nhưng không bao giờ lỗi mốt</h3>
+
+                            <img src="assets/images/blog/checkin-10.jpg" alt="Góc check-in đẹp tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Hồ Xuân Hương — Cổ điển nhưng không bao giờ lỗi mốt</h3>
                             <p>Sáng sớm hoặc chiều muộn, hồ Xuân Hương phẳng lặng như gương. Pose với xe đạp hoa, cầu gỗ hoặc hàng thông ven hồ.</p>
 
                             <h3>4. Đường hầm đất sét — Kỳ ảo như xứ thần tiên</h3>
                             <p>Công trình điêu khắc đất sét độc đáo, ánh đèn vàng tạo tone ảnh vintage. Vé vào cửa 50K/người.</p>
 
-                            <h3>5. Quán cafe giữa rừng thông</h3>
+
+                            <img src="assets/images/blog/checkin-2.jpg" alt="Điểm chụp hình sống ảo Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>5. Quán cafe giữa rừng thông</h3>
                             <p>Nhiều quán cafe ở ngoại ô Đà Lạt được bao bọc bởi rừng thông — ảnh chụp tự nhiên như đang ở châu Âu.</p>
 
                             <h3>6. Vườn hoa thành phố</h3>
                             <p>Hàng trăm loài hoa nở quanh năm, đặc biệt đẹp vào mùa xuân. Background muôn màu cho ảnh Instagram.</p>
 
-                            <h3>7. Đồi chè Cầu Đất</h3>
+
+                            <img src="assets/images/blog/checkin-3.jpg" alt="Check-in sống ảo tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>7. Đồi chè Cầu Đất</h3>
                             <p>Đồi chè xanh mướt trải dài, chụp từ trên cao đẹp mê. Cách trung tâm 25km, đi xe máy khoảng 45 phút.</p>
 
                             <h3>8. Ga Đà Lạt — Nhà ga cổ nhất Đông Dương</h3>
@@ -353,13 +378,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Mùa khô (Tháng 11 - Tháng 4) — Thời điểm vàng</h3>
                             <p>Đây là mùa đẹp nhất! Trời nắng ráo, ít mưa, hoa nở rộ khắp nơi. Nhiệt độ ban đêm xuống 10-15°C — lý tưởng để ngồi ngoài trời ăn nướng, ngắm sao.</p>
-                            <p><strong>Tháng 12-1:</strong> Mùa hoa mai anh đào nở hồng rực cả thành phố.<br>
+
+                            <img src="assets/images/blog/khong-gian-ngay-10.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Tháng 12-1:</strong> Mùa hoa mai anh đào nở hồng rực cả thành phố.<br>
                             <strong>Tháng 2-3:</strong> Hoa cẩm tú cầu, mimosa vàng nở rộ.</p>
 
                             <h3>Mùa mưa (Tháng 5 - Tháng 10) — Đà Lạt sương mù</h3>
                             <p>Mưa thường rơi vào buổi chiều, sáng vẫn nắng đẹp. <strong>Đà Lạt mùa mưa</strong> có vẻ đẹp riêng: sương mù bao phủ đồi thông, không khí lãng mạn. Giá phòng rẻ hơn 30-50% so với mùa khô.</p>
 
-                            <h3>Mùa cỏ hồng (Tháng 11-12)</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-11.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mùa cỏ hồng (Tháng 11-12)</h3>
                             <p>Đồi cỏ hồng (cỏ đuôi chồn) nở rộ tạo cánh đồng mơ màng — background check-in "triệu like". Thời điểm này cũng là đầu mùa khô, thời tiết lý tưởng.</p>
 
                             <h3>Lễ hội & sự kiện theo mùa</h3>
@@ -388,19 +415,22 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Nướng + bia + 3 view</h3>
                             <p><strong>Quán nhậu Đà Lạt</strong> nào có view đẹp nhất? Trạm Dừng Chill! Vừa nướng BBQ vừa nhâm nhi bia lạnh, ngắm hoàng hôn rồi chuyển sang ngắm xe lửa và biển sao nhà lồng. Menu đồ nhắm đa dạng: nướng bò Mỹ, hải sản, gà mật ong, các loại đồ chiên giòn.</p>
-                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ mở:</strong> 15:00-23:00<br>
+
+                            <img src="assets/images/blog/ban-nuong-2.jpg" alt="Bàn nướng BBQ tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ mở:</strong> 15:00-23:00<br>
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
 
                             <h3>2. Beer Garden Đà Lạt</h3>
                             <p>Bia thủ công craft beer kết hợp đồ ăn Tây. Không gian kiểu sân vườn, có nhạc acoustic tối thứ 6-7. Giá bia craft từ 60K/ly.</p>
 
-                            <h3>3. Quán nhậu nướng vỉa hè Phạm Hồng Thái</h3>
+
+                            <img src="assets/images/blog/ban-nuong-3.jpg" alt="Không gian bàn nướng ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Quán nhậu nướng vỉa hè Phạm Hồng Thái</h3>
                             <p>Nướng vỉa hè bình dân, bia lon 15K, đồ nướng tươi. Đông vui, giá rẻ, phù hợp nhóm bạn muốn nhậu thoải mái không lo ví.</p>
 
                             <h3>4. Wine Bar — Rượu vang Đà Lạt</h3>
                             <p>Thử rượu vang sản xuất tại Đà Lạt, kết hợp phô mai và charcuterie. Không gian ấm cúng, lãng mạn cho couple.</p>
 
-                            <h3>5. Rooftop Bar trung tâm</h3>
+
+                            <img src="assets/images/blog/ban-nuong-4.jpg" alt="Bàn tiệc nướng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>5. Rooftop Bar trung tâm</h3>
                             <p>Cocktail view toàn cảnh thành phố đêm. Giá cao hơn nhưng không gian xứng đáng. Nên đến từ 19h để chọn chỗ đẹp.</p>
 
                             <h3>6. Quán ốc + bia đường Bùi Thị Xuân</h3>
@@ -425,7 +455,8 @@ var BLOG_ARTICLES = [
                             <h3>2. Cà phê Arabica Cầu Đất</h3>
                             <p>Cà phê Arabica trồng tại Cầu Đất được đánh giá top thế giới. Mua nguyên hạt rang xay tại các farm, giá 120-200K/gói 250g.</p>
 
-                            <h3>3. Rượu vang Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-11.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Rượu vang Đà Lạt</h3>
                             <p>Rượu vang dâu tằm, vang nho sản xuất tại Đà Lạt — hương vị đặc trưng cao nguyên. Giá 100-250K/chai, mua tại nhà máy vang Đà Lạt có giá tốt nhất.</p>
 
                             <h3>4. Trà Atiso</h3>
@@ -437,7 +468,8 @@ var BLOG_ARTICLES = [
                             <h3>6. Dâu tây tươi</h3>
                             <p>Dâu tây Đà Lạt ngọt, thơm, giá rẻ hơn trong thành phố 50%. Mua ở vườn dâu hoặc chợ Đà Lạt, 60-100K/kg.</p>
 
-                            <h3>7. Bánh tráng nướng Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-12.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>7. Bánh tráng nướng Đà Lạt</h3>
                             <p>"Pizza Việt Nam" nổi tiếng từ Đà Lạt. Mua loại đóng gói sẵn về nhà tự nướng, giá 30-50K/bịch.</p>
 
                             <h3>8. Kem bơ & bơ sáp</h3>
@@ -471,13 +503,16 @@ var BLOG_ARTICLES = [
                             <h3>1. Hồ Tuyền Lâm — Camping bên hồ</h3>
                             <p>Nhiều khu cắm trại ven hồ Tuyền Lâm có sẵn lều, bếp nướng và toilet. Sáng dậy ngắm sương mù trên mặt hồ — khoảnh khắc đáng giá. Giá thuê lều 200-400K/đêm.</p>
 
-                            <h3>2. Đồi chè Cầu Đất — Camping giữa đồi chè</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-15.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Đồi chè Cầu Đất — Camping giữa đồi chè</h3>
                             <p>Dựng lều trên đồi chè xanh bạt ngàn, view 360 độ. Nên đi nhóm 4 người trở lên, mang theo đồ ăn hoặc đặt set BBQ sẵn.</p>
 
-                            <h3>3. Núi Langbiang — Camping trên đỉnh</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-16.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Núi Langbiang — Camping trên đỉnh</h3>
                             <p>Trekking lên đỉnh Langbiang rồi cắm trại đêm — trải nghiệm thử thách nhưng đáng nhớ. Cần có guide và chuẩn bị kỹ lưỡng.</p>
 
-                            <h3>4. Thung lũng Vàng — Glamping sang chảnh</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-21.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Thung lũng Vàng — Glamping sang chảnh</h3>
                             <p>Nếu muốn camping thoải mái hơn, các khu glamping ở Thung lũng Vàng có lều tiện nghi, giường nệm, đèn trang trí. Giá 500K-1 triệu/đêm nhưng không cần mang gì.</p>
 
                             <h3>5. Khu vực suối Vàng — Camping hoang dã</h3>
@@ -505,7 +540,8 @@ var BLOG_ARTICLES = [
                             <h3>1. Cafe giữa rừng thông Cầu Đất</h3>
                             <p>Ngồi giữa rừng thông trăm tuổi, nhâm nhi espresso nóng. Không wifi, không ồn ào — chỉ có tiếng gió thông và tiếng chim. Cách trung tâm 20km, đi xe máy 35 phút.</p>
 
-                            <h3>2. Cafe view thung lũng</h3>
+
+                            <img src="assets/images/blog/checkin-1.jpg" alt="Điểm chụp hình sống ảo Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Cafe view thung lũng</h3>
                             <p>Nhiều quán trên đường đi Langbiang có ban công nhìn xuống thung lũng sương mù. Latte art đẹp, bánh ngọt homemade. Giá 45-70K/ly.</p>
 
                             <h3>3. Cafe greenhouse — Ngồi trong nhà kính</h3>
@@ -514,7 +550,8 @@ var BLOG_ARTICLES = [
                             <h3>4. Rooftop cafe trung tâm</h3>
                             <p>View panorama thành phố Đà Lạt từ tầng cao. Đẹp nhất lúc hoàng hôn và đêm khi đèn thành phố lên. Cocktail + cafe đều có.</p>
 
-                            <h3>5. Cafe xe Volkswagen vintage</h3>
+
+                            <img src="assets/images/blog/checkin-4.jpg" alt="Check-in sống ảo tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>5. Cafe xe Volkswagen vintage</h3>
                             <p>Quán cafe trong xe Volkswagen cổ cải tạo — concept độc đáo, nhỏ xinh. Chụp ảnh vintage cực đẹp, giá 35-55K/ly.</p>
 
                             <h3>6. Cafe vườn dâu</h3>
@@ -550,19 +587,22 @@ var BLOG_ARTICLES = [
                             <strong>Chiều:</strong> Thác Datanla trượt ống, đồi chè Cầu Đất chụp hình.<br>
                             <strong>Tối:</strong> Chợ đêm Đà Lạt — ăn vặt: bánh tráng nướng, sữa đậu nành, kem bơ.</p>
 
-                            <h3>Ngày 3: Cafe & mua sắm trước khi về</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-2.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Ngày 3: Cafe & mua sắm trước khi về</h3>
                             <p><strong>Sáng:</strong> Cafe view rừng thông hoặc cafe nhà kính. Thư giãn, chụp ảnh sống ảo.<br>
                             <strong>Trưa:</strong> Ăn bún bò hoặc lẩu gà lá é.<br>
                             <strong>Chiều:</strong> Mua đặc sản: mứt dâu, cà phê, rượu vang, trà atiso tại chợ Đà Lạt. Trở về.</p>
 
-                            <h3>Chi phí ước tính cho lịch trình 3 ngày 2 đêm</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-22.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Chi phí ước tính cho lịch trình 3 ngày 2 đêm</h3>
                             <p><strong>Khách sạn:</strong> 300-600K/đêm (phòng đôi)<br>
                             <strong>Ăn uống:</strong> 200-400K/ngày/người<br>
                             <strong>Vé tham quan:</strong> 100-200K/ngày<br>
                             <strong>Di chuyển:</strong> 100-200K/ngày (thuê xe máy)<br>
                             <strong>Tổng:</strong> Khoảng 2-3,5 triệu/người cho 3 ngày 2 đêm (không tính vé máy bay/xe khách).</p>
 
-                            <h3>Tip tiết kiệm</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-31.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Tip tiết kiệm</h3>
                             <p>Đi nhóm 3-4 người chia phòng và thuê xe. Ăn set combo tại <strong>Trạm Dừng Chill</strong> tiết kiệm hơn gọi lẻ. Book khách sạn trước 2 tuần qua app để có giá tốt.</p>
 
                             <h3>Kết luận</h3>
@@ -583,7 +623,8 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — View đẹp nhất, cách chợ đêm 10 phút xe</h3>
                             <p><strong>Quán nướng Đà Lạt gần chợ đêm</strong> với view "triệu đô": hoàng hôn, xe lửa cổ và biển sao nhà lồng. Nằm tại 111 Huỳnh Tấn Phát, P11 — cách chợ đêm khoảng 10 phút chạy xe máy. Ăn nướng xong, chạy xe xuống chợ đêm dạo mát, mua quà.</p>
-                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
+
+                            <img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
                             <strong>Tip:</strong> Đến lúc 16h30 ăn nướng ngắm hoàng hôn, 20h xong xuôi chạy về chợ đêm vừa kịp!</p>
 
                             <h3>2. Quán nướng đường Phan Bội Châu</h3>
@@ -592,7 +633,8 @@ var BLOG_ARTICLES = [
                             <h3>3. BBQ vỉa hè Hoà Bình</h3>
                             <p>Ngay cạnh quảng trường Lâm Viên, đi bộ 5 phút tới chợ đêm. Nướng xiên que, bắp nướng, khoai nướng — kiểu street food. Giá siêu rẻ 30-60K/người.</p>
 
-                            <h3>4. Nướng Hải Sản Nguyễn Chí Thanh</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-5.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Nướng Hải Sản Nguyễn Chí Thanh</h3>
                             <p>Chuyên hải sản nướng: mực, tôm, sò điệp. Cách chợ đêm 500m, đi bộ 7 phút. Giá 200-350K/2 người, đồ ăn tươi sống.</p>
 
                             <h3>5. Quán nướng sân thượng trung tâm</h3>
@@ -618,15 +660,18 @@ var BLOG_ARTICLES = [
                             <p>Từ tháng 11 đến tháng 2, <strong>Đà Lạt mùa đông</strong> có nhiệt độ ban đêm xuống còn 10-15°C, thậm chí dưới 10°C vào những đêm lạnh nhất. Sương mù dày đặc phủ kín thung lũng từ chiều muộn, tạo nên khung cảnh huyền ảo mà chỉ Đà Lạt mới có.</p>
                             <p>Đây cũng chính là thời điểm lý tưởng nhất để thưởng thức <strong>nướng BBQ Đà Lạt</strong> — ngồi ngoài trời se lạnh, tay cầm que nướng nóng hổi, miệng nhâm nhi đồ uống ấm.</p>
 
-                            <h3>Vì sao nướng BBQ mùa đông Đà Lạt đặc biệt?</h3>
+
+                            <img src="assets/images/blog/mon-nuong-13.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Vì sao nướng BBQ mùa đông Đà Lạt đặc biệt?</h3>
                             <p><strong>Cảm giác ấm áp:</strong> Bếp than hồng tỏa nhiệt giữa trời lạnh, tạo cảm giác quây quần ấm cúng như lửa trại. Mùi thịt nướng thơm lừng hoà vào không khí se lạnh — trải nghiệm mà Sài Gòn hay Hà Nội nóng bức không thể có được.</p>
                             <p><strong>View sương mù:</strong> Buổi chiều, sương bắt đầu phủ xuống thung lũng. Bạn vừa nướng vừa ngắm lớp sương trắng bao quanh — lãng mạn như phim Hàn Quốc.</p>
-                            <p><strong>Đồ uống mùa đông:</strong> Trà gừng nóng, rượu vang ấm, chocolate nóng — những thức uống chỉ ngon trọn vẹn khi trời lạnh.</p>
+
+                            <img src="assets/images/blog/mon-nuong-14.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Đồ uống mùa đông:</strong> Trà gừng nóng, rượu vang ấm, chocolate nóng — những thức uống chỉ ngon trọn vẹn khi trời lạnh.</p>
 
                             <h3>Nên mặc gì khi đi ăn nướng mùa đông Đà Lạt?</h3>
                             <p>Mang áo khoác dày, khăn choàng cổ và giày kín. Nhiều quán nướng ngoài trời nên bạn sẽ ngồi trong gió lạnh — nhưng đừng lo, bếp nướng sẽ giữ ấm cho bạn! Tip: mang thêm áo mưa nhẹ phòng khi có sương đêm.</p>
 
-                            <h3>Top quán nướng BBQ Đà Lạt mùa đông nên ghé</h3>
+
+                            <img src="assets/images/blog/mon-nuong-15.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Top quán nướng BBQ Đà Lạt mùa đông nên ghé</h3>
                             <p>Đứng đầu danh sách là <a href="index.html">Trạm Dừng Chill</a> — quán nướng có <strong>view hoàng hôn + xe lửa + biển sao nhà lồng</strong>. Mùa đông, khi sương phủ xuống thung lũng, đèn nhà lồng lên sáng xuyên qua lớp sương mờ ảo tạo hiệu ứng "biển sao trong mây" vô cùng đặc biệt.</p>
                             <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
@@ -652,12 +697,14 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Set nướng từ 95K/người</h3>
                             <p>Đúng vậy, <a href="index.html">Trạm Dừng Chill</a> có set nướng khởi điểm chỉ <strong>95.000đ/người</strong> — bao gồm thịt nướng, rau sống, nước chấm và cơm. Với giá này bạn được ngồi view hoàng hôn + xe lửa + biển sao nhà lồng — view "triệu đô" giá sinh viên!</p>
-                            <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo chia nhau sẽ rẻ hơn gọi lẻ 30%.</p>
+
+                            <img src="assets/images/blog/mon-nuong-18.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo chia nhau sẽ rẻ hơn gọi lẻ 30%.</p>
 
                             <h3>2. Nướng vỉa hè Hoà Bình — 30-60K/người</h3>
                             <p>Xiên que, bắp nướng, khoai lang nướng, trứng cút nướng — street food kiểu Đà Lạt. Ngồi trên vỉa hè gần quảng trường Lâm Viên, vừa ăn vừa ngắm phố đêm. Giá siêu rẻ, phù hợp sinh viên túi mỏng.</p>
 
-                            <h3>3. BBQ Sinh Viên Đà Lạt — 90K/set 2 người</h3>
+
+                            <img src="assets/images/blog/mon-nuong-19.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. BBQ Sinh Viên Đà Lạt — 90K/set 2 người</h3>
                             <p>Nằm gần Đại học Đà Lạt, quán chuyên phục vụ sinh viên với set nướng 2 người chỉ 180K (tức 90K/người). Menu đơn giản nhưng đầy đủ: ba chỉ, nem nướng, rau sống, nước chấm.</p>
 
                             <h3>4. Quán Nướng Gia Đình Phố Núi — 88K/người</h3>
@@ -689,13 +736,16 @@ var BLOG_ARTICLES = [
                             <strong>4. BBQ Garden:</strong> 179K/người — sân vườn, set hải sản<br>
                             <strong>5. Nướng & Lẩu 99:</strong> 129K/người — giá rẻ nhất, menu cơ bản</p>
 
-                            <h3>Buffet hay gọi món — Chọn kiểu nào?</h3>
+
+                            <img src="assets/images/blog/mon-nuong-2.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Buffet hay gọi món — Chọn kiểu nào?</h3>
                             <p>Nếu bạn ăn khoẻ và muốn thử nhiều món thì buffet là lựa chọn. Nhưng nếu bạn muốn <strong>chất lượng từng miếng thịt</strong> và trải nghiệm view đẹp, gọi set combo tại <a href="index.html">Trạm Dừng Chill</a> sẽ đáng tiền hơn. Thịt bò Mỹ, hải sản tươi, gà nướng mật ong — mỗi món đều được chọn lọc kỹ.</p>
 
-                            <h3>Nên đi buffet nướng lúc mấy giờ?</h3>
+
+                            <img src="assets/images/blog/mon-nuong-21.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nên đi buffet nướng lúc mấy giờ?</h3>
                             <p>Thời điểm vàng là 16:30-17:00. Đến sớm để chọn chỗ đẹp, bắt đầu nướng khi hoàng hôn buông xuống. Các quán thường đông từ 18:00 trở đi, đặc biệt cuối tuần — nên <strong>đặt bàn trước</strong> là rất cần thiết.</p>
 
-                            <h3>Tip ăn buffet nướng Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-22.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Tip ăn buffet nướng Đà Lạt</h3>
                             <p>Đừng ăn quá no trước khi đi. Ưu tiên nướng hải sản trước (tôm, mực, sò) rồi mới đến thịt. Uống nước ấm thay vì nước đá để dạ dày tiêu hoá tốt hơn trong trời lạnh.</p>
 
                             <h3>Kết luận</h3>
@@ -716,14 +766,16 @@ var BLOG_ARTICLES = [
 
                             <h3>Top Pick: Tram Dung Chill — The Triple-View BBQ Experience</h3>
                             <p><a href="index.html">Tram Dung Chill</a> is the most unique <strong>BBQ restaurant in Da Lat</strong> for tourists. Located at 111 Huynh Tan Phat, Ward 11, this outdoor grill offers three breathtaking views in one evening:</p>
-                            <p><strong>5:00 PM:</strong> Golden sunset over the valley<br>
+
+                            <img src="assets/images/blog/mon-nuong-23.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>5:00 PM:</strong> Golden sunset over the valley<br>
                             <strong>5:30-6:30 PM:</strong> A vintage French-era train passes right below the restaurant<br>
                             <strong>7:00 PM onwards:</strong> Thousands of greenhouse lights create a "sea of stars" effect across the valley</p>
                             <p><strong>Price:</strong> 95,000-300,000 VND/person (approx. $4-12 USD)<br>
                             <strong>Hours:</strong> 3:00 PM - 11:00 PM daily<br>
                             <strong>English menu:</strong> Available | <strong>Zalo booking:</strong> Confirmed within 15 minutes</p>
 
-                            <h3>What to Order as a Tourist</h3>
+
+                            <img src="assets/images/blog/mon-nuong-24.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>What to Order as a Tourist</h3>
                             <p><strong>Must-try items:</strong> US beef BBQ set, honey-grilled chicken, seafood platter (shrimp, squid, scallops), and hot pot combo. Vegetarian options are available on request. Don't miss the local Da Lat wine — a surprisingly good regional specialty!</p>
 
                             <h3>Other BBQ Options for Tourists</h3>
@@ -752,12 +804,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Mở đến 23:00</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ đến 23h hàng đêm — đủ thời gian cho bữa nướng khuya thoải mái. Từ 19h trở đi, <strong>biển sao nhà lồng</strong> lên đèn lung linh tạo backdrop cực đẹp. Gọi set nướng + lẩu nóng cho đêm lạnh, giá từ 95K/người.</p>
-                            <p><strong>Tip:</strong> Đến lúc 20h-20h30, ăn nướng ngắm biển sao, 22h30 xong xuôi về khách sạn vừa kịp!</p>
 
-                            <h3>2. Nướng vỉa hè Hoà Bình — Mở đến 23:30</h3>
+                            <img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Tip:</strong> Đến lúc 20h-20h30, ăn nướng ngắm biển sao, 22h30 xong xuôi về khách sạn vừa kịp!</p>
+
+
+                            <img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Nướng vỉa hè Hoà Bình — Mở đến 23:30</h3>
                             <p>Khu vực quảng trường Lâm Viên có nhiều hàng nướng vỉa hè mở rất khuya. Xiên que, bắp nướng, trứng cút — giá 30-60K. Ăn xong dạo chợ đêm (mở đến 23h30).</p>
 
-                            <h3>3. Quán ốc đêm Bùi Thị Xuân — Mở đến 00:00</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-11.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Quán ốc đêm Bùi Thị Xuân — Mở đến 00:00</h3>
                             <p>Ốc xào, nghêu nướng, chả mực — đồ nhậu đêm kiểu Sài Gòn giữa phố núi. Mở đến nửa đêm, giá 150-250K cho 2 người, có bia tươi.</p>
 
                             <h3>4. BBQ đêm đường Phan Đình Phùng — Mở đến 23:00</h3>
@@ -784,12 +839,14 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Set nướng hải sản view triệu đô</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có set <strong>nướng hải sản Đà Lạt</strong> gồm tôm sú, mực ống, sò điệp, nghêu nướng mỡ hành — tất cả nướng trên bếp than hoa ngay tại bàn. Vừa nướng vừa ngắm hoàng hôn và biển sao nhà lồng. Giá set hải sản từ 200K/người.</p>
-                            <p><strong>Món hot:</strong> Tôm sú nướng muối ớt, mực nướng sa tế, sò điệp nướng phô mai</p>
+
+                            <img src="assets/images/blog/hai-san-11.jpg" alt="Món hải sản nướng thơm ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Món hot:</strong> Tôm sú nướng muối ớt, mực nướng sa tế, sò điệp nướng phô mai</p>
 
                             <h3>2. Quán Hải Sản Nguyễn Chí Thanh</h3>
                             <p>Chuyên hải sản nướng: mực, tôm, cua, sò. Hải sản nhập hàng ngày từ Nha Trang, bể chứa sống tại quán. Giá 200-350K/2 người, cách chợ đêm 500m.</p>
 
-                            <h3>3. Nướng Hải Sản Biển Xanh</h3>
+
+                            <img src="assets/images/blog/hai-san-12.jpg" alt="Hải sản nướng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Nướng Hải Sản Biển Xanh</h3>
                             <p>Quán nướng hải sản quy mô lớn, có bể hải sản sống cho khách chọn. Menu đa dạng từ ốc, cua, cá đến bạch tuộc. Set nướng cho nhóm 4 người từ 500K.</p>
 
                             <h3>4. BBQ Hải Sản Sân Vườn</h3>
@@ -816,16 +873,19 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — View 3 trong 1, vibe chill nhất</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là lựa chọn số 1 cho nhóm bạn vì: không gian ngoài trời thoáng đãng, bàn lớn cho 6-12 người, view hoàng hôn + xe lửa + biển sao nhà lồng. Cả nhóm vừa nướng vừa chụp hình, khoảnh khắc xe lửa chạy qua ai cũng hào hứng!</p>
-                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Tip:</strong> Gọi set combo cho nhóm tiết kiệm 30%</p>
+
+                            <img src="assets/images/blog/khach-nhom-1.jpg" alt="Nhóm bạn vui vẻ tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Tip:</strong> Gọi set combo cho nhóm tiết kiệm 30%</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt bàn cho nhóm ngay</strong></a></p>
 
-                            <h3>2. Nướng Đồi Thông — Buffet nhóm đông</h3>
+
+                            <img src="assets/images/blog/khach-nhom-3.jpg" alt="Tiệc nhóm bạn nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Nướng Đồi Thông — Buffet nhóm đông</h3>
                             <p>Buffet nướng 159K/người, ăn không giới hạn — lý tưởng cho nhóm bạn ăn khoẻ. Không gian giữa rừng thông, có sân rộng cho các hoạt động nhóm, chụp hình đẹp.</p>
 
                             <h3>3. BBQ Garden — Sân vườn cho nhóm lớn</h3>
                             <p>Sân vườn rộng, nhận nhóm 20-30 người. Có loa nhạc, đèn trang trí, setup tiệc theo yêu cầu. Giá buffet 179K/người, có set riêng cho nhóm.</p>
 
-                            <h3>4. K-BBQ Đà Lạt — Fan K-food tập trung</h3>
+
+                            <img src="assets/images/blog/khach-nhom-11.jpg" alt="Đoàn khách nhóm tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. K-BBQ Đà Lạt — Fan K-food tập trung</h3>
                             <p>Nướng kiểu Hàn Quốc, banchan miễn phí refill. Nhóm bạn nào mê phim Hàn sẽ thích nơi này. Buffet 199K/người, có phòng riêng cho nhóm 8-12 người.</p>
 
                             <h3>5. Quán Nướng Camping Style</h3>
@@ -852,10 +912,12 @@ var BLOG_ARTICLES = [
 
                             <h3>5 Combo lẩu nướng đáng thử nhất</h3>
                             <p><strong>Combo 1 — Lẩu thái + nướng hải sản:</strong> Nước lẩu tom yum chua cay ấm bụng, kết hợp tôm, mực, sò nướng than hoa. Set cho 2 người từ 280K.</p>
-                            <p><strong>Combo 2 — Lẩu nấm + nướng bò Mỹ:</strong> Lẩu nấm thanh ngọt cho ai không ăn cay, bò Mỹ nướng medium rare mềm tan. Set cho 2 người từ 350K.</p>
+
+                            <img src="assets/images/blog/lau-11.jpg" alt="Lẩu nóng hổi tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Combo 2 — Lẩu nấm + nướng bò Mỹ:</strong> Lẩu nấm thanh ngọt cho ai không ăn cay, bò Mỹ nướng medium rare mềm tan. Set cho 2 người từ 350K.</p>
                             <p><strong>Combo 3 — Lẩu gà lá é + nướng ba chỉ:</strong> Đặc sản Đà Lạt! Gà thả vườn nấu lẩu lá é thơm phức, ba chỉ heo nướng giòn rụm. Set cho 4 người từ 450K.</p>
                             <p><strong>Combo 4 — Lẩu bò nhúng giấm + nướng combo:</strong> Lẩu bò nhúng giấm chua nhẹ, kết hợp set nướng tổng hợp (bò, gà, xúc xích). Set cho 4 người từ 500K.</p>
-                            <p><strong>Combo 5 — Lẩu Kim Chi + nướng Hàn Quốc:</strong> Cho fan K-food — lẩu Kim Chi đậm vị, thịt nướng kiểu Hàn kèm banchan. Set cho 2 người từ 300K.</p>
+
+                            <img src="assets/images/blog/lau-2.jpg" alt="Lẩu ngon mùa lạnh Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Combo 5 — Lẩu Kim Chi + nướng Hàn Quốc:</strong> Cho fan K-food — lẩu Kim Chi đậm vị, thịt nướng kiểu Hàn kèm banchan. Set cho 2 người từ 300K.</p>
 
                             <h3>Ở đâu ăn lẩu nướng view đẹp nhất?</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được ăn <strong>lẩu nướng Đà Lạt</strong> với view sương mù phủ thung lũng, đèn nhà lồng lấp lánh xuyên sương. Menu có đầy đủ combo lẩu + nướng từ 95K/người, phục vụ nhóm 2-20 người.</p>
@@ -882,13 +944,16 @@ var BLOG_ARTICLES = [
                             <h3>1. Nướng & Chill Ven Hồ — View hồ trực diện</h3>
                             <p>Quán nướng nằm sát bờ hồ Tuyền Lâm, bàn ăn nhìn thẳng ra mặt hồ. Buổi chiều, sương mù bắt đầu lan trên mặt nước — khung cảnh như tranh vẽ. Giá 200-350K/người, có set hải sản và thịt nướng.</p>
 
-                            <h3>2. BBQ Đồi Thông Tuyền Lâm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-25.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. BBQ Đồi Thông Tuyền Lâm</h3>
                             <p>Nướng giữa rừng thông ven hồ, không khí trong lành. Buffet nướng 180K/người, có khu camping cho ai muốn ở lại qua đêm. View hồ từ trên đồi cao rất ấn tượng.</p>
 
-                            <h3>3. Quán Nướng Sân Vườn Hoa Hồng</h3>
+
+                            <img src="assets/images/blog/mon-nuong-26.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Quán Nướng Sân Vườn Hoa Hồng</h3>
                             <p>Nướng giữa vườn hoa hồng, cách hồ Tuyền Lâm 1km. Không gian lãng mạn cho couple, giá 150-250K/người. Có live nhạc acoustic vào tối thứ 7.</p>
 
-                            <h3>4. Trạm Dừng Chill — View thung lũng + nhà lồng (cách hồ 10 phút)</h3>
+
+                            <img src="assets/images/blog/mon-nuong-3.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Trạm Dừng Chill — View thung lũng + nhà lồng (cách hồ 10 phút)</h3>
                             <p>Tuy không nằm sát hồ, nhưng <a href="index.html">Trạm Dừng Chill</a> chỉ cách hồ Tuyền Lâm 10 phút xe — và bù lại có <strong>view độc nhất Đà Lạt</strong>: hoàng hôn + xe lửa cổ + biển sao nhà lồng. Nhiều du khách ghé thăm hồ Tuyền Lâm chiều rồi chạy lên Trạm Dừng Chill ăn nướng ngắm hoàng hôn.</p>
                             <p><strong>Gợi ý lịch trình:</strong> 14h-16h tham quan hồ Tuyền Lâm → 16h30 đến <a href="index.html#booking">Trạm Dừng Chill đặt bàn</a> → nướng BBQ ngắm 3 view.</p>
 
@@ -917,14 +982,16 @@ var BLOG_ARTICLES = [
                             <strong>Tiệc công ty / team building:</strong> Nhóm 20-50 người, nướng BBQ + mini game.<br>
                             <strong>Tiệc gia đình:</strong> Họp mặt gia đình, tiệc mừng thọ, kỷ niệm ngày cưới.</p>
 
-                            <h3>Đặt tiệc ở đâu view đẹp nhất?</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Đặt tiệc ở đâu view đẹp nhất?</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là địa điểm <strong>đặt tiệc Đà Lạt</strong> được yêu thích nhất nhờ:</p>
                             <p>✓ View hoàng hôn + xe lửa + biển sao nhà lồng — backdrop tiệc triệu đô<br>
                             ✓ Setup sinh nhật & kỷ niệm <strong>MIỄN PHÍ</strong> (hoa, nến, bảng chúc mừng)<br>
                             ✓ Nhận tiệc nhóm 10-50 người, có menu riêng cho đoàn<br>
                             ✓ Đặt bàn online, xác nhận qua Zalo trong 15 phút</p>
 
-                            <h3>Chi phí tổ chức tiệc ở Đà Lạt</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-12.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Chi phí tổ chức tiệc ở Đà Lạt</h3>
                             <p><strong>Tiệc sinh nhật nhỏ (10 người):</strong> 1-2 triệu (đồ ăn + setup)<br>
                             <strong>Tiệc nhóm bạn (20 người):</strong> 2-4 triệu<br>
                             <strong>Tiệc công ty (30-50 người):</strong> 5-15 triệu tuỳ menu<br>
@@ -954,16 +1021,19 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Khu vực riêng ngoài trời</h3>
                             <p>Tuy không có phòng kín, nhưng <a href="index.html">Trạm Dừng Chill</a> có các <strong>khu vực bàn riêng biệt</strong> ngoài trời, cách xa nhau đủ để có không gian riêng tư. View thoáng đãng 180°, không bị bít bùng như phòng kín. Nhóm 6-12 người có thể book riêng một khu vực.</p>
-                            <p><strong>Ưu điểm:</strong> View hoàng hôn + xe lửa + biển sao — phòng riêng nào có view bằng!</p>
+
+                            <img src="assets/images/blog/mon-nuong-30.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Ưu điểm:</strong> View hoàng hôn + xe lửa + biển sao — phòng riêng nào có view bằng!</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt khu vực riêng</strong></a></p>
 
-                            <h3>2. K-BBQ Đà Lạt — Phòng VIP Hàn Quốc</h3>
+
+                            <img src="assets/images/blog/mon-nuong-31.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. K-BBQ Đà Lạt — Phòng VIP Hàn Quốc</h3>
                             <p>Phòng riêng kiểu Hàn Quốc cho 8-12 người, có bếp nướng gas tại bàn. Không gian ấm cúng, cách âm tốt. Buffet nướng 199K/người, cần đặt trước 1 ngày cho phòng VIP.</p>
 
                             <h3>3. Nhà Hàng Sân Vườn Riêng Tư</h3>
                             <p>Các nhà hàng sân vườn quanh Đà Lạt có khu bàn riêng giữa vườn hoa, được ngăn bằng hàng rào cây xanh. Phù hợp couple muốn không gian lãng mạn. Giá 200-350K/người.</p>
 
-                            <h3>4. BBQ Villa — Thuê biệt thự nướng BBQ</h3>
+
+                            <img src="assets/images/blog/mon-nuong-4.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. BBQ Villa — Thuê biệt thự nướng BBQ</h3>
                             <p>Xu hướng mới: thuê biệt thự có sân vườn, tự mua đồ nướng BBQ. Hoàn toàn riêng tư, nhóm 8-15 người lý tưởng. Giá thuê villa 1-2 triệu/đêm, cộng thêm chi phí đồ ăn.</p>
 
                             <h3>5. Resort BBQ Tuyền Lâm</h3>
@@ -988,7 +1058,8 @@ var BLOG_ARTICLES = [
                             <h3>1. Rượu Vang Đà Lạt — Đỉnh cao khi ăn nướng</h3>
                             <p>Rượu vang dâu tằm hoặc vang nho sản xuất ngay tại Đà Lạt — uống khi trời lạnh, kèm thịt nướng = combo hoàn hảo. Giá 80-150K/chai tại quán, siêu hợp lý!</p>
 
-                            <h3>2. Trà Gừng Mật Ong — Ấm bụng mùa lạnh</h3>
+
+                            <img src="assets/images/blog/mon-nuong-5.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Trà Gừng Mật Ong — Ấm bụng mùa lạnh</h3>
                             <p>Thức uống ấm bụng số 1 khi <strong>ăn nướng Đà Lạt</strong> mùa lạnh. Gừng tươi Đà Lạt thơm cay nhẹ, kết hợp mật ong rừng — vừa ngon vừa tốt cho sức khoẻ.</p>
 
                             <h3>3. Bia Tươi — Kinh điển không thể thiếu</h3>
@@ -997,7 +1068,8 @@ var BLOG_ARTICLES = [
                             <h3>4. Sinh Tố Bơ Đà Lạt — Đặc sản phải thử</h3>
                             <p>Bơ Đà Lạt béo, dẻo, pha sinh tố đặc quánh thơm lừng. Uống sau bữa nướng như một món tráng miệng hoàn hảo. Giá 30-45K/ly.</p>
 
-                            <h3>5. Cà Phê Sữa Đá — Arabica Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-7.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>5. Cà Phê Sữa Đá — Arabica Đà Lạt</h3>
                             <p>Cà phê Arabica Cầu Đất pha phin — thơm, thanh, ít đắng. Uống sữa đá buổi chiều trước khi ăn nướng, hoặc cà phê nóng sau bữa. Đây là thức <strong>đồ uống Đà Lạt</strong> kinh điển nhất!</p>
 
                             <h3>6. Nước Ép Dâu Tây Tươi</h3>
@@ -1030,19 +1102,22 @@ var BLOG_ARTICLES = [
                             <strong>Xe khách:</strong> Từ Sài Gòn 6-7 tiếng, giá 200-350K.<br>
                             <strong>Tự lái:</strong> Đường đèo đẹp nhưng cần cẩn thận, nên đi ban ngày.</p>
 
-                            <h3>3. Ở đâu ở Đà Lạt?</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Ở đâu ở Đà Lạt?</h3>
                             <p>Trung tâm (gần chợ đêm): tiện di chuyển, giá 300-800K/đêm. Ngoại ô (Hồ Tuyền Lâm, Cầu Đất): yên tĩnh, view đẹp, giá 400K-1.5 triệu. Book trước 1-2 tuần qua app Agoda hoặc Booking.</p>
 
                             <h3>4. Di chuyển trong Đà Lạt</h3>
                             <p>Thuê xe máy 100-150K/ngày là phổ biến nhất. Grab cũng có nhưng ít xe hơn Sài Gòn. Nên thuê xe ở các shop uy tín gần trung tâm, kiểm tra phanh và đèn trước khi đi.</p>
 
-                            <h3>5. Ăn gì ở Đà Lạt?</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-21.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>5. Ăn gì ở Đà Lạt?</h3>
                             <p>Sáng: bánh mì xíu mại, phở gà. Trưa: bún bò, cơm tấm. Chiều: cafe + kem bơ. <strong>Tối: nướng BBQ view đẹp</strong> tại <a href="index.html">Trạm Dừng Chill</a> — highlight ẩm thực không thể bỏ qua!</p>
 
                             <h3>6. Mang gì khi đi Đà Lạt?</h3>
                             <p>Áo khoác dày, giày kín (tránh dép lê), kem chống nắng (nắng vùng cao mạnh), áo mưa, pin sạc dự phòng, máy ảnh. Nếu đi cắm trại: túi ngủ, đèn pin.</p>
 
-                            <h3>7. Nên đi Đà Lạt mấy ngày?</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-22.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>7. Nên đi Đà Lạt mấy ngày?</h3>
                             <p>Lý tưởng nhất là 3 ngày 2 đêm hoặc 4 ngày 3 đêm. Đủ thời gian khám phá trung tâm + ngoại ô + ăn uống thoải mái mà không vội.</p>
 
                             <h3>8. Cẩn thận giao thông Đà Lạt</h3>
@@ -1073,12 +1148,14 @@ var BLOG_ARTICLES = [
                             <h3>Ngắm biển sao nhà lồng ở đâu đẹp nhất?</h3>
                             <p>Địa điểm lý tưởng nhất để ngắm <strong>view nhà lồng Đà Lạt</strong> là từ trên cao — nơi bạn có tầm nhìn rộng xuống thung lũng. <a href="index.html">Trạm Dừng Chill</a> nằm ở vị trí "vàng" trên đồi cao, nhìn thẳng xuống thung lũng nhà lồng. Từ 19h trở đi, đèn nhà lồng bắt đầu lên — cả thung lũng sáng lấp lánh!</p>
 
-                            <h3>3 giai đoạn ngắm nhà lồng tại Trạm Dừng Chill</h3>
+
+                            <img src="assets/images/blog/view-nha-long-11.jpg" alt="View nhà lồng lung linh về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3 giai đoạn ngắm nhà lồng tại Trạm Dừng Chill</h3>
                             <p><strong>17:00-18:00:</strong> Hoàng hôn buông xuống, ánh nắng vàng chiếu qua nhà lồng tạo hiệu ứng ánh kim.<br>
                             <strong>18:00-19:00:</strong> Trời chạng vạng, xe lửa cổ chạy qua, nhà lồng bắt đầu lên đèn từ từ.<br>
                             <strong>19:00-23:00:</strong> "Biển sao" lung linh rực rỡ nhất! Hàng ngàn đèn nhà lồng sáng trắng, vàng, tím xen kẽ tạo nên quang cảnh mê hồn.</p>
 
-                            <h3>Nướng BBQ ngắm biển sao — Trải nghiệm chỉ có tại Đà Lạt</h3>
+
+                            <img src="assets/images/blog/view-nha-long-2.jpg" alt="Biển sao nhà lồng nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ ngắm biển sao — Trải nghiệm chỉ có tại Đà Lạt</h3>
                             <p>Tưởng tượng bạn ngồi ngoài trời 18°C, tay cầm que nướng thịt thơm phức, trước mắt là hàng ngàn ánh đèn nhà lồng lấp lánh như sao sa. Đây là trải nghiệm <strong>quán nướng Đà Lạt view nhà lồng</strong> mà nhiều du khách gọi là "khoảnh khắc đáng nhớ nhất chuyến đi".</p>
 
                             <h3>Mùa nào view nhà lồng đẹp nhất?</h3>
@@ -1101,15 +1178,18 @@ var BLOG_ARTICLES = [
                             <p><strong>7:30 - Bánh mì xíu mại:</strong> Món sáng huyền thoại, quán nổi tiếng trên đường Nguyễn Văn Trỗi. Nước sốt đậm đà, xíu mại mềm mịn — chỉ 25K/ổ.</p>
                             <p><strong>9:00 - Cafe phin Đà Lạt:</strong> Ghé quán cafe view đồi, gọi ly Arabica phin nóng. Ngồi ngắm sương tan trong nắng sớm — khoảnh khắc yên bình nhất.</p>
 
-                            <h3>Thứ 7 Trưa — Đặc sản phải thử</h3>
+
+                            <img src="assets/images/blog/mon-nuong-6.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Thứ 7 Trưa — Đặc sản phải thử</h3>
                             <p><strong>11:30 - Lẩu gà lá é:</strong> Đặc sản vùng Langbiang, gà thả vườn nấu lẩu lá é thơm phức. Giá 180-250K/nồi cho 2-3 người.</p>
                             <p><strong>13:00 - Kem bơ Đà Lạt:</strong> Tráng miệng không thể thiếu! Bơ Đà Lạt béo, dẻo, pha kem ngọt vừa. Giá 25-35K/ly.</p>
 
-                            <h3>Thứ 7 Chiều-Tối — Highlight ẩm thực</h3>
+
+                            <img src="assets/images/blog/mon-nuong-8.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Thứ 7 Chiều-Tối — Highlight ẩm thực</h3>
                             <p><strong>16:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi set nướng hải sản + lẩu nấm, giá từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
                             <p><strong>20:30 - Chợ đêm Đà Lạt:</strong> Ăn nướng xong, chạy xe 10 phút về chợ đêm. Bánh tráng nướng, ốc, sữa đậu nành nóng — <strong>ăn cuối tuần ở Đà Lạt</strong> phải ghé chợ đêm!</p>
 
-                            <h3>Chủ Nhật Sáng — Bữa sáng thong thả</h3>
+
+                            <img src="assets/images/blog/mon-nuong-9.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Chủ Nhật Sáng — Bữa sáng thong thả</h3>
                             <p><strong>8:00 - Phở gà Đà Lạt:</strong> Nước dùng trong vắt, thịt gà ta săn chắc. Quán Phở Hiền trên Phan Đình Phùng là lựa chọn quen thuộc.</p>
                             <p><strong>9:30 - Bánh căn + sữa đậu nành:</strong> Combo sáng chuẩn vị Đà Lạt — bánh căn giòn nóng chấm nước mắm ngọt, kèm ly sữa đậu nành nóng hổi.</p>
 
@@ -1135,13 +1215,15 @@ var BLOG_ARTICLES = [
                             <p>Nằm trên đường Huỳnh Tấn Phát, <a href="index.html">Trạm Dừng Chill</a> sở hữu <strong>view hoàng hôn Đà Lạt</strong> đẹp bậc nhất với góc nhìn 180 độ ra thung lũng. Buổi chiều, mặt trời lặn dần sau những rặng thông, ánh nắng vàng phủ lên hàng ngàn nhà lồng — khung cảnh như tranh vẽ. Bạn vừa thưởng thức BBQ nướng thơm phức vừa ngắm hoàng hôn rực rỡ — trải nghiệm khó quên.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a> để có vị trí view hoàng hôn đẹp nhất!</p>
 
-                            <h3>2. Đồi Robin — Toàn cảnh thành phố lúc chiều tà</h3>
+
+                            <img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Cảnh hoàng hôn vàng rực Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Đồi Robin — Toàn cảnh thành phố lúc chiều tà</h3>
                             <p>Đồi Robin nằm ở trung tâm Đà Lạt, cao hơn mực thành phố nên có góc nhìn toàn cảnh. Lúc hoàng hôn, bạn có thể thấy toàn bộ thành phố chuyển màu từ vàng cam sang tím đỏ. Tuy nhiên, đây chỉ là điểm ngắm — không có quán ăn phục vụ tại chỗ.</p>
 
                             <h3>3. Hồ Xuân Hương — Sunset phản chiếu mặt nước</h3>
                             <p>Hồ Xuân Hương nằm giữa lòng Đà Lạt, mặt nước phẳng lặng phản chiếu ánh hoàng hôn tạo nên bức tranh tuyệt đẹp. Đi dạo quanh hồ lúc 17:00-18:00 là thời điểm lý tưởng nhất. Nhiều quán cafe ven hồ có view đẹp để ngồi thưởng thức.</p>
 
-                            <h3>4. Langbiang — Hoàng hôn trên đỉnh núi</h3>
+
+                            <img src="assets/images/blog/view-hoang-hon-21.jpg" alt="View hoàng hôn tuyệt đẹp tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Langbiang — Hoàng hôn trên đỉnh núi</h3>
                             <p>Nếu bạn thích phiêu lưu, hãy leo lên đỉnh Langbiang để ngắm hoàng hôn. Ở độ cao hơn 2.100m, <strong>view sunset Langbiang</strong> bao quát toàn bộ cao nguyên Lâm Viên. Cần xuất phát trước 15:00 để kịp lên đỉnh trước khi mặt trời lặn.</p>
 
                             <h3>5. Đồi Thiên Phúc Đức — View thung lũng rộng</h3>
@@ -1165,12 +1247,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Quán nướng BBQ view xe lửa</h3>
                             <p>Tọa lạc tại 111 Huỳnh Tấn Phát, <a href="index.html">Trạm Dừng Chill</a> là <strong>quán nướng nổi tiếng nhất</strong> trên con đường này. Điểm đặc biệt: view hoàng hôn, xe lửa chạy ngang, biển sao nhà lồng về đêm. Menu đa dạng từ BBQ hải sản, bò Mỹ đến lẩu nóng. Giá từ 95.000đ/người.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn Trạm Dừng Chill</a></p>
 
-                            <h3>Các quán ăn khác trên đường Huỳnh Tấn Phát</h3>
+                            <img src="assets/images/blog/khong-gian-ngay-3.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn Trạm Dừng Chill</a></p>
+
+
+                            <img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Các quán ăn khác trên đường Huỳnh Tấn Phát</h3>
                             <p>Ngoài Trạm Dừng Chill, trên đường Huỳnh Tấn Phát còn có nhiều quán cafe, quán ăn nhỏ phục vụ các món Đà Lạt truyền thống. Từ phở, bún bò đến các món nướng dân dã — bạn có thể dạo cả con đường để khám phá ẩm thực đa dạng.</p>
 
-                            <h3>Mẹo di chuyển đến đường Huỳnh Tấn Phát</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-41.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo di chuyển đến đường Huỳnh Tấn Phát</h3>
                             <p>Từ trung tâm Đà Lạt (chợ đêm), bạn chạy xe máy khoảng 10-15 phút theo hướng ga Đà Lạt. Đường dốc nhưng dễ đi, có chỗ đỗ xe rộng rãi. Nên đi lúc chiều tối để ngắm <strong>hoàng hôn trên đường Huỳnh Tấn Phát</strong> cực đẹp.</p>
 
                             <h3>Kết luận</h3>
@@ -1191,9 +1276,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Top trải nghiệm nướng ngoài trời tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, toàn bộ bàn ăn đặt ngoài trời với <strong>view thung lũng 180 độ</strong>. Bạn tự tay nướng thịt trên bếp than hoa, vừa nướng vừa ngắm hoàng hôn, xe lửa và biển sao nhà lồng. Không gian mở thoáng đãng, không bí khói.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn nướng ngoài trời</a></p>
 
-                            <h3>Mẹo nướng BBQ ngoài trời ở Đà Lạt</h3>
+                            <img src="assets/images/blog/mon-nuong-1.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn nướng ngoài trời</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-10.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo nướng BBQ ngoài trời ở Đà Lạt</h3>
                             <p>Mang theo áo khoác mỏng vì Đà Lạt về đêm khá lạnh (15-18°C). Đến sớm lúc 16:30-17:00 để bắt trọn hoàng hôn. Gọi combo nướng + lẩu để vừa nướng vừa ăn lẩu nóng — sự kết hợp hoàn hảo trong tiết trời se lạnh.</p>
 
                             <h3>So sánh nướng ngoài trời vs trong nhà</h3>
@@ -1217,10 +1304,13 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Setup sinh nhật MIỄN PHÍ</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là một trong số ít quán ở Đà Lạt <strong>tặng setup sinh nhật hoàn toàn miễn phí</strong>. Bao gồm: bảng chúc mừng, bóng bay, nến, trang trí bàn tiệc. Bạn chỉ cần đặt bàn trước và thông báo — quán lo hết phần trang trí.</p>
-                            <p>Backdrop sinh nhật tại Trạm Dừng Chill chính là <strong>view hoàng hôn + biển sao nhà lồng</strong> — không backdrop nhân tạo nào sánh được!</p>
-                            <p>👉 <a href="index.html#booking">Đặt tiệc sinh nhật ngay</a></p>
 
-                            <h3>Các quán khác có setup sinh nhật ở Đà Lạt</h3>
+                            <img src="assets/images/blog/setup-sinh-nhat-1.jpg" alt="Setup sinh nhật lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>Backdrop sinh nhật tại Trạm Dừng Chill chính là <strong>view hoàng hôn + biển sao nhà lồng</strong> — không backdrop nhân tạo nào sánh được!</p>
+
+                            <img src="assets/images/blog/setup-sinh-nhat-222.jpg" alt="Trang trí sinh nhật lung linh Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt tiệc sinh nhật ngay</a></p>
+
+
+                            <img src="assets/images/blog/setup-sinh-nhat-4.jpg" alt="Tiệc sinh nhật tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Các quán khác có setup sinh nhật ở Đà Lạt</h3>
                             <p>Một số quán cafe, nhà hàng lớn ở Đà Lạt cũng có dịch vụ setup sinh nhật, nhưng thường tính phí 200-500K. Một số nơi yêu cầu đặt bàn tối thiểu hoặc gọi combo nhất định. So với việc setup free tại Trạm Dừng Chill, chi phí chênh lệch đáng kể.</p>
 
                             <h3>Mẹo tổ chức sinh nhật Đà Lạt tiết kiệm</h3>
@@ -1243,13 +1333,15 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> có những bàn nhỏ cho 2 người đặt ở vị trí view đẹp nhất — nhìn thẳng ra thung lũng. Buổi tối, hai bạn vừa nướng BBQ vừa ngắm <strong>biển sao nhà lồng</strong> lung linh. Set nướng cho 2 người giá từ 200-400K, gồm thịt bò, hải sản, rau củ và nước uống.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cho 2 người</a></p>
 
-                            <h3>2. BBQ Garden Hồ Tuyền Lâm</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-1.jpg" alt="Setup hẹn hò lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. BBQ Garden Hồ Tuyền Lâm</h3>
                             <p>Quán nướng ven hồ Tuyền Lâm, không gian lãng mạn với đèn dây và cây xanh bao quanh. Set couple từ 300K, bao gồm nướng + nước uống. View hồ buổi tối khá đẹp nhưng hơi tối.</p>
 
                             <h3>3. Đồi Nướng BBQ</h3>
                             <p>Quán trên đồi cao, view thành phố Đà Lạt về đêm. Phong cách camping trẻ trung, có lều riêng cho couple. Giá từ 250K/2 người. Nhược điểm: đường lên hơi khó đi.</p>
 
-                            <h3>4. Nướng & Chill Langbiang</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-15.jpg" alt="Không gian hẹn hò đôi lứa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Nướng & Chill Langbiang</h3>
                             <p>Quán nướng ngoại ô, view núi Langbiang. Không gian yên tĩnh, ít khách — thích hợp cho couple muốn riêng tư. Giá từ 200K/2 người.</p>
 
                             <h3>5. Sunset BBQ Đà Lạt</h3>
@@ -1274,13 +1366,16 @@ var BLOG_ARTICLES = [
                             <h3>4-5. Tôm sú nướng muối ớt và Mực nướng sa tế</h3>
                             <p><strong>Hải sản nướng</strong> giữa phố núi nghe lạ nhưng cực ngon! Tôm sú nướng muối ớt giòn vỏ, ngọt thịt. Mực nướng sa tế cay nhẹ, dẻo dai. Các quán nướng uy tín ở Đà Lạt nhập hải sản tươi hàng ngày từ Phan Thiết, Nha Trang.</p>
 
-                            <h3>6-7. Gà nướng lá é và Cánh gà nướng mật ong</h3>
+
+                            <img src="assets/images/blog/mon-nuong-11.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>6-7. Gà nướng lá é và Cánh gà nướng mật ong</h3>
                             <p><strong>Gà nướng lá é</strong> là đặc sản Đà Lạt — gà thả vườn Langbiang, ướp lá é thơm đặc trưng, nướng than hoa vàng giòn. Cánh gà nướng mật ong thì béo ngậy, ngọt nhẹ — món này trẻ con rất thích.</p>
 
-                            <h3>8-9. Sườn heo nướng BBQ và Bắp bò cuốn nấm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-12.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>8-9. Sườn heo nướng BBQ và Bắp bò cuốn nấm</h3>
                             <p><strong>Sườn heo nướng</strong> ướp sốt BBQ kiểu Mỹ, nướng chậm trên than hoa đến khi mềm rụng xương. Bắp bò cuốn nấm kim châm — sáng tạo và lạ miệng, kết hợp vị bò đậm với nấm giòn ngọt.</p>
 
-                            <h3>10. Rau củ nướng Đà Lạt — Ngon bất ngờ!</h3>
+
+                            <img src="assets/images/blog/mon-nuong-13.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>10. Rau củ nướng Đà Lạt — Ngon bất ngờ!</h3>
                             <p>Đừng bỏ qua <strong>rau củ nướng Đà Lạt</strong>! Bắp nướng mỡ hành, khoai lang nướng bơ, nấm nướng — rau củ Đà Lạt tươi ngon nên nướng lên ngọt tự nhiên, khác hẳn nơi khác.</p>
 
                             <h3>Ăn ở đâu ngon nhất?</h3>
@@ -1302,9 +1397,11 @@ var BLOG_ARTICLES = [
                             <h3>Lễ hội và sự kiện tháng 4</h3>
                             <p>Tháng 4 thường có lễ hội hoa, triển lãm nghệ thuật và các sự kiện văn hóa tại Đà Lạt. Lễ 30/4-1/5 là dịp nghỉ lễ dài, khách du lịch đông nên cần đặt phòng và <strong>đặt bàn ăn</strong> trước.</p>
 
-                            <h3>Gợi ý ăn chơi tháng 4 tại Đà Lạt</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-42.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Gợi ý ăn chơi tháng 4 tại Đà Lạt</h3>
                             <p>Buổi sáng: Cafe view đồi, tham quan vườn hoa. Buổi trưa: Lẩu gà lá é, bún bò Huế. Buổi chiều-tối: <strong>Nướng BBQ ngoài trời</strong> tại <a href="index.html">Trạm Dừng Chill</a> — thời tiết tháng 4 rất lý tưởng cho nướng ngoài trời, trời trong nên view hoàng hôn và nhà lồng siêu đẹp.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-43.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Chi phí du lịch Đà Lạt tháng 4</h3>
                             <p>Phòng khách sạn: 300-800K/đêm. Ăn uống: 200-400K/ngày/người. Vé tham quan: 50-150K/điểm. Tổng chi phí khoảng 1.5-3 triệu/người cho 2 ngày 1 đêm. Dịp lễ 30/4 giá có thể tăng 20-30%.</p>
@@ -1326,13 +1423,16 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> thường xuyên tổ chức <strong>nhạc acoustic</strong> vào cuối tuần. Nghệ sĩ chơi guitar, hát những bản ballad nhẹ nhàng giữa không gian ngoài trời. Vừa nướng BBQ, vừa nghe nhạc, vừa ngắm biển sao nhà lồng — trải nghiệm chill hết nấc!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cuối tuần</a> để trải nghiệm nhạc sống</p>
 
-                            <h3>2. Phố Nướng Music</h3>
+
+                            <img src="assets/images/blog/mon-nuong-14.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Phố Nướng Music</h3>
                             <p>Quán nướng kết hợp sân khấu nhạc sống, có ban nhạc chơi mỗi tối. Phong cách sôi động hơn, thích hợp cho nhóm bạn trẻ. Menu nướng đa dạng, giá từ 150K/người.</p>
 
-                            <h3>3. BBQ & Jazz Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-15.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. BBQ & Jazz Đà Lạt</h3>
                             <p>Quán nướng phong cách jazz bar, không gian ấm áp với nhạc jazz live mỗi thứ 6-7. Phù hợp cho couple hoặc nhóm nhỏ thích không gian sang trọng. Giá từ 200K/người.</p>
 
-                            <h3>4. Campfire BBQ</h3>
+
+                            <img src="assets/images/blog/mon-nuong-18.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Campfire BBQ</h3>
                             <p>Nướng quanh đống lửa trại, có guitar giao lưu. Phong cách camping, ai cũng có thể tham gia hát. Không gian thoải mái, giá bình dân từ 120K/người.</p>
 
                             <h3>5. Rooftop Grill & Music</h3>
@@ -1355,13 +1455,15 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ <strong>bò Mỹ, bò Úc nhập khẩu</strong> chất lượng cao, thái lát vừa ăn, nướng trên than hoa thơm phức. Thịt bò tươi hàng ngày, không đông lạnh lâu. Set bò nướng cho 2 người từ 250K, bao gồm 3-4 loại thịt bò và rau củ nướng kèm.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức bò nướng</a></p>
 
-                            <h3>2. Korean BBQ Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-19.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Korean BBQ Đà Lạt</h3>
                             <p>Quán bò nướng kiểu Hàn Quốc, thịt bò ướp sốt bulgogi chuẩn vị. Có thêm kim chi, banchan đi kèm. Giá từ 180K/người, set cho 2 người từ 350K.</p>
 
                             <h3>3. Bò Tơ Tây Nguyên</h3>
                             <p>Chuyên bò tơ nuôi tại Tây Nguyên, thịt tươi ngọt tự nhiên. Nướng trên bếp than kiểu dân dã, chấm muối ớt chanh. Giá bình dân, set từ 150K/người.</p>
 
-                            <h3>4. Steak & Grill Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-2.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Steak & Grill Đà Lạt</h3>
                             <p>Quán nướng kiểu phương Tây, chuyên steak bò các loại. Bò Wagyu, ribeye, tenderloin nướng vừa tới. Phong cách sang trọng, giá từ 300K/người.</p>
 
                             <h3>5. Bò Nướng Lửa Than</h3>
@@ -1384,13 +1486,16 @@ var BLOG_ARTICLES = [
                             <p>Highlight số 1 của <strong>Đà Lạt về đêm</strong>! Tại <a href="index.html">Trạm Dừng Chill</a>, sau 18:30 hàng ngàn nhà lồng đồng loạt lên đèn, tạo nên biển sao lung linh giữa thung lũng. Vừa nướng BBQ nóng hổi, vừa ngắm view đêm — trải nghiệm đáng nhớ nhất!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>2. Dạo chợ đêm Đà Lạt</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-12.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Dạo chợ đêm Đà Lạt</h3>
                             <p>Chợ đêm Đà Lạt hoạt động từ 18:00-23:00 mỗi ngày. Bán đủ thứ: quần áo, đồ handmade, đặc sản. Ăn vặt ở đây cũng rất phong phú: bánh tráng nướng, sữa đậu nành, ốc nóng.</p>
 
-                            <h3>3. Cafe đêm Đà Lạt</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-13.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Cafe đêm Đà Lạt</h3>
                             <p>Đà Lạt có hàng chục quán cafe mở đến khuya. Nhiều quán có view đẹp, nhạc acoustic, không gian ấm áp. Gọi ly cacao nóng hoặc cafe sữa đá giữa trời se lạnh — cảm giác rất Đà Lạt.</p>
 
-                            <h3>4. Xe máy dạo phố đêm</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-14.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Xe máy dạo phố đêm</h3>
                             <p>Chạy xe quanh hồ Xuân Hương, lên đồi Robin ngắm thành phố lên đèn. Đường phố Đà Lạt về đêm yên tĩnh, mát mẻ — rất thích hợp cho couple lãng mạn.</p>
 
                             <h3>5-8. Xem phim, karaoke, bar và săn mây đêm</h3>
@@ -1414,12 +1519,14 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Bãi đỗ rộng, thoải mái</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nằm trên đường Huỳnh Tấn Phát, khu vực ít đông nên <strong>có bãi đỗ xe rộng rãi</strong> cho cả ô tô và xe máy. Gia đình lái xe đến thoải mái, không lo tìm chỗ đỗ. Quán mở cửa từ 15:00 nên đến sớm đỗ xe dễ dàng.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn cho gia đình</a></p>
+
+                            <img src="assets/images/blog/mon-nuong-21.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn cho gia đình</a></p>
 
                             <h3>2-3. Phố Nướng Lạc Dương và BBQ Garden</h3>
                             <p>Hai quán nằm ở ngoại ô Đà Lạt, đường rộng, bãi đỗ xe thoáng. Thích hợp cho đoàn ô tô 3-5 xe. Menu nướng phong phú, giá hợp lý.</p>
 
-                            <h3>4-5. Quán nướng khu Langbiang và khu Hồ Tuyền Lâm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-22.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4-5. Quán nướng khu Langbiang và khu Hồ Tuyền Lâm</h3>
                             <p>Các quán ở hai khu du lịch này thường có bãi đỗ xe lớn. Tuy nhiên khoảng cách từ trung tâm xa hơn (15-20 phút xe máy). Phù hợp cho gia đình muốn kết hợp tham quan + ăn nướng.</p>
 
                             <h3>Mẹo đỗ xe ở Đà Lạt</h3>
@@ -1444,12 +1551,15 @@ var BLOG_ARTICLES = [
                             <h3>Nướng điện — Tiện lợi và sạch sẽ</h3>
                             <p><strong>Nướng điện</strong> dễ kiểm soát nhiệt độ, ít khói, không cần thời gian nhóm lửa. Phù hợp cho quán buffet đông khách hoặc trong nhà. Tuy nhiên, hương vị thiếu đi mùi khói tự nhiên — nhiều người cảm thấy kém đậm đà hơn.</p>
 
-                            <h3>So sánh chi tiết</h3>
+
+                            <img src="assets/images/blog/mon-nuong-23.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>So sánh chi tiết</h3>
                             <p><strong>Hương vị:</strong> Than hoa thắng nhờ mùi khói tự nhiên. <strong>Tiện lợi:</strong> Nướng điện thắng vì dễ sử dụng. <strong>Chi phí:</strong> Than hoa rẻ hơn về nguyên liệu nhưng tốn công. <strong>Sức khỏe:</strong> Nướng điện ít khói hơn nhưng than hoa ngoài trời không bị khói ám.</p>
 
-                            <h3>Tại Trạm Dừng Chill — Nướng than hoa chuẩn vị</h3>
+
+                            <img src="assets/images/blog/mon-nuong-24.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Tại Trạm Dừng Chill — Nướng than hoa chuẩn vị</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> chọn <strong>nướng than hoa</strong> vì mang lại hương vị BBQ đúng chuẩn nhất. Nướng ngoài trời nên khói thoát nhanh, không bị bám mùi. Nhân viên hỗ trợ nhóm lửa và hướng dẫn nướng — bạn chỉ cần thưởng thức!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/mon-nuong-25.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Kết luận</h3>
                             <p>Nếu ưu tiên <strong>hương vị ngon nhất</strong>, nướng than hoa là lựa chọn vượt trội. Đến <a href="index.html">Trạm Dừng Chill</a> để trải nghiệm BBQ than hoa ngoài trời giữa view Đà Lạt tuyệt đẹp. <a href="index.html#booking">Đặt bàn ngay</a>!</p>`
@@ -1470,9 +1580,11 @@ var BLOG_ARTICLES = [
                             <h3>Hoa phượng tím — Biểu tượng tháng 5 Đà Lạt</h3>
                             <p><strong>Hoa phượng tím</strong> (Jacaranda) nở rộ khắp các con đường Đà Lạt vào tháng 5-6. Cả thành phố chìm trong sắc tím lãng mạn — đặc biệt đẹp trên đường Trần Phú, Hùng Vương. Đây là thời điểm chụp ảnh đẹp nhất năm!</p>
 
-                            <h3>Nướng BBQ ngắm mưa — Trải nghiệm riêng mùa mưa</h3>
+
+                            <img src="assets/images/blog/mon-nuong-26.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ ngắm mưa — Trải nghiệm riêng mùa mưa</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, nướng BBQ trong tiết trời se lạnh sau cơn mưa chiều là trải nghiệm cực chill. Không khí trong lành, sương nhẹ bay qua thung lũng, nhà lồng lên đèn trong màn mưa phùn — <strong>view đêm mưa Đà Lạt</strong> huyền ảo vô cùng!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/mon-nuong-3.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Lịch trình gợi ý 2 ngày 1 đêm</h3>
                             <p>Ngày 1: Tham quan vườn hoa, chụp ảnh phượng tím, cafe chiều. Tối: nướng BBQ tại Trạm Dừng Chill. Ngày 2: Hồ Tuyền Lâm, thác Datanla, mua đặc sản về.</p>
@@ -1495,12 +1607,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Combo từ 95K/người</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>combo nướng tiết kiệm</strong>: Combo 2 người từ 200K, Combo 4 người từ 380K, Combo nhóm 6-8 người từ 600K. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
-                            <p>👉 <a href="index.html#booking">Đặt combo ngay</a></p>
 
-                            <h3>So sánh giá 5 quán nướng Đà Lạt</h3>
+                            <img src="assets/images/blog/mon-nuong-30.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt combo ngay</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-31.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>So sánh giá 5 quán nướng Đà Lạt</h3>
                             <p><strong>Trạm Dừng Chill:</strong> 95-300K/người — view đẹp nhất. <strong>Phố Nướng Lạc Dương:</strong> 120-250K/người — không gian rộng. <strong>BBQ Garden:</strong> 150-300K/người — sân vườn đẹp. <strong>Đồi Nướng BBQ:</strong> 100-200K/người — giá rẻ. <strong>Sunset BBQ:</strong> 180-350K/người — hiện đại.</p>
 
-                            <h3>Mẹo ăn nướng tiết kiệm ở Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-4.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo ăn nướng tiết kiệm ở Đà Lạt</h3>
                             <p>Đi nhóm đông để chia combo lớn (rẻ hơn/người). Đến vào ngày thường thay vì cuối tuần. Hỏi quán về <strong>khuyến mãi, voucher</strong> trước khi đặt bàn. Follow fanpage quán để cập nhật ưu đãi.</p>
 
                             <h3>Kết luận</h3>
@@ -1522,9 +1637,11 @@ var BLOG_ARTICLES = [
                             <h3>6 quán ăn gần trung tâm Đà Lạt</h3>
                             <p>1. Phở Hiền (Phan Đình Phùng) — phở gà ngon nhất. 2. Bánh mì xíu mại (Nguyễn Văn Trỗi) — món sáng huyền thoại. 3. Lẩu bò Năm Ngón — lẩu nóng chuẩn vị. 4. Bún bò Huế Bà Tuyết — bún bò đậm đà. 5. Quán Ốc Đà Lạt — hải sản bình dân. 6. Nem nướng Đà Lạt — món chiều nhẹ nhàng.</p>
 
-                            <h3>Muốn view đẹp? Đi xa trung tâm một chút!</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-44.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Muốn view đẹp? Đi xa trung tâm một chút!</h3>
                             <p>Quán ăn trung tâm tiện nhưng ít view. Nếu muốn trải nghiệm <strong>ăn nướng view đẹp nhất Đà Lạt</strong>, hãy chạy xe 10 phút đến <a href="index.html">Trạm Dừng Chill</a> trên đường Huỳnh Tấn Phát. View hoàng hôn, xe lửa, biển sao nhà lồng — xứng đáng 10 phút di chuyển!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-45.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Mẹo ăn uống ở trung tâm Đà Lạt</h3>
                             <p>Buổi sáng-trưa: ăn ở trung tâm cho tiện. Buổi chiều-tối: ra ngoài trung tâm để có không gian đẹp hơn, ít đông hơn. Cuối tuần nên <strong>đặt bàn trước</strong> vì quán nào cũng đông.</p>
@@ -1548,10 +1665,13 @@ var BLOG_ARTICLES = [
                             <h3>Bước 2: Cách nướng thịt đúng cách</h3>
                             <p><strong>Bò:</strong> Nướng lửa vừa, lật một lần, chín tới (medium) là ngon nhất. <strong>Hải sản:</strong> Tôm nướng đến khi đổi màu cam, mực nướng nhanh 1-2 phút mỗi mặt. <strong>Gà:</strong> Nướng lửa nhỏ, chín kỹ, thái mỏng trước khi nướng.</p>
 
-                            <h3>Bước 3: Nước chấm và đồ ăn kèm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-5.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Bước 3: Nước chấm và đồ ăn kèm</h3>
                             <p>BBQ Đà Lạt thường đi kèm: muối ớt chanh, sốt BBQ, nước mắm tỏi ớt. Rau sống cuốn thịt nướng, cơm trắng hoặc mì tôm ăn kèm. <strong>Mẹo:</strong> Thử chấm bò nướng với muối ớt chanh — đơn giản mà cực ngon!</p>
 
-                            <h3>Bước 4: Những lỗi thường gặp khi nướng</h3>
+
+                            <img src="assets/images/blog/mon-nuong-6.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/mon-nuong-7.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Bước 4: Những lỗi thường gặp khi nướng</h3>
                             <p>Đừng nướng lửa quá to — thịt cháy ngoài sống trong. Đừng lật thịt liên tục — để yên cho chín một mặt rồi mới lật. Đừng nướng quá nhiều cùng lúc — bếp nguội, thịt không chín đều.</p>
 
                             <h3>Kết luận</h3>
@@ -1571,13 +1691,15 @@ var BLOG_ARTICLES = [
                             <p>Tham quan hồ Xuân Hương, Quảng trường Lâm Viên, ga Đà Lạt cổ kính. Cafe ở các quán view đẹp. Buổi tối ngày 1: <strong>nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong> — bắt đầu chuyến đi với bữa ăn view đẹp nhất!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>Ngày 3: Langbiang và thác Datanla</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-5.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Ngày 3: Langbiang và thác Datanla</h3>
                             <p>Buổi sáng chinh phục đỉnh Langbiang, ngắm toàn cảnh Đà Lạt từ trên cao. Chiều chơi trượt máng, zipline tại thác Datanla. Tối ăn lẩu gà lá é — đặc sản vùng Langbiang.</p>
 
                             <h3>Ngày 4: Hồ Tuyền Lâm và thiền viện</h3>
                             <p>Buổi sáng đạp xe quanh hồ Tuyền Lâm, thăm thiền viện Trúc Lâm. Chiều tham quan vườn hoa thành phố. <strong>Đà Lạt mùa hè</strong> vẫn có hoa nở rực rỡ — đặc biệt hoa hồng và hoa lavender.</p>
 
-                            <h3>Ngày 5: Mua sắm và về</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-6.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Ngày 5: Mua sắm và về</h3>
                             <p>Sáng mua đặc sản tại chợ Đà Lạt: mứt, rượu vang, trà atiso, cà phê. Trưa ăn bún bò hoặc phở gà lần cuối trước khi rời phố núi.</p>
 
                             <h3>Chi phí ước tính 5 ngày</h3>
@@ -1600,13 +1722,16 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng ngoài trời nên <strong>chào đón thú cưng</strong>. Không gian rộng rãi, pet có thể nằm cạnh bàn thoải mái. Nhiều khách đã mang theo chó, mèo đến ăn nướng và chụp ảnh cùng view hoàng hôn. Quán có chỗ buộc dây cho pet an toàn.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cùng boss</a></p>
 
-                            <h3>2. Cafe Garden Pet</h3>
+
+                            <img src="assets/images/blog/mon-nuong-8.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Cafe Garden Pet</h3>
                             <p>Quán cafe kết hợp nướng nhẹ, có sân vườn rộng cho pet chạy nhảy. Menu nướng hạn chế nhưng không gian thân thiện với thú cưng. Giá từ 100K/người.</p>
 
-                            <h3>3. Camping BBQ Lạc Dương</h3>
+
+                            <img src="assets/images/blog/mon-nuong-9.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3. Camping BBQ Lạc Dương</h3>
                             <p>Quán nướng ngoài trời khu Lạc Dương, không gian mở, pet thoải mái. Có cả khu cắm trại qua đêm cho ai muốn ngủ lều cùng thú cưng. Giá từ 120K/người.</p>
 
-                            <h3>4. BBQ Sân Vườn Thông</h3>
+
+                            <img src="assets/images/blog/mon-nuong-1.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. BBQ Sân Vườn Thông</h3>
                             <p>Quán nướng giữa rừng thông, không gian rất thoáng. Pet có thể chạy trong sân vườn. Menu đa dạng, giá từ 150K/người.</p>
 
                             <h3>Mẹo đi Đà Lạt cùng thú cưng</h3>
@@ -1630,9 +1755,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Hải sản nướng tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm sú, mực ống, cá basa, nghêu, sò. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức hải sản</a></p>
 
-                            <h3>Cách nhận biết hải sản tươi</h3>
+                            <img src="assets/images/blog/hai-san-13.jpg" alt="Hải sản nướng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức hải sản</a></p>
+
+
+                            <img src="assets/images/blog/hai-san-14.jpg" alt="Hải sản tươi nướng tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Cách nhận biết hải sản tươi</h3>
                             <p><strong>Tôm:</strong> vỏ bóng, thân cứng, không mùi hôi. <strong>Mực:</strong> màu trắng trong, không nhớt. <strong>Cá:</strong> mắt trong, mang đỏ tươi, thịt đàn hồi. Quán uy tín sẽ cho bạn xem nguyên liệu trước khi nướng.</p>
 
                             <h3>Top món hải sản nướng phải thử</h3>
@@ -1657,11 +1784,14 @@ var BLOG_ARTICLES = [
                             <h3>Hoạt động thú vị mùa mưa Đà Lạt</h3>
                             <p>Café ngắm mưa, tham quan bảo tàng, spa nghỉ dưỡng, shopping ở chợ Đà Lạt. Buổi tối sau khi mưa tạnh — ra ngoài ăn nướng, dạo phố, uống rượu vang ấm bụng.</p>
 
-                            <h3>Nướng BBQ sau cơn mưa — Chill cực độ</h3>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, buổi tối sau mưa không khí mát lạnh, sương nhẹ bay qua thung lũng. Vừa nướng BBQ nóng hổi vừa ngắm <strong>nhà lồng lên đèn trong sương</strong> — đẹp huyền ảo! Mùa mưa quán ít đông nên bạn được phục vụ chu đáo hơn.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>Lưu ý khi du lịch Đà Lạt mùa mưa</h3>
+                            <img src="assets/images/blog/khong-gian-ngay-7.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ sau cơn mưa — Chill cực độ</h3>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, buổi tối sau mưa không khí mát lạnh, sương nhẹ bay qua thung lũng. Vừa nướng BBQ nóng hổi vừa ngắm <strong>nhà lồng lên đèn trong sương</strong> — đẹp huyền ảo! Mùa mưa quán ít đông nên bạn được phục vụ chu đáo hơn.</p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-9.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lưu ý khi du lịch Đà Lạt mùa mưa</h3>
                             <p>Mang áo mưa, ô. Chọn quán có mái che hoặc không gian linh hoạt. Lên kế hoạch hoạt động trong nhà buổi chiều. Buổi sáng và tối vẫn tận hưởng ngoài trời bình thường.</p>
 
                             <h3>Kết luận</h3>
@@ -1681,13 +1811,15 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng <strong>Instagram-worthy</strong> số 1 Đà Lạt! 3 góc chụp đẹp: hoàng hôn vàng rực, xe lửa cổ kính chạy ngang, biển sao nhà lồng về đêm. Bạn không cần filter — ảnh raw đã đẹp lung linh. Hashtag #TramDungChill có hàng ngàn bài đăng!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn check-in</a></p>
 
-                            <h3>2. BBQ Garden Thông Xanh</h3>
+
+                            <img src="assets/images/blog/checkin-5.jpg" alt="Góc check-in đẹp tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. BBQ Garden Thông Xanh</h3>
                             <p>Quán nướng giữa rừng thông, đèn fairy lights lung linh. Phong cách bohemian, rất photogenic. View rừng thông về đêm huyền bí. Giá từ 150K/người.</p>
 
                             <h3>3. Đồi Nướng Camping</h3>
                             <p>Quán trên đồi, phong cách glamping với lều trắng và đèn led. View thành phố từ trên cao, đẹp nhất lúc sunset. Background chụp ảnh cực chất, giá từ 120K/người.</p>
 
-                            <h3>4. Lakeside BBQ</h3>
+
+                            <img src="assets/images/blog/checkin-6.jpg" alt="Điểm chụp hình sống ảo Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4. Lakeside BBQ</h3>
                             <p>Quán nướng ven hồ, phản chiếu ánh đèn trên mặt nước. Phong cách Nhật Bản minimalist, rất tao nhã. Góc chụp đẹp nhưng quán nhỏ, cần đặt bàn trước.</p>
 
                             <h3>5. Vintage Train BBQ</h3>
@@ -1711,12 +1843,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Gà nướng + view hoàng hôn</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, <strong>gà nướng</strong> là một trong những món best-seller. Gà ta nguyên con nướng than hoa, ướp gia vị đặc biệt, phục vụ kèm rau sống và nước chấm. Ăn gà nướng giữa view thung lũng — trải nghiệm ẩm thực đẳng cấp!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức gà nướng</a></p>
 
-                            <h3>2. Gà Nướng Lá É Langbiang</h3>
+                            <img src="assets/images/blog/mon-nuong-10.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức gà nướng</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-11.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Gà Nướng Lá É Langbiang</h3>
                             <p>Quán chuyên gà nướng trên đường đi Langbiang, gà nuôi tại chỗ nên rất tươi. Nướng nguyên con trên than hoa, phục vụ kèm xôi hoặc cơm lam. Giá 250-350K/con.</p>
 
-                            <h3>3-4. Quán Gà Đồi và Gà Nướng Bà Ba</h3>
+
+                            <img src="assets/images/blog/mon-nuong-12.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3-4. Quán Gà Đồi và Gà Nướng Bà Ba</h3>
                             <p>Hai quán gà nướng bình dân, đông khách địa phương. Gà tươi, nướng vừa chín, chấm muối ớt. Giá 200-300K/con, phù hợp cho gia đình.</p>
 
                             <h3>5. BBQ Chicken House</h3>
@@ -1740,9 +1875,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Cách đặt bàn tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> hỗ trợ <strong>đặt bàn online</strong> cực nhanh: Bước 1: Vào website, điền form đặt bàn (số người, ngày giờ, yêu cầu đặc biệt). Bước 2: Nhận xác nhận qua Zalo trong 15 phút. Bước 3: Đến quán đúng giờ, được dẫn đến bàn đã đặt.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay — xác nhận trong 15 phút</a></p>
 
-                            <h3>Mẹo đặt bàn có view đẹp</h3>
+                            <img src="assets/images/blog/khong-gian-ngay-8.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay — xác nhận trong 15 phút</a></p>
+
+
+                            <img src="assets/images/blog/khong-gian-ngay-10.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo đặt bàn có view đẹp</h3>
                             <p>Đặt trước 1-2 ngày, nhất là cuối tuần. Ghi chú yêu cầu "bàn view hoàng hôn" hoặc "bàn view nhà lồng". Đến trước giờ đặt 15 phút để được chọn vị trí tốt nhất. Đặt lúc 16:30-17:00 để bắt trọn hoàng hôn.</p>
 
                             <h3>Các kênh đặt bàn phổ biến ở Đà Lạt</h3>
@@ -1767,11 +1904,14 @@ var BLOG_ARTICLES = [
                             <h3>Festival hoa Đà Lạt tháng 7</h3>
                             <p>Đà Lạt thường tổ chức các <strong>festival hoa</strong> vào giữa năm với trưng bày hoa tươi, nghệ thuật sắp đặt, biểu diễn nghệ thuật. Đây là dịp hiếm để ngắm hàng triệu bông hoa đủ loại tại công viên thành phố.</p>
 
-                            <h3>Nướng BBQ giữa sương mù — Trải nghiệm hiếm có</h3>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, vào những đêm sương mù, view thung lũng trở nên <strong>huyền ảo như cổ tích</strong>. Ánh đèn nhà lồng xuyên qua sương tạo hiệu ứng "đèn trong mây" tuyệt đẹp. Vừa nướng BBQ nóng giữa trời lạnh, vừa ngắm sương bay — khoảnh khắc chỉ có ở Đà Lạt!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>Gợi ý lịch trình tháng 7</h3>
+                            <img src="assets/images/blog/mon-nuong-13.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ giữa sương mù — Trải nghiệm hiếm có</h3>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, vào những đêm sương mù, view thung lũng trở nên <strong>huyền ảo như cổ tích</strong>. Ánh đèn nhà lồng xuyên qua sương tạo hiệu ứng "đèn trong mây" tuyệt đẹp. Vừa nướng BBQ nóng giữa trời lạnh, vừa ngắm sương bay — khoảnh khắc chỉ có ở Đà Lạt!</p>
+
+                            <img src="assets/images/blog/mon-nuong-14.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-15.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Gợi ý lịch trình tháng 7</h3>
                             <p>Sáng: Tham quan festival hoa, chụp ảnh. Trưa: Lẩu nóng hoặc phở gà. Chiều: Cafe ngắm mưa. Tối: <strong>Nướng BBQ tại Trạm Dừng Chill</strong> ngắm sương mù và nhà lồng.</p>
 
                             <h3>Kết luận</h3>
@@ -1792,12 +1932,14 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — WiFi ổn định, view chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có <strong>WiFi miễn phí</strong> tốc độ cao, phủ sóng toàn quán. Dân digital nomad có thể đến sớm từ 15:00, ngồi làm việc với view thung lũng, đến 17:00 thì gọi nướng ăn tối. Kết hợp work và chill hoàn hảo!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/mon-nuong-18.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>2-3. Workspace Cafe & Grill và Co-Nướng Space</h3>
                             <p>Các quán kết hợp coworking và nướng nhẹ, có ổ cắm điện, bàn rộng. WiFi tốc độ cao. Phù hợp cho buổi họp nhóm kết hợp ăn tối. Giá từ 100-200K/người.</p>
 
-                            <h3>4-5. BBQ Cafe Đồi Thông và Digital Grill House</h3>
+
+                            <img src="assets/images/blog/mon-nuong-19.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4-5. BBQ Cafe Đồi Thông và Digital Grill House</h3>
                             <p>Hai quán mới mở phục vụ đối tượng trẻ, có WiFi mạnh và không gian phù hợp làm việc. Menu nướng đa dạng, không gian hiện đại.</p>
 
                             <h3>Mẹo cho digital nomad ở Đà Lạt</h3>
@@ -1821,12 +1963,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — BBQ fusion Việt-Hàn</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có menu <strong>BBQ đa phong cách</strong> bao gồm cả thịt ướp kiểu Hàn Quốc. Bò bulgogi, thịt ba chỉ ướp sốt gochujang — nướng trên than hoa giữa view Đà Lạt. Sự kết hợp giữa hương vị Hàn và không gian Việt rất thú vị!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>2. K-BBQ Đà Lạt</h3>
+                            <img src="assets/images/blog/mon-nuong-2.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-21.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. K-BBQ Đà Lạt</h3>
                             <p>Quán chuyên Korean BBQ, decor Hàn Quốc. Thịt nhập khẩu, banchan đa dạng: kim chi, japchae, pickled radish. Có soju và bia Hàn. Giá từ 200K/người.</p>
 
-                            <h3>3-4. Seoul Garden và Kimchi House</h3>
+
+                            <img src="assets/images/blog/mon-nuong-22.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3-4. Seoul Garden và Kimchi House</h3>
                             <p>Hai quán nướng Hàn ở trung tâm Đà Lạt, buffet nướng không giới hạn. Menu phong phú với 20+ loại thịt. Giá buffet 199-299K/người, phù hợp nhóm đông.</p>
 
                             <h3>5. Hanok BBQ</h3>
@@ -1849,13 +1994,15 @@ var BLOG_ARTICLES = [
                             <p>Không gì lãng mạn hơn ngồi cạnh nhau, tay trong tay nướng thịt, mắt ngắm <strong>hoàng hôn Đà Lạt</strong> buông xuống thung lũng. Tại <a href="index.html">Trạm Dừng Chill</a>, bàn cho couple nhỏ xinh, riêng tư — bối cảnh hoàn hảo cho khoảnh khắc đầu tiên.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn date night</a></p>
 
-                            <h3>2. Đạp xe đôi quanh hồ Xuân Hương</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-16.jpg" alt="Không gian hẹn hò đôi lứa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Đạp xe đôi quanh hồ Xuân Hương</h3>
                             <p>Thuê xe đạp đôi, đạp quanh hồ Xuân Hương lúc sáng sớm. Sương mù nhẹ, không khí trong lành, hai bạn cùng đạp xe — kỷ niệm đáng nhớ cho tình yêu mới.</p>
 
                             <h3>3. Cafe trên mây</h3>
                             <p>Đà Lạt có nhiều quán cafe nằm trên đồi cao, sáng sớm sương mù bao phủ — như ngồi giữa mây. Gọi ly cacao nóng cho hai, ngắm sương tan dần — <strong>lãng mạn cực kỳ</strong>.</p>
 
-                            <h3>4-5. Chợ đêm và Thung lũng Tình Yêu</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-17.jpg" alt="Bàn setup cho cặp đôi tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4-5. Chợ đêm và Thung lũng Tình Yêu</h3>
                             <p>Dạo chợ đêm tay trong tay, ăn vặt cùng nhau. Ngày hôm sau tham quan Thung Lũng Tình Yêu — địa điểm kinh điển cho couple với hồ nước, hoa và cảnh đẹp.</p>
 
                             <h3>6-7. Săn mây sáng sớm và Ngắm sao đêm</h3>
@@ -1880,11 +2027,14 @@ var BLOG_ARTICLES = [
                             <h3>Ưu điểm du lịch Đà Lạt tháng 8</h3>
                             <p><strong>Ít khách:</strong> Không đông đúc, xếp hàng. <strong>Giá rẻ:</strong> Phòng khách sạn, vé máy bay giảm 20-40%. <strong>Phục vụ tốt hơn:</strong> Quán ăn, điểm tham quan không bị quá tải. Đà Lạt tháng 8 như một thiên đường yên bình.</p>
 
-                            <h3>Nướng BBQ mùa mưa — Đặc biệt hơn bạn nghĩ</h3>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, nướng BBQ tháng 8 có trải nghiệm riêng: không khí mát lạnh, sương nhẹ bay, <strong>nhà lồng lên đèn trong mưa phùn</strong> tạo khung cảnh lung linh huyền ảo. Quán vắng hơn nên được phục vụ chu đáo, chọn bàn thoải mái.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>Chi phí du lịch Đà Lạt tháng 8</h3>
+                            <img src="assets/images/blog/khong-gian-ngay-11.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ mùa mưa — Đặc biệt hơn bạn nghĩ</h3>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, nướng BBQ tháng 8 có trải nghiệm riêng: không khí mát lạnh, sương nhẹ bay, <strong>nhà lồng lên đèn trong mưa phùn</strong> tạo khung cảnh lung linh huyền ảo. Quán vắng hơn nên được phục vụ chu đáo, chọn bàn thoải mái.</p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-12.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Chi phí du lịch Đà Lạt tháng 8</h3>
                             <p>Phòng: 200-500K/đêm (giảm 30% so với mùa cao điểm). Ăn uống: 150-300K/ngày. Tổng 2 ngày 1 đêm: <strong>1-2.5 triệu/người</strong> — siêu tiết kiệm!</p>
 
                             <h3>Kết luận</h3>
@@ -1905,9 +2055,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Menu 50+ món</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> tự hào với <strong>menu hơn 50 món</strong>: BBQ (bò, hải sản, gà, heo), lẩu (nấm, Thái, gà lá é), đồ chiên, rau củ nướng, đồ uống. Từ 95K/người, combo linh hoạt theo số người. Menu có ảnh minh họa, dễ chọn.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn cho nhóm</a></p>
 
-                            <h3>So sánh menu các quán nướng Đà Lạt</h3>
+                            <img src="assets/images/blog/mon-nuong-23.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn cho nhóm</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-24.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>So sánh menu các quán nướng Đà Lạt</h3>
                             <p><strong>Trạm Dừng Chill:</strong> 50+ món, đa phong cách. <strong>Korean BBQ:</strong> 30+ món, chuyên Hàn. <strong>Buffet nướng:</strong> 40+ món nhưng chất lượng bình bình. <strong>Quán nhỏ:</strong> 15-20 món, hạn chế. Muốn đa dạng + chất lượng thì Trạm Dừng Chill là lựa chọn tối ưu.</p>
 
                             <h3>Gợi ý combo cho nhóm đông</h3>
@@ -1931,12 +2083,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Sườn nướng sốt BBQ đặc biệt</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ <strong>sườn heo nướng sốt BBQ</strong> ướp qua đêm, nướng chậm trên than hoa. Thịt mềm, đậm vị, lớp sốt caramel ngoài giòn tan. Ăn kèm salad và khoai tây nướng — combo hoàn hảo!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức sườn nướng</a></p>
 
-                            <h3>2. Ribs & Grill House</h3>
+                            <img src="assets/images/blog/mon-nuong-25.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức sườn nướng</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-26.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Ribs & Grill House</h3>
                             <p>Quán chuyên sườn kiểu Mỹ, có baby back ribs và spare ribs. Nướng trong lò rồi finish trên bếp than. Phong cách Western, giá từ 200K/phần.</p>
 
-                            <h3>3-4. Bếp Nướng Đà Lạt và BBQ Pit</h3>
+
+                            <img src="assets/images/blog/mon-nuong-30.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3-4. Bếp Nướng Đà Lạt và BBQ Pit</h3>
                             <p>Hai quán nướng dân dã có sườn nướng ngon, giá bình dân. Sườn heo ướp sả ớt, nướng than hoa kiểu Việt. Giá từ 100-150K/phần, phù hợp túi tiền sinh viên.</p>
 
                             <h3>5. Premium BBQ Đà Lạt</h3>
@@ -1961,9 +2116,11 @@ var BLOG_ARTICLES = [
                             <h3>Ở đâu ở Đà Lạt?</h3>
                             <p>Trung tâm: Khách sạn, homestay gần chợ đêm, giá 300-800K/đêm. Ngoại ô: Villa, resort view đẹp, giá 500K-2 triệu/đêm. Gợi ý: Ở trung tâm nếu đi lần đầu, ngoại ô nếu muốn yên tĩnh.</p>
 
-                            <h3>Ăn gì ở Đà Lạt?</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-21.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Ăn gì ở Đà Lạt?</h3>
                             <p>Sáng: Bánh mì xíu mại, phở gà. Trưa: Bún bò, cơm tấm. Chiều: Cafe, kem bơ. <strong>Tối: Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong> — highlight ẩm thực không thể bỏ lỡ! Từ 95K/người, view hoàng hôn + biển sao nhà lồng.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-22.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Chơi gì ở Đà Lạt?</h3>
                             <p>Langbiang, hồ Tuyền Lâm, thác Datanla, ga Đà Lạt, Thung Lũng Tình Yêu, chợ đêm. Mỗi điểm vé 50-150K. Nên dành 2-3 ngày để khám phá hết.</p>
@@ -1986,12 +2143,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Sự kiện view đẹp nhất</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nhận <strong>đặt tiệc từ 10-50+ người</strong>. Không gian ngoài trời rộng rãi, view thung lũng. Quán hỗ trợ setup trang trí, âm thanh, menu linh hoạt theo ngân sách. Đặc biệt: backdrop tự nhiên từ hoàng hôn và biển sao nhà lồng — không đâu có!</p>
-                            <p>👉 <a href="index.html#booking">Đặt tiệc sự kiện</a></p>
 
-                            <h3>2-3. Event Garden và Open Air BBQ</h3>
+                            <img src="assets/images/blog/mon-nuong-3.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt tiệc sự kiện</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-31.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2-3. Event Garden và Open Air BBQ</h3>
                             <p>Hai địa điểm chuyên tổ chức sự kiện ngoài trời, sức chứa lớn (50-100 người). Có sân khấu, âm thanh ánh sáng. Tuy nhiên view không đặc sắc bằng Trạm Dừng Chill.</p>
 
-                            <h3>4-5. Resort BBQ Hồ Tuyền Lâm và Villa Nướng Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-4.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4-5. Resort BBQ Hồ Tuyền Lâm và Villa Nướng Đà Lạt</h3>
                             <p>Hai địa điểm cao cấp hơn, phù hợp sự kiện sang trọng: đám cưới ngoài trời, corporate event. Giá từ 500K/người, bao gồm set nướng + trang trí.</p>
 
                             <h3>Mẹo tổ chức sự kiện nướng BBQ</h3>
@@ -2016,9 +2176,11 @@ var BLOG_ARTICLES = [
                             <h3>Lá vàng Đà Lạt — Khoảnh khắc ngắn ngủi</h3>
                             <p><strong>Lá vàng Đà Lạt</strong> tháng 9-10 là thời điểm hiếm hoi khi cây cối chuyển màu. Đường Trần Hưng Đạo, Lê Đại Hành có hàng cây lá vàng rơi — cảnh đẹp như phim Hàn Quốc. Nhiếp ảnh gia đổ về Đà Lạt săn ảnh lá vàng vào mùa này.</p>
 
-                            <h3>Nướng BBQ view sương mù — Chỉ có tháng 9</h3>
+
+                            <img src="assets/images/blog/mon-nuong-5.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ view sương mù — Chỉ có tháng 9</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 9 sương mù dày, thung lũng chìm trong biển mây. Đèn nhà lồng xuyên qua sương tạo <strong>view "thiên đường trên mây"</strong>. Nướng BBQ nóng giữa sương lạnh — trải nghiệm ai cũng phải "wow"!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/mon-nuong-6.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Gợi ý lịch trình tháng 9</h3>
                             <p>Sáng: Săn mây sớm, chụp ảnh lá vàng. Trưa: Lẩu gà nóng. Chiều: Cafe ngắm mưa. Tối: Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> view sương mù.</p>
@@ -2041,12 +2203,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Mực tươi nướng than hoa</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>mực ống tươi</strong> hàng ngày từ biển. Mực nướng trên than hoa, thịt giòn dai, không khô. Có nhiều cách chế biến: nướng sa tế, nướng muối ớt, nướng bơ tỏi. Giá mực nướng từ 80K/phần.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>2. Hải Sản Nướng Phan Thiết</h3>
+                            <img src="assets/images/blog/hai-san-15.jpg" alt="Hải sản tươi nướng tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/hai-san-16.jpg" alt="Món hải sản nướng thơm ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Hải Sản Nướng Phan Thiết</h3>
                             <p>Quán chuyên hải sản, mực tươi sống bày bể. Khách chọn mực rồi quán nướng tại chỗ. Giá theo ký, khoảng 200-300K/kg mực ống.</p>
 
-                            <h3>3-4. Quán Ốc Đà Lạt và Bếp Hải Sản</h3>
+
+                            <img src="assets/images/blog/hai-san-11.jpg" alt="Hải sản nướng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3-4. Quán Ốc Đà Lạt và Bếp Hải Sản</h3>
                             <p>Hai quán hải sản bình dân, có mực nướng trong menu. Giá rẻ hơn, khoảng 60-100K/phần. Chất lượng ổn, phù hợp ăn nhẹ.</p>
 
                             <h3>5. Seafood BBQ Premium</h3>
@@ -2070,9 +2235,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Ưu đãi đặc biệt 2026</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>ưu đãi hấp dẫn</strong>: Setup sinh nhật MIỄN PHÍ, combo nướng giá tốt từ 95K/người, ưu đãi nhóm đông từ 6 người. Follow fanpage để cập nhật khuyến mãi mới nhất!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn và nhận ưu đãi</a></p>
 
-                            <h3>Các khuyến mãi phổ biến ở Đà Lạt</h3>
+                            <img src="assets/images/blog/mon-nuong-7.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn và nhận ưu đãi</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-8.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Các khuyến mãi phổ biến ở Đà Lạt</h3>
                             <p><strong>Giảm giá ngày thường:</strong> Nhiều quán giảm 10-20% thứ 2-5. <strong>Combo deal:</strong> Set nướng cho 2-4 người giá ưu đãi. <strong>Free topping:</strong> Tặng thêm món khi đặt trước. <strong>Happy hour:</strong> Giảm giá đồ uống giờ sớm.</p>
 
                             <h3>Mẹo săn deal nướng Đà Lạt</h3>
@@ -2097,11 +2264,14 @@ var BLOG_ARTICLES = [
                             <h3>Hoa dã quỳ — Biểu tượng tháng 10 Đà Lạt</h3>
                             <p><strong>Hoa dã quỳ</strong> (hoa hướng dương hoang dã) nở rực vàng khắp triền đồi Đà Lạt vào tháng 10-11. Đặc biệt đẹp trên đường đi Langbiang, đèo Mimosa. Cánh đồng dã quỳ vàng rực dưới nắng chiều — khoảnh khắc tuyệt đẹp!</p>
 
-                            <h3>Nướng BBQ ngắm sương chiều — Trải nghiệm mùa thu</h3>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 10 view thung lũng đặc biệt đẹp: sương mù buổi chiều tạo lớp voan mỏng phủ lên nhà lồng, khi đèn lên thì <strong>ánh sáng xuyên sương</strong> lung linh huyền ảo. Nướng BBQ nóng giữa trời thu se lạnh — chill hết nấc!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>Lịch trình gợi ý tháng 10</h3>
+                            <img src="assets/images/blog/khong-gian-ngay-3.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ ngắm sương chiều — Trải nghiệm mùa thu</h3>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 10 view thung lũng đặc biệt đẹp: sương mù buổi chiều tạo lớp voan mỏng phủ lên nhà lồng, khi đèn lên thì <strong>ánh sáng xuyên sương</strong> lung linh huyền ảo. Nướng BBQ nóng giữa trời thu se lạnh — chill hết nấc!</p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/khong-gian-ngay-41.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lịch trình gợi ý tháng 10</h3>
                             <p>Sáng: Chụp ảnh cánh đồng dã quỳ. Trưa: Lẩu bò, phở gà. Chiều: Cafe view đồi. Tối: Nướng BBQ ngắm sương tại Trạm Dừng Chill.</p>
 
                             <h3>Kết luận</h3>
@@ -2121,13 +2291,15 @@ var BLOG_ARTICLES = [
                             <p><strong>Chọn thịt:</strong> Bò nên chọn phần có marbling (vân mỡ) như ribeye, striploin. Heo chọn ba chỉ hoặc sườn. Gà chọn đùi hoặc cánh — nhiều mỡ hơn ức nên nướng không bị khô.</p>
                             <p><strong>Ướp thịt:</strong> Ướp ít nhất 30 phút, tốt nhất qua đêm. Gia vị cơ bản: muối, tiêu, tỏi, dầu ăn. Thêm mật ong hoặc nước mắm để tạo caramel đẹp khi nướng.</p>
 
-                            <h3>Mẹo 3-4: Nhiệt độ và thời gian nướng</h3>
+
+                            <img src="assets/images/blog/mon-nuong-9.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo 3-4: Nhiệt độ và thời gian nướng</h3>
                             <p><strong>Nhiệt độ:</strong> Bò nướng lửa to (medium-rare), heo và gà nướng lửa vừa (chín kỹ). <strong>Thời gian:</strong> Bò lát mỏng 2-3 phút/mặt, sườn heo 5-7 phút/mặt, gà nguyên miếng 8-10 phút/mặt.</p>
 
                             <h3>Mẹo 5-6: Lật thịt và để nghỉ</h3>
                             <p><strong>Chỉ lật 1 lần:</strong> Để thịt chín một mặt rồi mới lật — giữ nước bên trong. <strong>Để nghỉ:</strong> Sau khi nướng, để thịt nghỉ 2-3 phút trước khi ăn — nước thịt phân bố đều, thịt mềm hơn.</p>
 
-                            <h3>Mẹo 7: Nước chấm tạo sự khác biệt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-1.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo 7: Nước chấm tạo sự khác biệt</h3>
                             <p>Thịt nướng ngon 7 phần, nước chấm ngon 3 phần! Tại <a href="index.html">Trạm Dừng Chill</a>, đầu bếp chia sẻ: "Muối ớt chanh cho bò, sốt BBQ cho sườn, nước mắm tỏi ớt cho hải sản — <strong>mỗi loại thịt một nước chấm</strong> sẽ ngon hơn rất nhiều."</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn để thưởng thức BBQ chuẩn vị</a></p>
 
@@ -2149,12 +2321,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Rating 4.8 sao</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có <strong>rating 4.8/5 sao trên Google</strong> với hàng trăm review tích cực. Khách khen nhiều nhất: view đẹp, đồ ăn ngon, nhân viên thân thiện, giá hợp lý. Nhiều khách quay lại lần 2, lần 3 — dấu hiệu của quán thực sự ngon!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
-                            <h3>2-3. Korean BBQ House và BBQ Garden — Rating 4.5-4.6 sao</h3>
+                            <img src="assets/images/blog/mon-nuong-10.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-11.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2-3. Korean BBQ House và BBQ Garden — Rating 4.5-4.6 sao</h3>
                             <p>Hai quán nướng có review tốt trên Google. Korean BBQ House được khen đồ ăn chuẩn vị Hàn. BBQ Garden được khen không gian đẹp, sân vườn thông. Tuy nhiên một số review chê về giá cao.</p>
 
-                            <h3>4-5. Bếp Nướng Đồi và Sunset Grill — Rating 4.5 sao</h3>
+
+                            <img src="assets/images/blog/mon-nuong-12.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>4-5. Bếp Nướng Đồi và Sunset Grill — Rating 4.5 sao</h3>
                             <p>Hai quán nướng mới mở, đang lên. Review tích cực về view và đồ ăn. Tuy nhiên số lượng review còn ít nên chưa đủ tin cậy như các quán lâu năm.</p>
 
                             <h3>Cách đọc Google review hiệu quả</h3>
@@ -2179,9 +2354,11 @@ var BLOG_ARTICLES = [
                             <h3>Tại sao tháng 11 là thời điểm vàng?</h3>
                             <p>Trời khô ráo nên view <strong>hoàng hôn và nhà lồng</strong> rõ đẹp nhất năm. Hoa dã quỳ vẫn còn nở. Chưa đông đúc như tháng 12 (Giáng Sinh). Giá phòng chưa tăng cao. Đây là bí mật mà dân du lịch kinh nghiệm đều biết!</p>
 
-                            <h3>Nướng BBQ ngoài trời tháng 11 — Hoàn hảo!</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-42.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ ngoài trời tháng 11 — Hoàn hảo!</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 11 view đẹp nhất năm: <strong>hoàng hôn rực rỡ</strong>, trời trong không một gợn mây, biển sao nhà lồng sáng rõ từng ngọn đèn. Nướng BBQ ngoài trời 17°C — mát mẻ, dễ chịu, không lạnh quá.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-43.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Gợi ý lịch trình tháng 11</h3>
                             <p>Sáng: Săn mây, tham quan. Trưa: Đặc sản địa phương. Chiều-tối: Nướng BBQ ngắm hoàng hôn tại Trạm Dừng Chill. Buổi tối: Dạo chợ đêm.</p>
@@ -2204,12 +2381,15 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Lẩu gà + nướng BBQ combo</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có menu <strong>combo lẩu gà lá é + nướng BBQ</strong> — vừa nhúng lẩu vừa nướng thịt, ấm bụng giữa trời Đà Lạt lạnh. Nồi lẩu gà ta ngọt nước, lá é thơm phức. Ăn kèm rau tươi Đà Lạt giòn ngọt.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ăn lẩu + nướng</a></p>
 
-                            <h3>2. Lẩu Gà Langbiang</h3>
+                            <img src="assets/images/blog/lau-11.jpg" alt="Lẩu nóng hổi tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ăn lẩu + nướng</a></p>
+
+
+                            <img src="assets/images/blog/lau-2.jpg" alt="Lẩu ngon mùa lạnh Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>2. Lẩu Gà Langbiang</h3>
                             <p>Quán chuyên lẩu gà trên đường đi Langbiang, gà nuôi tại chỗ nên cực tươi. Nồi lẩu lớn, đủ cho 4-6 người. Giá 250-400K/nồi.</p>
 
-                            <h3>3-4. Quán Gà Đồi và Lẩu Gà Bà Năm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-13.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>3-4. Quán Gà Đồi và Lẩu Gà Bà Năm</h3>
                             <p>Hai quán lẩu gà bình dân, đông khách địa phương. Gà tươi, nước lèo đậm đà, giá rẻ. 200-350K/nồi, phù hợp cho gia đình.</p>
 
                             <h3>5. Premium Chicken Hot Pot</h3>
@@ -2234,9 +2414,11 @@ var BLOG_ARTICLES = [
                             <h3>Giáng Sinh ở Đà Lạt — Lung linh như châu Âu</h3>
                             <p><strong>Giáng Sinh Đà Lạt</strong> rực rỡ: nhà thờ Domain de Marie, nhà thờ Con Gà trang trí đèn lộng lẫy. Phố Đà Lạt lên đèn, cây thông Noel khắp nơi. Không khí lạnh + đèn Giáng Sinh = cảm giác như ở châu Âu!</p>
 
-                            <h3>Nướng BBQ đêm Giáng Sinh — Trải nghiệm đặc biệt</h3>
+
+                            <img src="assets/images/blog/noel-trang-tri-10.jpg" alt="Trang trí Giáng sinh lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ đêm Giáng Sinh — Trải nghiệm đặc biệt</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, đêm Giáng Sinh nướng BBQ ngoài trời lạnh 14°C, ngắm biển sao nhà lồng + <strong>bầu trời đông trong vắt đầy sao</strong>. Quán trang trí Giáng Sinh ấm áp. Đây là bữa tiệc Noel đáng nhớ nhất!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn Giáng Sinh sớm</a></p>
+
+                            <img src="assets/images/blog/noel-trang-tri-11.jpg" alt="Không khí Noel ấm áp tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn Giáng Sinh sớm</a></p>
 
                             <h3>Countdown Năm Mới tại Đà Lạt</h3>
                             <p>Đêm 31/12, Đà Lạt tổ chức countdown ở quảng trường Lâm Viên với nhạc sống, pháo hoa. Trước đó, ăn tối nướng BBQ view đẹp là cách bắt đầu đêm Giao Thừa hoàn hảo.</p>
@@ -2259,12 +2441,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Nên đến tận nơi!</h3>
                             <p>Tuy nhiên, <a href="index.html">Trạm Dừng Chill</a> khuyên bạn nên <strong>đến quán trực tiếp</strong> để trải nghiệm trọn vẹn: view hoàng hôn, xe lửa, biển sao nhà lồng — những thứ không thể "giao hàng" được! Đồ ăn nướng tại chỗ trên than hoa cũng ngon hơn nhiều so với mang về.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn đến quán</a></p>
 
-                            <h3>Các quán nướng giao hàng ở Đà Lạt</h3>
+                            <img src="assets/images/blog/mon-nuong-14.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn đến quán</a></p>
+
+
+                            <img src="assets/images/blog/mon-nuong-15.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Các quán nướng giao hàng ở Đà Lạt</h3>
                             <p>Nhiều quán nướng nhỏ ở Đà Lạt có dịch vụ giao set nướng: thịt ướp sẵn, rau, nước chấm, than hoặc bếp nướng điện. Đặt qua GrabFood, ShopeeFood hoặc gọi trực tiếp. Giá thường tăng 10-20% so với ăn tại quán.</p>
 
-                            <h3>Mẹo đặt BBQ giao hàng</h3>
+
+                            <img src="assets/images/blog/mon-nuong-18.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo đặt BBQ giao hàng</h3>
                             <p>Kiểm tra homestay/villa có cho phép nướng không. Chuẩn bị bàn, ghế ngoài trời. Đặt trước 2-3 tiếng để quán chuẩn bị. Mua thêm than nếu quán không kèm theo.</p>
 
                             <h3>Kết luận</h3>
@@ -2285,9 +2470,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Lịch trình Tết tại Đà Lạt</h3>
                             <p>28-29 Tết: Di chuyển đến Đà Lạt, nhận phòng, dạo phố. 30 Tết: Tham quan hoa mai anh đào, chiều-tối <strong>ăn tất niên nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong>. Mùng 1-2: Đi chùa, tham quan, cafe. Mùng 3: Mua đặc sản, về nhà.</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn tất niên ngay</a></p>
 
-                            <h3>Giá cả dịp Tết ở Đà Lạt</h3>
+                            <img src="assets/images/blog/tet-trang-tri-1.jpg" alt="Hoa mai đào Tết tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn tất niên ngay</a></p>
+
+
+                            <img src="assets/images/blog/tet-trang-tri-3.jpg" alt="Trang trí Tết lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Giá cả dịp Tết ở Đà Lạt</h3>
                             <p>Phòng: Tăng 50-100% so với ngày thường (500K-2 triệu/đêm). Ăn uống: Tăng nhẹ 10-20%. Vé tham quan: Giá giữ nguyên. <strong>Đặt phòng và đặt bàn trước 2-4 tuần</strong> vì Tết cháy phòng rất nhanh!</p>
 
                             <h3>Quán ăn ngon mở cửa dịp Tết</h3>
@@ -2311,12 +2498,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Countdown view biển sao</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là nơi lý tưởng cho <strong>bữa tối Giao Thừa</strong>: nướng BBQ ngoài trời lạnh, ngắm biển sao nhà lồng, đếm ngược 10-9-8... cùng bạn bè, gia đình. View từ quán có thể thấy cả pháo hoa thành phố!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn Giao Thừa — hết chỗ rất nhanh!</a></p>
 
-                            <h3>Lịch trình đêm Giao Thừa gợi ý</h3>
+                            <img src="assets/images/blog/tet-trang-tri-2.jpg" alt="Không khí Tết ấm áp tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn Giao Thừa — hết chỗ rất nhanh!</a></p>
+
+
+                            <img src="assets/images/blog/tet-trang-tri-4.jpg" alt="Hoa mai đào Tết tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lịch trình đêm Giao Thừa gợi ý</h3>
                             <p>18:00-21:00: Nướng BBQ tại Trạm Dừng Chill, ngắm hoàng hôn + nhà lồng lên đèn. 21:00-23:00: Đi về trung tâm, dạo phố Giáng Sinh, cafe. 23:00-0:00: Countdown tại quảng trường Lâm Viên, ngắm pháo hoa.</p>
 
-                            <h3>Các quán nướng khác cho đêm Giao Thừa</h3>
+
+                            <img src="assets/images/blog/tet-trang-tri-1.jpg" alt="Trang trí Tết lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Các quán nướng khác cho đêm Giao Thừa</h3>
                             <p>Nhiều quán nướng ở Đà Lạt mở cửa đêm 31/12 với chương trình đặc biệt: nhạc sống, rút thăm trúng thưởng, tặng bánh. Tuy nhiên, cần <strong>đặt bàn trước 1-2 tuần</strong> vì đêm Giao Thừa luôn full chỗ!</p>
 
                             <h3>Kết luận</h3>
@@ -2338,9 +2528,11 @@ var BLOG_ARTICLES = [
                             <h3>Ưu điểm đi Đà Lạt sau Tết</h3>
                             <p><strong>Vắng khách:</strong> Sau Tết (từ mùng 5-6), khách du lịch giảm mạnh. <strong>Giá rẻ:</strong> Phòng giảm 30-50%, vé máy bay giảm. <strong>Phục vụ chu đáo:</strong> Quán ăn, homestay không đông nên được chăm sóc tốt hơn. Đây là bí quyết của dân du lịch kinh nghiệm!</p>
 
-                            <h3>Nướng BBQ tháng 1 — View đẹp, quán vắng</h3>
+
+                            <img src="assets/images/blog/tet-trang-tri-2.jpg" alt="Không khí Tết ấm áp tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Nướng BBQ tháng 1 — View đẹp, quán vắng</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 1 sau Tết quán vắng nên bạn <strong>thoải mái chọn bàn đẹp nhất</strong>. View hoàng hôn tháng 1 rực rỡ nhờ trời khô trong. Nướng BBQ ngoài trời lạnh 14°C — ấm áp và lãng mạn!</p>
-                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
+
+                            <img src="assets/images/blog/tet-trang-tri-3.jpg" alt="Hoa mai đào Tết tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 
                             <h3>Chi phí ước tính tháng 1/2027</h3>
                             <p>Phòng: 200-400K/đêm (giảm 40% so với Tết). Ăn uống: 150-250K/ngày. Tổng 2 ngày 1 đêm: <strong>1-2 triệu/người</strong> — rẻ nhất năm!</p>
@@ -2363,12 +2555,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Top 5 quán nướng Đà Lạt hot nhất tháng 9/2026</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> View xe lửa + hoàng hôn + biển sao nhà lồng. Tháng 9 trời trong nên view hoàng hôn cực đẹp, ánh nắng chiều vàng rực phủ lên thung lũng. Set nướng từ 95K/người. <a href="index.html#booking">Đặt bàn ngay</a>.</p>
-                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn giữa rừng thông, không khí mát lạnh. Thích hợp nhóm bạn 6-10 người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-19.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn giữa rừng thông, không khí mát lạnh. Thích hợp nhóm bạn 6-10 người.</p>
                             <p><strong>3. Phố Nướng Lạc Dương:</strong> View núi Langbiang hùng vĩ, nướng ngoài trời kiểu camping.</p>
-                            <p><strong>4. Đồi Nướng BBQ:</strong> View toàn cảnh thành phố, giá phải chăng từ 100K/người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-2.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Đồi Nướng BBQ:</strong> View toàn cảnh thành phố, giá phải chăng từ 100K/người.</p>
                             <p><strong>5. Nướng & Chill Hồ Tuyền Lâm:</strong> View hồ thơ mộng, phù hợp cho cặp đôi.</p>
 
-                            <h3>Mẹo đặt bàn tháng 9</h3>
+
+                            <img src="assets/images/blog/mon-nuong-21.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo đặt bàn tháng 9</h3>
                             <p>Dù tháng 9 chưa phải mùa cao điểm, cuối tuần vẫn khá đông — đặc biệt những quán view đẹp như <a href="index.html">Trạm Dừng Chill</a>. Nên <a href="index.html#booking"><strong>đặt bàn trước 1-2 ngày</strong></a> để được chọn vị trí ưng ý nhất.</p>
 
                             <h3>Thời tiết tháng 9 và lưu ý</h3>
@@ -2392,9 +2587,11 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng có mái che view đẹp</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Có khu vực mái che rộng rãi, vẫn nhìn được view thung lũng và nhà lồng lên đèn. Mưa rơi + bếp than hồng + view biển sao = combo hoàn hảo. <a href="index.html#booking">Đặt bàn vị trí mái che →</a></p>
-                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Nhà kính giữa rừng thông, mưa rơi trên mái kính rất thơ mộng.</p>
+
+                            <img src="assets/images/blog/mon-nuong-22.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Nhà kính giữa rừng thông, mưa rơi trên mái kính rất thơ mộng.</p>
                             <p><strong>3. Phố Nướng Indoor:</strong> Quán nướng trong nhà phong cách Hàn Quốc, hệ thống hút khói hiện đại.</p>
-                            <p><strong>4. Nướng Đồi Thông:</strong> Mái che bạt dù kiểu glamping, vẫn cảm giác ngoài trời.</p>
+
+                            <img src="assets/images/blog/mon-nuong-23.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Nướng Đồi Thông:</strong> Mái che bạt dù kiểu glamping, vẫn cảm giác ngoài trời.</p>
                             <p><strong>5. BBQ House Đà Lạt:</strong> Không gian ấm cúng, phù hợp nhóm nhỏ 4-6 người.</p>
 
                             <h3>Lưu ý khi ăn nướng trời mưa</h3>
@@ -2418,9 +2615,12 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng lãng mạn nhất Đà Lạt</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Setup bàn kỷ niệm với hoa, nến, bảng chúc mừng <strong>MIỄN PHÍ</strong>. View hoàng hôn vàng rực → xe lửa cổ kính → biển sao nhà lồng — 3 khoảnh khắc lãng mạn trong 1 bữa tối. <a href="index.html#booking">Đặt bàn kỷ niệm →</a></p>
-                            <p><strong>2. Nướng & Chill Hồ Tuyền Lâm:</strong> View hồ thơ mộng, bàn riêng tư cho cặp đôi.</p>
-                            <p><strong>3. BBQ Rooftop Đà Lạt:</strong> Nướng trên sân thượng ngắm toàn cảnh thành phố về đêm.</p>
-                            <p><strong>4. Garden BBQ Đà Lạt:</strong> Sân vườn riêng tư giữa rừng hoa, đèn led lung linh.</p>
+
+                            <img src="assets/images/blog/setup-hen-ho-18.jpg" alt="Bàn setup cho cặp đôi tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Nướng & Chill Hồ Tuyền Lâm:</strong> View hồ thơ mộng, bàn riêng tư cho cặp đôi.</p>
+
+                            <img src="assets/images/blog/setup-hen-ho-19.jpg" alt="Setup hẹn hò lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. BBQ Rooftop Đà Lạt:</strong> Nướng trên sân thượng ngắm toàn cảnh thành phố về đêm.</p>
+
+                            <img src="assets/images/blog/setup-hen-ho-20.jpg" alt="Không gian hẹn hò đôi lứa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Garden BBQ Đà Lạt:</strong> Sân vườn riêng tư giữa rừng hoa, đèn led lung linh.</p>
                             <p><strong>5. Sunset BBQ Đà Lạt:</strong> View hoàng hôn đẹp, có khu vực VIP cho couple.</p>
 
                             <h3>Gợi ý setup kỷ niệm ngày cưới</h3>
@@ -2444,10 +2644,12 @@ var BLOG_ARTICLES = [
 
                             <h3>15 món ăn vặt phải thử</h3>
                             <p><strong>1. Bánh tráng nướng</strong> (20K) — "Pizza Đà Lạt" giòn rụm. <strong>2. Ốc xào bơ tỏi</strong> (35K) — thơm nức. <strong>3. Sữa đậu nành nóng</strong> (15K) — ấm bụng đêm lạnh. <strong>4. Bánh căn</strong> (25K) — giòn, chấm nước mắm ngọt. <strong>5. Nem nướng Nha Trang</strong> (30K).</p>
-                            <p><strong>6. Xúc xích nướng</strong> (20K). <strong>7. Khoai lang nướng</strong> (15K). <strong>8. Bắp nướng mỡ hành</strong> (20K). <strong>9. Kem bơ</strong> (30K). <strong>10. Trứng gà nướng</strong> (10K).</p>
+
+                            <img src="assets/images/blog/khong-gian-dem-15.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>6. Xúc xích nướng</strong> (20K). <strong>7. Khoai lang nướng</strong> (15K). <strong>8. Bắp nướng mỡ hành</strong> (20K). <strong>9. Kem bơ</strong> (30K). <strong>10. Trứng gà nướng</strong> (10K).</p>
                             <p><strong>11. Chè khúc bạch</strong> (25K). <strong>12. Bánh mì xíu mại</strong> (25K). <strong>13. Gỏi cuốn</strong> (20K). <strong>14. Nước ép dâu tây</strong> (30K). <strong>15. Ốc bươu nhồi thịt</strong> (40K).</p>
 
-                            <h3>Lịch trình gợi ý: Nướng BBQ + Chợ đêm</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-16.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lịch trình gợi ý: Nướng BBQ + Chợ đêm</h3>
                             <p>Nhiều du khách chọn lịch trình hoàn hảo: <strong>16h-20h nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong> ngắm hoàng hôn và biển sao nhà lồng, sau đó <strong>20h30-22h dạo chợ đêm</strong> ăn vặt. Từ Trạm Dừng Chill về chợ đêm chỉ 10 phút xe máy.</p>
 
                             <h3>Mẹo ăn vặt chợ đêm</h3>
@@ -2471,9 +2673,12 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng thân thiện với trẻ em</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Bếp nướng có rào chắn an toàn, không gian rộng thoáng để bé chạy nhảy. View xe lửa chạy ngang khiến các bé cực thích! Menu có gà nướng, khoai nướng phù hợp cho trẻ. <a href="index.html#booking">Đặt bàn gia đình →</a></p>
-                            <p><strong>2. BBQ Garden Family:</strong> Có khu vui chơi với cầu trượt, xích đu giữa sân vườn.</p>
-                            <p><strong>3. Nướng Đồi Thông Kids:</strong> Khu camping mini cho bé, bãi cỏ rộng an toàn.</p>
-                            <p><strong>4. Family BBQ Đà Lạt:</strong> Ghế ăn cho bé, menu kids riêng.</p>
+
+                            <img src="assets/images/blog/khach-gia-dinh-13.jpg" alt="Khách gia đình tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Family:</strong> Có khu vui chơi với cầu trượt, xích đu giữa sân vườn.</p>
+
+                            <img src="assets/images/blog/khach-gia-dinh-14.jpg" alt="Bữa ăn gia đình ấm cúng tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. Nướng Đồi Thông Kids:</strong> Khu camping mini cho bé, bãi cỏ rộng an toàn.</p>
+
+                            <img src="assets/images/blog/khach-gia-dinh-15.jpg" alt="Gia đình quây quần bên bàn nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Family BBQ Đà Lạt:</strong> Ghế ăn cho bé, menu kids riêng.</p>
                             <p><strong>5. Green Garden BBQ:</strong> Vườn hoa nhỏ cho bé chụp ảnh, không gian yên tĩnh.</p>
 
                             <h3>Mẹo ăn nướng với trẻ nhỏ</h3>
@@ -2497,9 +2702,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Bảng so sánh chi tiết</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a></strong> — Giá: 95-300K | View: ★★★★★ (xe lửa + hoàng hôn + nhà lồng) | Đồ ăn: ★★★★☆ | Dịch vụ: ★★★★★ (setup miễn phí) | Tổng: <strong>9.2/10</strong></p>
-                            <p><strong>2. BBQ Garden Đà Lạt</strong> — Giá: 150-350K | View: ★★★★☆ (rừng thông) | Đồ ăn: ★★★★☆ | Dịch vụ: ★★★☆☆ | Tổng: 8.0/10</p>
+
+                            <img src="assets/images/blog/mon-nuong-24.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt</strong> — Giá: 150-350K | View: ★★★★☆ (rừng thông) | Đồ ăn: ★★★★☆ | Dịch vụ: ★★★☆☆ | Tổng: 8.0/10</p>
                             <p><strong>3. Phố Nướng Lạc Dương</strong> — Giá: 120-280K | View: ★★★★☆ (núi) | Đồ ăn: ★★★☆☆ | Dịch vụ: ★★★☆☆ | Tổng: 7.5/10</p>
-                            <p><strong>4-10:</strong> Đồi Nướng BBQ (7.3/10), Nướng Hồ Tuyền Lâm (7.8/10), BBQ House (7.0/10), Sunset BBQ (7.5/10), Nướng Đồi Thông (7.2/10), Family BBQ (6.8/10), BBQ Rooftop (7.6/10).</p>
+
+                            <img src="assets/images/blog/mon-nuong-25.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4-10:</strong> Đồi Nướng BBQ (7.3/10), Nướng Hồ Tuyền Lâm (7.8/10), BBQ House (7.0/10), Sunset BBQ (7.5/10), Nướng Đồi Thông (7.2/10), Family BBQ (6.8/10), BBQ Rooftop (7.6/10).</p>
 
                             <h3>Quán nào đáng tiền nhất?</h3>
                             <p>Xét về tỷ lệ <strong>giá/trải nghiệm</strong>, <a href="index.html">Trạm Dừng Chill</a> dẫn đầu nhờ giá hợp lý từ 95K/người nhưng view 3-in-1 (xe lửa, hoàng hôn, biển sao) và dịch vụ setup miễn phí. Các quán khác có view đẹp thường giá từ 150K trở lên.</p>
@@ -2522,12 +2729,15 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng nên đặt trước</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Đặt qua <a href="index.html#booking">form online</a> hoặc Zalo — xác nhận trong 15 phút. Cuối tuần nên đặt trước 1-2 ngày.</p>
-                            <p><strong>2. BBQ Garden:</strong> Gọi điện đặt, thường hết chỗ sáng thứ 7.</p>
+
+                            <img src="assets/images/blog/mon-nuong-26.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden:</strong> Gọi điện đặt, thường hết chỗ sáng thứ 7.</p>
                             <p><strong>3. Nướng Hồ Tuyền Lâm:</strong> Đặt qua Facebook, nên đặt trước 2-3 ngày.</p>
-                            <p><strong>4. Đồi Nướng BBQ:</strong> Walk-in được ngày thường, cuối tuần nên đặt trước.</p>
+
+                            <img src="assets/images/blog/mon-nuong-3.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Đồi Nướng BBQ:</strong> Walk-in được ngày thường, cuối tuần nên đặt trước.</p>
                             <p><strong>5. Sunset BBQ:</strong> Đặt qua app, có hệ thống quản lý bàn tự động.</p>
 
-                            <h3>Cách đặt bàn nhanh nhất</h3>
+
+                            <img src="assets/images/blog/mon-nuong-30.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Cách đặt bàn nhanh nhất</h3>
                             <p><strong>Zalo/Hotline:</strong> Nhanh nhất, xác nhận tức thì. <strong>Form online:</strong> Tiện lợi, đặt bất kỳ lúc nào. <strong>Facebook/Instagram:</strong> Nhắn tin đặt, thường reply trong 30 phút. Tại <a href="index.html">Trạm Dừng Chill</a>, bạn có thể <a href="index.html#booking"><strong>đặt bàn online</strong></a> và nhận xác nhận qua Zalo chỉ trong 15 phút.</p>
 
                             <h3>Mẹo đặt bàn vị trí đẹp</h3>
@@ -2551,9 +2761,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Top món rau nướng phải thử</h3>
                             <p><strong>1. Nấm rừng nướng bơ tỏi:</strong> Nấm Đà Lạt giòn, ngọt tự nhiên — nướng than hoa với bơ tỏi thơm phức.</p>
-                            <p><strong>2. Bắp cải nướng kiểu Nhật:</strong> Cắt đôi, nướng than đến khi cháy cạnh, rưới sốt miso — giòn ngọt bất ngờ.</p>
+
+                            <img src="assets/images/blog/mon-nuong-31.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Bắp cải nướng kiểu Nhật:</strong> Cắt đôi, nướng than đến khi cháy cạnh, rưới sốt miso — giòn ngọt bất ngờ.</p>
                             <p><strong>3. Ớt chuông nướng + cà tím nướng:</strong> Ớt chuông Đà Lạt ngọt, nướng xong cuộn cùng phô mai.</p>
-                            <p><strong>4. Ngô nướng mỡ hành:</strong> Ngô ngọt Đà Lạt nướng than, phết mỡ hành — kinh điển!</p>
+
+                            <img src="assets/images/blog/mon-nuong-4.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Ngô nướng mỡ hành:</strong> Ngô ngọt Đà Lạt nướng than, phết mỡ hành — kinh điển!</p>
                             <p><strong>5. Salad dâu tây Đà Lạt:</strong> Dâu tươi + rau rocket + phô mai + sốt balsamic — healthy mà ngon.</p>
 
                             <h3>Rau nướng tại Trạm Dừng Chill</h3>
@@ -2577,12 +2789,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Ngày 1 — Chiều tối: Highlight ẩm thực</h3>
                             <p><strong>15:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của chuyến đi! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Set nướng từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì chiều tối rất đông!</p>
-                            <p><strong>20:30 - Chợ đêm:</strong> Bánh tráng nướng, sữa đậu nành, ốc. Budget: 50-80K/người.</p>
 
-                            <h3>Ngày 2 — Sáng: Thiên nhiên Đà Lạt</h3>
+                            <img src="assets/images/blog/khong-gian-dem-2.jpg" alt="Không gian đêm ấm cúng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>20:30 - Chợ đêm:</strong> Bánh tráng nướng, sữa đậu nành, ốc. Budget: 50-80K/người.</p>
+
+
+                            <img src="assets/images/blog/khong-gian-dem-21.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Ngày 2 — Sáng: Thiên nhiên Đà Lạt</h3>
                             <p><strong>7:30 - Phở gà Đà Lạt</strong> (40K). <strong>9:00 - Thung lũng Tình Yêu</strong> hoặc <strong>Đồi chè Cầu Đất</strong> — check-in cả sáng. <strong>11:30 - Lẩu gà lá é</strong> (180K/nồi cho 2 người) — đặc sản vùng cao.</p>
 
-                            <h3>Tổng chi phí 2 ngày 1 đêm</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-22.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Tổng chi phí 2 ngày 1 đêm</h3>
                             <p>Ăn uống: 400-600K/người. Homestay: 200-400K/đêm. Di chuyển (xe máy): 150K/ngày. Vé tham quan: 100-200K. <strong>Tổng: 850K - 1.4 triệu/người</strong> — cực tiết kiệm cho <strong>du lịch Đà Lạt 2 ngày 1 đêm</strong>!</p>
 
                             <h3>Kết luận</h3>
@@ -2603,10 +2818,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Top quán nướng view 360°</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> View 180° thoáng đãng — hoàng hôn, thung lũng nhà lồng và xe lửa. Tuy không phải 360° hoàn toàn nhưng 3 lớp view (hoàng hôn → xe lửa → biển sao) tạo nên trải nghiệm liên tục từ chiều đến tối. <a href="index.html#booking">Đặt bàn view đẹp →</a></p>
-                            <p><strong>2. Đồi Nướng BBQ:</strong> Tọa lạc đỉnh đồi, view 360° thực sự — nhìn được cả 4 hướng. Tuy nhiên gió khá mạnh.</p>
+
+                            <img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Cảnh hoàng hôn vàng rực Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Đồi Nướng BBQ:</strong> Tọa lạc đỉnh đồi, view 360° thực sự — nhìn được cả 4 hướng. Tuy nhiên gió khá mạnh.</p>
                             <p><strong>3. BBQ Rooftop Đà Lạt:</strong> Sân thượng tầng 5, view toàn cảnh thành phố về đêm.</p>
 
-                            <h3>Thời điểm ngắm view đẹp nhất</h3>
+
+                            <img src="assets/images/blog/view-hoang-hon-22.jpg" alt="View hoàng hôn tuyệt đẹp tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Thời điểm ngắm view đẹp nhất</h3>
                             <p><strong>16:30-17:30:</strong> Golden hour — ánh nắng vàng phủ lên thung lũng, hoàn hảo cho ảnh chụp. <strong>17:30-18:30:</strong> Hoàng hôn cam đỏ, bầu trời đổi màu. <strong>19:00-21:00:</strong> Nhà lồng lên đèn, thành phố lung linh — <strong>view đêm Đà Lạt</strong> đẹp nhất!</p>
 
                             <h3>Mẹo chọn vị trí ngắm view</h3>
@@ -2630,10 +2847,13 @@ var BLOG_ARTICLES = [
 
                             <h3>Hướng dẫn kết hợp vang + nướng</h3>
                             <p><strong>Vang đỏ + Thịt bò nướng:</strong> Combo kinh điển! Vang đỏ Đà Lạt có vị đậm vừa, tannin nhẹ, hợp với thịt bò Mỹ nướng medium rare.</p>
-                            <p><strong>Vang trắng + Hải sản nướng:</strong> Tôm nướng, mực nướng kết hợp vang trắng mát lạnh — thanh nhẹ, không ngấy.</p>
-                            <p><strong>Vang hồng + Gà nướng, rau nướng:</strong> Vị ngọt nhẹ, dễ uống, hợp với nhiều loại đồ nướng.</p>
 
-                            <h3>Thưởng thức vang tại quán nướng</h3>
+                            <img src="assets/images/blog/mon-nuong-5.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Vang trắng + Hải sản nướng:</strong> Tôm nướng, mực nướng kết hợp vang trắng mát lạnh — thanh nhẹ, không ngấy.</p>
+
+                            <img src="assets/images/blog/mon-nuong-6.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Vang hồng + Gà nướng, rau nướng:</strong> Vị ngọt nhẹ, dễ uống, hợp với nhiều loại đồ nướng.</p>
+
+
+                            <img src="assets/images/blog/mon-nuong-7.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Thưởng thức vang tại quán nướng</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn có thể gọi <strong>rượu vang Đà Lạt</strong> uống kèm set nướng. Hãy tưởng tượng: ngồi ngắm hoàng hôn, tay cầm ly vang đỏ, bếp than hồng nướng thịt bò thơm lừng — khoảnh khắc chill đúng nghĩa! <a href="index.html#booking">Đặt bàn trải nghiệm →</a></p>
 
                             <h3>Lưu ý khi uống vang kèm nướng</h3>
@@ -2658,10 +2878,12 @@ var BLOG_ARTICLES = [
                             <h3>Menu nướng chay phổ biến</h3>
                             <p><strong>Nấm đùi gà nướng bơ tỏi:</strong> Giòn ngoài, mềm trong, thơm bơ tỏi — không thua gì thịt. <strong>Đậu hũ nướng sả ớt:</strong> Đậu hũ Đà Lạt dai, nướng than hoa thơm lừng. <strong>Bắp cải nướng kiểu Nhật:</strong> Ngọt tự nhiên, rưới sốt miso. <strong>Khoai lang nướng:</strong> Khoai Đà Lạt ngọt bùi, nướng than hoa vỏ giòn.</p>
 
-                            <h3>Quán nướng có menu chay</h3>
+
+                            <img src="assets/images/blog/mon-nuong-8.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Quán nướng có menu chay</h3>
                             <p><strong><a href="index.html">Trạm Dừng Chill</a>:</strong> Menu có nhiều món rau nướng, nấm nướng từ 35-65K. Nhóm bạn có cả người ăn chay lẫn ăn mặn đều phù hợp — ai nướng nấy, cùng bàn, cùng vui! <a href="index.html#booking">Đặt bàn →</a></p>
                             <p><strong>Green Garden BBQ:</strong> Chuyên nướng chay, đa dạng 15+ món rau củ nướng.</p>
-                            <p><strong>BBQ Garden Đà Lạt:</strong> Có set chay riêng, giá từ 80K/người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-9.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>BBQ Garden Đà Lạt:</strong> Có set chay riêng, giá từ 80K/người.</p>
 
                             <h3>Lưu ý cho người ăn chay</h3>
                             <p>Hỏi trước xem quán có bếp nướng riêng cho đồ chay hay dùng chung với đồ mặn. Một số quán dùng nước chấm có mắm — xin nước chấm chay riêng. Báo trước khi đặt bàn để nhà hàng chuẩn bị nguyên liệu chay đầy đủ.</p>
@@ -2685,10 +2907,13 @@ var BLOG_ARTICLES = [
                             <h3>Quán ăn dọc đường đáng ghé</h3>
                             <p><strong>Km 100 - Dĩ An:</strong> Bún bò Huế điểm nghỉ chân. <strong>Km 200 - Bảo Lộc:</strong> Trà B'Lao + bánh mì nướng — phải thử! <strong>Km 250 - Đức Trọng:</strong> Phở gà, cơm tấm — bữa trưa hoàn hảo. <strong>Km 310 - Đà Lạt:</strong> Đến nơi rồi? Ghé ngay <a href="index.html">Trạm Dừng Chill</a> nướng BBQ ngắm hoàng hôn thôi!</p>
 
-                            <h3>Cung đường đẹp quanh Đà Lạt</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-44.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Cung đường đẹp quanh Đà Lạt</h3>
                             <p><strong>Đà Lạt - Langbiang</strong> (12km): Đường đèo xuyên rừng thông. <strong>Đà Lạt - Đồi chè Cầu Đất</strong> (25km): View đồi chè xanh mướt. <strong>Đà Lạt - Hồ Tuyền Lâm</strong> (7km): Đường ven hồ thơ mộng. Tất cả đều lý tưởng để <strong>chạy xe máy buổi sáng</strong> rồi chiều về nướng BBQ.</p>
 
-                            <h3>Mẹo an toàn khi phượt xe máy</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-45.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/khong-gian-ngay-5.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo an toàn khi phượt xe máy</h3>
                             <p>Mang áo mưa (mưa bất chợt). Kiểm tra xe trước khi đi. Đèo dốc quanh co — giảm tốc, bấm còi. Nghỉ chân mỗi 100km. Mang theo giấy tờ xe và bảo hiểm.</p>
 
                             <h3>Kết luận</h3>
@@ -2709,10 +2934,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng trang trí Halloween</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Trang trí Halloween theo concept "Trạm Dừng Ma Quái" — bí ngô khắc, đèn led tím, nhân viên hóa trang. Khách hóa trang đến ăn được giảm 10%! <a href="index.html#booking">Đặt bàn Halloween →</a></p>
-                            <p><strong>2. BBQ Garden:</strong> Tiệc nướng Halloween trong rừng thông tối — spooky!</p>
+
+                            <img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Không gian quán nướng Đà Lạt về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden:</strong> Tiệc nướng Halloween trong rừng thông tối — spooky!</p>
                             <p><strong>3. Đồi Nướng BBQ:</strong> View thành phố + sương mù đêm Halloween = vibes kinh dị.</p>
 
-                            <h3>Hoạt động Halloween ở Đà Lạt 2026</h3>
+
+                            <img src="assets/images/blog/khong-gian-dem-31.jpg" alt="Đêm lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Hoạt động Halloween ở Đà Lạt 2026</h3>
                             <p><strong>Dinh Bảo Đại đêm Halloween:</strong> Tour ma quái trong dinh thự cổ. <strong>Chợ đêm hóa trang:</strong> Cả chợ đêm trang trí halloween, cosplay khắp nơi. <strong>Bar & pub:</strong> Party halloween xuyên đêm. Và tất nhiên — <strong>nướng BBQ</strong> giữa sương mù Halloween!</p>
 
                             <h3>Menu nướng Halloween đặc biệt</h3>
@@ -2736,9 +2963,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Top 5 quán tôm nướng Đà Lạt</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Tôm sú nướng muối ớt, tôm nướng bơ tỏi — tươi, thịt ngọt, ăn kèm view hoàng hôn. Giá tôm nướng từ 85-150K/đĩa. <a href="index.html#booking">Đặt bàn thử tôm nướng →</a></p>
-                            <p><strong>2. Hải Sản Đà Lạt BBQ:</strong> Chuyên hải sản nướng, tôm hùm baby giá 250K/con.</p>
-                            <p><strong>3. Nướng Hồ Tuyền Lâm:</strong> Tôm sú nướng + view hồ thơ mộng.</p>
-                            <p><strong>4. Phố Nướng Hải Sản:</strong> Buffet hải sản nướng 299K, tôm thoải mái.</p>
+
+                            <img src="assets/images/blog/hai-san-12.jpg" alt="Hải sản nướng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Hải Sản Đà Lạt BBQ:</strong> Chuyên hải sản nướng, tôm hùm baby giá 250K/con.</p>
+
+                            <img src="assets/images/blog/hai-san-13.jpg" alt="Hải sản tươi nướng tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. Nướng Hồ Tuyền Lâm:</strong> Tôm sú nướng + view hồ thơ mộng.</p>
+
+                            <img src="assets/images/blog/hai-san-14.jpg" alt="Món hải sản nướng thơm ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Phố Nướng Hải Sản:</strong> Buffet hải sản nướng 299K, tôm thoải mái.</p>
                             <p><strong>5. BBQ Fresh Đà Lạt:</strong> Cam kết hải sản trong ngày, tôm nướng cheese đặc biệt.</p>
 
                             <h3>Cách nướng tôm ngon nhất</h3>
@@ -2762,9 +2992,11 @@ var BLOG_ARTICLES = [
 
                             <h3>4 quán nướng có karaoke</h3>
                             <p><strong>1. BBQ & Sing Đà Lạt:</strong> Phòng karaoke riêng kèm bếp nướng, 6-12 người. Giá phòng 200K/h + đồ nướng order riêng.</p>
-                            <p><strong>2. Nướng Đồi Thông Karaoke:</strong> Loa ngoài trời, hát thoải mái giữa rừng thông. Giá nướng + karaoke combo từ 150K/người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-1.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Nướng Đồi Thông Karaoke:</strong> Loa ngoài trời, hát thoải mái giữa rừng thông. Giá nướng + karaoke combo từ 150K/người.</p>
                             <p><strong>3. Party BBQ House:</strong> Chuyên tổ chức party nướng + karaoke, có DJ cuối tuần.</p>
-                            <p><strong>4. Nướng & Fun Đà Lạt:</strong> Khu nướng + khu karaoke tách biệt, phù hợp nhóm lớn 15-20 người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-10.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Nướng & Fun Đà Lạt:</strong> Khu nướng + khu karaoke tách biệt, phù hợp nhóm lớn 15-20 người.</p>
 
                             <h3>Gợi ý thay thế: Nướng BBQ + Âm nhạc acoustic</h3>
                             <p>Nếu bạn thích không gian chill hơn là karaoke ồn ào, <a href="index.html">Trạm Dừng Chill</a> có <strong>nhạc acoustic cuối tuần</strong> — vừa nướng BBQ vừa nghe nhạc sống giữa view hoàng hôn. Đây là lựa chọn "chill" hơn mà vẫn vui. <a href="index.html#booking">Đặt bàn cuối tuần →</a></p>
@@ -2790,9 +3022,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Các loại vị trí phổ biến</h3>
                             <p><strong>Hàng đầu view thung lũng:</strong> Tầm nhìn không bị che, ngắm hoàng hôn và biển sao nhà lồng tuyệt đẹp. Đây là vị trí "VIP" — đặt trước sớm.</p>
-                            <p><strong>Góc riêng tư:</strong> Phù hợp couple, hẹn hò. Thường ở 2 bên rìa quán, ít người qua lại.</p>
-                            <p><strong>Khu trung tâm:</strong> Gần bếp chính, không khí sôi động. Phù hợp nhóm bạn vui vẻ.</p>
-                            <p><strong>Khu mái che:</strong> An toàn khi mưa, vẫn có view. Nên chọn nếu thời tiết bất ổn.</p>
+
+                            <img src="assets/images/blog/mon-nuong-11.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Góc riêng tư:</strong> Phù hợp couple, hẹn hò. Thường ở 2 bên rìa quán, ít người qua lại.</p>
+
+                            <img src="assets/images/blog/mon-nuong-12.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Khu trung tâm:</strong> Gần bếp chính, không khí sôi động. Phù hợp nhóm bạn vui vẻ.</p>
+
+                            <img src="assets/images/blog/mon-nuong-14.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Khu mái che:</strong> An toàn khi mưa, vẫn có view. Nên chọn nếu thời tiết bất ổn.</p>
 
                             <h3>Chọn chỗ ngồi tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, có 3 khu vực chính: <strong>Khu view hoàng hôn</strong> (hàng đầu, hướng tây) — ngắm sunset tuyệt nhất. <strong>Khu view xe lửa</strong> (hàng giữa) — thấy rõ tàu chạy ngang. <strong>Khu mái che</strong> — ấm cúng, an toàn khi mưa. Khi <a href="index.html#booking"><strong>đặt bàn</strong></a>, hãy ghi rõ khu vực bạn muốn!</p>
@@ -2819,9 +3054,11 @@ var BLOG_ARTICLES = [
                             <h3>Tiết kiệm chỗ ở</h3>
                             <p><strong>Homestay dorm:</strong> 100-150K/đêm/người — sạch sẽ, tiện nghi. <strong>Homestay phòng đôi:</strong> 250-400K/đêm — đẹp, có ban công. <strong>Mẹo:</strong> Đặt sớm 2 tuần trên app, đi ngày thường (thứ 2-5) giá rẻ hơn 30-50% so với cuối tuần.</p>
 
-                            <h3>Tiết kiệm ăn uống</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-6.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Tiết kiệm ăn uống</h3>
                             <p><strong>Sáng:</strong> Bánh mì xíu mại 25K, cafe phin 20K. <strong>Trưa:</strong> Cơm bình dân 35-45K, phở gà 40K. <strong>Chiều-tối:</strong> Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> từ 95K/người — vừa ăn ngon vừa ngắm hoàng hôn, không cần đi thêm quán khác! <a href="index.html#booking">Đặt bàn giá tốt →</a></p>
-                            <p><strong>Tổng ăn uống: 150-250K/người/ngày</strong> — siêu tiết kiệm!</p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-7.jpg" alt="Không gian xanh mát ban ngày Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Tổng ăn uống: 150-250K/người/ngày</strong> — siêu tiết kiệm!</p>
 
                             <h3>Tiết kiệm di chuyển & tham quan</h3>
                             <p>Thuê xe máy 100-150K/ngày. Nhiều địa điểm miễn phí: Hồ Xuân Hương, Quảng trường, chợ đêm, đồi thông, đồi cỏ hồng. Chỉ tốn vé những nơi đáng thử: Langbiang (50K), Thung lũng Tình Yêu (60K).</p>
@@ -2845,10 +3082,13 @@ var BLOG_ARTICLES = [
                             <h3>Nướng BBQ đêm Noel tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> trang trí Giáng Sinh đặc biệt — đèn led, cây thông mini mỗi bàn, nhạc Noel acoustic. Đêm 24/12 có event đặc biệt: <strong>set nướng Christmas</strong> kèm mocktail Noel, photo booth Giáng Sinh. View biển sao nhà lồng + đèn Noel lung linh = <strong>backdrop triệu đô</strong>! <a href="index.html#booking">Đặt bàn đêm Noel →</a></p>
 
-                            <h3>Lịch trình Giáng Sinh Đà Lạt</h3>
+
+                            <img src="assets/images/blog/noel-trang-tri-1.jpg" alt="Trang trí Giáng sinh lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lịch trình Giáng Sinh Đà Lạt</h3>
                             <p><strong>14:00:</strong> Check-in nhà thờ Domain de Marie, chụp ảnh Giáng Sinh. <strong>16:00:</strong> Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>, ngắm hoàng hôn Noel. <strong>20:00:</strong> Dạo phố đi bộ ngắm đèn. <strong>22:00:</strong> Lễ Noel tại nhà thờ Con Gà.</p>
 
-                            <h3>Lưu ý đặt bàn Giáng Sinh</h3>
+
+                            <img src="assets/images/blog/noel-trang-tri-12.jpg" alt="Không khí Noel ấm áp tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/noel-trang-tri-13.jpg" alt="Cây thông Noel tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lưu ý đặt bàn Giáng Sinh</h3>
                             <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt — <strong>quán nướng full bàn trước 1-2 tuần</strong>! Nếu muốn có chỗ đẹp đêm Noel, hãy <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>. Giá không tăng nhưng phải đặt cọc trước.</p>
 
                             <h3>Kết luận</h3>
@@ -2869,9 +3109,11 @@ var BLOG_ARTICLES = [
 
                             <h3>5 công thức nước chấm nướng</h3>
                             <p><strong>1. Muối ớt xanh Đà Lạt:</strong> Ớt hiểm xanh + muối hạt + chanh. Vị cay nồng, mặn vừa, chấm thịt bò nướng = tuyệt vời. Đây là nước chấm signature của nhiều quán nướng Đà Lạt.</p>
-                            <p><strong>2. Sốt chimichurri:</strong> Mùi tây + tỏi + dầu olive + giấm. Vị chua nhẹ, thơm herbs — phù hợp thịt bò, gà nướng.</p>
+
+                            <img src="assets/images/blog/mon-nuong-13.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Sốt chimichurri:</strong> Mùi tây + tỏi + dầu olive + giấm. Vị chua nhẹ, thơm herbs — phù hợp thịt bò, gà nướng.</p>
                             <p><strong>3. Nước mắm tỏi ớt:</strong> Mắm ngon + đường + tỏi + ớt + chanh. Kinh điển nhất, hợp mọi loại đồ nướng.</p>
-                            <p><strong>4. Sốt chao nướng:</strong> Chao trắng + sả + ớt + đường. Đặc sản Đà Lạt, chấm rau nướng, đậu hũ nướng cực ngon.</p>
+
+                            <img src="assets/images/blog/mon-nuong-15.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Sốt chao nướng:</strong> Chao trắng + sả + ớt + đường. Đặc sản Đà Lạt, chấm rau nướng, đậu hũ nướng cực ngon.</p>
                             <p><strong>5. Sốt gochujang Hàn Quốc:</strong> Tương ớt Hàn + mật ong + dầu mè. Vị ngọt cay, phù hợp thịt heo, gà nướng kiểu Hàn.</p>
 
                             <h3>Nước chấm đặc biệt tại Trạm Dừng Chill</h3>
@@ -2895,10 +3137,13 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán vẫn hot — đã qua kiểm chứng</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Vẫn là quán nướng được yêu thích nhất nhờ view xe lửa + hoàng hôn + biển sao nhà lồng. Năm 2027 bổ sung thêm menu mới và khu vực mái che mở rộng. <a href="index.html#booking">Đặt bàn →</a></p>
-                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Nâng cấp không gian sân vườn, thêm khu camping BBQ.</p>
-                            <p><strong>3. Đồi Nướng BBQ:</strong> Menu mới 2027 đa dạng hơn, thêm hải sản nướng.</p>
 
-                            <h3>Quán mới mở 2027 đáng thử</h3>
+                            <img src="assets/images/blog/mon-nuong-18.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Nâng cấp không gian sân vườn, thêm khu camping BBQ.</p>
+
+                            <img src="assets/images/blog/mon-nuong-19.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. Đồi Nướng BBQ:</strong> Menu mới 2027 đa dạng hơn, thêm hải sản nướng.</p>
+
+
+                            <img src="assets/images/blog/mon-nuong-2.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Quán mới mở 2027 đáng thử</h3>
                             <p><strong>BBQ Rooftop 2027:</strong> Quán nướng sân thượng mới trên đường Phan Đình Phùng, view 360° thành phố. <strong>Nướng Rừng Đà Lạt:</strong> Concept nướng giữa rừng thông, glamping style. <strong>K-BBQ Đà Lạt:</strong> Nướng Hàn Quốc authentic với bếp hút khói hiện đại.</p>
 
                             <h3>Quán đã đóng cửa / thay đổi</h3>
@@ -2922,9 +3167,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng nào mở Tết 2027?</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Mở xuyên Tết, menu Tết đặc biệt có lẩu nấm + nướng hải sản. Trang trí Tết lung linh với đèn lồng, hoa mai. <a href="index.html#booking"><strong>Đặt bàn Tết ngay →</strong></a></p>
-                            <p><strong>2. BBQ Garden:</strong> Mở từ mùng 1, có set nướng Tết gia đình.</p>
+
+                            <img src="assets/images/blog/tet-trang-tri-4.jpg" alt="Hoa mai đào Tết tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden:</strong> Mở từ mùng 1, có set nướng Tết gia đình.</p>
                             <p><strong>3. Đồi Nướng BBQ:</strong> Mở mùng 2-6, nên đặt trước.</p>
-                            <p><em>Lưu ý: Nhiều quán nhỏ nghỉ Tết, nên chọn quán lớn, uy tín.</em></p>
+
+                            <img src="assets/images/blog/tet-trang-tri-1.jpg" alt="Trang trí Tết lung linh tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><em>Lưu ý: Nhiều quán nhỏ nghỉ Tết, nên chọn quán lớn, uy tín.</em></p>
 
                             <h3>Cách đặt bàn Tết hiệu quả</h3>
                             <p><strong>Đặt trước 2-4 tuần:</strong> Tết là ngoại lệ — đặt sớm càng tốt! <strong>Đặt cọc:</strong> Hầu hết quán yêu cầu cọc 100-200K/bàn dịp Tết. <strong>Xác nhận lại:</strong> Gọi xác nhận trước 1-2 ngày. <strong>Đến đúng giờ:</strong> Quán chỉ giữ bàn 15-20 phút dịp Tết.</p>
@@ -2950,12 +3197,15 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng phù hợp người lớn tuổi</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Không gian thoáng đãng, yên tĩnh vào ngày thường. Menu có lẩu nấm, cá nướng, rau nướng — mềm, dễ ăn. View hoàng hôn để ba mẹ ngắm cảnh thư giãn. Có chỗ đỗ xe ngay cổng. <a href="index.html#booking">Đặt bàn cho gia đình →</a></p>
-                            <p><strong>2. Garden BBQ Đà Lạt:</strong> Sân vườn yên tĩnh, ghế tựa thoải mái.</p>
+
+                            <img src="assets/images/blog/khach-gia-dinh-1.jpg" alt="Khách gia đình tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Garden BBQ Đà Lạt:</strong> Sân vườn yên tĩnh, ghế tựa thoải mái.</p>
                             <p><strong>3. Nướng Hồ Tuyền Lâm:</strong> View hồ yên bình, menu đa dạng.</p>
-                            <p><strong>4. Family BBQ Đà Lạt:</strong> Chuyên phục vụ gia đình, có menu cho người lớn tuổi.</p>
+
+                            <img src="assets/images/blog/khach-gia-dinh-16.jpg" alt="Bữa ăn gia đình ấm cúng tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Family BBQ Đà Lạt:</strong> Chuyên phục vụ gia đình, có menu cho người lớn tuổi.</p>
                             <p><strong>5. BBQ House Đà Lạt:</strong> Trong nhà ấm áp, không gió lạnh.</p>
 
-                            <h3>Menu gợi ý cho người lớn tuổi</h3>
+
+                            <img src="assets/images/blog/khach-gia-dinh-17.jpg" alt="Gia đình quây quần bên bàn nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Menu gợi ý cho người lớn tuổi</h3>
                             <p><strong>Cá nướng giấy bạc:</strong> Cá hồi/cá tầm nướng mềm, thơm. <strong>Lẩu nấm:</strong> Nước dùng thanh, nhiều loại nấm Đà Lạt bổ dưỡng. <strong>Rau nướng:</strong> Nấm, khoai, bắp — mềm, dễ nhai. <strong>Gà nướng mật ong:</strong> Mềm, ngọt, không cay.</p>
 
                             <h3>Mẹo đưa ba mẹ đi nướng</h3>
@@ -2980,10 +3230,12 @@ var BLOG_ARTICLES = [
                             <h3>Trải nghiệm nướng BBQ mùa xuân</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, mùa xuân mang đến view đặc biệt: <strong>hoa anh đào nở + thung lũng xanh + hoàng hôn vàng</strong>. Cả 3 yếu tố kết hợp tạo nên khung cảnh nướng BBQ đẹp nhất trong năm. Buổi chiều, gió xuân se lạnh vừa đủ, bếp than hồng ấm — trải nghiệm chill đúng nghĩa. <a href="index.html#booking">Đặt bàn mùa xuân →</a></p>
 
-                            <h3>Địa điểm ngắm hoa anh đào Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-21.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Địa điểm ngắm hoa anh đào Đà Lạt</h3>
                             <p><strong>Đường Trần Hưng Đạo:</strong> Hàng anh đào nở rộ 2 bên đường — check-in cực đẹp. <strong>Hồ Xuân Hương:</strong> Hoa phản chiếu mặt hồ. <strong>KQH Hồ Tuyền Lâm:</strong> Rừng anh đào tự nhiên. Buổi sáng ngắm hoa, chiều về nướng BBQ ngắm hoàng hôn!</p>
 
-                            <h3>Menu nướng mùa xuân đặc biệt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-22.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Menu nướng mùa xuân đặc biệt</h3>
                             <p>Mùa xuân Đà Lạt có nhiều rau củ đặc biệt: <strong>artichoke</strong> (atiso) nướng, <strong>dâu tây</strong> ăn kèm kem, <strong>nấm rừng</strong> mùa mới. Set nướng mùa xuân tại Trạm Dừng Chill kèm trà atiso nóng — hoàn hảo!</p>
 
                             <h3>Kết luận</h3>
@@ -3004,10 +3256,13 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng gần ga xe lửa</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là quán nướng duy nhất có <strong>view trực tiếp xe lửa chạy ngang</strong> dưới chân quán! Tuyến đường sắt Đà Lạt - Trại Mát chạy qua đúng khu vực phía dưới, tạo nên trải nghiệm nướng BBQ ngắm tàu cổ kính "1 không 2". <a href="index.html#booking">Đặt bàn view xe lửa →</a></p>
-                            <p><strong>2. Quán Nướng Đường Tàu:</strong> Gần ga Đà Lạt, phong cách vintage.</p>
-                            <p><strong>3. BBQ Station Đà Lạt:</strong> Trang trí theo concept ga tàu, gần khu vực đường ray.</p>
 
-                            <h3>Giờ tàu chạy — Đừng bỏ lỡ!</h3>
+                            <img src="assets/images/blog/view-xe-lua-1.jpg" alt="Xe lửa Đà Lạt chạy ngang quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Quán Nướng Đường Tàu:</strong> Gần ga Đà Lạt, phong cách vintage.</p>
+
+                            <img src="assets/images/blog/view-xe-lua-13.jpg" alt="View xe lửa cổ kính tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. BBQ Station Đà Lạt:</strong> Trang trí theo concept ga tàu, gần khu vực đường ray.</p>
+
+
+                            <img src="assets/images/blog/view-xe-lua-14.jpg" alt="Đoàn tàu Đà Lạt - Trại Mát qua thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Giờ tàu chạy — Đừng bỏ lỡ!</h3>
                             <p>Tàu từ ga Đà Lạt đi Trại Mát: <strong>7:45, 9:50, 11:55, 14:00, 16:05</strong>. Tàu về: sau 30 phút. Chuyến 16:05 là thời điểm đẹp nhất vì trùng với hoàng hôn. Tại <a href="index.html">Trạm Dừng Chill</a>, bạn sẽ thấy tàu chạy ngang vào khoảng 16:20-16:30 — khoảnh khắc check-in triệu like!</p>
 
                             <h3>Trải nghiệm kết hợp: Đi tàu + Ăn nướng</h3>
@@ -3032,10 +3287,12 @@ var BLOG_ARTICLES = [
                             <h3>Set 1: Budget 400K (100K/người)</h3>
                             <p><strong>Thịt bò nướng</strong> (1 đĩa) + <strong>Gà nướng mật ong</strong> (1 đĩa) + <strong>Nấm nướng bơ tỏi</strong> + <strong>Bắp nướng</strong> (2 trái) + <strong>Cơm trắng</strong> (4). Đủ no, đủ ngon, cực tiết kiệm!</p>
 
-                            <h3>Set 2: Standard 600K (150K/người)</h3>
+
+                            <img src="assets/images/blog/mon-nuong-23.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Set 2: Standard 600K (150K/người)</h3>
                             <p><strong>Bò Mỹ nướng</strong> + <strong>Tôm sú nướng</strong> (4 con) + <strong>Gà nướng sả</strong> + <strong>Nấm + rau nướng</strong> + <strong>Lẩu nấm</strong> (1 nồi nhỏ) + <strong>Đồ uống</strong> (4 lon). Set cân bằng thịt - hải sản - rau!</p>
 
-                            <h3>Set 3: Premium 800K (200K/người)</h3>
+
+                            <img src="assets/images/blog/mon-nuong-24.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Set 3: Premium 800K (200K/người)</h3>
                             <p><strong>Bò Wagyu</strong> + <strong>Tôm hùm baby</strong> (2 con) + <strong>Mực nướng</strong> + <strong>Sườn heo nướng BBQ</strong> + <strong>Set rau nướng Đà Lạt</strong> + <strong>Lẩu hải sản</strong> + <strong>Rượu vang Đà Lạt</strong> (1 chai). Sang trọng mà vẫn hợp lý!</p>
 
                             <h3>Đặt set combo tại Trạm Dừng Chill</h3>
@@ -3060,10 +3317,13 @@ var BLOG_ARTICLES = [
                             <h3>Valentine tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> setup Valentine đặc biệt: <strong>bàn 2 người view hoàng hôn</strong>, hoa hồng, nến, bảng tên — tất cả MIỄN PHÍ! Menu Valentine gồm: bò Mỹ nướng + tôm nướng + salad dâu tây + rượu vang Đà Lạt. View hoàng hôn → xe lửa → biển sao nhà lồng = backdrop Valentine triệu đô! <a href="index.html#booking"><strong>Đặt bàn Valentine →</strong></a></p>
 
-                            <h3>Lịch trình Valentine Đà Lạt hoàn hảo</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-21.jpg" alt="Bàn setup cho cặp đôi tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lịch trình Valentine Đà Lạt hoàn hảo</h3>
                             <p><strong>9:00:</strong> Cafe sáng view đồi thông. <strong>11:00:</strong> Thung lũng Tình Yêu — check-in couple kinh điển. <strong>14:00:</strong> Mua hoa, dâu tây ở chợ Đà Lạt. <strong>16:00:</strong> Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — highlight của ngày! <strong>20:30:</strong> Dạo phố đi bộ, uống sữa đậu nành nóng.</p>
 
-                            <h3>Lưu ý đặt bàn Valentine</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-22.jpg" alt="Setup hẹn hò lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/setup-hen-ho-23.jpg" alt="Không gian hẹn hò đôi lứa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lưu ý đặt bàn Valentine</h3>
                             <p>Valentine là ngày cực kỳ đông tại mọi nhà hàng Đà Lạt — <strong>đặt trước ít nhất 1 tuần</strong>. Bàn view hoàng hôn cho couple hết rất nhanh. Báo trước yêu cầu setup đặc biệt (hoa, nến, surprise) để nhà hàng chuẩn bị.</p>
 
                             <h3>Kết luận</h3>
@@ -3085,10 +3345,12 @@ var BLOG_ARTICLES = [
                             <h3>Trưa (11:00-14:00) — 5 món</h3>
                             <p><strong>6. Phở gà Đà Lạt</strong> (40K). <strong>7. Lẩu gà lá é</strong> (180K/nồi, chia đôi). <strong>8. Nem nướng Nha Trang</strong> (30K). <strong>9. Bún bò Huế</strong> (40K). <strong>10. Nước ép dâu tây</strong> (30K) — tươi ngọt.</p>
 
-                            <h3>Chiều tối (15:30-20:00) — 5 món nướng BBQ</h3>
+
+                            <img src="assets/images/blog/mon-nuong-25.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Chiều tối (15:30-20:00) — 5 món nướng BBQ</h3>
                             <p>Highlight của food tour! Ghé <a href="index.html">Trạm Dừng Chill</a> nướng BBQ ngắm hoàng hôn: <strong>11. Bò Mỹ nướng</strong>. <strong>12. Tôm nướng muối ớt</strong>. <strong>13. Nấm rừng nướng bơ tỏi</strong>. <strong>14. Gà nướng mật ong</strong>. <strong>15. Bắp nướng mỡ hành</strong>. Set từ 95K/người — vừa ăn vừa ngắm view 3 trong 1! <a href="index.html#booking">Đặt bàn →</a></p>
 
-                            <h3>Đêm khuya (20:30-23:00) — 5 món chợ đêm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-26.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Đêm khuya (20:30-23:00) — 5 món chợ đêm</h3>
                             <p><strong>16. Bánh tráng nướng</strong> (20K). <strong>17. Ốc xào bơ tỏi</strong> (35K). <strong>18. Khoai lang nướng</strong> (15K). <strong>19. Chè khúc bạch</strong> (25K). <strong>20. Trứng gà nướng</strong> (10K). Tổng chợ đêm: ~105K.</p>
 
                             <h3>Tổng chi phí food tour</h3>
@@ -3109,11 +3371,14 @@ var BLOG_ARTICLES = [
 
                             <h3>6 quán nướng sân vườn đẹp nhất</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Không gian mở, ngoài trời view thung lũng. Tuy không phải sân vườn cây xanh truyền thống nhưng tầm nhìn 180° thoáng đãng hơn mọi sân vườn. <a href="index.html#booking">Đặt bàn →</a></p>
-                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn rộng 500m2 giữa rừng thông, cỏ xanh, đèn led lung linh.</p>
+
+                            <img src="assets/images/blog/mon-nuong-3.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn rộng 500m2 giữa rừng thông, cỏ xanh, đèn led lung linh.</p>
                             <p><strong>3. Green Garden BBQ:</strong> Vườn hoa + khu nướng, chụp ảnh cực đẹp.</p>
-                            <p><strong>4. Nướng Đồi Thông:</strong> Giữa rừng thông, mùi thông + mùi nướng = chill.</p>
+
+                            <img src="assets/images/blog/mon-nuong-30.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Nướng Đồi Thông:</strong> Giữa rừng thông, mùi thông + mùi nướng = chill.</p>
                             <p><strong>5. Garden Party BBQ:</strong> Sân vườn party, có sân khấu nhỏ cho nhóm 20+ người.</p>
-                            <p><strong>6. Eco BBQ Đà Lạt:</strong> Concept eco-friendly, vườn rau tự hái nướng tại chỗ.</p>
+
+                            <img src="assets/images/blog/mon-nuong-31.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>6. Eco BBQ Đà Lạt:</strong> Concept eco-friendly, vườn rau tự hái nướng tại chỗ.</p>
 
                             <h3>Ưu nhược điểm nướng sân vườn</h3>
                             <p><strong>Ưu:</strong> Thoáng mát, không khói, không gian rộng cho trẻ em chạy nhảy, view đẹp chụp ảnh. <strong>Nhược:</strong> Phụ thuộc thời tiết — mưa thì khó chịu. Giải pháp: chọn quán có mái che dự phòng hoặc theo dõi thời tiết trước khi đặt.</p>
@@ -3136,9 +3401,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Các món cá nướng phải thử</h3>
                             <p><strong>Cá tầm nướng giấy bạc:</strong> Cá nguyên con, gói giấy bạc với sả, hành, ớt — nướng than hoa 20 phút. Mở ra thơm phức, thịt trắng mềm.</p>
-                            <p><strong>Cá hồi nướng muối ớt:</strong> Phi lê cá hồi nướng da giòn, thịt hồng cam. Chấm muối ớt xanh — ngon xuất sắc!</p>
+
+                            <img src="assets/images/blog/hai-san-15.jpg" alt="Món hải sản nướng thơm ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Cá hồi nướng muối ớt:</strong> Phi lê cá hồi nướng da giòn, thịt hồng cam. Chấm muối ớt xanh — ngon xuất sắc!</p>
                             <p><strong>Cá hồi nướng sốt teriyaki:</strong> Kiểu Nhật, ngọt mặn hài hòa.</p>
-                            <p><strong>Cá tầm nướng than hoa:</strong> Nướng trực tiếp, da cá giòn rụm, thịt ngọt tự nhiên.</p>
+
+                            <img src="assets/images/blog/hai-san-16.jpg" alt="Hải sản nướng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Cá tầm nướng than hoa:</strong> Nướng trực tiếp, da cá giòn rụm, thịt ngọt tự nhiên.</p>
 
                             <h3>Cá nướng tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, menu có <strong>cá tầm nướng và cá hồi nướng</strong> từ nguồn cung cấp tại Đà Lạt — đảm bảo tươi. Cá nướng giấy bạc + view hoàng hôn = bữa tối sang trọng mà giá bình dân. Giá từ 120-250K/đĩa. <a href="index.html#booking">Đặt bàn thử cá nướng →</a></p>
@@ -3165,10 +3432,13 @@ var BLOG_ARTICLES = [
                             <h3>Chương trình 8/3 tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có chương trình <strong>8/3 đặc biệt</strong>: Setup bàn hoa hồng + nến + bảng chúc mừng MIỄN PHÍ. Tặng 1 bông hồng cho mỗi khách nữ. Menu couple từ 400K/2 người gồm bò nướng + tôm + salad + nước ép. <a href="index.html#booking"><strong>Đặt bàn 8/3 ngay →</strong></a></p>
 
-                            <h3>Gợi ý surprise cho bạn gái</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-24.jpg" alt="Setup hẹn hò lãng mạn tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Gợi ý surprise cho bạn gái</h3>
                             <p><strong>Bước 1:</strong> Đặt bàn trước 3-5 ngày, ghi rõ "8/3, cần setup lãng mạn". <strong>Bước 2:</strong> Mua thêm 1 bó hoa tại chợ Đà Lạt (50-100K). <strong>Bước 3:</strong> Đến trước 15-20 phút để kiểm tra bàn. <strong>Bước 4:</strong> Dẫn bạn gái đến, bàn đã setup sẵn — surprise hoàn hảo!</p>
 
-                            <h3>Quán nướng khác có chương trình 8/3</h3>
+
+                            <img src="assets/images/blog/setup-hen-ho-25.jpg" alt="Không gian hẹn hò đôi lứa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+                            <img src="assets/images/blog/setup-hen-ho-26.jpg" alt="Bàn setup cho cặp đôi tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Quán nướng khác có chương trình 8/3</h3>
                             <p><strong>BBQ Garden:</strong> Tặng voucher spa cho khách nữ. <strong>Sunset BBQ:</strong> Giảm 10% cho bàn có khách nữ. <strong>Nướng Hồ Tuyền Lâm:</strong> Set couple 8/3 kèm bánh kem nhỏ.</p>
 
                             <h3>Kết luận</h3>
@@ -3189,10 +3459,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Lịch trình 3 ngày 2 đêm tháng 2</h3>
                             <p><strong>Ngày 1:</strong> Sáng đến Đà Lạt, check-in homestay. Trưa ăn phở gà. Chiều ngắm hoa anh đào đường Trần Hưng Đạo. Tối nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — <a href="index.html#booking">đặt bàn trước</a>.</p>
-                            <p><strong>Ngày 2:</strong> Sáng đi Đồi chè Cầu Đất. Trưa lẩu gà lá é. Chiều Hồ Tuyền Lâm. Tối chợ đêm.</p>
+
+                            <img src="assets/images/blog/khong-gian-ngay-8.jpg" alt="Không gian ban ngày thoáng đãng tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Ngày 2:</strong> Sáng đi Đồi chè Cầu Đất. Trưa lẩu gà lá é. Chiều Hồ Tuyền Lâm. Tối chợ đêm.</p>
                             <p><strong>Ngày 3:</strong> Sáng cafe view đồi. Mua đặc sản. Trưa ăn bún bò rồi về.</p>
 
-                            <h3>Ngắm hoa mai anh đào ở đâu?</h3>
+
+                            <img src="assets/images/blog/khong-gian-ngay-9.jpg" alt="Quán nướng Đà Lạt view đẹp ban ngày" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Ngắm hoa mai anh đào ở đâu?</h3>
                             <p><strong>Đường Trần Hưng Đạo:</strong> 2 hàng anh đào nở rộ — check-in kinh điển. <strong>Hồ Xuân Hương:</strong> Hoa phản chiếu mặt hồ tuyệt đẹp. <strong>KQH Hồ Tuyền Lâm:</strong> Rừng anh đào tự nhiên, ít người. <strong>Đường lên Langbiang:</strong> Hoa dọc 2 bên đường.</p>
 
                             <h3>Chi phí tháng 2 — Tiết kiệm hơn Tết</h3>
@@ -3216,12 +3488,15 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng premium Đà Lạt 2027</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a> (Premium Set):</strong> Tuy giá bình dân nhưng có set Premium từ 300K/người — bò Mỹ chất lượng cao, tôm sú size lớn, rượu vang. View 3-in-1 (hoàng hôn + xe lửa + biển sao) không quán premium nào sánh được! <a href="index.html#booking">Đặt set Premium →</a></p>
-                            <p><strong>2. Dalat Fine Dining BBQ:</strong> Bò Wagyu A5 nướng trên bàn đá nóng, giá từ 500K/người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-5.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Dalat Fine Dining BBQ:</strong> Bò Wagyu A5 nướng trên bàn đá nóng, giá từ 500K/người.</p>
                             <p><strong>3. The Grill Đà Lạt:</strong> Steakhouse + BBQ, nhập khẩu thịt Úc, Mỹ.</p>
-                            <p><strong>4. Luxury BBQ Tuyền Lâm:</strong> View hồ, phòng VIP riêng, giá từ 400K/người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-6.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Luxury BBQ Tuyền Lâm:</strong> View hồ, phòng VIP riêng, giá từ 400K/người.</p>
                             <p><strong>5. Sky BBQ Rooftop:</strong> Sân thượng, cocktail bar + nướng, giá từ 350K/người.</p>
 
-                            <h3>Khi nào nên chọn quán premium?</h3>
+
+                            <img src="assets/images/blog/mon-nuong-7.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Khi nào nên chọn quán premium?</h3>
                             <p>Dịp đặc biệt: sinh nhật, kỷ niệm, cầu hôn, tiếp khách. Hoặc đơn giản — bạn muốn thưởng thức <strong>BBQ chất lượng cao nhất Đà Lạt</strong> ít nhất một lần trong đời!</p>
 
                             <h3>So sánh giá premium vs bình dân</h3>
@@ -3246,10 +3521,12 @@ var BLOG_ARTICLES = [
                             <h3>Thịt heo — Chọn sao cho chuẩn?</h3>
                             <p><strong>Ba chỉ (thịt ba rọi):</strong> Lớp mỡ xen nạc, nướng giòn mỡ — ngon nhất! Cắt mỏng 3-5mm kiểu Hàn hoặc dày 1cm kiểu Việt. <strong>Sườn heo:</strong> Ướp sốt BBQ, nướng slow — mềm rụng xương. <strong>Cổ heo:</strong> Nhiều gân, nướng dai ngon.</p>
 
-                            <h3>Gà nướng — Bí quyết mềm thơm</h3>
+
+                            <img src="assets/images/blog/mon-nuong-4.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Gà nướng — Bí quyết mềm thơm</h3>
                             <p><strong>Đùi gà:</strong> Nhiều mỡ, nướng không bị khô. <strong>Cánh gà:</strong> Giòn da, ăn vặt tuyệt vời. <strong>Bí quyết:</strong> Ướp trước 2-4 tiếng. Nướng lửa vừa, lật đều. Phết mật ong cuối cùng để da caramel giòn.</p>
 
-                            <h3>Thịt nướng tại Trạm Dừng Chill</h3>
+
+                            <img src="assets/images/blog/mon-nuong-8.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Thịt nướng tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, đầu bếp chọn thịt bò Mỹ Ribeye/Sirloin chất lượng cao, cắt dày vừa, ướp gia vị vừa ăn. Thịt được bảo quản đúng nhiệt độ, nướng than hoa truyền thống cho <strong>hương vị BBQ chuẩn</strong>. <a href="index.html#booking">Đặt bàn thử ngay →</a></p>
 
                             <h3>Kết luận</h3>
@@ -3270,9 +3547,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng hot nhất tháng 3/2027</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Luôn trong top quán hot nhất mọi mùa. Tháng 3, thung lũng xanh mướt, hoa nở rộ — view càng đẹp hơn bình thường. <a href="index.html#booking"><strong>Đặt bàn sớm →</strong></a> vì tháng 3 cực kỳ đông!</p>
-                            <p><strong>2. BBQ Garden:</strong> Sân vườn nở hoa mùa xuân, check-in đẹp.</p>
-                            <p><strong>3. Đồi Nướng BBQ:</strong> View thành phố trang trí hoa festival lung linh.</p>
-                            <p><strong>4. K-BBQ Đà Lạt 2027:</strong> Quán mới, hot trend trên TikTok.</p>
+
+                            <img src="assets/images/blog/mon-nuong-9.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden:</strong> Sân vườn nở hoa mùa xuân, check-in đẹp.</p>
+
+                            <img src="assets/images/blog/mon-nuong-1.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. Đồi Nướng BBQ:</strong> View thành phố trang trí hoa festival lung linh.</p>
+
+                            <img src="assets/images/blog/mon-nuong-10.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. K-BBQ Đà Lạt 2027:</strong> Quán mới, hot trend trên TikTok.</p>
 
                             <h3>Sự kiện Festival Hoa 2027</h3>
                             <p><strong>Lễ khai mạc:</strong> Diễu hành xe hoa, biểu diễn nghệ thuật. <strong>Đường hoa:</strong> Trưng bày hoa khắp trung tâm thành phố. <strong>Chợ hoa đêm:</strong> Mua hoa giá rẻ, chụp ảnh đẹp. <strong>Lễ hội ẩm thực:</strong> Các quán nướng tham gia, nhiều ưu đãi.</p>
@@ -3299,10 +3579,12 @@ var BLOG_ARTICLES = [
                             <h3>Bảng giá chi tiết từng món</h3>
                             <p><strong>Thịt bò Mỹ:</strong> 85-150K/đĩa. <strong>Thịt heo ba chỉ:</strong> 55-80K/đĩa. <strong>Gà nướng:</strong> 65-95K/đĩa. <strong>Tôm sú:</strong> 85-150K/đĩa (4-6 con). <strong>Mực nướng:</strong> 75-120K/đĩa. <strong>Nấm nướng:</strong> 35-55K/đĩa. <strong>Rau nướng combo:</strong> 35-65K. <strong>Lẩu nấm:</strong> 85-120K/nồi. <strong>Cơm trắng:</strong> 10-15K.</p>
 
-                            <h3>Giá tại Trạm Dừng Chill</h3>
+
+                            <img src="assets/images/blog/mon-nuong-11.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Giá tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> thuộc phân khúc <strong>trung cấp, giá 95-300K/người</strong> — nhưng view thuộc hàng premium! Set combo 2 người từ 250K, set 4 người từ 380K, set 6 người từ 550K. Giá hợp lý + view xe lửa + hoàng hôn + biển sao = giá trị vượt trội. <a href="index.html#booking">Xem menu & đặt bàn →</a></p>
 
-                            <h3>Mẹo tiết kiệm khi ăn nướng</h3>
+
+                            <img src="assets/images/blog/mon-nuong-12.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Mẹo tiết kiệm khi ăn nướng</h3>
                             <p>Gọi set combo tiết kiệm hơn gọi lẻ 10-15%. Đi nhóm 4-6 người chia tiền hợp lý nhất. Đi ngày thường (thứ 2-5) một số quán có khuyến mãi. Uống nước mang theo thay vì gọi nước quán.</p>
 
                             <h3>Kết luận</h3>
@@ -3323,12 +3605,15 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng nhận tổ chức tiệc cưới</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Nhận tổ chức tiệc cưới nhỏ 20-40 khách. Setup bàn cưới với hoa, nến, backdrop — view hoàng hôn + biển sao nhà lồng làm backdrop tự nhiên tuyệt đẹp. <a href="index.html#booking">Liên hệ đặt tiệc cưới →</a></p>
-                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn rộng, nhận 50-80 khách, có sân khấu nhỏ.</p>
+
+                            <img src="assets/images/blog/mon-nuong-13.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn rộng, nhận 50-80 khách, có sân khấu nhỏ.</p>
                             <p><strong>3. Garden Party BBQ:</strong> Chuyên tiệc ngoài trời, nhận từ 30 khách.</p>
-                            <p><strong>4. Luxury BBQ Tuyền Lâm:</strong> View hồ, phù hợp tiệc cưới sang trọng.</p>
+
+                            <img src="assets/images/blog/mon-nuong-14.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Luxury BBQ Tuyền Lâm:</strong> View hồ, phù hợp tiệc cưới sang trọng.</p>
                             <p><strong>5. Đồi Nướng BBQ:</strong> View đồi, giá hợp lý, nhận 30-50 khách.</p>
 
-                            <h3>Chi phí tiệc cưới BBQ Đà Lạt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-15.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Chi phí tiệc cưới BBQ Đà Lạt</h3>
                             <p><strong>Menu nướng:</strong> 200-350K/khách (set nướng + lẩu + đồ uống). <strong>Setup:</strong> 2-5 triệu (hoa, nến, backdrop, âm thanh). <strong>Tổng 40 khách:</strong> 10-20 triệu — tiết kiệm hơn nhiều so với nhà hàng truyền thống (30-50 triệu)!</p>
 
                             <h3>Lưu ý tổ chức tiệc cưới BBQ</h3>
@@ -3352,9 +3637,11 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán bánh mì nướng ngon nhất</h3>
                             <p><strong>1. Bánh Mì Than Hoa Chợ Đà Lạt:</strong> Quán gốc, đông nhất. Giá 25-35K/ổ. Nướng trực tiếp trên bếp than, thơm lừng.</p>
-                            <p><strong>2. Bánh Mì Xíu Mại:</strong> Ổ bánh nướng giòn + xíu mại nóng hổi — combo huyền thoại, 25K.</p>
+
+                            <img src="assets/images/blog/mon-nuong-18.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Bánh Mì Xíu Mại:</strong> Ổ bánh nướng giòn + xíu mại nóng hổi — combo huyền thoại, 25K.</p>
                             <p><strong>3. Bánh Mì Than Hoa Phan Đình Phùng:</strong> Nướng tỉ mỉ, bơ tỏi thơm, 30K.</p>
-                            <p><strong>4. Bánh Mì Nướng Chợ Đêm:</strong> Ăn khuya, nướng tại chỗ, 20K — rẻ mà ngon.</p>
+
+                            <img src="assets/images/blog/mon-nuong-19.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Bánh Mì Nướng Chợ Đêm:</strong> Ăn khuya, nướng tại chỗ, 20K — rẻ mà ngon.</p>
                             <p><strong>5. Bánh Mì Premium Đà Lạt:</strong> Phiên bản cao cấp — bơ Pháp, pate gan ngỗng, 60K/ổ.</p>
 
                             <h3>Bánh mì nướng + Nướng BBQ = Combo hoàn hảo</h3>
@@ -3378,9 +3665,12 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng mở từ 11h trưa</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Mở từ <strong>15:00</strong> hàng ngày. Tuy không mở buổi trưa nhưng bạn có thể đến sớm 14:30-15:00 để bắt đầu bữa nướng trước hoàng hôn. <a href="index.html#booking">Đặt bàn sớm →</a></p>
-                            <p><strong>2. BBQ House Đà Lạt:</strong> Mở từ 11:00, phục vụ nướng cả trưa lẫn tối.</p>
-                            <p><strong>3. K-BBQ Đà Lạt:</strong> Nướng Hàn Quốc, mở từ 11:30 — buffet trưa giá tốt hơn tối.</p>
-                            <p><strong>4. Phố Nướng Indoor:</strong> Nướng trong nhà, mở 11:00-22:00 liên tục.</p>
+
+                            <img src="assets/images/blog/mon-nuong-2.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ House Đà Lạt:</strong> Mở từ 11:00, phục vụ nướng cả trưa lẫn tối.</p>
+
+                            <img src="assets/images/blog/mon-nuong-21.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>3. K-BBQ Đà Lạt:</strong> Nướng Hàn Quốc, mở từ 11:30 — buffet trưa giá tốt hơn tối.</p>
+
+                            <img src="assets/images/blog/mon-nuong-22.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Phố Nướng Indoor:</strong> Nướng trong nhà, mở 11:00-22:00 liên tục.</p>
 
                             <h3>Ưu điểm ăn nướng buổi trưa</h3>
                             <p><strong>Ít đông:</strong> Hầu hết du khách ăn nướng buổi tối, nên trưa quán vắng hơn, phục vụ nhanh hơn. <strong>Giá tốt hơn:</strong> Một số quán có set trưa giá rẻ hơn tối 10-20%. <strong>Nắng đẹp:</strong> Trưa nắng ấm, ngồi ngoài trời rất dễ chịu.</p>
@@ -3406,10 +3696,12 @@ var BLOG_ARTICLES = [
 
                             <h3>10 góc chụp triệu like</h3>
                             <p><strong>1. Golden hour + bếp nướng:</strong> 16:30-17:30, ánh nắng vàng chiếu vào bếp than — ảnh siêu ấm. <strong>2. Silhouette hoàng hôn:</strong> Đứng ngược sáng, outline người + bếp nướng. <strong>3. Đồ ăn flat-lay:</strong> Chụp từ trên xuống, bày đẹp trên bàn gỗ.</p>
-                            <p><strong>4. Biển sao nhà lồng:</strong> 19:00-20:00, chụp view phía sau. <strong>5. Xe lửa chạy ngang:</strong> Khoảnh khắc tàu qua — chỉ có tại Trạm Dừng Chill! <strong>6. Bốc khói dramatic:</strong> Chụp close-up thịt nướng đang bốc khói.</p>
+
+                            <img src="assets/images/blog/checkin-7.jpg" alt="Điểm chụp hình sống ảo Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Biển sao nhà lồng:</strong> 19:00-20:00, chụp view phía sau. <strong>5. Xe lửa chạy ngang:</strong> Khoảnh khắc tàu qua — chỉ có tại Trạm Dừng Chill! <strong>6. Bốc khói dramatic:</strong> Chụp close-up thịt nướng đang bốc khói.</p>
                             <p><strong>7. Couple bên bếp nướng:</strong> Ánh lửa ấm, background mờ — romantic. <strong>8. Nhóm bạn cheers:</strong> Nâng ly vang, background hoàng hôn. <strong>9. Boomerang gắp thịt:</strong> Video ngắn gắp thịt nướng, khói bay. <strong>10. Night view panorama:</strong> Chụp rộng toàn cảnh biển sao + thành phố.</p>
 
-                            <h3>Góc chụp đẹp nhất tại Trạm Dừng Chill</h3>
+
+                            <img src="assets/images/blog/checkin-8.jpg" alt="Check-in sống ảo tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Góc chụp đẹp nhất tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có 3 góc check-in "huyền thoại": <strong>Bàn hàng đầu view hoàng hôn</strong> (golden hour), <strong>khu vực view xe lửa</strong> (khoảnh khắc tàu qua), và <strong>toàn cảnh biển sao nhà lồng</strong> (after dark). <a href="index.html#booking">Đặt bàn góc check-in đẹp →</a></p>
 
                             <h3>Mẹo chụp ảnh đẹp</h3>
@@ -3433,12 +3725,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng nhận thanh toán QR</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Nhận chuyển khoản ngân hàng, QR code. Thanh toán nhanh, tiện lợi. <a href="index.html#booking">Đặt bàn →</a></p>
-                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Nhận MoMo, chuyển khoản.</p>
+
+                            <img src="assets/images/blog/mon-nuong-23.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt:</strong> Nhận MoMo, chuyển khoản.</p>
                             <p><strong>3. K-BBQ Đà Lạt:</strong> Máy POS thẻ + QR code đầy đủ.</p>
-                            <p><strong>4. Đồi Nướng BBQ:</strong> Chuyển khoản ngân hàng.</p>
+
+                            <img src="assets/images/blog/mon-nuong-24.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Đồi Nướng BBQ:</strong> Chuyển khoản ngân hàng.</p>
                             <p><strong>5. The Grill Đà Lạt:</strong> Nhận thẻ Visa/Master + QR.</p>
 
-                            <h3>Quán chỉ nhận tiền mặt</h3>
+
+                            <img src="assets/images/blog/mon-nuong-25.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Quán chỉ nhận tiền mặt</h3>
                             <p>Các quán nhỏ ven đường, quán nướng vỉa hè, quán trong chợ đêm — hầu hết chỉ nhận tiền mặt. Nên mang theo ít nhất 200-300K tiền mặt dự phòng khi đi ăn vặt.</p>
 
                             <h3>Mẹo thanh toán khi đi Đà Lạt</h3>
@@ -3463,10 +3758,12 @@ var BLOG_ARTICLES = [
                             <h3>Chỗ ở cho 10 người</h3>
                             <p><strong>Villa riêng:</strong> 1.5-3 triệu/đêm, chia 10 = 150-300K/người. Có bếp, phòng khách, sân vườn. Tìm trên Airbnb hoặc Booking. <strong>Homestay 2-3 phòng:</strong> 600K-1.2 triệu/đêm, chia 10 = 60-120K/người. Rẻ hơn nhưng chật hơn.</p>
 
-                            <h3>Lịch trình 3 ngày 2 đêm</h3>
+
+                            <img src="assets/images/blog/khach-nhom-1.jpg" alt="Tiệc nhóm bạn nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Lịch trình 3 ngày 2 đêm</h3>
                             <p><strong>Ngày 1 chiều:</strong> Đến Đà Lạt, check-in villa. Tối nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — nhóm 10 người đặt 2 bàn cạnh nhau, view hoàng hôn. <a href="index.html#booking"><strong>Đặt bàn nhóm →</strong></a></p>
                             <p><strong>Ngày 2:</strong> Sáng đi Langbiang. Trưa lẩu gà lá é. Chiều Hồ Tuyền Lâm. Tối chợ đêm + party tại villa.</p>
-                            <p><strong>Ngày 3:</strong> Sáng cafe view đồi. Mua đặc sản. Về.</p>
+
+                            <img src="assets/images/blog/khach-nhom-21.jpg" alt="Đoàn khách nhóm tại quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>Ngày 3:</strong> Sáng cafe view đồi. Mua đặc sản. Về.</p>
 
                             <h3>Chi phí và cách chia tiền</h3>
                             <p><strong>Chỗ ở:</strong> 150-300K/người/đêm x 2 = 300-600K. <strong>Ăn uống:</strong> 200-300K/ngày x 3 = 600-900K. <strong>Xe máy:</strong> 300K (chia đôi 2 người/xe). <strong>Tổng: 1.5-2.5 triệu/người/3 ngày</strong> — quá hời cho nhóm 10!</p>
@@ -3489,12 +3786,15 @@ var BLOG_ARTICLES = [
 
                             <h3>5 quán nướng đồ ăn sạch</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Rau nướng 100% từ vườn Đà Lạt, tươi trong ngày. Thịt nhập từ nguồn uy tín, đảm bảo chất lượng. <a href="index.html#booking">Đặt bàn →</a></p>
-                            <p><strong>2. Eco BBQ Đà Lạt:</strong> Concept organic 100% — rau vườn tự trồng, gà thả đồi. Giá từ 150K/người.</p>
+
+                            <img src="assets/images/blog/mon-nuong-26.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. Eco BBQ Đà Lạt:</strong> Concept organic 100% — rau vườn tự trồng, gà thả đồi. Giá từ 150K/người.</p>
                             <p><strong>3. Green Garden BBQ:</strong> Rau hái tại vườn nướng tại chỗ, đảm bảo tươi nhất.</p>
-                            <p><strong>4. Farm BBQ Đà Lạt:</strong> Nằm trong farm rau, khách có thể hái rau rồi nướng ngay.</p>
+
+                            <img src="assets/images/blog/mon-nuong-3.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. Farm BBQ Đà Lạt:</strong> Nằm trong farm rau, khách có thể hái rau rồi nướng ngay.</p>
                             <p><strong>5. Healthy BBQ Đà Lạt:</strong> Menu low-carb, keto-friendly, dùng dầu olive nướng.</p>
 
-                            <h3>Làm sao biết đồ ăn sạch?</h3>
+
+                            <img src="assets/images/blog/mon-nuong-30.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Làm sao biết đồ ăn sạch?</h3>
                             <p>Hỏi nhà hàng về nguồn cung cấp thịt, rau. Quán uy tín thường ghi rõ nguồn gốc trên menu. Rau Đà Lạt nhìn là biết tươi — lá xanh mướt, không héo. Thịt tươi — màu đỏ tươi, không tím đen, không mùi lạ.</p>
 
                             <h3>Menu nướng healthy gợi ý</h3>
@@ -3519,10 +3819,12 @@ var BLOG_ARTICLES = [
                             <h3>Best Sunset BBQ Restaurant: Tram Dung Chill</h3>
                             <p><strong><a href="index.html">Tram Dung Chill</a></strong> is the #1 rated sunset BBQ spot in Da Lat. What makes it special: <strong>3 views in 1 evening</strong> — golden sunset over the valley (16:30-17:30), vintage train passing below (17:30), and the "sea of stars" from thousands of greenhouse lights at night (19:00+). Prices start from just 95,000 VND/person (~$4 USD). <a href="index.html#booking">Book a table →</a></p>
 
-                            <h3>What to Order</h3>
+
+                            <img src="assets/images/blog/view-hoang-hon-31.jpg" alt="View hoàng hôn tuyệt đẹp tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>What to Order</h3>
                             <p><strong>Must-try items:</strong> US beef BBQ (85-150K VND), grilled shrimp with salt & chili (85-150K), Da Lat mushroom platter (35-55K), grilled corn with scallion oil (20K), hot pot combo (85-120K). Pair with <strong>Da Lat wine</strong> (80-200K/bottle) for the perfect sunset dinner.</p>
 
-                            <h3>How to Book</h3>
+
+                            <img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Ngắm hoàng hôn Đà Lạt từ quán nướng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>How to Book</h3>
                             <p>Visit the <a href="index.html#booking"><strong>online booking form</strong></a> or message via Zalo. Confirmation within 15 minutes. Book 1-2 days ahead for sunset-view tables, especially on weekends. Specify "sunset view" or "train view" when booking.</p>
 
                             <h3>Tips for Tourists</h3>
@@ -3546,12 +3848,15 @@ var BLOG_ARTICLES = [
 
                             <h3>Top 5 quán nướng tốt nhất 2027</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a></strong> ⭐ 9.2/10 — View xe lửa + hoàng hôn + biển sao nhà lồng. Giá 95-300K/người. Dịch vụ setup miễn phí. <strong>Điểm nổi bật:</strong> View 3-in-1 duy nhất Đà Lạt, giá hợp lý, đặt bàn online tiện lợi. <a href="index.html#booking">Đặt bàn →</a></p>
-                            <p><strong>2. BBQ Garden Đà Lạt</strong> ⭐ 8.0/10 — Sân vườn rừng thông. Giá 150-350K. Điểm trừ: dịch vụ chậm cuối tuần.</p>
+
+                            <img src="assets/images/blog/mon-nuong-31.jpg" alt="Bàn nướng BBQ đa dạng món tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>2. BBQ Garden Đà Lạt</strong> ⭐ 8.0/10 — Sân vườn rừng thông. Giá 150-350K. Điểm trừ: dịch vụ chậm cuối tuần.</p>
                             <p><strong>3. Nướng Hồ Tuyền Lâm</strong> ⭐ 7.8/10 — View hồ đẹp. Giá 130-280K. Phù hợp couple.</p>
-                            <p><strong>4. BBQ Rooftop 2027</strong> ⭐ 7.6/10 — View 360° thành phố. Giá 180-400K. Quán mới, concept hiện đại.</p>
+
+                            <img src="assets/images/blog/mon-nuong-4.jpg" alt="Món nướng BBQ tại Trạm Dừng Chill Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <p><strong>4. BBQ Rooftop 2027</strong> ⭐ 7.6/10 — View 360° thành phố. Giá 180-400K. Quán mới, concept hiện đại.</p>
                             <p><strong>5. Đồi Nướng BBQ</strong> ⭐ 7.3/10 — View đồi, giá bình dân 100-200K. Phù hợp nhóm đông.</p>
 
-                            <h3>Phân loại theo nhu cầu</h3>
+
+                            <img src="assets/images/blog/mon-nuong-5.jpg" alt="Thịt nướng thơm lừng tại quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">                            <h3>Phân loại theo nhu cầu</h3>
                             <p><strong>Couple/hẹn hò:</strong> Trạm Dừng Chill, Nướng Hồ Tuyền Lâm. <strong>Nhóm bạn:</strong> BBQ Garden, Đồi Nướng. <strong>Gia đình:</strong> Trạm Dừng Chill, Family BBQ. <strong>Cao cấp:</strong> The Grill, Luxury BBQ. <strong>Giá rẻ:</strong> Nướng vỉa hè chợ đêm, Đồi Nướng.</p>
 
                             <h3>Bảng giá tổng hợp 2027</h3>
