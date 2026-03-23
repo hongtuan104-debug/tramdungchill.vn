@@ -656,8 +656,8 @@
                         <span data-i18n="map.cta">Chỉ đường Google Maps</span>
                     </a>
                 </div>
-                <div class="map-embed">
-                    <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=111+Huỳnh+Tấn+Phát,+Phường+11,+Đà+Lạt,+Lâm+Đồng&zoom=16&language=vi" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bản đồ Tiệm Nướng Trạm Dừng Chill"></iframe>
+                <div class="map-embed" id="mapEmbed" data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=111+Huỳnh+Tấn+Phát,+Phường+11,+Đà+Lạt,+Lâm+Đồng&zoom=16&language=vi">
+                    <!-- Map iframe loaded on scroll via IntersectionObserver -->
                 </div>
             </div>
         </div>

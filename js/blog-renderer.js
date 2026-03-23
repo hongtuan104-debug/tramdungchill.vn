@@ -44,6 +44,58 @@ function renderBlog() {
 
     // Auto-insert share buttons
     initBlogShare();
+
+    // Inject BlogPosting JSON-LD for each visible article (SEO rich snippets)
+    injectBlogSchema(articles);
+}
+
+function injectBlogSchema(articles) {
+    var existing = document.getElementById('blog-schema-ld');
+    if (existing) existing.remove();
+
+    var schemaItems = articles.map(function(a) {
+        // Strip HTML tags from excerpt for description
+        var desc = a.excerpt.replace(/<[^>]*>/g, '').substring(0, 200);
+        return {
+            '@type': 'BlogPosting',
+            'headline': a.title,
+            'description': desc,
+            'image': 'https://tramdungchill.vn/' + a.image,
+            'datePublished': a.date,
+            'dateModified': a.date,
+            'author': {
+                '@type': 'Restaurant',
+                '@id': 'https://tramdungchill.vn/#restaurant',
+                'name': 'Tiệm Nướng Trạm Dừng Chill'
+            },
+            'publisher': {
+                '@type': 'Restaurant',
+                '@id': 'https://tramdungchill.vn/#restaurant',
+                'name': 'Tiệm Nướng Trạm Dừng Chill',
+                'logo': {
+                    '@type': 'ImageObject',
+                    'url': 'https://tramdungchill.vn/assets/images/favicon-180.png'
+                }
+            },
+            'mainEntityOfPage': {
+                '@type': 'WebPage',
+                '@id': 'https://tramdungchill.vn/blog.html#' + a.id
+            },
+            'url': 'https://tramdungchill.vn/blog.html#' + a.id,
+            'inLanguage': a.category === 'English' ? 'en' : 'vi',
+            'articleSection': a.category,
+            'keywords': a.title.toLowerCase()
+        };
+    });
+
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'blog-schema-ld';
+    script.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': schemaItems
+    });
+    document.head.appendChild(script);
 }
 
 function initBlogShare() {

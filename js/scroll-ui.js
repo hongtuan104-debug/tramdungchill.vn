@@ -92,4 +92,26 @@ function initScrollUI() {
     }
 
     onScroll();
+
+    // Lazy load Google Maps iframe when scrolled into view
+    var mapEmbed = document.getElementById('mapEmbed');
+    if (mapEmbed && mapEmbed.dataset.src) {
+        var mapObserver = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                var iframe = document.createElement('iframe');
+                iframe.src = mapEmbed.dataset.src;
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.style.border = '0';
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                iframe.referrerPolicy = 'no-referrer-when-downgrade';
+                iframe.title = 'Bản đồ Tiệm Nướng Trạm Dừng Chill';
+                mapEmbed.innerHTML = '';
+                mapEmbed.appendChild(iframe);
+                mapObserver.disconnect();
+            }
+        }, { rootMargin: '200px' });
+        mapObserver.observe(mapEmbed);
+    }
 }
