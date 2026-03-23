@@ -34,6 +34,11 @@ function renderMenu() {
         panel.setAttribute('aria-labelledby', 'tab-' + cat.id);
         panel.setAttribute('tabindex', '0');
 
+        var catTitle = document.createElement('h3');
+        catTitle.className = 'menu-panel-title sr-only';
+        catTitle.textContent = cat.label;
+        panel.appendChild(catTitle);
+
         var grid = document.createElement('div');
         grid.className = 'menu-grid';
 
@@ -66,9 +71,10 @@ function buildMenuItem(item) {
     var info = document.createElement('div');
     info.className = 'menu-item-info';
 
-    var h4 = document.createElement('h4');
-    h4.textContent = item.name;
-    info.appendChild(h4);
+    var nameEl = document.createElement('span');
+    nameEl.className = 'menu-item-name';
+    nameEl.textContent = item.name;
+    info.appendChild(nameEl);
 
     if (item.badge) {
         var badge = document.createElement('span');
