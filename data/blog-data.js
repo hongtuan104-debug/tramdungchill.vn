@@ -6200,7 +6200,7 @@ var BLOG_ARTICLES = [
         imageAlt: "BBQ Đà Lạt view đẹp đầu năm 2027 - nướng ngoài trời",
         badge: "",
         featured: false,
-        excerpt: "Đầu năm 2027, hãy "khai xuân" bằng trải nghiệm <strong>BBQ Đà Lạt view đẹp</strong> — nướng ngoài trời giữa thung lũng xanh mướt, ngắm hoàng hôn vàng rực rỡ.",
+        excerpt: "Đầu năm 2027, hãy khai xuân bằng trải nghiệm <strong>BBQ Đà Lạt view đẹp</strong> — nướng ngoài trời giữa thung lũng xanh mướt, ngắm hoàng hôn vàng rực rỡ.",
         body: `<h3>Đầu năm mới — Lý do phải đến Đà Lạt nướng BBQ</h3>
                             <p>Sau kỳ nghỉ Tết, Đà Lạt trở lại nhịp bình yên. Tháng 2 ít khách hơn dịp lễ, giá phòng rẻ hơn 30-40%, thời tiết mát mẻ dễ chịu. Đây là "cửa sổ vàng" để trải nghiệm nướng BBQ ngoài trời mà không phải chen chúc.</p>
 
@@ -6212,7 +6212,7 @@ var BLOG_ARTICLES = [
 <img src="assets/images/blog/view-nha-long-2.jpg" alt="BBQ Đà Lạt view đẹp - biển đèn nhà lồng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tip tận hưởng BBQ view đẹp đầu năm</h3>
-                            <p>Đặt bàn vị trí ngoài trời, đến từ 15:30 để "hứng" trọn golden hour. Gọi combo nướng cho 2-4 người để đa dạng món. Mang thêm áo khoác vì Đà Lạt tháng 2 tối lạnh 14-16°C. <a href="index.html#booking"><strong>Đặt bàn view đẹp ngay</strong></a> — hotline: <a href="tel:0989765070">0989.765.070</a>.</p>`
+                            <p>Đặt bàn vị trí ngoài trời, đến từ 15:30 để 'hứng' trọn golden hour. Gọi combo nướng cho 2-4 người để đa dạng món. Mang thêm áo khoác vì Đà Lạt tháng 2 tối lạnh 14-16°C. <a href="index.html#booking"><strong>Đặt bàn view đẹp ngay</strong></a> — hotline: <a href="tel:0989765070">0989.765.070</a>.</p>`
     },
     {
         id: "quan-nuong-da-lat-gia-re-sinh-vien",
@@ -6275,7 +6275,7 @@ var BLOG_ARTICLES = [
         imageAlt: "Quán nướng Đà Lạt mở cửa buổi chiều - nướng BBQ ngắm sunset",
         badge: "",
         featured: false,
-        excerpt: "Muốn ăn nướng sớm từ buổi chiều? Đây là danh sách <strong>quán nướng Đà Lạt mở cửa buổi chiều</strong> — đến từ 15:00 để "hứng" trọn golden hour hoàng hôn.",
+        excerpt: "Muốn ăn nướng sớm từ buổi chiều? Đây là danh sách <strong>quán nướng Đà Lạt mở cửa buổi chiều</strong> — đến từ 15:00 để 'hứng' trọn golden hour hoàng hôn.",
         body: `<h3>Tại sao nên ăn nướng từ buổi chiều?</h3>
                             <p>Đa số quán nướng Đà Lạt mở từ 17:00-18:00. Nhưng nếu đến sớm từ 15:00, bạn sẽ: ngắm được hoàng hôn đẹp nhất (golden hour 16:00-17:30), chọn được bàn view đẹp nhất (chưa đông), ăn xong sớm còn kịp đi chợ đêm hoặc cafe tối.</p>
 
@@ -6511,7 +6511,7 @@ var BLOG_ARTICLES = [
         imageAlt: "Ăn nướng ngắm hoàng hôn Đà Lạt mùa xuân 2027",
         badge: "",
         featured: false,
-        excerpt: "Mùa xuân Đà Lạt, hoàng hôn đẹp nhất năm — vàng rực, kéo dài, nắng ấm. Vừa <strong>ăn nướng ngắm hoàng hôn Đà Lạt</strong> vừa chụp ảnh "triệu like" — trải nghiệm không thể bỏ lỡ.",
+        excerpt: "Mùa xuân Đà Lạt, hoàng hôn đẹp nhất năm — vàng rực, kéo dài, nắng ấm. Vừa <strong>ăn nướng ngắm hoàng hôn Đà Lạt</strong> vừa chụp ảnh 'triệu like' — trải nghiệm không thể bỏ lỡ.",
         body: `<h3>Hoàng hôn Đà Lạt mùa xuân — Vì sao đẹp nhất?</h3>
                             <p>Tháng 3-4, Đà Lạt có hoàng hôn đẹp nhất năm nhờ: trời ít mây, nắng vàng ấm (không gay gắt như mùa hè), golden hour kéo dài 45-60 phút. Từ các quán nướng trên cao, bạn ngắm mặt trời từ từ chìm xuống sau dãy núi — bầu trời chuyển từ vàng sang cam rồi tím.</p>
 
