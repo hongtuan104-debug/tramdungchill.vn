@@ -162,6 +162,36 @@ try {
         return '<a href="' + nav.next.id + '.html" class="blog-nav-next"><span class="nav-label">B\u00e0i ti\u1ebfp \u2192</span><span class="nav-title">' + htmlEncode(nav.next.title) + '</span></a>';
     }
 
+    // Build related posts for each article
+    function buildRelatedPosts(currentArticle) {
+        const publishedOthers = articles
+            .filter(a => a.id !== currentArticle.id && a.date <= TODAY)
+            .sort((a, b) => b.date.localeCompare(a.date));
+
+        // Same category first
+        const sameCategory = publishedOthers.filter(a => a.category === currentArticle.category);
+        const otherCategory = publishedOthers.filter(a => a.category !== currentArticle.category);
+
+        const related = [];
+        for (let i = 0; i < sameCategory.length && related.length < 3; i++) {
+            related.push(sameCategory[i]);
+        }
+        for (let i = 0; i < otherCategory.length && related.length < 3; i++) {
+            related.push(otherCategory[i]);
+        }
+
+        if (related.length === 0) return "";
+
+        return related.map(function(a) {
+            return '<a href="' + a.id + '.html" class="blog-related-card">' +
+                '<img src="../' + a.image + '" alt="' + htmlEncode(a.imageAlt || a.title) + '" loading="lazy">' +
+                '<div class="blog-related-info">' +
+                '<span class="blog-category">' + a.category + '</span>' +
+                '<h3>' + htmlEncode(a.title) + '</h3>' +
+                '</div></a>';
+        }).join("\n                ");
+    }
+
     let generated = 0;
     let errors = 0;
 
@@ -201,7 +231,8 @@ try {
                 .replace(/{{PREV_LINK}}/g, buildPrevLink(navMap[article.id]))
                 .replace(/{{NEXT_LINK}}/g, buildNextLink(navMap[article.id]))
                 .replace(/{{PREV_TITLE}}/g, navMap[article.id] && navMap[article.id].prev ? htmlEncode(navMap[article.id].prev.title) : "")
-                .replace(/{{NEXT_TITLE}}/g, navMap[article.id] && navMap[article.id].next ? htmlEncode(navMap[article.id].next.title) : "");
+                .replace(/{{NEXT_TITLE}}/g, navMap[article.id] && navMap[article.id].next ? htmlEncode(navMap[article.id].next.title) : "")
+                .replace(/{{RELATED_POSTS}}/g, buildRelatedPosts(article));
 
             const outPath = path.join(BLOG_DIR, article.id + ".html");
             fs.writeFileSync(outPath, html, "utf8");

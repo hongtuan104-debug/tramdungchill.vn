@@ -125,8 +125,16 @@
     </section>
 
     <!-- Blog Posts (rendered dynamically by blog-renderer.js) -->
+    <style>
+    .blog-filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px; }
+    .blog-filter-btn { padding:8px 20px; border-radius:50px; border:1.5px solid var(--border); background:transparent; color:var(--wood); font-size:0.9rem; cursor:pointer; transition:all 0.3s; }
+    .blog-filter-btn:hover { border-color:var(--gold); color:var(--gold); }
+    .blog-filter-btn.active { background:var(--gold); color:var(--night); border-color:var(--gold); font-weight:600; }
+    .blog-card.hidden { display:none; }
+    </style>
     <section class="blog-section">
         <div class="container">
+            <div class="blog-filters" id="blogFilters"></div>
             <div class="blog-grid"></div>
 
             <!-- CTA -->
@@ -154,6 +162,7 @@
     <script defer src="js/navbar.js"></script>
     <script defer src="js/i18n.js"></script>
     <script defer src="js/scroll-ui.js"></script>
+    <script defer src="js/fab-contact.js"></script>
     <script defer src="js/app.js"></script>
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>

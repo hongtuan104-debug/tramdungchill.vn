@@ -2371,90 +2371,148 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ============================================
-   FLOATING ACTIONS
+   FLOATING CONTACT BUTTONS (FAB)
    ============================================ */
-.fab-container {
+.fab-contact {
     position: fixed;
     bottom: 24px;
     right: 24px;
     z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s var(--ease);
+    pointer-events: none;
 }
 
-.fab-container.visible {
+.fab-contact.visible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
-.fab {
+.fab-main {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(212, 168, 83, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-full);
     transition: all 0.3s var(--ease);
-    box-shadow: var(--shadow-heavy);
-    gap: 8px;
+    position: relative;
+    z-index: 2;
+    animation: fabPulseGold 2.5s infinite;
 }
 
-.fab-call {
-    width: 50px;
-    height: 50px;
-    background: #25D366;
-    color: var(--white);
-    animation: fabPulse 2.5s infinite;
+.fab-main:hover {
+    transform: scale(1.1);
 }
 
-.fab-label {
-    display: none;
-    font-size: 0.8rem;
-    font-weight: 600;
+.fab-main svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--night);
+    transition: all 0.3s var(--ease);
 }
 
-.fab-call:hover { transform: scale(1.1); }
-.fab-call:hover .fab-label { display: block; }
-
-@keyframes fabPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4), var(--shadow-heavy); }
-    50% { box-shadow: 0 0 0 14px rgba(37,211,102,0), var(--shadow-heavy); }
+.fab-icon-close {
+    position: absolute;
+    opacity: 0;
+    transform: rotate(-90deg);
 }
 
-.fab-zalo {
-    width: 50px;
-    height: 50px;
+.fab-contact.open .fab-icon-contact {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.fab-contact.open .fab-icon-close {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.fab-contact.open .fab-main {
+    animation: none;
+    box-shadow: 0 4px 20px rgba(212, 168, 83, 0.6);
+}
+
+@keyframes fabPulseGold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 83, 0.4), 0 4px 20px rgba(212, 168, 83, 0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(212, 168, 83, 0), 0 4px 20px rgba(212, 168, 83, 0.4); }
+}
+
+.fab-options {
+    position: absolute;
+    bottom: 68px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s var(--ease);
+}
+
+.fab-contact.open .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--white);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: var(--night);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s var(--ease);
+}
+
+.fab-option:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.fab-opt-zalo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     background: #0068FF;
     color: var(--white);
-}
-
-.fab-zalo:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 8px rgba(0,104,255,0.15), var(--shadow-heavy);
-}
-
-.fab-zalo-icon {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 800;
     letter-spacing: -0.5px;
     text-transform: uppercase;
+    flex-shrink: 0;
 }
 
-.fab-book {
-    padding: 14px 26px;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-    color: var(--night);
-    font-weight: 600;
-    font-size: 0.9rem;
-    white-space: nowrap;
+.fab-opt-phone svg {
+    color: #28a745;
+    flex-shrink: 0;
 }
 
-.fab-book:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-gold), var(--shadow-heavy);
+.fab-opt-fb svg {
+    fill: #1877F2;
+    flex-shrink: 0;
 }
+
+/* Legacy fab-container (kept for backward compat with scroll-ui.js) */
+.fab-container { display: none; }
 
 /* Back to top */
 .back-to-top {
@@ -2945,10 +3003,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     /* Space for FAB buttons at bottom */
     .footer { padding-bottom: 80px; }
 
-    /* === FAB === */
-    .fab-container { bottom: 16px; right: 16px; }
-    .fab-call, .fab-zalo { width: 46px; height: 46px; }
-    .fab-book { padding: 12px 20px; font-size: 0.85rem; }
+    /* === FAB Contact === */
+    .fab-contact { bottom: 16px; right: 16px; }
+    .fab-main { width: 50px; height: 50px; }
+    .fab-option { padding: 8px 14px; font-size: 0.85rem; }
 
     /* === LIGHTBOX === */
     .lightbox-close {
@@ -3118,7 +3176,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     }
     .hero-slide.active { animation: none; }
     .particle { display: none; }
-    .fab-call { animation: none; }
+    .fab-main { animation: none; }
     .scroll-arrow, .mouse-wheel { animation: none; }
     .reveal { opacity: 1; transform: none; }
 }

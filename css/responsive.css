@@ -283,10 +283,10 @@
     /* Space for FAB buttons at bottom */
     .footer { padding-bottom: 80px; }
 
-    /* === FAB === */
-    .fab-container { bottom: 16px; right: 16px; }
-    .fab-call, .fab-zalo { width: 46px; height: 46px; }
-    .fab-book { padding: 12px 20px; font-size: 0.85rem; }
+    /* === FAB Contact === */
+    .fab-contact { bottom: 16px; right: 16px; }
+    .fab-main { width: 50px; height: 50px; }
+    .fab-option { padding: 8px 14px; font-size: 0.85rem; }
 
     /* === LIGHTBOX === */
     .lightbox-close {
@@ -456,7 +456,7 @@
     }
     .hero-slide.active { animation: none; }
     .particle { display: none; }
-    .fab-call { animation: none; }
+    .fab-main { animation: none; }
     .scroll-arrow, .mouse-wheel { animation: none; }
     .reveal { opacity: 1; transform: none; }
 }

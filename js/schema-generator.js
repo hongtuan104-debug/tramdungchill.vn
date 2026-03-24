@@ -158,12 +158,17 @@ function buildMenuSchema() {
     if (typeof MENU_CATEGORIES !== 'undefined' && typeof MENU_ITEMS !== 'undefined') {
         sections = MENU_CATEGORIES.map(function(cat) {
             var items = (MENU_ITEMS[cat.id] || []).map(function(item) {
-                var menuItem = { '@type': 'MenuItem', 'name': item.name };
+                var menuItem = {
+                    '@type': 'MenuItem',
+                    'name': item.name,
+                    'description': item.name + ' — ' + cat.label + ' tại Trạm Dừng Chill Đà Lạt'
+                };
                 if (/^\d/.test(item.price)) {
                     menuItem.offers = {
                         '@type': 'Offer',
                         'price': item.price.replace(/K$/i, '000'),
-                        'priceCurrency': 'VND'
+                        'priceCurrency': 'VND',
+                        'availability': 'https://schema.org/InStock'
                     };
                 }
                 return menuItem;
@@ -179,7 +184,7 @@ function buildMenuSchema() {
         '@context': 'https://schema.org',
         '@type': 'Menu',
         'name': 'Thực Đơn ' + r.name,
-        'description': 'Menu quán nướng BBQ Đà Lạt - Nướng tại bàn, lẩu, hải sản, đồ uống. Giá cập nhật 2026.',
+        'description': 'Thực đơn quán nướng BBQ Đà Lạt — Nướng tại bàn, lẩu, hải sản, đồ uống. Giá cập nhật mới nhất.',
         'url': r.url + '/menu.html',
         'mainEntity': {
             '@type': 'Restaurant',

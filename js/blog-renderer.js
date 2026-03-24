@@ -49,6 +49,66 @@ function renderBlog() {
 
     // Inject BlogPosting JSON-LD for each visible article (SEO rich snippets)
     injectBlogSchema(articles);
+
+    // Init category filters
+    initBlogFilters(articles);
+}
+
+function initBlogFilters(articles) {
+    var filtersContainer = document.getElementById('blogFilters');
+    if (!filtersContainer || !articles || !articles.length) return;
+
+    // Extract unique categories
+    var categoryMap = {};
+    articles.forEach(function(a) {
+        if (a.category && !categoryMap[a.category]) {
+            categoryMap[a.category] = true;
+        }
+    });
+    var categories = Object.keys(categoryMap).sort();
+
+    // Build filter buttons
+    var html = '<button class="blog-filter-btn active" data-category="all">Tất cả</button>';
+    categories.forEach(function(cat) {
+        html += '<button class="blog-filter-btn" data-category="' + cat + '">' + cat + '</button>';
+    });
+    filtersContainer.innerHTML = html;
+
+    // Add click handlers
+    var buttons = filtersContainer.querySelectorAll('.blog-filter-btn');
+    buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Update active state
+            buttons.forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+
+            var selectedCategory = btn.getAttribute('data-category');
+            var cards = document.querySelectorAll('.blog-card');
+
+            cards.forEach(function(card) {
+                if (selectedCategory === 'all') {
+                    card.classList.remove('hidden');
+                    card.style.opacity = '0';
+                    setTimeout(function() { card.style.opacity = '1'; }, 50);
+                } else {
+                    var cardCategory = card.querySelector('.blog-category');
+                    var cardCatText = cardCategory ? cardCategory.textContent.trim() : '';
+                    if (cardCatText === selectedCategory) {
+                        card.classList.remove('hidden');
+                        card.style.opacity = '0';
+                        setTimeout(function() { card.style.opacity = '1'; }, 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+
+    // Add transition for smooth fade
+    document.querySelectorAll('.blog-card').forEach(function(card) {
+        card.style.transition = 'opacity 0.3s ease';
+    });
 }
 
 function injectBlogSchema(articles) {
