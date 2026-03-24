@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (typeof initHeroSlider === 'function') initHeroSlider();
         if (typeof initHeroParticles === 'function') initHeroParticles();
         if (typeof renderMenu === 'function') renderMenu();
+        if (typeof initLazyImages === 'function') initLazyImages();
         if (typeof initGalleryLightbox === 'function') initGalleryLightbox();
         if (typeof initBookingForm === 'function') initBookingForm();
         if (typeof initScrollReveal === 'function') initScrollReveal();

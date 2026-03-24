@@ -131,9 +131,18 @@
     .blog-filter-btn:hover { border-color:var(--gold); color:var(--gold); }
     .blog-filter-btn.active { background:var(--gold); color:var(--night); border-color:var(--gold); font-weight:600; }
     .blog-card.hidden { display:none; }
+    .blog-search { max-width:480px; margin:0 auto 24px; position:relative; }
+    .blog-search-input { width:100%; padding:14px 20px 14px 48px; border-radius:50px; border:1.5px solid var(--border); background:var(--white); font-size:1rem; color:var(--wood); outline:none; transition:border-color 0.3s; font-family:var(--font-body); }
+    .blog-search-input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,168,83,0.15); }
+    .blog-search-input::placeholder { color:var(--smoke); }
+    .blog-search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:20px; height:20px; color:var(--smoke); pointer-events:none; }
     </style>
     <section class="blog-section">
         <div class="container">
+            <div class="blog-search">
+                <input type="text" id="blogSearch" placeholder="Tìm kiếm bài viết..." class="blog-search-input">
+                <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
             <div class="blog-filters" id="blogFilters"></div>
             <div class="blog-grid"></div>
 

@@ -52,6 +52,9 @@ function renderBlog() {
 
     // Init category filters
     initBlogFilters(articles);
+
+    // Init search
+    initBlogSearch();
 }
 
 function initBlogFilters(articles) {
@@ -158,6 +161,23 @@ function injectBlogSchema(articles) {
         '@graph': schemaItems
     });
     document.head.appendChild(script);
+}
+
+function initBlogSearch() {
+    var searchInput = document.getElementById('blogSearch');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function() {
+        var query = this.value.toLowerCase().trim();
+        var cards = document.querySelectorAll('.blog-card');
+        cards.forEach(function(card) {
+            var title = card.querySelector('h2') ? card.querySelector('h2').textContent.toLowerCase() : '';
+            var excerpt = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+            var category = card.querySelector('.blog-category') ? card.querySelector('.blog-category').textContent.toLowerCase() : '';
+            var match = !query || title.indexOf(query) !== -1 || excerpt.indexOf(query) !== -1 || category.indexOf(query) !== -1;
+            card.style.display = match ? '' : 'none';
+        });
+    });
 }
 
 function initBlogShare() {

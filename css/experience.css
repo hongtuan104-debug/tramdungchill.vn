@@ -44,7 +44,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s var(--ease);
+    opacity: 0;
+    transition: transform 0.8s var(--ease), opacity 0.5s ease;
+}
+
+.exp-card-img img.loaded {
+    opacity: 1;
 }
 
 .exp-card:hover .exp-card-img img {

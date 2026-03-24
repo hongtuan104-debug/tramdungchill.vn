@@ -1,7 +1,63 @@
 /* ============================================
-   Tram Dung Chill - Gallery Lightbox
+   Tram Dung Chill - Gallery Lazy Loading & Lightbox
    ============================================ */
 
+/**
+ * IntersectionObserver-based lazy loading for all images with data-src.
+ * Swaps data-src into src when image enters viewport, then adds .loaded
+ * class for the fade-in effect.
+ */
+function initLazyImages() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    if (!lazyImages.length) return;
+
+    // Check for IntersectionObserver support
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+
+                img.addEventListener('load', function () {
+                    img.classList.add('loaded');
+                }, { once: true });
+
+                // If already cached by the browser
+                if (img.complete) {
+                    img.classList.add('loaded');
+                }
+
+                obs.unobserve(img);
+            });
+        }, {
+            rootMargin: '200px 0px', // start loading 200px before viewport
+            threshold: 0.01
+        });
+
+        lazyImages.forEach(function (img) {
+            observer.observe(img);
+        });
+    } else {
+        // Fallback: load all images immediately for older browsers
+        lazyImages.forEach(function (img) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            img.addEventListener('load', function () {
+                img.classList.add('loaded');
+            }, { once: true });
+            if (img.complete) {
+                img.classList.add('loaded');
+            }
+        });
+    }
+}
+
+/**
+ * Gallery lightbox with navigation, keyboard, and touch swipe support.
+ */
 function initGalleryLightbox() {
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -19,11 +75,13 @@ function initGalleryLightbox() {
     const images = [];
     let currentIndex = 0;
 
-    items.forEach((item, i) => {
+    items.forEach(function (item, i) {
         const imgEl = item.querySelector('img');
         if (imgEl) {
-            images.push({ src: imgEl.src, alt: imgEl.alt || 'Ảnh tại Trạm Dừng Chill' });
-            item.addEventListener('click', () => {
+            // Use data-src (original URL) if available, otherwise fall back to src
+            var fullSrc = imgEl.dataset.src || imgEl.src;
+            images.push({ src: fullSrc, alt: imgEl.alt || 'Ảnh tại Trạm Dừng Chill' });
+            item.addEventListener('click', function () {
                 currentIndex = i;
                 showImage();
                 lightbox.classList.add('active');
@@ -47,21 +105,21 @@ function initGalleryLightbox() {
     }
 
     closeBtn.addEventListener('click', close);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) close(); });
 
-    prevBtn.addEventListener('click', e => {
+    prevBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         showImage();
     });
 
-    nextBtn.addEventListener('click', e => {
+    nextBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         currentIndex = (currentIndex + 1) % images.length;
         showImage();
     });
 
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', function (e) {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') close();
         if (e.key === 'ArrowLeft') prevBtn.click();
@@ -69,17 +127,17 @@ function initGalleryLightbox() {
     });
 
     // Touch swipe
-    let touchStartX = 0;
-    lightbox.addEventListener('touchstart', e => {
+    var touchStartX = 0;
+    lightbox.addEventListener('touchstart', function (e) {
         touchStartX = e.changedTouches[0].clientX;
     }, { passive: true });
 
-    lightbox.addEventListener('touchmove', e => {
+    lightbox.addEventListener('touchmove', function (e) {
         e.preventDefault();
     }, { passive: false });
 
-    lightbox.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
+    lightbox.addEventListener('touchend', function (e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 50) {
             diff > 0 ? nextBtn.click() : prevBtn.click();
         }
