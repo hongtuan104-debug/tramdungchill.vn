@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tramdungchill.vn/</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/"/>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://tramdungchill.vn/blog.html</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog.html"/>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://tramdungchill.vn/menu.html</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/menu.html"/>
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://tramdungchill.vn/review-qr.html</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/review-qr.html"/>
@@ -72,5 +72,13 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/quan-an-gia-dinh-da-lat.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/quan-an-gia-dinh-da-lat.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/du-lich-da-lat-an-gi.html</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/du-lich-da-lat-an-gi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/du-lich-da-lat-an-gi.html"/>
   </url>
 </urlset>
