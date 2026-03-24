@@ -136,6 +136,32 @@ try {
         fs.mkdirSync(BLOG_DIR, { recursive: true });
     }
 
+    // Sort published articles by date (newest first) for prev/next navigation
+    const publishedForNav = articles
+        .filter(a => a.date <= TODAY)
+        .sort((a, b) => b.date.localeCompare(a.date));
+
+    // Build a map: articleId -> { prev (older), next (newer) }
+    const navMap = {};
+    for (let i = 0; i < publishedForNav.length; i++) {
+        const curr = publishedForNav[i];
+        const newer = i > 0 ? publishedForNav[i - 1] : null;
+        const older = i < publishedForNav.length - 1 ? publishedForNav[i + 1] : null;
+        navMap[curr.id] = {
+            prev: older ? { id: older.id, title: older.title } : null,
+            next: newer ? { id: newer.id, title: newer.title } : null
+        };
+    }
+
+    function buildPrevLink(nav) {
+        if (!nav || !nav.prev) return "";
+        return '<a href="' + nav.prev.id + '.html" class="blog-nav-prev"><span class="nav-label">\u2190 B\u00e0i tr\u01b0\u1edbc</span><span class="nav-title">' + htmlEncode(nav.prev.title) + '</span></a>';
+    }
+    function buildNextLink(nav) {
+        if (!nav || !nav.next) return "";
+        return '<a href="' + nav.next.id + '.html" class="blog-nav-next"><span class="nav-label">B\u00e0i ti\u1ebfp \u2192</span><span class="nav-title">' + htmlEncode(nav.next.title) + '</span></a>';
+    }
+
     let generated = 0;
     let errors = 0;
 
@@ -151,6 +177,9 @@ try {
             const readTime = readingTime(article.body || "");
             const bodyFixed = fixAssetPaths(article.body || "");
 
+            const image400w = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp');
+            const image800w = article.image.replace(/\.(jpg|webp)$/i, '-800w.webp');
+
             let html = template
                 .replace(/{{TITLE_SHORT}}/g, titleShort)
                 .replace(/{{TITLE}}/g, titleEncoded)
@@ -159,6 +188,8 @@ try {
                 .replace(/{{DATE}}/g, article.date)
                 .replace(/{{CATEGORY}}/g, article.category)
                 .replace(/{{IMAGE_ALT}}/g, imageAltEncoded)
+                .replace(/{{IMAGE_400W}}/g, image400w)
+                .replace(/{{IMAGE_800W}}/g, image800w)
                 .replace(/{{IMAGE}}/g, article.image)
                 .replace(/{{META_DESCRIPTION}}/g, metaDesc)
                 .replace(/{{KEYWORDS}}/g, keywords)
@@ -166,7 +197,11 @@ try {
                 .replace(/{{BODY}}/g, bodyFixed)
                 .replace(/{{JSON_LD_BLOGPOSTING}}/g, blogPostingSchema(article, excerptClean))
                 .replace(/{{JSON_LD_BREADCRUMB}}/g, breadcrumbSchema(article))
-                .replace(/{{READING_TIME}}/g, String(readTime));
+                .replace(/{{READING_TIME}}/g, String(readTime))
+                .replace(/{{PREV_LINK}}/g, buildPrevLink(navMap[article.id]))
+                .replace(/{{NEXT_LINK}}/g, buildNextLink(navMap[article.id]))
+                .replace(/{{PREV_TITLE}}/g, navMap[article.id] && navMap[article.id].prev ? htmlEncode(navMap[article.id].prev.title) : "")
+                .replace(/{{NEXT_TITLE}}/g, navMap[article.id] && navMap[article.id].next ? htmlEncode(navMap[article.id].next.title) : "");
 
             const outPath = path.join(BLOG_DIR, article.id + ".html");
             fs.writeFileSync(outPath, html, "utf8");

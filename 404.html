@@ -4,162 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2VFBZDY6CD');
-    </script>
-
-    <title>404 - Không tìm thấy trang | Trạm Dừng Chill</title>
-    <meta name="robots" content="noindex">
+    <title>404 - Trang Không Tìm Thấy | Trạm Dừng Chill</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Trang bạn tìm không tồn tại. Quay về Trạm Dừng Chill — Quán nướng view đẹp nhất Đà Lạt.">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+    <meta name="theme-color" content="#D4A853">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Critical CSS inline -->
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        :root{--gold:#D4A853;--gold-light:#F0D48A;--gold-dark:#B8922E;--sunset:#E8814F;--night:#0F0D0A;--night-soft:#1A1612;--charcoal:#2C2420;--wood:#3D3229;--smoke:#8B7D6B;--cream:#FDF8F3;--linen:#F5EDE3;--white:#FFFFFF;--border:#E0D5C7;--font-display:'Playfair Display',Georgia,serif;--font-body:'Inter',-apple-system,sans-serif;--font-accent:'Dancing Script',cursive;--shadow-soft:0 4px 20px rgba(15,13,10,0.08);--shadow-medium:0 8px 30px rgba(15,13,10,0.12);--shadow-gold:0 4px 25px rgba(212,168,83,0.3);--radius:12px;--radius-lg:20px;--radius-xl:28px;--radius-full:50px;--ease:cubic-bezier(0.4,0,0.2,1)}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth;font-size:16px}
+        body{font-family:var(--font-body);min-height:100vh;display:flex;flex-direction:column;background:var(--night);color:var(--cream);overflow-x:hidden}
+        a{text-decoration:none;color:inherit}
+        img{max-width:100%;height:auto;display:block}
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #0F0D0A;
-            color: #F5F0E8;
-            font-family: 'Inter', sans-serif;
-            text-align: center;
-            padding: 40px 20px;
-        }
+        /* Navbar */
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s var(--ease);background:rgba(15,13,10,0.92);backdrop-filter:blur(20px)}
+        .navbar.scrolled{padding:12px 0}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--gold)}
+        .nav-logo img{width:48px;height:48px}
+        .nav-links{display:flex;align-items:center;gap:28px}
+        .nav-links a{color:var(--cream);font-size:0.95rem;font-weight:500;transition:color .3s}
+        .nav-links a:hover{color:var(--gold)}
+        .nav-cta{background:var(--gold)!important;color:var(--night)!important;padding:10px 24px;border-radius:var(--radius-full);font-weight:600!important}
+        .nav-toggle{display:none;flex-direction:column;gap:5px;padding:8px}
+        .nav-toggle span{width:24px;height:2px;background:var(--cream);transition:.3s}
 
-        .error-container {
-            max-width: 600px;
-            width: 100%;
-        }
+        /* Background */
+        .page-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none}
+        .page-bg::before{content:'';position:absolute;top:-20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,83,0.06) 0%,transparent 70%);border-radius:50%;animation:float 12s ease-in-out infinite}
+        .page-bg::after{content:'';position:absolute;bottom:-15%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(232,129,79,0.04) 0%,transparent 70%);border-radius:50%;animation:float 15s ease-in-out infinite reverse}
+        @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-40px) scale(1.05)}}
 
-        .error-code {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(6rem, 20vw, 12rem);
-            font-weight: 700;
-            color: #D4A853;
-            line-height: 1;
-            margin-bottom: 16px;
-            animation: pulse 3s ease-in-out infinite;
-        }
+        /* Main content */
+        .error-main{flex:1;display:flex;align-items:center;justify-content:center;padding:120px 24px 60px;position:relative;z-index:1}
+        .error-container{max-width:640px;width:100%;text-align:center}
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(212, 168, 83, 0.3); }
-            50% { opacity: 0.75; text-shadow: 0 0 40px rgba(212, 168, 83, 0.15); }
-        }
+        /* 404 number */
+        .error-code{font-family:var(--font-display);font-size:clamp(7rem,22vw,14rem);font-weight:700;line-height:1;color:transparent;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dark) 100%);-webkit-background-clip:text;background-clip:text;position:relative;margin-bottom:8px;animation:glow 4s ease-in-out infinite}
+        @keyframes glow{0%,100%{filter:drop-shadow(0 0 20px rgba(212,168,83,0.25))}50%{filter:drop-shadow(0 0 40px rgba(212,168,83,0.45))}}
 
-        .error-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
-            font-weight: 600;
-            color: #F5F0E8;
-            margin-bottom: 12px;
-        }
+        /* Decorative line */
+        .divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 32px}
 
-        .error-desc {
-            font-size: 1rem;
-            color: #A8A196;
-            line-height: 1.7;
-            margin-bottom: 40px;
-        }
+        /* Smoke decoration */
+        .smoke-lines{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
+        .smoke-line{width:2px;height:30px;background:linear-gradient(to top,rgba(212,168,83,0.4),transparent);border-radius:2px;animation:smoke 2.5s ease-in-out infinite}
+        .smoke-line:nth-child(2){height:40px;animation-delay:.4s}
+        .smoke-line:nth-child(3){height:35px;animation-delay:.8s}
+        @keyframes smoke{0%,100%{opacity:0.3;transform:translateY(0) scaleY(1)}50%{opacity:0.8;transform:translateY(-8px) scaleY(1.15)}}
 
-        .error-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
+        .error-title{font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2rem);font-weight:600;color:var(--cream);margin-bottom:16px}
+        .error-desc{font-size:1.05rem;color:var(--smoke);line-height:1.8;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
 
-        .error-links a {
-            display: inline-block;
-            padding: 12px 24px;
-            border: 1px solid rgba(212, 168, 83, 0.4);
-            border-radius: 6px;
-            color: #D4A853;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+        /* Buttons */
+        .error-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:48px}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:var(--radius-full);font-size:0.95rem;font-weight:600;transition:all .3s var(--ease)}
+        .btn-primary{background:var(--gold);color:var(--night)}
+        .btn-primary:hover{background:var(--gold-light);box-shadow:var(--shadow-gold);transform:translateY(-2px)}
+        .btn-outline{border:1.5px solid rgba(212,168,83,0.5);color:var(--gold)}
+        .btn-outline:hover{background:rgba(212,168,83,0.1);border-color:var(--gold);transform:translateY(-2px)}
 
-        .error-links a:hover {
-            background: #D4A853;
-            color: #0F0D0A;
-            border-color: #D4A853;
-        }
+        /* Footer */
+        .error-footer{position:relative;z-index:1;background:var(--night-soft);padding:32px 24px;text-align:center;border-top:1px solid rgba(212,168,83,0.1)}
+        .error-footer p{color:var(--smoke);font-size:0.9rem;margin-bottom:8px}
+        .error-footer .footer-links a{color:var(--gold);font-size:0.88rem;transition:color .3s}
+        .error-footer .footer-links a:hover{color:var(--gold-light)}
+        .error-footer .footer-links{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+        .footer-sep{color:var(--smoke)}
 
-        .error-links a.primary {
-            background: #D4A853;
-            color: #0F0D0A;
-            border-color: #D4A853;
-        }
-
-        .error-links a.primary:hover {
-            background: #c49a48;
-            border-color: #c49a48;
-        }
-
-        .error-phone {
-            font-size: 0.9rem;
-            color: #A8A196;
-        }
-
-        .error-phone a {
-            color: #D4A853;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .error-phone a:hover {
-            text-decoration: underline;
-        }
-
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #D4A853, transparent);
-            margin: 0 auto 40px;
-        }
-
-        @media (max-width: 480px) {
-            .error-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            .error-links a {
-                width: 100%;
-                max-width: 240px;
-            }
+        /* Mobile */
+        @media(max-width:768px){
+            .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,13,10,0.98);flex-direction:column;justify-content:center;gap:32px;font-size:1.2rem}
+            .nav-links.active{display:flex}
+            .nav-toggle{display:flex}
+            .error-buttons{flex-direction:column;align-items:center}
+            .btn{width:100%;max-width:260px;justify-content:center}
         }
     </style>
+
+    <!-- Full CSS — async -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap"></noscript>
 </head>
 <body>
-    <div class="error-container">
-        <div class="error-code">404</div>
-        <h1 class="error-title">Trang này không tồn tại</h1>
-        <p class="error-desc">Có thể bạn đã nhập sai địa chỉ hoặc trang đã được di chuyển.</p>
-        <div class="divider"></div>
-        <div class="error-links">
-            <a href="index.html" class="primary">Trang chủ</a>
-            <a href="menu.html">Menu</a>
-            <a href="blog.html">Blog</a>
-            <a href="index.html#reservation">Đặt bàn</a>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/images/logo-gold.svg" alt="Logo Trạm Dừng Chill" width="48" height="48">
+                <span>Trạm Dừng Chill</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Trang chủ</a>
+                <a href="menu.html">Thực đơn</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#booking" class="nav-cta">Đặt bàn</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <p class="error-phone">Hoặc gọi ngay: <a href="tel:0989765070">0989.765.070</a></p>
-    </div>
+    </nav>
+
+    <!-- Background effects -->
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <!-- Main -->
+    <main class="error-main">
+        <div class="error-container">
+            <div class="smoke-lines" aria-hidden="true">
+                <div class="smoke-line"></div>
+                <div class="smoke-line"></div>
+                <div class="smoke-line"></div>
+            </div>
+            <div class="error-code">404</div>
+            <div class="divider"></div>
+            <h1 class="error-title">Trang này không tồn tại</h1>
+            <p class="error-desc">Có vẻ bạn đã lạc đường — nhưng đừng lo, Trạm Dừng Chill luôn chào đón bạn!</p>
+            <div class="error-buttons">
+                <a href="index.html" class="btn btn-primary">Về trang chủ</a>
+                <a href="blog.html" class="btn btn-outline">Xem blog</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="error-footer">
+        <p>&copy; 2026 Tiệm Nướng Trạm Dừng Chill — 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
+        <div class="footer-links">
+            <a href="index.html">Trang chủ</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="menu.html">Thực đơn</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="blog.html">Blog</a>
+            <span class="footer-sep">&middot;</span>
+            <a href="tel:0989765070">0989.765.070</a>
+        </div>
+    </footer>
+
+    <!-- Navbar scroll + toggle -->
+    <script>
+        document.getElementById("navToggle").addEventListener("click", function() {
+            document.getElementById("navLinks").classList.toggle("active");
+        });
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');</script>
 </body>
 </html>

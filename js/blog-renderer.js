@@ -25,7 +25,10 @@ function renderBlog() {
 
         card.innerHTML =
             '<div class="blog-card-img">' +
-                '<img src="' + article.image + '" alt="' + article.imageAlt + '" loading="lazy">' +
+                '<img src="' + article.image + '"' +
+                ' srcset="' + article.image.replace(/\.(jpg|webp)$/i,'-400w.webp') + ' 400w, ' + article.image.replace(/\.(jpg|webp)$/i,'-800w.webp') + ' 800w, ' + article.image + ' 1200w"' +
+                ' sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px"' +
+                ' alt="' + article.imageAlt + '" loading="lazy">' +
                 (article.badge ? '<span class="blog-badge">' + article.badge + '</span>' : '') +
             '</div>' +
             '<div class="blog-card-content">' +

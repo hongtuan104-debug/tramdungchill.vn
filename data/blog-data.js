@@ -7,7 +7,7 @@ var BLOG_ARTICLES = [
         title: "Top 7 Quán Nướng Đà Lạt View Đẹp Nhất 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-03-20",
-        image: "assets/images/blog/view-hoang-hon-2.jpg",
+        image: "assets/images/blog/view-hoang-hon-2.webp",
         imageAlt: "Top 7 quán nướng Đà Lạt view đẹp nhất - hoàng hôn thung lũng",
         badge: "Nổi bật",
         featured: true,
@@ -19,7 +19,7 @@ var BLOG_ARTICLES = [
                             <p>Đây là quán nướng duy nhất ở Đà Lạt có <strong>view ngắm xe lửa chạy ngang</strong> ngay dưới chân quán. Buổi chiều, bạn vừa nướng BBQ vừa ngắm hoàng hôn buông xuống thung lũng. Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh.</p>
 
                                                         <p><strong>Điểm cộng:</strong> Setup sinh nhật & kỷ niệm MIỄN PHÍ, view 180° thoáng đãng, đặt bàn online xác nhận qua Zalo trong 15 phút.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Top 7 Quán Nướng Đà Lạt View Đẹp Nhất - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Top 7 Quán Nướng Đà Lạt View Đẹp Nhất - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -66,7 +66,7 @@ var BLOG_ARTICLES = [
         title: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt — Chỉ Có Tại Trạm Dừng Chill",
         category: "Trải nghiệm",
         date: "2026-03-15",
-        image: "assets/images/blog/view-xe-lua-11b.jpg",
+        image: "assets/images/blog/view-xe-lua-11b.webp",
         imageAlt: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -81,7 +81,7 @@ var BLOG_ARTICLES = [
 
                             <h3>3 khoảnh khắc không thể bỏ lỡ</h3>
                             <p><strong>15:00 - 17:30:</strong> Hoàng hôn vàng phủ lên thung lũng, ánh nắng chiếu qua hàng ngàn nhà lồng tạo nên khung cảnh lộng lẫy. Đây là thời điểm vàng để chụp ảnh và check-in với bạn bè.</p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="nướng BBQ ngắm xe lửa Đà Lạt - hoàng hôn thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="nướng BBQ ngắm xe lửa Đà Lạt - hoàng hôn thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -89,7 +89,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>17:30 - 18:30:</strong> Xe lửa chạy qua, tiếng còi tàu vang lên giữa bữa nướng — khoảnh khắc check-in triệu like.</p>
-<img src="assets/images/blog/view-xe-lua-12b.jpg" alt="nướng BBQ ngắm xe lửa Đà Lạt - xe lửa chạy ngang quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-12b.webp" alt="nướng BBQ ngắm xe lửa Đà Lạt - xe lửa chạy ngang quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -98,7 +98,7 @@ var BLOG_ARTICLES = [
 
                             
                                                         <p><strong>18:30 - 23:00:</strong> Nhà lồng đồng loạt lên đèn, tạo nên "biển sao" lung linh giữa đêm Đà Lạt.</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -113,7 +113,7 @@ var BLOG_ARTICLES = [
         title: "Tổ Chức Sinh Nhật Đà Lạt — 5 Ý Tưởng Lãng Mạn Nhất 2026",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-03-10",
-        image: "assets/images/blog/ban-nuong-1.jpg",
+        image: "assets/images/blog/ban-nuong-1.webp",
         imageAlt: "Tổ chức sinh nhật Đà Lạt - setup tiệc nướng BBQ lãng mạn",
         badge: "",
         featured: false,
@@ -161,7 +161,7 @@ var BLOG_ARTICLES = [
         title: "Date Night Đà Lạt — Nướng BBQ Ngắm Biển Sao Nhà Lồng Cùng Người Thương",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-03-05",
-        image: "assets/images/blog/view-nha-long-4.jpg",
+        image: "assets/images/blog/view-nha-long-4.webp",
         imageAlt: "Date Night Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -169,7 +169,7 @@ var BLOG_ARTICLES = [
         body: `<h3>Vì sao Trạm Dừng Chill lý tưởng cho date night?</h3>
                             <p><strong>View triệu đô:</strong> Hoàng hôn → xe lửa → biển sao nhà lồng, 3 khoảnh khắc lãng mạn trong 1 buổi tối. Rất ít quán ăn ở Đà Lạt có thể mang đến cả 3 trải nghiệm view này cùng lúc.</p>
                             <p><strong>Không gian riêng tư:</strong> Bàn ngoài trời thoáng đãng, không ồn ào. Các bàn được bố trí cách nhau vừa đủ để bạn và người thương có không gian riêng, thoải mái trò chuyện bên bếp nướng ấm áp.</p>
-<img src="assets/images/blog/khong-gian-dem-22.jpg" alt="Date Night Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-22.webp" alt="Date Night Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -177,7 +177,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>Đồ ăn ngon:</strong> BBQ tươi, lẩu nóng, đồ uống mát lạnh — đủ combo cho buổi hẹn hò hoàn hảo.</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Date Night Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Date Night Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -186,7 +186,7 @@ var BLOG_ARTICLES = [
 
                             
                                                         <p><strong>Tip:</strong> Đặt bàn lúc 17:00 để ngắm hoàng hôn, rồi ở lại đến tối ngắm nhà lồng lên đèn!</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="hẹn hò Đà Lạt - view nhà lồng lãng mạn về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="hẹn hò Đà Lạt - view nhà lồng lãng mạn về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -212,7 +212,7 @@ var BLOG_ARTICLES = [
         title: "Quán Ăn Đà Lạt Cho Gia Đình — 6 Địa Điểm Ấm Cúng, View Đẹp, Trẻ Con Mê",
         category: "Quán nướng Đà Lạt",
         date: "2026-03-23",
-        image: "assets/images/blog/mon-nuong-4.jpg",
+        image: "assets/images/blog/mon-nuong-4.webp",
         imageAlt: "Quán ăn Đà Lạt cho gia đình - bàn nướng BBQ ấm cúng ngoài trời",
         badge: "",
         featured: false,
@@ -224,7 +224,7 @@ var BLOG_ARTICLES = [
                             <p>Không gian ngoài trời thoáng đãng, trẻ em có thể thoải mái vui chơi. Bố mẹ vừa nướng BBQ vừa ngắm <strong>hoàng hôn + xe lửa + nhà lồng lên đèn</strong>. Menu đa dạng từ hải sản, thịt bò, gà đến lẩu — ai cũng chọn được món ưa thích.</p>
 
                                                         <p><strong>Bonus:</strong> Setup sinh nhật cho bé hoặc kỷ niệm gia đình <strong>MIỄN PHÍ</strong>!</p>
-<img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Quán Ăn Đà Lạt Cho Gia Đình - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-3.webp" alt="Quán Ăn Đà Lạt Cho Gia Đình - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -268,7 +268,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Ăn Gì? Hướng Dẫn Ẩm Thực Từ Sáng Đến Khuya",
         category: "Ẩm thực Đà Lạt",
         date: "2026-03-24",
-        image: "assets/images/blog/view-nha-long-4-v2.jpg",
+        image: "assets/images/blog/view-nha-long-4-v2.webp",
         imageAlt: "Du lịch Đà Lạt ăn gì - món nướng BBQ đặc sản phố núi",
         badge: "",
         featured: false,
@@ -282,7 +282,7 @@ var BLOG_ARTICLES = [
                             <h3>Buổi trưa (11:00 - 14:00): Món ngon đường phố</h3>
                             <p><strong>Bún bò Huế:</strong> Đà Lạt có cộng đồng người Huế đông, bún bò ở đây rất chuẩn vị.</p>
                             <p><strong>Cơm tấm:</strong> Cơm tấm Đà Lạt có vị riêng — sườn nướng than, mỡ hành thơm phức.</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Ăn Gì - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Ăn Gì - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -308,7 +308,7 @@ var BLOG_ARTICLES = [
                             <p><strong>18:00 - 18:30:</strong> Xe lửa cổ chạy qua — khoảnh khắc check-in triệu like</p>
 
                                                         <p><strong>18:30 - 23:00:</strong> Nhà lồng đồng loạt lên đèn — "biển sao" lung linh giữa đêm</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="du lịch Đà Lạt ăn gì - view nhà lồng biển sao" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="du lịch Đà Lạt ăn gì - view nhà lồng biển sao" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -329,7 +329,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Lẩu Đà Lạt Giá Rẻ — Top 5 Quán Ngon, View Đẹp, Giá Rẻ SV",
         category: "Ẩm thực Đà Lạt",
         date: "2026-03-27",
-        image: "assets/images/blog/ban-nuong-1-v2.jpg",
+        image: "assets/images/blog/ban-nuong-1-v2.webp",
         imageAlt: "Quán nướng lẩu Đà Lạt giá rẻ - set nướng và lẩu tại bàn",
         badge: "",
         featured: false,
@@ -341,7 +341,7 @@ var BLOG_ARTICLES = [
                             <p>Với giá chỉ từ <strong>95.000đ/người</strong>, bạn được trải nghiệm nướng BBQ + lẩu nóng với view đẹp nhất Đà Lạt. Menu đa dạng: set nướng hải sản, bò Mỹ, gà nướng mật ong, lẩu thái, lẩu nấm...</p>
 
                                                         <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo tiết kiệm hơn gọi lẻ 30%!</p>
-<img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Quán Nướng Lẩu Đà Lạt Giá Rẻ - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nướng Lẩu Đà Lạt Giá Rẻ - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -389,7 +389,7 @@ var BLOG_ARTICLES = [
         title: "Team Building Đà Lạt — 7 Hoạt Động Gắn Kết Đội Nhóm Cực Vui 2026",
         category: "Trải nghiệm",
         date: "2026-03-29",
-        image: "assets/images/blog/view-nha-long-1.jpg",
+        image: "assets/images/blog/view-nha-long-1.webp",
         imageAlt: "Team building Đà Lạt - nhóm bạn nướng BBQ ngoài trời",
         badge: "",
         featured: false,
@@ -451,7 +451,7 @@ var BLOG_ARTICLES = [
         title: "Quán Ăn Đà Lạt Buổi Tối — Top 6 Địa Điểm Ăn Đêm View Đẹp 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-03-30",
-        image: "assets/images/blog/mon-nuong-3.jpg",
+        image: "assets/images/blog/mon-nuong-3.webp",
         imageAlt: "Quán ăn Đà Lạt buổi tối - nướng BBQ view đèn nhà lồng",
         badge: "",
         featured: false,
@@ -508,7 +508,7 @@ var BLOG_ARTICLES = [
         title: "Chụp Hình Đẹp Đà Lạt — 8 Toạ Độ Check-in Triệu Like 2026",
         category: "Check-in & Sống ảo",
         date: "2026-04-02",
-        image: "assets/images/blog/mon-nuong-3-v2.jpg",
+        image: "assets/images/blog/mon-nuong-3-v2.webp",
         imageAlt: "Chụp hình đẹp Đà Lạt - check-in quán nướng view hoàng hôn",
         badge: "",
         featured: false,
@@ -566,7 +566,7 @@ var BLOG_ARTICLES = [
         title: "Đà Lạt Mùa Nào Đẹp Nhất? — Hướng Dẫn Chọn Thời Điểm Du Lịch 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-04-04",
-        image: "assets/images/blog/view-hoang-hon-21.jpg",
+        image: "assets/images/blog/view-hoang-hon-21.webp",
         imageAlt: "Đà Lạt mùa nào đẹp nhất - hoàng hôn vàng trên thung lũng",
         badge: "",
         featured: false,
@@ -579,7 +579,7 @@ var BLOG_ARTICLES = [
 
                                                         <p><strong>Tháng 12-1:</strong> Mùa hoa mai anh đào nở hồng rực cả thành phố.<br>
                             <strong>Tháng 2-3:</strong> Hoa cẩm tú cầu, mimosa vàng nở rộ.</p>
-<img src="assets/images/blog/view-nha-long-2.jpg" alt="Đà Lạt Mùa Nào Đẹp Nhất - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-2.webp" alt="Đà Lạt Mùa Nào Đẹp Nhất - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -606,7 +606,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Đà Lạt mùa nào ăn nướng ngon nhất?</h3>
                             <p>Thật ra, <strong>Đà Lạt mùa nào</strong> cũng thích hợp ăn nướng BBQ vì thời tiết mát mẻ! Nhưng mùa khô ngồi ngoài trời ngắm hoàng hôn tại <a href="index.html">Trạm Dừng Chill</a> là trải nghiệm tuyệt vời nhất.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Đà Lạt Mùa Nào Đẹp Nhất - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Đà Lạt Mùa Nào Đẹp Nhất - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -621,7 +621,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nhậu Đà Lạt — Top 6 Quán Bia Nướng, View Đẹp, Vibe Chill 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-04-05",
-        image: "assets/images/blog/view-hoang-hon-21-v2.jpg",
+        image: "assets/images/blog/view-hoang-hon-21-v2.webp",
         imageAlt: "Quán nhậu Đà Lạt - nướng BBQ kèm bia lạnh ban đêm",
         badge: "",
         featured: false,
@@ -634,7 +634,7 @@ var BLOG_ARTICLES = [
 
                                                         <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ mở:</strong> 15:00-23:00<br>
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
-<img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Quán Nhậu Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nhậu Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -678,7 +678,7 @@ var BLOG_ARTICLES = [
         title: "Đặc Sản Đà Lạt Mua Về — 10 Món Quà Ai Cũng Muốn Nhận 2026",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-04-08",
-        image: "assets/images/blog/mon-nuong-2.jpg",
+        image: "assets/images/blog/mon-nuong-2.webp",
         imageAlt: "Đặc sản Đà Lạt mua về - thịt nướng và sốt đặc biệt",
         badge: "",
         featured: false,
@@ -695,7 +695,7 @@ var BLOG_ARTICLES = [
 
                             <h3>4. Trà Atiso</h3>
                             <p>Trà atiso thanh nhiệt, tốt cho gan. Có dạng túi lọc hoặc cao atiso. Đặc sản nổi tiếng nhất Đà Lạt, giá 30-100K tuỳ loại.</p>
-<img src="assets/images/blog/mon-nuong-1.jpg" alt="Đặc Sản Đà Lạt Mua Về - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-1.webp" alt="Đặc Sản Đà Lạt Mua Về - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -711,7 +711,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>7. Bánh tráng nướng Đà Lạt</h3>
                             <p>"Pizza Việt Nam" nổi tiếng từ Đà Lạt. Mua loại đóng gói sẵn về nhà tự nướng, giá 30-50K/bịch.</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Đặc Sản Đà Lạt Mua Về - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Đặc Sản Đà Lạt Mua Về - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -726,7 +726,7 @@ var BLOG_ARTICLES = [
 
                             <h3>10. Mắc ca Đà Lạt</h3>
                             <p>Hạt mắc ca rang muối, rang bơ — đồ ăn vặt healthy, giá 180-250K/kg. Mua ở các cửa hàng đặc sản đảm bảo hàng chuẩn Đà Lạt.</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Đặc Sản Đà Lạt Mua Về - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Đặc Sản Đà Lạt Mua Về - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -744,7 +744,7 @@ var BLOG_ARTICLES = [
         title: "Cắm Trại Đà Lạt — 5 Địa Điểm Camping Đẹp Nhất Cho Dân Phượt 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-04-10",
-        image: "assets/images/blog/view-nha-long-1-v2.jpg",
+        image: "assets/images/blog/view-nha-long-1-v2.webp",
         imageAlt: "Cắm trại Đà Lạt - BBQ ngoài trời giữa rừng thông",
         badge: "",
         featured: false,
@@ -799,7 +799,7 @@ var BLOG_ARTICLES = [
         title: "Quán Cafe View Đẹp Đà Lạt — 7 Tiệm Cà Phê Sống Ảo Nhất 2026",
         category: "View đẹp Đà Lạt",
         date: "2026-04-11",
-        image: "assets/images/blog/view-hoang-hon-2-v2.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v2.webp",
         imageAlt: "Quán cafe view đẹp Đà Lạt - không gian chill ngắm thung lũng",
         badge: "",
         featured: false,
@@ -838,7 +838,7 @@ var BLOG_ARTICLES = [
 
                             <h3>6. Cafe vườn dâu</h3>
                             <p>Uống cafe giữa vườn dâu tây, tự hái dâu rồi làm smoothie tại chỗ. Trải nghiệm thú vị cho gia đình và cặp đôi.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Quán Cafe View Đẹp Đà Lạt - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Quán Cafe View Đẹp Đà Lạt - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -859,7 +859,7 @@ var BLOG_ARTICLES = [
         title: "Lịch Trình Du Lịch Đà Lạt 3 Ngày 2 Đêm — Trọn Vẹn Từ A đến Z 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-04-14",
-        image: "assets/images/blog/mon-nuong-1.jpg",
+        image: "assets/images/blog/mon-nuong-1.webp",
         imageAlt: "Lịch trình du lịch Đà Lạt 3 ngày 2 đêm - nướng BBQ ngắm hoàng hôn",
         badge: "",
         featured: false,
@@ -919,7 +919,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Gần Chợ Đêm — Top 5 Quán BBQ Tiện Nhất 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-04-16",
-        image: "assets/images/blog/ban-nuong-1-v3.jpg",
+        image: "assets/images/blog/ban-nuong-1-v3.webp",
         imageAlt: "Quán nướng Đà Lạt gần chợ đêm - nướng BBQ view đèn phố",
         badge: "",
         featured: false,
@@ -932,7 +932,7 @@ var BLOG_ARTICLES = [
 
                                                         <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
                             <strong>Tip:</strong> Đến lúc 16h30 ăn nướng ngắm hoàng hôn, 20h xong xuôi chạy về chợ đêm vừa kịp!</p>
-<img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Quán Nướng Đà Lạt Gần Chợ Đêm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nướng Đà Lạt Gần Chợ Đêm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -975,7 +975,7 @@ var BLOG_ARTICLES = [
         title: "Nướng BBQ Đà Lạt Mùa Đông — Trải Nghiệm Ấm Áp Giữa Trời Lạnh 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-03-25",
-        image: "assets/images/blog/khong-gian-dem-22.jpg",
+        image: "assets/images/blog/khong-gian-dem-22.webp",
         imageAlt: "Nướng BBQ Đà Lạt Mùa Đông - Trạm Dừng Chill Đà Lạt",
         badge: "Mới",
         featured: false,
@@ -1009,7 +1009,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Top quán nướng BBQ Đà Lạt mùa đông nên ghé</h3>
                             <p>Đứng đầu danh sách là <a href="index.html">Trạm Dừng Chill</a> — quán nướng có <strong>view hoàng hôn + xe lửa + biển sao nhà lồng</strong>. Mùa đông, khi sương phủ xuống thung lũng, đèn nhà lồng lên sáng xuyên qua lớp sương mờ ảo tạo hiệu ứng "biển sao trong mây" vô cùng đặc biệt.</p>
-<img src="assets/images/blog/ban-nuong-4.jpg" alt="Nướng BBQ Đà Lạt Mùa Đông - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-4.webp" alt="Nướng BBQ Đà Lạt Mùa Đông - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1029,7 +1029,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Dưới 100K — Top 5 Quán Ngon Rẻ Cho Sinh Viên 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-03-28",
-        image: "assets/images/blog/view-hoang-hon-1.jpg",
+        image: "assets/images/blog/view-hoang-hon-1.webp",
         imageAlt: "Quán nướng Đà Lạt dưới 100K - set nướng giá rẻ tại bàn",
         badge: "",
         featured: false,
@@ -1041,7 +1041,7 @@ var BLOG_ARTICLES = [
                             <p>Đúng vậy, <a href="index.html">Trạm Dừng Chill</a> có set nướng khởi điểm chỉ <strong>95.000đ/người</strong> — bao gồm thịt nướng, rau sống, nước chấm và cơm. Với giá này bạn được ngồi view hoàng hôn + xe lửa + biển sao nhà lồng — view "triệu đô" giá sinh viên!</p>
 
                                                         <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo chia nhau sẽ rẻ hơn gọi lẻ 30%.</p>
-<img src="assets/images/blog/view-xe-lua-5.jpg" alt="Quán Nướng Đà Lạt Dưới 100K - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-5.webp" alt="Quán Nướng Đà Lạt Dưới 100K - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1081,7 +1081,7 @@ var BLOG_ARTICLES = [
         title: "Buffet Nướng Đà Lạt Giá Bao Nhiêu? So Sánh 5 Quán Hot Nhất 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-03-31",
-        image: "assets/images/blog/mon-nuong-3-v3.jpg",
+        image: "assets/images/blog/mon-nuong-3-v3.webp",
         imageAlt: "Buffet nướng Đà Lạt giá bao nhiêu - so sánh 5 quán BBQ hot",
         badge: "Nổi bật",
         featured: false,
@@ -1105,7 +1105,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Buffet hay gọi món — Chọn kiểu nào?</h3>
                             <p>Nếu bạn ăn khoẻ và muốn thử nhiều món thì buffet là lựa chọn. Nhưng nếu bạn muốn <strong>chất lượng từng miếng thịt</strong> và trải nghiệm view đẹp, gọi set combo tại <a href="index.html">Trạm Dừng Chill</a> sẽ đáng tiền hơn. Thịt bò Mỹ, hải sản tươi, gà nướng mật ong — mỗi món đều được chọn lọc kỹ.</p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Buffet Nướng Đà Lạt Giá Bao Nhiêu? So Sánh 5 Quán Hot Nhất - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Buffet Nướng Đà Lạt Giá Bao Nhiêu? So Sánh 5 Quán Hot Nhất - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1134,7 +1134,7 @@ var BLOG_ARTICLES = [
         title: "Best BBQ Restaurant in Da Lat for Foreign Tourists — Local Guide 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-04-03",
-        image: "assets/images/blog/view-nha-long-1-v3.jpg",
+        image: "assets/images/blog/view-nha-long-1-v3.webp",
         imageAlt: "Best BBQ restaurant Da Lat - sunset view grilled BBQ outdoor",
         badge: "Mới",
         featured: false,
@@ -1148,7 +1148,7 @@ var BLOG_ARTICLES = [
                                                         <p><strong>5:00 PM:</strong> Golden sunset over the valley<br>
                             <strong>5:30-6:30 PM:</strong> A vintage French-era train passes right below the restaurant<br>
                             <strong>7:00 PM onwards:</strong> Thousands of greenhouse lights create a "sea of stars" effect across the valley</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Best BBQ Restaurant in Da Lat for Foreign Tourists - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Best BBQ Restaurant in Da Lat for Foreign Tourists - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1161,7 +1161,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>What to Order as a Tourist</h3>
                             <p><strong>Must-try items:</strong> US beef BBQ set, honey-grilled chicken, seafood platter (shrimp, squid, scallops), and hot pot combo. Vegetarian options are available on request. Don't miss the local Da Lat wine — a surprisingly good regional specialty!</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Best BBQ Restaurant in Da Lat for Foreign Tourists - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Best BBQ Restaurant in Da Lat for Foreign Tourists - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1175,7 +1175,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Practical Tips for Foreign Visitors</h3>
                             <p>Bring a jacket — evenings drop to 15-18°C. Most restaurants accept cash (VND) only, so visit an ATM beforehand. Grab (Vietnam's Uber) works well in Da Lat for transportation. Book your table in advance for weekend evenings.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Best BBQ Restaurant in Da Lat for Foreign Tourists - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Best BBQ Restaurant in Da Lat for Foreign Tourists - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1190,7 +1190,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Mở Khuya — 5 Địa Điểm Ăn Đêm View Đẹp 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-04-06",
-        image: "assets/images/blog/khong-gian-dem-2.jpg",
+        image: "assets/images/blog/khong-gian-dem-2.webp",
         imageAlt: "Quán nướng Đà Lạt mở khuya - BBQ đêm khuya se lạnh",
         badge: "",
         featured: false,
@@ -1202,7 +1202,7 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ đến 23h hàng đêm — đủ thời gian cho bữa nướng khuya thoải mái. Từ 19h trở đi, <strong>biển sao nhà lồng</strong> lên đèn lung linh tạo backdrop cực đẹp. Gọi set nướng + lẩu nóng cho đêm lạnh, giá từ 95K/người.</p>
 
                                                         <p><strong>Tip:</strong> Đến lúc 20h-20h30, ăn nướng ngắm biển sao, 22h30 xong xuôi về khách sạn vừa kịp!</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Quán Nướng Đà Lạt Mở Khuya - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Quán Nướng Đà Lạt Mở Khuya - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1228,7 +1228,7 @@ var BLOG_ARTICLES = [
 
                             <h3>5. Quán nhậu sân thượng trung tâm — Mở đến 00:30</h3>
                             <p>Nướng + cocktail trên sân thượng nhìn xuống phố đêm Đà Lạt. Mở muộn nhất trong danh sách — đến 00:30. View đèn thành phố lung linh, giá 150-300K/người.</p>
-<img src="assets/images/blog/view-nha-long-11.jpg" alt="quán nướng Đà Lạt mở khuya - view nhà lồng đèn lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-11.webp" alt="quán nướng Đà Lạt mở khuya - view nhà lồng đèn lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1243,7 +1243,7 @@ var BLOG_ARTICLES = [
         title: "Nướng Hải Sản Đà Lạt — Top 5 Quán Hải Sản Nướng Tươi Sống 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-04-09",
-        image: "assets/images/blog/view-hoang-hon-2-v3.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v3.webp",
         imageAlt: "Nướng hải sản Đà Lạt - tôm mực nướng than hoa tươi sống",
         badge: "",
         featured: false,
@@ -1255,7 +1255,7 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> có set <strong>nướng hải sản Đà Lạt</strong> gồm tôm sú, mực ống, sò điệp, nghêu nướng mỡ hành — tất cả nướng trên bếp than hoa ngay tại bàn. Vừa nướng vừa ngắm hoàng hôn và biển sao nhà lồng. Giá set hải sản từ 200K/người.</p>
 
                                                         <p><strong>Món hot:</strong> Tôm sú nướng muối ớt, mực nướng sa tế, sò điệp nướng phô mai</p>
-<img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Nướng Hải Sản Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-3.webp" alt="Nướng Hải Sản Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1268,7 +1268,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>3. Nướng Hải Sản Biển Xanh</h3>
                             <p>Quán nướng hải sản quy mô lớn, có bể hải sản sống cho khách chọn. Menu đa dạng từ ốc, cua, cá đến bạch tuộc. Set nướng cho nhóm 4 người từ 500K.</p>
-<img src="assets/images/blog/mon-nuong-12.jpg" alt="Nướng Hải Sản Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-12.webp" alt="Nướng Hải Sản Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1295,7 +1295,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Cho Nhóm Bạn — 6 Quán Vui, View Đẹp, Giá Hợp Lý 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-04-12",
-        image: "assets/images/blog/ban-nuong-1-v4.jpg",
+        image: "assets/images/blog/ban-nuong-1-v4.webp",
         imageAlt: "Quán nướng Đà Lạt cho nhóm bạn - tiệc nướng ngoài trời vui nhộn",
         badge: "",
         featured: false,
@@ -1307,7 +1307,7 @@ var BLOG_ARTICLES = [
                             <p><a href="index.html">Trạm Dừng Chill</a> là lựa chọn số 1 cho nhóm bạn vì: không gian ngoài trời thoáng đãng, bàn lớn cho 6-12 người, view hoàng hôn + xe lửa + biển sao nhà lồng. Cả nhóm vừa nướng vừa chụp hình, khoảnh khắc xe lửa chạy qua ai cũng hào hứng!</p>
 
                                                         <p><strong>Giá:</strong> 95K-300K/người | <strong>Tip:</strong> Gọi set combo cho nhóm tiết kiệm 30%</p>
-<img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Quán Nướng Đà Lạt Cho Nhóm Bạn - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nướng Đà Lạt Cho Nhóm Bạn - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1352,7 +1352,7 @@ var BLOG_ARTICLES = [
         title: "Lẩu Nướng Đà Lạt Mùa Lạnh — 5 Combo Ấm Bụng, View Sương Mù 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-04-15",
-        image: "assets/images/blog/view-hoang-hon-1-v2.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v2.webp",
         imageAlt: "Lẩu nướng Đà Lạt mùa lạnh - ấm bụng giữa sương phố núi",
         badge: "",
         featured: false,
@@ -1372,7 +1372,7 @@ var BLOG_ARTICLES = [
 
                             <p><strong>Combo 3 — Lẩu gà lá é + nướng ba chỉ:</strong> Đặc sản Đà Lạt! Gà thả vườn nấu lẩu lá é thơm phức, ba chỉ heo nướng giòn rụm. Set cho 4 người từ 450K.</p>
                             <p><strong>Combo 4 — Lẩu bò nhúng giấm + nướng combo:</strong> Lẩu bò nhúng giấm chua nhẹ, kết hợp set nướng tổng hợp (bò, gà, xúc xích). Set cho 4 người từ 500K.</p>
-<img src="assets/images/blog/mon-nuong-19.jpg" alt="Lẩu Nướng Đà Lạt Mùa Lạnh - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-19.webp" alt="Lẩu Nướng Đà Lạt Mùa Lạnh - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1383,7 +1383,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Ở đâu ăn lẩu nướng view đẹp nhất?</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được ăn <strong>lẩu nướng Đà Lạt</strong> với view sương mù phủ thung lũng, đèn nhà lồng lấp lánh xuyên sương. Menu có đầy đủ combo lẩu + nướng từ 95K/người, phục vụ nhóm 2-20 người.</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Lẩu Nướng Đà Lạt Mùa Lạnh - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Lẩu Nướng Đà Lạt Mùa Lạnh - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1401,7 +1401,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Gần Hồ Tuyền Lâm — 5 Quán BBQ View Hồ Đẹp Nhất 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-04-18",
-        image: "assets/images/blog/view-nha-long-2.jpg",
+        image: "assets/images/blog/view-nha-long-2.webp",
         imageAlt: "Quán nướng gần hồ Tuyền Lâm - BBQ view hồ thơ mộng",
         badge: "",
         featured: false,
@@ -1429,7 +1429,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>4. Trạm Dừng Chill — View thung lũng + nhà lồng (cách hồ 10 phút)</h3>
                             <p>Tuy không nằm sát hồ, nhưng <a href="index.html">Trạm Dừng Chill</a> chỉ cách hồ Tuyền Lâm 10 phút xe — và bù lại có <strong>view độc nhất Đà Lạt</strong>: hoàng hôn + xe lửa cổ + biển sao nhà lồng. Nhiều du khách ghé thăm hồ Tuyền Lâm chiều rồi chạy lên Trạm Dừng Chill ăn nướng ngắm hoàng hôn.</p>
-<img src="assets/images/blog/ban-nuong-1.jpg" alt="Quán Nướng Gần Hồ Tuyền Lâm - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-1.webp" alt="Quán Nướng Gần Hồ Tuyền Lâm - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1454,7 +1454,7 @@ var BLOG_ARTICLES = [
         title: "Đặt Tiệc Đà Lạt — Hướng Dẫn Tổ Chức Tiệc Ngoài Trời View Triệu Đô 2026",
         category: "Trải nghiệm",
         date: "2026-04-21",
-        image: "assets/images/blog/khach-nhom-11.jpg",
+        image: "assets/images/blog/khach-nhom-11.webp",
         imageAlt: "Đặt Tiệc Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "Nổi bật",
         featured: false,
@@ -1477,7 +1477,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Đặt tiệc ở đâu view đẹp nhất?</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là địa điểm <strong>đặt tiệc Đà Lạt</strong> được yêu thích nhất nhờ:</p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Đặt Tiệc Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Đặt Tiệc Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1487,7 +1487,7 @@ var BLOG_ARTICLES = [
                             ✓ Setup sinh nhật & kỷ niệm <strong>MIỄN PHÍ</strong> (hoa, nến, bảng chúc mừng)<br>
                             ✓ Nhận tiệc nhóm 10-50 người, có menu riêng cho đoàn<br>
                             ✓ Đặt bàn online, xác nhận qua Zalo trong 15 phút</p>
-<img src="assets/images/blog/mon-nuong-1.jpg" alt="Đặt Tiệc Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-1.webp" alt="Đặt Tiệc Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1515,7 +1515,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Có Phòng Riêng — 5 Quán Riêng Tư Cho Đôi Và Nhóm",
         category: "Quán nướng Đà Lạt",
         date: "2026-04-24",
-        image: "assets/images/blog/view-xe-lua-3.jpg",
+        image: "assets/images/blog/view-xe-lua-3.webp",
         imageAlt: "Quán nướng Đà Lạt có phòng riêng - không gian riêng tư cho nhóm",
         badge: "",
         featured: false,
@@ -1527,7 +1527,7 @@ var BLOG_ARTICLES = [
                             <p>Tuy không có phòng kín, nhưng <a href="index.html">Trạm Dừng Chill</a> có các <strong>khu vực bàn riêng biệt</strong> ngoài trời, cách xa nhau đủ để có không gian riêng tư. View thoáng đãng 180°, không bị bít bùng như phòng kín. Nhóm 6-12 người có thể book riêng một khu vực.</p>
 
                                                         <p><strong>Ưu điểm:</strong> View hoàng hôn + xe lửa + biển sao — phòng riêng nào có view bằng!</p>
-<img src="assets/images/blog/view-xe-lua-1.jpg" alt="Quán Nướng Đà Lạt Có Phòng Riêng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-1.webp" alt="Quán Nướng Đà Lạt Có Phòng Riêng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1569,7 +1569,7 @@ var BLOG_ARTICLES = [
         title: "Đồ Uống Đà Lạt Ngon — 8 Thức Uống Phải Thử Khi Đi Nướng BBQ 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-04-27",
-        image: "assets/images/blog/view-hoang-hon-21-v3.jpg",
+        image: "assets/images/blog/view-hoang-hon-21-v3.webp",
         imageAlt: "Đồ uống Đà Lạt ngon - cocktail và nước ép tại quán nướng",
         badge: "",
         featured: false,
@@ -1583,7 +1583,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>2. Trà Gừng Mật Ong — Ấm bụng mùa lạnh</h3>
                             <p>Thức uống ấm bụng số 1 khi <strong>ăn nướng Đà Lạt</strong> mùa lạnh. Gừng tươi Đà Lạt thơm cay nhẹ, kết hợp mật ong rừng — vừa ngon vừa tốt cho sức khoẻ.</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Đồ Uống Đà Lạt Ngon - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Đồ Uống Đà Lạt Ngon - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1595,7 +1595,7 @@ var BLOG_ARTICLES = [
 
                             <h3>4. Sinh Tố Bơ Đà Lạt — Đặc sản phải thử</h3>
                             <p>Bơ Đà Lạt béo, dẻo, pha sinh tố đặc quánh thơm lừng. Uống sau bữa nướng như một món tráng miệng hoàn hảo. Giá 30-45K/ly.</p>
-<img src="assets/images/blog/view-nha-long-1.jpg" alt="Đồ Uống Đà Lạt Ngon - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-1.webp" alt="Đồ Uống Đà Lạt Ngon - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1608,7 +1608,7 @@ var BLOG_ARTICLES = [
 
                             <h3>6. Nước Ép Dâu Tây Tươi</h3>
                             <p>Dâu tây Đà Lạt tươi, ép tại chỗ. Vị chua ngọt thanh mát, giải ngấy sau bữa nướng nhiều thịt. Giá 25-40K/ly.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Đồ Uống Đà Lạt Ngon - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Đồ Uống Đà Lạt Ngon - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1629,7 +1629,7 @@ var BLOG_ARTICLES = [
         title: "Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu — 10 Điều Cần Biết Trước Khi Đi",
         category: "Du lịch Đà Lạt",
         date: "2026-04-30",
-        image: "assets/images/blog/view-hoang-hon-21-v4.jpg",
+        image: "assets/images/blog/view-hoang-hon-21-v4.webp",
         imageAlt: "Kinh nghiệm du lịch Đà Lạt lần đầu - cẩm nang ăn chơi phố núi",
         badge: "Mới",
         featured: false,
@@ -1645,7 +1645,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>3. Ở đâu ở Đà Lạt?</h3>
                             <p>Trung tâm (gần chợ đêm): tiện di chuyển, giá 300-800K/đêm. Ngoại ô (Hồ Tuyền Lâm, Cầu Đất): yên tĩnh, view đẹp, giá 400K-1.5 triệu. Book trước 1-2 tuần qua app Agoda hoặc Booking.</p>
-<img src="assets/images/blog/view-nha-long-2.jpg" alt="Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-2.webp" alt="Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1658,7 +1658,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>5. Ăn gì ở Đà Lạt?</h3>
                             <p>Sáng: bánh mì xíu mại, phở gà. Trưa: bún bò, cơm tấm. Chiều: cafe + kem bơ. <strong>Tối: nướng BBQ view đẹp</strong> tại <a href="index.html">Trạm Dừng Chill</a> — highlight ẩm thực không thể bỏ qua!</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1671,7 +1671,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>7. Nên đi Đà Lạt mấy ngày?</h3>
                             <p>Lý tưởng nhất là 3 ngày 2 đêm hoặc 4 ngày 3 đêm. Đủ thời gian khám phá trung tâm + ngoại ô + ăn uống thoải mái mà không vội.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Kinh Nghiệm Du Lịch Đà Lạt Lần Đầu - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1695,7 +1695,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt View Nhà Lồng — Ngắm Biển Sao Lung Linh Về Đêm 2026",
         category: "View đẹp Đà Lạt",
         date: "2026-05-03",
-        image: "assets/images/blog/view-nha-long-1-v4.jpg",
+        image: "assets/images/blog/view-nha-long-1-v4.webp",
         imageAlt: "Quán nướng Đà Lạt view nhà lồng - biển đèn lung linh ban đêm",
         badge: "",
         featured: false,
@@ -1705,7 +1705,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Ngắm biển sao nhà lồng ở đâu đẹp nhất?</h3>
                             <p>Địa điểm lý tưởng nhất để ngắm <strong>view nhà lồng Đà Lạt</strong> là từ trên cao — nơi bạn có tầm nhìn rộng xuống thung lũng. <a href="index.html">Trạm Dừng Chill</a> nằm ở vị trí "vàng" trên đồi cao, nhìn thẳng xuống thung lũng nhà lồng. Từ 19h trở đi, đèn nhà lồng bắt đầu lên — cả thung lũng sáng lấp lánh!</p>
-<img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Quán Nướng Đà Lạt View Nhà Lồng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt View Nhà Lồng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1717,7 +1717,7 @@ var BLOG_ARTICLES = [
                             <p><strong>17:00-18:00:</strong> Hoàng hôn buông xuống, ánh nắng vàng chiếu qua nhà lồng tạo hiệu ứng ánh kim.<br>
                             <strong>18:00-19:00:</strong> Trời chạng vạng, xe lửa cổ chạy qua, nhà lồng bắt đầu lên đèn từ từ.<br>
                             <strong>19:00-23:00:</strong> "Biển sao" lung linh rực rỡ nhất! Hàng ngàn đèn nhà lồng sáng trắng, vàng, tím xen kẽ tạo nên quang cảnh mê hồn.</p>
-<img src="assets/images/blog/khong-gian-dem-13.jpg" alt="Quán Nướng Đà Lạt View Nhà Lồng - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-13.webp" alt="Quán Nướng Đà Lạt View Nhà Lồng - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1727,7 +1727,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ ngắm biển sao — Trải nghiệm chỉ có tại Đà Lạt</h3>
                             <p>Tưởng tượng bạn ngồi ngoài trời 18°C, tay cầm que nướng thịt thơm phức, trước mắt là hàng ngàn ánh đèn nhà lồng lấp lánh như sao sa. Đây là trải nghiệm <strong>quán nướng Đà Lạt view nhà lồng</strong> mà nhiều du khách gọi là "khoảnh khắc đáng nhớ nhất chuyến đi".</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Quán Nướng Đà Lạt View Nhà Lồng - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Quán Nướng Đà Lạt View Nhà Lồng - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1745,7 +1745,7 @@ var BLOG_ARTICLES = [
         title: "Ăn Gì Ở Đà Lạt Cuối Tuần — Lịch Trình Ẩm Thực 2 Ngày Hoàn Hảo 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-05-06",
-        image: "assets/images/blog/ban-nuong-1-v5.jpg",
+        image: "assets/images/blog/ban-nuong-1-v5.webp",
         imageAlt: "Ăn gì ở Đà Lạt cuối tuần - nướng BBQ ngắm hoàng hôn",
         badge: "",
         featured: false,
@@ -1768,7 +1768,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Thứ 7 Chiều-Tối — Highlight ẩm thực</h3>
                             <p><strong>16:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi set nướng hải sản + lẩu nấm, giá từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
-<img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Ăn Gì Ở Đà Lạt Cuối Tuần - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-3.webp" alt="Ăn Gì Ở Đà Lạt Cuối Tuần - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1799,7 +1799,7 @@ var BLOG_ARTICLES = [
         title: "View Hoàng Hôn Đà Lạt — 7 Địa Điểm Ngắm Sunset Đẹp Nhất 2026",
         category: "View đẹp Đà Lạt",
         date: "2026-05-09",
-        image: "assets/images/blog/view-hoang-hon-1-v3.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v3.webp",
         imageAlt: "View hoàng hôn Đà Lạt - ánh chiều vàng trên thung lũng nhà lồng",
         badge: "",
         featured: false,
@@ -1807,7 +1807,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Trạm Dừng Chill — View hoàng hôn + thung lũng nhà lồng</h3>
                             <p>Nằm trên đường Huỳnh Tấn Phát, <a href="index.html">Trạm Dừng Chill</a> sở hữu <strong>view hoàng hôn Đà Lạt</strong> đẹp bậc nhất với góc nhìn 180 độ ra thung lũng. Buổi chiều, mặt trời lặn dần sau những rặng thông, ánh nắng vàng phủ lên hàng ngàn nhà lồng — khung cảnh như tranh vẽ. Bạn vừa thưởng thức BBQ nướng thơm phức vừa ngắm hoàng hôn rực rỡ — trải nghiệm khó quên.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a> để có vị trí view hoàng hôn đẹp nhất!</p>
-<img src="assets/images/blog/view-xe-lua-1.jpg" alt="View Hoàng Hôn Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-1.webp" alt="View Hoàng Hôn Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1817,7 +1817,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>2. Đồi Robin — Toàn cảnh thành phố lúc chiều tà</h3>
                             <p>Đồi Robin nằm ở trung tâm Đà Lạt, cao hơn mực thành phố nên có góc nhìn toàn cảnh. Lúc hoàng hôn, bạn có thể thấy toàn bộ thành phố chuyển màu từ vàng cam sang tím đỏ. Tuy nhiên, đây chỉ là điểm ngắm — không có quán ăn phục vụ tại chỗ.</p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="View Hoàng Hôn Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="View Hoàng Hôn Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1826,7 +1826,7 @@ var BLOG_ARTICLES = [
 
                             <h3>3. Hồ Xuân Hương — Sunset phản chiếu mặt nước</h3>
                             <p>Hồ Xuân Hương nằm giữa lòng Đà Lạt, mặt nước phẳng lặng phản chiếu ánh hoàng hôn tạo nên bức tranh tuyệt đẹp. Đi dạo quanh hồ lúc 17:00-18:00 là thời điểm lý tưởng nhất. Nhiều quán cafe ven hồ có view đẹp để ngồi thưởng thức.</p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="View Hoàng Hôn Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="View Hoàng Hôn Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1848,7 +1848,7 @@ var BLOG_ARTICLES = [
         title: "Quán Ăn Ngon Đường Huỳnh Tấn Phát Đà Lạt — Gợi Ý Từ Dân Địa Phương",
         category: "Ẩm thực Đà Lạt",
         date: "2026-05-12",
-        image: "assets/images/blog/khong-gian-ngay-1.jpg",
+        image: "assets/images/blog/khong-gian-ngay-1.webp",
         imageAlt: "Quán ăn ngon đường Huỳnh Tấn Phát - nướng BBQ view thung lũng",
         badge: "",
         featured: false,
@@ -1858,7 +1858,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Quán nướng BBQ view xe lửa</h3>
                             <p>Tọa lạc tại 111 Huỳnh Tấn Phát, <a href="index.html">Trạm Dừng Chill</a> là <strong>quán nướng nổi tiếng nhất</strong> trên con đường này. Điểm đặc biệt: view hoàng hôn, xe lửa chạy ngang, biển sao nhà lồng về đêm. Menu đa dạng từ BBQ hải sản, bò Mỹ đến lẩu nóng. Giá từ 95.000đ/người.</p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Quán Ăn Ngon Đường Huỳnh Tấn Phát Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Quán Ăn Ngon Đường Huỳnh Tấn Phát Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1866,7 +1866,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn Trạm Dừng Chill</a></p>
-<img src="assets/images/blog/khong-gian-ngay-5.jpg" alt="quán ăn ngon đường Huỳnh Tấn Phát - không gian ban ngày thoáng đãng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-5.webp" alt="quán ăn ngon đường Huỳnh Tấn Phát - không gian ban ngày thoáng đãng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1876,7 +1876,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Các quán ăn khác trên đường Huỳnh Tấn Phát</h3>
                             <p>Ngoài Trạm Dừng Chill, trên đường Huỳnh Tấn Phát còn có nhiều quán cafe, quán ăn nhỏ phục vụ các món Đà Lạt truyền thống. Từ phở, bún bò đến các món nướng dân dã — bạn có thể dạo cả con đường để khám phá ẩm thực đa dạng.</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Quán Ăn Ngon Đường Huỳnh Tấn Phát Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Quán Ăn Ngon Đường Huỳnh Tấn Phát Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1895,7 +1895,7 @@ var BLOG_ARTICLES = [
         title: "Nướng BBQ Ngoài Trời Đà Lạt — Trải Nghiệm Độc Đáo Giữa Thiên Nhiên",
         category: "Trải nghiệm",
         date: "2026-05-15",
-        image: "assets/images/blog/mon-nuong-4-v2.jpg",
+        image: "assets/images/blog/mon-nuong-4-v2.webp",
         imageAlt: "Nướng BBQ Ngoài Trời Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -1905,7 +1905,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Top trải nghiệm nướng ngoài trời tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, toàn bộ bàn ăn đặt ngoài trời với <strong>view thung lũng 180 độ</strong>. Bạn tự tay nướng thịt trên bếp than hoa, vừa nướng vừa ngắm hoàng hôn, xe lửa và biển sao nhà lồng. Không gian mở thoáng đãng, không bí khói.</p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Nướng BBQ Ngoài Trời Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Nướng BBQ Ngoài Trời Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1913,7 +1913,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn nướng ngoài trời</a></p>
-<img src="assets/images/blog/khong-gian-dem-11.jpg" alt="Nướng BBQ Ngoài Trời Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-11.webp" alt="Nướng BBQ Ngoài Trời Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1923,7 +1923,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Mẹo nướng BBQ ngoài trời ở Đà Lạt</h3>
                             <p>Mang theo áo khoác mỏng vì Đà Lạt về đêm khá lạnh (15-18°C). Đến sớm lúc 16:30-17:00 để bắt trọn hoàng hôn. Gọi combo nướng + lẩu để vừa nướng vừa ăn lẩu nóng — sự kết hợp hoàn hảo trong tiết trời se lạnh.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Nướng BBQ Ngoài Trời Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Nướng BBQ Ngoài Trời Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1941,7 +1941,7 @@ var BLOG_ARTICLES = [
         title: "Setup Sinh Nhật Miễn Phí Đà Lạt — Quán Nào Tặng Trang Trí 2026?",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-05-18",
-        image: "assets/images/blog/setup-sinh-nhat-3.jpg",
+        image: "assets/images/blog/setup-sinh-nhat-3.webp",
         imageAlt: "Setup Sinh Nhật Miễn Phí Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -1951,7 +1951,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Setup sinh nhật MIỄN PHÍ</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là một trong số ít quán ở Đà Lạt <strong>tặng setup sinh nhật hoàn toàn miễn phí</strong>. Bao gồm: bảng chúc mừng, bóng bay, nến, trang trí bàn tiệc. Bạn chỉ cần đặt bàn trước và thông báo — quán lo hết phần trang trí.</p>
-<img src="assets/images/blog/khong-gian-dem-13.jpg" alt="Setup Sinh Nhật Miễn Phí Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-13.webp" alt="Setup Sinh Nhật Miễn Phí Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1959,7 +1959,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>Backdrop sinh nhật tại Trạm Dừng Chill chính là <strong>view hoàng hôn + biển sao nhà lồng</strong> — không backdrop nhân tạo nào sánh được!</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="setup sinh nhật miễn phí Đà Lạt - view hoàng hôn lãng mạn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="setup sinh nhật miễn phí Đà Lạt - view hoàng hôn lãng mạn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1967,7 +1967,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt tiệc sinh nhật ngay</a></p>
-<img src="assets/images/blog/checkin-2.jpg" alt="Setup Sinh Nhật Miễn Phí Đà Lạt - góc check-in triệu like Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/checkin-2.webp" alt="Setup Sinh Nhật Miễn Phí Đà Lạt - góc check-in triệu like Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -1989,7 +1989,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Cho 2 Người — 5 Quán Lãng Mạn Nhất Cho Couple 2026",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-05-21",
-        image: "assets/images/blog/view-hoang-hon-1-v4.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v4.webp",
         imageAlt: "Quán nướng Đà Lạt cho 2 người - dinner BBQ lãng mạn cặp đôi",
         badge: "",
         featured: false,
@@ -1997,7 +1997,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Trạm Dừng Chill — Nướng BBQ view hoàng hôn cho đôi</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có những bàn nhỏ cho 2 người đặt ở vị trí view đẹp nhất — nhìn thẳng ra thung lũng. Buổi tối, hai bạn vừa nướng BBQ vừa ngắm <strong>biển sao nhà lồng</strong> lung linh. Set nướng cho 2 người giá từ 200-400K, gồm thịt bò, hải sản, rau củ và nước uống.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cho 2 người</a></p>
-<img src="assets/images/blog/view-xe-lua-5.jpg" alt="Quán Nướng Đà Lạt Cho 2 Người - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-5.webp" alt="Quán Nướng Đà Lạt Cho 2 Người - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2038,7 +2038,7 @@ var BLOG_ARTICLES = [
         title: "Món Nướng Ngon Nhất Đà Lạt — 10 Món BBQ Phải Thử Khi Đến Phố Núi",
         category: "Ẩm thực Đà Lạt",
         date: "2026-05-24",
-        image: "assets/images/blog/mon-nuong-4-v3.jpg",
+        image: "assets/images/blog/mon-nuong-4-v3.webp",
         imageAlt: "Món nướng ngon nhất Đà Lạt - thịt bò sườn gà nướng than hoa",
         badge: "",
         featured: false,
@@ -2087,7 +2087,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 4 — Thời Tiết, Lễ Hội Và Gợi Ý Ăn Chơi 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-05-27",
-        image: "assets/images/blog/view-hoang-hon-1-v5.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v5.webp",
         imageAlt: "Du lịch Đà Lạt tháng 4 - mùa hoa dã quỳ và nướng BBQ",
         badge: "",
         featured: false,
@@ -2097,7 +2097,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Lễ hội và sự kiện tháng 4</h3>
                             <p>Tháng 4 thường có lễ hội hoa, triển lãm nghệ thuật và các sự kiện văn hóa tại Đà Lạt. Lễ 30/4-1/5 là dịp nghỉ lễ dài, khách du lịch đông nên cần đặt phòng và <strong>đặt bàn ăn</strong> trước.</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Du Lịch Đà Lạt Tháng 4 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Du Lịch Đà Lạt Tháng 4 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2107,7 +2107,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Gợi ý ăn chơi tháng 4 tại Đà Lạt</h3>
                             <p>Buổi sáng: Cafe view đồi, tham quan vườn hoa. Buổi trưa: Lẩu gà lá é, bún bò Huế. Buổi chiều-tối: <strong>Nướng BBQ ngoài trời</strong> tại <a href="index.html">Trạm Dừng Chill</a> — thời tiết tháng 4 rất lý tưởng cho nướng ngoài trời, trời trong nên view hoàng hôn và nhà lồng siêu đẹp.</p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="Du Lịch Đà Lạt Tháng 4 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="Du Lịch Đà Lạt Tháng 4 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2115,7 +2115,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Tháng 4 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Tháng 4 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2133,7 +2133,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Có Nhạc Sống — 5 Quán Vừa Ăn Vừa Nghe Nhạc 2026",
         category: "Trải nghiệm",
         date: "2026-05-30",
-        image: "assets/images/blog/khong-gian-dem-2-v2.jpg",
+        image: "assets/images/blog/khong-gian-dem-2-v2.webp",
         imageAlt: "Quán nướng Đà Lạt có nhạc sống - acoustic và BBQ ban đêm",
         badge: "",
         featured: false,
@@ -2141,7 +2141,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Trạm Dừng Chill — Acoustic giữa trời sao</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> thường xuyên tổ chức <strong>nhạc acoustic</strong> vào cuối tuần. Nghệ sĩ chơi guitar, hát những bản ballad nhẹ nhàng giữa không gian ngoài trời. Vừa nướng BBQ, vừa nghe nhạc, vừa ngắm biển sao nhà lồng — trải nghiệm chill hết nấc!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cuối tuần</a> để trải nghiệm nhạc sống</p>
-<img src="assets/images/blog/view-xe-lua-1.jpg" alt="Quán Nướng Đà Lạt Có Nhạc Sống - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-1.webp" alt="Quán Nướng Đà Lạt Có Nhạc Sống - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2183,7 +2183,7 @@ var BLOG_ARTICLES = [
         title: "Bò Nướng Đà Lạt — Top 5 Quán Bò Nướng Ngon, Thịt Tươi, Giá Tốt 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-06-02",
-        image: "assets/images/blog/mon-nuong-4-v4.jpg",
+        image: "assets/images/blog/mon-nuong-4-v4.webp",
         imageAlt: "Bò nướng Đà Lạt - thịt bò tảng nướng phô mai tại bàn",
         badge: "",
         featured: false,
@@ -2191,7 +2191,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Trạm Dừng Chill — Bò Mỹ nướng than hoa view hoàng hôn</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ <strong>bò Mỹ, bò Úc nhập khẩu</strong> chất lượng cao, thái lát vừa ăn, nướng trên than hoa thơm phức. Thịt bò tươi hàng ngày, không đông lạnh lâu. Set bò nướng cho 2 người từ 250K, bao gồm 3-4 loại thịt bò và rau củ nướng kèm.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức bò nướng</a></p>
-<img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Bò Nướng Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-3.webp" alt="Bò Nướng Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2201,7 +2201,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>2. Korean BBQ Đà Lạt</h3>
                             <p>Quán bò nướng kiểu Hàn Quốc, thịt bò ướp sốt bulgogi chuẩn vị. Có thêm kim chi, banchan đi kèm. Giá từ 180K/người, set cho 2 người từ 350K.</p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Bò Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Bò Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2232,7 +2232,7 @@ var BLOG_ARTICLES = [
         title: "Đà Lạt Về Đêm Đi Đâu? — 8 Hoạt Động Thú Vị Sau 20h 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-06-05",
-        image: "assets/images/blog/view-nha-long-4-v3.jpg",
+        image: "assets/images/blog/view-nha-long-4-v3.webp",
         imageAlt: "Đà Lạt về đêm đi đâu - nướng BBQ ngắm nhà lồng lên đèn",
         badge: "",
         featured: false,
@@ -2240,7 +2240,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Nướng BBQ ngắm biển sao nhà lồng</h3>
                             <p>Highlight số 1 của <strong>Đà Lạt về đêm</strong>! Tại <a href="index.html">Trạm Dừng Chill</a>, sau 18:30 hàng ngàn nhà lồng đồng loạt lên đèn, tạo nên biển sao lung linh giữa thung lũng. Vừa nướng BBQ nóng hổi, vừa ngắm view đêm — trải nghiệm đáng nhớ nhất!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Đà Lạt Về Đêm Đi Đâu - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Đà Lạt Về Đêm Đi Đâu - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2282,7 +2282,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Có Chỗ Đỗ Xe — 5 Quán Tiện Lợi Cho Gia Đình",
         category: "Quán nướng Đà Lạt",
         date: "2026-06-08",
-        image: "assets/images/blog/khong-gian-dem-2-v3.jpg",
+        image: "assets/images/blog/khong-gian-dem-2-v3.webp",
         imageAlt: "Quán nướng Đà Lạt có chỗ đỗ xe - bãi đỗ rộng rãi miễn phí",
         badge: "",
         featured: false,
@@ -2292,7 +2292,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Bãi đỗ rộng, thoải mái</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nằm trên đường Huỳnh Tấn Phát, khu vực ít đông nên <strong>có bãi đỗ xe rộng rãi</strong> cho cả ô tô và xe máy. Gia đình lái xe đến thoải mái, không lo tìm chỗ đỗ. Quán mở cửa từ 15:00 nên đến sớm đỗ xe dễ dàng.</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Quán Nướng Đà Lạt Có Chỗ Đỗ Xe - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Quán Nướng Đà Lạt Có Chỗ Đỗ Xe - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2300,7 +2300,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn cho gia đình</a></p>
-<img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Quán Nướng Đà Lạt Có Chỗ Đỗ Xe - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt Có Chỗ Đỗ Xe - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2331,7 +2331,7 @@ var BLOG_ARTICLES = [
         title: "Nướng Than Hoa vs Nướng Điện — Đâu Là Lựa Chọn Ngon Hơn Tại Đà Lạt?",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-06-11",
-        image: "assets/images/blog/mon-nuong-22.jpg",
+        image: "assets/images/blog/mon-nuong-22.webp",
         imageAlt: "Nướng Than Hoa vs Nướng Điện - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -2341,7 +2341,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Nướng điện — Tiện lợi và sạch sẽ</h3>
                             <p><strong>Nướng điện</strong> dễ kiểm soát nhiệt độ, ít khói, không cần thời gian nhóm lửa. Phù hợp cho quán buffet đông khách hoặc trong nhà. Tuy nhiên, hương vị thiếu đi mùi khói tự nhiên — nhiều người cảm thấy kém đậm đà hơn.</p>
-<img src="assets/images/blog/ban-nuong-1.jpg" alt="Nướng Than Hoa vs Nướng Điện - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-1.webp" alt="Nướng Than Hoa vs Nướng Điện - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2361,7 +2361,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Tại Trạm Dừng Chill — Nướng than hoa chuẩn vị</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> chọn <strong>nướng than hoa</strong> vì mang lại hương vị BBQ đúng chuẩn nhất. Nướng ngoài trời nên khói thoát nhanh, không bị bám mùi. Nhân viên hỗ trợ nhóm lửa và hướng dẫn nướng — bạn chỉ cần thưởng thức!</p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="Nướng Than Hoa vs Nướng Điện - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="Nướng Than Hoa vs Nướng Điện - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2378,7 +2378,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 5 — Mùa Hoa Phượng Tím Và Nướng BBQ Ngắm Mưa",
         category: "Du lịch Đà Lạt",
         date: "2026-06-14",
-        image: "assets/images/blog/view-hoang-hon-2-v4.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v4.webp",
         imageAlt: "Du lịch Đà Lạt tháng 5 - nướng BBQ ngoài trời mát mẻ",
         badge: "",
         featured: false,
@@ -2388,7 +2388,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Hoa phượng tím — Biểu tượng tháng 5 Đà Lạt</h3>
                             <p><strong>Hoa phượng tím</strong> (Jacaranda) nở rộ khắp các con đường Đà Lạt vào tháng 5-6. Cả thành phố chìm trong sắc tím lãng mạn — đặc biệt đẹp trên đường Trần Phú, Hùng Vương. Đây là thời điểm chụp ảnh đẹp nhất năm!</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Tháng 5 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Tháng 5 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2398,7 +2398,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ ngắm mưa — Trải nghiệm riêng mùa mưa</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, nướng BBQ trong tiết trời se lạnh sau cơn mưa chiều là trải nghiệm cực chill. Không khí trong lành, sương nhẹ bay qua thung lũng, nhà lồng lên đèn trong màn mưa phùn — <strong>view đêm mưa Đà Lạt</strong> huyền ảo vô cùng!</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Du Lịch Đà Lạt Tháng 5 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Du Lịch Đà Lạt Tháng 5 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2406,7 +2406,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="Du Lịch Đà Lạt Tháng 5 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="Du Lịch Đà Lạt Tháng 5 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2424,7 +2424,7 @@ var BLOG_ARTICLES = [
         title: "Combo Nướng Đà Lạt Tiết Kiệm — So Sánh Giá 5 Quán Phổ Biến 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-06-17",
-        image: "assets/images/blog/ban-nuong-1-v6.jpg",
+        image: "assets/images/blog/ban-nuong-1-v6.webp",
         imageAlt: "Combo nướng Đà Lạt tiết kiệm - set BBQ đầy đủ giá tốt",
         badge: "",
         featured: false,
@@ -2434,7 +2434,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Combo từ 95K/người</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>combo nướng tiết kiệm</strong>: Combo 2 người từ 200K, Combo 4 người từ 380K, Combo nhóm 6-8 người từ 600K. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
-<img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Combo Nướng Đà Lạt Tiết Kiệm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-4.webp" alt="Combo Nướng Đà Lạt Tiết Kiệm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2442,7 +2442,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt combo ngay</a></p>
-<img src="assets/images/blog/ban-nuong-4.jpg" alt="Combo Nướng Đà Lạt Tiết Kiệm - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-4.webp" alt="Combo Nướng Đà Lạt Tiết Kiệm - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2471,7 +2471,7 @@ var BLOG_ARTICLES = [
         title: "Quán Ăn Đà Lạt Gần Trung Tâm — 6 Quán Đi Bộ Từ Chợ Đêm 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-06-20",
-        image: "assets/images/blog/mon-nuong-3-v4.jpg",
+        image: "assets/images/blog/mon-nuong-3-v4.webp",
         imageAlt: "Quán ăn Đà Lạt gần trung tâm - nướng BBQ view thung lũng",
         badge: "",
         featured: false,
@@ -2491,7 +2491,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Muốn view đẹp? Đi xa trung tâm một chút!</h3>
                             <p>Quán ăn trung tâm tiện nhưng ít view. Nếu muốn trải nghiệm <strong>ăn nướng view đẹp nhất Đà Lạt</strong>, hãy chạy xe 10 phút đến <a href="index.html">Trạm Dừng Chill</a> trên đường Huỳnh Tấn Phát. View hoàng hôn, xe lửa, biển sao nhà lồng — xứng đáng 10 phút di chuyển!</p>
-<img src="assets/images/blog/khong-gian-ngay-7.jpg" alt="Quán Ăn Đà Lạt Gần Trung Tâm - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-7.webp" alt="Quán Ăn Đà Lạt Gần Trung Tâm - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2499,7 +2499,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/khong-gian-dem-4.jpg" alt="Quán Ăn Đà Lạt Gần Trung Tâm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Ăn Đà Lạt Gần Trung Tâm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2517,7 +2517,7 @@ var BLOG_ARTICLES = [
         title: "Trải Nghiệm Nướng BBQ Lần Đầu — Hướng Dẫn Cho Người Mới Bắt Đầu",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-06-23",
-        image: "assets/images/blog/mon-nuong-21.jpg",
+        image: "assets/images/blog/mon-nuong-21.webp",
         imageAlt: "Trải Nghiệm Nướng BBQ Lần Đầu - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -2527,7 +2527,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Bước 2: Cách nướng thịt đúng cách</h3>
                             <p><strong>Bò:</strong> Nướng lửa vừa, lật một lần, chín tới (medium) là ngon nhất. <strong>Hải sản:</strong> Tôm nướng đến khi đổi màu cam, mực nướng nhanh 1-2 phút mỗi mặt. <strong>Gà:</strong> Nướng lửa nhỏ, chín kỹ, thái mỏng trước khi nướng.</p>
-<img src="assets/images/blog/ban-nuong-4.jpg" alt="Trải Nghiệm Nướng BBQ Lần Đầu - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-4.webp" alt="Trải Nghiệm Nướng BBQ Lần Đầu - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2548,7 +2548,7 @@ var BLOG_ARTICLES = [
                             
                                                         <h3>Bước 4: Những lỗi thường gặp khi nướng</h3>
                             <p>Đừng nướng lửa quá to — thịt cháy ngoài sống trong. Đừng lật thịt liên tục — để yên cho chín một mặt rồi mới lật. Đừng nướng quá nhiều cùng lúc — bếp nguội, thịt không chín đều.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Trải Nghiệm Nướng BBQ Lần Đầu - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Trải Nghiệm Nướng BBQ Lần Đầu - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2563,7 +2563,7 @@ var BLOG_ARTICLES = [
         title: "Đà Lạt Mùa Hè Đi Đâu? — Lịch Trình 5 Ngày Tránh Nóng 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-06-26",
-        image: "assets/images/blog/view-hoang-hon-21-v5.jpg",
+        image: "assets/images/blog/view-hoang-hon-21-v5.webp",
         imageAlt: "Đà Lạt mùa hè đi đâu - BBQ ngoài trời giữa phố núi mát lạnh",
         badge: "",
         featured: false,
@@ -2571,7 +2571,7 @@ var BLOG_ARTICLES = [
         body: `<h3>Ngày 1-2: Khám phá trung tâm Đà Lạt</h3>
                             <p>Tham quan hồ Xuân Hương, Quảng trường Lâm Viên, ga Đà Lạt cổ kính. Cafe ở các quán view đẹp. Buổi tối ngày 1: <strong>nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong> — bắt đầu chuyến đi với bữa ăn view đẹp nhất!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-2.jpg" alt="Đà Lạt Mùa Hè Đi Đâu - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-2.webp" alt="Đà Lạt Mùa Hè Đi Đâu - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2612,7 +2612,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Pet Friendly — 4 Quán Cho Phép Dẫn Thú Cưng 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-06-29",
-        image: "assets/images/blog/khong-gian-ngay-2.jpg",
+        image: "assets/images/blog/khong-gian-ngay-2.webp",
         imageAlt: "Quán nướng Đà Lạt pet friendly - mang thú cưng đi ăn nướng",
         badge: "",
         featured: false,
@@ -2620,7 +2620,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Trạm Dừng Chill — Ngoài trời, thoải mái cho pet</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng ngoài trời nên <strong>chào đón thú cưng</strong>. Không gian rộng rãi, pet có thể nằm cạnh bàn thoải mái. Nhiều khách đã mang theo chó, mèo đến ăn nướng và chụp ảnh cùng view hoàng hôn. Quán có chỗ buộc dây cho pet an toàn.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cùng boss</a></p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Quán Nướng Đà Lạt Pet Friendly - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Quán Nướng Đà Lạt Pet Friendly - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2662,7 +2662,7 @@ var BLOG_ARTICLES = [
         title: "Hải Sản Tươi Đà Lạt — Ở Đâu Có Hải Sản Ngon Giữa Phố Núi?",
         category: "Ẩm thực Đà Lạt",
         date: "2026-07-02",
-        image: "assets/images/blog/view-nha-long-2.jpg",
+        image: "assets/images/blog/view-nha-long-2.webp",
         imageAlt: "Hải sản tươi Đà Lạt - tôm cua mực nướng tại bàn",
         badge: "",
         featured: false,
@@ -2672,7 +2672,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Hải sản nướng tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm sú, mực ống, cá basa, nghêu, sò. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
-<img src="assets/images/blog/view-hoang-hon-31.jpg" alt="Hải Sản Tươi Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-31.webp" alt="Hải Sản Tươi Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2680,7 +2680,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức hải sản</a></p>
-<img src="assets/images/blog/hai-san-11.jpg" alt="hải sản tươi Đà Lạt - hải sản nướng tươi ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/hai-san-11.webp" alt="hải sản tươi Đà Lạt - hải sản nướng tươi ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2708,7 +2708,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 6 — Mùa Mưa Có Gì Vui? Gợi Ý Ăn Chơi 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-07-05",
-        image: "assets/images/blog/view-nha-long-1-v5.jpg",
+        image: "assets/images/blog/view-nha-long-1-v5.webp",
         imageAlt: "Du lịch Đà Lạt tháng 6 - mùa mưa lãng mạn ăn lẩu nướng",
         badge: "",
         featured: false,
@@ -2718,7 +2718,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Hoạt động thú vị mùa mưa Đà Lạt</h3>
                             <p>Café ngắm mưa, tham quan bảo tàng, spa nghỉ dưỡng, shopping ở chợ Đà Lạt. Buổi tối sau khi mưa tạnh — ra ngoài ăn nướng, dạo phố, uống rượu vang ấm bụng.</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Du Lịch Đà Lạt Tháng 6 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Du Lịch Đà Lạt Tháng 6 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2728,7 +2728,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ sau cơn mưa — Chill cực độ</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, buổi tối sau mưa không khí mát lạnh, sương nhẹ bay qua thung lũng. Vừa nướng BBQ nóng hổi vừa ngắm <strong>nhà lồng lên đèn trong sương</strong> — đẹp huyền ảo! Mùa mưa quán ít đông nên bạn được phục vụ chu đáo hơn.</p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="Du Lịch Đà Lạt Tháng 6 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="Du Lịch Đà Lạt Tháng 6 - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2736,7 +2736,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-2.jpg" alt="Du Lịch Đà Lạt Tháng 6 - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-2.webp" alt="Du Lịch Đà Lạt Tháng 6 - nhà lồng cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2755,7 +2755,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Đẹp Chụp Hình — 5 Quán Instagram-Worthy 2026",
         category: "Check-in & Sống ảo",
         date: "2026-07-08",
-        image: "assets/images/blog/khong-gian-dem-1.jpg",
+        image: "assets/images/blog/khong-gian-dem-1.webp",
         imageAlt: "Quán nướng Đà Lạt đẹp chụp hình - góc check-in view hoàng hôn",
         badge: "",
         featured: false,
@@ -2763,7 +2763,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Trạm Dừng Chill — View triệu like</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng <strong>Instagram-worthy</strong> số 1 Đà Lạt! 3 góc chụp đẹp: hoàng hôn vàng rực, xe lửa cổ kính chạy ngang, biển sao nhà lồng về đêm. Bạn không cần filter — ảnh raw đã đẹp lung linh. Hashtag #TramDungChill có hàng ngàn bài đăng!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn check-in</a></p>
-<img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Quán Nướng Đà Lạt Đẹp Chụp Hình - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt Đẹp Chụp Hình - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2804,7 +2804,7 @@ var BLOG_ARTICLES = [
         title: "Gà Nướng Đà Lạt — Top 5 Quán Gà Nướng Lá É, Than Hoa Ngon Nhất",
         category: "Ẩm thực Đà Lạt",
         date: "2026-07-11",
-        image: "assets/images/blog/view-hoang-hon-1-v6.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v6.webp",
         imageAlt: "Gà nướng Đà Lạt - gà nướng muối ớt than hoa giòn da",
         badge: "",
         featured: false,
@@ -2814,7 +2814,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Gà nướng + view hoàng hôn</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, <strong>gà nướng</strong> là một trong những món best-seller. Gà ta nguyên con nướng than hoa, ướp gia vị đặc biệt, phục vụ kèm rau sống và nước chấm. Ăn gà nướng giữa view thung lũng — trải nghiệm ẩm thực đẳng cấp!</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Gà Nướng Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Gà Nướng Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2822,7 +2822,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức gà nướng</a></p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Gà Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Gà Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2854,7 +2854,7 @@ var BLOG_ARTICLES = [
         title: "Đặt Bàn Online Đà Lạt — Cách Đặt Bàn Nhanh, Chắc Chỗ View Đẹp",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-07-14",
-        image: "assets/images/blog/khong-gian-ngay-45.jpg",
+        image: "assets/images/blog/khong-gian-ngay-45.webp",
         imageAlt: "Đặt Bàn Online Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -2864,7 +2864,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Cách đặt bàn tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> hỗ trợ <strong>đặt bàn online</strong> cực nhanh: Bước 1: Vào website, điền form đặt bàn (số người, ngày giờ, yêu cầu đặc biệt). Bước 2: Nhận xác nhận qua Zalo trong 15 phút. Bước 3: Đến quán đúng giờ, được dẫn đến bàn đã đặt.</p>
-<img src="assets/images/blog/view-hoang-hon-31.jpg" alt="Đặt Bàn Online Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-31.webp" alt="Đặt Bàn Online Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2872,7 +2872,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay — xác nhận trong 15 phút</a></p>
-<img src="assets/images/blog/mon-nuong-22.jpg" alt="Đặt Bàn Online Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-22.webp" alt="Đặt Bàn Online Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2882,7 +2882,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Mẹo đặt bàn có view đẹp</h3>
                             <p>Đặt trước 1-2 ngày, nhất là cuối tuần. Ghi chú yêu cầu "bàn view hoàng hôn" hoặc "bàn view nhà lồng". Đến trước giờ đặt 15 phút để được chọn vị trí tốt nhất. Đặt lúc 16:30-17:00 để bắt trọn hoàng hôn.</p>
-<img src="assets/images/blog/ban-nuong-1.jpg" alt="Đặt Bàn Online Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-1.webp" alt="Đặt Bàn Online Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2900,7 +2900,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 7 — Festival Hoa Và Nướng BBQ Giữa Sương Mù",
         category: "Du lịch Đà Lạt",
         date: "2026-07-17",
-        image: "assets/images/blog/view-hoang-hon-2-v5.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v5.webp",
         imageAlt: "Du lịch Đà Lạt tháng 7 - hè vui nướng BBQ cùng bạn bè",
         badge: "",
         featured: false,
@@ -2910,7 +2910,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Festival hoa Đà Lạt tháng 7</h3>
                             <p>Đà Lạt thường tổ chức các <strong>festival hoa</strong> vào giữa năm với trưng bày hoa tươi, nghệ thuật sắp đặt, biểu diễn nghệ thuật. Đây là dịp hiếm để ngắm hàng triệu bông hoa đủ loại tại công viên thành phố.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Tháng 7 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Tháng 7 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2920,7 +2920,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ giữa sương mù — Trải nghiệm hiếm có</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, vào những đêm sương mù, view thung lũng trở nên <strong>huyền ảo như cổ tích</strong>. Ánh đèn nhà lồng xuyên qua sương tạo hiệu ứng "đèn trong mây" tuyệt đẹp. Vừa nướng BBQ nóng giữa trời lạnh, vừa ngắm sương bay — khoảnh khắc chỉ có ở Đà Lạt!</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Tháng 7 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Tháng 7 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2928,7 +2928,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Tháng 7 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Tháng 7 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2947,7 +2947,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt WiFi Mạnh — 5 Quán Cho Dân Digital Nomad 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-07-20",
-        image: "assets/images/blog/view-xe-lua-1.jpg",
+        image: "assets/images/blog/view-xe-lua-1.webp",
         imageAlt: "Quán nướng Đà Lạt WiFi mạnh - vừa ăn nướng vừa làm việc",
         badge: "",
         featured: false,
@@ -2957,7 +2957,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — WiFi ổn định, view chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có <strong>WiFi miễn phí</strong> tốc độ cao, phủ sóng toàn quán. Dân digital nomad có thể đến sớm từ 15:00, ngồi làm việc với view thung lũng, đến 17:00 thì gọi nướng ăn tối. Kết hợp work và chill hoàn hảo!</p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Quán Nướng Đà Lạt WiFi Mạnh - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Quán Nướng Đà Lạt WiFi Mạnh - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2965,7 +2965,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Quán Nướng Đà Lạt WiFi Mạnh - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Quán Nướng Đà Lạt WiFi Mạnh - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2974,7 +2974,7 @@ var BLOG_ARTICLES = [
 
                             <h3>2-3. Workspace Cafe & Grill và Co-Nướng Space</h3>
                             <p>Các quán kết hợp coworking và nướng nhẹ, có ổ cắm điện, bàn rộng. WiFi tốc độ cao. Phù hợp cho buổi họp nhóm kết hợp ăn tối. Giá từ 100-200K/người.</p>
-<img src="assets/images/blog/view-xe-lua-3.jpg" alt="Quán Nướng Đà Lạt WiFi Mạnh - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-3.webp" alt="Quán Nướng Đà Lạt WiFi Mạnh - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -2996,7 +2996,7 @@ var BLOG_ARTICLES = [
         title: "Thịt Nướng Hàn Quốc Đà Lạt — Top 5 Quán Korean BBQ Chuẩn Vị",
         category: "Ẩm thực Đà Lạt",
         date: "2026-07-23",
-        image: "assets/images/blog/view-hoang-hon-1-v7.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v7.webp",
         imageAlt: "Thịt nướng Hàn Quốc Đà Lạt - BBQ kiểu Hàn tại phố núi",
         badge: "",
         featured: false,
@@ -3006,7 +3006,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — BBQ fusion Việt-Hàn</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có menu <strong>BBQ đa phong cách</strong> bao gồm cả thịt ướp kiểu Hàn Quốc. Bò bulgogi, thịt ba chỉ ướp sốt gochujang — nướng trên than hoa giữa view Đà Lạt. Sự kết hợp giữa hương vị Hàn và không gian Việt rất thú vị!</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Thịt Nướng Hàn Quốc Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Thịt Nướng Hàn Quốc Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3014,7 +3014,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Thịt Nướng Hàn Quốc Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Thịt Nướng Hàn Quốc Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3046,7 +3046,7 @@ var BLOG_ARTICLES = [
         title: "Đà Lạt Cho Cặp Đôi Mới Yêu — 7 Trải Nghiệm Lãng Mạn Nhất 2026",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-07-26",
-        image: "assets/images/blog/view-nha-long-1-v6.jpg",
+        image: "assets/images/blog/view-nha-long-1-v6.webp",
         imageAlt: "Đà Lạt cho cặp đôi mới yêu - date night BBQ lãng mạn",
         badge: "",
         featured: false,
@@ -3054,7 +3054,7 @@ var BLOG_ARTICLES = [
         body: `<h3>1. Nướng BBQ ngắm hoàng hôn cùng nhau</h3>
                             <p>Không gì lãng mạn hơn ngồi cạnh nhau, tay trong tay nướng thịt, mắt ngắm <strong>hoàng hôn Đà Lạt</strong> buông xuống thung lũng. Tại <a href="index.html">Trạm Dừng Chill</a>, bàn cho couple nhỏ xinh, riêng tư — bối cảnh hoàn hảo cho khoảnh khắc đầu tiên.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn date night</a></p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Đà Lạt Cho Cặp Đôi Mới Yêu - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Đà Lạt Cho Cặp Đôi Mới Yêu - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3095,7 +3095,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 8 — Thời Tiết Mát Mẻ, Ít Khách, Giá Rẻ 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-07-29",
-        image: "assets/images/blog/view-nha-long-3.jpg",
+        image: "assets/images/blog/view-nha-long-3.webp",
         imageAlt: "Du lịch Đà Lạt tháng 8 - cuối hè nướng BBQ ngắm sương mù",
         badge: "",
         featured: false,
@@ -3105,7 +3105,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Ưu điểm du lịch Đà Lạt tháng 8</h3>
                             <p><strong>Ít khách:</strong> Không đông đúc, xếp hàng. <strong>Giá rẻ:</strong> Phòng khách sạn, vé máy bay giảm 20-40%. <strong>Phục vụ tốt hơn:</strong> Quán ăn, điểm tham quan không bị quá tải. Đà Lạt tháng 8 như một thiên đường yên bình.</p>
-<img src="assets/images/blog/mon-nuong-2.jpg" alt="Du Lịch Đà Lạt Tháng 8 - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-2.webp" alt="Du Lịch Đà Lạt Tháng 8 - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3115,7 +3115,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ mùa mưa — Đặc biệt hơn bạn nghĩ</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, nướng BBQ tháng 8 có trải nghiệm riêng: không khí mát lạnh, sương nhẹ bay, <strong>nhà lồng lên đèn trong mưa phùn</strong> tạo khung cảnh lung linh huyền ảo. Quán vắng hơn nên được phục vụ chu đáo, chọn bàn thoải mái.</p>
-<img src="assets/images/blog/mon-nuong-1.jpg" alt="Du Lịch Đà Lạt Tháng 8 - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-1.webp" alt="Du Lịch Đà Lạt Tháng 8 - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3123,7 +3123,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Tháng 8 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Tháng 8 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3142,7 +3142,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Menu Đa Dạng — Quán Nào Có Nhiều Món Nhất?",
         category: "Ẩm thực Đà Lạt",
         date: "2026-08-01",
-        image: "assets/images/blog/khong-gian-dem-1-v2.jpg",
+        image: "assets/images/blog/khong-gian-dem-1-v2.webp",
         imageAlt: "Quán nướng Đà Lạt menu đa dạng - BBQ hải sản lẩu đồ uống",
         badge: "",
         featured: false,
@@ -3152,7 +3152,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Menu 50+ món</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> tự hào với <strong>menu hơn 50 món</strong>: BBQ (bò, hải sản, gà, heo), lẩu (nấm, Thái, gà lá é), đồ chiên, rau củ nướng, đồ uống. Từ 95K/người, combo linh hoạt theo số người. Menu có ảnh minh họa, dễ chọn.</p>
-<img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Quán Nướng Đà Lạt Menu Đa Dạng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt Menu Đa Dạng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3160,7 +3160,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn cho nhóm</a></p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Quán Nướng Đà Lạt Menu Đa Dạng - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Quán Nướng Đà Lạt Menu Đa Dạng - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3170,7 +3170,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>So sánh menu các quán nướng Đà Lạt</h3>
                             <p><strong>Trạm Dừng Chill:</strong> 50+ món, đa phong cách. <strong>Korean BBQ:</strong> 30+ món, chuyên Hàn. <strong>Buffet nướng:</strong> 40+ món nhưng chất lượng bình bình. <strong>Quán nhỏ:</strong> 15-20 món, hạn chế. Muốn đa dạng + chất lượng thì Trạm Dừng Chill là lựa chọn tối ưu.</p>
-<img src="assets/images/blog/khong-gian-dem-12.jpg" alt="Quán Nướng Đà Lạt Menu Đa Dạng - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-12.webp" alt="Quán Nướng Đà Lạt Menu Đa Dạng - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3188,7 +3188,7 @@ var BLOG_ARTICLES = [
         title: "Sườn Nướng Đà Lạt — 5 Quán Sườn BBQ Mềm Ngon, Đậm Vị 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-08-04",
-        image: "assets/images/blog/mon-nuong-4-v5.jpg",
+        image: "assets/images/blog/mon-nuong-4-v5.webp",
         imageAlt: "Sườn nướng Đà Lạt - sườn non BBQ sốt cay Thái Lan",
         badge: "",
         featured: false,
@@ -3198,7 +3198,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Sườn nướng sốt BBQ đặc biệt</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ <strong>sườn heo nướng sốt BBQ</strong> ướp qua đêm, nướng chậm trên than hoa. Thịt mềm, đậm vị, lớp sốt caramel ngoài giòn tan. Ăn kèm salad và khoai tây nướng — combo hoàn hảo!</p>
-<img src="assets/images/blog/view-xe-lua-4.jpg" alt="Sườn Nướng Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-4.webp" alt="Sườn Nướng Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3206,7 +3206,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức sườn nướng</a></p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Sườn Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Sườn Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3238,7 +3238,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Từ Sài Gòn — Hướng Dẫn Đi Lại, Ăn Ở A-Z 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-08-07",
-        image: "assets/images/blog/view-nha-long-2.jpg",
+        image: "assets/images/blog/view-nha-long-2.webp",
         imageAlt: "Du lịch Đà Lạt từ Sài Gòn - hành trình BBQ view đẹp phố núi",
         badge: "",
         featured: false,
@@ -3258,7 +3258,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Ăn gì ở Đà Lạt?</h3>
                             <p>Sáng: Bánh mì xíu mại, phở gà. Trưa: Bún bò, cơm tấm. Chiều: Cafe, kem bơ. <strong>Tối: Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong> — highlight ẩm thực không thể bỏ lỡ! Từ 95K/người, view hoàng hôn + biển sao nhà lồng.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Từ Sài Gòn - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Từ Sài Gòn - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3266,7 +3266,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Từ Sài Gòn - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Từ Sài Gòn - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3284,7 +3284,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Tổ Chức Sự Kiện — 5 Quán Nhận Đặt Tiệc Lớn 2026",
         category: "Trải nghiệm",
         date: "2026-08-10",
-        image: "assets/images/blog/view-hoang-hon-31.jpg",
+        image: "assets/images/blog/view-hoang-hon-31.webp",
         imageAlt: "Quán nướng Đà Lạt tổ chức sự kiện - tiệc nướng ngoài trời",
         badge: "",
         featured: false,
@@ -3294,7 +3294,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Sự kiện view đẹp nhất</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nhận <strong>đặt tiệc từ 10-50+ người</strong>. Không gian ngoài trời rộng rãi, view thung lũng. Quán hỗ trợ setup trang trí, âm thanh, menu linh hoạt theo ngân sách. Đặc biệt: backdrop tự nhiên từ hoàng hôn và biển sao nhà lồng — không đâu có!</p>
-<img src="assets/images/blog/khong-gian-dem-2.jpg" alt="Quán Nướng Đà Lạt Tổ Chức Sự Kiện - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-2.webp" alt="Quán Nướng Đà Lạt Tổ Chức Sự Kiện - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3302,7 +3302,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt tiệc sự kiện</a></p>
-<img src="assets/images/blog/view-xe-lua-1.jpg" alt="Quán Nướng Đà Lạt Tổ Chức Sự Kiện - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-1.webp" alt="Quán Nướng Đà Lạt Tổ Chức Sự Kiện - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3312,7 +3312,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>2-3. Event Garden và Open Air BBQ</h3>
                             <p>Hai địa điểm chuyên tổ chức sự kiện ngoài trời, sức chứa lớn (50-100 người). Có sân khấu, âm thanh ánh sáng. Tuy nhiên view không đặc sắc bằng Trạm Dừng Chill.</p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Quán Nướng Đà Lạt Tổ Chức Sự Kiện - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Quán Nướng Đà Lạt Tổ Chức Sự Kiện - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3334,7 +3334,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 9 — Mùa Thu Lá Vàng Và Nướng BBQ View Sương 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-08-13",
-        image: "assets/images/blog/view-nha-long-4-v4.jpg",
+        image: "assets/images/blog/view-nha-long-4-v4.webp",
         imageAlt: "Du lịch Đà Lạt tháng 9 - thu sang nướng BBQ ngắm sương",
         badge: "",
         featured: false,
@@ -3344,7 +3344,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Lá vàng Đà Lạt — Khoảnh khắc ngắn ngủi</h3>
                             <p><strong>Lá vàng Đà Lạt</strong> tháng 9-10 là thời điểm hiếm hoi khi cây cối chuyển màu. Đường Trần Hưng Đạo, Lê Đại Hành có hàng cây lá vàng rơi — cảnh đẹp như phim Hàn Quốc. Nhiếp ảnh gia đổ về Đà Lạt săn ảnh lá vàng vào mùa này.</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Tháng 9 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Tháng 9 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3354,7 +3354,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ view sương mù — Chỉ có tháng 9</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 9 sương mù dày, thung lũng chìm trong biển mây. Đèn nhà lồng xuyên qua sương tạo <strong>view "thiên đường trên mây"</strong>. Nướng BBQ nóng giữa sương lạnh — trải nghiệm ai cũng phải "wow"!</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Tháng 9 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Tháng 9 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3362,7 +3362,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Tháng 9 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Tháng 9 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3380,7 +3380,7 @@ var BLOG_ARTICLES = [
         title: "Mực Nướng Đà Lạt — Top 5 Quán Hải Sản Nướng Mực Tươi Giòn 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-08-16",
-        image: "assets/images/blog/ban-nuong-2.jpg",
+        image: "assets/images/blog/ban-nuong-2.webp",
         imageAlt: "Mực nướng Đà Lạt - mực tươi nướng than hoa chấm muối tiêu",
         badge: "",
         featured: false,
@@ -3390,7 +3390,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Mực tươi nướng than hoa</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>mực ống tươi</strong> hàng ngày từ biển. Mực nướng trên than hoa, thịt giòn dai, không khô. Có nhiều cách chế biến: nướng sa tế, nướng muối ớt, nướng bơ tỏi. Giá mực nướng từ 80K/phần.</p>
-<img src="assets/images/blog/khong-gian-ngay-5.jpg" alt="Mực Nướng Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-5.webp" alt="Mực Nướng Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3398,7 +3398,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/mon-nuong-14.jpg" alt="Mực Nướng Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-14.webp" alt="Mực Nướng Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3430,7 +3430,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Khuyến Mãi — Tổng Hợp Ưu Đãi Hot Nhất 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-08-19",
-        image: "assets/images/blog/view-xe-lua-1.jpg",
+        image: "assets/images/blog/view-xe-lua-1.webp",
         imageAlt: "Quán nướng Đà Lạt khuyến mãi - ưu đãi set nướng BBQ",
         badge: "",
         featured: false,
@@ -3440,7 +3440,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Ưu đãi đặc biệt 2026</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>ưu đãi hấp dẫn</strong>: Setup sinh nhật MIỄN PHÍ, combo nướng giá tốt từ 95K/người, ưu đãi nhóm đông từ 6 người. Follow fanpage để cập nhật khuyến mãi mới nhất!</p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Quán Nướng Đà Lạt Khuyến Mãi - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Quán Nướng Đà Lạt Khuyến Mãi - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3448,7 +3448,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn và nhận ưu đãi</a></p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Quán Nướng Đà Lạt Khuyến Mãi - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Quán Nướng Đà Lạt Khuyến Mãi - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3458,7 +3458,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Các khuyến mãi phổ biến ở Đà Lạt</h3>
                             <p><strong>Giảm giá ngày thường:</strong> Nhiều quán giảm 10-20% thứ 2-5. <strong>Combo deal:</strong> Set nướng cho 2-4 người giá ưu đãi. <strong>Free topping:</strong> Tặng thêm món khi đặt trước. <strong>Happy hour:</strong> Giảm giá đồ uống giờ sớm.</p>
-<img src="assets/images/blog/view-xe-lua-3.jpg" alt="Quán Nướng Đà Lạt Khuyến Mãi - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-3.webp" alt="Quán Nướng Đà Lạt Khuyến Mãi - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3476,7 +3476,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 10 — Mùa Hoa Dã Quỳ Và Ăn Nướng Ngắm Sương",
         category: "Du lịch Đà Lạt",
         date: "2026-08-22",
-        image: "assets/images/blog/view-hoang-hon-2-v6.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v6.webp",
         imageAlt: "Du lịch Đà Lạt tháng 10 - mùa cỏ hồng và BBQ ngoài trời",
         badge: "",
         featured: false,
@@ -3496,7 +3496,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ ngắm sương chiều — Trải nghiệm mùa thu</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 10 view thung lũng đặc biệt đẹp: sương mù buổi chiều tạo lớp voan mỏng phủ lên nhà lồng, khi đèn lên thì <strong>ánh sáng xuyên sương</strong> lung linh huyền ảo. Nướng BBQ nóng giữa trời thu se lạnh — chill hết nấc!</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Tháng 10 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Tháng 10 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3504,7 +3504,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Tháng 10 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Tháng 10 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3523,7 +3523,7 @@ var BLOG_ARTICLES = [
         title: "Cách Nướng Thịt Ngon — 7 Mẹo Từ Đầu Bếp Quán Nướng Đà Lạt",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-08-25",
-        image: "assets/images/blog/mon-nuong-1.jpg",
+        image: "assets/images/blog/mon-nuong-1.webp",
         imageAlt: "Cách Nướng Thịt Ngon - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -3531,7 +3531,7 @@ var BLOG_ARTICLES = [
         body: `<h3>Mẹo 1-2: Chọn thịt và ướp đúng cách</h3>
                             <p><strong>Chọn thịt:</strong> Bò nên chọn phần có marbling (vân mỡ) như ribeye, striploin. Heo chọn ba chỉ hoặc sườn. Gà chọn đùi hoặc cánh — nhiều mỡ hơn ức nên nướng không bị khô.</p>
                             <p><strong>Ướp thịt:</strong> Ướp ít nhất 30 phút, tốt nhất qua đêm. Gia vị cơ bản: muối, tiêu, tỏi, dầu ăn. Thêm mật ong hoặc nước mắm để tạo caramel đẹp khi nướng.</p>
-<img src="assets/images/blog/ban-nuong-4.jpg" alt="Cách Nướng Thịt Ngon - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-4.webp" alt="Cách Nướng Thịt Ngon - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3550,7 +3550,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Mẹo 5-6: Lật thịt và để nghỉ</h3>
                             <p><strong>Chỉ lật 1 lần:</strong> Để thịt chín một mặt rồi mới lật — giữ nước bên trong. <strong>Để nghỉ:</strong> Sau khi nướng, để thịt nghỉ 2-3 phút trước khi ăn — nước thịt phân bố đều, thịt mềm hơn.</p>
-<img src="assets/images/blog/view-hoang-hon-22.jpg" alt="Cách Nướng Thịt Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-22.webp" alt="Cách Nướng Thịt Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3570,7 +3570,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Đánh Giá Cao Google — Top 5 Quán 4.5+ Sao 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-08-28",
-        image: "assets/images/blog/khong-gian-dem-2-v4.jpg",
+        image: "assets/images/blog/khong-gian-dem-2-v4.webp",
         imageAlt: "Quán nướng Đà Lạt đánh giá cao Google - review 5 sao BBQ",
         badge: "",
         featured: false,
@@ -3580,7 +3580,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Rating 4.8 sao</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có <strong>rating 4.8/5 sao trên Google</strong> với hàng trăm review tích cực. Khách khen nhiều nhất: view đẹp, đồ ăn ngon, nhân viên thân thiện, giá hợp lý. Nhiều khách quay lại lần 2, lần 3 — dấu hiệu của quán thực sự ngon!</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Quán Nướng Đà Lạt Đánh Giá Cao Google - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Quán Nướng Đà Lạt Đánh Giá Cao Google - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3588,7 +3588,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Quán Nướng Đà Lạt Đánh Giá Cao Google - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt Đánh Giá Cao Google - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3620,7 +3620,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 11 — Đầu Mùa Khô, View Đẹp Nhất Năm 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-08-31",
-        image: "assets/images/blog/view-nha-long-3-v2.jpg",
+        image: "assets/images/blog/view-nha-long-3-v2.webp",
         imageAlt: "Du lịch Đà Lạt tháng 11 - mùa hoa dã quỳ nướng BBQ ấm",
         badge: "",
         featured: false,
@@ -3630,7 +3630,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Tại sao tháng 11 là thời điểm vàng?</h3>
                             <p>Trời khô ráo nên view <strong>hoàng hôn và nhà lồng</strong> rõ đẹp nhất năm. Hoa dã quỳ vẫn còn nở. Chưa đông đúc như tháng 12 (Giáng Sinh). Giá phòng chưa tăng cao. Đây là bí mật mà dân du lịch kinh nghiệm đều biết!</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Tháng 11 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Tháng 11 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3640,7 +3640,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ ngoài trời tháng 11 — Hoàn hảo!</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 11 view đẹp nhất năm: <strong>hoàng hôn rực rỡ</strong>, trời trong không một gợn mây, biển sao nhà lồng sáng rõ từng ngọn đèn. Nướng BBQ ngoài trời 17°C — mát mẻ, dễ chịu, không lạnh quá.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Tháng 11 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Tháng 11 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3648,7 +3648,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Tháng 11 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Tháng 11 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3666,7 +3666,7 @@ var BLOG_ARTICLES = [
         title: "Lẩu Gà Lá É Đà Lạt — 5 Quán Lẩu Gà Ta Thả Vườn Ngon Nhất 2026",
         category: "Ẩm thực Đà Lạt",
         date: "2026-09-03",
-        image: "assets/images/blog/view-hoang-hon-2-v7.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v7.webp",
         imageAlt: "Lẩu gà lá é Đà Lạt - nồi lẩu nóng hổi giữa sương phố núi",
         badge: "",
         featured: false,
@@ -3676,7 +3676,7 @@ var BLOG_ARTICLES = [
 
                             <h3>1. Trạm Dừng Chill — Lẩu gà + nướng BBQ combo</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có menu <strong>combo lẩu gà lá é + nướng BBQ</strong> — vừa nhúng lẩu vừa nướng thịt, ấm bụng giữa trời Đà Lạt lạnh. Nồi lẩu gà ta ngọt nước, lá é thơm phức. Ăn kèm rau tươi Đà Lạt giòn ngọt.</p>
-<img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Lẩu Gà Lá É Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-3.webp" alt="Lẩu Gà Lá É Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3684,7 +3684,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ăn lẩu + nướng</a></p>
-<img src="assets/images/blog/mon-nuong-9.jpg" alt="Lẩu Gà Lá É Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-9.webp" alt="Lẩu Gà Lá É Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3716,7 +3716,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 12 — Giáng Sinh, Năm Mới Và Nướng BBQ View Sao",
         category: "Du lịch Đà Lạt",
         date: "2026-09-06",
-        image: "assets/images/blog/view-nha-long-4-v5.jpg",
+        image: "assets/images/blog/view-nha-long-4-v5.webp",
         imageAlt: "Du lịch Đà Lạt tháng 12 - Giáng Sinh nướng BBQ se lạnh",
         badge: "",
         featured: false,
@@ -3726,7 +3726,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Giáng Sinh ở Đà Lạt — Lung linh như châu Âu</h3>
                             <p><strong>Giáng Sinh Đà Lạt</strong> rực rỡ: nhà thờ Domain de Marie, nhà thờ Con Gà trang trí đèn lộng lẫy. Phố Đà Lạt lên đèn, cây thông Noel khắp nơi. Không khí lạnh + đèn Giáng Sinh = cảm giác như ở châu Âu!</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Tháng 12 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Tháng 12 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3736,7 +3736,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ đêm Giáng Sinh — Trải nghiệm đặc biệt</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, đêm Giáng Sinh nướng BBQ ngoài trời lạnh 14°C, ngắm biển sao nhà lồng + <strong>bầu trời đông trong vắt đầy sao</strong>. Quán trang trí Giáng Sinh ấm áp. Đây là bữa tiệc Noel đáng nhớ nhất!</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Tháng 12 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Tháng 12 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3744,7 +3744,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn Giáng Sinh sớm</a></p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Tháng 12 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Tháng 12 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3762,7 +3762,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Giao Hàng — Đặt BBQ Tại Nhà Tiện Lợi 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-09-09",
-        image: "assets/images/blog/khong-gian-ngay-4.jpg",
+        image: "assets/images/blog/khong-gian-ngay-4.webp",
         imageAlt: "Quán nướng Đà Lạt giao hàng - đặt online nhận tại nhà",
         badge: "",
         featured: false,
@@ -3772,7 +3772,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Nên đến tận nơi!</h3>
                             <p>Tuy nhiên, <a href="index.html">Trạm Dừng Chill</a> khuyên bạn nên <strong>đến quán trực tiếp</strong> để trải nghiệm trọn vẹn: view hoàng hôn, xe lửa, biển sao nhà lồng — những thứ không thể "giao hàng" được! Đồ ăn nướng tại chỗ trên than hoa cũng ngon hơn nhiều so với mang về.</p>
-<img src="assets/images/blog/khong-gian-ngay-3.jpg" alt="Quán Nướng Đà Lạt Giao Hàng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-3.webp" alt="Quán Nướng Đà Lạt Giao Hàng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3780,7 +3780,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn đến quán</a></p>
-<img src="assets/images/blog/ban-nuong-1.jpg" alt="Quán Nướng Đà Lạt Giao Hàng - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-1.webp" alt="Quán Nướng Đà Lạt Giao Hàng - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3809,7 +3809,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Dịp Tết 2027 — Lịch Trình, Giá Cả Và Quán Ngon",
         category: "Du lịch Đà Lạt",
         date: "2026-09-12",
-        image: "assets/images/blog/view-nha-long-3-v3.jpg",
+        image: "assets/images/blog/view-nha-long-3-v3.webp",
         imageAlt: "Du lịch Đà Lạt dịp Tết - nướng BBQ đón năm mới ấm áp",
         badge: "",
         featured: false,
@@ -3819,7 +3819,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Lịch trình Tết tại Đà Lạt</h3>
                             <p>28-29 Tết: Di chuyển đến Đà Lạt, nhận phòng, dạo phố. 30 Tết: Tham quan hoa mai anh đào, chiều-tối <strong>ăn tất niên nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a></strong>. Mùng 1-2: Đi chùa, tham quan, cafe. Mùng 3: Mua đặc sản, về nhà.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Dịp Tết - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Dịp Tết - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3827,7 +3827,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn tất niên ngay</a></p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Dịp Tết - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Dịp Tết - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3837,7 +3837,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Giá cả dịp Tết ở Đà Lạt</h3>
                             <p>Phòng: Tăng 50-100% so với ngày thường (500K-2 triệu/đêm). Ăn uống: Tăng nhẹ 10-20%. Vé tham quan: Giá giữ nguyên. <strong>Đặt phòng và đặt bàn trước 2-4 tuần</strong> vì Tết cháy phòng rất nhanh!</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Dịp Tết - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Dịp Tết - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3855,7 +3855,7 @@ var BLOG_ARTICLES = [
         title: "Countdown 2027 Đà Lạt — Top Quán Nướng View Đẹp Đón Năm Mới",
         category: "Mùa lễ hội",
         date: "2026-09-15",
-        image: "assets/images/blog/khong-gian-dem-1-v3.jpg",
+        image: "assets/images/blog/khong-gian-dem-1-v3.webp",
         imageAlt: "Countdown 2027 Đà Lạt - tiệc nướng BBQ đêm giao thừa",
         badge: "",
         featured: false,
@@ -3865,7 +3865,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Countdown view biển sao</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là nơi lý tưởng cho <strong>bữa tối Giao Thừa</strong>: nướng BBQ ngoài trời lạnh, ngắm biển sao nhà lồng, đếm ngược 10-9-8... cùng bạn bè, gia đình. View từ quán có thể thấy cả pháo hoa thành phố!</p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Countdown 2027 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Countdown 2027 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3873,7 +3873,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn Giao Thừa — hết chỗ rất nhanh!</a></p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Countdown 2027 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Countdown 2027 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3883,7 +3883,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Lịch trình đêm Giao Thừa gợi ý</h3>
                             <p>18:00-21:00: Nướng BBQ tại Trạm Dừng Chill, ngắm hoàng hôn + nhà lồng lên đèn. 21:00-23:00: Đi về trung tâm, dạo phố Giáng Sinh, cafe. 23:00-0:00: Countdown tại quảng trường Lâm Viên, ngắm pháo hoa.</p>
-<img src="assets/images/blog/khong-gian-dem-2.jpg" alt="Countdown 2027 Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-2.webp" alt="Countdown 2027 Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3902,7 +3902,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 1/2027 — Sau Tết Vắng Khách, Giá Siêu Rẻ",
         category: "Du lịch Đà Lạt",
         date: "2026-09-18",
-        image: "assets/images/blog/view-hoang-hon-2-v8.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v8.webp",
         imageAlt: "Du lịch Đà Lạt tháng 1/2027 - sau Tết vắng khách giá rẻ",
         badge: "",
         featured: false,
@@ -3912,7 +3912,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Ưu điểm đi Đà Lạt sau Tết</h3>
                             <p><strong>Vắng khách:</strong> Sau Tết (từ mùng 5-6), khách du lịch giảm mạnh. <strong>Giá rẻ:</strong> Phòng giảm 30-50%, vé máy bay giảm. <strong>Phục vụ chu đáo:</strong> Quán ăn, homestay không đông nên được chăm sóc tốt hơn. Đây là bí quyết của dân du lịch kinh nghiệm!</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Tháng 1/2027 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Tháng 1/2027 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3922,7 +3922,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Nướng BBQ tháng 1 — View đẹp, quán vắng</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, tháng 1 sau Tết quán vắng nên bạn <strong>thoải mái chọn bàn đẹp nhất</strong>. View hoàng hôn tháng 1 rực rỡ nhờ trời khô trong. Nướng BBQ ngoài trời lạnh 14°C — ấm áp và lãng mạn!</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Tháng 1/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Tháng 1/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3930,7 +3930,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Tháng 1/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Tháng 1/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3948,7 +3948,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Tháng 9 — 5 Quán BBQ Hot Nhất Mùa Thu 2026",
         category: "Mùa lễ hội",
         date: "2026-09-16",
-        image: "assets/images/blog/view-xe-lua-1.jpg",
+        image: "assets/images/blog/view-xe-lua-1.webp",
         imageAlt: "Quán nướng Đà Lạt tháng 9 - BBQ mùa thu se lạnh",
         badge: "",
         featured: false,
@@ -3980,7 +3980,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Mẹo đặt bàn tháng 9</h3>
                             <p>Dù tháng 9 chưa phải mùa cao điểm, cuối tuần vẫn khá đông — đặc biệt những quán view đẹp như <a href="index.html">Trạm Dừng Chill</a>. Nên <a href="index.html#booking"><strong>đặt bàn trước 1-2 ngày</strong></a> để được chọn vị trí ưng ý nhất.</p>
-<img src="assets/images/blog/view-xe-lua-3.jpg" alt="Quán Nướng Đà Lạt Tháng 9 - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-3.webp" alt="Quán Nướng Đà Lạt Tháng 9 - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -3998,7 +3998,7 @@ var BLOG_ARTICLES = [
         title: "Nướng BBQ Đà Lạt Trời Mưa — 5 Quán Có Mái Che View Đẹp 2026",
         category: "Mùa lễ hội",
         date: "2026-09-19",
-        image: "assets/images/blog/khong-gian-dem-22.jpg",
+        image: "assets/images/blog/khong-gian-dem-22.webp",
         imageAlt: "Nướng BBQ Đà Lạt Trời Mưa - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -4029,7 +4029,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Lưu ý khi ăn nướng trời mưa</h3>
                             <p>Mang theo áo khoác ấm vì mưa Đà Lạt rất lạnh (14-17°C). Đặt bàn khu vực <strong>mái che nhưng vẫn có view</strong> — nhiều quán bố trí rất khéo để khách vừa trú mưa vừa ngắm cảnh. Nên đặt bàn sớm vì khi mưa, mọi người đổ về khu mái che.</p>
-<img src="assets/images/blog/ban-nuong-4.jpg" alt="Nướng BBQ Đà Lạt Trời Mưa - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-4.webp" alt="Nướng BBQ Đà Lạt Trời Mưa - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4044,7 +4044,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Kỷ Niệm Ngày Cưới — 5 Quán Lãng Mạn Nhất",
         category: "Hẹn hò & Sinh nhật",
         date: "2026-09-21",
-        image: "assets/images/blog/khong-gian-dem-1-v4.jpg",
+        image: "assets/images/blog/khong-gian-dem-1-v4.webp",
         imageAlt: "Quán nướng Đà Lạt kỷ niệm ngày cưới - dinner BBQ lãng mạn",
         badge: "",
         featured: false,
@@ -4076,7 +4076,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Gợi ý setup kỷ niệm ngày cưới</h3>
                             <p>Đặt trước 3-5 ngày để nhà hàng chuẩn bị hoa, nến, bảng chúc mừng. Tại <a href="index.html">Trạm Dừng Chill</a>, bạn chỉ cần báo trước — team sẽ setup bàn tiệc lãng mạn hoàn toàn <strong>miễn phí</strong>, bao gồm hoa tươi, nến, bảng tên và âm nhạc theo yêu cầu.</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Quán Nướng Đà Lạt Kỷ Niệm Ngày Cưới - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Quán Nướng Đà Lạt Kỷ Niệm Ngày Cưới - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4091,7 +4091,7 @@ var BLOG_ARTICLES = [
         title: "Ăn Vặt Đà Lạt Buổi Tối — 15 Món Không Thể Bỏ Qua Ở Chợ Đêm",
         category: "Ẩm thực Đà Lạt",
         date: "2026-09-24",
-        image: "assets/images/blog/view-nha-long-3-v4.jpg",
+        image: "assets/images/blog/view-nha-long-3-v4.webp",
         imageAlt: "Ăn vặt Đà Lạt buổi tối - nướng xiên que và đồ ăn đêm",
         badge: "",
         featured: false,
@@ -4101,7 +4101,7 @@ var BLOG_ARTICLES = [
 
                             <h3>15 món ăn vặt phải thử</h3>
                             <p><strong>1. Bánh tráng nướng</strong> (20K) — "Pizza Đà Lạt" giòn rụm. <strong>2. Ốc xào bơ tỏi</strong> (35K) — thơm nức. <strong>3. Sữa đậu nành nóng</strong> (15K) — ấm bụng đêm lạnh. <strong>4. Bánh căn</strong> (25K) — giòn, chấm nước mắm ngọt. <strong>5. Nem nướng Nha Trang</strong> (30K).</p>
-<img src="assets/images/blog/mon-nuong-2.jpg" alt="Ăn Vặt Đà Lạt Buổi Tối - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-2.webp" alt="Ăn Vặt Đà Lạt Buổi Tối - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4109,14 +4109,14 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>6. Xúc xích nướng</strong> (20K). <strong>7. Khoai lang nướng</strong> (15K). <strong>8. Bắp nướng mỡ hành</strong> (20K). <strong>9. Kem bơ</strong> (30K). <strong>10. Trứng gà nướng</strong> (10K).</p>
-<img src="assets/images/blog/mon-nuong-1.jpg" alt="Ăn Vặt Đà Lạt Buổi Tối - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-1.webp" alt="Ăn Vặt Đà Lạt Buổi Tối - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
 
 
                             <p><strong>11. Chè khúc bạch</strong> (25K). <strong>12. Bánh mì xíu mại</strong> (25K). <strong>13. Gỏi cuốn</strong> (20K). <strong>14. Nước ép dâu tây</strong> (30K). <strong>15. Ốc bươu nhồi thịt</strong> (40K).</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Ăn Vặt Đà Lạt Buổi Tối - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Ăn Vặt Đà Lạt Buổi Tối - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4138,7 +4138,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Cho Trẻ Em — 5 Quán An Toàn, Vui Chơi Thoải Mái",
         category: "Quán nướng Đà Lạt",
         date: "2026-09-27",
-        image: "assets/images/blog/view-xe-lua-3.jpg",
+        image: "assets/images/blog/view-xe-lua-3.webp",
         imageAlt: "Quán nướng Đà Lạt cho trẻ em - không gian gia đình thân thiện",
         badge: "",
         featured: false,
@@ -4185,7 +4185,7 @@ var BLOG_ARTICLES = [
         title: "So Sánh 10 Quán Nướng Đà Lạt — Giá, View, Chất Lượng 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-09-30",
-        image: "assets/images/blog/view-nha-long-4-v6.jpg",
+        image: "assets/images/blog/view-nha-long-4-v6.webp",
         imageAlt: "So sánh 10 quán nướng Đà Lạt - bảng đánh giá chi tiết BBQ",
         badge: "",
         featured: false,
@@ -4195,7 +4195,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Bảng so sánh chi tiết</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a></strong> — Giá: 95-300K | View: ★★★★★ (xe lửa + hoàng hôn + nhà lồng) | Đồ ăn: ★★★★☆ | Dịch vụ: ★★★★★ (setup miễn phí) | Tổng: <strong>9.2/10</strong></p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="So Sánh 10 Quán Nướng Đà Lạt - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="So Sánh 10 Quán Nướng Đà Lạt - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4230,7 +4230,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Nên Đặt Trước — Tránh Hết Chỗ Cuối Tuần",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-10-03",
-        image: "assets/images/blog/khong-gian-ngay-2-v2.jpg",
+        image: "assets/images/blog/khong-gian-ngay-2-v2.webp",
         imageAlt: "Quán nướng Đà Lạt nên đặt trước - đông khách cuối tuần",
         badge: "",
         featured: false,
@@ -4262,7 +4262,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Cách đặt bàn nhanh nhất</h3>
                             <p><strong>Zalo/Hotline:</strong> Nhanh nhất, xác nhận tức thì. <strong>Form online:</strong> Tiện lợi, đặt bất kỳ lúc nào. <strong>Facebook/Instagram:</strong> Nhắn tin đặt, thường reply trong 30 phút. Tại <a href="index.html">Trạm Dừng Chill</a>, bạn có thể <a href="index.html#booking"><strong>đặt bàn online</strong></a> và nhận xác nhận qua Zalo chỉ trong 15 phút.</p>
-<img src="assets/images/blog/khong-gian-dem-15.jpg" alt="Quán Nướng Đà Lạt Nên Đặt Trước - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-15.webp" alt="Quán Nướng Đà Lạt Nên Đặt Trước - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4280,7 +4280,7 @@ var BLOG_ARTICLES = [
         title: "Salad & Rau Nướng Đà Lạt — Món Ăn Kèm BBQ Healthy Từ Rau Đà Lạt",
         category: "Ẩm thực Đà Lạt",
         date: "2026-10-06",
-        image: "assets/images/blog/mon-nuong-30.jpg",
+        image: "assets/images/blog/mon-nuong-30.webp",
         imageAlt: "Salad & Rau Nướng Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -4292,7 +4292,7 @@ var BLOG_ARTICLES = [
                             <p><strong>1. Nấm rừng nướng bơ tỏi:</strong> Nấm Đà Lạt giòn, ngọt tự nhiên — nướng than hoa với bơ tỏi thơm phức.</p>
 
                                                         <p><strong>2. Bắp cải nướng kiểu Nhật:</strong> Cắt đôi, nướng than đến khi cháy cạnh, rưới sốt miso — giòn ngọt bất ngờ.</p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Salad & Rau Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Salad & Rau Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4311,7 +4311,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Rau nướng tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, menu có đa dạng <strong>rau nướng Đà Lạt</strong> — từ nấm rừng, bắp, khoai lang đến combo rau xanh. Tất cả rau đều lấy từ vườn Đà Lạt trong ngày, đảm bảo tươi ngon. Giá set rau nướng từ 35-65K. <a href="index.html#booking">Đặt bàn thử ngay →</a></p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Salad & Rau Nướng Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Salad & Rau Nướng Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4326,7 +4326,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt 2 Ngày 1 Đêm — Lịch Trình Tiết Kiệm, Ăn Ngon 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-10-09",
-        image: "assets/images/blog/mon-nuong-1.jpg",
+        image: "assets/images/blog/mon-nuong-1.webp",
         imageAlt: "Du lịch Đà Lạt 2 ngày 1 đêm - lịch trình ăn nướng trọn vẹn",
         badge: "",
         featured: false,
@@ -4336,7 +4336,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Ngày 1 — Chiều tối: Highlight ẩm thực</h3>
                             <p><strong>15:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của chuyến đi! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Set nướng từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì chiều tối rất đông!</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt 2 Ngày 1 Đêm - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt 2 Ngày 1 Đêm - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4344,7 +4344,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>20:30 - Chợ đêm:</strong> Bánh tráng nướng, sữa đậu nành, ốc. Budget: 50-80K/người.</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt 2 Ngày 1 Đêm - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt 2 Ngày 1 Đêm - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4373,7 +4373,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt View 360° — Ngắm Toàn Cảnh Thung Lũng",
         category: "View đẹp Đà Lạt",
         date: "2026-10-12",
-        image: "assets/images/blog/view-hoang-hon-21-v6.jpg",
+        image: "assets/images/blog/view-hoang-hon-21-v6.webp",
         imageAlt: "Quán nướng Đà Lạt view 360 độ - panorama thung lũng nhà lồng",
         badge: "",
         featured: false,
@@ -4383,7 +4383,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Top quán nướng view 360°</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> View 180° thoáng đãng — hoàng hôn, thung lũng nhà lồng và xe lửa. Tuy không phải 360° hoàn toàn nhưng 3 lớp view (hoàng hôn → xe lửa → biển sao) tạo nên trải nghiệm liên tục từ chiều đến tối. <a href="index.html#booking">Đặt bàn view đẹp →</a></p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Quán Nướng Đà Lạt View 360° - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Quán Nướng Đà Lạt View 360° - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4391,14 +4391,14 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>2. Đồi Nướng BBQ:</strong> Tọa lạc đỉnh đồi, view 360° thực sự — nhìn được cả 4 hướng. Tuy nhiên gió khá mạnh.</p>
-<img src="assets/images/blog/ban-nuong-1.jpg" alt="Quán Nướng Đà Lạt View 360° - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-1.webp" alt="Quán Nướng Đà Lạt View 360° - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
 
 
                             <p><strong>3. BBQ Rooftop Đà Lạt:</strong> Sân thượng tầng 5, view toàn cảnh thành phố về đêm.</p>
-<img src="assets/images/blog/khong-gian-dem-2.jpg" alt="Quán Nướng Đà Lạt View 360° - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-2.webp" alt="Quán Nướng Đà Lạt View 360° - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4420,7 +4420,7 @@ var BLOG_ARTICLES = [
         title: "Rượu Vang Đà Lạt Uống Kèm Nướng — Hướng Dẫn Kết Hợp Hoàn Hảo",
         category: "Ẩm thực Đà Lạt",
         date: "2026-10-15",
-        image: "assets/images/blog/view-hoang-hon-1-v8.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v8.webp",
         imageAlt: "Rượu vang Đà Lạt uống kèm nướng - cặp đôi hoàn hảo BBQ",
         badge: "",
         featured: false,
@@ -4430,7 +4430,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Hướng dẫn kết hợp vang + nướng</h3>
                             <p><strong>Vang đỏ + Thịt bò nướng:</strong> Combo kinh điển! Vang đỏ Đà Lạt có vị đậm vừa, tannin nhẹ, hợp với thịt bò Mỹ nướng medium rare.</p>
-<img src="assets/images/blog/view-xe-lua-5.jpg" alt="Rượu Vang Đà Lạt Uống Kèm Nướng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-5.webp" alt="Rượu Vang Đà Lạt Uống Kèm Nướng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4438,7 +4438,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>Vang trắng + Hải sản nướng:</strong> Tôm nướng, mực nướng kết hợp vang trắng mát lạnh — thanh nhẹ, không ngấy.</p>
-<img src="assets/images/blog/view-xe-lua-4.jpg" alt="Rượu Vang Đà Lạt Uống Kèm Nướng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-4.webp" alt="Rượu Vang Đà Lạt Uống Kèm Nướng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4468,7 +4468,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Có Món Chay — BBQ Rau Củ Cho Người Ăn Chay",
         category: "Ẩm thực Đà Lạt",
         date: "2026-10-18",
-        image: "assets/images/blog/khong-gian-dem-2-v5.jpg",
+        image: "assets/images/blog/khong-gian-dem-2-v5.webp",
         imageAlt: "Quán nướng Đà Lạt có món chay - rau củ nướng healthy",
         badge: "",
         featured: false,
@@ -4488,7 +4488,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Quán nướng có menu chay</h3>
                             <p><strong><a href="index.html">Trạm Dừng Chill</a>:</strong> Menu có nhiều món rau nướng, nấm nướng từ 35-65K. Nhóm bạn có cả người ăn chay lẫn ăn mặn đều phù hợp — ai nướng nấy, cùng bàn, cùng vui! <a href="index.html#booking">Đặt bàn →</a></p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Quán Nướng Đà Lạt Có Món Chay - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Quán Nướng Đà Lạt Có Món Chay - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4515,7 +4515,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Bằng Xe Máy — Cung Đường, Quán Ăn Dọc Đường 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-10-21",
-        image: "assets/images/blog/view-hoang-hon-2-v9.jpg",
+        image: "assets/images/blog/view-hoang-hon-2-v9.webp",
         imageAlt: "Du lịch Đà Lạt bằng xe máy - phượt và ăn nướng phố núi",
         badge: "",
         featured: false,
@@ -4525,7 +4525,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán ăn dọc đường đáng ghé</h3>
                             <p><strong>Km 100 - Dĩ An:</strong> Bún bò Huế điểm nghỉ chân. <strong>Km 200 - Bảo Lộc:</strong> Trà B'Lao + bánh mì nướng — phải thử! <strong>Km 250 - Đức Trọng:</strong> Phở gà, cơm tấm — bữa trưa hoàn hảo. <strong>Km 310 - Đà Lạt:</strong> Đến nơi rồi? Ghé ngay <a href="index.html">Trạm Dừng Chill</a> nướng BBQ ngắm hoàng hôn thôi!</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="Du Lịch Đà Lạt Bằng Xe Máy - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="Du Lịch Đà Lạt Bằng Xe Máy - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4561,7 +4561,7 @@ var BLOG_ARTICLES = [
         title: "Halloween Đà Lạt 2026 — Quán Nướng Trang Trí Ma Quái, Vui Nhộn",
         category: "Mùa lễ hội",
         date: "2026-10-24",
-        image: "assets/images/blog/khong-gian-dem-2-v6.jpg",
+        image: "assets/images/blog/khong-gian-dem-2-v6.webp",
         imageAlt: "Halloween Đà Lạt - tiệc nướng hóa trang đêm ma quái",
         badge: "",
         featured: false,
@@ -4571,7 +4571,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng trang trí Halloween</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Trang trí Halloween theo concept "Trạm Dừng Ma Quái" — bí ngô khắc, đèn led tím, nhân viên hóa trang. Khách hóa trang đến ăn được giảm 10%! <a href="index.html#booking">Đặt bàn Halloween →</a></p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Halloween Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Halloween Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4608,7 +4608,7 @@ var BLOG_ARTICLES = [
         title: "Tôm Nướng Đà Lạt — 5 Quán Hải Sản Tôm Nướng Tươi Ngon Nhất",
         category: "Ẩm thực Đà Lạt",
         date: "2026-10-27",
-        image: "assets/images/blog/view-nha-long-1-v7.jpg",
+        image: "assets/images/blog/view-nha-long-1-v7.webp",
         imageAlt: "Tôm nướng Đà Lạt - tôm sú nướng muối ớt tươi ngon",
         badge: "",
         featured: false,
@@ -4620,7 +4620,7 @@ var BLOG_ARTICLES = [
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Tôm sú nướng muối ớt, tôm nướng bơ tỏi — tươi, thịt ngọt, ăn kèm view hoàng hôn. Giá tôm nướng từ 85-150K/đĩa. <a href="index.html#booking">Đặt bàn thử tôm nướng →</a></p>
 
                                                         <p><strong>2. Hải Sản Đà Lạt BBQ:</strong> Chuyên hải sản nướng, tôm hùm baby giá 250K/con.</p>
-<img src="assets/images/blog/khong-gian-ngay-6.jpg" alt="Tôm Nướng Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-6.webp" alt="Tôm Nướng Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4655,7 +4655,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Có Karaoke — 4 Quán Vừa Ăn Vừa Hát 2026",
         category: "Trải nghiệm",
         date: "2026-10-30",
-        image: "assets/images/blog/khong-gian-ngay-2-v3.jpg",
+        image: "assets/images/blog/khong-gian-ngay-2-v3.webp",
         imageAlt: "Quán nướng Đà Lạt có karaoke - vừa hát vừa nướng BBQ",
         badge: "",
         featured: false,
@@ -4703,7 +4703,7 @@ var BLOG_ARTICLES = [
         title: "Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt — Vị Trí Nào View Đẹp Nhất?",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-11-02",
-        image: "assets/images/blog/mon-nuong-13.jpg",
+        image: "assets/images/blog/mon-nuong-13.webp",
         imageAlt: "Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -4715,7 +4715,7 @@ var BLOG_ARTICLES = [
                             <p><strong>Hàng đầu view thung lũng:</strong> Tầm nhìn không bị che, ngắm hoàng hôn và biển sao nhà lồng tuyệt đẹp. Đây là vị trí "VIP" — đặt trước sớm.</p>
 
                                                         <p><strong>Góc riêng tư:</strong> Phù hợp couple, hẹn hò. Thường ở 2 bên rìa quán, ít người qua lại.</p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4737,7 +4737,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Mẹo đặt chỗ ngồi đẹp</h3>
                             <p>Đặt trước 2-3 ngày, ghi rõ yêu cầu. Đến sớm 15-30 phút trước giờ hẹn. Nếu có dịp đặc biệt (sinh nhật, anniversary), báo trước để nhà hàng setup bàn đẹp hơn. Cuối tuần nên đặt thứ 4-5 để chắc có chỗ tốt.</p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4752,7 +4752,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Giá Rẻ 2026 — Mẹo Tiết Kiệm Mà Vẫn Ăn Ngon",
         category: "Du lịch Đà Lạt",
         date: "2026-11-05",
-        image: "assets/images/blog/mon-nuong-2.jpg",
+        image: "assets/images/blog/mon-nuong-2.webp",
         imageAlt: "Du lịch Đà Lạt giá rẻ - ăn nướng BBQ tiết kiệm phố núi",
         badge: "",
         featured: false,
@@ -4762,7 +4762,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Tiết kiệm chỗ ở</h3>
                             <p><strong>Homestay dorm:</strong> 100-150K/đêm/người — sạch sẽ, tiện nghi. <strong>Homestay phòng đôi:</strong> 250-400K/đêm — đẹp, có ban công. <strong>Mẹo:</strong> Đặt sớm 2 tuần trên app, đi ngày thường (thứ 2-5) giá rẻ hơn 30-50% so với cuối tuần.</p>
-<img src="assets/images/blog/mon-nuong-1.jpg" alt="Du Lịch Đà Lạt Giá Rẻ - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-1.webp" alt="Du Lịch Đà Lạt Giá Rẻ - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4772,7 +4772,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Tiết kiệm ăn uống</h3>
                             <p><strong>Sáng:</strong> Bánh mì xíu mại 25K, cafe phin 20K. <strong>Trưa:</strong> Cơm bình dân 35-45K, phở gà 40K. <strong>Chiều-tối:</strong> Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> từ 95K/người — vừa ăn ngon vừa ngắm hoàng hôn, không cần đi thêm quán khác! <a href="index.html#booking">Đặt bàn giá tốt →</a></p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Giá Rẻ - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Giá Rẻ - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4780,7 +4780,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>Tổng ăn uống: 150-250K/người/ngày</strong> — siêu tiết kiệm!</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Giá Rẻ - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Giá Rẻ - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4798,7 +4798,7 @@ var BLOG_ARTICLES = [
         title: "Giáng Sinh Đà Lạt 2026 — Nướng BBQ Đêm Noel View Triệu Đô",
         category: "Mùa lễ hội",
         date: "2026-11-08",
-        image: "assets/images/blog/khong-gian-ngay-2-v4.jpg",
+        image: "assets/images/blog/khong-gian-ngay-2-v4.webp",
         imageAlt: "Giáng Sinh Đà Lạt - tiệc nướng BBQ Noel se lạnh phố núi",
         badge: "",
         featured: false,
@@ -4808,7 +4808,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Nướng BBQ đêm Noel tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> trang trí Giáng Sinh đặc biệt — đèn led, cây thông mini mỗi bàn, nhạc Noel acoustic. Đêm 24/12 có event đặc biệt: <strong>set nướng Christmas</strong> kèm mocktail Noel, photo booth Giáng Sinh. View biển sao nhà lồng + đèn Noel lung linh = <strong>backdrop triệu đô</strong>! <a href="index.html#booking">Đặt bàn đêm Noel →</a></p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Giáng Sinh Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Giáng Sinh Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4818,7 +4818,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Lịch trình Giáng Sinh Đà Lạt</h3>
                             <p><strong>14:00:</strong> Check-in nhà thờ Domain de Marie, chụp ảnh Giáng Sinh. <strong>16:00:</strong> Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>, ngắm hoàng hôn Noel. <strong>20:00:</strong> Dạo phố đi bộ ngắm đèn. <strong>22:00:</strong> Lễ Noel tại nhà thờ Con Gà.</p>
-<img src="assets/images/blog/khong-gian-dem-2.jpg" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-2.webp" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4829,7 +4829,7 @@ var BLOG_ARTICLES = [
                             
                                                         <h3>Lưu ý đặt bàn Giáng Sinh</h3>
                             <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt — <strong>quán nướng full bàn trước 1-2 tuần</strong>! Nếu muốn có chỗ đẹp đêm Noel, hãy <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>. Giá không tăng nhưng phải đặt cọc trước.</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4844,7 +4844,7 @@ var BLOG_ARTICLES = [
         title: "Nước Chấm Nướng Ngon — 5 Công Thức Đặc Biệt Từ Quán Nướng Đà Lạt",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-11-11",
-        image: "assets/images/blog/mon-nuong-18.jpg",
+        image: "assets/images/blog/mon-nuong-18.webp",
         imageAlt: "Nước Chấm Nướng Ngon - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -4856,7 +4856,7 @@ var BLOG_ARTICLES = [
                             <p><strong>1. Muối ớt xanh Đà Lạt:</strong> Ớt hiểm xanh + muối hạt + chanh. Vị cay nồng, mặn vừa, chấm thịt bò nướng = tuyệt vời. Đây là nước chấm signature của nhiều quán nướng Đà Lạt.</p>
 
                                                         <p><strong>2. Sốt chimichurri:</strong> Mùi tây + tỏi + dầu olive + giấm. Vị chua nhẹ, thơm herbs — phù hợp thịt bò, gà nướng.</p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Nước Chấm Nướng Ngon - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Nước Chấm Nướng Ngon - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4875,7 +4875,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Nước chấm đặc biệt tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, mỗi set nướng đi kèm <strong>2-3 loại nước chấm đặc biệt</strong> — muối ớt xanh Đà Lạt, nước mắm pha và sốt đặc biệt của quán. Khách yêu thích nhất là muối ớt xanh — cay nồng, chấm bò Mỹ nướng than hoa = phê! <a href="index.html#booking">Đặt bàn thử ngay →</a></p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Nước Chấm Nướng Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Nước Chấm Nướng Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4890,7 +4890,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt 2027 — Tổng Hợp Quán Mới Mở, Quán Hot Nhất",
         category: "Quán nướng Đà Lạt",
         date: "2026-11-14",
-        image: "assets/images/blog/khong-gian-ngay-1-v2.jpg",
+        image: "assets/images/blog/khong-gian-ngay-1-v2.webp",
         imageAlt: "Quán nướng Đà Lạt 2027 - không gian nướng BBQ view đẹp",
         badge: "",
         featured: false,
@@ -4900,7 +4900,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán vẫn hot — đã qua kiểm chứng</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Vẫn là quán nướng được yêu thích nhất nhờ view xe lửa + hoàng hôn + biển sao nhà lồng. Năm 2027 bổ sung thêm menu mới và khu vực mái che mở rộng. <a href="index.html#booking">Đặt bàn →</a></p>
-<img src="assets/images/blog/view-xe-lua-3.jpg" alt="Quán Nướng Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-3.webp" alt="Quán Nướng Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4938,7 +4938,7 @@ var BLOG_ARTICLES = [
         title: "Đặt Bàn Quán Nướng Đà Lạt Tết 2027 — Book Sớm Tránh Hết Chỗ",
         category: "Mùa lễ hội",
         date: "2026-11-17",
-        image: "assets/images/blog/tet-trang-tri-4.jpg",
+        image: "assets/images/blog/tet-trang-tri-4.webp",
         imageAlt: "Đặt Bàn Quán Nướng Đà Lạt Tết - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -4971,7 +4971,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Menu nướng Tết gợi ý</h3>
                             <p>Set nướng Tết gia đình (4-6 người): Bò Mỹ + tôm sú + gà nướng + rau nướng + lẩu nấm + trái cây. Giá: 600-900K/set. Kèm rượu vang Đà Lạt cho không khí Tết sum vầy.</p>
-<img src="assets/images/blog/mon-nuong-25.jpg" alt="Đặt Bàn Quán Nướng Đà Lạt Tết - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-25.webp" alt="Đặt Bàn Quán Nướng Đà Lạt Tết - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -4986,7 +4986,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Cho Người Lớn Tuổi — 5 Quán Yên Tĩnh, Dễ Ăn",
         category: "Quán nướng Đà Lạt",
         date: "2026-11-20",
-        image: "assets/images/blog/view-xe-lua-3.jpg",
+        image: "assets/images/blog/view-xe-lua-3.webp",
         imageAlt: "Quán nướng Đà Lạt cho người lớn tuổi - không gian yên tĩnh thoáng mát",
         badge: "",
         featured: false,
@@ -5036,7 +5036,7 @@ var BLOG_ARTICLES = [
         title: "Nướng BBQ Đà Lạt Mùa Xuân 2027 — Hoa Anh Đào Và View Thung Lũng",
         category: "Mùa lễ hội",
         date: "2026-11-23",
-        image: "assets/images/blog/tet-trang-tri-1.jpg",
+        image: "assets/images/blog/tet-trang-tri-1.webp",
         imageAlt: "Nướng BBQ Đà Lạt Mùa Xuân - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -5046,7 +5046,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trải nghiệm nướng BBQ mùa xuân</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, mùa xuân mang đến view đặc biệt: <strong>hoa anh đào nở + thung lũng xanh + hoàng hôn vàng</strong>. Cả 3 yếu tố kết hợp tạo nên khung cảnh nướng BBQ đẹp nhất trong năm. Buổi chiều, gió xuân se lạnh vừa đủ, bếp than hồng ấm — trải nghiệm chill đúng nghĩa. <a href="index.html#booking">Đặt bàn mùa xuân →</a></p>
-<img src="assets/images/blog/tet-khach-2.jpg" alt="Nướng BBQ Đà Lạt Mùa Xuân - không khí Tết ấm áp tại quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/tet-khach-2.webp" alt="Nướng BBQ Đà Lạt Mùa Xuân - không khí Tết ấm áp tại quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5066,7 +5066,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Menu nướng mùa xuân đặc biệt</h3>
                             <p>Mùa xuân Đà Lạt có nhiều rau củ đặc biệt: <strong>artichoke</strong> (atiso) nướng, <strong>dâu tây</strong> ăn kèm kem, <strong>nấm rừng</strong> mùa mới. Set nướng mùa xuân tại Trạm Dừng Chill kèm trà atiso nóng — hoàn hảo!</p>
-<img src="assets/images/blog/mon-nuong-22.jpg" alt="Nướng BBQ Đà Lạt Mùa Xuân - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-22.webp" alt="Nướng BBQ Đà Lạt Mùa Xuân - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5081,7 +5081,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Gần Ga Xe Lửa — Ăn Nướng Ngắm Tàu Cổ Kính",
         category: "Quán nướng Đà Lạt",
         date: "2026-11-26",
-        image: "assets/images/blog/view-xe-lua-1.jpg",
+        image: "assets/images/blog/view-xe-lua-1.webp",
         imageAlt: "Quán nướng Đà Lạt gần ga xe lửa - view tàu hỏa chạy ngang",
         badge: "",
         featured: false,
@@ -5091,7 +5091,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng gần ga xe lửa</h3>
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là quán nướng duy nhất có <strong>view trực tiếp xe lửa chạy ngang</strong> dưới chân quán! Tuyến đường sắt Đà Lạt - Trại Mát chạy qua đúng khu vực phía dưới, tạo nên trải nghiệm nướng BBQ ngắm tàu cổ kính "1 không 2". <a href="index.html#booking">Đặt bàn view xe lửa →</a></p>
-<img src="assets/images/blog/khong-gian-ngay-4.jpg" alt="Quán Nướng Đà Lạt Gần Ga Xe Lửa - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt Gần Ga Xe Lửa - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5099,7 +5099,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>2. Quán Nướng Đường Tàu:</strong> Gần ga Đà Lạt, phong cách vintage.</p>
-<img src="assets/images/blog/khong-gian-dem-11.jpg" alt="Quán Nướng Đà Lạt Gần Ga Xe Lửa - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-11.webp" alt="Quán Nướng Đà Lạt Gần Ga Xe Lửa - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5107,7 +5107,7 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>3. BBQ Station Đà Lạt:</strong> Trang trí theo concept ga tàu, gần khu vực đường ray.</p>
-<img src="assets/images/blog/mon-nuong-12.jpg" alt="Quán Nướng Đà Lạt Gần Ga Xe Lửa - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-12.webp" alt="Quán Nướng Đà Lạt Gần Ga Xe Lửa - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5129,7 +5129,7 @@ var BLOG_ARTICLES = [
         title: "Thực Đơn Nướng Cho 4 Người Đà Lạt — Gợi Ý Set Combo Tiết Kiệm",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-11-29",
-        image: "assets/images/blog/mon-nuong-4-v6.jpg",
+        image: "assets/images/blog/mon-nuong-4-v6.webp",
         imageAlt: "Thực đơn nướng cho 4 người Đà Lạt - set combo BBQ đầy đủ",
         badge: "",
         featured: false,
@@ -5149,7 +5149,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Set 2: Standard 600K (150K/người)</h3>
                             <p><strong>Bò Mỹ nướng</strong> + <strong>Tôm sú nướng</strong> (4 con) + <strong>Gà nướng sả</strong> + <strong>Nấm + rau nướng</strong> + <strong>Lẩu nấm</strong> (1 nồi nhỏ) + <strong>Đồ uống</strong> (4 lon). Set cân bằng thịt - hải sản - rau!</p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Thực Đơn Nướng Cho 4 Người Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Thực Đơn Nướng Cho 4 Người Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5177,7 +5177,7 @@ var BLOG_ARTICLES = [
         title: "Valentine Đà Lạt 2027 — Nướng BBQ Lãng Mạn Bên Người Thương",
         category: "Mùa lễ hội",
         date: "2026-12-02",
-        image: "assets/images/blog/view-hoang-hon-31.jpg",
+        image: "assets/images/blog/view-hoang-hon-31.webp",
         imageAlt: "Valentine Đà Lạt - dinner nướng BBQ lãng mạn cho cặp đôi",
         badge: "",
         featured: false,
@@ -5187,7 +5187,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Valentine tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> setup Valentine đặc biệt: <strong>bàn 2 người view hoàng hôn</strong>, hoa hồng, nến, bảng tên — tất cả MIỄN PHÍ! Menu Valentine gồm: bò Mỹ nướng + tôm nướng + salad dâu tây + rượu vang Đà Lạt. View hoàng hôn → xe lửa → biển sao nhà lồng = backdrop Valentine triệu đô! <a href="index.html#booking"><strong>Đặt bàn Valentine →</strong></a></p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="Valentine Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Valentine Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5197,7 +5197,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Lịch trình Valentine Đà Lạt hoàn hảo</h3>
                             <p><strong>9:00:</strong> Cafe sáng view đồi thông. <strong>11:00:</strong> Thung lũng Tình Yêu — check-in couple kinh điển. <strong>14:00:</strong> Mua hoa, dâu tây ở chợ Đà Lạt. <strong>16:00:</strong> Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — highlight của ngày! <strong>20:30:</strong> Dạo phố đi bộ, uống sữa đậu nành nóng.</p>
-<img src="assets/images/blog/khong-gian-ngay-1.jpg" alt="Valentine Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Valentine Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5208,7 +5208,7 @@ var BLOG_ARTICLES = [
                             
                                                         <h3>Lưu ý đặt bàn Valentine</h3>
                             <p>Valentine là ngày cực kỳ đông tại mọi nhà hàng Đà Lạt — <strong>đặt trước ít nhất 1 tuần</strong>. Bàn view hoàng hôn cho couple hết rất nhanh. Báo trước yêu cầu setup đặc biệt (hoa, nến, surprise) để nhà hàng chuẩn bị.</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Valentine Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Valentine Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5223,7 +5223,7 @@ var BLOG_ARTICLES = [
         title: "Đà Lạt Food Tour — Lịch Trình Ăn Sập 20 Món Trong 1 Ngày 2027",
         category: "Ẩm thực Đà Lạt",
         date: "2026-12-05",
-        image: "assets/images/blog/view-nha-long-4-v7.jpg",
+        image: "assets/images/blog/view-nha-long-4-v7.webp",
         imageAlt: "Đà Lạt food tour - khám phá ẩm thực nướng BBQ phố núi",
         badge: "",
         featured: false,
@@ -5233,7 +5233,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trưa (11:00-14:00) — 5 món</h3>
                             <p><strong>6. Phở gà Đà Lạt</strong> (40K). <strong>7. Lẩu gà lá é</strong> (180K/nồi, chia đôi). <strong>8. Nem nướng Nha Trang</strong> (30K). <strong>9. Bún bò Huế</strong> (40K). <strong>10. Nước ép dâu tây</strong> (30K) — tươi ngọt.</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Đà Lạt Food Tour - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Đà Lạt Food Tour - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5243,7 +5243,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Chiều tối (15:30-20:00) — 5 món nướng BBQ</h3>
                             <p>Highlight của food tour! Ghé <a href="index.html">Trạm Dừng Chill</a> nướng BBQ ngắm hoàng hôn: <strong>11. Bò Mỹ nướng</strong>. <strong>12. Tôm nướng muối ớt</strong>. <strong>13. Nấm rừng nướng bơ tỏi</strong>. <strong>14. Gà nướng mật ong</strong>. <strong>15. Bắp nướng mỡ hành</strong>. Set từ 95K/người — vừa ăn vừa ngắm view 3 trong 1! <a href="index.html#booking">Đặt bàn →</a></p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Đà Lạt food tour - view hoàng hôn thung lũng đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Đà Lạt food tour - view hoàng hôn thung lũng đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5268,7 +5268,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Có Sân Vườn — 6 Quán Ngoài Trời Thoáng Mát",
         category: "Quán nướng Đà Lạt",
         date: "2026-12-08",
-        image: "assets/images/blog/khong-gian-ngay-1-v3.jpg",
+        image: "assets/images/blog/khong-gian-ngay-1-v3.webp",
         imageAlt: "Quán nướng Đà Lạt có sân vườn - nướng ngoài trời giữa cây xanh",
         badge: "",
         featured: false,
@@ -5316,7 +5316,7 @@ var BLOG_ARTICLES = [
         title: "Nướng Cá Đà Lạt — Cá Tầm, Cá Hồi Nướng Tươi Từ Hồ Tuyền Lâm",
         category: "Ẩm thực Đà Lạt",
         date: "2026-12-11",
-        image: "assets/images/blog/view-hoang-hon-1-v9.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v9.webp",
         imageAlt: "Nướng cá Đà Lạt - cá nướng than hoa tươi ngon tại bàn",
         badge: "",
         featured: false,
@@ -5328,7 +5328,7 @@ var BLOG_ARTICLES = [
                             <p><strong>Cá tầm nướng giấy bạc:</strong> Cá nguyên con, gói giấy bạc với sả, hành, ớt — nướng than hoa 20 phút. Mở ra thơm phức, thịt trắng mềm.</p>
 
                                                         <p><strong>Cá hồi nướng muối ớt:</strong> Phi lê cá hồi nướng da giòn, thịt hồng cam. Chấm muối ớt xanh — ngon xuất sắc!</p>
-<img src="assets/images/blog/view-xe-lua-5.jpg" alt="Nướng Cá Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-5.webp" alt="Nướng Cá Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5337,7 +5337,7 @@ var BLOG_ARTICLES = [
                             <p><strong>Cá hồi nướng sốt teriyaki:</strong> Kiểu Nhật, ngọt mặn hài hòa.</p>
 
                                                         <p><strong>Cá tầm nướng than hoa:</strong> Nướng trực tiếp, da cá giòn rụm, thịt ngọt tự nhiên.</p>
-<img src="assets/images/blog/mon-nuong-10.jpg" alt="Nướng Cá Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-10.webp" alt="Nướng Cá Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5364,7 +5364,7 @@ var BLOG_ARTICLES = [
         title: "8/3 Đà Lạt 2027 — Quán Nướng Tặng Hoa, Setup Bàn Cho Phái Đẹp",
         category: "Mùa lễ hội",
         date: "2026-12-14",
-        image: "assets/images/blog/view-hoang-hon-31.jpg",
+        image: "assets/images/blog/view-hoang-hon-31.webp",
         imageAlt: "8/3 Đà Lạt - tiệc nướng BBQ mừng ngày Quốc tế Phụ nữ",
         badge: "",
         featured: false,
@@ -5374,7 +5374,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Chương trình 8/3 tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có chương trình <strong>8/3 đặc biệt</strong>: Setup bàn hoa hồng + nến + bảng chúc mừng MIỄN PHÍ. Tặng 1 bông hồng cho mỗi khách nữ. Menu couple từ 400K/2 người gồm bò nướng + tôm + salad + nước ép. <a href="index.html#booking"><strong>Đặt bàn 8/3 ngay →</strong></a></p>
-<img src="assets/images/blog/khong-gian-ngay-2.jpg" alt="8/3 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-2.webp" alt="8/3 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5410,7 +5410,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 2/2027 — Sau Tết, Hoa Mai Anh Đào Nở Rộ",
         category: "Du lịch Đà Lạt",
         date: "2026-12-17",
-        image: "assets/images/blog/view-hoang-hon-1-v10.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v10.webp",
         imageAlt: "Du lịch Đà Lạt tháng 2/2027 - mai anh đào nở và BBQ",
         badge: "",
         featured: false,
@@ -5420,7 +5420,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Lịch trình 3 ngày 2 đêm tháng 2</h3>
                             <p><strong>Ngày 1:</strong> Sáng đến Đà Lạt, check-in homestay. Trưa ăn phở gà. Chiều ngắm hoa anh đào đường Trần Hưng Đạo. Tối nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — <a href="index.html#booking">đặt bàn trước</a>.</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Tháng 2/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Tháng 2/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5428,14 +5428,14 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>Ngày 2:</strong> Sáng đi Đồi chè Cầu Đất. Trưa lẩu gà lá é. Chiều Hồ Tuyền Lâm. Tối chợ đêm.</p>
-<img src="assets/images/blog/view-nha-long-3.jpg" alt="Du Lịch Đà Lạt Tháng 2/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-3.webp" alt="Du Lịch Đà Lạt Tháng 2/2027 - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
 
 
                             <p><strong>Ngày 3:</strong> Sáng cafe view đồi. Mua đặc sản. Trưa ăn bún bò rồi về.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Du Lịch Đà Lạt Tháng 2/2027 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Du Lịch Đà Lạt Tháng 2/2027 - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5457,7 +5457,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Sang Trọng — 5 Quán Premium View Đẹp 2027",
         category: "Quán nướng Đà Lạt",
         date: "2026-12-20",
-        image: "assets/images/blog/khong-gian-dem-1-v5.jpg",
+        image: "assets/images/blog/khong-gian-dem-1-v5.webp",
         imageAlt: "Quán nướng Đà Lạt sang trọng - không gian premium view thung lũng",
         badge: "",
         featured: false,
@@ -5489,7 +5489,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Khi nào nên chọn quán premium?</h3>
                             <p>Dịp đặc biệt: sinh nhật, kỷ niệm, cầu hôn, tiếp khách. Hoặc đơn giản — bạn muốn thưởng thức <strong>BBQ chất lượng cao nhất Đà Lạt</strong> ít nhất một lần trong đời!</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Quán Nướng Đà Lạt Sang Trọng - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Quán Nướng Đà Lạt Sang Trọng - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5507,7 +5507,7 @@ var BLOG_ARTICLES = [
         title: "Cách Chọn Thịt Nướng Ngon — Bí Quyết Từ Đầu Bếp Chuyên Nghiệp",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-12-23",
-        image: "assets/images/blog/mon-nuong-6.jpg",
+        image: "assets/images/blog/mon-nuong-6.webp",
         imageAlt: "Cách Chọn Thịt Nướng Ngon - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -5517,7 +5517,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Thịt heo — Chọn sao cho chuẩn?</h3>
                             <p><strong>Ba chỉ (thịt ba rọi):</strong> Lớp mỡ xen nạc, nướng giòn mỡ — ngon nhất! Cắt mỏng 3-5mm kiểu Hàn hoặc dày 1cm kiểu Việt. <strong>Sườn heo:</strong> Ướp sốt BBQ, nướng slow — mềm rụng xương. <strong>Cổ heo:</strong> Nhiều gân, nướng dai ngon.</p>
-<img src="assets/images/blog/ban-nuong-1.jpg" alt="Cách Chọn Thịt Nướng Ngon - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-1.webp" alt="Cách Chọn Thịt Nướng Ngon - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5537,7 +5537,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Thịt nướng tại Trạm Dừng Chill</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, đầu bếp chọn thịt bò Mỹ Ribeye/Sirloin chất lượng cao, cắt dày vừa, ướp gia vị vừa ăn. Thịt được bảo quản đúng nhiệt độ, nướng than hoa truyền thống cho <strong>hương vị BBQ chuẩn</strong>. <a href="index.html#booking">Đặt bàn thử ngay →</a></p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="Cách Chọn Thịt Nướng Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="Cách Chọn Thịt Nướng Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5552,7 +5552,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Tháng 3/2027 — Mùa Festival Hoa, Quán Nào Hot?",
         category: "Mùa lễ hội",
         date: "2026-12-26",
-        image: "assets/images/blog/khong-gian-ngay-1-v4.jpg",
+        image: "assets/images/blog/khong-gian-ngay-1-v4.webp",
         imageAlt: "Quán nướng Đà Lạt tháng 3/2027 - mùa festival hoa BBQ",
         badge: "",
         featured: false,
@@ -5601,7 +5601,7 @@ var BLOG_ARTICLES = [
         title: "Ăn Nướng Đà Lạt Bao Nhiêu Tiền? — Bảng Giá Chi Tiết 2027",
         category: "Quán nướng Đà Lạt",
         date: "2026-12-29",
-        image: "assets/images/blog/mon-nuong-4-v7.jpg",
+        image: "assets/images/blog/mon-nuong-4-v7.webp",
         imageAlt: "Ăn nướng Đà Lạt bao nhiêu tiền - bảng giá menu BBQ chi tiết",
         badge: "",
         featured: false,
@@ -5621,7 +5621,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Giá tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> thuộc phân khúc <strong>trung cấp, giá 95-300K/người</strong> — nhưng view thuộc hàng premium! Set combo 2 người từ 250K, set 4 người từ 380K, set 6 người từ 550K. Giá hợp lý + view xe lửa + hoàng hôn + biển sao = giá trị vượt trội. <a href="index.html#booking">Xem menu & đặt bàn →</a></p>
-<img src="assets/images/blog/ban-nuong-3.jpg" alt="Ăn Nướng Đà Lạt Bao Nhiêu Tiền - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-3.webp" alt="Ăn Nướng Đà Lạt Bao Nhiêu Tiền - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5646,7 +5646,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Đám Cưới — 5 Quán Nhận Tổ Chức Tiệc Cưới Nhỏ",
         category: "Hẹn hò & Sinh nhật",
         date: "2027-01-01",
-        image: "assets/images/blog/khong-gian-ngay-4.jpg",
+        image: "assets/images/blog/khong-gian-ngay-4.webp",
         imageAlt: "Quán nướng Đà Lạt đám cưới - tiệc nướng ngoài trời view đẹp",
         badge: "",
         featured: false,
@@ -5696,7 +5696,7 @@ var BLOG_ARTICLES = [
         title: "Bánh Mì Nướng Đà Lạt — 5 Quán Bánh Mì Than Hoa Giòn Rụm Nhất",
         category: "Ẩm thực Đà Lạt",
         date: "2027-01-04",
-        image: "assets/images/blog/view-hoang-hon-21-v7.jpg",
+        image: "assets/images/blog/view-hoang-hon-21-v7.webp",
         imageAlt: "Bánh mì nướng Đà Lạt - bánh mì nướng than hoa giòn rụm",
         badge: "",
         featured: false,
@@ -5727,7 +5727,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Bánh mì nướng + Nướng BBQ = Combo hoàn hảo</h3>
                             <p>Sáng ăn bánh mì nướng than hoa, chiều tối nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — một ngày ẩm thực "nướng" trọn vẹn ở Đà Lạt! Tại Trạm Dừng Chill cũng có <strong>bánh mì nướng bơ tỏi</strong> ăn kèm set nướng — giòn rụm, phết bơ tỏi thơm lừng. <a href="index.html#booking">Đặt bàn →</a></p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Bánh Mì Nướng Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Bánh Mì Nướng Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5742,7 +5742,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Mở Sớm — Ăn Nướng Từ 11h Trưa Được Không?",
         category: "Mẹo & Kinh nghiệm",
         date: "2027-01-07",
-        image: "assets/images/blog/khong-gian-ngay-1-v5.jpg",
+        image: "assets/images/blog/khong-gian-ngay-1-v5.webp",
         imageAlt: "Quán nướng Đà Lạt mở sớm - nướng BBQ từ buổi chiều",
         badge: "",
         featured: false,
@@ -5754,7 +5754,7 @@ var BLOG_ARTICLES = [
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Mở từ <strong>15:00</strong> hàng ngày. Tuy không mở buổi trưa nhưng bạn có thể đến sớm 14:30-15:00 để bắt đầu bữa nướng trước hoàng hôn. <a href="index.html#booking">Đặt bàn sớm →</a></p>
 
                                                         <p><strong>2. BBQ House Đà Lạt:</strong> Mở từ 11:00, phục vụ nướng cả trưa lẫn tối.</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Quán Nướng Đà Lạt Mở Sớm - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Quán Nướng Đà Lạt Mở Sớm - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5776,7 +5776,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Khi nào nên ăn nướng tối?</h3>
                             <p>Nếu bạn muốn trải nghiệm <strong>view hoàng hôn + biển sao nhà lồng</strong> — thì buổi tối mới đỉnh! Tại <a href="index.html">Trạm Dừng Chill</a>, buổi tối từ 16h mới thực sự magical với 3 lớp view đổi liên tục.</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Quán Nướng Đà Lạt Mở Sớm - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Quán Nướng Đà Lạt Mở Sớm - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5791,7 +5791,7 @@ var BLOG_ARTICLES = [
         title: "Check-in Quán Nướng Đà Lạt — 10 Góc Chụp Triệu Like Nhất 2027",
         category: "Check-in & Sống ảo",
         date: "2027-01-10",
-        image: "assets/images/blog/checkin-9.jpg",
+        image: "assets/images/blog/checkin-9.webp",
         imageAlt: "Check-in Quán Nướng Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -5801,7 +5801,7 @@ var BLOG_ARTICLES = [
 
                             <h3>10 góc chụp triệu like</h3>
                             <p><strong>1. Golden hour + bếp nướng:</strong> 16:30-17:30, ánh nắng vàng chiếu vào bếp than — ảnh siêu ấm. <strong>2. Silhouette hoàng hôn:</strong> Đứng ngược sáng, outline người + bếp nướng. <strong>3. Đồ ăn flat-lay:</strong> Chụp từ trên xuống, bày đẹp trên bàn gỗ.</p>
-<img src="assets/images/blog/view-hoang-hon-33.jpg" alt="Check-in Quán Nướng Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-33.webp" alt="Check-in Quán Nướng Đà Lạt - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5809,14 +5809,14 @@ var BLOG_ARTICLES = [
 
 
                                                         <p><strong>4. Biển sao nhà lồng:</strong> 19:00-20:00, chụp view phía sau. <strong>5. Xe lửa chạy ngang:</strong> Khoảnh khắc tàu qua — chỉ có tại Trạm Dừng Chill! <strong>6. Bốc khói dramatic:</strong> Chụp close-up thịt nướng đang bốc khói.</p>
-<img src="assets/images/blog/khong-gian-dem-16.jpg" alt="Check-in Quán Nướng Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-16.webp" alt="Check-in Quán Nướng Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
 
 
                             <p><strong>7. Couple bên bếp nướng:</strong> Ánh lửa ấm, background mờ — romantic. <strong>8. Nhóm bạn cheers:</strong> Nâng ly vang, background hoàng hôn. <strong>9. Boomerang gắp thịt:</strong> Video ngắn gắp thịt nướng, khói bay. <strong>10. Night view panorama:</strong> Chụp rộng toàn cảnh biển sao + thành phố.</p>
-<img src="assets/images/blog/view-xe-lua-18.jpg" alt="Check-in Quán Nướng Đà Lạt - view xe lửa Đà Lạt tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-18.webp" alt="Check-in Quán Nướng Đà Lạt - view xe lửa Đà Lạt tại Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5838,7 +5838,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Thanh Toán Chuyển Khoản — Quán Nào Nhận QR?",
         category: "Quán nướng Đà Lạt",
         date: "2027-01-13",
-        image: "assets/images/blog/khong-gian-ngay-2-v5.jpg",
+        image: "assets/images/blog/khong-gian-ngay-2-v5.webp",
         imageAlt: "Quán nướng Đà Lạt thanh toán chuyển khoản - quét QR tiện lợi",
         badge: "",
         featured: false,
@@ -5887,7 +5887,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Nhóm 10 Người — Lịch Trình, Quán Ăn, Chia Tiền 2027",
         category: "Du lịch Đà Lạt",
         date: "2027-01-16",
-        image: "assets/images/blog/view-nha-long-3-v5.jpg",
+        image: "assets/images/blog/view-nha-long-3-v5.webp",
         imageAlt: "Du lịch Đà Lạt nhóm 10 người - tiệc nướng BBQ nhóm lớn",
         badge: "",
         featured: false,
@@ -5897,7 +5897,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Chỗ ở cho 10 người</h3>
                             <p><strong>Villa riêng:</strong> 1.5-3 triệu/đêm, chia 10 = 150-300K/người. Có bếp, phòng khách, sân vườn. Tìm trên Airbnb hoặc Booking. <strong>Homestay 2-3 phòng:</strong> 600K-1.2 triệu/đêm, chia 10 = 60-120K/người. Rẻ hơn nhưng chật hơn.</p>
-<img src="assets/images/blog/mon-nuong-2.jpg" alt="Du Lịch Đà Lạt Nhóm 10 Người - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-2.webp" alt="Du Lịch Đà Lạt Nhóm 10 Người - món nướng BBQ Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5907,14 +5907,14 @@ var BLOG_ARTICLES = [
 
                                                         <h3>Lịch trình 3 ngày 2 đêm</h3>
                             <p><strong>Ngày 1 chiều:</strong> Đến Đà Lạt, check-in villa. Tối nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a> — nhóm 10 người đặt 2 bàn cạnh nhau, view hoàng hôn. <a href="index.html#booking"><strong>Đặt bàn nhóm →</strong></a></p>
-<img src="assets/images/blog/view-hoang-hon-21.jpg" alt="du lịch Đà Lạt nhóm 10 người - view hoàng hôn tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-21.webp" alt="du lịch Đà Lạt nhóm 10 người - view hoàng hôn tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
 
 
                             <p><strong>Ngày 2:</strong> Sáng đi Langbiang. Trưa lẩu gà lá é. Chiều Hồ Tuyền Lâm. Tối chợ đêm + party tại villa.</p>
-<img src="assets/images/blog/view-nha-long-4.jpg" alt="Du Lịch Đà Lạt Nhóm 10 Người - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-4.webp" alt="Du Lịch Đà Lạt Nhóm 10 Người - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5934,7 +5934,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Đồ Ăn Sạch — 5 Quán Dùng Nguyên Liệu Organic",
         category: "Mẹo & Kinh nghiệm",
         date: "2027-01-19",
-        image: "assets/images/blog/khong-gian-ngay-2-v6.jpg",
+        image: "assets/images/blog/khong-gian-ngay-2-v6.webp",
         imageAlt: "Quán nướng Đà Lạt đồ ăn sạch - nguyên liệu tươi sạch mỗi ngày",
         badge: "",
         featured: false,
@@ -5946,7 +5946,7 @@ var BLOG_ARTICLES = [
                             <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Rau nướng 100% từ vườn Đà Lạt, tươi trong ngày. Thịt nhập từ nguồn uy tín, đảm bảo chất lượng. <a href="index.html#booking">Đặt bàn →</a></p>
 
                                                         <p><strong>2. Eco BBQ Đà Lạt:</strong> Concept organic 100% — rau vườn tự trồng, gà thả đồi. Giá từ 150K/người.</p>
-<img src="assets/images/blog/khong-gian-dem-1.jpg" alt="Quán Nướng Đà Lạt Đồ Ăn Sạch - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-1.webp" alt="Quán Nướng Đà Lạt Đồ Ăn Sạch - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -5984,7 +5984,7 @@ var BLOG_ARTICLES = [
         title: "Sunset BBQ in Da Lat — The Ultimate Guide for Tourists 2027",
         category: "English",
         date: "2027-01-22",
-        image: "assets/images/blog/view-hoang-hon-33.jpg",
+        image: "assets/images/blog/view-hoang-hon-33.webp",
         imageAlt: "Sunset BBQ in Da Lat - Trạm Dừng Chill Đà Lạt",
         badge: "",
         featured: false,
@@ -5994,7 +5994,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Best Sunset BBQ Restaurant: Tram Dung Chill</h3>
                             <p><strong><a href="index.html">Tram Dung Chill</a></strong> is the #1 rated sunset BBQ spot in Da Lat. What makes it special: <strong>3 views in 1 evening</strong> — golden sunset over the valley (16:30-17:30), vintage train passing below (17:30), and the "sea of stars" from thousands of greenhouse lights at night (19:00+). Prices start from just 95,000 VND/person (~$4 USD). <a href="index.html#booking">Book a table →</a></p>
-<img src="assets/images/blog/khong-gian-dem-16.jpg" alt="Sunset BBQ in Da Lat - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-16.webp" alt="Sunset BBQ in Da Lat - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -6004,7 +6004,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>What to Order</h3>
                             <p><strong>Must-try items:</strong> US beef BBQ (85-150K VND), grilled shrimp with salt & chili (85-150K), Da Lat mushroom platter (35-55K), grilled corn with scallion oil (20K), hot pot combo (85-120K). Pair with <strong>Da Lat wine</strong> (80-200K/bottle) for the perfect sunset dinner.</p>
-<img src="assets/images/blog/view-nha-long-1.jpg" alt="Sunset BBQ in Da Lat - biển sao nhà lồng lung linh về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-1.webp" alt="Sunset BBQ in Da Lat - biển sao nhà lồng lung linh về đêm" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -6014,7 +6014,7 @@ var BLOG_ARTICLES = [
 
                                                         <h3>How to Book</h3>
                             <p>Visit the <a href="index.html#booking"><strong>online booking form</strong></a> or message via Zalo. Confirmation within 15 minutes. Book 1-2 days ahead for sunset-view tables, especially on weekends. Specify "sunset view" or "train view" when booking.</p>
-<img src="assets/images/blog/view-hoang-hon-1.jpg" alt="sunset BBQ Đà Lạt guide - hoàng hôn vàng rực" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-1.webp" alt="sunset BBQ Đà Lạt guide - hoàng hôn vàng rực" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
@@ -6032,7 +6032,7 @@ var BLOG_ARTICLES = [
         title: "Tổng Hợp Quán Nướng Đà Lạt 2027 — Danh Sách Đầy Đủ, Đánh Giá Thật",
         category: "Quán nướng Đà Lạt",
         date: "2027-01-25",
-        image: "assets/images/blog/khong-gian-dem-1-v6.jpg",
+        image: "assets/images/blog/khong-gian-dem-1-v6.webp",
         imageAlt: "Tổng hợp quán nướng Đà Lạt 2027 - top quán BBQ view đẹp",
         badge: "",
         featured: false,
@@ -6082,7 +6082,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Valentine 2027 — Dinner BBQ Lãng Mạn Nhất Phố Núi",
         category: "Hẹn hò & Sinh nhật",
         date: "2027-02-01",
-        image: "assets/images/blog/setup-hen-ho-1.jpg",
+        image: "assets/images/blog/setup-hen-ho-1.webp",
         imageAlt: "Quán nướng Đà Lạt Valentine 2027 - dinner BBQ lãng mạn",
         badge: "",
         featured: false,
@@ -6095,7 +6095,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Lựa chọn số 1 cho Valentine</h3>
                             <p>Nằm tại 111 Huỳnh Tấn Phát, P11, <a href="index.html">Trạm Dừng Chill</a> sở hữu view hoàng hôn thung lũng và biển đèn nhà lồng — backdrop Valentine không đâu bằng. Quán <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các cặp đôi đặt trước, không phụ thu dịp lễ.</p>
-<img src="assets/images/blog/setup-hen-ho-2.jpg" alt="Quán nướng Đà Lạt Valentine 2027 - setup hẹn hò lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/setup-hen-ho-2.webp" alt="Quán nướng Đà Lạt Valentine 2027 - setup hẹn hò lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Gợi ý set menu Valentine cho 2 người</h3>
                             <p>Combo nướng cho couple thường gồm: bò Úc nướng, hải sản tươi (tôm, mực), rau nướng mùa, kèm nước uống. Tại Đà Lạt, mức giá trung bình cho dinner BBQ Valentine khoảng 200-400K/cặp — rất hợp lý so với nhà hàng fine dining.</p>
@@ -6108,7 +6108,7 @@ var BLOG_ARTICLES = [
         title: "Ăn Nướng Đà Lạt Mùa Xuân 2027 — Trải Nghiệm BBQ Giữa Tiết Trời Se Lạnh",
         category: "Ẩm thực Đà Lạt",
         date: "2027-02-04",
-        image: "assets/images/blog/mon-nuong-3-v5.jpg",
+        image: "assets/images/blog/mon-nuong-3-v5.webp",
         imageAlt: "Ăn nướng Đà Lạt mùa xuân 2027 - BBQ ngoài trời",
         badge: "",
         featured: false,
@@ -6118,14 +6118,14 @@ var BLOG_ARTICLES = [
 
                             <h3>Món nướng hợp mùa xuân Đà Lạt</h3>
                             <p>Mùa xuân là lúc rau củ Đà Lạt ngon nhất: bắp nướng mật ong, khoai lang nướng, nấm nướng bơ tỏi. Kết hợp với bò nướng sa tế, sườn heo nướng mắc khén — bữa nướng mùa xuân đậm đà hương vị phố núi.</p>
-<img src="assets/images/blog/mon-nuong-5.jpg" alt="Ăn nướng Đà Lạt mùa xuân - món nướng ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-5.webp" alt="Ăn nướng Đà Lạt mùa xuân - món nướng ngon" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Nướng BBQ ngắm hoa xuân Đà Lạt</h3>
                             <p>Tháng 2-3, Đà Lạt rực rỡ với hoa mai anh đào, hoa ban, mimosa vàng. Nhiều quán nướng ngoài trời có view đồi hoa, vườn hoa — bạn vừa ăn vừa ngắm cảnh thiên nhiên tuyệt đẹp.</p>
 
                             <h3>Trạm Dừng Chill — Nướng BBQ view xuân tuyệt đẹp</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a> (111 Huỳnh Tấn Phát, P11), mùa xuân mang đến khung cảnh thung lũng xanh mướt, hoàng hôn vàng ấm hơn bao giờ hết. Quán mở cửa từ 15:00, bạn có thể đến sớm thưởng thức trà chiều rồi chuyển sang nướng BBQ khi nắng tắt.</p>
-<img src="assets/images/blog/view-hoang-hon-3.jpg" alt="Ăn nướng Đà Lạt mùa xuân - view hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-3.webp" alt="Ăn nướng Đà Lạt mùa xuân - view hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Lên kế hoạch ăn nướng mùa xuân</h3>
                             <p>Mùa xuân Đà Lạt đông khách du lịch, đặc biệt cuối tuần và dịp lễ. <a href="index.html#booking"><strong>Đặt bàn trước</strong></a> qua hotline <a href="tel:0989765070">0989.765.070</a> để đảm bảo có chỗ đẹp nhất.</p>`
@@ -6135,7 +6135,7 @@ var BLOG_ARTICLES = [
         title: "Top Món Nướng Ngon Đà Lạt Tháng 2/2027 — Phải Thử Ít Nhất 1 Lần",
         category: "Ẩm thực Đà Lạt",
         date: "2027-02-07",
-        image: "assets/images/blog/mon-nuong-8.jpg",
+        image: "assets/images/blog/mon-nuong-8.webp",
         imageAlt: "Top món nướng ngon Đà Lạt tháng 2 2027",
         badge: "",
         featured: false,
@@ -6145,14 +6145,14 @@ var BLOG_ARTICLES = [
 
                             <h3>Hải sản nướng mùa xuân</h3>
                             <p>Tháng 2, hải sản về Đà Lạt tươi ngon: tôm sú nướng bơ tỏi, mực nướng muối ớt, nghêu nướng mỡ hành. Dù Đà Lạt là vùng cao, các quán uy tín đều nhập hải sản tươi sống hàng ngày từ Nha Trang, Phan Thiết.</p>
-<img src="assets/images/blog/hai-san-2.jpg" alt="Top món nướng ngon Đà Lạt - hải sản nướng tươi" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/hai-san-2.webp" alt="Top món nướng ngon Đà Lạt - hải sản nướng tươi" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Sườn heo nướng mắc khén & gà nướng muối ớt</h3>
                             <p><strong>Sườn non nướng mắc khén</strong> — gia vị đặc trưng Tây Bắc, tạo hương thơm nồng đặc biệt. <strong>Gà ta nướng muối ớt</strong> — da giòn rụm, thịt ngọt chắc, ăn kèm xôi hoặc cơm lam. Hai món này luôn nằm trong top best-seller tại mọi quán nướng Đà Lạt.</p>
 
                             <h3>Thưởng thức tại Trạm Dừng Chill</h3>
                             <p>Menu nướng tại <a href="index.html">Trạm Dừng Chill</a> có đủ các món trên, giá từ 95.000đ/người. Điểm khác biệt: bạn vừa nướng vừa ngắm hoàng hôn và xe lửa chạy ngang — trải nghiệm chỉ có tại 111 Huỳnh Tấn Phát, P11.</p>
-<img src="assets/images/blog/ban-nuong-2.jpg" alt="Top món nướng ngon Đà Lạt - bàn nướng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/ban-nuong-2.webp" alt="Top món nướng ngon Đà Lạt - bàn nướng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tip thưởng thức món nướng Đà Lạt</h3>
                             <p>Nướng than hoa luôn ngon hơn nướng điện. Gọi thêm rau sống Đà Lạt cuốn thịt — rau ở đây giòn ngọt tự nhiên. Đến sớm từ 16:00 để vừa ăn vừa ngắm hoàng hôn. <a href="index.html#booking"><strong>Đặt bàn ngay</strong></a> để không bỏ lỡ.</p>`
@@ -6162,7 +6162,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Cho Cặp Đôi Lãng Mạn — Date Night Hoàn Hảo 2027",
         category: "Hẹn hò & Sinh nhật",
         date: "2027-02-10",
-        image: "assets/images/blog/setup-hen-ho-5.jpg",
+        image: "assets/images/blog/setup-hen-ho-5.webp",
         imageAlt: "Quán nướng Đà Lạt cho cặp đôi lãng mạn 2027",
         badge: "",
         featured: false,
@@ -6175,7 +6175,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Date night view triệu đô</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, P11 là lựa chọn hàng đầu cho couple. Quán có bàn riêng view hoàng hôn, <strong>setup hẹn hò miễn phí</strong> khi đặt trước. Buổi tối, hàng ngàn đèn nhà lồng lên sáng tạo không gian cực kỳ lãng mạn.</p>
-<img src="assets/images/blog/setup-hen-ho-8.jpg" alt="Quán nướng Đà Lạt cho cặp đôi - setup hẹn hò Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/setup-hen-ho-8.webp" alt="Quán nướng Đà Lạt cho cặp đôi - setup hẹn hò Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Gợi ý thêm cho date night Đà Lạt</h3>
                             <p>Trước dinner, hai bạn có thể đi dạo phố cổ, uống cà phê view. Sau bữa nướng, ghé chợ đêm Đà Lạt mua quà lưu niệm. Lịch trình hoàn hảo: 16:00 đến quán → nướng BBQ ngắm hoàng hôn → ngắm biển đèn nhà lồng → về khách sạn.</p>
@@ -6188,7 +6188,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 2 — Ăn Gì Ở Đâu? Cẩm Nang 2027",
         category: "Du lịch Đà Lạt",
         date: "2027-02-13",
-        image: "assets/images/blog/khong-gian-ngay-5.jpg",
+        image: "assets/images/blog/khong-gian-ngay-5.webp",
         imageAlt: "Du lịch Đà Lạt tháng 2 2027 - ăn gì ở đâu",
         badge: "",
         featured: false,
@@ -6204,7 +6204,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Chiều tối — Dinner BBQ tại Trạm Dừng Chill</h3>
                             <p>Highlight của ngày: <a href="index.html">Trạm Dừng Chill</a>, 111 Huỳnh Tấn Phát, P11. Đến từ 15:00 để ngắm hoàng hôn, sau đó nướng BBQ dưới ánh đèn nhà lồng. Quán có xe lửa cổ chạy ngang — khoảnh khắc check-in "triệu like".</p>
-<img src="assets/images/blog/khong-gian-dem-3.jpg" alt="Du lịch Đà Lạt tháng 2 - dinner BBQ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-3.webp" alt="Du lịch Đà Lạt tháng 2 - dinner BBQ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tối khuya — Chợ đêm và ăn vặt</h3>
                             <p>Sau dinner, dạo chợ đêm Đà Lạt: pizza, sữa đậu nành, khoai lang nướng. Lịch trình hoàn hảo cho ngày du lịch Đà Lạt tháng 2! <a href="index.html#booking"><strong>Đặt bàn dinner ngay</strong></a> để không bỏ lỡ.</p>`
@@ -6214,7 +6214,7 @@ var BLOG_ARTICLES = [
         title: "BBQ Đà Lạt View Đẹp Đầu Năm 2027 — Nướng Ngoài Trời Ngắm Thung Lũng",
         category: "Trải nghiệm",
         date: "2027-02-16",
-        image: "assets/images/blog/view-hoang-hon-4.jpg",
+        image: "assets/images/blog/view-hoang-hon-4.webp",
         imageAlt: "BBQ Đà Lạt view đẹp đầu năm 2027 - nướng ngoài trời",
         badge: "",
         featured: false,
@@ -6227,7 +6227,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Quán duy nhất có cả 3 view</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được tận hưởng cả 3 view trong một buổi tối: hoàng hôn (16:00-17:30), xe lửa chạy ngang (17:30-18:30), và biển đèn nhà lồng (từ 18:30). Địa chỉ: 111 Huỳnh Tấn Phát, P11, Đà Lạt.</p>
-<img src="assets/images/blog/view-nha-long-2.jpg" alt="BBQ Đà Lạt view đẹp - biển đèn nhà lồng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-nha-long-2.webp" alt="BBQ Đà Lạt view đẹp - biển đèn nhà lồng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tip tận hưởng BBQ view đẹp đầu năm</h3>
                             <p>Đặt bàn vị trí ngoài trời, đến từ 15:30 để 'hứng' trọn golden hour. Gọi combo nướng cho 2-4 người để đa dạng món. Mang thêm áo khoác vì Đà Lạt tháng 2 tối lạnh 14-16°C. <a href="index.html#booking"><strong>Đặt bàn view đẹp ngay</strong></a> — hotline: <a href="tel:0989765070">0989.765.070</a>.</p>`
@@ -6237,7 +6237,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Giá Rẻ Cho Sinh Viên 2027 — Ăn No View Đẹp",
         category: "Ẩm thực Đà Lạt",
         date: "2027-02-19",
-        image: "assets/images/blog/mon-nuong-12.jpg",
+        image: "assets/images/blog/mon-nuong-12.webp",
         imageAlt: "Quán nướng Đà Lạt giá rẻ cho sinh viên 2027",
         badge: "",
         featured: false,
@@ -6250,7 +6250,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Giá từ 95K, view "xịn sò"</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, set nướng bắt đầu từ 95.000đ/người — rất phù hợp cho sinh viên. Quán có bàn nhóm cho 6-10 người, view hoàng hôn và xe lửa cổ chạy ngang. Đặc biệt, quán <strong>không phụ thu</strong> cuối tuần hay dịp lễ.</p>
-<img src="assets/images/blog/khach-nhom-2.jpg" alt="Quán nướng Đà Lạt giá rẻ sinh viên - nhóm bạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khach-nhom-2.webp" alt="Quán nướng Đà Lạt giá rẻ sinh viên - nhóm bạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Các quán nướng bình dân khác</h3>
                             <p><strong>Nướng vỉa hè chợ đêm:</strong> 60-80K/người, đồ ăn đơn giản. <strong>Đồi Nướng BBQ:</strong> 100-150K/người, view đồi. Tuy nhiên, xét tổng thể view + giá + chất lượng, các quán nướng khu Huỳnh Tấn Phát vẫn là lựa chọn tối ưu nhất cho sinh viên.</p>
@@ -6263,7 +6263,7 @@ var BLOG_ARTICLES = [
         title: "Ăn Nướng Hải Sản Đà Lạt Mùa Xuân 2027 — Tôm Mực Tươi",
         category: "Ẩm thực Đà Lạt",
         date: "2027-02-22",
-        image: "assets/images/blog/hai-san-3.jpg",
+        image: "assets/images/blog/hai-san-3.webp",
         imageAlt: "Ăn nướng hải sản Đà Lạt mùa xuân 2027",
         badge: "",
         featured: false,
@@ -6273,7 +6273,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Top hải sản nướng phải thử</h3>
                             <p><strong>Tôm sú nướng bơ tỏi:</strong> Tôm size lớn, nướng trên than hoa, bơ tỏi tan chảy thấm đều — thơm nức mũi. <strong>Mực ống nướng muối ớt:</strong> Mực tươi nướng vừa chín, dai giòn sần sật. <strong>Nghêu nướng mỡ hành:</strong> Món "bắt buộc" trong bàn nướng hải sản. <strong>Cá nướng giấy bạc:</strong> Cá lóc hoặc cá basa ướp gia vị nướng trong giấy bạc giữ trọn hương vị.</p>
-<img src="assets/images/blog/hai-san-5.jpg" alt="Ăn nướng hải sản Đà Lạt - tôm mực nướng tươi" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/hai-san-5.webp" alt="Ăn nướng hải sản Đà Lạt - tôm mực nướng tươi" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Nướng hải sản tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> phục vụ combo hải sản nướng tươi sống hàng ngày. Ngồi ngoài trời, gió mát Đà Lạt, nướng tôm mực trên than hoa — mùi thơm hải sản quyện với không khí se lạnh phố núi. Đặc biệt, quán có view hoàng hôn và đèn nhà lồng tuyệt đẹp.</p>
@@ -6289,7 +6289,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Mở Cửa Buổi Chiều — BBQ Từ 15:00",
         category: "Quán nướng Đà Lạt",
         date: "2027-02-25",
-        image: "assets/images/blog/khong-gian-ngay-10.jpg",
+        image: "assets/images/blog/khong-gian-ngay-10.webp",
         imageAlt: "Quán nướng Đà Lạt mở cửa buổi chiều - nướng BBQ ngắm sunset",
         badge: "",
         featured: false,
@@ -6302,7 +6302,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Mở sớm nhất từ 15:00</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> là một trong số ít quán nướng mở cửa từ 15:00, phục vụ đến 23:00 hàng ngày. Bạn có thể đến sớm gọi đồ uống, ăn nhẹ, rồi chuyển sang nướng BBQ khi hoàng hôn bắt đầu buông. Quán ở vị trí cao, view thung lũng mở rộng — lý tưởng để ngắm sunset.</p>
-<img src="assets/images/blog/view-hoang-hon-5.jpg" alt="Quán nướng Đà Lạt mở cửa buổi chiều - hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-5.webp" alt="Quán nướng Đà Lạt mở cửa buổi chiều - hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Lịch trình gợi ý: ăn nướng buổi chiều Đà Lạt</h3>
                             <p><strong>15:00:</strong> Đến quán, chọn bàn view, gọi trà/nước. <strong>16:00:</strong> Bắt đầu nướng, ngắm nắng chiều. <strong>17:00-17:30:</strong> Golden hour — chụp ảnh check-in. <strong>18:00:</strong> Xe lửa chạy ngang (nếu có). <strong>18:30+:</strong> Nhà lồng lên đèn, tiếp tục nướng.</p>
@@ -6315,7 +6315,7 @@ var BLOG_ARTICLES = [
         title: "Đà Lạt Tháng 2 — Thời Tiết Thế Nào, Ăn Gì Cho Ấm?",
         category: "Du lịch Đà Lạt",
         date: "2027-02-28",
-        image: "assets/images/blog/khong-gian-dem-7.jpg",
+        image: "assets/images/blog/khong-gian-dem-7.webp",
         imageAlt: "Đà Lạt tháng 2 thời tiết và quán ăn 2027",
         badge: "",
         featured: false,
@@ -6331,7 +6331,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Dinner BBQ — Cách sưởi ấm ngon nhất Đà Lạt</h3>
                             <p>Không gì ấm bằng ngồi quanh bếp than hồng giữa đêm Đà Lạt se lạnh. Tại <a href="index.html">Trạm Dừng Chill</a>, ngoài bếp nướng ấm áp, bạn còn có view biển đèn nhà lồng lung linh. Quán ở 111 Huỳnh Tấn Phát, P11, mở cửa 15:00 - 23:00.</p>
-<img src="assets/images/blog/khong-gian-dem-10.jpg" alt="Đà Lạt tháng 2 - nướng BBQ đêm ấm áp Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-dem-10.webp" alt="Đà Lạt tháng 2 - nướng BBQ đêm ấm áp Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Kế hoạch cho chuyến đi tháng 2</h3>
                             <p>Đặt phòng khách sạn và <a href="index.html#booking"><strong>đặt bàn ăn nướng</strong></a> trước 3-5 ngày, đặc biệt nếu đi dịp Valentine hoặc cuối tuần. Hotline đặt bàn: <a href="tel:0989765070">0989.765.070</a>.</p>`
@@ -6341,7 +6341,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt 8/3 — Tặng Nàng Dinner BBQ Lãng Mạn Women's Day 2027",
         category: "Hẹn hò & Sinh nhật",
         date: "2027-03-03",
-        image: "assets/images/blog/setup-hen-ho-10.jpg",
+        image: "assets/images/blog/setup-hen-ho-10.webp",
         imageAlt: "Quán nướng Đà Lạt 8/3 Women's Day 2027 - dinner BBQ lãng mạn",
         badge: "",
         featured: false,
@@ -6354,7 +6354,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Setup 8/3 MIỄN PHÍ</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có chương trình đặc biệt dịp 8/3: <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các bạn nam muốn tặng nửa kia dinner BBQ lãng mạn. Chỉ cần đặt bàn trước và thông báo dịp 8/3, quán sẽ chuẩn bị tất cả.</p>
-<img src="assets/images/blog/setup-hen-ho-12.jpg" alt="Quán nướng Đà Lạt 8/3 - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/setup-hen-ho-12.webp" alt="Quán nướng Đà Lạt 8/3 - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Menu gợi ý cho dinner 8/3</h3>
                             <p>Combo lãng mạn cho 2: bò Úc nướng, tôm sú nướng bơ tỏi, rau nướng mùa, kèm 2 ly nước. View hoàng hôn + biển đèn nhà lồng = backdrop dinner xịn hơn cả nhà hàng 5 sao.</p>
@@ -6367,7 +6367,7 @@ var BLOG_ARTICLES = [
         title: "Tặng Quà 8/3 — Dinner BBQ Lãng Mạn Đà Lạt Thay Lời Yêu Thương",
         category: "Hẹn hò & Sinh nhật",
         date: "2027-03-06",
-        image: "assets/images/blog/setup-hen-ho-15.jpg",
+        image: "assets/images/blog/setup-hen-ho-15.webp",
         imageAlt: "Tặng quà 8/3 dinner BBQ lãng mạn Đà Lạt 2027",
         badge: "",
         featured: false,
@@ -6380,7 +6380,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Setup tại Trạm Dừng Chill — Không tốn thêm đồng nào</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn chỉ cần đặt bàn và nói "setup 8/3" — quán sẽ trang trí bàn với hoa, nến, bảng chúc mừng <strong>hoàn toàn miễn phí</strong>. View hoàng hôn thung lũng + xe lửa cổ chạy ngang = backdrop ảnh couple triệu like.</p>
-<img src="assets/images/blog/setup-hen-ho-18.jpg" alt="Tặng quà 8/3 dinner BBQ - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/setup-hen-ho-18.webp" alt="Tặng quà 8/3 dinner BBQ - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Quà 8/3 kèm theo ý nghĩa</h3>
                             <p>Ngoài dinner BBQ, bạn có thể chuẩn bị thêm: 1 bó hoa nhỏ, 1 lá thư tay, hoặc 1 món quà xinh. Đặt sẵn trên bàn trước khi cô ấy đến — đảm bảo "tan chảy" ngay lập tức.</p>
@@ -6393,7 +6393,7 @@ var BLOG_ARTICLES = [
         title: "Du Lịch Đà Lạt Tháng 3 Mùa Hoa 2027 — Ngắm Hoa Ăn Nướng",
         category: "Du lịch Đà Lạt",
         date: "2027-03-09",
-        image: "assets/images/blog/khong-gian-ngay-12.jpg",
+        image: "assets/images/blog/khong-gian-ngay-12.webp",
         imageAlt: "Du lịch Đà Lạt tháng 3 mùa hoa 2027",
         badge: "",
         featured: false,
@@ -6406,7 +6406,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Kết hợp ăn nướng BBQ ngắm hoa tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> nằm trên cao, phía dưới là thung lũng xanh mướt của Đà Lạt. Tháng 3, view từ quán cực kỳ đẹp khi hoa nở rực rỡ trong nắng chiều. Vừa nướng BBQ vừa ngắm thung lũng hoa — đúng kiểu "chill hết nấc".</p>
-<img src="assets/images/blog/khong-gian-ngay-15.jpg" alt="Du lịch Đà Lạt tháng 3 - view thung lũng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khong-gian-ngay-15.webp" alt="Du lịch Đà Lạt tháng 3 - view thung lũng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Mẹo du lịch Đà Lạt tháng 3</h3>
                             <p>Đặt phòng khách sạn trước 1 tuần — tháng 3 có 8/3 và nhiều ngày nghỉ nên đông khách. Mang kem chống nắng vì nắng chiều tháng 3 khá mạnh. Luôn mang áo khoác vì chênh lệch nhiệt độ ngày đêm lớn (15-25°C).</p>
@@ -6419,7 +6419,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Cho Gia Đình Dịp Cuối Tuần — Ăn Vui Cả Nhà",
         category: "Quán nướng Đà Lạt",
         date: "2027-03-12",
-        image: "assets/images/blog/khach-gia-dinh-3.jpg",
+        image: "assets/images/blog/khach-gia-dinh-3.webp",
         imageAlt: "Quán nướng Đà Lạt cho gia đình dịp cuối tuần 2027",
         badge: "",
         featured: false,
@@ -6432,7 +6432,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Quán nướng thân thiện gia đình</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> có bàn nhóm lớn cho gia đình 6-12 người, menu đa dạng từ thịt nướng, hải sản đến rau củ nướng. Trẻ em đặc biệt thích ngắm xe lửa cổ chạy ngang quán — khoảnh khắc thú vị và độc đáo. Quán có chỗ đỗ xe thoải mái.</p>
-<img src="assets/images/blog/khach-gia-dinh-7.jpg" alt="Quán nướng Đà Lạt cho gia đình - bàn nhóm Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/khach-gia-dinh-7.webp" alt="Quán nướng Đà Lạt cho gia đình - bàn nhóm Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Menu gợi ý cho gia đình 6 người</h3>
                             <p><strong>Set nướng gia đình:</strong> Bò nướng, sườn heo, gà nướng, hải sản (tôm, mực), rau củ nướng, cơm/xôi. Giá khoảng 600-900K cho 6 người — trung bình 100-150K/người. Trẻ em dưới 5 tuổi thường miễn phí tại đa số quán.</p>
@@ -6445,7 +6445,7 @@ var BLOG_ARTICLES = [
         title: "BBQ Ngoài Trời Đà Lạt — Mùa Nào Đẹp Nhất? Guide 2027",
         category: "Trải nghiệm",
         date: "2027-03-15",
-        image: "assets/images/blog/khong-gian-ngay-18.jpg",
+        image: "assets/images/blog/khong-gian-ngay-18.webp",
         imageAlt: "BBQ ngoài trời Đà Lạt mùa nào đẹp nhất 2027",
         badge: "",
         featured: false,
@@ -6461,7 +6461,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — View đẹp quanh năm</h3>
                             <p>Dù mùa nào, <a href="index.html">Trạm Dừng Chill</a> luôn có view ấn tượng: mùa khô — hoàng hôn rực rỡ; mùa mưa — sương mù huyền ảo bao phủ thung lũng. Quán có cả khu ngoài trời và khu có mái che, phù hợp mọi thời tiết.</p>
-<img src="assets/images/blog/view-hoang-hon-6.jpg" alt="BBQ ngoài trời Đà Lạt - view hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-6.webp" alt="BBQ ngoài trời Đà Lạt - view hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Kết luận: Mùa nào cũng nướng được!</h3>
                             <p>Đà Lạt đẹp quanh năm, mỗi mùa một vẻ. Tuy nhiên, nếu phải chọn — <strong>tháng 2-3</strong> là thời điểm hoàn hảo nhất. <a href="index.html#booking"><strong>Đặt bàn BBQ ngoài trời</strong></a> ngay. Hotline: <a href="tel:0989765070">0989.765.070</a>.</p>`
@@ -6471,7 +6471,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Gần Ga Trại Mát — Ăn Nướng Ngắm Xe Lửa Cổ",
         category: "Ẩm thực Đà Lạt",
         date: "2027-03-18",
-        image: "assets/images/blog/view-xe-lua-15.jpg",
+        image: "assets/images/blog/view-xe-lua-15.webp",
         imageAlt: "Quán nướng Đà Lạt gần ga Trại Mát - ngắm xe lửa cổ",
         badge: "",
         featured: false,
@@ -6484,7 +6484,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Quán nướng view xe lửa số 1</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, P11 nằm ngay trên tuyến đường sắt Đà Lạt - Trại Mát. Từ quán, bạn nhìn thẳng xuống đường ray và ngắm xe lửa chạy ngang mỗi ngày. Không quán nướng nào ở Đà Lạt có view này.</p>
-<img src="assets/images/blog/view-xe-lua-20.jpg" alt="Quán nướng Đà Lạt gần ga Trại Mát - xe lửa chạy ngang Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-20.webp" alt="Quán nướng Đà Lạt gần ga Trại Mát - xe lửa chạy ngang Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Lịch trình gợi ý: Ga Trại Mát + Nướng BBQ</h3>
                             <p><strong>14:00:</strong> Tham quan ga Trại Mát, chụp ảnh check-in. <strong>15:00:</strong> Đi xe máy 5 phút đến Trạm Dừng Chill. <strong>16:00-18:00:</strong> Nướng BBQ ngắm hoàng hôn + xe lửa. <strong>18:30+:</strong> Ngắm biển đèn nhà lồng, tiếp tục nướng.</p>
@@ -6497,7 +6497,7 @@ var BLOG_ARTICLES = [
         title: "Top 5 Trải Nghiệm Ẩm Thực Đà Lạt 2027 — BBQ & Lẩu",
         category: "Ẩm thực Đà Lạt",
         date: "2027-03-21",
-        image: "assets/images/blog/mon-nuong-18.jpg",
+        image: "assets/images/blog/mon-nuong-18.webp",
         imageAlt: "Top 5 trải nghiệm ẩm thực Đà Lạt 2027",
         badge: "",
         featured: false,
@@ -6513,7 +6513,7 @@ var BLOG_ARTICLES = [
 
                             <h3>4. Nướng BBQ view xe lửa tại Trạm Dừng Chill</h3>
                             <p>Nâng tầm trải nghiệm nướng BBQ: tại <a href="index.html">Trạm Dừng Chill</a> (111 Huỳnh Tấn Phát, P11), bạn vừa nướng vừa ngắm xe lửa cổ kính chạy ngang. Thêm view biển đèn nhà lồng ban đêm — đây là trải nghiệm ẩm thực "triệu view" đúng nghĩa.</p>
-<img src="assets/images/blog/view-xe-lua-22.jpg" alt="Top trải nghiệm ẩm thực Đà Lạt - nướng BBQ ngắm xe lửa Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-xe-lua-22.webp" alt="Top trải nghiệm ẩm thực Đà Lạt - nướng BBQ ngắm xe lửa Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>5. Cà phê sáng sớm trong sương mù</h3>
                             <p>Thức dậy sớm, ra quán cà phê view đồi, ngồi giữa sương mù uống ly cà phê nóng — chậm rãi và bình yên. Đà Lạt có hàng trăm quán café view đẹp, nhưng trải nghiệm sương sớm mới là "chất" nhất.</p>
@@ -6525,7 +6525,7 @@ var BLOG_ARTICLES = [
         title: "Ăn Nướng Ngắm Hoàng Hôn Đà Lạt Mùa Xuân — Golden Hour Tuyệt Đẹp",
         category: "Trải nghiệm",
         date: "2027-03-24",
-        image: "assets/images/blog/view-hoang-hon-1-v11.jpg",
+        image: "assets/images/blog/view-hoang-hon-1-v11.webp",
         imageAlt: "Ăn nướng ngắm hoàng hôn Đà Lạt mùa xuân 2027",
         badge: "",
         featured: false,
@@ -6538,7 +6538,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Ăn nướng ngắm hoàng hôn tại Trạm Dừng Chill</h3>
                             <p><a href="index.html">Trạm Dừng Chill</a> sở hữu vị trí view hoàng hôn đẹp bậc nhất Đà Lạt: trên cao, nhìn thẳng về phía tây — nơi mặt trời lặn. Mùa xuân, hoàng hôn từ quán nhìn xuống thung lũng xanh mướt, nhà lồng phản chiếu ánh nắng vàng — đẹp như tranh vẽ.</p>
-<img src="assets/images/blog/view-hoang-hon-2.jpg" alt="Ăn nướng ngắm hoàng hôn Đà Lạt - view từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/view-hoang-hon-2.webp" alt="Ăn nướng ngắm hoàng hôn Đà Lạt - view từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tip chụp ảnh hoàng hôn đẹp</h3>
                             <p>Dùng chế độ portrait với ánh backlight hoàng hôn. Chụp silhouette với bếp nướng than hoa — cực chất. Video slow-motion khói nướng bay trong nắng chiều — content viral. Nhờ nhân viên quán chụp giúp nếu đi đôi.</p>
@@ -6551,7 +6551,7 @@ var BLOG_ARTICLES = [
         title: "Quán Nướng Đà Lạt Setup Tiệc Miễn Phí — Sinh Nhật & Hẹn Hò",
         category: "Hẹn hò & Sinh nhật",
         date: "2027-03-27",
-        image: "assets/images/blog/setup-sinh-nhat-2.jpg",
+        image: "assets/images/blog/setup-sinh-nhat-2.webp",
         imageAlt: "Quán nướng Đà Lạt setup tiệc miễn phí - sinh nhật kỷ niệm",
         badge: "",
         featured: false,
@@ -6564,11 +6564,11 @@ var BLOG_ARTICLES = [
 
                             <h3>Trạm Dừng Chill — Setup MIỄN PHÍ mọi dịp</h3>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn chỉ cần gọi đặt bàn và nói "setup sinh nhật" hoặc "setup kỷ niệm" — quán sẽ trang trí bàn với hoa, nến, bảng chúc mừng <strong>hoàn toàn miễn phí</strong>. Không phụ thu, không yêu cầu minimum spending.</p>
-<img src="assets/images/blog/setup-sinh-nhat-4.jpg" alt="Quán nướng Đà Lạt setup tiệc miễn phí - sinh nhật Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/setup-sinh-nhat-4.webp" alt="Quán nướng Đà Lạt setup tiệc miễn phí - sinh nhật Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Quy trình đặt tiệc đơn giản</h3>
                             <p><strong>Bước 1:</strong> Liên hệ đặt bàn qua hotline hoặc online, nêu rõ dịp (sinh nhật, kỷ niệm...). <strong>Bước 2:</strong> Chọn combo nướng và số người. <strong>Bước 3:</strong> Quán chuẩn bị setup trước khi bạn đến. <strong>Bước 4:</strong> Đến quán, bất ngờ, tận hưởng!</p>
-<img src="assets/images/blog/setup-sinh-nhat-6.jpg" alt="Quán nướng Đà Lạt setup tiệc - bàn trang trí lãng mạn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/setup-sinh-nhat-6.webp" alt="Quán nướng Đà Lạt setup tiệc - bàn trang trí lãng mạn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Đặt tiệc ngay hôm nay</h3>
                             <p><a href="index.html#booking"><strong>Đặt tiệc tại Trạm Dừng Chill</strong></a> — 111 Huỳnh Tấn Phát, P11, Đà Lạt. Hotline: <a href="tel:0989765070">0989.765.070</a>. Giờ phục vụ: 15:00 - 23:00 hàng ngày. Đặt trước 1-2 ngày để quán chuẩn bị setup đẹp nhất.</p>`
@@ -6578,7 +6578,7 @@ var BLOG_ARTICLES = [
         title: "Tổng Hợp Quán Ăn Đà Lạt Mùa Hè 2027 — BBQ & Lẩu Mát",
         category: "Ẩm thực Đà Lạt",
         date: "2027-03-30",
-        image: "assets/images/blog/mon-nuong-22.jpg",
+        image: "assets/images/blog/mon-nuong-22.webp",
         imageAlt: "Tổng hợp quán ăn Đà Lạt mùa hè 2027",
         badge: "",
         featured: false,
@@ -6588,7 +6588,7 @@ var BLOG_ARTICLES = [
 
                             <h3>Quán nướng BBQ — Highlight ẩm thực mùa hè Đà Lạt</h3>
                             <p>Nướng BBQ ngoài trời giữa tiết trời mát mẻ Đà Lạt — trải nghiệm mà vùng nóng không có được. Các quán nướng view đẹp: <a href="index.html">Trạm Dừng Chill</a> (view hoàng hôn + xe lửa), BBQ Garden (view rừng thông), Đồi Nướng (view đồi). Giá trung bình 100-250K/người.</p>
-<img src="assets/images/blog/mon-nuong-24.jpg" alt="Tổng hợp quán ăn Đà Lạt mùa hè - nướng BBQ ngoài trời" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
+<img src="assets/images/blog/mon-nuong-24.webp" alt="Tổng hợp quán ăn Đà Lạt mùa hè - nướng BBQ ngoài trời" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Lẩu & các món nóng</h3>
                             <p><strong>Lẩu gà lá é:</strong> Đặc sản Đà Lạt, ăn ở đâu cũng ngon nhưng quán Dì Ba, Lẩu Gà 37 là nổi tiếng nhất. <strong>Lẩu bò:</strong> Nhiều quán trên đường Phan Đình Phùng. <strong>Bò kho bánh mì:</strong> Món sáng kinh điển Đà Lạt.</p>
