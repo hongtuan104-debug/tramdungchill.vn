@@ -72,32 +72,8 @@ function initBookingForm() {
             }
         }
 
-        // Gui thong bao Telegram (qua URL params de tranh CORS preflight)
-        var tg = SITE_CONFIG.telegram;
-        if (tg && tg.botToken && tg.chatId) {
-            try {
-                var occasionNames = {'birthday':'Sinh nhật','anniversary':'Kỷ niệm','date':'Hẹn hò','gathering':'Họp mặt bạn bè','company':'Công ty / team','other':'Khác'};
-                var dd = data.date.split('-');
-                var dateStr = dd[2] + '/' + dd[1] + '/' + dd[0];
-                var tgMsg = '🔔 ĐẶT BÀN MỚI\n\n';
-                tgMsg += '👤 Tên: ' + data.name + '\n';
-                tgMsg += '📱 SĐT: ' + data.phone + '\n';
-                tgMsg += '📅 Ngày: ' + dateStr + '\n';
-                tgMsg += '⏰ Giờ: ' + data.time + '\n';
-                tgMsg += '👥 Số khách: ' + data.guests + '\n';
-                if (data.occasion) tgMsg += '🎉 Dịp: ' + (occasionNames[data.occasion] || data.occasion) + '\n';
-                if (data.note) tgMsg += '📝 Ghi chú: ' + data.note + '\n';
-                tgMsg += '\n🕐 ' + new Date().toLocaleString('vi-VN') + '\n';
-                tgMsg += '🌐 tramdungchill.vn';
-
-                var tgUrl = 'https://api.telegram.org/bot' + tg.botToken + '/sendMessage'
-                    + '?chat_id=' + encodeURIComponent(tg.chatId)
-                    + '&text=' + encodeURIComponent(tgMsg);
-                await fetch(tgUrl, { mode: 'no-cors' });
-            } catch (err) {
-                console.warn('Telegram failed:', err);
-            }
-        }
+        // Telegram notification is handled by Google Apps Script webhook
+        // (removed duplicate frontend send to avoid double notifications)
 
         // Open Zalo with pre-filled message
         const zaloUrl = 'https://zalo.me/' + zaloNumber + '?text=' + encodeURIComponent(message);
