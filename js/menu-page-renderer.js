@@ -37,11 +37,14 @@ function renderMenuPage() {
         container.appendChild(section);
     });
 
-    // Add note
+    // Add notes
     if (typeof MENU_NOTES !== 'undefined') {
         var note = document.createElement('div');
         note.className = 'menu-note';
-        note.innerHTML = '<p>' + MENU_NOTES.general + '</p>';
+        var noteHtml = '<p>' + MENU_NOTES.general + '</p>';
+        if (MENU_NOTES.holiday) noteHtml += '<p>' + MENU_NOTES.holiday + '</p>';
+        if (MENU_NOTES.drinks) noteHtml += '<p>' + MENU_NOTES.drinks + '</p>';
+        note.innerHTML = noteHtml;
         container.appendChild(note);
     }
 }
