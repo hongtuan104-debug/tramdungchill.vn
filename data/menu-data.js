@@ -4,7 +4,7 @@
  * DE CAP NHAT GIA: Sua so trong truong "price"
  * DE THEM MON: Copy 1 dong va sua ten + gia
  * DE XOA MON: Xoa dong do
- * DE THEM BADGE: Them "badge: 'Hot'" hoac "badge: 'Best'" hoac "badge: 'New'"
+ * DE THEM BADGE: Them "badge: 'Hot'" hoac "badge: 'Best Seller'" hoac "badge: 'New'"
  *
  * Vi du them mon moi:
  *   { name: 'Ten Mon Moi', price: '100K' },
@@ -30,9 +30,9 @@ const MENU_CATEGORIES = [
 
 const MENU_ITEMS = {
     bestseller: [
-        { name: 'Ba Chỉ Bò Cuộn Kim Châm', price: '137K', badge: 'Best' },
+        { name: 'Ba Chỉ Bò Cuộn Kim Châm', price: '137K', badge: 'Best Seller' },
         { name: 'Ba Chỉ Bò Nướng Muối Tiêu', price: '155K' },
-        { name: 'Bò Tảng Nướng Phô Mai Trứng Muối', price: '210K', badge: 'Best' },
+        { name: 'Bò Tảng Nướng Phô Mai Trứng Muối', price: '210K', badge: 'Best Seller' },
         { name: 'Ốc Nhồi Thịt', price: '165K' },
         { name: 'Cá Tầm Lúc Lắc', price: '165K' },
         { name: 'Cá Tầm Rang Muối', price: '200K' },
