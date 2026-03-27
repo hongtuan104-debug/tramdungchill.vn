@@ -6,14 +6,14 @@
    ============================================ */
 
 function initI18n() {
-    var saved = localStorage.getItem('lang');
-    var lang;
+    const saved = localStorage.getItem('lang');
+    let lang;
 
     if (saved) {
         lang = saved;
     } else {
         // Auto-detect: if browser is English, default to English
-        var browserLang = (navigator.language || navigator.userLanguage || 'vi').toLowerCase();
+        const browserLang = (navigator.language || navigator.userLanguage || 'vi').toLowerCase();
         lang = browserLang.startsWith('en') ? 'en' : 'vi';
     }
 
@@ -24,21 +24,21 @@ function initI18n() {
 
 function applyTranslations(lang) {
     if (!window.TRANSLATIONS || !TRANSLATIONS[lang]) return;
-    var dict = TRANSLATIONS[lang];
+    const dict = TRANSLATIONS[lang];
 
     // Text content
-    var els = document.querySelectorAll('[data-i18n]');
-    for (var i = 0; i < els.length; i++) {
-        var key = els[i].getAttribute('data-i18n');
+    const els = document.querySelectorAll('[data-i18n]');
+    for (let i = 0; i < els.length; i++) {
+        const key = els[i].getAttribute('data-i18n');
         if (dict[key]) {
             els[i].innerHTML = dict[key];
         }
     }
 
     // Placeholders
-    var phEls = document.querySelectorAll('[data-i18n-ph]');
-    for (var i = 0; i < phEls.length; i++) {
-        var key = phEls[i].getAttribute('data-i18n-ph');
+    const phEls = document.querySelectorAll('[data-i18n-ph]');
+    for (let i = 0; i < phEls.length; i++) {
+        const key = phEls[i].getAttribute('data-i18n-ph');
         if (dict[key]) {
             phEls[i].placeholder = dict[key];
         }
@@ -46,13 +46,13 @@ function applyTranslations(lang) {
 }
 
 function setupLangToggle(currentLang) {
-    var btn = document.getElementById('langToggle');
+    const btn = document.getElementById('langToggle');
     if (!btn) return;
 
     updateLangButton(btn, currentLang);
 
     btn.addEventListener('click', function () {
-        var newLang = document.documentElement.lang === 'vi' ? 'en' : 'vi';
+        const newLang = document.documentElement.lang === 'vi' ? 'en' : 'vi';
 
         // Smooth fade transition
         document.body.classList.add('lang-transitioning');
@@ -72,7 +72,7 @@ function setupLangToggle(currentLang) {
 }
 
 function updateLangButton(btn, lang) {
-    var globe = '<svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
+    const globe = '<svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
 
     if (lang === 'vi') {
         btn.innerHTML = globe + '<span class="lang-text">EN</span>';
@@ -89,15 +89,15 @@ function updateLangButton(btn, lang) {
    SCROLL PROGRESS BAR
    ============================================ */
 function initScrollProgress() {
-    var bar = document.getElementById('scrollProgress');
+    const bar = document.getElementById('scrollProgress');
     if (!bar) return;
 
-    var ticking = false;
+    let ticking = false;
 
     function updateProgress() {
-        var scrollTop = window.scrollY || document.documentElement.scrollTop;
-        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         bar.style.width = progress + '%';
         ticking = false;
     }

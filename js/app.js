@@ -4,18 +4,20 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', async function() {
-    var page = detectCurrentPage();
+    const page = detectCurrentPage();
 
     // Load shared layout (nav + footer)
     await loadLayout();
 
-    // Generate Schema.org JSON-LD
+    // Init i18n first (sets document.documentElement.lang)
+    if (typeof initI18n === 'function') initI18n();
+
+    // Generate Schema.org JSON-LD (after i18n so t() uses correct lang)
     if (typeof generateSchemas === 'function') generateSchemas();
 
     // Init shared modules
     initNavbar();
     initScrollProgress();
-    if (typeof initI18n === 'function') initI18n();
     if (typeof setCurrentYear === 'function') setCurrentYear();
 
     // Page-specific initialization

@@ -140,7 +140,8 @@
     <section class="blog-section">
         <div class="container">
             <div class="blog-search">
-                <input type="text" id="blogSearch" placeholder="Tìm kiếm bài viết..." class="blog-search-input">
+                <label for="blogSearch" class="sr-only">Tìm kiếm bài viết</label>
+                <input type="text" id="blogSearch" placeholder="Tìm kiếm bài viết..." class="blog-search-input" aria-label="Tìm kiếm bài viết">
                 <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
             <div class="blog-filters" id="blogFilters"></div>
@@ -166,6 +167,7 @@
 
     <!-- Layout & Modules -->
     <script defer src="components/layout-loader.js"></script>
+    <script defer src="js/utils.js"></script>
     <script defer src="js/schema-generator.js"></script>
     <script defer src="js/blog-renderer.js"></script>
     <script defer src="js/navbar.js"></script>

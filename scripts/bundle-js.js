@@ -4,8 +4,8 @@
  * Zero npm dependencies — only Node built-ins (fs, path).
  *
  * Output:
- *   dist/common.min.js  — shared modules (layout-loader, schema-generator, navbar, i18n, scroll-ui, app)
- *   dist/index.min.js   — index page specific (utils, hero, menu-renderer, gallery, booking)
+ *   dist/common.min.js  — shared modules (layout-loader, utils, schema-generator, navbar, i18n, scroll-ui, app)
+ *   dist/index.min.js   — index page specific (hero, menu-renderer, gallery, booking)
  *   dist/blog.min.js    — blog page specific (blog-renderer)
  *   dist/menu.min.js    — menu page specific (menu-page-renderer)
  */
@@ -22,6 +22,7 @@ const DIST = path.join(ROOT, "dist");
 
 const COMMON_FILES = [
     "components/layout-loader.js",
+    "js/utils.js",
     "js/schema-generator.js",
     "js/navbar.js",
     "js/i18n.js",
@@ -30,7 +31,6 @@ const COMMON_FILES = [
 ];
 
 const INDEX_FILES = [
-    "js/utils.js",
     "js/hero.js",
     "js/menu-renderer.js",
     "js/gallery.js",

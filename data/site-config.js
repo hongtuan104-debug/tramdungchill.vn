@@ -51,11 +51,8 @@ const SITE_CONFIG = {
     // Xem huong dan: docs/SETUP-WEBHOOK.md
     webhookUrl: 'https://script.google.com/macros/s/AKfycbz46uJ-lfzLgqQSaMYHYu6cviIVg2IGF7R0YfQPAGMyYh4ESD1XRKPbGzjtmXR6U1bm/exec',
 
-    // Telegram Bot
-    telegram: {
-        botToken: '8791984601:AAGO55X-O60N5ZhDgM8PvA_Czfg44s4Y2ow',
-        chatId: '6293463576',
-    },
+    // Telegram: handled server-side by Google Apps Script webhook
+    // Do NOT put bot tokens in client-side code
 
     googleMapsEmbed: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=111+Huỳnh+Tấn+Phát,+Phường+11,+Đà+Lạt,+Lâm+Đồng&zoom=16&language=vi',
 };

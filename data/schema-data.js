@@ -1,6 +1,6 @@
 /* Data: Schema.org - Tram Dung Chill */
 
-var SCHEMA_DATA = {
+const SCHEMA_DATA = {
     restaurant: {
         name: 'Tiệm Nướng Trạm Dừng Chill',
         alternateName: 'Tram Dung Chill BBQ',

@@ -21,20 +21,16 @@ function initBookingForm() {
 
         // Validation
         if (!data.name || !data.phone || !data.date || !data.time || !data.guests) {
-            var lang = document.documentElement.lang || 'vi';
-            var msg = (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang]['notify.required']) || 'Vui lòng điền đầy đủ thông tin bắt buộc!';
-            showNotification(msg, 'error');
+            showNotification(t('notify.required', 'Vui lòng điền đầy đủ thông tin bắt buộc!'), 'error');
             return;
         }
 
         // Phone validation (Vietnamese: 0xxx or +84xxx or 84xxx)
-        var cleanPhone = data.phone.replace(/[\.\s\-\(\)]/g, '');
+        let cleanPhone = data.phone.replace(/[\.\s\-\(\)]/g, '');
         if (/^\+84/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(3);
         if (/^84[0-9]{9}$/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(2);
         if (!/^0[0-9]{9}$/.test(cleanPhone)) {
-            var lang = document.documentElement.lang || 'vi';
-            var msg = (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang]['notify.phone']) || 'Số điện thoại không hợp lệ (cần 10 số)!';
-            showNotification(msg, 'error');
+            showNotification(t('notify.phone', 'Số điện thoại không hợp lệ (cần 10 số)!'), 'error');
             return;
         }
 
@@ -46,9 +42,10 @@ function initBookingForm() {
         // Format message
         const message = formatZaloMessage(data);
 
-        // Gui du lieu qua webhook (Google Apps Script → Google Sheet)
+        // Send data via webhook (Google Apps Script → Google Sheet)
         // mode: 'no-cors' — GAS redirects POST, browser blocks cross-origin redirects
         const webhookUrl = SITE_CONFIG.webhookUrl;
+        let webhookOk = true;
         if (webhookUrl) {
             try {
                 await fetch(webhookUrl, {
@@ -69,11 +66,11 @@ function initBookingForm() {
                 });
             } catch (err) {
                 console.warn('Webhook failed:', err);
+                webhookOk = false;
             }
         }
 
         // Telegram notification is handled by Google Apps Script webhook
-        // (removed duplicate frontend send to avoid double notifications)
 
         // Open Zalo with pre-filled message
         const zaloUrl = 'https://zalo.me/' + zaloNumber + '?text=' + encodeURIComponent(message);
@@ -82,6 +79,13 @@ function initBookingForm() {
             btnText.style.display = 'inline';
             btnLoading.style.display = 'none';
             submitBtn.disabled = false;
+
+            if (!webhookOk) {
+                showNotification(
+                    t('notify.webhook_fail', 'Lưu đặt bàn tạm lỗi — vui lòng nhắn Zalo để xác nhận!'),
+                    'error'
+                );
+            }
 
             const modal = document.getElementById('successModal');
             if (modal) modal.classList.add('active');

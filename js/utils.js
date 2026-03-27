@@ -2,6 +2,45 @@
    Tram Dung Chill - Utility Functions
    ============================================ */
 
+/**
+ * Escape HTML special characters to prevent XSS.
+ * Use when inserting user/data strings into HTML attributes or text.
+ */
+function escapeHtml(str) {
+    if (typeof str !== 'string') return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+/**
+ * Translation helper — returns translated string or fallback.
+ * Usage: t('booking.cta') or t('booking.cta', 'Đặt bàn')
+ */
+function t(key, fallback) {
+    const lang = document.documentElement.lang || 'vi';
+    if (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
+        return TRANSLATIONS[lang][key];
+    }
+    if (fallback !== undefined) return fallback;
+    // Try Vietnamese as ultimate fallback
+    if (window.TRANSLATIONS && TRANSLATIONS.vi && TRANSLATIONS.vi[key]) {
+        return TRANSLATIONS.vi[key];
+    }
+    return key;
+}
+
+/**
+ * Format ISO date string (YYYY-MM-DD) to Vietnamese format (DD/MM/YYYY).
+ */
+function formatDateVi(dateStr) {
+    const parts = dateStr.split('-');
+    return parts[2] + '/' + parts[1] + '/' + parts[0];
+}
+
 function initPreloader() {
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
@@ -18,9 +57,10 @@ function initPreloader() {
 
 function initModalClose() {
     const btn = document.getElementById('closeModalBtn');
-    if (btn) {
+    const modal = document.getElementById('successModal');
+    if (btn && modal) {
         btn.addEventListener('click', () => {
-            document.getElementById('successModal').classList.remove('active');
+            modal.classList.remove('active');
         });
     }
 }
@@ -89,25 +129,35 @@ function initQRCode() {
     const container = document.getElementById('qrCode');
     if (!container) return;
 
-    var reviewUrl = SITE_CONFIG.social.googleMaps;
+    const reviewUrl = SITE_CONFIG.social.googleMaps;
 
     if (typeof qrcode !== 'undefined') {
-        var qr = qrcode(0, 'M');
+        const qr = qrcode(0, 'M');
         qr.addData(reviewUrl);
         qr.make();
 
-        var imgTag = qr.createImgTag(5, 10);
+        const imgTag = qr.createImgTag(5, 10);
         container.innerHTML = imgTag;
-        var qrImg = container.querySelector('img');
+        const qrImg = container.querySelector('img');
         if (qrImg) {
             qrImg.style.borderRadius = '8px';
             qrImg.alt = 'QR Code đánh giá Google Maps Trạm Dừng Chill';
         }
     } else {
-        container.innerHTML =
-            '<div style="padding:20px;text-align:center;background:#f5f5f5;border-radius:12px;">'
-            + '<p style="font-size:0.85rem;color:#666;margin-bottom:10px;">Quét mã QR hoặc</p>'
-            + '<a href="' + reviewUrl + '" target="_blank" rel="noopener" style="color:#C8572A;font-weight:600;text-decoration:underline;">Bấm vào đây để đánh giá</a>'
-            + '</div>';
+        // Fallback: safe link using escapeHtml
+        const fallbackDiv = document.createElement('div');
+        Object.assign(fallbackDiv.style, { padding: '20px', textAlign: 'center', background: '#f5f5f5', borderRadius: '12px' });
+        const p = document.createElement('p');
+        Object.assign(p.style, { fontSize: '0.85rem', color: '#666', marginBottom: '10px' });
+        p.textContent = 'Quét mã QR hoặc';
+        const a = document.createElement('a');
+        a.href = reviewUrl;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        Object.assign(a.style, { color: '#C8572A', fontWeight: '600', textDecoration: 'underline' });
+        a.textContent = 'Bấm vào đây để đánh giá';
+        fallbackDiv.appendChild(p);
+        fallbackDiv.appendChild(a);
+        container.appendChild(fallbackDiv);
     }
 }

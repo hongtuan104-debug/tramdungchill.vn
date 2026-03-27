@@ -1,7 +1,7 @@
 /* Data: Blog Articles - Tram Dung Chill
    Auto-generated from blog.html content */
 
-var BLOG_ARTICLES = [
+const BLOG_ARTICLES = [
     {
         id: "top-quan-nuong-da-lat",
         title: "Top 7 Quán Nướng Đà Lạt View Đẹp Nhất 2026",

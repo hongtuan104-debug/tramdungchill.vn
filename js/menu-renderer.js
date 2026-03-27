@@ -4,8 +4,8 @@
    ============================================ */
 
 function renderMenu() {
-    var tabsContainer = document.querySelector('.menu-tabs');
-    var contentContainer = document.querySelector('.menu-content');
+    const tabsContainer = document.querySelector('.menu-tabs');
+    const contentContainer = document.querySelector('.menu-content');
     if (!tabsContainer || !contentContainer) return;
 
     // Clear existing static content
@@ -14,7 +14,7 @@ function renderMenu() {
 
     // Build tabs
     MENU_CATEGORIES.forEach(function(cat, i) {
-        var btn = document.createElement('button');
+        const btn = document.createElement('button');
         btn.className = 'menu-tab' + (i === 0 ? ' active' : '');
         btn.setAttribute('data-tab', cat.id);
         btn.setAttribute('role', 'tab');
@@ -27,22 +27,22 @@ function renderMenu() {
 
     // Build panels
     MENU_CATEGORIES.forEach(function(cat, i) {
-        var panel = document.createElement('div');
+        const panel = document.createElement('div');
         panel.className = 'menu-panel' + (i === 0 ? ' active' : '');
         panel.id = cat.id;
         panel.setAttribute('role', 'tabpanel');
         panel.setAttribute('aria-labelledby', 'tab-' + cat.id);
         panel.setAttribute('tabindex', '0');
 
-        var catTitle = document.createElement('h3');
+        const catTitle = document.createElement('h3');
         catTitle.className = 'menu-panel-title sr-only';
         catTitle.textContent = cat.label;
         panel.appendChild(catTitle);
 
-        var grid = document.createElement('div');
+        const grid = document.createElement('div');
         grid.className = 'menu-grid';
 
-        var items = MENU_ITEMS[cat.id] || [];
+        const items = MENU_ITEMS[cat.id] || [];
         items.forEach(function(item) {
             grid.appendChild(buildMenuItem(item));
         });
@@ -51,7 +51,7 @@ function renderMenu() {
 
         // Add drink note for drinks category
         if (cat.id === 'douong' && MENU_NOTES.drinks) {
-            var note = document.createElement('p');
+            const note = document.createElement('p');
             note.className = 'menu-drink-note';
             note.textContent = MENU_NOTES.drinks;
             panel.appendChild(note);
@@ -65,25 +65,25 @@ function renderMenu() {
 }
 
 function buildMenuItem(item) {
-    var el = document.createElement('div');
+    const el = document.createElement('div');
     el.className = 'menu-item';
 
-    var info = document.createElement('div');
+    const info = document.createElement('div');
     info.className = 'menu-item-info';
 
-    var nameEl = document.createElement('span');
+    const nameEl = document.createElement('span');
     nameEl.className = 'menu-item-name';
     nameEl.textContent = item.name;
     info.appendChild(nameEl);
 
     if (item.badge) {
-        var badge = document.createElement('span');
+        const badge = document.createElement('span');
         badge.className = 'menu-badge hot';
         badge.textContent = item.badge;
         info.appendChild(badge);
     }
 
-    var price = document.createElement('span');
+    const price = document.createElement('span');
     price.className = 'menu-price';
     price.textContent = item.price;
 
@@ -93,12 +93,12 @@ function buildMenuItem(item) {
 }
 
 function initMenuTabs() {
-    var tabs = document.querySelectorAll('.menu-tab');
-    var panels = document.querySelectorAll('.menu-panel');
+    const tabs = document.querySelectorAll('.menu-tab');
+    const panels = document.querySelectorAll('.menu-panel');
 
     tabs.forEach(function(tab) {
         tab.addEventListener('click', function() {
-            var target = tab.dataset.tab;
+            const target = tab.dataset.tab;
             tabs.forEach(function(t) {
                 t.classList.remove('active');
                 t.setAttribute('aria-selected', 'false');
@@ -106,7 +106,7 @@ function initMenuTabs() {
             panels.forEach(function(p) { p.classList.remove('active'); });
             tab.classList.add('active');
             tab.setAttribute('aria-selected', 'true');
-            var panel = document.getElementById(target);
+            const panel = document.getElementById(target);
             if (panel) panel.classList.add('active');
         });
     });

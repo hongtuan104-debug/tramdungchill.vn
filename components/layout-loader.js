@@ -4,7 +4,7 @@
    ============================================ */
 
 function detectCurrentPage() {
-    var path = window.location.pathname;
+    const path = window.location.pathname;
     if (path.indexOf('menu') !== -1) return 'menu';
     if (path.indexOf('/blog/') !== -1 && path.indexOf('blog.html') === -1) return 'blog-post';
     if (path.indexOf('blog') !== -1) return 'blog';
@@ -14,16 +14,16 @@ function detectCurrentPage() {
 }
 
 async function loadLayout() {
-    var page = detectCurrentPage();
-    var isSubdir = window.location.pathname.indexOf('/blog/') !== -1;
-    var prefix = isSubdir ? '../' : '';
+    const page = detectCurrentPage();
+    const isSubdir = window.location.pathname.indexOf('/blog/') !== -1;
+    const prefix = isSubdir ? '../' : '';
 
     // Load nav
-    var navPlaceholder = document.getElementById('nav-placeholder');
+    const navPlaceholder = document.getElementById('nav-placeholder');
     if (navPlaceholder) {
         try {
-            var navResponse = await fetch(prefix + 'components/nav.html');
-            var navHtml = await navResponse.text();
+            const navResponse = await fetch(prefix + 'components/nav.html');
+            const navHtml = await navResponse.text();
             navPlaceholder.outerHTML = navHtml;
 
             // Fix nav links for index page (use hash-only links)
@@ -35,14 +35,14 @@ async function loadLayout() {
 
             // Add scrolled class on sub-pages (navbar always solid)
             if (page !== 'index') {
-                var navbar = document.getElementById('navbar');
+                const navbar = document.getElementById('navbar');
                 if (navbar) navbar.classList.add('scrolled');
             }
 
             // Fix nav/footer link hrefs when on a blog post (subdirectory) page
             if (isSubdir) {
                 document.querySelectorAll('.nav-menu a, .nav-logo, .footer a').forEach(function(el) {
-                    var href = el.getAttribute('href');
+                    const href = el.getAttribute('href');
                     if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('../') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
                         el.setAttribute('href', '../' + href);
                     }
@@ -50,7 +50,7 @@ async function loadLayout() {
             }
 
             // Highlight active nav link (blog-post highlights blog)
-            var activePage = (page === 'blog-post') ? 'blog' : page;
+            const activePage = (page === 'blog-post') ? 'blog' : page;
             document.querySelectorAll('.nav-link[data-page]').forEach(function(link) {
                 if (link.getAttribute('data-page') === activePage) {
                     link.classList.add('active');
@@ -59,7 +59,7 @@ async function loadLayout() {
 
             // On index, mark "Trang chu" as active
             if (page === 'index') {
-                var homeLink = document.querySelector('.nav-link[data-page="index"]');
+                const homeLink = document.querySelector('.nav-link[data-page="index"]');
                 if (homeLink) homeLink.classList.add('active');
             }
         } catch (err) {
@@ -68,12 +68,12 @@ async function loadLayout() {
     }
 
     // Load footer
-    var footerPlaceholder = document.getElementById('footer-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         try {
-            var footerFile = (page === 'index') ? 'components/footer.html' : 'components/footer-simple.html';
-            var footerResponse = await fetch(prefix + footerFile);
-            var footerHtml = await footerResponse.text();
+            const footerFile = (page === 'index') ? 'components/footer.html' : 'components/footer-simple.html';
+            const footerResponse = await fetch(prefix + footerFile);
+            const footerHtml = await footerResponse.text();
             footerPlaceholder.outerHTML = footerHtml;
         } catch (err) {
             console.warn('Failed to load footer:', err);

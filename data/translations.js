@@ -5,7 +5,7 @@
  * Them data-i18n="key" vao HTML element de tu dong dich.
  */
 
-var TRANSLATIONS = {
+const TRANSLATIONS = {
   vi: {
     // Nav
     'nav.home': 'Trang chủ',
@@ -127,6 +127,17 @@ var TRANSLATIONS = {
     // Notifications
     'notify.required': 'Vui lòng điền đầy đủ thông tin bắt buộc!',
     'notify.phone': 'Số điện thoại không hợp lệ (cần 10 số)!',
+    'notify.webhook_fail': 'Lưu đặt bàn tạm lỗi — vui lòng nhắn Zalo để xác nhận!',
+
+    // Blog
+    'blog.readmore': 'Đọc tiếp →',
+    'blog.share': 'Chia sẻ:',
+    'blog.copylink': 'Sao chép link',
+    'blog.all': 'Tất cả',
+    'blog.filters': 'Lọc theo danh mục',
+
+    // Schema
+    'schema.blog.desc': 'Chia sẻ trải nghiệm ăn nướng BBQ, du lịch Đà Lạt',
   },
 
   en: {
@@ -250,5 +261,16 @@ var TRANSLATIONS = {
     // Notifications
     'notify.required': 'Please fill in all required fields!',
     'notify.phone': 'Invalid phone number (10 digits required)!',
+    'notify.webhook_fail': 'Booking save failed — please message us on Zalo to confirm!',
+
+    // Blog
+    'blog.readmore': 'Read more →',
+    'blog.share': 'Share:',
+    'blog.copylink': 'Copy link',
+    'blog.all': 'All',
+    'blog.filters': 'Filter by category',
+
+    // Schema
+    'schema.blog.desc': 'BBQ dining experiences and Da Lat travel tips',
   }
 };

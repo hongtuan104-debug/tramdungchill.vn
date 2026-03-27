@@ -2,7 +2,7 @@
    Generate JSON-LD tu data/schema-data.js */
 
 function generateSchemas() {
-    var page = detectCurrentPage();
+    const page = detectCurrentPage();
 
     if (page === 'index') {
         injectSchema(buildRestaurantSchema());
@@ -16,14 +16,14 @@ function generateSchemas() {
 }
 
 function injectSchema(data) {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(data);
     document.head.appendChild(script);
 }
 
 function buildRestaurantSchema() {
-    var r = SCHEMA_DATA.restaurant;
+    const r = SCHEMA_DATA.restaurant;
     return {
         '@context': 'https://schema.org',
         '@type': 'Restaurant',
@@ -97,7 +97,7 @@ function buildFaqSchema() {
 }
 
 function buildReviewSchema() {
-    var r = SCHEMA_DATA.restaurant;
+    const r = SCHEMA_DATA.restaurant;
     return {
         '@context': 'https://schema.org',
         '@type': 'Restaurant',
@@ -123,16 +123,16 @@ function buildReviewSchema() {
 }
 
 function buildBlogSchema() {
-    var r = SCHEMA_DATA.restaurant;
-    var articles = (typeof BLOG_ARTICLES !== 'undefined') ? BLOG_ARTICLES : [];
+    const r = SCHEMA_DATA.restaurant;
+    const articles = (typeof BLOG_ARTICLES !== 'undefined') ? BLOG_ARTICLES : [];
     return {
         '@context': 'https://schema.org',
         '@type': 'Blog',
         'name': 'Blog ' + r.name,
-        'description': 'Chia sẻ trải nghiệm ăn nướng BBQ, du lịch Đà Lạt',
+        'description': t('schema.blog.desc', 'Chia sẻ trải nghiệm ăn nướng BBQ, du lịch Đà Lạt'),
         'url': r.url + '/blog.html',
         'publisher': {
-            '@type': 'Restaurant',
+            '@type': 'Organization',
             'name': r.name,
             'url': r.url
         },
@@ -153,12 +153,12 @@ function buildBlogSchema() {
 }
 
 function buildMenuSchema() {
-    var r = SCHEMA_DATA.restaurant;
-    var sections = [];
+    const r = SCHEMA_DATA.restaurant;
+    let sections = [];
     if (typeof MENU_CATEGORIES !== 'undefined' && typeof MENU_ITEMS !== 'undefined') {
         sections = MENU_CATEGORIES.map(function(cat) {
-            var items = (MENU_ITEMS[cat.id] || []).map(function(item) {
-                var menuItem = {
+            const items = (MENU_ITEMS[cat.id] || []).map(function(item) {
+                const menuItem = {
                     '@type': 'MenuItem',
                     'name': item.name,
                     'description': item.name + ' — ' + cat.label + ' tại Trạm Dừng Chill Đà Lạt'

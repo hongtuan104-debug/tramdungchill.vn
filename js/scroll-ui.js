@@ -94,11 +94,11 @@ function initScrollUI() {
     onScroll();
 
     // Lazy load Google Maps iframe when scrolled into view
-    var mapEmbed = document.getElementById('mapEmbed');
+    const mapEmbed = document.getElementById('mapEmbed');
     if (mapEmbed && mapEmbed.dataset.src) {
-        var mapObserver = new IntersectionObserver(function(entries) {
+        const mapObserver = new IntersectionObserver(function(entries) {
             if (entries[0].isIntersecting) {
-                var iframe = document.createElement('iframe');
+                const iframe = document.createElement('iframe');
                 iframe.src = mapEmbed.dataset.src;
                 iframe.width = '100%';
                 iframe.height = '100%';

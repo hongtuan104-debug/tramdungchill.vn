@@ -79,7 +79,7 @@ function initGalleryLightbox() {
         const imgEl = item.querySelector('img');
         if (imgEl) {
             // Use data-src (original URL) if available, otherwise fall back to src
-            var fullSrc = imgEl.dataset.src || imgEl.src;
+            const fullSrc = imgEl.dataset.src || imgEl.src;
             images.push({ src: fullSrc, alt: imgEl.alt || 'Ảnh tại Trạm Dừng Chill' });
             item.addEventListener('click', function () {
                 currentIndex = i;
@@ -127,7 +127,7 @@ function initGalleryLightbox() {
     });
 
     // Touch swipe
-    var touchStartX = 0;
+    let touchStartX = 0;
     lightbox.addEventListener('touchstart', function (e) {
         touchStartX = e.changedTouches[0].clientX;
     }, { passive: true });
@@ -137,7 +137,7 @@ function initGalleryLightbox() {
     }, { passive: false });
 
     lightbox.addEventListener('touchend', function (e) {
-        var diff = touchStartX - e.changedTouches[0].clientX;
+        const diff = touchStartX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 50) {
             diff > 0 ? nextBtn.click() : prevBtn.click();
         }
