@@ -5,7 +5,7 @@
  * Them data-i18n="key" vao HTML element de tu dong dich.
  */
 
-const TRANSLATIONS = {
+var TRANSLATIONS = {
   vi: {
     // Nav
     'nav.home': 'Trang chủ',
