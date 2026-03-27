@@ -3,6 +3,47 @@
    Doc SITE_CONFIG tu data/site-config.js
    ============================================ */
 
+/**
+ * Get traffic source from UTM params or referrer.
+ * Saves to sessionStorage so it persists across page navigation.
+ */
+function getTrafficSource() {
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get('utm_source');
+    const utmMedium = params.get('utm_medium');
+    const utmCampaign = params.get('utm_campaign');
+
+    // If UTM params present, save and return
+    if (utmSource) {
+        const source = {
+            source: utmSource,
+            medium: utmMedium || '',
+            campaign: utmCampaign || ''
+        };
+        sessionStorage.setItem('tdc_source', JSON.stringify(source));
+        return source;
+    }
+
+    // Check saved source from earlier page visit
+    const saved = sessionStorage.getItem('tdc_source');
+    if (saved) {
+        try { return JSON.parse(saved); } catch (e) {}
+    }
+
+    // Auto-detect from referrer
+    const ref = document.referrer;
+    let detected = 'direct';
+    if (ref.indexOf('facebook.com') !== -1 || ref.indexOf('fb.com') !== -1) detected = 'facebook_organic';
+    else if (ref.indexOf('tiktok.com') !== -1) detected = 'tiktok';
+    else if (ref.indexOf('google.') !== -1) detected = 'google_organic';
+    else if (ref.indexOf('zalo.') !== -1) detected = 'zalo';
+    else if (ref && ref.indexOf('tramdungchill.vn') === -1) detected = ref;
+
+    const source = { source: detected, medium: '', campaign: '' };
+    sessionStorage.setItem('tdc_source', JSON.stringify(source));
+    return source;
+}
+
 function initBookingForm() {
     const form = document.getElementById('bookingForm');
     if (!form) return;
@@ -42,6 +83,9 @@ function initBookingForm() {
         // Format message
         const message = formatZaloMessage(data);
 
+        // Get traffic source (UTM or referrer)
+        const trafficSource = getTrafficSource();
+
         // Send data via webhook (Google Apps Script → Google Sheet)
         // mode: 'no-cors' — GAS redirects POST, browser blocks cross-origin redirects
         const webhookUrl = SITE_CONFIG.webhookUrl;
@@ -61,6 +105,9 @@ function initBookingForm() {
                         occasion: data.occasion || '',
                         note: data.note || '',
                         message: message,
+                        source: trafficSource.source,
+                        medium: trafficSource.medium,
+                        campaign: trafficSource.campaign,
                         timestamp: new Date().toISOString()
                     })
                 });
@@ -122,6 +169,11 @@ function formatZaloMessage(data) {
     msg += 'Số khách: ' + data.guests + '\n';
     if (data.occasion) msg += 'Dịp: ' + (occasionMap[data.occasion] || data.occasion) + '\n';
     if (data.note) msg += 'Ghi chú: ' + data.note + '\n';
+    // Append traffic source if available
+    const src = (typeof getTrafficSource === 'function') ? getTrafficSource() : null;
+    if (src && src.source && src.source !== 'direct') {
+        msg += 'Nguồn: ' + src.source + '\n';
+    }
     msg += '---\nĐặt qua website tramdungchill.vn';
 
     return msg;

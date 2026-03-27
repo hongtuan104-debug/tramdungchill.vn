@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     initScrollProgress();
     if (typeof setCurrentYear === 'function') setCurrentYear();
     if (typeof initContactTracking === 'function') initContactTracking();
+    if (typeof getTrafficSource === 'function') getTrafficSource();
 
     // Page-specific initialization
     if (page === 'index') {
