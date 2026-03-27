@@ -3,6 +3,11 @@
    Async entry point with page detection
    ============================================ */
 
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(function() {});
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     const page = detectCurrentPage();
 

@@ -27,6 +27,7 @@ const COMMON_FILES = [
     "js/navbar.js",
     "js/i18n.js",
     "js/scroll-ui.js",
+    "js/fab-contact.js",
     "js/app.js"
 ];
 
@@ -142,4 +143,44 @@ if (!allOk) {
     process.exit(1);
 }
 
-console.log("\nDone! " + outputs.length + " bundles written to dist/");
+console.log("\nDone! " + outputs.length + " JS bundles written to dist/");
+
+// ── CSS Minification ─────────────────────────────────────────
+
+console.log("\nMinifying CSS...");
+
+function minifyCSS(source) {
+    let out = source;
+    // Remove CSS comments
+    out = out.replace(/\/\*[\s\S]*?\*\//g, "");
+    // Remove newlines
+    out = out.replace(/\n/g, "");
+    // Collapse whitespace
+    out = out.replace(/\s{2,}/g, " ");
+    // Remove spaces around CSS punctuation
+    out = out.replace(/\s*([{}:;,>~+])\s*/g, "$1");
+    // Remove trailing semicolons before }
+    out = out.replace(/;}/g, "}");
+    // Remove leading/trailing whitespace
+    out = out.trim();
+    return out + "\n";
+}
+
+const CSS_FILE = path.join(ROOT, "css", "style.css");
+if (fs.existsSync(CSS_FILE)) {
+    const cssSource = fs.readFileSync(CSS_FILE, "utf8");
+    const cssMinified = minifyCSS(cssSource);
+    const cssOutPath = path.join(DIST, "style.min.css");
+    fs.writeFileSync(cssOutPath, cssMinified, "utf8");
+
+    const cssOrig = Buffer.byteLength(cssSource, "utf8");
+    const cssMin = Buffer.byteLength(cssMinified, "utf8");
+    const cssPct = cssOrig ? Math.round((1 - cssMin / cssOrig) * 100) : 0;
+    console.log(
+        "  style.min.css  " +
+        (cssOrig / 1024).toFixed(1) + " KB → " +
+        (cssMin / 1024).toFixed(1) + " KB  (" + cssPct + "% smaller)"
+    );
+}
+
+console.log("\nAll done!");
