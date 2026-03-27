@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     initNavbar();
     initScrollProgress();
     if (typeof setCurrentYear === 'function') setCurrentYear();
+    if (typeof initContactTracking === 'function') initContactTracking();
 
     // Page-specific initialization
     if (page === 'index') {

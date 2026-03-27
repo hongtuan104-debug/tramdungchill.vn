@@ -3,6 +3,28 @@
    ============================================ */
 
 /**
+ * Track contact click events via GA4 + Google Ads.
+ * Auto-attaches to all tel:, zalo.me, and facebook links on the page.
+ */
+function initContactTracking() {
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href]');
+        if (!link || typeof gtag !== 'function') return;
+
+        const href = link.getAttribute('href') || '';
+        if (href.startsWith('tel:')) {
+            gtag('event', 'click_phone', { event_category: 'contact', event_label: 'page_link' });
+        } else if (href.indexOf('zalo.me') !== -1) {
+            gtag('event', 'click_zalo', { event_category: 'contact', event_label: 'page_link' });
+        } else if (href.indexOf('facebook.com') !== -1 && link.closest('.fab-contact') === null) {
+            gtag('event', 'click_facebook', { event_category: 'contact', event_label: 'page_link' });
+        } else if (href.indexOf('maps.app.goo.gl') !== -1 || href.indexOf('google.com/maps') !== -1) {
+            gtag('event', 'click_directions', { event_category: 'contact', event_label: 'page_link' });
+        }
+    });
+}
+
+/**
  * Escape HTML special characters to prevent XSS.
  * Use when inserting user/data strings into HTML attributes or text.
  */
