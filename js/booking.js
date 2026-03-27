@@ -72,6 +72,11 @@ function initBookingForm() {
 
         // Telegram notification is handled by Google Apps Script webhook
 
+        // Google Ads conversion tracking — SUBMIT_LEAD_FORM
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion_event_submit_lead_form', {});
+        }
+
         // Open Zalo with pre-filled message
         const zaloUrl = 'https://zalo.me/' + zaloNumber + '?text=' + encodeURIComponent(message);
 
