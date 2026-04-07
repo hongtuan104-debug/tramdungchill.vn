@@ -420,6 +420,39 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     overflow: hidden;
 }
 
+/* Hero Video Background */
+.hero-video-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Mobile: hide video, show image slider */
+.hero-slider-mobile { display: none; }
+
+@media (max-width: 768px) {
+    .hero-video-wrapper { display: none; }
+    .hero-slider-mobile { display: block; }
+}
+
+/* Desktop: hide time dots and image slider (video replaces them) */
+@media (min-width: 769px) {
+    .hero-time-bar { display: none !important; }
+    .hero-slider-mobile { display: none !important; }
+}
+
 .hero-slider { position: absolute; inset: 0; }
 
 .hero-slide {

@@ -79,6 +79,10 @@
     .nav-toggle{display:none;flex-direction:column;gap:5px;padding:10px;z-index:1001;min-width:44px;min-height:44px;align-items:center;justify-content:center}
     .nav-toggle span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s var(--ease);border-radius:2px}
     .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .hero-video-wrapper{position:absolute;inset:0;overflow:hidden}
+    .hero-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+    .hero-slider-mobile{display:none}
+    @media(max-width:768px){.hero-video-wrapper{display:none}.hero-slider-mobile{display:block}}
     .hero-slider{position:absolute;inset:0}
     .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;will-change:opacity,transform}
     .hero-slide.active{opacity:1;animation:slowZoom 10s ease-out forwards}
@@ -104,6 +108,7 @@
     .hero-time-bar{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:12px}
     .time-dot{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all .3s var(--ease);position:relative}
     .time-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px rgba(212,168,83,0.5)}
+    @media(min-width:769px){.hero-time-bar{display:none!important}.hero-slider-mobile{display:none!important}.hero-scroll-hint{bottom:30px}}
     .hero-scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;pointer-events:none}
     .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--sunset));z-index:1001;transition:width .05s linear;box-shadow:0 0 8px rgba(212,168,83,0.5)}
     </style>
@@ -324,7 +329,13 @@
 
     <!-- Hero Section - Cinematic -->
     <section class="hero" id="home">
-        <div class="hero-slider">
+        <!-- Hero Video Background (desktop) + Image Fallback (mobile) -->
+        <div class="hero-video-wrapper">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-sunset.jpg">
+                <source src="assets/images/hero-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-slider hero-slider-mobile">
             <div class="hero-slide active" data-caption="sunset" style="background-image: url('assets/images/hero-sunset.jpg')" role="img" aria-label="Quán nướng Đà Lạt view hoàng hôn đẹp nhất - Trạm Dừng Chill BBQ"></div>
             <div class="hero-slide" data-caption="night" style="background-image: url('assets/images/hero-night.jpg')" role="img" aria-label="Quán nướng BBQ Đà Lạt về đêm với nhà lồng lên đèn lung linh"></div>
             <div class="hero-slide" data-caption="couple" style="background-image: url('assets/images/hero-couple.jpg')" role="img" aria-label="Hẹn hò quán nướng view đẹp Đà Lạt - Trạm Dừng Chill"></div>
