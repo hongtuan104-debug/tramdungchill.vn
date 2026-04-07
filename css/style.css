@@ -3545,21 +3545,33 @@ body.sticky-bar-active .fab-contact {
     margin-top: 20px;
 }
 @media (max-width: 768px) {
-    .tiktok-gallery { padding: 60px 0; }
+    .tiktok-gallery { padding: 60px 0; overflow: hidden; }
     .tiktok-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        grid-template-columns: none;
         gap: 16px;
+        max-width: 100%;
+        padding: 0 20px 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
-    .tiktok-item:nth-child(3) {
-        grid-column: 1 / -1;
-        max-width: 60%;
-        margin: 0 auto;
+    .tiktok-grid::-webkit-scrollbar { display: none; }
+    .tiktok-item {
+        flex: 0 0 70%;
+        max-width: 280px;
+        max-height: none;
+        scroll-snap-align: center;
     }
 }
 @media (max-width: 480px) {
-    .tiktok-grid { gap: 12px; }
     .tiktok-overlay { padding: 14px; }
     .tiktok-views { font-size: 0.75rem; padding: 4px 10px; }
     .tiktok-caption { font-size: 0.85rem; }
-    .tiktok-item:nth-child(3) { max-width: 80%; }
+    .tiktok-item {
+        flex: 0 0 75%;
+        max-width: 260px;
+    }
 }
