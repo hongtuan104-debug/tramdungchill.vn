@@ -3228,28 +3228,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .sticky-book-bar.visible {
     bottom: 0;
 }
-/* Hide back-to-top and FAB when sticky bar is visible (mobile only) */
-@media (max-width: 768px) {
-    body.sticky-bar-active #backToTop,
-    body.sticky-bar-active #fabContainer,
-    body.sticky-bar-active #fabContact,
-    body.sticky-bar-active .fab-contact {
-        opacity: 0 !important;
-        pointer-events: none !important;
-        visibility: hidden !important;
-        transform: scale(0) !important;
-        transition: all 0.3s ease !important;
-    }
-}
-/* Desktop: shift FAB up when sticky bar is visible */
-@media (min-width: 769px) {
-    body.sticky-bar-active #backToTop,
-    body.sticky-bar-active #fabContainer,
-    body.sticky-bar-active #fabContact,
-    body.sticky-bar-active .fab-contact {
-        bottom: 100px !important;
-        transition: bottom 0.3s ease !important;
-    }
+/* Shift back-to-top and FAB UP when sticky bar is visible (all devices) */
+body.sticky-bar-active #backToTop,
+body.sticky-bar-active #fabContainer,
+body.sticky-bar-active #fabContact,
+body.sticky-bar-active .fab-contact {
+    bottom: 90px !important;
+    transition: bottom 0.3s ease !important;
 }
 .sticky-book-info {
     flex: 1;
