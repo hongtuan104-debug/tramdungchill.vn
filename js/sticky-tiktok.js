@@ -22,8 +22,10 @@
             // Show after scroll past 60% of hero, hide when in booking section
             if (scrollY > heroHeight * 0.6 && scrollY < bookingTop) {
                 bar.classList.add('visible');
+                document.body.classList.add('sticky-bar-active');
             } else {
                 bar.classList.remove('visible');
+                document.body.classList.remove('sticky-bar-active');
             }
             lastScroll = scrollY;
         }
