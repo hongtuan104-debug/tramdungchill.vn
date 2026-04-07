@@ -3290,6 +3290,175 @@ body.sticky-bar-active .fab-contact {
 }
 
 /* ============================================
+   REVIEWS SECTION - Real testimonials for conversion
+   ============================================ */
+.reviews-section {
+    background: var(--linen);
+    padding: 90px 0;
+    border-bottom: 1px solid var(--border);
+}
+.reviews-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.reviews-header .section-tag { margin-bottom: 14px; }
+.reviews-header .section-title {
+    margin-bottom: 24px;
+}
+.reviews-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-soft);
+}
+.reviews-stars {
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+.reviews-rating-text {
+    font-size: 0.92rem;
+    color: var(--wood);
+}
+.reviews-rating-text strong {
+    color: var(--gold-dark);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+.reviews-rating-text span {
+    color: var(--smoke);
+    font-size: 0.85rem;
+}
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+.review-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 28px 26px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s var(--ease);
+    position: relative;
+}
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.15;
+}
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(212,168,83,0.3);
+}
+.review-stars {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+.review-text {
+    color: var(--wood);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 22px;
+    font-style: italic;
+}
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+.review-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.review-info {
+    flex: 1;
+    min-width: 0;
+}
+.review-info strong {
+    display: block;
+    color: var(--night-soft);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+.review-info span {
+    display: block;
+    color: var(--smoke);
+    font-size: 0.78rem;
+    margin-top: 2px;
+}
+.review-google {
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+.reviews-cta {
+    text-align: center;
+}
+.reviews-cta .btn {
+    box-shadow: var(--shadow-medium);
+}
+.reviews-cta-sub {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    color: var(--smoke);
+}
+.reviews-cta-sub a {
+    color: var(--gold-dark);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.reviews-cta-sub a:hover {
+    border-bottom-color: var(--gold-dark);
+}
+
+@media (max-width: 768px) {
+    .reviews-section { padding: 60px 0; }
+    .reviews-header { margin-bottom: 32px; }
+    .reviews-rating {
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 22px;
+    }
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+    .review-card { padding: 22px 20px; }
+    .review-text { font-size: 0.9rem; }
+}
+
+/* ============================================
    STORY / ABOUT SECTION - Premium F&B
    ============================================ */
 .story-section {
