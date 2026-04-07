@@ -3332,11 +3332,11 @@ body.sticky-bar-active .fab-contact {
 }
 
 /* ============================================
-   TIKTOK VIRAL GALLERY
+   TIKTOK VIRAL GALLERY - Compact Premium
    ============================================ */
 .tiktok-gallery {
     background: var(--night-soft);
-    padding: 100px 0;
+    padding: 70px 0;
     position: relative;
     overflow: hidden;
 }
@@ -3344,22 +3344,29 @@ body.sticky-bar-active .fab-contact {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center top, rgba(255,0,80,0.05) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center top, rgba(255,0,80,0.06) 0%, transparent 50%);
     pointer-events: none;
+}
+.tiktok-gallery .section-title {
+    color: #fff;
+}
+.tiktok-gallery .section-title em {
+    color: var(--gold);
+    font-style: italic;
 }
 .tiktok-sub {
     text-align: center;
     color: rgba(255,255,255,0.6);
-    font-size: 1rem;
-    margin-top: -10px;
-    margin-bottom: 40px;
+    font-size: 0.95rem;
+    margin-top: -8px;
+    margin-bottom: 32px;
 }
 .tiktok-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto 40px;
+    gap: 20px;
+    max-width: 720px;
+    margin: 0 auto 32px;
 }
 .tiktok-item {
     aspect-ratio: 9/16;
@@ -3367,13 +3374,14 @@ body.sticky-bar-active .fab-contact {
     overflow: hidden;
     background: var(--charcoal);
     position: relative;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
     transition: all 0.4s var(--ease);
     cursor: pointer;
+    max-height: 380px;
 }
 .tiktok-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(212,168,83,0.3);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(212,168,83,0.25);
 }
 .tiktok-link {
     display: block;
