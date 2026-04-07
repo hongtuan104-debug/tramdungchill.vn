@@ -124,6 +124,16 @@ function initBookingForm() {
             gtag('event', 'conversion_event_submit_lead_form', {});
         }
 
+        // Meta Pixel — Lead event (form đặt bàn submit thành công)
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead', {
+                content_name: 'Booking Form',
+                content_category: 'restaurant_reservation',
+                num_guests: data.guests,
+                source: trafficSource.source
+            });
+        }
+
         // Open Zalo with pre-filled message
         const zaloUrl = 'https://zalo.me/' + zaloNumber + '?text=' + encodeURIComponent(message);
 

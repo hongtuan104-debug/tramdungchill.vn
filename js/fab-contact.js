@@ -6,10 +6,14 @@
 (function() {
     'use strict';
 
-    // Track click events via GA4 + Google Ads
+    // Track click events via GA4 + Google Ads + Meta Pixel
     function trackEvent(action, source) {
         if (typeof gtag === 'function') {
             gtag('event', action, { event_category: 'contact', event_label: source });
+        }
+        // Meta Pixel — Contact event
+        if (typeof fbq === 'function') {
+            fbq('track', 'Contact', { content_name: action, content_category: source });
         }
     }
 

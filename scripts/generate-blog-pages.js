@@ -121,7 +121,8 @@ try {
     console.log("Reading blog data...");
     const dataSource = fs.readFileSync(DATA_FILE, "utf8");
     const sandbox = {};
-    vm.runInNewContext(dataSource, sandbox);
+    // Append assignment so `const BLOG_ARTICLES` (block-scoped) is exposed on sandbox
+    vm.runInNewContext(dataSource + "\n;this.BLOG_ARTICLES = BLOG_ARTICLES;", sandbox);
     const articles = sandbox.BLOG_ARTICLES;
 
     if (!articles || !Array.isArray(articles)) {
