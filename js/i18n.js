@@ -7,15 +7,8 @@
 
 function initI18n() {
     const saved = localStorage.getItem('lang');
-    let lang;
-
-    if (saved) {
-        lang = saved;
-    } else {
-        // Auto-detect: if browser is English, default to English
-        const browserLang = (navigator.language || navigator.userLanguage || 'vi').toLowerCase();
-        lang = browserLang.startsWith('en') ? 'en' : 'vi';
-    }
+    // Always default to Vietnamese unless user explicitly chose English
+    const lang = saved || 'vi';
 
     document.documentElement.lang = lang;
     applyTranslations(lang);
