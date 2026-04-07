@@ -45,6 +45,55 @@ var TRANSLATIONS = {
     'exp.occasion.desc': 'Setup bàn tiệc lãng mạn với hoa, nến, bảng chúc mừng — biến khoảnh khắc của bạn thành kỷ niệm khắc sâu, chỉ có một lần trong đời.',
     'exp.occasion.cta': 'Đặt tiệc ngay',
 
+    // Perks - 6 unique services
+    'perks.tag': 'Đặc quyền dành cho bạn',
+    'perks.title': '6 điều tử tế<br><em>chỉ có ở Trạm Dừng Chill</em>',
+    'perks.sub': 'Vì khách của Trạm xứng đáng được chăm sóc tận tâm',
+    'perks.viral1': 'Viral 251K views',
+    'perks.viral2': 'Viral 118K views',
+    'perks.1.title': 'Áo mưa miễn phí',
+    'perks.1.desc': 'Mưa Đà Lạt bất chợt? Đừng lo. Mỗi khách 1 áo mưa free mang về tận nhà.',
+    'perks.2.title': 'Mền + lò than sưởi ấm',
+    'perks.2.desc': 'Đà Lạt 9 độ? Báo nhân viên, mền tận bàn + lò than sưởi ấm ngay lập tức.',
+    'perks.3.title': 'Trà chờ miễn phí',
+    'perks.3.desc': 'Quán đông phải chờ? Mời bạn ly trà nóng, ngắm hoàng hôn trong lúc đợi bàn.',
+    'perks.4.title': 'Trông trẻ giúp ba mẹ',
+    'perks.4.desc': '"Khách ghé tụi em ăn nướng, con cái để tụi e lo" — ba mẹ ăn ngon miệng, con vui chơi.',
+    'perks.5.title': 'Setup tiệc miễn phí',
+    'perks.5.desc': 'Sinh nhật, kỷ niệm, cầu hôn? Trạm setup hoa, nến, bảng chúc mừng — hoàn toàn free.',
+    'perks.6.title': 'Bàn view không phụ thu',
+    'perks.6.desc': 'Bàn view xe lửa, hoàng hôn, nhà lồng — tất cả đều cùng giá. Không tính thêm 1 đồng.',
+    'perks.cta': 'Đặt Bàn Trải Nghiệm Ngay',
+
+    // Story
+    'story.tag': 'Câu chuyện',
+    'story.title': 'Nơi mỗi bữa ăn<br><em>là một kỷ niệm</em>',
+    'story.since': 'Năm thành lập',
+    'story.p1': 'Trạm Dừng Chill ra đời từ tình yêu Đà Lạt và mong muốn tạo ra một nơi thực sự "chill" — nơi bạn có thể vừa nướng BBQ thơm phức, vừa ngắm hoàng hôn buông xuống thung lũng nhà lồng, vừa nghe tiếng còi tàu lửa vang lên giữa bữa ăn.',
+    'story.p2': 'Mỗi món ăn được chuẩn bị tươi mỗi ngày, mỗi bàn được setup tỉ mỉ, mỗi nhân viên được đào tạo để mang đến cho bạn trải nghiệm trọn vẹn nhất. Hơn 76,000 followers TikTok và 4.8/5 sao Google không phải là con số — đó là sự tin tưởng của khách hàng dành cho chúng tôi.',
+    'story.stat1': 'Khách phục vụ',
+    'story.stat2': 'Món signature',
+    'story.stat3': 'Tươi mỗi ngày',
+
+    // TikTok Gallery
+    'tiktok.tag': 'TikTok Viral',
+    'tiktok.title': 'Triệu lượt xem<br><em>trên TikTok</em>',
+    'tiktok.sub': '76K followers · 1.4M lượt thích · Xem từ @tiemnuongtramdungchill',
+    'tiktok.cta': 'Xem thêm trên TikTok',
+
+    // Reviews (real testimonials)
+    'reviews.tag': 'Khách nói gì',
+    'reviews.title': 'Gần <em>6,000 lượt đánh giá</em><br>5 sao trên Google',
+    'reviews.on': 'trên Google Reviews',
+    'reviews.count': '· 5,949 đánh giá thực tế',
+    'reviews.cta': 'Xem tất cả đánh giá trên Google',
+    'reviews.sub': 'Đã đến quán? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Đánh giá ngay →</a>',
+
+    // Sticky Booking Bar
+    'sticky.title': 'Đặt bàn online',
+    'sticky.sub': 'Setup miễn phí • Phản hồi 15 phút',
+    'sticky.cta': 'Đặt Bàn',
+
     // Menu
     'menu.tag': 'Thực đơn',
     'menu.title': 'Menu Tiệm Nướng',
@@ -178,6 +227,55 @@ var TRANSLATIONS = {
     'exp.occasion.title': 'Birthdays & Anniversaries',
     'exp.occasion.desc': 'Romantic setup with flowers, candles, and celebration signs — turn your moment into a memory carved deep, the kind that happens only once.',
     'exp.occasion.cta': 'Book a celebration',
+
+    // Perks - 6 unique services
+    'perks.tag': 'Special perks for you',
+    'perks.title': '6 thoughtful touches<br><em>only at Tram Dung Chill</em>',
+    'perks.sub': 'Because our guests deserve genuine care',
+    'perks.viral1': 'Viral 251K views',
+    'perks.viral2': 'Viral 118K views',
+    'perks.1.title': 'Free raincoats',
+    'perks.1.desc': 'Sudden Da Lat rain? No worries. Each guest gets a free raincoat to take home.',
+    'perks.2.title': 'Blankets & charcoal warmers',
+    'perks.2.desc': 'Da Lat at 9°C? Just ask — we bring blankets and charcoal warmers right to your table.',
+    'perks.3.title': 'Free welcome tea',
+    'perks.3.desc': 'Restaurant full? Enjoy a hot tea while watching the sunset as you wait for your table.',
+    'perks.4.title': 'We watch your kids',
+    'perks.4.desc': '"Come have BBQ, we will look after your kids" — parents enjoy the meal while children play happily.',
+    'perks.5.title': 'Free party setup',
+    'perks.5.desc': 'Birthday, anniversary, proposal? We set up flowers, candles, celebration signs — completely free.',
+    'perks.6.title': 'No view surcharge',
+    'perks.6.desc': 'Train view, sunset view, greenhouse view — all the same price. Not a single dong extra.',
+    'perks.cta': 'Book Your Experience',
+
+    // Story
+    'story.tag': 'Our Story',
+    'story.title': 'Where every meal<br><em>becomes a memory</em>',
+    'story.since': 'Founded in',
+    'story.p1': 'Tram Dung Chill was born from a love of Da Lat and a desire to create a truly "chill" place — where you can grill BBQ, watch the sunset over the greenhouse valley, and hear the train whistle echo through your meal.',
+    'story.p2': 'Every dish is prepared fresh daily, every table is set with care, every staff member is trained to give you a complete experience. 76,000+ TikTok followers and 4.8/5 stars on Google are not just numbers — they are the trust our customers give us.',
+    'story.stat1': 'Guests served',
+    'story.stat2': 'Signature dishes',
+    'story.stat3': 'Fresh daily',
+
+    // TikTok Gallery
+    'tiktok.tag': 'TikTok Viral',
+    'tiktok.title': 'Millions of views<br><em>on TikTok</em>',
+    'tiktok.sub': '76K followers · 1.4M likes · Watch from @tiemnuongtramdungchill',
+    'tiktok.cta': 'See more on TikTok',
+
+    // Reviews (real testimonials)
+    'reviews.tag': 'What guests say',
+    'reviews.title': 'Nearly <em>6,000 reviews</em><br>5 stars on Google',
+    'reviews.on': 'on Google Reviews',
+    'reviews.count': '· 5,949 verified reviews',
+    'reviews.cta': 'See all reviews on Google',
+    'reviews.sub': 'Already visited? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Leave a review →</a>',
+
+    // Sticky Booking Bar
+    'sticky.title': 'Book online',
+    'sticky.sub': 'Free setup • 15-minute confirmation',
+    'sticky.cta': 'Book Now',
 
     // Menu
     'menu.tag': 'Our menu',
