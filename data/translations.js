@@ -18,7 +18,7 @@ var TRANSLATIONS = {
 
     // Hero
     'hero.subtitle': 'Tiệm Nướng',
-    'hero.description': 'Dừng chân giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ,<br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh',
+    'hero.description': 'Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ,<br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh',
     'hero.cta': 'Đặt Bàn Ngay',
     'hero.menu': 'Xem Menu',
     'hero.scroll': 'Cuộn xuống',
@@ -117,7 +117,7 @@ var TRANSLATIONS = {
     'map.cta': 'Chỉ đường Google Maps',
 
     // Footer
-    'footer.desc': 'Dừng chân giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ, đợi hoàng hôn buông và nhà lồng lên đèn lung linh.',
+    'footer.desc': 'Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ, đợi hoàng hôn buông và nhà lồng lên đèn lung linh.',
     'footer.link.title': 'Liên kết',
     'footer.contact.title': 'Liên hệ',
     'footer.hours.title': 'Giờ mở cửa',
