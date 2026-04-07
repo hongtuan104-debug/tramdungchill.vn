@@ -35,7 +35,8 @@ const INDEX_FILES = [
     "js/hero.js",
     "js/menu-renderer.js",
     "js/gallery.js",
-    "js/booking.js"
+    "js/booking.js",
+    "js/sticky-tiktok.js"
 ];
 
 const BLOG_FILES = [

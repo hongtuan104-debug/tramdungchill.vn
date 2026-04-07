@@ -3213,3 +3213,244 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .scroll-arrow, .mouse-wheel { animation: none; }
     .reveal { opacity: 1; transform: none; }
 }
+
+/* ============================================
+   STICKY BOOKING BAR - Fixed bottom CTA
+   ============================================ */
+.sticky-book-bar {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    background: linear-gradient(135deg, rgba(15,13,10,0.98), rgba(26,22,18,0.98));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(212,168,83,0.3);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: bottom 0.4s var(--ease);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.4);
+}
+.sticky-book-bar.visible {
+    bottom: 0;
+}
+.sticky-book-info {
+    flex: 1;
+    min-width: 0;
+}
+.sticky-book-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 2px;
+}
+.sticky-book-sub {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sticky-book-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--night);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 20px rgba(212,168,83,0.4);
+    transition: all 0.3s var(--ease);
+    flex-shrink: 0;
+    text-decoration: none;
+    animation: pulse-glow 2.5s ease-in-out infinite;
+}
+.sticky-book-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 30px rgba(212,168,83,0.6);
+}
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 20px rgba(212,168,83,0.4); }
+    50% { box-shadow: 0 4px 30px rgba(212,168,83,0.7), 0 0 0 8px rgba(212,168,83,0.1); }
+}
+@media (max-width: 480px) {
+    .sticky-book-bar { padding: 10px 14px; }
+    .sticky-book-title { font-size: 0.88rem; }
+    .sticky-book-sub { font-size: 0.68rem; }
+    .sticky-book-btn { padding: 10px 18px; font-size: 0.85rem; }
+}
+
+/* ============================================
+   SOCIAL PROOF BAR
+   ============================================ */
+.social-proof-bar {
+    background: linear-gradient(180deg, var(--night) 0%, var(--night-soft) 100%);
+    padding: 60px 0;
+    border-top: 1px solid rgba(212,168,83,0.15);
+    border-bottom: 1px solid rgba(212,168,83,0.15);
+}
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+.proof-item {
+    text-align: center;
+    padding: 20px 10px;
+    border-right: 1px solid rgba(212,168,83,0.15);
+    transition: all 0.3s var(--ease);
+}
+.proof-item:last-child { border-right: none; }
+.proof-item:hover {
+    transform: translateY(-4px);
+}
+.proof-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 8px rgba(212,168,83,0.3));
+}
+.proof-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+    line-height: 1;
+}
+.proof-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+@media (max-width: 768px) {
+    .social-proof-bar { padding: 40px 0; }
+    .proof-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .proof-item { border-right: none; padding: 16px 8px; }
+    .proof-item:nth-child(5) { grid-column: 1 / -1; }
+    .proof-icon { font-size: 1.6rem; }
+    .proof-label { font-size: 0.7rem; letter-spacing: 0.5px; }
+}
+
+/* ============================================
+   TIKTOK VIRAL GALLERY
+   ============================================ */
+.tiktok-gallery {
+    background: var(--night-soft);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+.tiktok-gallery::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(255,0,80,0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+.tiktok-sub {
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    margin-top: -10px;
+    margin-bottom: 40px;
+}
+.tiktok-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+.tiktok-item {
+    aspect-ratio: 9/16;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--charcoal);
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transition: all 0.4s var(--ease);
+    cursor: pointer;
+}
+.tiktok-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(212,168,83,0.3);
+}
+.tiktok-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+.tiktok-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.tiktok-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    background: linear-gradient(180deg, transparent 0%, transparent 50%, rgba(0,0,0,0.85) 100%);
+    color: white;
+    pointer-events: none;
+}
+.tiktok-views {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff0050, #ff4081);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    box-shadow: 0 4px 15px rgba(255,0,80,0.4);
+}
+.tiktok-caption {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+.tiktok-cta {
+    text-align: center;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .tiktok-gallery { padding: 60px 0; }
+    .tiktok-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .tiktok-item:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 60%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 480px) {
+    .tiktok-grid { gap: 12px; }
+    .tiktok-overlay { padding: 14px; }
+    .tiktok-views { font-size: 0.75rem; padding: 4px 10px; }
+    .tiktok-caption { font-size: 0.85rem; }
+    .tiktok-item:nth-child(3) { max-width: 80%; }
+}
