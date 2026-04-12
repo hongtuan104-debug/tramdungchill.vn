@@ -1129,8 +1129,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .booking-bg-layer {
     position: absolute;
     inset: 0;
-    background: url('assets/images/hero-night.jpg') center/cover no-repeat;
-    background: url('assets/images/hero-night.webp') center/cover no-repeat;
+    background: url('../assets/images/hero-night.jpg') center/cover no-repeat;
+    background: url('../assets/images/hero-night.webp') center/cover no-repeat;
     opacity: 0.12;
     filter: blur(2px);
 }
