@@ -119,18 +119,43 @@ function initBookingForm() {
 
         // Telegram notification is handled by Google Apps Script webhook
 
-        // Google Ads conversion tracking — SUBMIT_LEAD_FORM
+        // ============================================
+        // CONVERSION TRACKING — All platforms
+        // Fire after successful form submission
+        // ============================================
+
+        // 1. Google Ads conversion
         if (typeof gtag === 'function') {
             gtag('event', 'conversion_event_submit_lead_form', {});
         }
 
-        // Meta Pixel — Lead event (form đặt bàn submit thành công)
+        // 2. GA4 — generate_lead event (for GA4 reporting + conversion)
+        if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+                currency: 'VND',
+                value: 0,
+                event_category: 'booking',
+                event_label: trafficSource.source,
+                guests: data.guests,
+                occasion: data.occasion || ''
+            });
+        }
+
+        // 3. Meta/Facebook Pixel — Lead event
         if (typeof fbq === 'function') {
             fbq('track', 'Lead', {
                 content_name: 'Booking Form',
                 content_category: 'restaurant_reservation',
                 num_guests: data.guests,
                 source: trafficSource.source
+            });
+        }
+
+        // 4. TikTok Pixel — CompleteRegistration event
+        if (typeof ttq !== 'undefined') {
+            ttq.track('CompleteRegistration', {
+                content_name: 'Booking Form',
+                quantity: parseInt(data.guests) || 1
             });
         }
 
