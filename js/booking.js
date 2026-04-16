@@ -117,6 +117,26 @@ function initBookingForm() {
             }
         }
 
+        // === TDC Booking App — auto-create booking ===
+        try {
+            await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: data.name,
+                    phone: cleanPhone,
+                    date: data.date,
+                    time: data.time,
+                    guests: parseInt(data.guests) || 2,
+                    occasion: data.occasion || '',
+                    note: data.note || '',
+                    source: trafficSource.source,
+                    medium: trafficSource.medium,
+                    campaign: trafficSource.campaign
+                })
+            });
+        } catch (e) { console.warn('App webhook skip:', e); }
+
         // Telegram notification is handled by Google Apps Script webhook
 
         // ============================================
