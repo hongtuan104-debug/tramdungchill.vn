@@ -49,7 +49,7 @@ const SITE_CONFIG = {
 
     // Webhook dat ban - Dan URL Google Apps Script vao day
     // Xem huong dan: docs/SETUP-WEBHOOK.md
-    webhookUrl: 'https://script.google.com/macros/s/AKfycbz46uJ-lfzLgqQSaMYHYu6cviIVg2IGF7R0YfQPAGMyYh4ESD1XRKPbGzjtmXR6U1bm/exec',
+    webhookUrl: 'https://script.google.com/macros/s/AKfycbzvcBVMUU55EilLq-WeKgwuoD_p_2A23X-BctyzIQw284HnOvKDvtoxHr79w0msJlztPw/exec',
 
     // Telegram: handled server-side by Google Apps Script webhook
     // Do NOT put bot tokens in client-side code
