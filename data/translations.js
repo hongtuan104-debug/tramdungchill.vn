@@ -166,7 +166,11 @@ var TRANSLATIONS = {
     'booking.form.time.1700': '17:00 - Hoàng hôn 🌅 PHỔ BIẾN NHẤT',
     'booking.form.time.1830': '18:30 - Nhà lồng lên đèn',
     'booking.form.time.1930': '19:30 - Nhà lồng lên đèn ✨',
-    'booking.form.time.2000': '20:00 - Tàu tối 🚂 (tuỳ ngày)',
+    'booking.form.time.2000': '20:00 - Sau peak, phục vụ chu đáo 🍷',
+    'booking.form.time.2030': '20:30 - Không gian lắng, couple hẹn hò',
+    'booking.form.time.2100': '21:00 - Deep chill, nhóm bạn',
+    'booking.form.time.2130': '21:30 - Last call (quán đóng 23:00)',
+    'booking.form.time.note': '💡 Sau 20:00 quán thoáng — phục vụ kỹ hơn, lý tưởng hẹn hò acoustic chill',
 
     // Map
     'map.title': 'Đường đến<br>Trạm Dừng Chill',
@@ -356,7 +360,11 @@ var TRANSLATIONS = {
     'booking.form.time.1700': '17:00 - Sunset 🌅 MOST POPULAR',
     'booking.form.time.1830': '18:30 - Greenhouse lights',
     'booking.form.time.1930': '19:30 - Greenhouse lights ✨',
-    'booking.form.time.2000': '20:00 - Night train 🚂 (seasonal)',
+    'booking.form.time.2000': '20:00 - After peak, more attentive service 🍷',
+    'booking.form.time.2030': '20:30 - Calm vibes, date night',
+    'booking.form.time.2100': '21:00 - Deep chill, friends group',
+    'booking.form.time.2130': '21:30 - Last call (closes 23:00)',
+    'booking.form.time.note': '💡 After 20:00 — quieter, more attentive service, perfect for dates or acoustic chill',
 
     // Map
     'map.title': 'How to get to<br>Tram Dung Chill',
