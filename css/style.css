@@ -1215,7 +1215,20 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     text-align: center;
     font-size: 0.88rem;
     color: var(--smoke);
-    margin-bottom: 28px;
+    margin-bottom: 16px;
+}
+
+.form-urgency {
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #b45309;
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 24px;
+    line-height: 1.4;
 }
 
 .form-row {
@@ -1265,6 +1278,21 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     font-size: 0.8rem;
     color: var(--smoke);
     margin-top: 12px;
+}
+
+.form-trust {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-trust li {
+    font-size: 0.82rem;
+    color: var(--wood);
+    line-height: 1.4;
 }
 /* ============================================
    MAP — Map Section

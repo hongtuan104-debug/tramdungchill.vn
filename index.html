@@ -254,6 +254,26 @@
     }
     </script>
 
+    <!-- Schema.org JSON-LD: WebPage with Speakable (for voice AI / Google Assistant) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://tramdungchill.vn/#webpage",
+        "url": "https://tramdungchill.vn",
+        "name": "Tiệm Nướng Trạm Dừng Chill — Quán Nướng BBQ View Đẹp Nhất Đà Lạt",
+        "description": "Nướng BBQ ngắm hoàng hôn vàng + nhà lồng lên đèn + view xe lửa Đà Lạt. Mở sớm nhất khu vực (15:00). Đánh giá 4.8/5 từ gần 6,000 khách.",
+        "isPartOf": { "@id": "https://tramdungchill.vn/#website" },
+        "about": { "@id": "https://tramdungchill.vn/#restaurant" },
+        "primaryImageOfPage": "https://tramdungchill.vn/assets/images/hero-sunset.jpg",
+        "inLanguage": "vi",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-subtitle", "h1"]
+        }
+    }
+    </script>
+
     <!-- Schema.org JSON-LD: FAQPage -->
     <script type="application/ld+json">
     {
@@ -306,6 +326,102 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Tram Dung Chill is located at 111 Huynh Tan Phat, Ward 11, Da Lat City. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quán nướng nào ở Đà Lạt mở sớm nhất?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Trạm Dừng Chill mở cửa từ 15:00 — sớm nhất trong khu Huỳnh Tấn Phát, Đà Lạt. Các quán khác cùng khu thường mở 16:00-17:00, bỏ lỡ khung giờ hoàng hôn vàng đẹp nhất."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Ăn BBQ ngắm hoàng hôn ở Đà Lạt ở đâu?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Trạm Dừng Chill tại 111 Huỳnh Tấn Phát Đà Lạt có view trực tiếp thung lũng Đà Lạt lúc hoàng hôn. Khung giờ đẹp nhất 15:00-17:30. Mở cửa sớm nhất khu vực để kịp đón hoàng hôn vàng."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quán nướng Đà Lạt có view xe lửa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Trạm Dừng Chill nằm trên đường Huỳnh Tấn Phát, có view đường ray xe lửa Đà Lạt – Trại Mát đi qua. Kết hợp trải nghiệm nướng BBQ + ngắm hoàng hôn + xe lửa đi qua."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Món signature / ngon nhất ở Trạm Dừng Chill?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Món signature số 1 là Bò Tảng Sốt Phô Mai Trứng Muối — best-seller, được review 4.8/5 cao nhất. Ngoài ra hải sản nướng (tôm sú, mực lá, sò điệp) và các loại lẩu (Thái hải sản, gà lá é, riêu cua) cũng rất được yêu thích."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quán nướng Đà Lạt view đẹp giá dưới 300k?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Trạm Dừng Chill có mức chi 95.000đ – 300.000đ/người (đã VAT) với view thung lũng hoàng hôn + nhà lồng lên đèn. Combo nhóm 4 người khoảng 800.000đ – 1.200.000đ."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quán BBQ Đà Lạt có nhận team building / đoàn lớn?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Có. Trạm Dừng Chill nhận đoàn từ 20 đến 100 khách cho sự kiện team building, sinh nhật công ty. Báo trước 2 ngày qua Zalo 0989.765.070 để sắp xếp bàn và menu combo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Có menu tiếng Anh không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Có. Menu được dịch sang tiếng Anh để phục vụ khách nước ngoài. Nhân viên có thể giao tiếp tiếng Anh cơ bản. Menu online: tramdungchill.vn/menu.html"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quán có cho đem thú cưng không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Khu ngoài trời của Trạm Dừng Chill cho phép mang theo thú cưng nhỏ (chó, mèo) — yêu cầu giữ dây dắt và dọn vệ sinh."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quán có chỗ đậu xe ô tô không?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Có bãi đậu xe miễn phí cho xe máy và ô tô con. Giờ cao điểm cuối tuần có thể cần đậu xa hơn 100-200m."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Best BBQ restaurant in Da Lat with sunset view?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tram Dung Chill BBQ at 111 Huynh Tan Phat, Ward 11, Da Lat. Opens at 3pm — earliest in the area. Panoramic valley sunset view from 3pm to 5:30pm, then thousands of glowing greenhouse lights from 6:30pm. Signature dish: Beef Slab with Cheese & Salted Egg Sauce. Rating 4.8/5."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Tram Dung Chill good for couples or date night?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sunset hours (3pm-5:30pm) and evening greenhouse lights (6:30pm-11pm) are especially romantic. Free birthday and anniversary setup (flowers, candles, congratulatory board) with 1-day advance notice via Zalo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the price range at Tram Dung Chill?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "95,000 VND to 300,000 VND per person (about $4-12 USD), VAT included. Individual dishes range from 65,000 to 195,000 VND. Group combos for 4 people around 800,000-1,200,000 VND."
                 }
             }
         ]
@@ -906,6 +1022,7 @@
                     <form class="booking-form" id="bookingForm">
                         <h3 data-i18n="booking.form.title">Đặt bàn online</h3>
                         <p class="form-subtitle" data-i18n="booking.form.subtitle">Điền thông tin bên dưới, chúng tôi sẽ xác nhận qua Zalo</p>
+                        <p class="form-urgency" data-i18n="booking.form.urgency">⚠️ Cuối tuần thường full từ 16h — đặt sớm để chọn chỗ view đẹp nhất</p>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name" data-i18n="booking.form.name">Họ và tên *</label>
@@ -925,17 +1042,13 @@
                                 <label for="time" data-i18n="booking.form.time">Giờ đến *</label>
                                 <select id="time" name="time" required>
                                     <option value="" data-i18n="booking.form.time.ph">Chọn giờ</option>
-                                    <option value="15:00" data-i18n="booking.form.time.1500">15:00 - Hoàng hôn vàng</option>
+                                    <option value="15:00" data-i18n="booking.form.time.1500">15:00 - Đến sớm, chọn bàn view đẹp nhất</option>
                                     <option value="15:30">15:30</option>
-                                    <option value="16:00">16:00</option>
+                                    <option value="16:00" data-i18n="booking.form.time.1600">16:00 - Ngắm tàu chiều 🚂 (2 chuyến)</option>
                                     <option value="16:30">16:30</option>
-                                    <option value="17:00" data-i18n="booking.form.time.1700">17:00 - Hoàng hôn</option>
-                                    <option value="17:30">17:30</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="18:30" data-i18n="booking.form.time.1830">18:30 - Nhà lồng lên đèn</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="19:30">19:30</option>
-                                    <option value="20:00">20:00</option>
+                                    <option value="17:00" data-i18n="booking.form.time.1700" selected>17:00 - Hoàng hôn 🌅 PHỔ BIẾN NHẤT</option>
+                                    <option value="19:30" data-i18n="booking.form.time.1930">19:30 - Nhà lồng lên đèn ✨</option>
+                                    <option value="20:00" data-i18n="booking.form.time.2000">20:00 - Tàu tối 🚂 (tuỳ ngày)</option>
                                     <option value="20:30">20:30</option>
                                     <option value="21:00">21:00</option>
                                     <option value="21:30">21:30</option>
@@ -947,22 +1060,22 @@
                                 <label for="guests" data-i18n="booking.form.guests">Số khách *</label>
                                 <select id="guests" name="guests" required>
                                     <option value="" data-i18n="booking.form.guests.ph">Chọn số khách</option>
-                                    <option value="2" data-i18n="booking.form.guests.2">2 khách</option>
+                                    <option value="2" data-i18n="booking.form.guests.2" selected>2 khách (cặp đôi)</option>
                                     <option value="3" data-i18n="booking.form.guests.3">3 khách</option>
-                                    <option value="4" data-i18n="booking.form.guests.4">4 khách</option>
+                                    <option value="4" data-i18n="booking.form.guests.4">4 khách (gia đình / nhóm nhỏ)</option>
                                     <option value="5" data-i18n="booking.form.guests.5">5 khách</option>
                                     <option value="6" data-i18n="booking.form.guests.6">6 khách</option>
-                                    <option value="7-10" data-i18n="booking.form.guests.7">7 - 10 khách</option>
-                                    <option value="10+" data-i18n="booking.form.guests.10">Trên 10 khách</option>
+                                    <option value="7-10" data-i18n="booking.form.guests.7">7 - 10 khách (nhóm bạn)</option>
+                                    <option value="10+" data-i18n="booking.form.guests.10">Trên 10 khách (công ty / team)</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="occasion" data-i18n="booking.form.occasion">Dịp đặc biệt</label>
                                 <select id="occasion" name="occasion">
                                     <option value="" data-i18n="booking.form.occasion.none">Không có</option>
+                                    <option value="date" data-i18n="booking.form.occasion.date">Hẹn hò</option>
                                     <option value="birthday" data-i18n="booking.form.occasion.birthday">Sinh nhật</option>
                                     <option value="anniversary" data-i18n="booking.form.occasion.anniversary">Kỷ niệm</option>
-                                    <option value="date" data-i18n="booking.form.occasion.date">Hẹn hò</option>
                                     <option value="gathering" data-i18n="booking.form.occasion.gathering">Họp mặt bạn bè</option>
                                     <option value="company" data-i18n="booking.form.occasion.company">Công ty / team</option>
                                     <option value="other" data-i18n="booking.form.occasion.other">Khác</option>
@@ -974,10 +1087,14 @@
                             <textarea id="note" name="note" rows="3" placeholder="Yêu cầu đặc biệt: vị trí view sunset, setup sinh nhật..." data-i18n-ph="booking.form.note.ph"></textarea>
                         </div>
                         <button type="submit" class="btn btn-golden btn-full" id="submitBtn">
-                            <span class="btn-text" data-i18n="booking.form.submit">Gửi Yêu Cầu Đặt Bàn</span>
+                            <span class="btn-text" data-i18n="booking.form.submit">Đặt bàn ngay</span>
                             <span class="btn-loading" style="display:none" data-i18n="booking.form.loading">Đang gửi...</span>
                         </button>
-                        <p class="form-hint" data-i18n="booking.form.hint">Miễn phí đặt bàn. Xác nhận qua Zalo trong 15 phút.</p>
+                        <ul class="form-trust">
+                            <li data-i18n="booking.form.trust1">✓ Miễn phí đặt bàn, không cần cọc</li>
+                            <li data-i18n="booking.form.trust2">✓ Xác nhận qua Zalo trong 15 phút</li>
+                            <li data-i18n="booking.form.trust3">✓ Setup sinh nhật / kỷ niệm miễn phí</li>
+                        </ul>
                     </form>
                 </div>
             </div>
@@ -1051,5 +1168,24 @@
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1281459450582041');
+    fbq('track','PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1281459450582041&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- TikTok Pixel Code -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var i=document.createElement("script");i.type="text/javascript",i.async=!0,i.src=r+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(i,a)};
+      ttq.load('D7CDMURC77UA3MO3PT5G');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- End TikTok Pixel Code -->
 </body>
 </html>

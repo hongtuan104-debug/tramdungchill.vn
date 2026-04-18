@@ -370,6 +370,21 @@ body.dip-landing {
     color: var(--smoke);
 }
 
+.form-trust {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-trust li {
+    font-size: 0.85rem;
+    color: var(--wood, #5a4a3a);
+    line-height: 1.4;
+}
+
 /* Footer */
 .dip-footer {
     background: var(--night);

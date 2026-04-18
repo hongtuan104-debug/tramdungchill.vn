@@ -3,16 +3,82 @@ Allow: /
 
 Sitemap: https://tramdungchill.vn/sitemap.xml
 
-# Cho phep tat ca bot crawl
+# Google
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Bing / Microsoft
 User-agent: Bingbot
 Allow: /
 
-# Block khong can thiet
+User-agent: msnbot
+Allow: /
+
+# OpenAI (ChatGPT + training)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (feeds most LLM training datasets)
+User-agent: CCBot
+Allow: /
+
+# ByteDance (TikTok / Doubao)
+User-agent: Bytespider
+Allow: /
+
+# Amazon (Alexa / Rufus)
+User-agent: Amazonbot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Dev folders (block for all)
+User-agent: *
 Disallow: /docs/
 Disallow: /plans/
 Disallow: /scripts/
 Disallow: /templates/
 Disallow: /node_modules/
+Disallow: /dist/

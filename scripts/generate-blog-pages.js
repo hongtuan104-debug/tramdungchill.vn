@@ -257,7 +257,7 @@ try {
         { loc: "/review-qr.html", lastmod: TODAY, changefreq: "monthly", priority: "0.5" }
     ];
 
-    const publishedArticles = articles.filter(a => a.date <= TODAY);
+    const publishedArticles = articles;
 
     function sitemapUrl(loc, lastmod, changefreq, priority) {
         const fullUrl = SITE_URL + loc;

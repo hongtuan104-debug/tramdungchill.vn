@@ -50,6 +50,18 @@ function initBookingForm() {
 
     const zaloNumber = SITE_CONFIG.contact.zaloNumber;
 
+    // Pre-fill date = today + set min = today (prevent past dates)
+    const dateInput = form.querySelector('input[type="date"][name="date"]');
+    if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const todayStr = yyyy + '-' + mm + '-' + dd;
+        if (!dateInput.value) dateInput.value = todayStr;
+        dateInput.min = todayStr;
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -175,6 +187,7 @@ function initBookingForm() {
         if (typeof ttq !== 'undefined') {
             ttq.track('CompleteRegistration', {
                 content_name: 'Booking Form',
+                content_type: 'restaurant_reservation',
                 quantity: parseInt(data.guests) || 1
             });
         }
