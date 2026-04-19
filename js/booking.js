@@ -98,10 +98,33 @@ function initBookingForm() {
         // Get traffic source (UTM or referrer)
         const trafficSource = getTrafficSource();
 
-        // Send data via webhook (Google Apps Script → Google Sheet)
-        // mode: 'no-cors' — GAS redirects POST, browser blocks cross-origin redirects
-        const webhookUrl = SITE_CONFIG.webhookUrl;
+        // Shared event_id cho browser pixel + server CAPI (Meta/TikTok dedupe)
+        const eventId = 'tdc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+
+        // === TDC Booking App — auto-create booking (FIRST để đảm bảo event_id từ client được dùng) ===
         let webhookOk = true;
+        try {
+            await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: data.name,
+                    phone: cleanPhone,
+                    date: data.date,
+                    time: data.time,
+                    guests: parseInt(data.guests) || 2,
+                    occasion: data.occasion || '',
+                    note: data.note || '',
+                    source: trafficSource.source,
+                    medium: trafficSource.medium,
+                    campaign: trafficSource.campaign,
+                    event_id: eventId
+                })
+            });
+        } catch (e) { console.warn('App webhook skip:', e); }
+
+        // Send data via webhook (Google Apps Script → Google Sheet) — AFTER để dedup 5min catch sendToApp
+        const webhookUrl = SITE_CONFIG.webhookUrl;
         if (webhookUrl) {
             try {
                 await fetch(webhookUrl, {
@@ -129,26 +152,6 @@ function initBookingForm() {
             }
         }
 
-        // === TDC Booking App — auto-create booking ===
-        try {
-            await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: data.name,
-                    phone: cleanPhone,
-                    date: data.date,
-                    time: data.time,
-                    guests: parseInt(data.guests) || 2,
-                    occasion: data.occasion || '',
-                    note: data.note || '',
-                    source: trafficSource.source,
-                    medium: trafficSource.medium,
-                    campaign: trafficSource.campaign
-                })
-            });
-        } catch (e) { console.warn('App webhook skip:', e); }
-
         // Telegram notification is handled by Google Apps Script webhook
 
         // ============================================
@@ -173,23 +176,23 @@ function initBookingForm() {
             });
         }
 
-        // 3. Meta/Facebook Pixel — Lead event
+        // 3. Meta/Facebook Pixel — Lead event (eventID match với server CAPI)
         if (typeof fbq === 'function') {
             fbq('track', 'Lead', {
                 content_name: 'Booking Form',
                 content_category: 'restaurant_reservation',
                 num_guests: data.guests,
                 source: trafficSource.source
-            });
+            }, { eventID: eventId });
         }
 
-        // 4. TikTok Pixel — CompleteRegistration event
+        // 4. TikTok Pixel — CompleteRegistration event (event_id match với server Events API)
         if (typeof ttq !== 'undefined') {
             ttq.track('CompleteRegistration', {
                 content_name: 'Booking Form',
                 content_type: 'restaurant_reservation',
                 quantity: parseInt(data.guests) || 1
-            });
+            }, { event_id: eventId });
         }
 
         // Open Zalo with pre-filled message
