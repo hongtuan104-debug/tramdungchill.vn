@@ -10,12 +10,14 @@ function detectCurrentPage() {
     if (path.indexOf('blog') !== -1) return 'blog';
     if (path.indexOf('404') !== -1) return '404';
     if (path.indexOf('review-qr') !== -1) return 'review-qr';
+    if (path.indexOf('/duong-di/') !== -1) return 'duong-di';
     return 'index';
 }
 
 async function loadLayout() {
     const page = detectCurrentPage();
-    const isSubdir = window.location.pathname.indexOf('/blog/') !== -1;
+    const pathname = window.location.pathname;
+    const isSubdir = pathname.indexOf('/blog/') !== -1 || pathname.indexOf('/duong-di/') !== -1;
     const prefix = isSubdir ? '../' : '';
 
     // Load nav
