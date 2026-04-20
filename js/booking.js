@@ -4,6 +4,42 @@
    ============================================ */
 
 /**
+ * Đọc cookie theo tên. Trả '' nếu không có.
+ */
+function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[1]) : '';
+}
+
+/**
+ * Lấy các click-ID / browser-ID để Meta + TikTok dedupe + match khách ads.
+ * Ưu tiên cookie (Pixel đã set), fallback URL param (khách click ads lần đầu,
+ * pixel chưa kịp set cookie trước khi submit form).
+ *
+ * Why: tăng Event Match Quality (Meta 5.2 → 7-8, TikTok tương tự) → attribution
+ * chính xác hơn → ads optimizer biết đúng người convert.
+ */
+function getAdsClickIds() {
+    const params = new URLSearchParams(window.location.search);
+
+    // Meta Pixel cookies
+    const fbp = getCookie('_fbp');
+    let fbc = getCookie('_fbc');
+
+    // Nếu không có _fbc cookie nhưng URL có fbclid → build format Meta chuẩn
+    const fbclid = params.get('fbclid');
+    if (!fbc && fbclid) {
+        fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+    }
+
+    // TikTok: ttclid từ URL, ttp (TikTok browser ID) từ cookie
+    const ttclid = params.get('ttclid') || getCookie('ttclid') || '';
+    const ttp = getCookie('_ttp') || getCookie('ttp') || '';
+
+    return { fbp, fbc, ttclid, ttp };
+}
+
+/**
  * Get traffic source from UTM params or referrer.
  * Saves to sessionStorage so it persists across page navigation.
  */
@@ -101,6 +137,9 @@ function initBookingForm() {
         // Shared event_id cho browser pixel + server CAPI (Meta/TikTok dedupe)
         const eventId = 'tdc_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
 
+        // Ads click-IDs để CAPI match với người click ads (boost match quality)
+        const clickIds = getAdsClickIds();
+
         // === TDC Booking App — auto-create booking (FIRST để đảm bảo event_id từ client được dùng) ===
         let webhookOk = true;
         try {
@@ -118,7 +157,11 @@ function initBookingForm() {
                     source: trafficSource.source,
                     medium: trafficSource.medium,
                     campaign: trafficSource.campaign,
-                    event_id: eventId
+                    event_id: eventId,
+                    fbp: clickIds.fbp,
+                    fbc: clickIds.fbc,
+                    ttclid: clickIds.ttclid,
+                    ttp: clickIds.ttp
                 })
             });
         } catch (e) { console.warn('App webhook skip:', e); }
