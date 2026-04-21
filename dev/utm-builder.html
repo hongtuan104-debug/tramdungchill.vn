@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>UTM Builder — TDC Ads</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,Segoe UI,Inter,sans-serif;background:#0F0D0A;color:#FDF8F3;min-height:100vh;padding:24px 16px;line-height:1.5}
+  .wrap{max-width:780px;margin:0 auto}
+  h1{font-size:1.6rem;color:#D4A853;margin-bottom:8px}
+  .sub{color:#8B7D6B;margin-bottom:24px;font-size:.95rem}
+  .card{background:#1A1612;border:1px solid #2C2420;border-radius:12px;padding:20px;margin-bottom:16px}
+  label{display:block;font-size:.85rem;color:#D4A853;margin-bottom:6px;font-weight:500;letter-spacing:.3px;text-transform:uppercase}
+  input,select{width:100%;padding:10px 12px;background:#0F0D0A;border:1px solid #3D3229;color:#FDF8F3;border-radius:8px;font-size:.95rem;font-family:inherit}
+  input:focus,select:focus{outline:none;border-color:#D4A853}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .field{margin-bottom:12px}
+  .output{background:#0F0D0A;border:2px solid #D4A853;padding:14px;border-radius:8px;font-family:ui-monospace,Consolas,monospace;font-size:.88rem;word-break:break-all;color:#FDF8F3;margin-top:8px}
+  .btn{background:#D4A853;color:#0F0D0A;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.95rem;margin-top:10px;transition:opacity .2s}
+  .btn:hover{opacity:.85}
+  .btn-secondary{background:#2C2420;color:#FDF8F3;border:1px solid #3D3229}
+  .hint{font-size:.8rem;color:#8B7D6B;margin-top:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .chip{padding:4px 10px;background:#2C2420;border-radius:12px;font-size:.8rem;cursor:pointer;color:#D4A853;border:1px solid #3D3229}
+  .chip:hover{background:#D4A853;color:#0F0D0A}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:#D4A853;color:#0F0D0A;padding:12px 24px;border-radius:8px;font-weight:600;opacity:0;transition:all .3s}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .preset-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .preset-btns button{background:#2C2420;color:#D4A853;border:1px solid #3D3229;padding:6px 14px;border-radius:20px;font-size:.85rem;cursor:pointer;font-family:inherit}
+  .preset-btns button:hover{background:#D4A853;color:#0F0D0A;border-color:#D4A853}
+  h3{color:#D4A853;font-size:1.05rem;margin-bottom:10px}
+  .guide{font-size:.88rem}
+  .guide ol{padding-left:20px;color:#B8A99A}
+  .guide li{margin-bottom:6px}
+  .guide code{background:#2C2420;padding:2px 6px;border-radius:4px;color:#D4A853;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🔧 UTM Builder — TDC Ads</h1>
+  <p class="sub">Gen URL có UTM để tag vào TikTok / Meta / Google Ads — GA4 sẽ phân biệt source/medium chính xác</p>
+
+  <div class="card">
+    <h3>Preset nhanh (1 click)</h3>
+    <div class="preset-btns">
+      <button onclick="preset('tiktok','cpc')">TikTok Ads 💰</button>
+      <button onclick="preset('facebook','cpc')">FB Ads 💰</button>
+      <button onclick="preset('instagram','cpc')">IG Ads 💰</button>
+      <button onclick="preset('tiktok','organic')">TikTok Bio/Post 🎁</button>
+      <button onclick="preset('facebook','organic')">FB Organic 🎁</button>
+      <button onclick="preset('google','cpc')">Google Ads 💰</button>
+      <button onclick="preset('zalo','social')">Zalo share</button>
+      <button onclick="preset('kol','referral')">KOL/Affiliate</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="field">
+      <label>Landing page (trang đích)</label>
+      <select id="landing">
+        <option value="https://tramdungchill.vn/">Trang chủ — tramdungchill.vn</option>
+        <option value="https://tramdungchill.vn/menu.html">Menu</option>
+        <option value="https://tramdungchill.vn/dip/san-tau-da-lat.html">Săn tàu Đà Lạt</option>
+        <option value="https://tramdungchill.vn/dip/cau-hon-hen-ho.html">Cầu hôn · hẹn hò</option>
+        <option value="https://tramdungchill.vn/dip/team-building.html">Team building</option>
+        <option value="https://tramdungchill.vn/dip/sinh-nhat.html">Sinh nhật</option>
+        <option value="https://tramdungchill.vn/duong-di/">Đường đi</option>
+        <option value="https://tramdungchill.vn/blog.html">Blog</option>
+        <option value="__custom__">📝 Khác — nhập tay</option>
+      </select>
+      <input id="landingCustom" placeholder="https://tramdungchill.vn/..." style="display:none;margin-top:8px">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>utm_source <span style="color:#8B7D6B">(bắt buộc)</span></label>
+        <input id="source" placeholder="tiktok" list="sourceList">
+        <datalist id="sourceList">
+          <option value="tiktok"><option value="facebook"><option value="instagram"><option value="google"><option value="zalo"><option value="youtube"><option value="kol">
+        </datalist>
+      </div>
+      <div class="field">
+        <label>utm_medium <span style="color:#8B7D6B">(bắt buộc)</span></label>
+        <input id="medium" placeholder="cpc" list="mediumList">
+        <datalist id="mediumList">
+          <option value="cpc"><option value="organic"><option value="social"><option value="email"><option value="messenger"><option value="referral"><option value="affiliate"><option value="qr">
+        </datalist>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>utm_campaign <span style="color:#8B7D6B">(nên có)</span></label>
+      <input id="campaign" placeholder="hoang_hon_15h">
+      <div class="chips">
+        <span class="chip" onclick="setC('hoang_hon_15h')">hoang_hon_15h</span>
+        <span class="chip" onclick="setC('nha_long_1830')">nha_long_1830</span>
+        <span class="chip" onclick="setC('bo_tang_pho_mai')">bo_tang_pho_mai</span>
+        <span class="chip" onclick="setC('san_tau_dem')">san_tau_dem</span>
+        <span class="chip" onclick="setC('cau_hon_hen_ho')">cau_hon_hen_ho</span>
+        <span class="chip" onclick="setC('team_building')">team_building</span>
+        <span class="chip" onclick="setC('sinh_nhat')">sinh_nhat</span>
+        <span class="chip" onclick="setC('retargeting')">retargeting</span>
+        <span class="chip" onclick="setC('lookalike_1p')">lookalike_1p</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>utm_content <span style="color:#8B7D6B">(phân biệt ad cụ thể)</span></label>
+        <input id="content" placeholder="video_sunset_15s">
+        <div class="hint">VD: video_a, carousel_menu, reel_15s, image_nha_long</div>
+      </div>
+      <div class="field">
+        <label>utm_term <span style="color:#8B7D6B">(keyword — bỏ qua nếu không phải search ads)</span></label>
+        <input id="term" placeholder="quan_nuong_da_lat">
+      </div>
+    </div>
+
+    <button class="btn" onclick="build()">🔗 Tạo URL</button>
+    <button class="btn btn-secondary" onclick="clearAll()">Xoá</button>
+  </div>
+
+  <div class="card" id="outputCard" style="display:none">
+    <h3>✅ URL đã tạo</h3>
+    <div class="output" id="output"></div>
+    <button class="btn" onclick="copyUrl()">📋 Copy URL</button>
+    <button class="btn btn-secondary" onclick="shortLink()">🔗 Rút gọn (bit.ly manual)</button>
+  </div>
+
+  <div class="card guide">
+    <h3>📖 Hướng dẫn dùng</h3>
+    <ol>
+      <li><strong>TikTok Ads:</strong> Ads Manager → chọn Ad → Tab <code>Ad Details</code> → Trường <code>URL</code> (hoặc <code>Website URL</code>) → Paste URL đã tạo → Save → Publish. TikTok sẽ REVIEW ads lại (thường 1-2h).</li>
+      <li><strong>Meta/Facebook Ads:</strong> Ads Manager → chọn Ad → Edit → Scroll xuống <code>Destination</code> → Trường <code>Website URL</code> → Paste URL → Publish. FB review ~15-30 phút.</li>
+      <li><strong>Google Ads:</strong> Campaign → Ad → Edit → <code>Final URL</code> → Paste.</li>
+      <li><strong>Quan trọng:</strong> Không được đổi domain hoặc path chính — chỉ thêm query string <code>?utm_*</code>. Nếu landing hiện tại là <code>tramdungchill.vn/</code> thì URL mới vẫn phải bắt đầu bằng đó, chỉ khác là có thêm <code>?utm_source=...</code>.</li>
+      <li><strong>Verify sau 24h:</strong> Mở GA4 → Báo cáo → Thu hút → <code>Traffic acquisition</code> → Group by "Session source / medium" → Phải thấy <code>tiktok / cpc</code>, <code>facebook / cpc</code> tách riêng.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="toast" id="toast">Đã copy URL ✓</div>
+
+<script>
+function slug(s){return String(s||'').toLowerCase().trim().replace(/\s+/g,'_').replace(/[^\w_-]/g,'').replace(/_+/g,'_')}
+function setC(v){document.getElementById('campaign').value=v;build()}
+function preset(s,m){document.getElementById('source').value=s;document.getElementById('medium').value=m;build()}
+function clearAll(){['source','medium','campaign','content','term','landingCustom'].forEach(id=>document.getElementById(id).value='');document.getElementById('outputCard').style.display='none';document.getElementById('landing').selectedIndex=0;document.getElementById('landingCustom').style.display='none'}
+document.getElementById('landing').addEventListener('change',e=>{const c=document.getElementById('landingCustom');c.style.display=e.target.value==='__custom__'?'block':'none'});
+function build(){
+  const landingSel=document.getElementById('landing').value;
+  const landing=landingSel==='__custom__'?document.getElementById('landingCustom').value.trim():landingSel;
+  if(!landing){alert('Chọn landing page');return}
+  const src=slug(document.getElementById('source').value);
+  const med=slug(document.getElementById('medium').value);
+  const cam=slug(document.getElementById('campaign').value);
+  const con=slug(document.getElementById('content').value);
+  const term=slug(document.getElementById('term').value);
+  if(!src||!med){alert('Cần tối thiểu utm_source + utm_medium');return}
+  const params=[];
+  params.push(`utm_source=${src}`);
+  params.push(`utm_medium=${med}`);
+  if(cam)params.push(`utm_campaign=${cam}`);
+  if(con)params.push(`utm_content=${con}`);
+  if(term)params.push(`utm_term=${term}`);
+  const sep=landing.includes('?')?'&':'?';
+  const url=landing+sep+params.join('&');
+  document.getElementById('output').textContent=url;
+  document.getElementById('outputCard').style.display='block';
+  document.getElementById('outputCard').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function copyUrl(){
+  const t=document.getElementById('output').textContent;
+  navigator.clipboard.writeText(t).then(()=>{
+    const toast=document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),1500);
+  });
+}
+function shortLink(){
+  const url=encodeURIComponent(document.getElementById('output').textContent);
+  window.open(`https://bitly.com/?u=${url}`,'_blank');
+}
+// Auto-build on any change
+['source','medium','campaign','content','term','landing','landingCustom'].forEach(id=>{
+  const el=document.getElementById(id);
+  el&&el.addEventListener('input',()=>{if(document.getElementById('source').value&&document.getElementById('medium').value)build()});
+});
+</script>
+</body>
+</html>
