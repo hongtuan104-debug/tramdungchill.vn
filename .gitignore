@@ -15,3 +15,6 @@ Thumbs.db
 
 # Internal planning files
 plans/
+
+# Local Claude Code permissions per máy
+.claude/settings.local.json
