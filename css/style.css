@@ -3050,6 +3050,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         text-overflow: ellipsis;
     }
 
+    /* iOS Safari: force date input value to align left (default is center) */
+    .form-group input[type="date"] {
+        text-align: left;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    .form-group input[type="date"]::-webkit-date-and-time-value {
+        text-align: left;
+    }
+
     /* iOS Safari: prevent auto-zoom on input focus */
     .form-group input,
     .form-group select,
