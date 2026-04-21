@@ -81,6 +81,399 @@
 .contact-card strong { display: block; font-size: 0.75rem; opacity: 0.6; font-weight: 500; }
 .contact-card span { font-size: 0.95rem; }
 
+/* ============================================
+   Train Card — premium showcase for tàu đêm
+   Design: elevated dark card, gradient glow,
+   dual-slot time feature, RARE badge, CTA pill
+   ============================================ */
+.train-card {
+    position: relative;
+    display: block;
+    margin-top: 24px;
+    padding: 28px 26px 22px;
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(120% 120% at 0% 0%, rgba(212, 168, 83, 0.18) 0%, transparent 55%),
+        radial-gradient(100% 100% at 100% 100%, rgba(138, 79, 255, 0.22) 0%, transparent 60%),
+        linear-gradient(160deg, #1c1628 0%, #241b32 40%, #2a2034 100%);
+    border: 1px solid rgba(212, 168, 83, 0.3);
+    box-shadow:
+        0 10px 30px -12px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1), box-shadow 0.5s ease, border-color 0.3s ease;
+}
+.train-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.35), transparent 50%),
+        radial-gradient(1px 1px at 70% 18%, rgba(255,255,255,0.25), transparent 50%),
+        radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,0.3), transparent 50%),
+        radial-gradient(1px 1px at 35% 78%, rgba(255,255,255,0.2), transparent 50%),
+        radial-gradient(1px 1px at 55% 45%, rgba(255,255,255,0.22), transparent 50%);
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 0;
+}
+.train-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(212, 168, 83, 0.7);
+    box-shadow:
+        0 22px 48px -18px rgba(138, 79, 255, 0.35),
+        0 10px 30px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(212, 168, 83, 0.25) inset;
+}
+.train-card-glow {
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 168, 83, 0.22) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+    opacity: 0.6;
+}
+.train-card:hover .train-card-glow { opacity: 1; }
+
+@keyframes train-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* Header row: icon + title */
+.train-card-head {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+.train-card-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(212, 168, 83, 0.18), rgba(138, 79, 255, 0.12));
+    border: 1px solid rgba(212, 168, 83, 0.3);
+    color: var(--gold-light, #e8c47a);
+}
+.train-card-title h4 {
+    margin: 0 0 4px;
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    line-height: 1.25;
+    font-weight: 600;
+    color: #f5e9c9;
+    letter-spacing: 0.2px;
+}
+.train-card-title p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Tiered schedule: daily / weekend / summer */
+.train-card-tiers {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+.train-tier {
+    position: relative;
+    padding: 12px 14px 13px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+.train-tier::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    bottom: 10%;
+    width: 3px;
+    background: var(--tier-accent, #d4a853);
+    border-radius: 0 2px 2px 0;
+    opacity: 0.7;
+}
+.train-tier--daily   { --tier-accent: #9ed18a; }
+.train-tier--weekend { --tier-accent: #ff9f4a; }
+.train-tier--summer  { --tier-accent: #a982ff; }
+.train-tier--summer {
+    background: linear-gradient(100deg, rgba(138, 79, 255, 0.14) 0%, rgba(212, 168, 83, 0.08) 60%, rgba(255, 170, 200, 0.06) 100%);
+    border-color: rgba(169, 130, 255, 0.3);
+}
+.train-card:hover .train-tier { border-color: rgba(255, 255, 255, 0.14); }
+.train-card:hover .train-tier--summer { border-color: rgba(169, 130, 255, 0.55); }
+
+.train-tier-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.train-tier-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: var(--tier-accent);
+    text-transform: uppercase;
+}
+.train-tier-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--tier-accent);
+    box-shadow: 0 0 8px rgba(169, 130, 255, 0.8);
+    animation: train-pulse 1.8s ease-in-out infinite;
+}
+.train-tier-count {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.55);
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.train-tier--summer .train-tier-count {
+    color: #ffd0e0;
+    background: rgba(255, 150, 180, 0.1);
+    border-color: rgba(255, 150, 180, 0.3);
+}
+.train-tier-times {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #f5e9c9;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+}
+.train-tier--summer .train-tier-times {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(169, 130, 255, 0.35);
+}
+
+/* Bonus strip: biển sao nhà lồng */
+.train-card-bonus {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    margin-bottom: 16px;
+    background:
+        linear-gradient(90deg, rgba(212, 168, 83, 0.07) 0%, rgba(255, 210, 130, 0.12) 50%, rgba(138, 79, 255, 0.08) 100%);
+    border: 1px dashed rgba(255, 210, 130, 0.3);
+    border-radius: 12px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.82);
+}
+.train-card-bonus-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 6px rgba(255, 210, 130, 0.6));
+}
+.train-card-bonus strong { color: #ffd282; font-weight: 600; }
+
+/* CTA pill */
+.train-card-cta {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(212, 168, 83, 0.12);
+    border: 1px solid rgba(212, 168, 83, 0.35);
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--gold-light, #e8c47a);
+    letter-spacing: 0.2px;
+    transition: background 0.3s ease, border-color 0.3s ease, gap 0.3s ease;
+}
+.train-card-cta svg { transition: transform 0.3s cubic-bezier(.2,.8,.2,1); }
+.train-card:hover .train-card-cta {
+    background: rgba(212, 168, 83, 0.22);
+    border-color: rgba(212, 168, 83, 0.6);
+    gap: 11px;
+}
+.train-card:hover .train-card-cta svg { transform: translateX(3px); }
+
+/* ============================================
+   Night Card — "Đêm ở Trạm Dừng Chill"
+   Kéo khách khung tối bằng USP quanh năm
+   (biển sao + chill + hẹn hò), không phụ thuộc
+   mùa tàu đêm
+   ============================================ */
+.night-card {
+    position: relative;
+    margin-top: 14px;
+    padding: 26px 26px 22px;
+    border-radius: 20px;
+    color: var(--white);
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(100% 120% at 100% 0%, rgba(255, 200, 120, 0.14) 0%, transparent 55%),
+        radial-gradient(90% 100% at 0% 100%, rgba(90, 60, 140, 0.25) 0%, transparent 60%),
+        linear-gradient(160deg, #161020 0%, #1d1528 40%, #221930 100%);
+    border: 1px solid rgba(255, 200, 120, 0.2);
+    box-shadow:
+        0 10px 30px -12px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+.night-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 15% 25%, rgba(255, 220, 160, 0.4), transparent 50%),
+        radial-gradient(1px 1px at 62% 14%, rgba(255, 220, 160, 0.3), transparent 50%),
+        radial-gradient(1px 1px at 88% 48%, rgba(255, 220, 160, 0.35), transparent 50%),
+        radial-gradient(1px 1px at 28% 72%, rgba(255, 220, 160, 0.25), transparent 50%),
+        radial-gradient(1.5px 1.5px at 78% 82%, rgba(255, 220, 160, 0.3), transparent 50%);
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 0;
+}
+.night-card-glow {
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 200, 120, 0.18) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header */
+.night-card-head {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+.night-card-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 200, 120, 0.18), rgba(90, 60, 140, 0.15));
+    border: 1px solid rgba(255, 200, 120, 0.3);
+    color: #ffd9a0;
+}
+.night-card-title h4 {
+    margin: 0 0 4px;
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    line-height: 1.25;
+    font-weight: 600;
+    color: #ffd9a0;
+    letter-spacing: 0.2px;
+}
+.night-card-title p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* List items */
+.night-card-list {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.night-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+.night-item:hover {
+    border-color: rgba(255, 200, 120, 0.35);
+    background: rgba(255, 200, 120, 0.05);
+}
+.night-item-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    line-height: 1;
+    background: rgba(255, 200, 120, 0.1);
+    border: 1px solid rgba(255, 200, 120, 0.2);
+    border-radius: 10px;
+}
+.night-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+.night-item-body strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffe4b8;
+    letter-spacing: 0.1px;
+}
+.night-item-body span {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+    .train-card { padding: 24px 20px 20px; }
+    .train-tier-times { font-size: 1rem; letter-spacing: 0.3px; }
+    .train-tier-head { flex-wrap: wrap; }
+    .night-card { padding: 22px 20px 18px; }
+    .night-item { padding: 11px 12px; }
+}
+
 /* Booking Form */
 .booking-form-wrapper {
     background: var(--white);
