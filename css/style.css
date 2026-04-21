@@ -3027,6 +3027,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
     /* === BOOKING === */
     .booking-wrapper { grid-template-columns: 1fr; gap: 36px; }
+    .booking-info,
+    .booking-form-wrapper { min-width: 0; }  /* allow grid items to shrink below intrinsic */
     .booking-info { padding-top: 0; text-align: center; }
     .booking-info .section-title { text-align: center; }
     .booking-features { align-items: center; }
@@ -3036,6 +3038,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .contact-card { justify-content: center; }
     .form-group textarea { min-height: 100px; }
     .form-group.full-width .btn { width: 100%; }
+
+    /* Prevent long option/placeholder text from forcing form to overflow viewport */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+    }
 
     /* iOS Safari: prevent auto-zoom on input focus */
     .form-group input,
