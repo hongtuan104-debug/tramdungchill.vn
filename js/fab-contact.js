@@ -6,25 +6,41 @@
 (function() {
     'use strict';
 
-    // Track click events via GA4 + Google Ads + Meta Pixel
+    // Track click events via GA4 + Meta Pixel + TikTok Pixel (Contact = conversion signal)
     function trackEvent(action, source) {
         if (typeof gtag === 'function') {
             gtag('event', action, { event_category: 'contact', event_label: source });
         }
-        // Meta Pixel — Contact event
         if (typeof fbq === 'function') {
             fbq('track', 'Contact', { content_name: action, content_category: source });
         }
+        if (typeof ttq !== 'undefined' && ttq.track) {
+            ttq.track('Contact', { content_type: action });
+        }
+    }
+
+    // Build Zalo URL với pre-fill message mang tag nguồn (#tt_main / #fb / #gmb ...)
+    // để NV đọc tin nhắn biết ngay khách từ kênh nào, không cần hỏi.
+    function buildZaloUrlWithSource(phoneNumber) {
+        let tag = '';
+        try {
+            const src = (typeof getSourceForTag === 'function') ? getSourceForTag() : null;
+            tag = (typeof buildSourceTag === 'function' && src) ? buildSourceTag(src) : '';
+        } catch (e) {}
+        const msg = tag
+            ? 'Em muốn đặt bàn ở Trạm Dừng Chill ' + tag
+            : 'Em muốn đặt bàn ở Trạm Dừng Chill';
+        return 'https://zalo.me/' + phoneNumber + '?text=' + encodeURIComponent(msg);
     }
 
     // Phone & Zalo from SITE_CONFIG if available, otherwise fallback
     let phone = '0989765070';
-    let zaloUrl = 'https://zalo.me/0989765070';
+    let zaloPhone = '0989765070';
     let fbUrl = 'https://www.facebook.com/tiemnuongtramdungchill';
 
     if (typeof SITE_CONFIG !== 'undefined') {
         phone = SITE_CONFIG.contact.phone || phone;
-        zaloUrl = 'https://zalo.me/' + (SITE_CONFIG.contact.zaloNumber || phone);
+        zaloPhone = SITE_CONFIG.contact.zaloNumber || phone;
         fbUrl = (SITE_CONFIG.social && SITE_CONFIG.social.facebook) || fbUrl;
     }
 
@@ -36,15 +52,19 @@
         const options = document.createElement('div');
         options.className = 'fab-options';
 
-        // Zalo
+        // Zalo — build URL động với tag nguồn tại lúc click (source có thể update sau khi user duyệt)
         const zaloLink = document.createElement('a');
-        zaloLink.href = zaloUrl;
+        zaloLink.href = buildZaloUrlWithSource(zaloPhone);
         zaloLink.target = '_blank';
         zaloLink.rel = 'noopener';
         zaloLink.className = 'fab-option fab-opt-zalo';
         zaloLink.title = 'Chat Zalo';
         zaloLink.innerHTML = '<span class="fab-opt-zalo-icon">Zalo</span><span>Zalo</span>';
-        zaloLink.addEventListener('click', function() { trackEvent('click_zalo', 'fab'); });
+        zaloLink.addEventListener('click', function() {
+            // Refresh URL ngay trước khi mở (trong case user vừa đổi nguồn / navigate)
+            zaloLink.href = buildZaloUrlWithSource(zaloPhone);
+            trackEvent('click_zalo', 'fab');
+        });
         options.appendChild(zaloLink);
 
         // Phone
