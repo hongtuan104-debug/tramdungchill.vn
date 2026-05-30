@@ -41,7 +41,7 @@ const SCHEMA_DATA = {
     faq: [
         {
             question: 'Quán nướng Trạm Dừng Chill ở đâu?',
-            answer: 'Trạm Dừng Chill tọa lạc tại 111 Huỳnh Tấn Phát, Phường 11, TP. Đà Lạt, Lâm Đồng. Quán có view ngắm xe lửa, hoàng hôn và nhà lồng lên đèn.'
+            answer: 'Trạm Dừng Chill tọa lạc tại 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng. Quán có view ngắm xe lửa, hoàng hôn và nhà lồng lên đèn.'
         },
         {
             question: 'Giờ mở cửa của Trạm Dừng Chill?',

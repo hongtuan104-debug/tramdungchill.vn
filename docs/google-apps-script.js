@@ -69,7 +69,7 @@ function setupSheet() {
   sheet.setRowHeight(1, 50);
 
   sheet.getRange('A2:K2').merge();
-  sheet.getRange('A2').setValue('111 Huynh Tan Phat, P11, Da Lat | 0989.765.070 | tramdungchill.vn')
+  sheet.getRange('A2').setValue('111 Huynh Tan Phat, Phường Xuân Trường, Da Lat | 0989.765.070 | tramdungchill.vn')
     .setFontSize(10)
     .setFontColor('#8B7355')
     .setBackground('#FFF8DC')

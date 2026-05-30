@@ -23,11 +23,11 @@ const SITE_CONFIG = {
 
     address: {
         street: '111 Huỳnh Tấn Phát',
-        ward: 'Phường 11',
+        ward: 'Phường Xuân Trường',
         city: 'Đà Lạt',
         province: 'Lâm Đồng',
         country: 'VN',
-        full: '111 Huỳnh Tấn Phát, P11, Đà Lạt',
+        full: '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt',
     },
 
     hours: {

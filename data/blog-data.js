@@ -13,7 +13,7 @@ const BLOG_ARTICLES = [
         featured: true,
         excerpt: "Đà Lạt có những <strong>quán nướng BBQ view đẹp</strong> khiến bạn mê mẩn. Từ view hoàng hôn, nhà lồng lung linh đến xe lửa cổ — đây là 7 quán đáng thử nhất.",
         body: `<h3>1. Trạm Dừng Chill — Quán nướng view xe lửa + hoàng hôn</h3>
-                            <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt<br>
+                            <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
                             <strong>Giờ mở cửa:</strong> 15:00 - 23:00 hàng ngày<br>
                             <strong>Giá:</strong> 95.000đ - 300.000đ/người</p>
                             <p>Đây là quán nướng duy nhất ở Đà Lạt có <strong>view ngắm xe lửa chạy ngang</strong> ngay dưới chân quán. Buổi chiều, bạn vừa nướng BBQ vừa ngắm hoàng hôn buông xuống thung lũng. Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh.</p>
@@ -218,7 +218,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Đi <strong>du lịch Đà Lạt cùng gia đình</strong> mà chưa biết ăn đâu? Đây là những quán ăn phù hợp cho cả nhà, từ nướng ngoài trời cho bé vui đến view đẹp cho cả nhà.",
         body: `<h3>1. Trạm Dừng Chill — Nướng BBQ view hoàng hôn cho cả nhà</h3>
-                            <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt<br>
+                            <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
                             <strong>Giá:</strong> 95.000đ - 300.000đ/người<br>
                             <strong>Phù hợp:</strong> Gia đình 4-10 người</p>
                             <p>Không gian ngoài trời thoáng đãng, trẻ em có thể thoải mái vui chơi. Bố mẹ vừa nướng BBQ vừa ngắm <strong>hoàng hôn + xe lửa + nhà lồng lên đèn</strong>. Menu đa dạng từ hải sản, thịt bò, gà đến lẩu — ai cũng chọn được món ưa thích.</p>
@@ -336,7 +336,7 @@ const BLOG_ARTICLES = [
         excerpt: "Muốn ăn <strong>nướng lẩu ở Đà Lạt</strong> mà không lo \"cháy ví\"? Đây là 5 quán nướng lẩu Đà Lạt ngon, view đẹp với giá chỉ từ 95.000đ/người — sinh viên cũng thoải mái rủ nhau đi!",
         body: `<h3>1. Trạm Dừng Chill — Nướng lẩu view 3 trong 1</h3>
                             <p><strong>Giá:</strong> 95.000đ - 300.000đ/người<br>
-                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt<br>
+                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
                             <strong>View:</strong> Hoàng hôn + Xe lửa + Nhà lồng lên đèn</p>
                             <p>Với giá chỉ từ <strong>95.000đ/người</strong>, bạn được trải nghiệm nướng BBQ + lẩu nóng với view đẹp nhất Đà Lạt. Menu đa dạng: set nướng hải sản, bò Mỹ, gà nướng mật ong, lẩu thái, lẩu nấm...</p>
 
@@ -633,7 +633,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Quán nhậu Đà Lạt</strong> nào có view đẹp nhất? Trạm Dừng Chill! Vừa nướng BBQ vừa nhâm nhi bia lạnh, ngắm hoàng hôn rồi chuyển sang ngắm xe lửa và biển sao nhà lồng. Menu đồ nhắm đa dạng: nướng bò Mỹ, hải sản, gà mật ong, các loại đồ chiên giòn.</p>
 
                                                         <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ mở:</strong> 15:00-23:00<br>
-                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
+                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</p>
 <img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nhậu Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -928,7 +928,7 @@ const BLOG_ARTICLES = [
                             <p>Chợ đêm Đà Lạt nằm ngay trung tâm, trên đường Nguyễn Thị Minh Khai, mở từ 18h đến 23h30 mỗi tối. Đây là thiên đường ăn vặt và mua sắm cho du khách.</p>
 
                             <h3>1. Trạm Dừng Chill — View đẹp nhất, cách chợ đêm 10 phút xe</h3>
-                            <p><strong>Quán nướng Đà Lạt gần chợ đêm</strong> với view "triệu đô": hoàng hôn, xe lửa cổ và biển sao nhà lồng. Nằm tại 111 Huỳnh Tấn Phát, P11 — cách chợ đêm khoảng 10 phút chạy xe máy. Ăn nướng xong, chạy xe xuống chợ đêm dạo mát, mua quà.</p>
+                            <p><strong>Quán nướng Đà Lạt gần chợ đêm</strong> với view "triệu đô": hoàng hôn, xe lửa cổ và biển sao nhà lồng. Nằm tại 111 Huỳnh Tấn Phát, Phường Xuân Trường — cách chợ đêm khoảng 10 phút chạy xe máy. Ăn nướng xong, chạy xe xuống chợ đêm dạo mát, mua quà.</p>
 
                                                         <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
                             <strong>Tip:</strong> Đến lúc 16h30 ăn nướng ngắm hoàng hôn, 20h xong xuôi chạy về chợ đêm vừa kịp!</p>
@@ -1016,7 +1016,7 @@ const BLOG_ARTICLES = [
 
 
                             <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
-                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, P11, Đà Lạt</p>
+                            <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</p>
 
                             <h3>Combo mùa đông hoàn hảo</h3>
                             <p>Set nướng hải sản + lẩu nấm nóng + trà gừng mật ong = công thức ấm bụng hoàn hảo cho đêm đông Đà Lạt. Gọi thêm rượu vang Đà Lạt để tăng cảm giác lãng mạn!</p>
@@ -6094,7 +6094,7 @@ const BLOG_ARTICLES = [
                             <p>Một buổi dinner BBQ Valentine hoàn hảo cần: view đẹp (hoàng hôn hoặc ánh đèn đêm), không gian riêng tư cho couple, setup bàn lãng mạn với hoa và nến, đồ ăn ngon đa dạng, và quan trọng nhất — giá hợp lý không "chặt chém" dịp lễ.</p>
 
                             <h3>Trạm Dừng Chill — Lựa chọn số 1 cho Valentine</h3>
-                            <p>Nằm tại 111 Huỳnh Tấn Phát, P11, <a href="index.html">Trạm Dừng Chill</a> sở hữu view hoàng hôn thung lũng và biển đèn nhà lồng — backdrop Valentine không đâu bằng. Quán <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các cặp đôi đặt trước, không phụ thu dịp lễ.</p>
+                            <p>Nằm tại 111 Huỳnh Tấn Phát, Phường Xuân Trường, <a href="index.html">Trạm Dừng Chill</a> sở hữu view hoàng hôn thung lũng và biển đèn nhà lồng — backdrop Valentine không đâu bằng. Quán <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các cặp đôi đặt trước, không phụ thu dịp lễ.</p>
 <img src="assets/images/blog/setup-hen-ho-2.webp" alt="Quán nướng Đà Lạt Valentine 2027 - setup hẹn hò lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Gợi ý set menu Valentine cho 2 người</h3>
@@ -6124,7 +6124,7 @@ const BLOG_ARTICLES = [
                             <p>Tháng 2-3, Đà Lạt rực rỡ với hoa mai anh đào, hoa ban, mimosa vàng. Nhiều quán nướng ngoài trời có view đồi hoa, vườn hoa — bạn vừa ăn vừa ngắm cảnh thiên nhiên tuyệt đẹp.</p>
 
                             <h3>Trạm Dừng Chill — Nướng BBQ view xuân tuyệt đẹp</h3>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a> (111 Huỳnh Tấn Phát, P11), mùa xuân mang đến khung cảnh thung lũng xanh mướt, hoàng hôn vàng ấm hơn bao giờ hết. Quán mở cửa từ 15:00, bạn có thể đến sớm thưởng thức trà chiều rồi chuyển sang nướng BBQ khi nắng tắt.</p>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a> (111 Huỳnh Tấn Phát, Phường Xuân Trường), mùa xuân mang đến khung cảnh thung lũng xanh mướt, hoàng hôn vàng ấm hơn bao giờ hết. Quán mở cửa từ 15:00, bạn có thể đến sớm thưởng thức trà chiều rồi chuyển sang nướng BBQ khi nắng tắt.</p>
 <img src="assets/images/blog/view-hoang-hon-3.webp" alt="Ăn nướng Đà Lạt mùa xuân - view hoàng hôn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Lên kế hoạch ăn nướng mùa xuân</h3>
@@ -6151,7 +6151,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Sườn non nướng mắc khén</strong> — gia vị đặc trưng Tây Bắc, tạo hương thơm nồng đặc biệt. <strong>Gà ta nướng muối ớt</strong> — da giòn rụm, thịt ngọt chắc, ăn kèm xôi hoặc cơm lam. Hai món này luôn nằm trong top best-seller tại mọi quán nướng Đà Lạt.</p>
 
                             <h3>Thưởng thức tại Trạm Dừng Chill</h3>
-                            <p>Menu nướng tại <a href="index.html">Trạm Dừng Chill</a> có đủ các món trên, giá từ 95.000đ/người. Điểm khác biệt: bạn vừa nướng vừa ngắm hoàng hôn và xe lửa chạy ngang — trải nghiệm chỉ có tại 111 Huỳnh Tấn Phát, P11.</p>
+                            <p>Menu nướng tại <a href="index.html">Trạm Dừng Chill</a> có đủ các món trên, giá từ 95.000đ/người. Điểm khác biệt: bạn vừa nướng vừa ngắm hoàng hôn và xe lửa chạy ngang — trải nghiệm chỉ có tại 111 Huỳnh Tấn Phát, Phường Xuân Trường.</p>
 <img src="assets/images/blog/ban-nuong-2.webp" alt="Top món nướng ngon Đà Lạt - bàn nướng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tip thưởng thức món nướng Đà Lạt</h3>
@@ -6174,7 +6174,7 @@ const BLOG_ARTICLES = [
                             <p><strong>View đẹp:</strong> Hoàng hôn, đèn đêm — backdrop hoàn hảo cho ảnh couple. <strong>Riêng tư:</strong> Bàn cách biệt, không quá ồn ào. <strong>Setup lãng mạn:</strong> Hoa, nến, bảng chúc mừng. <strong>Giá hợp lý:</strong> Không phụ thu dịp lễ, set combo cho 2 người.</p>
 
                             <h3>Trạm Dừng Chill — Date night view triệu đô</h3>
-                            <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, P11 là lựa chọn hàng đầu cho couple. Quán có bàn riêng view hoàng hôn, <strong>setup hẹn hò miễn phí</strong> khi đặt trước. Buổi tối, hàng ngàn đèn nhà lồng lên sáng tạo không gian cực kỳ lãng mạn.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, Phường Xuân Trường là lựa chọn hàng đầu cho couple. Quán có bàn riêng view hoàng hôn, <strong>setup hẹn hò miễn phí</strong> khi đặt trước. Buổi tối, hàng ngàn đèn nhà lồng lên sáng tạo không gian cực kỳ lãng mạn.</p>
 <img src="assets/images/blog/setup-hen-ho-8.webp" alt="Quán nướng Đà Lạt cho cặp đôi - setup hẹn hò Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Gợi ý thêm cho date night Đà Lạt</h3>
@@ -6203,7 +6203,7 @@ const BLOG_ARTICLES = [
                             <p>Check-in các quán cà phê view đẹp: An Café, Là Việt Coffee. Ăn nhẹ với <strong>kem bơ</strong>, <strong>sữa đậu nành nóng</strong>, bánh tráng nướng. Sau đó, chuẩn bị cho "main event" buổi chiều tối — nướng BBQ.</p>
 
                             <h3>Chiều tối — Dinner BBQ tại Trạm Dừng Chill</h3>
-                            <p>Highlight của ngày: <a href="index.html">Trạm Dừng Chill</a>, 111 Huỳnh Tấn Phát, P11. Đến từ 15:00 để ngắm hoàng hôn, sau đó nướng BBQ dưới ánh đèn nhà lồng. Quán có xe lửa cổ chạy ngang — khoảnh khắc check-in "triệu like".</p>
+                            <p>Highlight của ngày: <a href="index.html">Trạm Dừng Chill</a>, 111 Huỳnh Tấn Phát, Phường Xuân Trường. Đến từ 15:00 để ngắm hoàng hôn, sau đó nướng BBQ dưới ánh đèn nhà lồng. Quán có xe lửa cổ chạy ngang — khoảnh khắc check-in "triệu like".</p>
 <img src="assets/images/blog/khong-gian-dem-3.webp" alt="Du lịch Đà Lạt tháng 2 - dinner BBQ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tối khuya — Chợ đêm và ăn vặt</h3>
@@ -6226,7 +6226,7 @@ const BLOG_ARTICLES = [
                             <p><strong>View hoàng hôn thung lũng:</strong> Ngồi trên cao nhìn xuống, mặt trời lặn phía sau dãy núi — khoảnh khắc tuyệt đẹp. <strong>View nhà lồng đêm:</strong> Hàng ngàn đèn led trong nhà kính nông nghiệp tạo "biển sao" lung linh. <strong>View xe lửa cổ:</strong> Đoàn tàu chạy ngang tạo cảm giác cổ điển, lãng mạn.</p>
 
                             <h3>Trạm Dừng Chill — Quán duy nhất có cả 3 view</h3>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được tận hưởng cả 3 view trong một buổi tối: hoàng hôn (16:00-17:30), xe lửa chạy ngang (17:30-18:30), và biển đèn nhà lồng (từ 18:30). Địa chỉ: 111 Huỳnh Tấn Phát, P11, Đà Lạt.</p>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được tận hưởng cả 3 view trong một buổi tối: hoàng hôn (16:00-17:30), xe lửa chạy ngang (17:30-18:30), và biển đèn nhà lồng (từ 18:30). Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt.</p>
 <img src="assets/images/blog/view-nha-long-2.webp" alt="BBQ Đà Lạt view đẹp - biển đèn nhà lồng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Tip tận hưởng BBQ view đẹp đầu năm</h3>
@@ -6330,7 +6330,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Sáng:</strong> Phở nóng, bún bò, bánh mì chấm sốt. <strong>Trưa:</strong> Lẩu gà lá é, cơm gà. <strong>Chiều tối:</strong> Nướng BBQ ngoài trời — vừa ăn nóng vừa sưởi ấm bên bếp than. <strong>Khuya:</strong> Sữa đậu nành nóng, khoai nướng chợ đêm.</p>
 
                             <h3>Dinner BBQ — Cách sưởi ấm ngon nhất Đà Lạt</h3>
-                            <p>Không gì ấm bằng ngồi quanh bếp than hồng giữa đêm Đà Lạt se lạnh. Tại <a href="index.html">Trạm Dừng Chill</a>, ngoài bếp nướng ấm áp, bạn còn có view biển đèn nhà lồng lung linh. Quán ở 111 Huỳnh Tấn Phát, P11, mở cửa 15:00 - 23:00.</p>
+                            <p>Không gì ấm bằng ngồi quanh bếp than hồng giữa đêm Đà Lạt se lạnh. Tại <a href="index.html">Trạm Dừng Chill</a>, ngoài bếp nướng ấm áp, bạn còn có view biển đèn nhà lồng lung linh. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, mở cửa 15:00 - 23:00.</p>
 <img src="assets/images/blog/khong-gian-dem-10.webp" alt="Đà Lạt tháng 2 - nướng BBQ đêm ấm áp Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Kế hoạch cho chuyến đi tháng 2</h3>
@@ -6386,7 +6386,7 @@ const BLOG_ARTICLES = [
                             <p>Ngoài dinner BBQ, bạn có thể chuẩn bị thêm: 1 bó hoa nhỏ, 1 lá thư tay, hoặc 1 món quà xinh. Đặt sẵn trên bàn trước khi cô ấy đến — đảm bảo "tan chảy" ngay lập tức.</p>
 
                             <h3>Hành động ngay — 8/3 không chờ ai</h3>
-                            <p><a href="index.html#booking"><strong>Đặt bàn 8/3 tại Trạm Dừng Chill</strong></a> ngay hôm nay. Bàn couple view đẹp có hạn, đặc biệt dịp lễ. Hotline: <a href="tel:0989765070">0989.765.070</a>. Địa chỉ: 111 Huỳnh Tấn Phát, P11, Đà Lạt.</p>`
+                            <p><a href="index.html#booking"><strong>Đặt bàn 8/3 tại Trạm Dừng Chill</strong></a> ngay hôm nay. Bàn couple view đẹp có hạn, đặc biệt dịp lễ. Hotline: <a href="tel:0989765070">0989.765.070</a>. Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt.</p>`
     },
     {
         id: "du-lich-da-lat-thang-3-mua-hoa",
@@ -6412,7 +6412,7 @@ const BLOG_ARTICLES = [
                             <p>Đặt phòng khách sạn trước 1 tuần — tháng 3 có 8/3 và nhiều ngày nghỉ nên đông khách. Mang kem chống nắng vì nắng chiều tháng 3 khá mạnh. Luôn mang áo khoác vì chênh lệch nhiệt độ ngày đêm lớn (15-25°C).</p>
 
                             <h3>Đặt bàn dinner view hoa xuân</h3>
-                            <p><a href="index.html#booking"><strong>Đặt bàn Trạm Dừng Chill</strong></a> — 111 Huỳnh Tấn Phát, P11. Giờ mở cửa: 15:00 - 23:00. Hotline: <a href="tel:0989765070">0989.765.070</a>.</p>`
+                            <p><a href="index.html#booking"><strong>Đặt bàn Trạm Dừng Chill</strong></a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường. Giờ mở cửa: 15:00 - 23:00. Hotline: <a href="tel:0989765070">0989.765.070</a>.</p>`
     },
     {
         id: "quan-nuong-da-lat-gia-dinh-cuoi-tuan",
@@ -6483,7 +6483,7 @@ const BLOG_ARTICLES = [
                             <p>Tưởng tượng: bạn đang nướng thịt thơm phức, bất chợt tiếng còi tàu vang lên, đoàn xe lửa cổ từ từ chạy ngang. Khoảnh khắc "chill" không đâu có — chỉ tại Đà Lạt. Đây là trải nghiệm được du khách đánh giá cao nhất khi đến phố núi.</p>
 
                             <h3>Trạm Dừng Chill — Quán nướng view xe lửa số 1</h3>
-                            <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, P11 nằm ngay trên tuyến đường sắt Đà Lạt - Trại Mát. Từ quán, bạn nhìn thẳng xuống đường ray và ngắm xe lửa chạy ngang mỗi ngày. Không quán nướng nào ở Đà Lạt có view này.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, Phường Xuân Trường nằm ngay trên tuyến đường sắt Đà Lạt - Trại Mát. Từ quán, bạn nhìn thẳng xuống đường ray và ngắm xe lửa chạy ngang mỗi ngày. Không quán nướng nào ở Đà Lạt có view này.</p>
 <img src="assets/images/blog/view-xe-lua-20.webp" alt="Quán nướng Đà Lạt gần ga Trại Mát - xe lửa chạy ngang Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Lịch trình gợi ý: Ga Trại Mát + Nướng BBQ</h3>
@@ -6512,7 +6512,7 @@ const BLOG_ARTICLES = [
                             <p>Bánh tráng nướng giòn rụm, phết trứng cút, pate, mỡ hành, phô mai — chỉ 15-20K/chiếc. Ăn nóng giữa đêm lạnh Đà Lạt, đi dạo chợ đêm — trải nghiệm ẩm thực đường phố không thể thiếu.</p>
 
                             <h3>4. Nướng BBQ view xe lửa tại Trạm Dừng Chill</h3>
-                            <p>Nâng tầm trải nghiệm nướng BBQ: tại <a href="index.html">Trạm Dừng Chill</a> (111 Huỳnh Tấn Phát, P11), bạn vừa nướng vừa ngắm xe lửa cổ kính chạy ngang. Thêm view biển đèn nhà lồng ban đêm — đây là trải nghiệm ẩm thực "triệu view" đúng nghĩa.</p>
+                            <p>Nâng tầm trải nghiệm nướng BBQ: tại <a href="index.html">Trạm Dừng Chill</a> (111 Huỳnh Tấn Phát, Phường Xuân Trường), bạn vừa nướng vừa ngắm xe lửa cổ kính chạy ngang. Thêm view biển đèn nhà lồng ban đêm — đây là trải nghiệm ẩm thực "triệu view" đúng nghĩa.</p>
 <img src="assets/images/blog/view-xe-lua-22.webp" alt="Top trải nghiệm ẩm thực Đà Lạt - nướng BBQ ngắm xe lửa Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>5. Cà phê sáng sớm trong sương mù</h3>
@@ -6544,7 +6544,7 @@ const BLOG_ARTICLES = [
                             <p>Dùng chế độ portrait với ánh backlight hoàng hôn. Chụp silhouette với bếp nướng than hoa — cực chất. Video slow-motion khói nướng bay trong nắng chiều — content viral. Nhờ nhân viên quán chụp giúp nếu đi đôi.</p>
 
                             <h3>Đặt bàn view hoàng hôn</h3>
-                            <p>Bàn view sunset là vị trí "hot" nhất quán, đặc biệt cuối tuần. <a href="index.html#booking"><strong>Đặt bàn sớm</strong></a> và ghi chú yêu cầu view hoàng hôn. Hotline: <a href="tel:0989765070">0989.765.070</a>. Địa chỉ: 111 Huỳnh Tấn Phát, P11, Đà Lạt.</p>`
+                            <p>Bàn view sunset là vị trí "hot" nhất quán, đặc biệt cuối tuần. <a href="index.html#booking"><strong>Đặt bàn sớm</strong></a> và ghi chú yêu cầu view hoàng hôn. Hotline: <a href="tel:0989765070">0989.765.070</a>. Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt.</p>`
     },
     {
         id: "quan-nuong-da-lat-setup-tiec-mien-phi",
@@ -6571,7 +6571,7 @@ const BLOG_ARTICLES = [
 <img src="assets/images/blog/setup-sinh-nhat-6.webp" alt="Quán nướng Đà Lạt setup tiệc - bàn trang trí lãng mạn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h3>Đặt tiệc ngay hôm nay</h3>
-                            <p><a href="index.html#booking"><strong>Đặt tiệc tại Trạm Dừng Chill</strong></a> — 111 Huỳnh Tấn Phát, P11, Đà Lạt. Hotline: <a href="tel:0989765070">0989.765.070</a>. Giờ phục vụ: 15:00 - 23:00 hàng ngày. Đặt trước 1-2 ngày để quán chuẩn bị setup đẹp nhất.</p>`
+                            <p><a href="index.html#booking"><strong>Đặt tiệc tại Trạm Dừng Chill</strong></a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt. Hotline: <a href="tel:0989765070">0989.765.070</a>. Giờ phục vụ: 15:00 - 23:00 hàng ngày. Đặt trước 1-2 ngày để quán chuẩn bị setup đẹp nhất.</p>`
     },
     {
         id: "tong-hop-quan-an-da-lat-mua-he-2027",
@@ -6597,7 +6597,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Chợ đêm:</strong> Bánh tráng nướng, sữa đậu nành, kem bơ, trái cây dầm. <strong>Cà phê:</strong> La Viet, An Cafe, Windmills. <strong>Trà sữa:</strong> The Alley, Gong Cha (ngay trung tâm). Đà Lạt mùa hè mát nên uống đồ nóng hay lạnh đều hợp.</p>
 
                             <h3>Gợi ý: dinner BBQ tại Trạm Dừng Chill</h3>
-                            <p>Mùa hè, bạn nhất định phải thử dinner nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>: ngồi ngoài trời mát mẻ 20°C, ngắm hoàng hôn mùa hè kéo dài đến gần 18:30, sau đó biển đèn nhà lồng lên sáng lung linh. Địa chỉ: 111 Huỳnh Tấn Phát, P11.</p>
+                            <p>Mùa hè, bạn nhất định phải thử dinner nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>: ngồi ngoài trời mát mẻ 20°C, ngắm hoàng hôn mùa hè kéo dài đến gần 18:30, sau đó biển đèn nhà lồng lên sáng lung linh. Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường.</p>
 
                             <h3>Đặt bàn sớm cho mùa hè</h3>
                             <p>Mùa hè là cao điểm du lịch Đà Lạt. <a href="index.html#booking"><strong>Đặt bàn trước</strong></a> ít nhất 2-3 ngày, đặc biệt cuối tuần. Hotline: <a href="tel:0989765070">0989.765.070</a>. Giờ mở cửa: 15:00 - 23:00 hàng ngày.</p>`

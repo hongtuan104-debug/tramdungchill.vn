@@ -17,7 +17,7 @@
 
 ## Thông tin doanh nghiệp
 - **Tên:** Tiệm Nướng Trạm Dừng Chill (Đà Lạt)
-- **Địa chỉ:** 111 Huỳnh Tấn Phát, P11, TP Đà Lạt, Lâm Đồng
+- **Địa chỉ:** 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng (P11 cũ — sáp nhập phường 2025)
 - **SĐT:** 0989.765.070
 - **Giờ mở cửa:** 15:00 - 23:00
 - **USP chính:** Hoàng hôn 15h, nhà lồng đèn 18h30, bò tảng phô mai trứng muối
