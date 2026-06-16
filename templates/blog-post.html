@@ -19,10 +19,9 @@
     <meta name="twitter:title" content="{{TITLE}}">
     <meta name="twitter:description" content="{{META_DESCRIPTION}}">
     <meta name="twitter:image" content="https://tramdungchill.vn/{{IMAGE}}">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://tramdungchill.vn/blog/{{ID}}.html">
-    <link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/{{ID}}.html">
-    <link rel="alternate" hreflang="en" href="https://tramdungchill.vn/blog/{{ID}}.html">
+    <meta name="robots" content="{{ROBOTS}}">
+    <link rel="canonical" href="{{CANONICAL_HREF}}">
+    <link rel="alternate" hreflang="{{HREFLANG_LANG}}" href="https://tramdungchill.vn/blog/{{ID}}.html">
     <link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/{{ID}}.html">
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
@@ -37,7 +36,7 @@
     <script type="application/ld+json">
     {{JSON_LD_BREADCRUMB}}
     </script>
-
+    {{JSON_LD_FAQ}}
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -63,7 +62,7 @@
     <div class="reading-progress" id="readingProgress"></div>
     <style>.reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--gold), var(--sunset)); width:0%; z-index:9999; transition:width 0.1s linear; }</style>
     <nav class="navbar" id="navbar"><div class="nav-container"><a href="../index.html" class="nav-logo"><img src="../assets/images/logo-gold.svg" alt="Logo" width="48" height="48"><span>Trạm Dừng Chill</span></a><div class="nav-links" id="navLinks"><a href="../index.html">Trang chủ</a><a href="../menu.html">Thực đơn</a><a href="../blog.html" class="active">Blog</a><a href="../index.html#booking" class="nav-cta">Đặt bàn</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
-    <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Trang chủ</a> › <a href="../blog.html">Blog</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time> <span class="reading-time">{{READING_TIME}} phút đọc</span></div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--smoke);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
+    <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Trang chủ</a> › <a href="../blog.html">Blog</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time> <span class="reading-time">{{READING_TIME}} phút đọc</span>{{BYLINE}}</div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--smoke);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
     <div class="container" style="margin:24px auto 32px;"><img src="../{{IMAGE}}" srcset="../{{IMAGE_400W}} 400w, ../{{IMAGE_800W}} 800w, ../{{IMAGE}} 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="{{IMAGE_ALT}}" style="width:100%;max-height:500px;object-fit:cover;border-radius:20px;" loading="eager"></div>
     <article class="blog-post-body container" style="max-width:800px;margin:0 auto;padding:0 24px 60px;">{{BODY}}</article>
     <nav class="blog-post-nav container" style="max-width:800px;margin:0 auto 40px;padding:0 24px;display:flex;justify-content:space-between;align-items:stretch;gap:16px;">{{PREV_LINK}}{{NEXT_LINK}}</nav>
@@ -77,6 +76,12 @@
     .blog-related-info { padding:16px; }
     .blog-related-info h3 { font-size:1rem; margin-top:8px; line-height:1.4; }
     @media(max-width:768px) { .blog-related-grid { grid-template-columns:1fr; } }
+    .blog-faq { max-width:800px; margin:32px auto 8px; }
+    .blog-faq > h2 { font-family:var(--font-display); font-size:1.5rem; color:var(--night); margin-bottom:16px; }
+    .blog-faq-item { border:1px solid rgba(212,168,83,0.25); border-radius:12px; padding:16px 20px; margin-bottom:12px; background:rgba(212,168,83,0.04); }
+    .blog-faq-item h3 { font-size:1.05rem; color:var(--night); margin:0 0 8px; line-height:1.4; }
+    .blog-faq-item p { margin:0; color:var(--smoke); line-height:1.7; }
+    .blog-byline { color:#8B7D6B; font-size:0.85rem; }
     </style>
     <section class="blog-related">
         <div class="container">

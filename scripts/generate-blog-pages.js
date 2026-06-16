@@ -55,6 +55,15 @@ function fixAssetPaths(body) {
         .replace(/href="blog\.html/g, 'href="../blog.html');
 }
 function blogPostingSchema(article, excerptClean) {
+    // E-E-A-T: tác giả là Person nếu bài có _author (trụ cột), mặc định Organization
+    var author = article._author
+        ? {
+            "@type": "Person",
+            "name": article._author.name,
+            "jobTitle": article._author.role || undefined,
+            "worksFor": { "@type": "Organization", "name": "Tiệm Nướng Trạm Dừng Chill", "url": SITE_URL }
+        }
+        : { "@type": "Organization", "name": "Tiệm Nướng Trạm Dừng Chill", "url": SITE_URL };
     return JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -63,12 +72,8 @@ function blogPostingSchema(article, excerptClean) {
         "description": truncate(excerptClean, 160),
         "image": SITE_URL + "/" + article.image,
         "datePublished": article.date,
-        "dateModified": article.date,
-        "author": {
-            "@type": "Organization",
-            "name": "Tiệm Nướng Trạm Dừng Chill",
-            "url": SITE_URL
-        },
+        "dateModified": article._dateModified || article.date,
+        "author": author,
         "publisher": {
             "@type": "Organization",
             "name": "Tiệm Nướng Trạm Dừng Chill",
@@ -84,8 +89,41 @@ function blogPostingSchema(article, excerptClean) {
         },
         "articleSection": article.category,
         "wordCount": stripHtml(article.body).split(/\s+/).filter(Boolean).length,
-        "inLanguage": "vi"
+        "inLanguage": article._lang || "vi"
     }, null, 4);
+}
+
+// FAQPage JSON-LD (chỉ trụ cột có _faq). Trả về cả khối <script> hoặc rỗng.
+function faqSchemaBlock(article) {
+    if (!article._faq || !article._faq.length) return "";
+    var json = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": article._faq.map(function (f) {
+            return {
+                "@type": "Question",
+                "name": f.q,
+                "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            };
+        })
+    }, null, 4);
+    return '<script type="application/ld+json">\n    ' + json + '\n    </script>';
+}
+
+// FAQ hiển thị dạng HTML (để người + AI đọc được, không cần JS)
+function faqHtml(article) {
+    if (!article._faq || !article._faq.length) return "";
+    var items = article._faq.map(function (f) {
+        return '<div class="blog-faq-item"><h3>' + htmlEncode(f.q) + '</h3><p>' + f.a + '</p></div>';
+    }).join("\n");
+    return '\n<section class="blog-faq"><h2>Câu hỏi thường gặp</h2>\n' + items + '\n</section>';
+}
+
+// Byline tác giả (chỉ trụ cột có _author)
+function bylineHtml(article) {
+    if (!article._author) return "";
+    var role = article._author.role ? ' · ' + htmlEncode(article._author.role) : "";
+    return ' <span class="blog-byline">✍️ ' + htmlEncode(article._author.name) + role + '</span>';
 }
 
 function breadcrumbSchema(article) {
@@ -130,6 +168,73 @@ try {
     }
     console.log("Found " + articles.length + " articles in blog-data.js");
 
+    // ---- Phase 2 SEO: gộp nội dung trụ cột + map noindex/canonical từ data/blog-seo.js ----
+    var SEO = { pillars: {}, noindex: {} };
+    var SEO_FILE = path.join(ROOT, "data", "blog-seo.js");
+    if (fs.existsSync(SEO_FILE)) {
+        var seoSandbox = {};
+        vm.runInNewContext(fs.readFileSync(SEO_FILE, "utf8") + "\n;this.BLOG_SEO = BLOG_SEO;", seoSandbox);
+        if (seoSandbox.BLOG_SEO) SEO = seoSandbox.BLOG_SEO;
+    }
+    var pillars = SEO.pillars || {};
+    var noindexMap = SEO.noindex || {};
+
+    var byId = {};
+    articles.forEach(function (a) { byId[a.id] = a; });
+
+    // (1) Gộp/override trụ cột; (2) append trụ cột MỚI chưa có trong blog-data
+    Object.keys(pillars).forEach(function (pid) {
+        var p = pillars[pid];
+        var existing = byId[pid];
+        if (existing) {
+            if (p.title) existing.title = p.title;
+            if (p.excerpt) existing.excerpt = p.excerpt;
+            if (p.image) existing.image = p.image;
+            if (p.imageAlt) existing.imageAlt = p.imageAlt;
+            if (p.category) existing.category = p.category;
+            if (p.body) existing.body = p.body;
+            existing._faq = p.faq;
+            existing._author = p.author;
+            existing._dateModified = p.dateModified;
+            existing._lang = p.lang;
+            existing._pillar = true;
+        } else {
+            var na = {
+                id: pid,
+                title: p.title,
+                category: p.category || "Blog",
+                date: p.date,
+                image: p.image,
+                imageAlt: p.imageAlt || p.title,
+                badge: p.badge || "",
+                featured: !!p.featured,
+                excerpt: p.excerpt,
+                body: p.body,
+                _faq: p.faq,
+                _author: p.author,
+                _dateModified: p.dateModified,
+                _lang: p.lang,
+                _pillar: true
+            };
+            articles.push(na);
+            byId[pid] = na;
+        }
+    });
+
+    // Đánh dấu indexable + canonical override cho mọi bài
+    articles.forEach(function (a) {
+        if (Object.prototype.hasOwnProperty.call(noindexMap, a.id)) {
+            a._indexable = false;
+            var target = noindexMap[a.id];
+            a._canonical = target ? (SITE_URL + "/blog/" + target + ".html") : (SITE_URL + "/blog/" + a.id + ".html");
+        } else {
+            a._indexable = true;
+            a._canonical = SITE_URL + "/blog/" + a.id + ".html";
+        }
+    });
+    var idxCount = articles.filter(function (a) { return a._indexable; }).length;
+    console.log("Sau gộp SEO: " + articles.length + " bài (" + Object.keys(pillars).length + " trụ cột, " + Object.keys(noindexMap).length + " bài noindex, " + idxCount + " bài index được)");
+
     console.log("Reading template...");
     const template = fs.readFileSync(TEMPLATE_FILE, "utf8");
 
@@ -139,7 +244,7 @@ try {
 
     // Sort published articles by date (newest first) for prev/next navigation
     const publishedForNav = articles
-        .filter(a => a.date <= TODAY)
+        .filter(a => a.date <= TODAY && a._indexable !== false)
         .sort((a, b) => b.date.localeCompare(a.date));
 
     // Build a map: articleId -> { prev (older), next (newer) }
@@ -166,7 +271,7 @@ try {
     // Build related posts for each article
     function buildRelatedPosts(currentArticle) {
         const publishedOthers = articles
-            .filter(a => a.id !== currentArticle.id && a.date <= TODAY)
+            .filter(a => a.id !== currentArticle.id && a.date <= TODAY && a._indexable !== false)
             .sort((a, b) => b.date.localeCompare(a.date));
 
         // Same category first
@@ -206,7 +311,7 @@ try {
             const keywords = article.title.toLowerCase() + ", đà lạt, quán nướng, bbq";
             const dateVI = formatDateVI(article.date);
             const readTime = readingTime(article.body || "");
-            const bodyFixed = fixAssetPaths(article.body || "");
+            const bodyFixed = fixAssetPaths((article.body || "") + faqHtml(article));
 
             const image400w = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp');
             const image800w = article.image.replace(/\.(jpg|webp)$/i, '-800w.webp');
@@ -228,6 +333,11 @@ try {
                 .replace(/{{BODY}}/g, bodyFixed)
                 .replace(/{{JSON_LD_BLOGPOSTING}}/g, blogPostingSchema(article, excerptClean))
                 .replace(/{{JSON_LD_BREADCRUMB}}/g, breadcrumbSchema(article))
+                .replace(/{{JSON_LD_FAQ}}/g, faqSchemaBlock(article))
+                .replace(/{{ROBOTS}}/g, article._indexable === false ? "noindex, follow" : "index, follow")
+                .replace(/{{CANONICAL_HREF}}/g, article._canonical)
+                .replace(/{{HREFLANG_LANG}}/g, article._lang === "en" ? "en" : "vi")
+                .replace(/{{BYLINE}}/g, bylineHtml(article))
                 .replace(/{{READING_TIME}}/g, String(readTime))
                 .replace(/{{PREV_LINK}}/g, buildPrevLink(navMap[article.id]))
                 .replace(/{{NEXT_LINK}}/g, buildNextLink(navMap[article.id]))
@@ -262,7 +372,8 @@ try {
         { loc: "/review-qr.html", lastmod: TODAY, changefreq: "monthly", priority: "0.5" }
     ];
 
-    const publishedArticles = articles;
+    // Chỉ xuất sitemap bài đã tới ngày (date<=hôm nay) VÀ còn index (loại future + noindex)
+    const publishedArticles = articles.filter(a => a.date <= TODAY && a._indexable !== false);
 
     function sitemapUrl(loc, lastmod, changefreq, priority) {
         const fullUrl = SITE_URL + loc;
@@ -290,7 +401,7 @@ try {
     }
 
     for (const article of publishedArticles) {
-        sitemapLines.push(sitemapUrl("/blog/" + article.id + ".html", article.date, "monthly", "0.7"));
+        sitemapLines.push(sitemapUrl("/blog/" + article.id + ".html", article._dateModified || article.date, "monthly", article._pillar ? "0.8" : "0.7"));
     }
 
     sitemapLines.push("</urlset>");
@@ -298,6 +409,30 @@ try {
 
     fs.writeFileSync(SITEMAP, sitemap, "utf8");
     console.log("Sitemap updated: " + staticPages.length + " static pages + " + publishedArticles.length + " published blog posts");
+
+    // Regenerate blog-data-light.js — CHỈ bài còn index (trang blog index không liệt kê bài đã noindex)
+    var LIGHT_FILE = path.join(ROOT, "data", "blog-data-light.js");
+    var lightArr = articles
+        .filter(function (a) { return a._indexable !== false; })
+        .sort(function (a, b) { return b.date.localeCompare(a.date); })
+        .map(function (a) {
+            return {
+                id: a.id,
+                title: a.title,
+                category: a.category,
+                date: a.date,
+                image: a.image,
+                imageAlt: a.imageAlt || a.title,
+                badge: a.badge || "",
+                featured: !!a.featured,
+                excerpt: a.excerpt || "",
+                tags: a.tags || []
+            };
+        });
+    var lightOut = "/* Blog listing data (lightweight — no body). Auto-sinh bởi generate-blog-pages.js — KHÔNG sửa tay. */\n" +
+        "const BLOG_ARTICLES = " + JSON.stringify(lightArr, null, 2) + ";\n";
+    fs.writeFileSync(LIGHT_FILE, lightOut, "utf8");
+    console.log("blog-data-light.js updated: " + lightArr.length + " bài hiển thị trên trang blog");
     console.log("Done!");
 
 } catch (err) {
