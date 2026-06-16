@@ -25,7 +25,7 @@ const SCHEMA_DATA = {
         priceRange: '₫95.000 - ₫300.000',
         currenciesAccepted: 'VND',
         paymentAccepted: 'Cash, Bank Transfer',
-        rating: { value: '4.8', count: '120', best: '5' },
+        rating: { value: '4.8', count: '5949', best: '5' },
         amenities: [
             { name: 'Sunset View', value: true },
             { name: 'Train View', value: true },
@@ -34,7 +34,10 @@ const SCHEMA_DATA = {
         ],
         sameAs: [
             'https://www.facebook.com/tiemnuongtramdungchill',
+            'https://www.instagram.com/tiemnuongtramdungchill/',
             'https://www.tiktok.com/@tiemnuongtramdungchill',
+            'https://www.youtube.com/@TramDungChill',
+            'https://www.threads.com/@tiemnuongtramdungchill',
             'https://maps.app.goo.gl/LYKSGggSms2nwTWq7'
         ]
     },
@@ -61,7 +64,7 @@ const SCHEMA_DATA = {
         },
         {
             question: 'Where is Tram Dung Chill BBQ in Da Lat?',
-            answer: 'Tram Dung Chill is located at 111 Huynh Tan Phat, Ward 11, Da Lat City. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night.'
+            answer: 'Tram Dung Chill is located at 111 Huynh Tan Phat, Xuan Truong Ward, Da Lat City. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night.'
         }
     ],
     reviews: [

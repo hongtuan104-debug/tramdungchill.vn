@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /docs/
+Disallow: /plans/
+Disallow: /scripts/
+Disallow: /templates/
+Disallow: /node_modules/
 
 Sitemap: https://tramdungchill.vn/sitemap.xml
 
@@ -73,12 +78,3 @@ Allow: /
 # You.com
 User-agent: YouBot
 Allow: /
-
-# Dev folders (block for all)
-User-agent: *
-Disallow: /docs/
-Disallow: /plans/
-Disallow: /scripts/
-Disallow: /templates/
-Disallow: /node_modules/
-Disallow: /dist/

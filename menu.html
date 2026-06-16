@@ -42,75 +42,860 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap"></noscript>
 
-    <!-- Schema.org JSON-LD: Menu + Restaurant -->
+    <!-- Schema.org JSON-LD: Menu (MenuItem + giá) — SINH TỰ ĐỘNG từ data/menu-data.js bởi scripts/generate-menu.js. KHÔNG sửa tay phần giữa marker. -->
+    <!-- MENU_JSONLD:START -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Menu",
-        "@id": "https://tramdungchill.vn/menu.html#menu",
-        "name": "Thực Đơn Tiệm Nướng Trạm Dừng Chill",
-        "description": "Menu quán nướng BBQ Đà Lạt - Nướng tại bàn, lẩu nóng, hải sản tươi sống, đồ uống. Giá từ 10K đến 300K. Cập nhật 2026.",
-        "url": "https://tramdungchill.vn/menu.html",
-        "inLanguage": "vi",
-        "mainEntity": {
-            "@type": "Restaurant",
-            "@id": "https://tramdungchill.vn/#restaurant",
-            "name": "Tiệm Nướng Trạm Dừng Chill",
-            "url": "https://tramdungchill.vn",
-            "telephone": "+84989765070",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "111 Huỳnh Tấn Phát",
-                "addressLocality": "Đà Lạt",
-                "addressRegion": "Lâm Đồng",
-                "postalCode": "670000",
-                "addressCountry": "VN"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 11.9404,
-                "longitude": 108.4583
-            },
-            "servesCuisine": ["Vietnamese BBQ", "Korean BBQ", "Hotpot", "Grilled Seafood"],
-            "priceRange": "₫₫",
-            "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "15:00",
-                "closes": "23:00"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "120",
-                "bestRating": "5",
-                "worstRating": "1"
-            }
+{
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "@id": "https://tramdungchill.vn/menu.html#menu",
+    "name": "Thực Đơn Tiệm Nướng Trạm Dừng Chill",
+    "description": "Thực đơn quán nướng BBQ Đà Lạt — nướng tại bàn, lẩu, hải sản, đồ uống. ~100 món, giá đã gồm VAT.",
+    "url": "https://tramdungchill.vn/menu.html",
+    "inLanguage": "vi",
+    "mainEntity": {
+        "@type": "Restaurant",
+        "@id": "https://tramdungchill.vn/#restaurant",
+        "name": "Tiệm Nướng Trạm Dừng Chill",
+        "url": "https://tramdungchill.vn",
+        "telephone": "+84989765070",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "111 Huỳnh Tấn Phát",
+            "addressLocality": "Đà Lạt",
+            "addressRegion": "Lâm Đồng",
+            "postalCode": "670000",
+            "addressCountry": "VN"
         },
-        "hasMenuSection": [
-            {
-                "@type": "MenuSection",
-                "name": "Nướng BBQ",
-                "description": "Các món nướng tại bàn"
-            },
-            {
-                "@type": "MenuSection",
-                "name": "Lẩu",
-                "description": "Các loại lẩu nóng"
-            },
-            {
-                "@type": "MenuSection",
-                "name": "Hải Sản",
-                "description": "Hải sản tươi sống nướng và hấp"
-            },
-            {
-                "@type": "MenuSection",
-                "name": "Đồ Uống",
-                "description": "Nước giải khát, bia, cocktail"
-            }
-        ]
-    }
+        "servesCuisine": [
+            "Vietnamese BBQ",
+            "Korean BBQ",
+            "Hotpot",
+            "Grilled Seafood"
+        ],
+        "priceRange": "₫95.000 - ₫300.000",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "15:00",
+            "closes": "23:00"
+        }
+    },
+    "hasMenuSection": [
+        {
+            "@type": "MenuSection",
+            "name": "Best Seller",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Ba Chỉ Bò Cuộn Kim Châm",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "137000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Ba Chỉ Bò Nướng Muối Tiêu",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "155000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Bò Tảng Nướng Phô Mai Trứng Muối",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "210000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Ốc Nhồi Thịt",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "165000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Cá Tầm Lúc Lắc",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "165000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Cá Tầm Rang Muối",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "200000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sườn Cay Thái Lan",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "260000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Tôm Chiên Trứng Muối",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "160000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "BBQ Nướng Tại Bàn",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Ba Chỉ Heo Hàn Quốc",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "170000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Ba Chỉ Heo Nướng Ngũ Vị",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "132000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sườn Que Nướng",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "155000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Chân Gà Nướng Muối Ớt",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "105000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Cánh Gà Nướng Muối Ớt",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "130000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Ếch Nướng Muối Ớt",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "145000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Tôm Nướng Muối Ớt",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "150000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Mực Ướp Sate",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "160000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Bạch Tuột Nướng",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "155000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Cá Tầm Nướng",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "162000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Món Ăn Kèm",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Chả Ram Tôm Đất",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "95000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Khoai Tây Chiên",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "70000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Khoai Lang Kén",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "70000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Salad Trộn Dầu Giấm",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "95000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Kim Chi",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "30000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rau Thêm",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "20000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Khăn Ướt",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "2000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "No Cái Bụng",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Cơm Chiên Cao Nguyên",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "140000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Cơm Chiên Hải Sản",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "120000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Mì Xào Hải Sản",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "132000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Mì Xào Bò",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "135000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Lẩu",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Lẩu Gà Lá É",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "300000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Lẩu Hải Sản",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "320000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Lẩu Cá Tầm",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "320000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Món Lai Rai",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Xúc Xích Đức Nướng",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "20000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Ếch Chiên Nước Mắm",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "155000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Cánh Gà Chiên Nước Mắm",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "145000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Bò Lúc Lắc",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "160000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Trà Lạnh",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Vải Hạt Chia",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "49000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Dứa Đào",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "49000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Trái Cây Nhiệt Đới",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "49000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Đào Cam Sả",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "44000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Tắc Xí Muội",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "44000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Ổi Hồng",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "44000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Trà Nóng",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Hoa Cúc Táo Đỏ",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "39000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Thảo Mộc",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "39000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Gừng Táo Đỏ Mật Ong",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "39000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Chanh Nóng Hạt Chia",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "37000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Trà Lipton Nóng",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "37000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Soda",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Soda Việt Quốc",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "42000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Soda Chanh",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "42000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Soda Blue",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "42000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Soda Dâu Tây",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "42000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Soda Đào",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "42000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Món Nước",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Coca Cola",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "19000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sprite",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "19000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sting",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "19000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "StrongBow",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "34000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Nước Suối",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "12000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Bia",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Tiger Bạc",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "28000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Tiger Nâu",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "26000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sài Gòn Xanh (Special)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "26000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sài Gòn Chill",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "27000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Sài Gòn Lager",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "19000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Heineken Lùn",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "27000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Rượu",
+            "hasMenuItem": [
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Mơ Hương Đào (18%)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "160000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Mơ 300ml (29%)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "110000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Mơ 350ml (18%)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "130000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Mơ 500ml (18%)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "170000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Soju Mix Vị 360ml",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "110000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Vang Classic 750ml",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "190000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Vang Export 750ml",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "210000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Táo Mèo 300ml (29%)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "110000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Mơ Ume (Classic)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "140000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                },
+                {
+                    "@type": "MenuItem",
+                    "name": "Rượu Táo Mèo 350ml (18%)",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "130000",
+                        "priceCurrency": "VND",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }
+            ]
+        }
+    ]
+}
     </script>
+        <!-- MENU_JSONLD:END -->
 
     <!-- Schema.org JSON-LD: BreadcrumbList -->
     <script type="application/ld+json">
@@ -274,7 +1059,127 @@
     </section>
 
     <!-- Menu Content (rendered by menu-page-renderer.js) -->
-    <section class="menu-content"><div class="container"><div class="menu-page-content"></div></div></section>
+    <!-- Danh sách món tĩnh (noscript) cho AI crawler / không-JS — SINH TỰ ĐỘNG bởi scripts/generate-menu.js, KHÔNG sửa tay -->
+    <section class="menu-content"><div class="container">
+        <!-- MENU_STATIC:START -->
+<noscript>
+<div class="menu-static-fallback">
+<h2>Thực đơn Tiệm Nướng Trạm Dừng Chill — Đà Lạt</h2>
+<h3>Best Seller</h3>
+<ul>
+<li>Ba Chỉ Bò Cuộn Kim Châm — 137.000đ</li>
+<li>Ba Chỉ Bò Nướng Muối Tiêu — 155.000đ</li>
+<li>Bò Tảng Nướng Phô Mai Trứng Muối — 210.000đ</li>
+<li>Ốc Nhồi Thịt — 165.000đ</li>
+<li>Cá Tầm Lúc Lắc — 165.000đ</li>
+<li>Cá Tầm Rang Muối — 200.000đ</li>
+<li>Sườn Cay Thái Lan — 260.000đ</li>
+<li>Tôm Chiên Trứng Muối — 160.000đ</li>
+</ul>
+<h3>BBQ Nướng Tại Bàn</h3>
+<ul>
+<li>Ba Chỉ Heo Hàn Quốc — 170.000đ</li>
+<li>Ba Chỉ Heo Nướng Ngũ Vị — 132.000đ</li>
+<li>Sườn Que Nướng — 155.000đ</li>
+<li>Chân Gà Nướng Muối Ớt — 105.000đ</li>
+<li>Cánh Gà Nướng Muối Ớt — 130.000đ</li>
+<li>Ếch Nướng Muối Ớt — 145.000đ</li>
+<li>Tôm Nướng Muối Ớt — 150.000đ</li>
+<li>Mực Ướp Sate — 160.000đ</li>
+<li>Bạch Tuột Nướng — 155.000đ</li>
+<li>Cá Tầm Nướng — 162.000đ</li>
+</ul>
+<h3>Món Ăn Kèm</h3>
+<ul>
+<li>Chả Ram Tôm Đất — 95.000đ</li>
+<li>Khoai Tây Chiên — 70.000đ</li>
+<li>Khoai Lang Kén — 70.000đ</li>
+<li>Salad Trộn Dầu Giấm — 95.000đ</li>
+<li>Kim Chi — 30.000đ</li>
+<li>Rau Thêm — 20.000đ</li>
+<li>Khăn Ướt — 2.000đ</li>
+</ul>
+<h3>No Cái Bụng</h3>
+<ul>
+<li>Cơm Chiên Cao Nguyên — 140.000đ</li>
+<li>Cơm Chiên Hải Sản — 120.000đ</li>
+<li>Mì Xào Hải Sản — 132.000đ</li>
+<li>Mì Xào Bò — 135.000đ</li>
+</ul>
+<h3>Lẩu</h3>
+<ul>
+<li>Lẩu Gà Lá É — 300.000đ</li>
+<li>Lẩu Hải Sản — 320.000đ</li>
+<li>Lẩu Cá Tầm — 320.000đ</li>
+</ul>
+<h3>Món Lai Rai</h3>
+<ul>
+<li>Xúc Xích Đức Nướng — 20.000đ</li>
+<li>Ếch Chiên Nước Mắm — 155.000đ</li>
+<li>Cánh Gà Chiên Nước Mắm — 145.000đ</li>
+<li>Bò Lúc Lắc — 160.000đ</li>
+</ul>
+<h3>Trà Lạnh</h3>
+<ul>
+<li>Trà Vải Hạt Chia — 49.000đ</li>
+<li>Trà Dứa Đào — 49.000đ</li>
+<li>Trà Trái Cây Nhiệt Đới — 49.000đ</li>
+<li>Trà Đào Cam Sả — 44.000đ</li>
+<li>Trà Tắc Xí Muội — 44.000đ</li>
+<li>Trà Ổi Hồng — 44.000đ</li>
+</ul>
+<h3>Trà Nóng</h3>
+<ul>
+<li>Trà Hoa Cúc Táo Đỏ — 39.000đ</li>
+<li>Trà Thảo Mộc — 39.000đ</li>
+<li>Trà Gừng Táo Đỏ Mật Ong — 39.000đ</li>
+<li>Trà Chanh Nóng Hạt Chia — 37.000đ</li>
+<li>Trà Lipton Nóng — 37.000đ</li>
+</ul>
+<h3>Soda</h3>
+<ul>
+<li>Soda Việt Quốc — 42.000đ</li>
+<li>Soda Chanh — 42.000đ</li>
+<li>Soda Blue — 42.000đ</li>
+<li>Soda Dâu Tây — 42.000đ</li>
+<li>Soda Đào — 42.000đ</li>
+</ul>
+<h3>Món Nước</h3>
+<ul>
+<li>Coca Cola — 19.000đ</li>
+<li>Sprite — 19.000đ</li>
+<li>Sting — 19.000đ</li>
+<li>StrongBow — 34.000đ</li>
+<li>Nước Suối — 12.000đ</li>
+</ul>
+<h3>Bia</h3>
+<ul>
+<li>Tiger Bạc — 28.000đ</li>
+<li>Tiger Nâu — 26.000đ</li>
+<li>Sài Gòn Xanh (Special) — 26.000đ</li>
+<li>Sài Gòn Chill — 27.000đ</li>
+<li>Sài Gòn Lager — 19.000đ</li>
+<li>Heineken Lùn — 27.000đ</li>
+</ul>
+<h3>Rượu</h3>
+<ul>
+<li>Rượu Mơ Hương Đào (18%) — 160.000đ</li>
+<li>Rượu Mơ 300ml (29%) — 110.000đ</li>
+<li>Rượu Mơ 350ml (18%) — 130.000đ</li>
+<li>Rượu Mơ 500ml (18%) — 170.000đ</li>
+<li>Soju Mix Vị 360ml — 110.000đ</li>
+<li>Rượu Vang Classic 750ml — 190.000đ</li>
+<li>Rượu Vang Export 750ml — 210.000đ</li>
+<li>Rượu Táo Mèo 300ml (29%) — 110.000đ</li>
+<li>Rượu Mơ Ume (Classic) — 140.000đ</li>
+<li>Rượu Táo Mèo 350ml (18%) — 130.000đ</li>
+</ul>
+<p>* Giá đã bao gồm VAT. Menu có thể thay đổi theo mùa.</p>
+</div>
+</noscript>
+        <!-- MENU_STATIC:END -->
+        <div class="menu-page-content"></div>
+    </div></section>
 
     <!-- CTA Section -->
     <section class="menu-cta">

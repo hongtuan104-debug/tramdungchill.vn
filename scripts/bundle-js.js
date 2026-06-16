@@ -184,4 +184,12 @@ if (fs.existsSync(CSS_FILE)) {
     );
 }
 
+// ── Sinh menu.html (JSON-LD MenuItem + danh sach mon tinh) tu data/menu-data.js ──
+console.log("\nGenerating menu.html (schema + static list)...");
+try {
+    require("./generate-menu").generateMenu();
+} catch (e) {
+    console.error("  Menu generation failed (khong chan build): " + e.message);
+}
+
 console.log("\nAll done!");

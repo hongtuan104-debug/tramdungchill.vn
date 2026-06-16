@@ -254,6 +254,11 @@ try {
         { loc: "/", lastmod: TODAY, changefreq: "weekly", priority: "1.0" },
         { loc: "/blog.html", lastmod: TODAY, changefreq: "daily", priority: "0.9" },
         { loc: "/menu.html", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+        { loc: "/dip/san-tau-da-lat.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
+        { loc: "/dip/cau-hon-hen-ho.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
+        { loc: "/dip/sinh-nhat.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
+        { loc: "/dip/team-building.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
+        { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" },
         { loc: "/review-qr.html", lastmod: TODAY, changefreq: "monthly", priority: "0.5" }
     ];
 
@@ -268,7 +273,7 @@ try {
             "    <changefreq>" + changefreq + "</changefreq>",
             "    <priority>" + priority + "</priority>",
             '    <xhtml:link rel="alternate" hreflang="vi" href="' + fullUrl + '"/>',
-            '    <xhtml:link rel="alternate" hreflang="en" href="' + fullUrl + '"/>',
+            '    <xhtml:link rel="alternate" hreflang="x-default" href="' + fullUrl + '"/>',
             "  </url>"
         ];
         return lines.join("\n");

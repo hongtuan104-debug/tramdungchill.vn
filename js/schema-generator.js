@@ -4,14 +4,12 @@
 function generateSchemas() {
     const page = detectCurrentPage();
 
-    if (page === 'index') {
-        injectSchema(buildRestaurantSchema());
-        injectSchema(buildFaqSchema());
-        injectSchema(buildReviewSchema());
-    } else if (page === 'blog') {
+    // NOTE: index.html va menu.html da co JSON-LD INLINE trong HTML (nguon chuan).
+    // Inline nam trong HTML tho -> AI crawler khong chay JS (GPTBot/ClaudeBot/PerplexityBot)
+    // van doc duoc. Neu inject them bang JS o day se bi TRUNG schema + xung dot du lieu.
+    // => Chi blog.html (trang index blog, khong co schema inline) moi can JS inject.
+    if (page === 'blog') {
         injectSchema(buildBlogSchema());
-    } else if (page === 'menu') {
-        injectSchema(buildMenuSchema());
     }
 }
 
