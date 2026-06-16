@@ -92,6 +92,7 @@ function buildMenuJsonLd(d) {
             "@type": "Restaurant",
             "@id": SITE_URL + "/#restaurant",
             "name": r.name,
+            "alternateName": r.alternateName,
             "url": r.url,
             "telephone": r.telephone,
             "address": {

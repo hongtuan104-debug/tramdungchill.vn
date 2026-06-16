@@ -3,7 +3,7 @@
 const SCHEMA_DATA = {
     restaurant: {
         name: 'Tiệm Nướng Trạm Dừng Chill',
-        alternateName: 'Tram Dung Chill BBQ',
+        alternateName: ['Tram Dung Chill BBQ', 'Tiệm Nướng & Chill Xóm Lèo', 'Xóm Lèo'],
         description: 'Quán nướng BBQ view đẹp nhất Đà Lạt - Ngắm xe lửa, hoàng hôn và nhà lồng lên đèn lung linh. Đặc biệt: setup sinh nhật, kỷ niệm miễn phí.',
         images: [
             'https://tramdungchill.vn/assets/images/hero-sunset.jpg',
