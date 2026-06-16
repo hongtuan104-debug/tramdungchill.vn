@@ -35,7 +35,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -72,7 +72,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -109,7 +109,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -146,7 +146,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -183,7 +183,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -220,7 +220,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -257,7 +257,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -294,7 +294,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -331,7 +331,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -368,7 +368,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
@@ -405,7 +405,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hong Tuan",
+        "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
       "dateModified": "2026-06-16",
@@ -443,7 +443,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hong Tuan",
+        "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
       "dateModified": "2026-06-16",
@@ -486,7 +486,7 @@ const BLOG_SEO = {
         }
       ],
       "author": {
-        "name": "Hồng Tuấn",
+        "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
       "dateModified": "2026-06-16",
