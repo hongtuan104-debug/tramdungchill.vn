@@ -32,10 +32,10 @@ var TRANSLATIONS = {
     'exp.1.tag2': 'Magic Hour',
     'exp.1.tag3': 'Check-in',
     'exp.2.title': 'Khoảnh Khắc Săn Tàu',
-    'exp.2.desc': 'Bất chợt một tiếng còi vang vọng cả thung lũng — đoàn tàu cổ kính lướt qua dưới chân quán. Khoảnh khắc "săn tàu" đã khiến hơn 12 triệu người rung động trên TikTok. Hôm nay, đến lượt bạn.',
+    'exp.2.desc': 'Bất chợt một tiếng còi vang vọng cả thung lũng — đoàn tàu cổ kính lướt qua dưới chân quán. Khoảnh khắc "săn tàu" đã khiến hơn 13 triệu người rung động trên TikTok. Hôm nay, đến lượt bạn.',
     'exp.2.tag1': 'Săn tàu',
     'exp.2.tag2': 'Trải nghiệm độc nhất',
-    'exp.2.tag3': 'Viral 12.9M',
+    'exp.2.tag3': 'Viral 13M+',
     'exp.3.title': 'Nhà Lồng Lên Đèn',
     'exp.3.desc': 'Khi mặt trời tắt nắng, hàng ngàn nhà lồng đồng loạt bật đèn — biến cả thung lũng Đà Lạt thành dải sao lấp lánh giữa lòng phố núi. Một bữa BBQ. Một ly trà nóng. Một view không thể quên.',
     'exp.3.tag1': 'View triệu đô',
@@ -70,7 +70,7 @@ var TRANSLATIONS = {
     'story.title': 'Nơi mỗi bữa ăn<br><em>là một kỷ niệm</em>',
     'story.since': 'Năm thành lập',
     'story.p1': 'Trạm Dừng Chill ra đời từ tình yêu Đà Lạt và mong muốn tạo ra một nơi thực sự "chill" — nơi bạn có thể vừa nướng BBQ thơm phức, vừa ngắm hoàng hôn buông xuống thung lũng nhà lồng, vừa nghe tiếng còi tàu lửa vang lên giữa bữa ăn.',
-    'story.p2': 'Mỗi món ăn được chuẩn bị tươi mỗi ngày, mỗi bàn được setup tỉ mỉ, mỗi nhân viên được đào tạo để mang đến cho bạn trải nghiệm trọn vẹn nhất. Hơn 76,000 followers TikTok và 4.8/5 sao Google không phải là con số — đó là sự tin tưởng của khách hàng dành cho chúng tôi.',
+    'story.p2': 'Mỗi món ăn được chuẩn bị tươi mỗi ngày, mỗi bàn được setup tỉ mỉ, mỗi nhân viên được đào tạo để mang đến cho bạn trải nghiệm trọn vẹn nhất. Hơn 80.000 followers TikTok và 4.8/5 sao Google không phải là con số — đó là sự tin tưởng của khách hàng dành cho chúng tôi.',
     'story.stat1': 'Khách phục vụ',
     'story.stat2': 'Món signature',
     'story.stat3': 'Tươi mỗi ngày',
@@ -78,7 +78,7 @@ var TRANSLATIONS = {
     // TikTok Gallery
     'tiktok.tag': 'TikTok Viral',
     'tiktok.title': 'Triệu lượt xem<br><em>trên TikTok</em>',
-    'tiktok.sub': '76K followers · 1.4M lượt thích · Xem từ @tiemnuongtramdungchill',
+    'tiktok.sub': '80K+ followers · 1.5M lượt thích · Xem từ @tiemnuongtramdungchill',
     'tiktok.cta': 'Xem thêm trên TikTok',
 
     // Reviews (real testimonials)
@@ -245,10 +245,10 @@ var TRANSLATIONS = {
     'exp.1.tag2': 'Magic Hour',
     'exp.1.tag3': 'Check-in',
     'exp.2.title': 'The Train Hunt',
-    'exp.2.desc': 'A whistle echoes across the valley — a vintage train glides beneath the restaurant. The "train hunt" moment that moved 12 million people on TikTok. Today, it is your turn.',
+    'exp.2.desc': 'A whistle echoes across the valley — a vintage train glides beneath the restaurant. The "train hunt" moment that moved over 13 million people on TikTok. Today, it is your turn.',
     'exp.2.tag1': 'Train hunt',
     'exp.2.tag2': 'One-of-a-kind',
-    'exp.2.tag3': 'Viral 12.9M',
+    'exp.2.tag3': 'Viral 13M+',
     'exp.3.title': 'When Greenhouses Glow',
     'exp.3.desc': 'As the sun sets, thousands of greenhouses light up in unison — turning the valley into a sea of stars in the heart of the mountains. One BBQ. One warm tea. One unforgettable view.',
     'exp.3.tag1': 'Million-dollar view',
@@ -283,7 +283,7 @@ var TRANSLATIONS = {
     'story.title': 'Where every meal<br><em>becomes a memory</em>',
     'story.since': 'Founded in',
     'story.p1': 'Tram Dung Chill was born from a love of Da Lat and a desire to create a truly "chill" place — where you can grill BBQ, watch the sunset over the greenhouse valley, and hear the train whistle echo through your meal.',
-    'story.p2': 'Every dish is prepared fresh daily, every table is set with care, every staff member is trained to give you a complete experience. 76,000+ TikTok followers and 4.8/5 stars on Google are not just numbers — they are the trust our customers give us.',
+    'story.p2': 'Every dish is prepared fresh daily, every table is set with care, every staff member is trained to give you a complete experience. 80,000+ TikTok followers and 4.8/5 stars on Google are not just numbers — they are the trust our customers give us.',
     'story.stat1': 'Guests served',
     'story.stat2': 'Signature dishes',
     'story.stat3': 'Fresh daily',
@@ -291,7 +291,7 @@ var TRANSLATIONS = {
     // TikTok Gallery
     'tiktok.tag': 'TikTok Viral',
     'tiktok.title': 'Millions of views<br><em>on TikTok</em>',
-    'tiktok.sub': '76K followers · 1.4M likes · Watch from @tiemnuongtramdungchill',
+    'tiktok.sub': '80K+ followers · 1.5M likes · Watch from @tiemnuongtramdungchill',
     'tiktok.cta': 'See more on TikTok',
 
     // Reviews (real testimonials)
