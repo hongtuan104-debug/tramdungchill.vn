@@ -852,7 +852,7 @@
         <div class="container">
             <div class="reviews-header">
                 <span class="section-tag" data-i18n="reviews.tag">Khách nói gì</span>
-                <h2 class="section-title" data-i18n="reviews.title">Gần <em>6,000 lượt đánh giá</em><br>5 sao trên Google</h2>
+                <h2 class="section-title" data-i18n="reviews.title">Hơn <em>6.500 lượt đánh giá</em><br>5 sao trên Google</h2>
                 <div class="reviews-rating">
                     <div class="reviews-stars">★★★★★</div>
                     <div class="reviews-rating-text">
@@ -1029,6 +1029,11 @@
                         <h3 data-i18n="booking.form.title">Đặt bàn online</h3>
                         <p class="form-subtitle" data-i18n="booking.form.subtitle">Điền thông tin bên dưới, chúng tôi sẽ xác nhận qua Zalo</p>
                         <p class="form-urgency" data-i18n="booking.form.urgency">⚠️ Cuối tuần thường full từ 16h — đặt sớm để chọn chỗ view đẹp nhất</p>
+                        <a href="https://zalo.me/0989765070?text=Em%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20b%C3%A0n%20%E1%BB%9F%20Tr%E1%BA%A1m%20D%E1%BB%ABng%20Chill" id="zaloQuickBook" class="booking-zalo-quick" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.79 1.49 5.27 3.84 6.88-.13.93-.6 2.2-1.2 3.04-.18.25.02.6.32.53 1.86-.42 3.2-1.06 4.02-1.55.96.22 1.97.3 3.02.3 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/></svg>
+                            <span><span data-i18n="booking.zalo.intro">Ngại điền form?</span> <strong data-i18n="booking.zalo.quick">Đặt nhanh qua Zalo</strong></span>
+                        </a>
+                        <div class="booking-or"><span data-i18n="booking.or">hoặc điền form bên dưới</span></div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name" data-i18n="booking.form.name">Họ và tên *</label>
@@ -1092,6 +1097,11 @@
                         <div class="form-group full-width">
                             <label for="note" data-i18n="booking.form.note">Ghi chú</label>
                             <textarea id="note" name="note" rows="3" placeholder="Yêu cầu đặc biệt: vị trí view sunset, setup sinh nhật..." data-i18n-ph="booking.form.note.ph"></textarea>
+                        </div>
+                        <div class="booking-mini-review">
+                            <div class="booking-mini-stars">★★★★★</div>
+                            <p>"Dù quán rất đông khách, nhưng nhân viên cực kỳ chu đáo… Cái bò phô mai siêu ngon, recommend mọi người…"</p>
+                            <span class="booking-mini-author">— Quyên Quyên · Google</span>
                         </div>
                         <button type="submit" class="btn btn-golden btn-full" id="submitBtn">
                             <span class="btn-text" data-i18n="booking.form.submit">Đặt bàn ngay</span>
@@ -1291,5 +1301,24 @@
     }(window, document, 'ttq');
     </script>
     <!-- End TikTok Pixel Code -->
+    <!-- Enhance nút "Đặt nhanh qua Zalo": gắn tag nguồn + bắn sự kiện Contact (giống FAB). Có link tĩnh fallback nếu JS lỗi. -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('zaloQuickBook');
+        if (!btn) return;
+        try {
+            var src = (typeof getSourceForTag === 'function') ? getSourceForTag() : null;
+            var tag = (typeof buildSourceTag === 'function' && src) ? buildSourceTag(src) : '';
+            var zalo = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.contact && SITE_CONFIG.contact.zaloNumber) ? SITE_CONFIG.contact.zaloNumber : '0989765070';
+            var msg = 'Em muốn đặt bàn ở Trạm Dừng Chill' + (tag ? ' ' + tag : '');
+            btn.href = 'https://zalo.me/' + zalo + '?text=' + encodeURIComponent(msg);
+        } catch (e) {}
+        btn.addEventListener('click', function () {
+            if (typeof gtag === 'function') gtag('event', 'contact', { event_category: 'contact', event_label: 'booking_zalo_quick' });
+            if (typeof fbq === 'function') fbq('track', 'Contact', { content_name: 'contact', content_category: 'booking_zalo_quick' });
+            if (typeof ttq !== 'undefined' && ttq.track) ttq.track('Contact', { content_type: 'booking_zalo_quick' });
+        });
+    });
+    </script>
 </body>
 </html>

@@ -83,7 +83,7 @@ var TRANSLATIONS = {
 
     // Reviews (real testimonials)
     'reviews.tag': 'Khách nói gì',
-    'reviews.title': 'Gần <em>6,000 lượt đánh giá</em><br>5 sao trên Google',
+    'reviews.title': 'Hơn <em>6.500 lượt đánh giá</em><br>5 sao trên Google',
     'reviews.on': 'trên Google Reviews',
     'reviews.count': '· 6.500+ đánh giá thực tế',
     'reviews.cta': 'Xem tất cả đánh giá trên Google',
@@ -168,6 +168,9 @@ var TRANSLATIONS = {
     'booking.form.note': 'Ghi chú',
     'booking.form.note.ph': 'Yêu cầu đặc biệt: vị trí view sunset, setup sinh nhật...',
     'booking.form.urgency': '⚠️ Cuối tuần quán thường kín bàn từ 16h. Đặt sớm để chọn được chỗ view đẹp nhất.',
+    'booking.zalo.intro': 'Ngại điền form?',
+    'booking.zalo.quick': 'Đặt nhanh qua Zalo',
+    'booking.or': 'hoặc điền form bên dưới',
     'booking.form.submit': 'Đặt bàn ngay',
     'booking.form.loading': 'Đang gửi...',
     'booking.form.hint': 'Miễn phí đặt bàn. Xác nhận qua Zalo trong 15 phút.',
@@ -296,7 +299,7 @@ var TRANSLATIONS = {
 
     // Reviews (real testimonials)
     'reviews.tag': 'What guests say',
-    'reviews.title': 'Nearly <em>6,000 reviews</em><br>5 stars on Google',
+    'reviews.title': 'Over <em>6,500 reviews</em><br>5 stars on Google',
     'reviews.on': 'on Google Reviews',
     'reviews.count': '· 6,500+ verified reviews',
     'reviews.cta': 'See all reviews on Google',
@@ -381,6 +384,9 @@ var TRANSLATIONS = {
     'booking.form.note': 'Notes',
     'booking.form.note.ph': 'Special requests: sunset view, birthday setup...',
     'booking.form.urgency': '⚠️ Weekends usually full after 4pm — book early to pick the best view',
+    'booking.zalo.intro': 'Prefer not to fill the form?',
+    'booking.zalo.quick': 'Quick book on Zalo',
+    'booking.or': 'or fill in the form below',
     'booking.form.submit': 'Book now',
     'booking.form.loading': 'Sending...',
     'booking.form.hint': 'Free booking. Confirmed via Zalo in 15 minutes.',
