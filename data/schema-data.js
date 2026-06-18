@@ -25,7 +25,7 @@ const SCHEMA_DATA = {
         priceRange: '₫95.000 - ₫300.000',
         currenciesAccepted: 'VND',
         paymentAccepted: 'Cash, Bank Transfer',
-        rating: { value: '4.8', count: '5949', best: '5' },
+        rating: { value: '4.8', count: '6500', best: '5' },
         amenities: [
             { name: 'Sunset View', value: true },
             { name: 'Train View', value: true },

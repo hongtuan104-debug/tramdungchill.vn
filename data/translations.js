@@ -85,7 +85,7 @@ var TRANSLATIONS = {
     'reviews.tag': 'Khách nói gì',
     'reviews.title': 'Gần <em>6,000 lượt đánh giá</em><br>5 sao trên Google',
     'reviews.on': 'trên Google Reviews',
-    'reviews.count': '· 5,949 đánh giá thực tế',
+    'reviews.count': '· 6.500+ đánh giá thực tế',
     'reviews.cta': 'Xem tất cả đánh giá trên Google',
     'reviews.sub': 'Đã đến quán? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Đánh giá ngay →</a>',
 
@@ -298,7 +298,7 @@ var TRANSLATIONS = {
     'reviews.tag': 'What guests say',
     'reviews.title': 'Nearly <em>6,000 reviews</em><br>5 stars on Google',
     'reviews.on': 'on Google Reviews',
-    'reviews.count': '· 5,949 verified reviews',
+    'reviews.count': '· 6,500+ verified reviews',
     'reviews.cta': 'See all reviews on Google',
     'reviews.sub': 'Already visited? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Leave a review →</a>',
 
