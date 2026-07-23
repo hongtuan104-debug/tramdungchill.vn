@@ -343,7 +343,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
         if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Cau hon hen ho',content_category:'landing_dip',num_guests:data.guests});
         var zaloMsg = '💍 ĐẶT BÀN LÃNG MẠN\n\nTên: ' + data.name + '\nSĐT: ' + data.phone + '\nNgày: ' + data.date + '\nGiờ: ' + data.time + '\nSố khách: ' + data.guests + '\nLoại: ' + data.occasion + '\nGhi chú: ' + (data.note || 'Không có');
         window.open('https://zalo.me/0989765070?text=' + encodeURIComponent(zaloMsg), '_blank');
-        alert('Đặt bàn thành công! Trạm sẽ liên hệ qua Zalo trong 15 phút 💍');
+        alert('Đã gửi thông tin thành công! Trạm sẽ liên hệ qua Zalo trong 15 phút 💍');
         this.reset();
     } catch (err) {
         alert('Có lỗi xảy ra. Vui lòng gọi 0989.765.070!');
