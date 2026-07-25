@@ -67,24 +67,28 @@ const SCHEMA_DATA = {
             answer: 'Tram Dung Chill is located at 111 Huynh Tan Phat, Xuan Truong Ward, Da Lat City. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night.'
         }
     ],
+    // Review THẬT — đồng bộ đúng với các review đang hiển thị trên index.html
+    // (guideline Google: structured data review phải khớp nội dung hiển thị).
     reviews: [
         {
-            author: 'Nguyễn Minh Tú',
+            author: 'Quyên Quyên',
             rating: '5',
-            body: 'View hoàng hôn đẹp ngất, đồ ăn ngon, giá hợp lý. Sẽ quay lại!',
-            date: '2026-03-15'
+            body: 'Đầu tiên nói về phục vụ, dù quán rất đông khách nhưng nhân viên cực kỳ chu đáo. Mấy bạn siêu nhiệt tình, mình rất ấn tượng. Cái bò phô mai siêu ngon, recommend mọi người lần đầu đến thì nên gọi.'
         },
         {
-            author: 'Trần Thị Hương',
+            author: 'Phương Mai Lưu',
             rating: '5',
-            body: 'Setup sinh nhật miễn phí, view nhà lồng lên đèn lung linh. Quán phục vụ rất nhiệt tình!',
-            date: '2026-03-10'
+            body: 'Mình ăn nhiều quán ở Xóm Lèo rồi nhưng đánh giá quán này vẫn là OK nhất. Đồ ăn ngon, giá hợp lý, nhân viên nhiệt tình. Sẽ quay lại lần nữa!'
         },
         {
-            author: 'David Miller',
+            author: 'Trung Nguyễn Chí',
             rating: '5',
-            body: 'Best BBQ restaurant in Da Lat! Amazing sunset view and the train passing by was incredible. Must visit!',
-            date: '2026-03-05'
+            body: 'Đồ ăn ngon, nhân viên phục vụ tốt. Nên thử bò tảng sốt trứng muối. Trời mưa tiệm còn phát áo mưa đi về nữa, quá dễ thương.'
+        },
+        {
+            author: 'Jeremy',
+            rating: '5',
+            body: 'The staff were so helpful even though we didn\'t have a reservation. Food was great and would come again with the family. Highly recommended!'
         }
     ]
 };

@@ -17,6 +17,7 @@ var TRANSLATIONS = {
     'nav.booking': 'Đặt bàn',
 
     // Hero
+    'hero.seo': 'Quán Nướng Đà Lạt View Đẹp — ',
     'hero.subtitle': 'Tiệm Nướng',
     'hero.description': 'Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ,<br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh',
     'hero.cta': 'Đặt Bàn Ngay',
@@ -233,6 +234,7 @@ var TRANSLATIONS = {
     'nav.booking': 'Book a Table',
 
     // Hero
+    'hero.seo': 'Best BBQ Restaurant in Da Lat with a View — ',
     'hero.subtitle': 'BBQ Restaurant',
     'hero.description': 'Pause in Da Lat — grill BBQ, hear vintage train whistles,<br>watch the sunset fade and the greenhouse valley glow',
     'hero.cta': 'Book Now',
