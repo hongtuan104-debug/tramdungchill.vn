@@ -629,5 +629,16 @@ const BLOG_SEO = {
     "quan-nuong-da-lat-cho-tre-em": "top-quan-nuong-da-lat",
     "quan-nuong-da-lat-cho-nguoi-gia": "top-quan-nuong-da-lat",
     "quan-nuong-da-lat-gia-dinh-cuoi-tuan": "top-quan-nuong-da-lat",
+    // → triage 8 bài mỏng còn lọt lưới index (audit đa tác nhân 2026-07)
+    // Ẩn hẳn: off-core, không phải nội dung về quán, không có pillar trùng
+    "dac-san-da-lat-mua-ve": "",
+    "cam-trai-da-lat": "",
+    "an-vat-da-lat-buoi-toi": "",
+    "da-lat-ve-dem-di-dau": "",
+    // Canonical về pillar cùng chủ đề (consolidate topical authority)
+    "du-lich-da-lat-tu-sai-gon": "lich-trinh-da-lat-3-ngay-2-dem",
+    "du-lich-da-lat-bang-xe-may": "lich-trinh-da-lat-3-ngay-2-dem",
+    "du-lich-da-lat-gia-re-2026": "lich-trinh-da-lat-3-ngay-2-dem",
+    "bbq-ngoai-troi-da-lat-mua-nao-dep-nhat": "nuong-bbq-ngam-xe-lua",
   }
 };

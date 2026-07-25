@@ -1,18 +1,6 @@
 /* Blog listing data (lightweight — no body). Auto-sinh bởi generate-blog-pages.js — KHÔNG sửa tay. */
 const BLOG_ARTICLES = [
   {
-    "id": "bbq-ngoai-troi-da-lat-mua-nao-dep-nhat",
-    "title": "BBQ Ngoài Trời Đà Lạt — Mùa Nào Đẹp Nhất? Guide 2027",
-    "category": "Trải nghiệm",
-    "date": "2027-03-15",
-    "image": "assets/images/blog/khong-gian-ngay-18.webp",
-    "imageAlt": "BBQ ngoài trời Đà Lạt mùa nào đẹp nhất 2027",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Đà Lạt nướng BBQ ngoài trời quanh năm, nhưng <strong>mùa nào đẹp nhất</strong>? Phân tích chi tiết thời tiết, view, giá cả từng mùa — giúp bạn chọn đúng thời điểm vàng.",
-    "tags": []
-  },
-  {
     "id": "an-nuong-da-lat-bao-nhieu-tien",
     "title": "Ăn Nướng Đà Lạt Bao Nhiêu Tiền? Bảng Giá Menu Chi Tiết",
     "category": "Quán nướng Đà Lạt",
@@ -25,54 +13,6 @@ const BLOG_ARTICLES = [
     "tags": []
   },
   {
-    "id": "du-lich-da-lat-gia-re-2026",
-    "title": "Du Lịch Đà Lạt Giá Rẻ 2026 — Mẹo Tiết Kiệm Mà Vẫn Ăn Ngon",
-    "category": "Du lịch Đà Lạt",
-    "date": "2026-11-05",
-    "image": "assets/images/blog/mon-nuong-2.webp",
-    "imageAlt": "Du lịch Đà Lạt giá rẻ - ăn nướng BBQ tiết kiệm phố núi",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Du lịch Đà Lạt không nhất thiết phải đắt đỏ! Đây là <strong>mẹo du lịch Đà Lạt giá rẻ 2026</strong> — từ homestay 150K đến ăn ngon chỉ 200K/ngày.",
-    "tags": []
-  },
-  {
-    "id": "du-lich-da-lat-bang-xe-may",
-    "title": "Du Lịch Đà Lạt Bằng Xe Máy — Cung Đường, Quán Ăn Dọc Đường 2026",
-    "category": "Du lịch Đà Lạt",
-    "date": "2026-10-21",
-    "image": "assets/images/blog/view-hoang-hon-2-v9.webp",
-    "imageAlt": "Du lịch Đà Lạt bằng xe máy - phượt và ăn nướng phố núi",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Phượt Đà Lạt bằng xe máy là trải nghiệm tuyệt vời! Đây là hướng dẫn <strong>du lịch Đà Lạt bằng xe máy</strong> — cung đường đẹp, quán ăn ngon dọc đường, mẹo an toàn.",
-    "tags": []
-  },
-  {
-    "id": "an-vat-da-lat-buoi-toi",
-    "title": "Ăn Vặt Đà Lạt Buổi Tối — 15 Món Không Thể Bỏ Qua Ở Chợ Đêm",
-    "category": "Ẩm thực Đà Lạt",
-    "date": "2026-09-24",
-    "image": "assets/images/blog/view-nha-long-3-v4.webp",
-    "imageAlt": "Ăn vặt Đà Lạt buổi tối - nướng xiên que và đồ ăn đêm",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Chợ đêm Đà Lạt là thiên đường <strong>ăn vặt buổi tối</strong> với hàng trăm món từ bánh tráng nướng, ốc, sữa đậu nành đến pizza Đà Lạt. Đây là 15 món nhất định phải thử khi ghé chợ đêm.",
-    "tags": []
-  },
-  {
-    "id": "du-lich-da-lat-tu-sai-gon",
-    "title": "Du Lịch Đà Lạt Từ Sài Gòn — Hướng Dẫn Đi Lại, Ăn Ở A-Z 2026",
-    "category": "Du lịch Đà Lạt",
-    "date": "2026-08-07",
-    "image": "assets/images/blog/view-nha-long-2.webp",
-    "imageAlt": "Du lịch Đà Lạt từ Sài Gòn - hành trình BBQ view đẹp phố núi",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Hướng dẫn <strong>du lịch Đà Lạt từ Sài Gòn</strong> chi tiết A-Z: cách đi, ở đâu, ăn gì, chơi gì — tất cả trong một bài viết 2026.",
-    "tags": []
-  },
-  {
     "id": "da-lat-restaurant-train-view-en",
     "title": "Da Lat Restaurant with a Train View: Dine While the Vintage Train Rolls By",
     "category": "English",
@@ -82,18 +22,6 @@ const BLOG_ARTICLES = [
     "badge": "",
     "featured": false,
     "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8 stars by nearly 6,000 guests.",
-    "tags": []
-  },
-  {
-    "id": "da-lat-ve-dem-di-dau",
-    "title": "Đà Lạt Về Đêm Đi Đâu? — 8 Hoạt Động Thú Vị Sau 20h 2026",
-    "category": "Du lịch Đà Lạt",
-    "date": "2026-06-05",
-    "image": "assets/images/blog/view-nha-long-4-v3.webp",
-    "imageAlt": "Đà Lạt về đêm đi đâu - nướng BBQ ngắm nhà lồng lên đèn",
-    "badge": "",
-    "featured": false,
-    "excerpt": "<strong>Đà Lạt về đêm đi đâu</strong> là câu hỏi phổ biến của du khách. Thành phố sương mù không ngủ sớm — đây là 8 hoạt động thú vị sau 20h cho chuyến đi 2026.",
     "tags": []
   },
   {
@@ -154,30 +82,6 @@ const BLOG_ARTICLES = [
     "badge": "",
     "featured": false,
     "excerpt": "Lịch trình du lịch Đà Lạt 3 ngày 2 đêm chi tiết theo từng buổi: sáng đặc sản, chiều cafe, tối nướng BBQ ngắm hoàng hôn + xe lửa cổ tại Trạm Dừng Chill.",
-    "tags": []
-  },
-  {
-    "id": "cam-trai-da-lat",
-    "title": "Cắm Trại Đà Lạt — 5 Địa Điểm Camping Đẹp Nhất Cho Dân Phượt 2026",
-    "category": "Du lịch Đà Lạt",
-    "date": "2026-04-10",
-    "image": "assets/images/blog/view-nha-long-1-v2.webp",
-    "imageAlt": "Cắm trại Đà Lạt - BBQ ngoài trời giữa rừng thông",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Thích trải nghiệm ngủ lều giữa thiên nhiên? Đây là 5 địa điểm <strong>cắm trại Đà Lạt</strong> view đẹp, an toàn và có dịch vụ hỗ trợ cho nhóm bạn!",
-    "tags": []
-  },
-  {
-    "id": "dac-san-da-lat-mua-ve",
-    "title": "Đặc Sản Đà Lạt Mua Về — 10 Món Quà Ai Cũng Muốn Nhận 2026",
-    "category": "Ẩm thực Đà Lạt",
-    "date": "2026-04-08",
-    "image": "assets/images/blog/mon-nuong-2.webp",
-    "imageAlt": "Đặc sản Đà Lạt mua về - thịt nướng và sốt đặc biệt",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Đi Đà Lạt về tay không thì phí lắm! Đây là 10 <strong>đặc sản Đà Lạt mua về</strong> làm quà cho gia đình, bạn bè ai cũng thích!",
     "tags": []
   },
   {
