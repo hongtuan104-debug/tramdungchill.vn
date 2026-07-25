@@ -676,7 +676,7 @@ const BLOG_ARTICLES = [
     {
         id: "dac-san-da-lat-mua-ve",
         title: "Đặc Sản Đà Lạt Mua Về — 10 Món Quà Ai Cũng Muốn Nhận 2026",
-        category: "Hẹn hò & Sinh nhật",
+        category: "Ẩm thực Đà Lạt",
         date: "2026-04-08",
         image: "assets/images/blog/mon-nuong-2.webp",
         imageAlt: "Đặc sản Đà Lạt mua về - thịt nướng và sốt đặc biệt",

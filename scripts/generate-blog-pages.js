@@ -119,9 +119,12 @@ function faqHtml(article) {
     return '\n<section class="blog-faq"><h2>Câu hỏi thường gặp</h2>\n' + items + '\n</section>';
 }
 
-// Byline tác giả (chỉ trụ cột có _author)
+// Byline tác giả. Trụ cột: tác giả thật (_author). Còn lại: byline mặc định "Đội ngũ"
+// (E-E-A-T: mọi bài đều có tín hiệu "ai viết"; schema vẫn để Organization — không bịa Person).
 function bylineHtml(article) {
-    if (!article._author) return "";
+    if (!article._author) {
+        return ' <span class="blog-byline">✍️ Đội ngũ Trạm Dừng Chill · Tiệm Nướng Trạm Dừng Chill</span>';
+    }
     var role = article._author.role ? ' · ' + htmlEncode(article._author.role) : "";
     return ' <span class="blog-byline">✍️ ' + htmlEncode(article._author.name) + role + '</span>';
 }
@@ -311,6 +314,10 @@ try {
             const keywords = article.title.toLowerCase() + ", đà lạt, quán nướng, bbq";
             const dateVI = formatDateVI(article.date);
             const readTime = readingTime(article.body || "");
+            // Hiển thị "Cập nhật {ngày}" khi bài có dateModified thật khác ngày đăng (freshness E-E-A-T).
+            const updatedHtml = (article._dateModified && article._dateModified !== article.date)
+                ? ' · <span class="blog-updated">Cập nhật ' + formatDateVI(article._dateModified) + '</span>'
+                : '';
             const bodyFixed = fixAssetPaths((article.body || "") + faqHtml(article));
 
             const image400w = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp');
@@ -321,6 +328,7 @@ try {
                 .replace(/{{TITLE}}/g, titleEncoded)
                 .replace(/{{ID}}/g, article.id)
                 .replace(/{{DATE_VI}}/g, dateVI)
+                .replace(/{{UPDATED}}/g, updatedHtml)
                 .replace(/{{DATE}}/g, article.date)
                 .replace(/{{CATEGORY}}/g, article.category)
                 .replace(/{{IMAGE_ALT}}/g, imageAltEncoded)
@@ -368,8 +376,8 @@ try {
         { loc: "/dip/cau-hon-hen-ho.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         { loc: "/dip/sinh-nhat.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         { loc: "/dip/team-building.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
-        { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" },
-        { loc: "/review-qr.html", lastmod: TODAY, changefreq: "monthly", priority: "0.5" }
+        { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" }
+        // review-qr.html là noindex,nofollow (trang tiện ích QR) → KHÔNG đưa vào sitemap.
     ];
 
     // Chỉ xuất sitemap bài đã tới ngày (date<=hôm nay) VÀ còn index (loại future + noindex)
