@@ -39,7 +39,6 @@ function meta(loc) {
   if (loc.includes('/dip/')) return { changefreq: 'monthly', priority: '0.8' };
   if (loc.endsWith('/duong-di/')) return { changefreq: 'monthly', priority: '0.7' };
   if (loc.includes('/blog/')) return { changefreq: 'monthly', priority: '0.6' };
-  if (loc.endsWith('/review-qr.html')) return { changefreq: 'yearly', priority: '0.3' };
   return { changefreq: 'monthly', priority: '0.5' };
 }
 
@@ -69,7 +68,8 @@ function build() {
   urls.push({ loc: `${BASE}/`, lastmod: TODAY });
   urls.push({ loc: `${BASE}/menu.html`, lastmod: TODAY });
   urls.push({ loc: `${BASE}/blog.html`, lastmod: TODAY });
-  urls.push({ loc: `${BASE}/review-qr.html`, lastmod: TODAY });
+  // review-qr.html là noindex,nofollow (trang tiện ích QR) → KHÔNG đưa vào sitemap
+  // để tránh cảnh báo "Submitted URL marked noindex" trong GSC.
 
   // 2) duong-di/ (index.html → URL dạng thư mục)
   if (fs.existsSync(path.join(ROOT, 'duong-di', 'index.html'))) {

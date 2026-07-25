@@ -54,5 +54,5 @@ const SITE_CONFIG = {
     // Telegram: handled server-side by Google Apps Script webhook
     // Do NOT put bot tokens in client-side code
 
-    googleMapsEmbed: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=111+Huỳnh+Tấn+Phát,+Phường+11,+Đà+Lạt,+Lâm+Đồng&zoom=16&language=vi',
+    googleMapsEmbed: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Tiệm+Nướng+Trạm+Dừng+Chill,+111+Huỳnh+Tấn+Phát,+Đà+Lạt&zoom=16&language=vi',
 };

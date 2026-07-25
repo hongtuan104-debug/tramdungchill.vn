@@ -13,7 +13,7 @@ const SCHEMA_DATA = {
         url: 'https://tramdungchill.vn',
         telephone: '+84989765070',
         address: {
-            street: '111 Huỳnh Tấn Phát',
+            street: '111 Huỳnh Tấn Phát, Phường Xuân Trường',
             locality: 'Đà Lạt',
             region: 'Lâm Đồng',
             postalCode: '670000',
