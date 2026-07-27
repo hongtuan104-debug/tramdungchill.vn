@@ -73,6 +73,10 @@ const BLOG_SEO = {
         {
           "q": "Trạm Dừng Chill có nhận tổ chức sinh nhật không?",
           "a": "Có. Quán hỗ trợ setup sinh nhật, kỷ niệm miễn phí (trang trí bàn tiệc tặng kèm). Xem chi tiết tại ../dip/sinh-nhat.html và đặt trước để được chọn bàn view đẹp."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -110,6 +114,10 @@ const BLOG_SEO = {
         {
           "q": "Đặt bàn view đẹp ở Trạm Dừng Chill thế nào?",
           "a": "Đặt qua form trên website (../index.html#booking), quán xác nhận lại qua Zalo trong khoảng 15 phút. Nên tránh khung 17:30–19:00 vì quán thường kín; chọn sớm hơn hoặc từ 19:30. Zalo: 0989.765.070."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -147,6 +155,10 @@ const BLOG_SEO = {
         {
           "q": "Khung giờ nào đẹp nhất để thổi nến và ngắm view?",
           "a": "Đến quán khoảng 16:00–17:00 là khung vàng để đón tàu và hoàng hôn; tầm 18h30 nhà lồng dưới thung lũng lên đèn tạo 'biển sao' — thời điểm thổi nến lung linh nhất. Lưu ý khung 17:30–19:00 thường kín khách."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -184,6 +196,10 @@ const BLOG_SEO = {
         {
           "q": "Trạm Dừng Chill nằm ở đâu và mở cửa lúc nào?",
           "a": "Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng (Phường 11 cũ), mở cửa 15:00–23:00 mỗi ngày. Liên hệ Zalo/điện thoại 0989.765.070."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -221,6 +237,10 @@ const BLOG_SEO = {
         {
           "q": "Nên đến lúc mấy giờ để vừa ăn vừa ngắm tàu?",
           "a": "Đến khoảng 16:00–17:00 để đón hai chuyến tàu và trọn hoàng hôn. Khung 17:30–19:00 quán thường kín, nên đặt bàn sớm hơn hoặc từ 19:30. Đặt bàn qua website hoặc Zalo 0989.765.070."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -258,6 +278,10 @@ const BLOG_SEO = {
         {
           "q": "Đặt bàn ăn lẩu nướng mùa lạnh như thế nào?",
           "a": "Điền form đặt bàn trên website của quán, sau đó quán xác nhận lại qua Zalo trong khoảng 15 phút, hoặc gọi trực tiếp 0989.765.070. Cuối tuần và dịp lễ nên đặt sớm vì khung giờ đẹp nhanh kín."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -295,6 +319,10 @@ const BLOG_SEO = {
         {
           "q": "Đặt bàn ăn nướng ở Trạm Dừng Chill như thế nào?",
           "a": "Bạn điền form đặt bàn trên website (../index.html#booking), quán xác nhận qua Zalo trong khoảng 15 phút. Cuối tuần nên đặt trước 1–2 ngày và ghi rõ khung giờ, số người để giữ được bàn view đẹp."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -332,6 +360,10 @@ const BLOG_SEO = {
         {
           "q": "Trạm Dừng Chill có món gì nổi bật và giá bao nhiêu?",
           "a": "Quán có khoảng 73 món, giá 95.000–300.000đ/người. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 210K; best seller có Ba Chỉ Bò Cuộn Kim Châm 137K, Cá Tầm Lúc Lắc 165K. Xem đầy đủ ở thực đơn (../menu.html)."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -369,6 +401,10 @@ const BLOG_SEO = {
         {
           "q": "Đi dịp lễ, Tết, Giáng Sinh có cần đặt bàn trước không?",
           "a": "Có. Các dịp cao điểm như Giáng Sinh, Tết, 30/4 và cuối tuần quán rất đông, nên đặt bàn trước qua form trên website hoặc Zalo 0989.765.070. Khung 17:30–19:00 thường kín khách."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {
@@ -406,6 +442,10 @@ const BLOG_SEO = {
         {
           "q": "What dish should I order first?",
           "a": "The signature Cheese & Salted-Egg-Yolk Beef Tower (210,000 VND) is the most photographed. Beef & enoki rolls (137,000 VND) are an easy, fun first grill."
+        },
+        {
+          "q": "Is there parking at Tram Dung Chill?",
+          "a": "Yes — free parking for both motorbikes and cars right at the restaurant. At weekend peak hours you may need to park about 100–200m further away. We open at 15:00, so arriving early makes parking easier; Grab and taxis can drive right up to the door."
         }
       ],
       "author": {
@@ -444,6 +484,10 @@ const BLOG_SEO = {
         {
           "q": "Is Tram Dung Chill good for a birthday or anniversary?",
           "a": "Yes. We set up birthday and anniversary tables free of charge, paired with the train-and-sunset view. See ideas at /dip/sinh-nhat.html or book directly via the form on our website."
+        },
+        {
+          "q": "Is there parking at Tram Dung Chill?",
+          "a": "Yes — free parking for both motorbikes and cars right at the restaurant. At weekend peak hours you may need to park about 100–200m further away. We open at 15:00, so arriving early makes parking easier; Grab and taxis can drive right up to the door."
         }
       ],
       "author": {
@@ -487,6 +531,10 @@ const BLOG_SEO = {
         {
           "q": "Cuối tuần đi nhóm có cần đặt bàn sớm không?",
           "a": "Nên đặt sớm. Cuối tuần quán dễ kín chỗ, đặc biệt khung 17:30–19:00 thường không nhận đặt mới. Nhóm đông hãy chọn đến sớm hơn hoặc từ 19:30, và giữ chỗ trước qua form đặt bàn."
+        },
+        {
+          "q": "Quán có chỗ đỗ ô tô không?",
+          "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
       "author": {

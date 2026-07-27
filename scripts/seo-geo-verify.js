@@ -272,6 +272,34 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         bad.length ? bad.join(" | ") : PAGES.length + " trang đủ " + Object.keys(TOPICS).length + " chủ đề");
 }
 
+// ── R8c. Fan-out trên các bài blog ĐANG INDEX (trang được crawl thật) ────
+{
+    const dir = path.join(ROOT, "blog");
+    const indexed = fs.readdirSync(dir).filter((f) => f.endsWith(".html")).filter((f) => {
+        const m = fs.readFileSync(path.join(dir, f), "utf8").match(/name="robots" content="([^"]+)"/);
+        return m && !/noindex/i.test(m[1]);
+    });
+    // "95[.,]000" — bài tiếng Việt viết 95.000, bài tiếng Anh viết 95,000
+    const TOPICS = {
+        "giá": /95[.,]000/,
+        "địa chỉ": /Huỳnh Tấn Phát/i,
+        "giờ mở": /15:00/,
+        "khoảng cách": /\b7\s*km\b/i,
+        "đỗ xe": /đỗ xe|đậu xe|bãi đỗ|parking/i
+    };
+    const bad = [];
+    for (const f of indexed) {
+        const body = (fs.readFileSync(path.join(dir, f), "utf8").split(/<body[^>]*>/)[1] || "")
+            .replace(/<script[\s\S]*?<\/script>/g, "")
+            .replace(/<style[\s\S]*?<\/style>/g, "");
+        const missing = Object.entries(TOPICS).filter(([, re]) => !re.test(body)).map(([k]) => k);
+        if (missing.length) bad.push(f.replace(".html", "") + " thiếu " + missing.join(","));
+    }
+    add("Fan-out trên " + indexed.length + " bài blog đang index",
+        bad.length === 0,
+        bad.length ? bad.slice(0, 4).join(" | ") : indexed.length + " bài đủ " + Object.keys(TOPICS).length + " chủ đề");
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
