@@ -309,7 +309,18 @@ try {
             const excerptClean = stripHtml(article.excerpt || "");
             const metaDesc = htmlEncode(truncate(excerptClean, 160));
             const titleEncoded = htmlEncode(article.title);
+            // titleShort chỉ dùng cho breadcrumb (chỗ hẹp, cắt là hợp lý).
             const titleShort = truncate(article.title, 60);
+            // Thẻ <title> thì KHÔNG được cắt: trước đây template ghép
+            // "{titleShort} — Trạm Dừng Chill Đà Lạt" nên 86/143 bài có dấu "..."
+            // ngay giữa title, nuốt mất keyword ở đuôi. Nay: title ngắn thì thêm
+            // hậu tố thương hiệu, title đã dài thì để nguyên vẹn, không hậu tố.
+            const BRAND = " — Trạm Dừng Chill Đà Lạt";
+            const titleTag = htmlEncode(
+                article.title.length + BRAND.length <= 65
+                    ? article.title + BRAND
+                    : article.title
+            );
             const imageAltEncoded = htmlEncode(article.imageAlt || article.title);
             const keywords = article.title.toLowerCase() + ", đà lạt, quán nướng, bbq";
             const dateVI = formatDateVI(article.date);
@@ -324,6 +335,7 @@ try {
             const image800w = article.image.replace(/\.(jpg|webp)$/i, '-800w.webp');
 
             let html = template
+                .replace(/{{TITLE_TAG}}/g, titleTag)
                 .replace(/{{TITLE_SHORT}}/g, titleShort)
                 .replace(/{{TITLE}}/g, titleEncoded)
                 .replace(/{{ID}}/g, article.id)

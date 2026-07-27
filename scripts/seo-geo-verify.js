@@ -133,6 +133,22 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             : posts.length + " bài đạt");
 }
 
+// ── R5c. Thẻ <title> không được chứa "..." do site tự cắt ────────────────
+// Generator từng ghép "{title cắt 60 ký tự} — Trạm Dừng Chill Đà Lạt" nên
+// 86/143 bài có dấu ba chấm giữa title, nuốt mất keyword ở đuôi.
+{
+    const dir = path.join(ROOT, "blog");
+    const posts = fs.readdirSync(dir).filter((f) => f.endsWith(".html"));
+    const bad = [];
+    for (const f of posts) {
+        const t = (fs.readFileSync(path.join(dir, f), "utf8").match(/<title>([^<]+)<\/title>/) || [])[1] || "";
+        if (t.includes("...")) bad.push(f.replace(".html", ""));
+    }
+    add("Thẻ <title> blog không bị cắt cụt bằng \"...\"", bad.length === 0,
+        bad.length ? bad.length + " bài bị cắt (" + bad.slice(0, 3).join(", ") + ")"
+                   : posts.length + " bài giữ title đầy đủ");
+}
+
 // ── R6. JSON-LD phải parse được ──────────────────────────────────────────
 {
     let total = 0;

@@ -121,6 +121,18 @@ const BLOG_ARTICLES = [
     "tags": []
   },
   {
+    "id": "quan-an-gia-dinh-da-lat",
+    "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
+    "category": "Quán nướng Đà Lạt",
+    "date": "2026-03-23",
+    "image": "assets/images/blog/mon-nuong-4.webp",
+    "imageAlt": "Quán ăn Đà Lạt cho gia đình - bàn nướng BBQ ấm cúng ngoài trời",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
+    "tags": []
+  },
+  {
     "id": "top-quan-nuong-da-lat",
     "title": "Top Quán Nướng Đà Lạt View Đẹp Nhất — Hướng Dẫn Chọn Quán BBQ Theo Người Đà Lạt",
     "category": "Ẩm thực Đà Lạt",
