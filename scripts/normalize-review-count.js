@@ -52,23 +52,27 @@ for (const f of allFiles(ROOT)) {
 
     // 1. Text tiếng Việt. CHỈ thay con số và hạ "gần/khoảng" thành "hơn" khi từ đó
     //    nằm ngay trước số. KHÔNG tự chèn thêm từ định lượng — nhiều chỗ trong site
-    //    viết "Hơn <em>6.500 lượt đánh giá</em>", chèn thêm sẽ thành "Hơn hơn".
+    //    viết "Hơn <em>6.816 lượt đánh giá</em>", chèn thêm sẽ thành "Hơn hơn".
+    //
+    //    Nhóm `tag` bắt trường hợp có thẻ đóng chen giữa con số và chữ, ví dụ
+    //    "<strong>6.500+</strong> đánh giá Google" ở hero badge — bản trước bỏ sót
+    //    đúng chỗ này nên trang chủ vẫn hiện số cũ.
     s = s.replace(
-        /(gần |hơn |khoảng )?([0-9][0-9.]{2,6})\+? (lượt )?đánh giá/gi,
-        (m, pre, _num, luot) => {
+        /(gần |hơn |khoảng )?([0-9][0-9.]{2,6})\+?(<\/(?:strong|b|em|span)>)?(\s+)(lượt )?đánh giá/gi,
+        (m, pre, _num, tag, sp, luot) => {
             hits++;
             const keep = pre ? (/gần|khoảng/i.test(pre) ? "hơn " : pre) : "";
-            return keep + vn + " " + (luot || "") + "đánh giá";
+            return keep + vn + (tag || "") + sp + (luot || "") + "đánh giá";
         }
     );
 
     // 2. Text tiếng Anh — cùng nguyên tắc.
     s = s.replace(
-        /(nearly |over |about |almost )?([0-9][0-9,]{2,6})\+? reviews/gi,
-        (m, pre) => {
+        /(nearly |over |about |almost )?([0-9][0-9,]{2,6})\+?(<\/(?:strong|b|em|span)>)?(\s+)reviews/gi,
+        (m, pre, _num, tag, sp) => {
             hits++;
             const keep = pre ? (/nearly|about|almost/i.test(pre) ? "over " : pre) : "";
-            return keep + en + " reviews";
+            return keep + en + (tag || "") + sp + "reviews";
         }
     );
 

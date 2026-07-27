@@ -84,9 +84,9 @@ var TRANSLATIONS = {
 
     // Reviews (real testimonials)
     'reviews.tag': 'Khách nói gì',
-    'reviews.title': 'Hơn <em>6.500 lượt đánh giá</em><br>5 sao trên Google',
+    'reviews.title': 'Hơn <em>6.816 lượt đánh giá</em><br>5 sao trên Google',
     'reviews.on': 'trên Google Reviews',
-    'reviews.count': '· hơn 6.500 đánh giá thực tế',
+    'reviews.count': '· hơn 6.816 đánh giá thực tế',
     'reviews.cta': 'Xem tất cả đánh giá trên Google',
     'reviews.sub': 'Đã đến quán? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Đánh giá ngay →</a>',
 
@@ -343,7 +343,7 @@ var TRANSLATIONS = {
 
     // Reviews (real testimonials)
     'reviews.tag': 'What guests say',
-    'reviews.title': 'Over <em>6,500 reviews</em><br>5 stars on Google',
+    'reviews.title': 'Over <em>6,816 reviews</em><br>5 stars on Google',
     'reviews.on': 'on Google Reviews',
     'reviews.count': '· 6,500+ verified reviews',
     'reviews.cta': 'See all reviews on Google',
