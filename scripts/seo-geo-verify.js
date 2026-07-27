@@ -300,6 +300,33 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         bad.length ? bad.slice(0, 4).join(" | ") : indexed.length + " bài đủ " + Object.keys(TOPICS).length + " chủ đề");
 }
 
+// ── R8d. Citation nguồn uy tín trên bài pillar (Princeton GEO: cite +115%) ──
+// Chỉ đếm link ra ngoài trong <article>, và chặn domain lạ — rải citation bừa
+// là pattern spam Google nêu đích danh từ 05/2026.
+{
+    const ALLOWED = /^https:\/\/(vi|en)\.wikipedia\.org\//;
+    const dir = path.join(ROOT, "blog");
+    const indexed = fs.readdirSync(dir).filter((f) => f.endsWith(".html")).filter((f) => {
+        const m = fs.readFileSync(path.join(dir, f), "utf8").match(/name="robots" content="([^"]+)"/);
+        return m && !/noindex/i.test(m[1]);
+    });
+
+    let withCite = 0;
+    const offDomain = [];
+    for (const f of indexed) {
+        const art = (fs.readFileSync(path.join(dir, f), "utf8").match(/<article[\s\S]*?<\/article>/) || [""])[0];
+        const ext = [...art.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1])
+            .filter((u) => !/tramdungchill\.vn|facebook|instagram|tiktok|youtube|threads|zalo|goo\.gl|google\.com/i.test(u));
+        if (ext.length) withCite++;
+        for (const u of ext) if (!ALLOWED.test(u)) offDomain.push(f.replace(".html", "") + " → " + u.slice(0, 50));
+    }
+
+    const ok = withCite >= 5 && offDomain.length === 0;
+    add("Citation nguồn uy tín trên bài pillar (domain đã whitelist)", ok,
+        offDomain.length ? "domain ngoài whitelist: " + offDomain.slice(0, 3).join(", ")
+                         : withCite + "/" + indexed.length + " bài có citation Wikipedia");
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
