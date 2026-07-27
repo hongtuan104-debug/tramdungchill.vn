@@ -116,20 +116,49 @@ function faqHtml(article) {
     var items = article._faq.map(function (f) {
         return '<div class="blog-faq-item"><h3>' + htmlEncode(f.q) + '</h3><p>' + f.a + '</p></div>';
     }).join("\n");
-    return '\n<section class="blog-faq"><h2>Câu hỏi thường gặp</h2>\n' + items + '\n</section>';
+    return '\n<section class="blog-faq"><h2>' + ui(article).faq + '</h2>\n' + items + '\n</section>';
 }
+
+// Chuỗi giao diện theo ngôn ngữ bài. Trước đây nav/breadcrumb/CTA/FAQ đều cứng
+// tiếng Việt, nên 2 bài tiếng Anh hiện "Trang chủ / Thực đơn / Đặt bàn ngay" —
+// vừa khó hiểu với khách nước ngoài (CTA không đọc được thì không có chuyển đổi),
+// vừa sai accessibility tree vì trang khai lang="en" mà nội dung lại tiếng Việt.
+var UI = {
+    vi: {
+        home: "Trang chủ", menu: "Thực đơn", blog: "Blog", book: "Đặt bàn",
+        read: "phút đọc", related: "Bài viết liên quan", faq: "Câu hỏi thường gặp",
+        ctaTitle: "Đặt Bàn Trạm Dừng Chill",
+        ctaSub: "Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt",
+        ctaBtn: "Đặt bàn ngay →",
+        byline: "Đội ngũ Trạm Dừng Chill · Tiệm Nướng Trạm Dừng Chill",
+        updated: "Cập nhật", prev: "Bài trước", next: "Bài sau"
+    },
+    en: {
+        home: "Home", menu: "Menu", blog: "Blog", book: "Book a table",
+        read: "min read", related: "Related articles", faq: "Frequently asked questions",
+        ctaTitle: "Book a table at Trạm Dừng Chill",
+        ctaSub: "Grilled BBQ with sunset and vintage train views — only in Da Lat",
+        ctaBtn: "Book now →",
+        byline: "The Trạm Dừng Chill team · Tiệm Nướng Trạm Dừng Chill",
+        updated: "Updated", prev: "Previous", next: "Next"
+    }
+};
+function ui(article) { return UI[article._lang === "en" ? "en" : "vi"]; }
 
 // Byline tác giả. Trụ cột: tác giả thật (_author). Còn lại: byline mặc định "Đội ngũ"
 // (E-E-A-T: mọi bài đều có tín hiệu "ai viết"; schema vẫn để Organization — không bịa Person).
 function bylineHtml(article) {
     if (!article._author) {
-        return ' <span class="blog-byline">✍️ Đội ngũ Trạm Dừng Chill · Tiệm Nướng Trạm Dừng Chill</span>';
+        return ' <span class="blog-byline">✍️ ' + ui(article).byline + '</span>';
     }
     var role = article._author.role ? ' · ' + htmlEncode(article._author.role) : "";
     return ' <span class="blog-byline">✍️ ' + htmlEncode(article._author.name) + role + '</span>';
 }
 
 function breadcrumbSchema(article) {
+    // Tên chặng phải trùng breadcrumb hiển thị trên trang — bài tiếng Anh hiện
+    // "Home › Blog" thì schema cũng phải vậy, không để lệch ngôn ngữ.
+    var u = ui(article);
     return JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -137,13 +166,13 @@ function breadcrumbSchema(article) {
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Trang chủ",
+                "name": u.home,
                 "item": SITE_URL + "/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Blog",
+                "name": u.blog,
                 "item": SITE_URL + "/blog.html"
             },
             {
@@ -262,13 +291,13 @@ try {
         };
     }
 
-    function buildPrevLink(nav) {
+    function buildPrevLink(nav, article) {
         if (!nav || !nav.prev) return "";
-        return '<a href="' + nav.prev.id + '.html" class="blog-nav-prev"><span class="nav-label">\u2190 B\u00e0i tr\u01b0\u1edbc</span><span class="nav-title">' + htmlEncode(nav.prev.title) + '</span></a>';
+        return '<a href="' + nav.prev.id + '.html" class="blog-nav-prev"><span class="nav-label">\u2190 ' + ui(article).prev + '</span><span class="nav-title">' + htmlEncode(nav.prev.title) + '</span></a>';
     }
-    function buildNextLink(nav) {
+    function buildNextLink(nav, article) {
         if (!nav || !nav.next) return "";
-        return '<a href="' + nav.next.id + '.html" class="blog-nav-next"><span class="nav-label">B\u00e0i ti\u1ebfp \u2192</span><span class="nav-title">' + htmlEncode(nav.next.title) + '</span></a>';
+        return '<a href="' + nav.next.id + '.html" class="blog-nav-next"><span class="nav-label">' + ui(article).next + ' \u2192</span><span class="nav-title">' + htmlEncode(nav.next.title) + '</span></a>';
     }
 
     // Build related posts for each article
@@ -327,7 +356,7 @@ try {
             const readTime = readingTime(article.body || "");
             // Hiển thị "Cập nhật {ngày}" khi bài có dateModified thật khác ngày đăng (freshness E-E-A-T).
             const updatedHtml = (article._dateModified && article._dateModified !== article.date)
-                ? ' · <span class="blog-updated">Cập nhật ' + formatDateVI(article._dateModified) + '</span>'
+                ? ' · <span class="blog-updated">' + ui(article).updated + ' ' + formatDateVI(article._dateModified) + '</span>'
                 : '';
             const bodyFixed = fixAssetPaths((article.body || "") + faqHtml(article));
 
@@ -357,10 +386,25 @@ try {
                 .replace(/{{ROBOTS}}/g, article._indexable === false ? "noindex, follow" : "index, follow")
                 .replace(/{{CANONICAL_HREF}}/g, article._canonical)
                 .replace(/{{HREFLANG_LANG}}/g, article._lang === "en" ? "en" : "vi")
+                // Bài tiếng Anh phải khai lang="en": <html lang> nằm trong accessibility
+                // tree (screen reader chọn giọng đọc theo nó) và là tín hiệu ngôn ngữ
+                // Google đọc. Trước đây hardcode "vi" nên 2 bài EN tự mâu thuẫn với
+                // chính hreflang="en" và schema inLanguage="en" của mình.
+                .replace(/{{T_HOME}}/g, ui(article).home)
+                .replace(/{{T_MENU}}/g, ui(article).menu)
+                .replace(/{{T_BLOG}}/g, ui(article).blog)
+                .replace(/{{T_BOOK}}/g, ui(article).book)
+                .replace(/{{T_READ}}/g, ui(article).read)
+                .replace(/{{T_RELATED}}/g, ui(article).related)
+                .replace(/{{T_CTA_TITLE}}/g, ui(article).ctaTitle)
+                .replace(/{{T_CTA_SUB}}/g, ui(article).ctaSub)
+                .replace(/{{T_CTA_BTN}}/g, ui(article).ctaBtn)
+                .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
+                .replace(/{{OG_LOCALE}}/g, article._lang === "en" ? "en_US" : "vi_VN")
                 .replace(/{{BYLINE}}/g, bylineHtml(article))
                 .replace(/{{READING_TIME}}/g, String(readTime))
-                .replace(/{{PREV_LINK}}/g, buildPrevLink(navMap[article.id]))
-                .replace(/{{NEXT_LINK}}/g, buildNextLink(navMap[article.id]))
+                .replace(/{{PREV_LINK}}/g, buildPrevLink(navMap[article.id], article))
+                .replace(/{{NEXT_LINK}}/g, buildNextLink(navMap[article.id], article))
                 .replace(/{{PREV_TITLE}}/g, navMap[article.id] && navMap[article.id].prev ? htmlEncode(navMap[article.id].prev.title) : "")
                 .replace(/{{NEXT_TITLE}}/g, navMap[article.id] && navMap[article.id].next ? htmlEncode(navMap[article.id].next.title) : "")
                 .replace(/{{RELATED_POSTS}}/g, buildRelatedPosts(article));

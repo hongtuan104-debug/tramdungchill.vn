@@ -149,6 +149,36 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                    : posts.length + " bài giữ title đầy đủ");
 }
 
+// ── R5d. Tín hiệu ngôn ngữ phải nhất quán trên từng bài ──────────────────
+// <html lang> nằm trong accessibility tree (screen reader chọn giọng theo nó).
+// Trước đây template hardcode lang="vi" nên 2 bài tiếng Anh tự mâu thuẫn với
+// hreflang="en" + schema inLanguage="en" của chính mình, và hiện nav/CTA tiếng Việt.
+{
+    const dir = path.join(ROOT, "blog");
+    const posts = fs.readdirSync(dir).filter((f) => f.endsWith(".html"));
+    const VN_UI = ["Trang chủ", "Thực đơn", "Câu hỏi thường gặp", "Bài viết liên quan", "Đặt bàn ngay"];
+    const bad = [];
+    for (const f of posts) {
+        const s = fs.readFileSync(path.join(dir, f), "utf8");
+        const lang = (s.match(/<html lang="([^"]+)"/) || [])[1];
+        const hre = (s.match(/hreflang="([^"]+)"/) || [])[1];
+        const inl = (s.match(/"inLanguage":\s*"([^"]+)"/) || [])[1];
+        const og = (s.match(/og:locale" content="([^"]+)"/) || [])[1];
+        if (lang !== hre || lang !== inl || og !== (lang === "en" ? "en_US" : "vi_VN")) {
+            bad.push(f.replace(".html", "") + " (lang=" + lang + " hreflang=" + hre + " schema=" + inl + " og=" + og + ")");
+            continue;
+        }
+        if (lang === "en") {
+            const body = (s.split(/<body[^>]*>/)[1] || "").replace(/<script[\s\S]*?<\/script>/g, "");
+            const leak = VN_UI.filter((k) => body.includes(k));
+            if (leak.length) bad.push(f.replace(".html", "") + " còn UI tiếng Việt: " + leak.join(","));
+        }
+    }
+    add("Tín hiệu ngôn ngữ nhất quán (html lang · hreflang · og · schema · UI)",
+        bad.length === 0,
+        bad.length ? bad.slice(0, 3).join(" | ") : posts.length + " bài nhất quán");
+}
+
 // ── R6. JSON-LD phải parse được ──────────────────────────────────────────
 {
     let total = 0;

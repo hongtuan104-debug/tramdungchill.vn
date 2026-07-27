@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="{{HTML_LANG}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://tramdungchill.vn/{{IMAGE}}">
     <meta property="og:url" content="https://tramdungchill.vn/blog/{{ID}}.html">
     <meta property="og:type" content="article">
-    <meta property="og:locale" content="vi_VN">
+    <meta property="og:locale" content="{{OG_LOCALE}}">
     <meta property="og:site_name" content="Tiệm Nướng Trạm Dừng Chill">
     <meta property="article:published_time" content="{{DATE}}">
     <meta property="article:section" content="{{CATEGORY}}">
@@ -61,9 +61,9 @@
 <body>
     <div class="reading-progress" id="readingProgress"></div>
     <style>.reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--gold), var(--sunset)); width:0%; z-index:9999; transition:width 0.1s linear; }</style>
-    <nav class="navbar" id="navbar"><div class="nav-container"><a href="../index.html" class="nav-logo"><img src="../assets/images/logo-gold.svg" alt="Logo" width="48" height="48"><span>Trạm Dừng Chill</span></a><div class="nav-links" id="navLinks"><a href="../index.html">Trang chủ</a><a href="../menu.html">Thực đơn</a><a href="../blog.html" class="active">Blog</a><a href="../index.html#booking" class="nav-cta">Đặt bàn</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+    <nav class="navbar" id="navbar"><div class="nav-container"><a href="../index.html" class="nav-logo"><img src="../assets/images/logo-gold.svg" alt="Logo" width="48" height="48"><span>Trạm Dừng Chill</span></a><div class="nav-links" id="navLinks"><a href="../index.html">{{T_HOME}}</a><a href="../menu.html">{{T_MENU}}</a><a href="../blog.html" class="active">{{T_BLOG}}</a><a href="../index.html#booking" class="nav-cta">{{T_BOOK}}</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
     <main id="main-content">
-    <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Trang chủ</a> › <a href="../blog.html">Blog</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time>{{UPDATED}} <span class="reading-time">{{READING_TIME}} phút đọc</span>{{BYLINE}}</div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--smoke);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
+    <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">{{T_HOME}}</a> › <a href="../blog.html">{{T_BLOG}}</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time>{{UPDATED}} <span class="reading-time">{{READING_TIME}} {{T_READ}}</span>{{BYLINE}}</div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--smoke);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
     <div class="container" style="margin:24px auto 32px;"><img src="../{{IMAGE}}" srcset="../{{IMAGE_400W}} 400w, ../{{IMAGE_800W}} 800w, ../{{IMAGE}} 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="{{IMAGE_ALT}}" style="width:100%;max-height:500px;object-fit:cover;border-radius:20px;" loading="eager"></div>
     <article class="blog-post-body container" style="max-width:800px;margin:0 auto;padding:0 24px 60px;">{{BODY}}</article>
     <nav class="blog-post-nav container" style="max-width:800px;margin:0 auto 40px;padding:0 24px;display:flex;justify-content:space-between;align-items:stretch;gap:16px;">{{PREV_LINK}}{{NEXT_LINK}}</nav>
@@ -86,16 +86,16 @@
     </style>
     <section class="blog-related">
         <div class="container">
-            <h2>Bài viết liên quan</h2>
+            <h2>{{T_RELATED}}</h2>
             <div class="blog-related-grid">
                 {{RELATED_POSTS}}
             </div>
         </div>
     </section>
-    <section style="background:#0F0D0A;padding:48px 24px;text-align:center;"><div class="container"><h2 style="font-family:var(--font-display);color:#D4A853;font-size:1.6rem;margin-bottom:12px;">Đặt Bàn Trạm Dừng Chill</h2><p style="color:#8B7D6B;margin-bottom:24px;">Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt</p><a href="../index.html#booking" style="display:inline-block;background:#D4A853;color:#0F0D0A;padding:14px 36px;border-radius:50px;font-weight:600;">Đặt bàn ngay →</a></div></section>
+    <section style="background:#0F0D0A;padding:48px 24px;text-align:center;"><div class="container"><h2 style="font-family:var(--font-display);color:#D4A853;font-size:1.6rem;margin-bottom:12px;">{{T_CTA_TITLE}}</h2><p style="color:#8B7D6B;margin-bottom:24px;">{{T_CTA_SUB}}</p><a href="../index.html#booking" style="display:inline-block;background:#D4A853;color:#0F0D0A;padding:14px 36px;border-radius:50px;font-weight:600;">{{T_CTA_BTN}}</a></div></section>
     </main>
 
-    <footer style="background:#1A1612;padding:32px 24px;text-align:center;"><div class="container"><p style="color:#8B7D6B;font-size:0.9rem;">© 2026 Tiệm Nướng Trạm Dừng Chill — 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</p><p style="color:#8B7D6B;font-size:0.85rem;margin-top:8px;"><a href="../index.html" style="color:#D4A853;">Trang chủ</a> · <a href="../menu.html" style="color:#D4A853;">Thực đơn</a> · <a href="../blog.html" style="color:#D4A853;">Blog</a></p></div></footer>
+    <footer style="background:#1A1612;padding:32px 24px;text-align:center;"><div class="container"><p style="color:#8B7D6B;font-size:0.9rem;">© 2026 Tiệm Nướng Trạm Dừng Chill — 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</p><p style="color:#8B7D6B;font-size:0.85rem;margin-top:8px;"><a href="../index.html" style="color:#D4A853;">{{T_HOME}}</a> · <a href="../menu.html" style="color:#D4A853;">{{T_MENU}}</a> · <a href="../blog.html" style="color:#D4A853;">{{T_BLOG}}</a></p></div></footer>
     <script>window.addEventListener("scroll",function(){document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);var article=document.querySelector(".blog-post-body")||document.querySelector("article");if(article){var articleTop=article.offsetTop;var articleHeight=article.offsetHeight;var scrollY=window.scrollY||window.pageYOffset;var progress=Math.min(100,Math.max(0,((scrollY-articleTop+window.innerHeight*0.3)/articleHeight)*100));var bar=document.getElementById("readingProgress");if(bar)bar.style.width=progress+"%";}},{passive:true});document.getElementById("navToggle").addEventListener("click",function(){document.getElementById("navLinks").classList.toggle("active")});</script>
 </body>
 </html>
