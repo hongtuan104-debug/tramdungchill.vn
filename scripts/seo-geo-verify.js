@@ -150,26 +150,68 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 
 // ── R7. FAQPage schema khớp 1:1 với text hiển thị (quy tắc cốt lõi) ──────
 {
-    const s = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+    const FAQ_PAGES = [
+        "index.html", "menu.html", "duong-di/index.html",
+        "dip/san-tau-da-lat.html", "dip/sinh-nhat.html",
+        "dip/team-building.html", "dip/cau-hon-hen-ho.html"
+    ];
     const strip = (x) => x.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&")
         .replace(/&quot;/g, '"').replace(/\s+/g, " ").trim();
 
-    const domQ = [...s.matchAll(/<summary><h3[^>]*>([\s\S]*?)<\/h3><\/summary>/g)].map((m) => strip(m[1]));
+    const bad = [];
+    let totalQ = 0;
+    for (const p of FAQ_PAGES) {
+        const s = fs.readFileSync(path.join(ROOT, p), "utf8");
+        const domQ = [...s.matchAll(/<summary>\s*<h3[^>]*>([\s\S]*?)<\/h3>\s*<\/summary>/g)].map((m) => strip(m[1]));
 
-    let schemaQ = [];
-    for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-        try {
-            const j = JSON.parse(m[1]);
-            if (j["@type"] === "FAQPage") schemaQ = (j.mainEntity || []).map((q) => q.name);
-        } catch (e) { /* đã báo ở R6 */ }
+        let schemaQ = null;
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            try {
+                const j = JSON.parse(m[1]);
+                if (j["@type"] === "FAQPage") schemaQ = (j.mainEntity || []).map((q) => q.name);
+            } catch (e) { /* đã báo ở R6 */ }
+        }
+
+        if (domQ.length === 0) { bad.push(p + ": không có FAQ hiển thị"); continue; }
+        if (schemaQ === null) { bad.push(p + ": có text nhưng thiếu FAQPage schema"); continue; }
+        const onlySchema = schemaQ.filter((q) => !domQ.includes(q));
+        const onlyDom = domQ.filter((q) => !schemaQ.includes(q));
+        if (onlySchema.length || onlyDom.length) {
+            bad.push(p + ": chỉ-schema " + onlySchema.length + " / chỉ-DOM " + onlyDom.length);
+        }
+        totalQ += domQ.length;
     }
+    add("FAQPage schema khớp 1:1 với text hiển thị (mọi trang)", bad.length === 0,
+        bad.length ? bad.join(" | ") : FAQ_PAGES.length + " trang · " + totalQ + " câu, khớp hoàn toàn");
+}
 
-    const onlySchema = schemaQ.filter((q) => !domQ.includes(q));
-    const onlyDom = domQ.filter((q) => !schemaQ.includes(q));
-    const ok = domQ.length > 0 && onlySchema.length === 0 && onlyDom.length === 0;
-    add("FAQPage schema khớp 1:1 với text hiển thị", ok,
-        ok ? domQ.length + " câu, khớp hoàn toàn"
-           : "chỉ-trong-schema: " + onlySchema.length + ", chỉ-trong-DOM: " + onlyDom.length);
+// ── R7b. Không trang nào bị mất schema ngoài FAQPage ─────────────────────
+// Chốt chặn cho lỗi từng gặp: regex gỡ FAQPage cũ nuốt nhầm Restaurant/Menu.
+{
+    const EXPECTED = {
+        "index.html": ["Restaurant,LocalBusiness", "WebSite", "BreadcrumbList", "WebPage", "FAQPage"],
+        "menu.html": ["Menu", "BreadcrumbList", "FAQPage"],
+        "dip/san-tau-da-lat.html": ["WebPage", "BreadcrumbList", "FAQPage"],
+        "dip/sinh-nhat.html": ["WebPage", "BreadcrumbList", "Service", "FAQPage"],
+        "dip/team-building.html": ["WebPage", "BreadcrumbList", "FAQPage"],
+        "dip/cau-hon-hen-ho.html": ["WebPage", "BreadcrumbList", "FAQPage"]
+    };
+    const bad = [];
+    for (const [p, want] of Object.entries(EXPECTED)) {
+        const s = fs.readFileSync(path.join(ROOT, p), "utf8");
+        const got = [];
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            try {
+                const t = JSON.parse(m[1])["@type"];
+                got.push(Array.isArray(t) ? t.join(",") : t);
+            } catch (e) { got.push("PARSE-ERR"); }
+        }
+        const missing = want.filter((t) => !got.includes(t));
+        if (missing.length) bad.push(p + " thiếu " + missing.join(","));
+    }
+    add("Không trang nào mất schema (Restaurant/Menu/WebPage/Breadcrumb)",
+        bad.length === 0,
+        bad.length ? bad.join(" | ") : Object.keys(EXPECTED).length + " trang giữ đủ schema");
 }
 
 // ── R8. Bộ câu hỏi query fan-out phải có text đọc được trên trang chủ ────
@@ -197,6 +239,37 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         missing.length === 0,
         missing.length ? "THIẾU: " + missing.join(", ")
                        : Object.keys(TOPICS).length + "/" + Object.keys(TOPICS).length + " chủ đề có text");
+}
+
+// ── R8b. Fan-out trên các trang tiền (menu / đường đi / 4 landing dịp) ───
+{
+    const PAGES = [
+        "menu.html", "duong-di/index.html",
+        "dip/san-tau-da-lat.html", "dip/sinh-nhat.html",
+        "dip/team-building.html", "dip/cau-hon-hen-ho.html"
+    ];
+    const TOPICS = {
+        "địa chỉ": /Huỳnh Tấn Phát/i,
+        "khoảng cách": /\b7\s*km\b/i,
+        "giờ mở": /15:00/,
+        "giá": /95\.000/,
+        "đỗ xe": /đỗ xe|đậu xe|bãi đỗ|bãi đậu/i,
+        "mái che/mưa": /mái che|trời mưa/i,
+        "thanh toán": /chuyển khoản/i,
+        "đặt bàn": /đặt bàn/i
+    };
+    const bad = [];
+    for (const p of PAGES) {
+        const s = fs.readFileSync(path.join(ROOT, p), "utf8");
+        const body = (s.split(/<body[^>]*>/)[1] || "")
+            .replace(/<script[\s\S]*?<\/script>/g, "")
+            .replace(/<style[\s\S]*?<\/style>/g, "");
+        const missing = Object.entries(TOPICS).filter(([, re]) => !re.test(body)).map(([k]) => k);
+        if (missing.length) bad.push(p + " thiếu " + missing.join(","));
+    }
+    add("Fan-out trên trang tiền (menu · đường đi · 4 landing dịp)",
+        bad.length === 0,
+        bad.length ? bad.join(" | ") : PAGES.length + " trang đủ " + Object.keys(TOPICS).length + " chủ đề");
 }
 
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
