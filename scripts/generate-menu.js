@@ -78,6 +78,13 @@ function buildMenuJsonLd(d) {
         return { "@type": "MenuSection", "name": cat.label, "hasMenuItem": items };
     });
 
+    // So mon lay tu chinh du lieu, KHONG hardcode: truoc day description ghi
+    // "~100 mon" trong khi menu-data.js chi co 73 mon va trang menu cung chi
+    // liet ke 73 -> structured data khong khop noi dung nhin thay duoc.
+    var dishCount = 0;
+    d.MENU_CATEGORIES.forEach(function (c) { dishCount += (d.MENU_ITEMS[c.id] || []).length; });
+    var dishPhrase = "hơn " + (Math.floor(dishCount / 10) * 10) + " món";
+
     // mainEntity chi tham chieu @id + thong tin co ban (KHONG lap aggregateRating
     // -> tranh trung/lech so review voi index.html, von la nguon chuan cua rating).
     return {
@@ -85,7 +92,7 @@ function buildMenuJsonLd(d) {
         "@type": "Menu",
         "@id": SITE_URL + "/menu.html#menu",
         "name": "Thực Đơn " + r.name,
-        "description": "Thực đơn quán nướng BBQ Đà Lạt — nướng tại bàn, lẩu, hải sản, đồ uống. ~100 món, giá đã gồm VAT.",
+        "description": "Thực đơn quán nướng BBQ Đà Lạt — nướng tại bàn, lẩu, hải sản, đồ uống. " + dishPhrase + ", giá đã gồm VAT.",
         "url": SITE_URL + "/menu.html",
         "inLanguage": "vi",
         "mainEntity": {

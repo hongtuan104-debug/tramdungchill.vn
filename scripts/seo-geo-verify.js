@@ -343,6 +343,40 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                          : withCite + "/" + indexed.length + " bài có citation Wikipedia");
 }
 
+// ── R8e. Số món quảng cáo không được vượt số món thật trong menu ─────────
+// Site từng ghi "khoảng 100 món" ở 8 chỗ trong khi menu-data.js chỉ có 73 và
+// trang menu cũng chỉ liệt kê 73 — nội dung không khớp thứ khách nhìn thấy.
+{
+    let real = 0;
+    try {
+        const vm = require("vm");
+        const sb = {};
+        vm.runInNewContext(
+            fs.readFileSync(path.join(ROOT, "data/menu-data.js"), "utf8") +
+            "\n;this.C = MENU_CATEGORIES; this.I = MENU_ITEMS;", sb);
+        for (const c of sb.C) real += (sb.I[c.id] || []).length;
+    } catch (e) { real = 0; }
+
+    const offenders = [];
+    if (real > 0) {
+        for (const f of files) {
+            const s = fs.readFileSync(f, "utf8");
+            for (const m of s.matchAll(/(khoảng |hơn |gần |~|over |about )?([0-9]{2,3})\+? (?:món|dishes)\b/gi)) {
+                const n = parseInt(m[2], 10);
+                // chỉ soi các con số ở tầm "tổng menu" (>= 60); số nhỏ hơn thường là nhóm con
+                if (n >= 60 && n > real) {
+                    offenders.push(rel(f) + ": \"" + m[0].trim() + "\" > " + real);
+                }
+            }
+        }
+    }
+    add("Số món quảng cáo ≤ số món thật trong menu-data.js",
+        real > 0 && offenders.length === 0,
+        real === 0 ? "không đọc được menu-data.js"
+                   : (offenders.length ? offenders.slice(0, 3).join(" | ")
+                                       : "menu thật " + real + " món, không chỗ nào thổi phồng"));
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
