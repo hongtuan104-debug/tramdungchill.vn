@@ -1012,6 +1012,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     border-radius: var(--radius-lg);
     overflow: hidden;
     cursor: pointer;
+    /* <figure> có margin mặc định của UA — phải khử để lưới không bị xô */
+    margin: 0;
 }
 
 .gallery-item img {
@@ -4401,4 +4403,143 @@ body.sticky-bar-active .fab-contact {
     .train-tier-head { flex-wrap: wrap; }
     .night-card { padding: 22px 20px 18px; }
     .night-item { padding: 11px 12px; }
+}
+
+/* ============================================
+   FAQ SECTION — câu trả lời fan-out dạng text
+   Dùng <details>/<summary> native: agentic AI đọc
+   được qua accessibility tree, và Google vẫn index
+   nội dung bên trong dù accordion đang đóng.
+   ============================================ */
+.faq-section {
+    padding: 90px 0;
+    background: var(--linen);
+}
+
+/* --- Bảng thông tin nhanh --- */
+.faq-table-wrap {
+    max-width: 780px;
+    margin: 0 auto 44px;
+    overflow-x: auto;
+}
+.faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    font-size: 0.95rem;
+}
+.faq-table caption {
+    caption-side: top;
+    text-align: left;
+    padding: 0 0 12px;
+    font-size: 0.8rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--smoke);
+    font-weight: 600;
+}
+.faq-table th,
+.faq-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+}
+.faq-table tr:last-child th,
+.faq-table tr:last-child td {
+    border-bottom: none;
+}
+.faq-table th[scope="row"] {
+    width: 38%;
+    font-weight: 600;
+    color: var(--wood);
+    background: var(--cream);
+    white-space: nowrap;
+}
+.faq-table td {
+    color: var(--charcoal);
+}
+.faq-table td a {
+    color: var(--gold-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+.faq-table td a:hover { text-decoration: underline; }
+
+/* --- Danh sách câu hỏi --- */
+.faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+}
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow 0.25s var(--ease);
+}
+.faq-item[open] {
+    box-shadow: var(--shadow-medium);
+    border-color: var(--gold);
+}
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 52px 18px 20px;
+    position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary h3 {
+    display: inline;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--wood);
+    line-height: 1.5;
+    margin: 0;
+}
+/* Dấu +/− vẽ bằng CSS, aria-hidden mặc định vì là ::after */
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--gold-dark);
+    transition: transform 0.25s var(--ease);
+}
+.faq-item[open] summary::after {
+    content: "−";
+}
+.faq-item summary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -2px;
+    border-radius: var(--radius);
+}
+.faq-item > p {
+    margin: 0;
+    padding: 0 20px 20px;
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+}
+
+@media (max-width: 540px) {
+    .faq-section { padding: 64px 0; }
+    .faq-table { font-size: 0.88rem; }
+    .faq-table th,
+    .faq-table td { padding: 12px 14px; }
+    .faq-table th[scope="row"] {
+        width: 42%;
+        white-space: normal;
+    }
+    .faq-item summary { padding: 16px 46px 16px 16px; }
+    .faq-item summary h3 { font-size: 0.95rem; }
+    .faq-item > p { padding: 0 16px 18px; font-size: 0.9rem; }
 }

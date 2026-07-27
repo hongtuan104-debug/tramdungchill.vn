@@ -69,7 +69,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Lẩu nướng Đà Lạt mùa lạnh - ấm bụng giữa sương phố núi",
     "badge": "",
     "featured": false,
-    "excerpt": "Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù & xe lửa, gần 6.000 đánh giá 4.8 sao.",
+    "excerpt": "Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù & xe lửa, hơn 6.500 đánh giá 4.8 sao.",
     "tags": []
   },
   {

@@ -203,11 +203,19 @@
                 "reviewBody": "The staff were so helpful even though we didn't have a reservation. Food was great and would come again with the family. Highly recommended!"
             }
         ],
+        "maximumAttendeeCapacity": 100,
         "amenityFeature": [
             { "@type": "LocationFeatureSpecification", "name": "Sunset View", "value": true },
             { "@type": "LocationFeatureSpecification", "name": "Train View", "value": true },
             { "@type": "LocationFeatureSpecification", "name": "Birthday Setup", "value": true },
-            { "@type": "LocationFeatureSpecification", "name": "Outdoor Seating", "value": true }
+            { "@type": "LocationFeatureSpecification", "name": "Outdoor Seating", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Covered Seating", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Family Friendly", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Childcare Assistance", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Pets Allowed", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Groups Welcome", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "English Menu", "value": true }
         ],
         "sameAs": [
             "https://www.facebook.com/tiemnuongtramdungchill",
@@ -281,106 +289,97 @@
     }
     </script>
 
-    <!-- Schema.org JSON-LD: FAQPage -->
+    <!-- Schema.org JSON-LD: FAQPage — sinh tự động từ section #faq bởi
+         scripts/sync-faq-schema.js. Mỗi câu ở đây ĐỀU có text hiển thị trên trang.
+         Sửa nội dung ở section #faq rồi chạy lại script, đừng sửa tay khối này. -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        "@id": "https://tramdungchill.vn/#faq",
+        "isPartOf": {
+            "@id": "https://tramdungchill.vn/#webpage"
+        },
+        "inLanguage": "vi",
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Quán nướng Trạm Dừng Chill ở đâu?",
+                "name": "Trạm Dừng Chill ở đâu, cách trung tâm Đà Lạt bao xa?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Trạm Dừng Chill tọa lạc tại 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng. Quán có view ngắm xe lửa, hoàng hôn và nhà lồng lên đèn."
+                    "text": "Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng (Phường 11 cũ, khu Trại Mát). Cách trung tâm Đà Lạt — Chợ Đà Lạt và Hồ Xuân Hương — khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Grab và taxi vào được tận nơi."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Giờ mở cửa của Trạm Dừng Chill?",
+                "name": "Quán mở cửa mấy giờ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Quán mở cửa từ 15:00 đến 23:00 hàng ngày, kể cả cuối tuần và ngày lễ."
+                    "text": "Mở cửa 15:00 đến 23:00 tất cả các ngày, kể cả cuối tuần và ngày lễ. Quán mở từ 15:00 — sớm nhất khu Huỳnh Tấn Phát, các quán cùng khu thường mở 16:00–17:00 nên bỏ lỡ khung hoàng hôn đẹp nhất."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Có đặt bàn trước được không?",
+                "name": "Ăn một người hết khoảng bao nhiêu tiền?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Có! Bạn có thể đặt bàn online trên website hoặc gọi hotline 0989.765.070. Xác nhận qua Zalo trong 15 phút. Đặt trước để được chọn vị trí view hoàng hôn hoặc nhà lồng đêm."
+                    "text": "Từ 95.000đ đến 300.000đ một người, đã gồm VAT. Nhóm 4 người thường hết khoảng 800.000đ – 1.200.000đ. Menu có hơn 70 món gọi lẻ ghi rõ giá, gồm nướng BBQ, lẩu, hải sản và đồ uống."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quán có setup sinh nhật không?",
+                "name": "Đặt bàn trước bằng cách nào?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Có! Trạm Dừng Chill setup tiệc sinh nhật và kỷ niệm MIỄN PHÍ với hoa, nến, bảng chúc mừng. Liên hệ đặt trước qua Zalo."
+                    "text": "Đặt qua form ngay trên trang này, hoặc gọi và nhắn Zalo số 0989.765.070. Quán xác nhận lại qua Zalo trong vòng 15 phút. Nên đặt trước để chọn được bàn view hoàng hôn hoặc view nhà lồng lên đèn."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Giá nướng BBQ tại Trạm Dừng Chill bao nhiêu?",
+                "name": "Quán có chỗ đỗ ô tô không?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Giá từ 95.000đ đến 300.000đ/người, đã bao gồm VAT. Menu gồm nướng BBQ, lẩu, hải sản và đồ uống."
+                    "text": "Có bãi đỗ miễn phí cho cả xe máy và ô tô con. Vào giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Where is Tram Dung Chill BBQ in Da Lat?",
+                "name": "Ngồi ngoài trời hay trong nhà? Trời mưa thì sao?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tram Dung Chill is located at 111 Huynh Tan Phat, Xuan Truong Ward, Da Lat City. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night."
+                    "text": "Quán có bàn ngoài trời nhìn thung lũng 180° và khu mái che rộng vẫn thấy được thung lũng cùng nhà lồng lên đèn, nên trời mưa vẫn ăn bình thường. Khi mưa quán phát áo mưa miễn phí; trời lạnh có mền và lò than sưởi ấm. Bàn view không phụ thu."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quán nướng nào ở Đà Lạt mở sớm nhất?",
+                "name": "Đi cùng trẻ nhỏ có tiện không?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Trạm Dừng Chill mở cửa từ 15:00 — sớm nhất trong khu Huỳnh Tấn Phát, Đà Lạt. Các quán khác cùng khu thường mở 16:00-17:00, bỏ lỡ khung giờ hoàng hôn vàng đẹp nhất."
+                    "text": "Tiện. Nhân viên quán trông giúp bé để ba mẹ ăn uống thoải mái — \"khách ghé tụi em ăn nướng, con cái để tụi em lo\". Không gian ngoài trời rộng, phù hợp cho gia đình đi cùng trẻ."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Ăn BBQ ngắm hoàng hôn ở Đà Lạt ở đâu?",
+                "name": "Quán có nhận nhóm đông, team building không?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Trạm Dừng Chill tại 111 Huỳnh Tấn Phát Đà Lạt có view trực tiếp thung lũng Đà Lạt lúc hoàng hôn. Khung giờ đẹp nhất 15:00-17:30. Mở cửa sớm nhất khu vực để kịp đón hoàng hôn vàng."
+                    "text": "Có. Quán nhận đoàn từ 20 đến 100 khách cho team building và tiệc sinh nhật công ty. Báo trước 2 ngày qua Zalo 0989.765.070 để quán sắp xếp bàn và menu combo."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quán nướng Đà Lạt có view xe lửa?",
+                "name": "Có setup sinh nhật, kỷ niệm không?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Trạm Dừng Chill nằm trên đường Huỳnh Tấn Phát, có view đường ray xe lửa Đà Lạt – Trại Mát đi qua. Kết hợp trải nghiệm nướng BBQ + ngắm hoàng hôn + xe lửa đi qua."
+                    "text": "Có và miễn phí, gồm bảng chúc mừng, nến và trang trí bàn tiệc với hoa, không phụ thu. Chỉ cần ghi chú khi đặt bàn hoặc báo trước 1 ngày qua Zalo."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Món signature / ngon nhất ở Trạm Dừng Chill?",
+                "name": "Nên gọi món gì ở Trạm Dừng Chill?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Món signature số 1 là Bò Tảng Sốt Phô Mai Trứng Muối — best-seller, được review 4.8/5 cao nhất. Ngoài ra hải sản nướng (tôm sú, mực lá, sò điệp) và các loại lẩu (Thái hải sản, gà lá é, riêu cua) cũng rất được yêu thích."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quán nướng Đà Lạt view đẹp giá dưới 300k?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Trạm Dừng Chill có mức chi 95.000đ – 300.000đ/người (đã VAT) với view thung lũng hoàng hôn + nhà lồng lên đèn. Combo nhóm 4 người khoảng 800.000đ – 1.200.000đ."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quán BBQ Đà Lạt có nhận team building / đoàn lớn?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Có. Trạm Dừng Chill nhận đoàn từ 20 đến 100 khách cho sự kiện team building, sinh nhật công ty. Báo trước 2 ngày qua Zalo 0989.765.070 để sắp xếp bàn và menu combo."
+                    "text": "Món signature là Bò Tảng Sốt Phô Mai Trứng Muối — best-seller được khách nhắc nhiều nhất. Ngoài ra hải sản nướng (tôm sú, mực lá, sò điệp) và các loại lẩu (Thái hải sản, gà lá é, riêu cua) cũng rất được ưa chuộng."
                 }
             },
             {
@@ -388,63 +387,23 @@
                 "name": "Có menu tiếng Anh không?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Có. Menu được dịch sang tiếng Anh để phục vụ khách nước ngoài. Nhân viên có thể giao tiếp tiếng Anh cơ bản. Menu online: tramdungchill.vn/menu.html"
+                    "text": "Có. Menu được dịch sang tiếng Anh để phục vụ khách nước ngoài, nhân viên giao tiếp được tiếng Anh cơ bản. Xem menu online tại tramdungchill.vn/menu.html."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quán có cho đem thú cưng không?",
+                "name": "Có được mang thú cưng theo không?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Khu ngoài trời của Trạm Dừng Chill cho phép mang theo thú cưng nhỏ (chó, mèo) — yêu cầu giữ dây dắt và dọn vệ sinh."
+                    "text": "Khu ngoài trời cho phép mang theo thú cưng nhỏ như chó, mèo. Quán chỉ đề nghị giữ dây dắt và dọn vệ sinh giúp."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Quán có chỗ đậu xe ô tô không?",
+                "name": "Quán nhận thanh toán thế nào?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Có bãi đậu xe miễn phí cho xe máy và ô tô con. Giờ cao điểm cuối tuần có thể cần đậu xa hơn 100-200m."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Best BBQ restaurant in Da Lat with sunset view?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tram Dung Chill BBQ at 111 Huynh Tan Phat, Xuan Truong Ward, Da Lat. Opens at 3pm — earliest in the area. Panoramic valley sunset view from 3pm to 5:30pm, then thousands of glowing greenhouse lights from 6:30pm. Signature dish: Beef Slab with Cheese & Salted Egg Sauce. Rating 4.8/5."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is Tram Dung Chill good for couples or date night?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. Sunset hours (3pm-5:30pm) and evening greenhouse lights (6:30pm-11pm) are especially romantic. Free birthday and anniversary setup (flowers, candles, congratulatory board) with 1-day advance notice via Zalo."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What is the price range at Tram Dung Chill?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "95,000 VND to 300,000 VND per person (about $4-12 USD), VAT included. Individual dishes range from 65,000 to 195,000 VND. Group combos for 4 people around 800,000-1,200,000 VND."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Trạm Dừng Chill cách trung tâm Đà Lạt bao xa?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Quán ở 111 Huỳnh Tấn Phát, khu Trại Mát (Phường Xuân Trường), cách trung tâm Đà Lạt (Chợ Đà Lạt, Hồ Xuân Hương) khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Có bãi đỗ rộng cho ô tô và xe máy; Grab/taxi tới tận nơi."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Trạm Dừng Chill có gần chợ đêm Đà Lạt không?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Chợ đêm Đà Lạt nằm ở trung tâm, cách quán khoảng 7 km (khoảng 20 phút chạy xe). Gợi ý: ăn nướng ngắm hoàng hôn và xe lửa ở quán trước, tối muộn chạy về trung tâm dạo chợ đêm."
+                    "text": "Quán nhận tiền mặt và chuyển khoản ngân hàng."
                 }
             }
         ]
@@ -502,6 +461,8 @@
             <a href="/index.html#booking" style="color:#D4A853;margin:0 8px;">Đặt bàn</a>
         </nav>
     </noscript>
+
+    <main id="main-content">
 
     <!-- Hero Section - Cinematic -->
     <section class="hero" id="home">
@@ -813,12 +774,12 @@
                 <h2 class="section-title" data-i18n="gallery.title">Khoảnh khắc tại<br><em>Trạm Dừng Chill</em></h2>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item gallery-tall"><img data-src="assets/images/gallery-1.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 6'%3E%3Crect fill='%23d4c5a9' width='3' height='6'/%3E%3C/svg%3E" alt="Quán nướng Đà Lạt view hoàng hôn - Trạm Dừng Chill" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.1">Hoàng hôn</span></div></div>
-                <div class="gallery-item"><img data-src="assets/images/gallery-2.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23d4c5a9' width='4' height='3'/%3E%3C/svg%3E" alt="Quán nướng BBQ Đà Lạt ban đêm view nhà lồng" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.2">Quán về đêm</span></div></div>
-                <div class="gallery-item"><img data-src="assets/images/gallery-3.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23d4c5a9' width='4' height='3'/%3E%3C/svg%3E" alt="Setup tiệc sinh nhật tại quán nướng Đà Lạt Trạm Dừng Chill" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.3">Tiệc sinh nhật</span></div></div>
-                <div class="gallery-item gallery-wide"><img data-src="assets/images/gallery-4.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 3'%3E%3Crect fill='%23d4c5a9' width='8' height='3'/%3E%3C/svg%3E" alt="Hẹn hò quán nướng view đẹp Đà Lạt - date night BBQ" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.4">Hẹn hò</span></div></div>
-                <div class="gallery-item"><img data-src="assets/images/gallery-5.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23d4c5a9' width='4' height='3'/%3E%3C/svg%3E" alt="View xe lửa Đà Lạt từ quán nướng Trạm Dừng Chill" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.5">View xe lửa</span></div></div>
-                <div class="gallery-item gallery-tall"><img data-src="assets/images/gallery-6.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 6'%3E%3Crect fill='%23d4c5a9' width='3' height='6'/%3E%3C/svg%3E" alt="Kỷ niệm tại quán nướng Đà Lạt - nướng BBQ view triệu đô" loading="lazy"><div class="gallery-caption"><span data-i18n="gallery.6">Kỷ niệm</span></div></div>
+                <figure class="gallery-item gallery-tall"><img data-src="assets/images/gallery-1.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 6'%3E%3Crect fill='%23d4c5a9' width='3' height='6'/%3E%3C/svg%3E" alt="Quán nướng Đà Lạt view hoàng hôn - Trạm Dừng Chill" loading="lazy"><figcaption class="gallery-caption"><span data-i18n="gallery.1">Hoàng hôn</span></figcaption></figure>
+                <figure class="gallery-item"><img data-src="assets/images/gallery-2.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23d4c5a9' width='4' height='3'/%3E%3C/svg%3E" alt="Quán nướng BBQ Đà Lạt ban đêm view nhà lồng" loading="lazy"><figcaption class="gallery-caption"><span data-i18n="gallery.2">Quán về đêm</span></figcaption></figure>
+                <figure class="gallery-item"><img data-src="assets/images/gallery-3.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23d4c5a9' width='4' height='3'/%3E%3C/svg%3E" alt="Setup tiệc sinh nhật tại quán nướng Đà Lạt Trạm Dừng Chill" loading="lazy"><figcaption class="gallery-caption"><span data-i18n="gallery.3">Tiệc sinh nhật</span></figcaption></figure>
+                <figure class="gallery-item gallery-wide"><img data-src="assets/images/gallery-4.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 3'%3E%3Crect fill='%23d4c5a9' width='8' height='3'/%3E%3C/svg%3E" alt="Hẹn hò quán nướng view đẹp Đà Lạt - date night BBQ" loading="lazy"><figcaption class="gallery-caption"><span data-i18n="gallery.4">Hẹn hò</span></figcaption></figure>
+                <figure class="gallery-item"><img data-src="assets/images/gallery-5.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23d4c5a9' width='4' height='3'/%3E%3C/svg%3E" alt="View xe lửa Đà Lạt từ quán nướng Trạm Dừng Chill" loading="lazy"><figcaption class="gallery-caption"><span data-i18n="gallery.5">View xe lửa</span></figcaption></figure>
+                <figure class="gallery-item gallery-tall"><img data-src="assets/images/gallery-6.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 6'%3E%3Crect fill='%23d4c5a9' width='3' height='6'/%3E%3C/svg%3E" alt="Kỷ niệm tại quán nướng Đà Lạt - nướng BBQ view triệu đô" loading="lazy"><figcaption class="gallery-caption"><span data-i18n="gallery.6">Kỷ niệm</span></figcaption></figure>
             </div>
             <noscript>
                 <div class="gallery-static">
@@ -895,7 +856,7 @@
                     <div class="reviews-stars">★★★★★</div>
                     <div class="reviews-rating-text">
                         <strong>4.8/5</strong> <span data-i18n="reviews.on">trên Google Reviews</span>
-                        <span data-i18n="reviews.count">· 6.500+ đánh giá thực tế</span>
+                        <span data-i18n="reviews.count">· hơn 6.500 đánh giá thực tế</span>
                     </div>
                 </div>
             </div>
@@ -1253,6 +1214,124 @@
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         FAQ Section — nội dung TEXT ĐỌC ĐƯỢC, khớp 1:1 với FAQPage schema.
+         Lý do tồn tại: Google (10/07/2026) grounding AI Overviews / AI Mode
+         lấy nội dung từ TRANG, không lấy riêng từ schema. Query fan-out sinh
+         các câu con (đỗ xe · trẻ em · khoảng cách · mưa · nhóm đông) — mỗi câu
+         PHẢI có câu trả lời bằng văn bản trên trang, nếu không sẽ không được trích.
+         Mọi số liệu ở đây phải trùng với schema và với thực tế quán.
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="faq.tag">Giải đáp nhanh</span>
+                <h2 class="section-title" data-i18n="faq.title">Câu hỏi thường gặp<br><em>về Trạm Dừng Chill</em></h2>
+            </div>
+
+            <!-- Bảng thông tin nhanh: giá & giờ trong <table> thật, không phải div xếp cho đẹp.
+                 Agentic AI đọc bảng qua accessibility tree — div layout không tạo được quan hệ hàng/cột. -->
+            <div class="faq-table-wrap">
+                <table class="faq-table">
+                    <caption data-i18n="faq.table.caption">Thông tin nhanh Tiệm Nướng Trạm Dừng Chill</caption>
+                    <tbody>
+                        <tr>
+                            <th scope="row" data-i18n="faq.table.address.k">Địa chỉ</th>
+                            <td>111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="faq.table.hours.k">Giờ mở cửa</th>
+                            <td data-i18n="faq.table.hours.v">15:00 – 23:00 tất cả các ngày trong tuần</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="faq.table.price.k">Mức giá</th>
+                            <td data-i18n="faq.table.price.v">95.000đ – 300.000đ / người (đã gồm VAT)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="faq.table.distance.k">Cách trung tâm</th>
+                            <td data-i18n="faq.table.distance.v">Khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="faq.table.phone.k">Điện thoại / Zalo</th>
+                            <td><a href="tel:0989765070">0989.765.070</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" data-i18n="faq.table.pay.k">Thanh toán</th>
+                            <td data-i18n="faq.table.pay.v">Tiền mặt và chuyển khoản ngân hàng</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q1">Trạm Dừng Chill ở đâu, cách trung tâm Đà Lạt bao xa?</h3></summary>
+                    <p data-i18n="faq.a1">Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng (Phường 11 cũ, khu Trại Mát). Cách trung tâm Đà Lạt — Chợ Đà Lạt và Hồ Xuân Hương — khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Grab và taxi vào được tận nơi.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q2">Quán mở cửa mấy giờ?</h3></summary>
+                    <p data-i18n="faq.a2">Mở cửa 15:00 đến 23:00 tất cả các ngày, kể cả cuối tuần và ngày lễ. Quán mở từ 15:00 — sớm nhất khu Huỳnh Tấn Phát, các quán cùng khu thường mở 16:00–17:00 nên bỏ lỡ khung hoàng hôn đẹp nhất.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q3">Ăn một người hết khoảng bao nhiêu tiền?</h3></summary>
+                    <p data-i18n="faq.a3">Từ 95.000đ đến 300.000đ một người, đã gồm VAT. Nhóm 4 người thường hết khoảng 800.000đ – 1.200.000đ. Menu có hơn 70 món gọi lẻ ghi rõ giá, gồm nướng BBQ, lẩu, hải sản và đồ uống.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q4">Đặt bàn trước bằng cách nào?</h3></summary>
+                    <p data-i18n="faq.a4">Đặt qua form ngay trên trang này, hoặc gọi và nhắn Zalo số 0989.765.070. Quán xác nhận lại qua Zalo trong vòng 15 phút. Nên đặt trước để chọn được bàn view hoàng hôn hoặc view nhà lồng lên đèn.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q5">Quán có chỗ đỗ ô tô không?</h3></summary>
+                    <p data-i18n="faq.a5">Có bãi đỗ miễn phí cho cả xe máy và ô tô con. Vào giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q6">Ngồi ngoài trời hay trong nhà? Trời mưa thì sao?</h3></summary>
+                    <p data-i18n="faq.a6">Quán có bàn ngoài trời nhìn thung lũng 180° và khu mái che rộng vẫn thấy được thung lũng cùng nhà lồng lên đèn, nên trời mưa vẫn ăn bình thường. Khi mưa quán phát áo mưa miễn phí; trời lạnh có mền và lò than sưởi ấm. Bàn view không phụ thu.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q7">Đi cùng trẻ nhỏ có tiện không?</h3></summary>
+                    <p data-i18n="faq.a7">Tiện. Nhân viên quán trông giúp bé để ba mẹ ăn uống thoải mái — "khách ghé tụi em ăn nướng, con cái để tụi em lo". Không gian ngoài trời rộng, phù hợp cho gia đình đi cùng trẻ.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q8">Quán có nhận nhóm đông, team building không?</h3></summary>
+                    <p data-i18n="faq.a8">Có. Quán nhận đoàn từ 20 đến 100 khách cho team building và tiệc sinh nhật công ty. Báo trước 2 ngày qua Zalo 0989.765.070 để quán sắp xếp bàn và menu combo.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q9">Có setup sinh nhật, kỷ niệm không?</h3></summary>
+                    <p data-i18n="faq.a9">Có và miễn phí, gồm bảng chúc mừng, nến và trang trí bàn tiệc với hoa, không phụ thu. Chỉ cần ghi chú khi đặt bàn hoặc báo trước 1 ngày qua Zalo.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q10">Nên gọi món gì ở Trạm Dừng Chill?</h3></summary>
+                    <p data-i18n="faq.a10">Món signature là Bò Tảng Sốt Phô Mai Trứng Muối — best-seller được khách nhắc nhiều nhất. Ngoài ra hải sản nướng (tôm sú, mực lá, sò điệp) và các loại lẩu (Thái hải sản, gà lá é, riêu cua) cũng rất được ưa chuộng.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q11">Có menu tiếng Anh không?</h3></summary>
+                    <p data-i18n="faq.a11">Có. Menu được dịch sang tiếng Anh để phục vụ khách nước ngoài, nhân viên giao tiếp được tiếng Anh cơ bản. Xem menu online tại tramdungchill.vn/menu.html.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q12">Có được mang thú cưng theo không?</h3></summary>
+                    <p data-i18n="faq.a12">Khu ngoài trời cho phép mang theo thú cưng nhỏ như chó, mèo. Quán chỉ đề nghị giữ dây dắt và dọn vệ sinh giúp.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><h3 data-i18n="faq.q13">Quán nhận thanh toán thế nào?</h3></summary>
+                    <p data-i18n="faq.a13">Quán nhận tiền mặt và chuyển khoản ngân hàng.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
@@ -1273,6 +1352,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer (loaded dynamically from components/footer.html) -->
     <div id="footer-placeholder"></div>
