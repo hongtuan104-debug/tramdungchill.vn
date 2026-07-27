@@ -112,6 +112,27 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         bad.length ? bad.join("; ") : KEY_PAGES.length + " trang đạt");
 }
 
+// ── R5b. Blog: <main> + heading không nhảy cấp (143 trang sinh từ template) ──
+{
+    const dir = path.join(ROOT, "blog");
+    const posts = fs.readdirSync(dir).filter((f) => f.endsWith(".html"));
+    let noMain = 0;
+    const skips = [];
+    for (const f of posts) {
+        const s = fs.readFileSync(path.join(dir, f), "utf8");
+        if (!/<main[\s>]/.test(s)) noMain++;
+        const lv = [...s.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1]);
+        for (let i = 1; i < lv.length; i++) {
+            if (lv[i] - lv[i - 1] > 1) { skips.push(f + " h" + lv[i - 1] + "→h" + lv[i]); break; }
+        }
+    }
+    add("Blog: mọi bài có <main> và heading không nhảy cấp",
+        noMain === 0 && skips.length === 0,
+        (noMain || skips.length)
+            ? "thiếu main: " + noMain + " · nhảy cấp: " + skips.length + " (" + skips.slice(0, 3).join(", ") + ")"
+            : posts.length + " bài đạt");
+}
+
 // ── R6. JSON-LD phải parse được ──────────────────────────────────────────
 {
     let total = 0;
