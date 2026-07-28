@@ -1,0 +1,39 @@
+name: Kiểm số liệu & SEO/GEO
+
+# Vì sao cần: repo đã có sẵn 2 lưới kiểm (scripts/seo-geo-verify.js và
+# scripts/check-facts.js) nhưng KHÔNG có gì chạy chúng tự động — chỉ chạy khi
+# có người nhớ ra. Workflow này bắt chúng chạy mỗi lần đẩy code và mỗi tuần.
+#
+# LƯU Ý: đây là lưới CẢNH BÁO, không phải cổng chặn. Website chạy trên GitHub
+# Pages theo nhánh, nên workflow này rớt KHÔNG làm sập web — chỉ báo cho chủ.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  schedule:
+    # 01:00 UTC thứ Hai = 08:00 sáng thứ Hai giờ Việt Nam
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+
+jobs:
+  kiem:
+    name: Soát số liệu trên site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Lưới 1 — số liệu khớp nguồn chuẩn (data/facts.json)'
+        run: node scripts/check-facts.js
+
+      - name: 'Lưới 2 — điều kiện SEO/GEO'
+        # always() để lưới 2 vẫn chạy dù lưới 1 đã rớt — xem hết lỗi trong 1 lần,
+        # khỏi phải sửa từng cái rồi đẩy lại nhiều lượt.
+        if: always()
+        run: node scripts/seo-geo-verify.js

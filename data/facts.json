@@ -1,0 +1,25 @@
+{
+  "_huongDan": [
+    "NGUON CHUAN DUY NHAT cho cac con so xuat hien tren website.",
+    "Sua so o day, roi chay: node scripts/check-facts.js",
+    "Luoi se chi ra TAT CA cho tren web dang ghi so khac.",
+    "",
+    "LUU Y: soMon KHONG khai o day - luoi tu dem tu data/menu-data.js."
+  ],
+
+  "capNhatLanCuoi": "2026-07-28",
+  "_nguonSoDanhGia": "Google Business Profile - chu quan tu xem va cap nhat",
+
+  "soDanhGiaGoogle": 6816,
+  "diemDanhGiaGoogle": "4.8",
+
+  "giaMin": 95000,
+  "giaMax": 300000,
+  "priceRangeSchema": "₫95.000 - ₫300.000",
+
+  "gioMoCua": "15:00",
+  "gioDongCua": "23:00",
+
+  "dienThoaiSchema": "+84989765070",
+  "dienThoaiHienThi": "0989.765.070"
+}
