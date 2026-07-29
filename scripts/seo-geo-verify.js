@@ -589,6 +589,57 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         ngayXau.length ? ngayXau.slice(0, 5).join(" · ") : soTrang + " trang, không trang nào khai ngày ở tương lai hay sửa-trước-khi-đăng");
 }
 
+// ── R14. Mọi ảnh / logo phải trỏ tới file CÓ THẬT ────────────────────────
+// Bối cảnh 29/07/2026: `assets/images/logo-gold.svg` được khai trong
+// publisher.logo của schema trên 143 bài — mà file đó CHƯA BAO GIỜ tồn tại,
+// gọi ra 404. Kèm 18 tên ảnh blog bịa, cũng chưa từng có. Không ai thấy vì
+// ảnh hỏng nằm giữa bài và logo thì chỉ máy tìm kiếm đọc.
+//
+// Hai chỗ dễ BÁO OAN đã xử:
+//  1. components/*.html là MẢNH ghép — link bên trong tính theo trang chủ nhà,
+//     không phải theo thư mục components/.
+//  2. srcset tách bằng dấu phẩy, mà `data:image/svg+xml,%3Csvg…` cũng có phẩy
+//     → phải loại data: TRƯỚC khi tách.
+{
+    const MIEN = "https://tramdungchill.vn/";
+    const thieu = [];
+
+    const giai = (tuTrang, duongDan) => {
+        let d = String(duongDan).split("#")[0].split("?")[0].trim();
+        if (!d) return null;
+        if (/^data:/i.test(d)) return null;
+        if (d.startsWith(MIEN)) d = "/" + d.slice(MIEN.length);
+        else if (/^(https?:|\/\/|mailto:|tel:|javascript:)/i.test(d)) return null;
+        const goc = tuTrang.startsWith("components/") ? "/" : "/" + path.posix.dirname(tuTrang);
+        const ra = d.startsWith("/") ? d : path.posix.normalize(path.posix.join(goc, d));
+        return ra.replace(/^\//, "");
+    };
+
+    for (const f of files) {
+        const tu = rel(f);
+        const s = fs.readFileSync(f, "utf8");
+
+        for (const m of s.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)=["']([^"']+)["']/gi)) {
+            if (/^\s*data:/i.test(m[1])) continue;
+            for (const phan of m[1].split(",")) {
+                const d = giai(tu, phan.trim().split(/\s+/)[0]);
+                if (d && !fs.existsSync(path.join(ROOT, d))) thieu.push(tu + " → " + d);
+            }
+        }
+        // Ảnh/logo khai trong schema cũng phải tải được, không thì rich result hỏng.
+        for (const m of s.matchAll(/"(?:logo|image|contentUrl|thumbnailUrl)"\s*:\s*"([^"]+)"/g)) {
+            const d = giai(tu, m[1]);
+            if (d && /^assets\//.test(d) && !fs.existsSync(path.join(ROOT, d))) thieu.push(tu + " → " + d);
+        }
+    }
+
+    const rieng = [...new Set(thieu.map((x) => x.split(" → ")[1]))];
+    add("Mọi ảnh / logo trỏ tới file có thật", thieu.length === 0,
+        thieu.length
+            ? rieng.length + " file thiếu (" + rieng.slice(0, 4).join(", ") + ") · " + thieu.length + " chỗ gọi"
+            : files.length + " trang · không chỗ nào gọi ảnh không tồn tại");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

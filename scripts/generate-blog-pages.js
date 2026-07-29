@@ -85,7 +85,7 @@ function blogPostingSchema(article, excerptClean) {
             "url": SITE_URL,
             "logo": {
                 "@type": "ImageObject",
-                "url": SITE_URL + "/assets/images/logo-gold.svg"
+                "url": SITE_URL + "/assets/images/favicon-512.png"
             }
         },
         "mainEntityOfPage": {
