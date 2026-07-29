@@ -455,6 +455,32 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                          : "không trang nào khai thuộc tính tiếp cận sai");
 }
 
+// ── R8h. Mọi ảnh/video khai trong JSON-LD phải có file thật ──────────────
+// Schema trỏ ảnh 404 thì Google bỏ qua cả khối, và với VideoObject thì mất
+// luôn suất rich result. Lỗi này đã xảy ra thật: publisher.logo trỏ
+// logo-gold.svg — file không tồn tại — được chép nguyên từ generator cũ sang
+// khối VideoObject mới mà không ai kiểm.
+{
+    const missing = new Set();
+    let checked = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            let j;
+            try { j = JSON.parse(m[1]); } catch (e) { continue; }
+            for (const mm of JSON.stringify(j).matchAll(
+                /https:\/\/tramdungchill\.vn\/([\w\/.-]+\.(?:jpg|jpeg|png|webp|svg|mp4))/g)) {
+                checked++;
+                if (!fs.existsSync(path.join(ROOT, mm[1]))) missing.add(rel(f) + " → " + mm[1]);
+            }
+        }
+    }
+    add("Ảnh/video khai trong JSON-LD đều có file thật",
+        missing.size === 0,
+        missing.size ? [...missing].slice(0, 3).join(" | ")
+                     : checked + " tham chiếu, không cái nào 404");
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
