@@ -21,8 +21,13 @@
 - **SĐT:** 0989.765.070
 - **Giờ mở cửa:** 15:00 - 23:00
 - **USP chính:** Hoàng hôn 15h, nhà lồng đèn 18h30, bò tảng phô mai trứng muối
-- **Giá:** 95k - 300k/người, ~100 món BBQ + lẩu + hải sản
-- **Đánh giá:** 4.8/5 sao
+- **Giá:** 95k - 300k/người (đã VAT). GBP hiển thị bucket "100-300N đ" — đây là
+  khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
+- **Menu:** 73 món trong `data/menu-data.js` (36 món ăn + 37 đồ uống) → viết "hơn 70 món".
+  Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
+- **Đánh giá:** 4,8/5 sao · **6.816 lượt** (GBP, xác nhận 29/07/2026)
+- ⚠️ **Nguồn chuẩn cho mọi con số:** `data/facts.json`. Đừng chép số từ bài cũ —
+  kiểm bằng `node scripts/check-facts.js` và `node scripts/seo-geo-verify.js`.
 
 ## Stack & Build
 - **Domain:** tramdungchill.vn (CNAME file → custom domain)
