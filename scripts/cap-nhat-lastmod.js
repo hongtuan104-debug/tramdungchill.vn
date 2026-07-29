@@ -102,7 +102,12 @@ function chuHienThi(html) {
   const schema = (goc.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi) || [])
     .map((k) => k.replace(/<script[^>]*>|<\/script>/gi, ''))
     .join('\n')
-    .replace(/"dateModified"\s*:\s*"[^"]*"\s*,?/g, ' ');
+    .replace(/"dateModified"\s*:\s*"[^"]*"\s*,?/g, ' ')
+    // Bỏ mọi địa chỉ web trong schema. Đường dẫn file là chuyện xếp kho, không
+    // phải chuyện người đọc đọc gì — sửa đường dẫn ảnh/logo mà bị tính là "bài
+    // vừa cập nhật" thì 143 trang bị đóng dấu oan. Phần CHỮ trong schema (mô tả,
+    // tên món, con số) vẫn giữ nguyên trong phép so.
+    .replace(/"https?:\/\/[^"]*"/g, '""');
 
   const s = goc
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')

@@ -247,7 +247,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-27",
+      "dateModified": "2026-07-29",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
