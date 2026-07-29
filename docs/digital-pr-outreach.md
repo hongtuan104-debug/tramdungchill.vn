@@ -35,6 +35,14 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | Cách trung tâm | ~7 km, ~20 phút xe theo hướng Trại Mát |
 | Đỗ xe | Bãi đỗ miễn phí cho ô tô con và xe máy |
 
+> ⛔ **KHÔNG tick ô "lối vào cho xe lăn" / "wheelchair accessible"** ở bất kỳ form
+> nào. Sếp Tuấn xác nhận 29/07/2026: quán **có bậc thềm/dốc khó**, xe lăn vào
+> không tiện. TripAdvisor, Foody, ShopeeFood đều có sẵn checkbox này — bỏ trống.
+>
+> Khai sai chuyện tiếp cận không phải lỗi SEO mà là chuyện người thật: có người
+> dùng xe lăn lọc đúng tiêu chí đó, đi 7 km lên Trại Mát rồi mới biết không vào
+> được. **Google Business Profile hiện đang khai sai điều này và cần tắt đi.**
+
 ### Mô tả ngắn (50 từ) — dùng cho form có giới hạn ký tự
 
 > Tiệm Nướng Trạm Dừng Chill nằm trên đồi Huỳnh Tấn Phát, Đà Lạt — nơi tàu lửa

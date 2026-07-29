@@ -433,6 +433,28 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                          : "mọi meta mô tả dùng mức chi 95.000–300.000đ/người");
 }
 
+// ── R8g. KHÔNG được khai quán có lối vào cho xe lăn ──────────────────────
+// Sếp Tuấn xác nhận 29/07/2026: quán có bậc thềm/dốc khó, xe lăn vào không
+// tiện. Đây không phải chuyện điểm SEO — người dùng xe lăn lọc đúng tiêu chí
+// đó rồi đi 7 km lên Trại Mát mới biết không vào được. Chốt chặn ở đây để
+// không ai (kể cả AI viết bài) vô tình thêm vào schema hay nội dung.
+{
+    const CLAIMS = /wheelchair|xe lăn|người khuyết tật|accessible entrance|isAccessibleForFree/i;
+    const offenders = [];
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(/[^\n<>]{0,60}(wheelchair[^\n<>]{0,40}|xe lăn[^\n<>]{0,40})/gi)) {
+            // bỏ qua chính dòng chú thích trong tài liệu/script
+            if (/KHÔNG|không tiện|bậc thềm|đừng/i.test(m[0])) continue;
+            if (CLAIMS.test(m[0])) offenders.push(rel(f) + ': "' + m[0].trim().slice(0, 60) + '"');
+        }
+    }
+    add("Không khai sai quán có lối vào cho xe lăn",
+        offenders.length === 0,
+        offenders.length ? offenders.slice(0, 3).join(" | ")
+                         : "không trang nào khai thuộc tính tiếp cận sai");
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
