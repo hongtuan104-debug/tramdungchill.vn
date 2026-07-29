@@ -4438,7 +4438,7 @@ body.sticky-bar-active .fab-contact {
     font-size: 0.8rem;
     letter-spacing: 1.4px;
     text-transform: uppercase;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-weight: 600;
 }
 .faq-table th,
@@ -4463,7 +4463,7 @@ body.sticky-bar-active .fab-contact {
     color: var(--charcoal);
 }
 .faq-table td a {
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
     font-weight: 600;
     text-decoration: none;
 }
@@ -4559,7 +4559,7 @@ body.sticky-bar-active .fab-contact {
     line-height: 1.6;
     color: var(--wood);
 }
-.menu-hero-note strong { color: var(--gold-dark); }
+.menu-hero-note strong { color: var(--gold-on-light); }
 
 @media (max-width: 540px) {
     .menu-hero-note { font-size: 0.86rem; padding: 11px 14px; }
@@ -4586,10 +4586,10 @@ body.sticky-bar-active .fab-contact {
 .blog-quote figcaption {
     margin-top: 10px;
     font-size: 0.86rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-style: normal;
 }
-.blog-quote figcaption strong { color: var(--gold-dark); }
+.blog-quote figcaption strong { color: var(--gold-on-light); }
 
 @media (max-width: 540px) {
     .blog-quote { padding: 15px 16px; }
@@ -4614,12 +4614,12 @@ body.sticky-bar-active .fab-contact {
     align-items: center;
     gap: 10px;
     font-size: 0.88rem;
-    color: var(--smoke);
+    color: var(--text-muted);
 }
 
-.blog-post-meta time { color: var(--smoke); }
+.blog-post-meta time { color: var(--text-muted); }
 
-.reading-time { color: var(--smoke); }
+.reading-time { color: var(--text-muted); }
 
 .reading-time::before {
     content: "·";
@@ -4685,12 +4685,12 @@ body.sticky-bar-active .fab-contact {
 }
 
 .blog-post-body li { margin-bottom: 9px; }
-.blog-post-body li::marker { color: var(--gold-dark); }
+.blog-post-body li::marker { color: var(--gold-on-light); }
 
 .blog-post-body strong { color: var(--wood); font-weight: 600; }
 
 .blog-post-body a {
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
@@ -4760,7 +4760,7 @@ body.sticky-bar-active .fab-contact {
     background: transparent;
     padding: 0 0 6px;
     font-size: 0.85rem;
-    color: var(--smoke);
+    color: var(--text-muted);
 }
 
 /* Trên nền sáng phải đổi màu chữ: --smoke trên --cream chỉ đạt ~3.5:1,
@@ -4769,8 +4769,8 @@ body.sticky-bar-active .fab-contact {
     color: var(--wood);
     text-decoration: none;
 }
-.blog-post-hero .breadcrumb a:hover { color: var(--gold-dark); }
-.blog-post-hero .breadcrumb span { color: var(--smoke); }
+.blog-post-hero .breadcrumb a:hover { color: var(--gold-on-light); }
+.blog-post-hero .breadcrumb span { color: var(--text-muted); }
 
 /* ── Canh đều hai bên cho thân bài ──
    Chỉ áp cho đoạn văn và mục danh sách — thứ có nhiều dòng liên tiếp nên mép
