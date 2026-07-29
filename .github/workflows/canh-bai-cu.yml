@@ -1,0 +1,36 @@
+name: Canh bài lâu chưa cập nhật
+
+# Vì sao cần: bài để lâu quá thì Google hạ dần, mà chẳng ai báo. Tiệm có 21
+# trang đang cho Google lập chỉ mục, không ai nhớ nổi trang nào sửa lần cuối
+# hồi nào. Mỗi tháng soát một lần rồi nhắn Zalo cho chủ.
+#
+# CẦN CÀI (GitHub → Settings → Secrets and variables → Actions):
+#   ZALO_WEBHOOK_URL     địa chỉ đầy đủ của endpoint nhắn tin trên máy chủ
+#   ZALO_WEBHOOK_SECRET  mật khẩu của endpoint đó
+# Chưa cài thì workflow vẫn chạy và vẫn liệt kê ra, nhưng sẽ báo RỚT để GitHub
+# gửi mail — cố ý vậy, chứ im lặng coi như xong là tệ nhất.
+
+on:
+  schedule:
+    # 01:00 UTC ngày 1 hằng tháng = 08:00 sáng ngày 1 giờ Việt Nam
+    - cron: '0 1 1 * *'
+  workflow_dispatch:
+
+jobs:
+  canh:
+    name: Soát 21 trang đang cho Google lập chỉ mục
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Soát ngày sửa, quá 6 tháng thì nhắn Zalo cho chủ'
+        env:
+          ZALO_WEBHOOK_URL: ${{ secrets.ZALO_WEBHOOK_URL }}
+          ZALO_WEBHOOK_SECRET: ${{ secrets.ZALO_WEBHOOK_SECRET }}
+        run: node scripts/canh-bai-cu.js

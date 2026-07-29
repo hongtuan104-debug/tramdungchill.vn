@@ -1,0 +1,67 @@
+name: Cập nhật ngày sửa & báo máy tìm kiếm
+
+# Vì sao cần: ngày sửa của trang đang khai TAY ở 3 chỗ (lastmod trong sitemap,
+# dateModified trong schema, dòng "Cập nhật …" hiển thị). Sửa bài xong quên đổi
+# ngày là chuyện thường — hôm 29/07/2026 có 12 trang trụ cột khai 16/06 trong
+# khi nội dung đã sửa cuối tháng 7. Workflow này tự làm việc đó sau mỗi lần đẩy.
+#
+# QUAN TRỌNG: nó KHÔNG đổi ngày bừa. Chỉ trang nào đổi phần CHỮ mới được đặt
+# ngày mới. Sửa CSS / đổi tên class / thêm chú thích thì ngày giữ nguyên — khai
+# ngày mới mà chữ y hệt là "làm mới giả", Google nói rõ đừng làm.
+#
+# Chống chạy vòng: máy tự đẩy commit bằng GITHUB_TOKEN, mà commit kiểu đó GitHub
+# không kích workflow mới. Thêm [skip ci] trong lời commit cho chắc hai lớp.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+  workflow_dispatch:
+
+concurrency:
+  group: cap-nhat-lastmod
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  cap-nhat:
+    name: Dò trang đổi nội dung → đặt lại ngày
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Bước 1 — so nội dung, đặt lại ngày cho trang đã đổi'
+        env:
+          FILE_URL_DOI: ${{ runner.temp }}/url-da-doi.txt
+        run: node scripts/cap-nhat-lastmod.js
+
+      - name: 'Bước 2 — đẩy ngày mới lên main'
+        id: day
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Không trang nào đổi nội dung — không có gì để đẩy."
+            echo "co_doi=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore(seo): đặt lại ngày sửa cho trang có nội dung mới [skip ci]'
+          # Có thể có người vừa đẩy chen vào giữa — thử lại một lần cho chắc.
+          git push || (git pull --rebase --autostash && git push)
+          echo "co_doi=1" >> "$GITHUB_OUTPUT"
+
+      - name: 'Bước 3 — báo IndexNow (Bing/Yandex/Seznam/Naver — Google không dùng)'
+        if: steps.day.outputs.co_doi == '1'
+        env:
+          FILE_URL_DOI: ${{ runner.temp }}/url-da-doi.txt
+        run: node scripts/bao-indexnow.js
