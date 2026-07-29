@@ -167,18 +167,32 @@ function minifyCSS(source) {
     return out + "\n";
 }
 
-const CSS_FILE = path.join(ROOT, "css", "style.css");
-if (fs.existsSync(CSS_FILE)) {
-    const cssSource = fs.readFileSync(CSS_FILE, "utf8");
+// style.min.css  — dùng cho trang chủ, menu, blog index, các landing dịp.
+// blog-post.min.css — style cho NỘI DUNG bài viết. Trước đây css/blog-post.css
+//   nằm trong repo nhưng KHÔNG file nào nạp: template bài chỉ <link> tới
+//   css/style.css, mà file đó không hề chứa .blog-post-body. Hệ quả là 64
+//   selector định dạng h2/h3/đoạn văn/danh sách/bảng trong bài đều vô hiệu,
+//   nội dung bài rơi về style mặc định của trình duyệt.
+const CSS_BUNDLES = [
+    { src: "style.css", out: "style.min.css" },
+    { src: "blog-post.css", out: "blog-post.min.css" }
+];
+
+for (const b of CSS_BUNDLES) {
+    const cssFile = path.join(ROOT, "css", b.src);
+    if (!fs.existsSync(cssFile)) {
+        console.error("  WARNING: khong tim thay css/" + b.src);
+        continue;
+    }
+    const cssSource = fs.readFileSync(cssFile, "utf8");
     const cssMinified = minifyCSS(cssSource);
-    const cssOutPath = path.join(DIST, "style.min.css");
-    fs.writeFileSync(cssOutPath, cssMinified, "utf8");
+    fs.writeFileSync(path.join(DIST, b.out), cssMinified, "utf8");
 
     const cssOrig = Buffer.byteLength(cssSource, "utf8");
     const cssMin = Buffer.byteLength(cssMinified, "utf8");
     const cssPct = cssOrig ? Math.round((1 - cssMin / cssOrig) * 100) : 0;
     console.log(
-        "  style.min.css  " +
+        "  " + b.out + "  " +
         (cssOrig / 1024).toFixed(1) + " KB → " +
         (cssMin / 1024).toFixed(1) + " KB  (" + cssPct + "% smaller)"
     );

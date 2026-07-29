@@ -53,6 +53,11 @@ function readingTime(html) {
     return Math.max(1, Math.ceil(words / 200));
 }
 function fixAssetPaths(body) {
+    // Bọc <table> trong khung cuộn riêng: bảng giá nhiều cột mà không bọc thì
+    // trên điện thoại nó đẩy CẢ TRANG trượt ngang, không chỉ mình nó.
+    body = String(body).replace(/<table[\s\S]*?<\/table>/g, function (m) {
+        return '<div class="table-scroll">' + m + "</div>";
+    });
     return body
         .replace(/src="assets\//g, 'src="../assets/')
         .replace(/href="index\.html/g, 'href="../index.html')

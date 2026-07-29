@@ -414,3 +414,76 @@
         font-size: 1.05rem;
     }
 }
+
+/* ============================================
+   BẢNG TRONG BÀI VIẾT
+   Bài trụ cột có bảng giá món và bảng khung giờ tàu, nhưng CSS chưa từng
+   định dạng <table> nên chúng rơi về mặc định trình duyệt: chữ sát nhau,
+   không viền, không phân biệt hàng tiêu đề.
+   ============================================ */
+.blog-post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 24px;
+    font-size: 0.95rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.blog-post-body thead th {
+    background: var(--wood);
+    color: var(--cream);
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    letter-spacing: 0.2px;
+}
+
+.blog-post-body td,
+.blog-post-body tbody th {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+    color: var(--charcoal);
+    text-align: left;
+}
+
+.blog-post-body tbody th {
+    font-weight: 600;
+    color: var(--wood);
+}
+
+.blog-post-body tbody tr:last-child td,
+.blog-post-body tbody tr:last-child th { border-bottom: none; }
+
+.blog-post-body tbody tr:nth-child(even) { background: rgba(212, 168, 83, 0.05); }
+
+/* Bảng rộng phải cuộn trong khung của nó, không được đẩy cả trang trượt ngang */
+.blog-post-body .table-scroll {
+    overflow-x: auto;
+    margin: 20px 0 24px;
+    -webkit-overflow-scrolling: touch;
+}
+.blog-post-body .table-scroll table { margin: 0; }
+
+/* ── Nhịp đọc: tiêu đề phải dính đoạn văn của nó, không trôi lơ lửng ── */
+.blog-post-body h2 { margin-top: 44px; }
+.blog-post-body h2 + p,
+.blog-post-body h3 + p { margin-top: 0; }
+.blog-post-body h2:first-child,
+.blog-post-body h3:first-child { margin-top: 0; }
+
+/* Không để tiêu đề rớt lại một mình cuối cột/trang khi in hoặc chia cột */
+.blog-post-body h2,
+.blog-post-body h3 { break-after: avoid-page; }
+
+@media (max-width: 540px) {
+    .blog-post-body table { font-size: 0.88rem; }
+    .blog-post-body thead th { padding: 10px 12px; font-size: 0.85rem; }
+    .blog-post-body td,
+    .blog-post-body tbody th { padding: 10px 12px; }
+    .blog-post-body h2 { margin-top: 34px; }
+}
