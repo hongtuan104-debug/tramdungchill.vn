@@ -4564,3 +4564,34 @@ body.sticky-bar-active .fab-contact {
 @media (max-width: 540px) {
     .menu-hero-note { font-size: 0.86rem; padding: 11px 14px; }
 }
+
+/* Trích dẫn khách thật trong bài blog.
+   Dùng <figure>/<blockquote>/<figcaption> đúng ngữ nghĩa: lời khách là nội dung
+   trích, không phải văn của quán — cả người đọc lẫn máy đều cần phân biệt được. */
+.blog-quote {
+    margin: 24px 0;
+    padding: 18px 22px;
+    border-left: 3px solid var(--gold);
+    background: rgba(212, 168, 83, 0.07);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+.blog-quote blockquote { margin: 0; }
+.blog-quote blockquote p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: var(--wood);
+}
+.blog-quote figcaption {
+    margin-top: 10px;
+    font-size: 0.86rem;
+    color: var(--smoke);
+    font-style: normal;
+}
+.blog-quote figcaption strong { color: var(--gold-dark); }
+
+@media (max-width: 540px) {
+    .blog-quote { padding: 15px 16px; }
+    .blog-quote blockquote p { font-size: 0.94rem; }
+}
