@@ -4543,3 +4543,24 @@ body.sticky-bar-active .fab-contact {
     .faq-item summary h3 { font-size: 0.95rem; }
     .faq-item > p { padding: 0 16px 18px; font-size: 0.9rem; }
 }
+
+/* Dòng làm rõ mức chi/người trên trang menu.
+   Lý do: meta description cũ ghi "Giá từ 29.000đ" (giá đồ uống rẻ nhất) nên
+   AI trả lời "giá bao nhiêu một người" nhặt đúng con số đó. Nay nói thẳng
+   mức chi/người ngay trên trang, và phân biệt rõ với giá từng món. */
+.menu-hero-note {
+    max-width: 640px;
+    margin: 14px auto 0;
+    padding: 12px 18px;
+    border-radius: var(--radius);
+    background: rgba(212, 168, 83, 0.12);
+    border: 1px solid rgba(212, 168, 83, 0.35);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--wood);
+}
+.menu-hero-note strong { color: var(--gold-dark); }
+
+@media (max-width: 540px) {
+    .menu-hero-note { font-size: 0.86rem; padding: 11px 14px; }
+}

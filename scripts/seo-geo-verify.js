@@ -407,6 +407,32 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                                        : "menu thật " + real + " món, không chỗ nào thổi phồng"));
 }
 
+// ── R8f. Meta description không được khai giá món lẻ như "giá quán" ──────
+// Bug thật đo được 19/06/2026: hỏi ChatGPT/Perplexity "giá bao nhiêu một người"
+// thì AI trả lời "29.000đ" — vì og/twitter description của menu.html ghi
+// "Giá từ 29.000đ" (giá đồ uống rẻ nhất). AI đọc thẳng meta tag làm giá quán,
+// JSON-LD priceRange đúng cũng không thắng nổi.
+{
+    const PRICE_TAGS = /<meta[^>]*(?:name="(?:description|twitter:description)"|property="og:description")[^>]*content="([^"]*)"/gi;
+    const offenders = [];
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(PRICE_TAGS)) {
+            const c = m[1];
+            if (!/[Gg]iá|price/i.test(c)) continue;
+            // bắt "giá từ 29.000đ" / "từ 10K" — con số nhỏ đứng ở vai trò "giá quán"
+            const low = c.match(/(?:giá\s+)?từ\s+([0-9]{1,3})(?:[.,]000)?\s*[KkĐđ]/i);
+            if (low && parseInt(low[1], 10) < 95) {
+                offenders.push(rel(f) + ': "' + low[0] + '"');
+            }
+        }
+    }
+    add("Meta description không khai giá món lẻ thành giá/người",
+        offenders.length === 0,
+        offenders.length ? offenders.slice(0, 3).join(" | ")
+                         : "mọi meta mô tả dùng mức chi 95.000–300.000đ/người");
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
