@@ -78,12 +78,26 @@ function kieuNgayVN(iso) {
  * Bỏ: chú thích HTML, <style>, và mã JavaScript thường — đổi mấy thứ đó không
  * phải "cập nhật bài".
  *
- * ⚠️ Trong schema phải cắt riêng "dateModified" ra khỏi phép so. Không cắt thì
- * đổi ngày lại làm dấu vân đổi theo → lần chạy sau tưởng có người sửa bài →
- * đổi ngày tiếp, thành vòng lặp tự kích.
+ * ⚠️ Phải cắt MỌI chỗ ghi ngày-đã-sửa ra khỏi phép so, gồm hai chỗ:
+ *   - "dateModified" trong schema
+ *   - dòng hiển thị <span class="blog-updated">Cập nhật 27/07/2026</span>
+ * Không cắt thì chính việc đóng dấu ngày lại bị đếm là "có người sửa bài" →
+ * lần chạy sau đổi ngày tiếp, thành vòng lặp tự kích. Riêng chế độ --khoi-tao
+ * còn tệ hơn: nó dò lịch sử git, thấy đúng cái commit đóng dấu ngày rồi tưởng
+ * đó là ngày sửa nội dung.
+ * Ngày ĐĂNG (<time datetime>) thì GIỮ trong phép so — đó là dữ kiện thật của
+ * bài, đổi nó là đổi nội dung.
  */
 function chuHienThi(html) {
-  const goc = html.replace(/<!--[\s\S]*?-->/g, ' ');
+  const goc = html
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/(<span class="blog-updated">)[^<]*(<\/span>)/g, '$1$2')
+    // Khối "Bài viết liên quan" và thanh bài trước/bài sau là ĐIỀU HƯỚNG, do máy
+    // dựng từ danh sách bài — không phải nội dung của bài này. Đăng một bài mới
+    // là 25 bài cũ đổi khối đó; tính vào dấu vân thì cả 25 bài bị đóng dấu "vừa
+    // cập nhật" trong khi chữ nghĩa không đổi một dòng.
+    .replace(/<nav class="blog-post-nav[\s\S]*?<\/nav>/gi, ' ')
+    .replace(/<section class="blog-related">[\s\S]*?<\/section>/gi, ' ');
 
   const schema = (goc.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi) || [])
     .map((k) => k.replace(/<script[^>]*>|<\/script>/gi, ''))
