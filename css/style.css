@@ -4771,3 +4771,37 @@ body.sticky-bar-active .fab-contact {
 }
 .blog-post-hero .breadcrumb a:hover { color: var(--gold-dark); }
 .blog-post-hero .breadcrumb span { color: var(--smoke); }
+
+/* ── Canh đều hai bên cho thân bài ──
+   Chỉ áp cho đoạn văn và mục danh sách — thứ có nhiều dòng liên tiếp nên mép
+   phải thẳng mới thấy gọn. KHÔNG áp cho tiêu đề (thường 1–2 dòng, canh đều
+   chỉ làm giãn chữ vô cớ) và không áp cho bảng. */
+.blog-post-body > p,
+.blog-post-body li {
+    text-align: justify;
+    text-justify: inter-word;
+    /* Chống "sông trắng" — vệt trắng chạy dọc khi trình duyệt giãn khoảng cách
+       từ quá tay để ép mép phải cho thẳng. */
+    word-spacing: -0.01em;
+}
+
+/* text-wrap: pretty lo phần đuôi đoạn — tránh dòng cuối trơ trọi một chữ.
+   Trình duyệt chưa hỗ trợ thì bỏ qua, không ảnh hưởng gì. */
+.blog-post-body > p,
+.blog-post-body li,
+.blog-post-body h2,
+.blog-post-body h3 {
+    text-wrap: pretty;
+}
+
+/* Màn hẹp thì TRẢ VỀ canh trái.
+   Tiếng Việt không ngắt từ bằng gạch nối được, nên cột hẹp mà ép canh đều thì
+   mỗi dòng chỉ nhét được vài từ, khoảng trắng giữa chúng bị kéo rộng ngoác —
+   đọc mệt hơn hẳn so với để mép phải tự nhiên. */
+@media (max-width: 640px) {
+    .blog-post-body > p,
+    .blog-post-body li {
+        text-align: left;
+        word-spacing: normal;
+    }
+}
