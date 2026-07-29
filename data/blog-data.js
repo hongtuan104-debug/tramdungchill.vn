@@ -5600,7 +5600,7 @@ const BLOG_ARTICLES = [
         id: "an-nuong-da-lat-bao-nhieu-tien",
         title: "Ăn Nướng Đà Lạt Bao Nhiêu Tiền? — Bảng Giá Chi Tiết 2027",
         category: "Quán nướng Đà Lạt",
-        date: "2026-12-29",
+        date: "2026-03-24",
         image: "assets/images/blog/mon-nuong-4-v7.webp",
         imageAlt: "Ăn nướng Đà Lạt bao nhiêu tiền - bảng giá menu BBQ chi tiết",
         badge: "",

@@ -528,6 +528,67 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                    : "text: " + shownVals.join("/") + " · schema: " + schemaVals.join("/"));
 }
 
+// ── R12 + R13. Ngày tháng và sitemap phải khớp thực tế ───────────────────
+// Bối cảnh 29/07/2026: bài "ăn nướng Đà Lạt bao nhiêu tiền" mở cho Google đọc,
+// được link từ blog.html và là đích canonical của 7 bài gộp — nhưng khai ngày
+// đăng 29/12/2026 (tương lai 5 tháng) nên máy tạo bài âm thầm loại nó khỏi
+// sitemap. Không ai biết cho tới khi soát tay. Hai phép kiểm dưới bịt lỗ đó.
+{
+    // Mảnh giao diện dùng chung và file xác minh của Google không phải "trang".
+    const KHONG_PHAI_TRANG = (p) =>
+        p.startsWith("components/") || p === "404.html" || /^google[0-9a-z]+\.html$/i.test(p);
+
+    const smText = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+    const trongSitemap = new Set(
+        (smText.match(/<loc>([^<]*)<\/loc>/g) || [])
+            .map((m) => m.replace(/<\/?loc>/g, "").replace("https://tramdungchill.vn/", ""))
+            .map((d) => (d === "" || d.endsWith("/") ? d + "index.html" : d))
+    );
+
+    const homNay = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Ho_Chi_Minh",
+        year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(new Date());
+
+    const thieuKhai = [];   // cho Google đọc mà không khai trong sitemap
+    const khaiThua = [];    // chặn Google mà vẫn khai trong sitemap
+    const ngayXau = [];     // ngày đăng ở tương lai / sửa trước khi đăng
+
+    for (const f of files) {
+        const p = rel(f);
+        if (KHONG_PHAI_TRANG(p)) continue;
+        const s = fs.readFileSync(f, "utf8");
+        const m = s.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
+        const chanGoogle = !!(m && /noindex/i.test(m[1]));
+        const coKhai = trongSitemap.has(p);
+
+        if (!chanGoogle && !coKhai) thieuKhai.push(p);
+        if (chanGoogle && coKhai) khaiThua.push(p);
+
+        const dp = (s.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || ["", ""])[1];
+        const dm = (s.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || ["", ""])[1];
+        // Ngày đăng ở tương lai chỉ là lỗi khi trang ĐANG cho Google đọc. Bài
+        // đang noindex nằm trong lịch đăng dần thì để yên — đó là chủ ý.
+        if (!chanGoogle && dp && dp > homNay) ngayXau.push(p + " đăng " + dp + " (tương lai)");
+        // Sửa trước khi đăng thì vô lý ở mọi trang, kể cả trang đang noindex.
+        if (dp && dm && dm < dp) ngayXau.push(p + " sửa " + dm + " trước khi đăng " + dp);
+    }
+
+    const soTrang = files.filter((f) => !KHONG_PHAI_TRANG(rel(f))).length;
+
+    add("Trang cho Google đọc ↔ sitemap khớp nhau",
+        thieuKhai.length === 0 && khaiThua.length === 0,
+        (thieuKhai.length || khaiThua.length)
+            ? [thieuKhai.length ? "thiếu khai: " + thieuKhai.slice(0, 5).join(", ") : "",
+               khaiThua.length ? "khai thừa (đang noindex): " + khaiThua.slice(0, 5).join(", ") : ""]
+                .filter(Boolean).join(" · ")
+            : soTrang + " trang · " + trongSitemap.size + " URL trong sitemap, không lệch");
+
+    add("Ngày đăng / ngày sửa hợp lệ",
+        ngayXau.length === 0,
+        ngayXau.length ? ngayXau.slice(0, 5).join(" · ") : soTrang + " trang, không trang nào khai ngày ở tương lai hay sửa-trước-khi-đăng");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

@@ -42,7 +42,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-27",
       "lang": "vi"
     },
     "nuong-bbq-ngam-xe-lua": {
@@ -83,7 +83,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-27",
       "lang": "vi"
     },
     "quan-nuong-da-lat-view-nha-long": {
@@ -124,7 +124,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-27",
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {
@@ -165,7 +165,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -206,7 +206,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-27",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -247,7 +247,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-27",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -288,7 +288,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
@@ -329,7 +329,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "vi"
     },
     "lich-trinh-da-lat-3-ngay-2-dem": {
@@ -370,7 +370,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -411,7 +411,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "vi"
     },
     "da-lat-cho-nguoi-nuoc-ngoai": {
@@ -452,7 +452,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "en",
       "category": "English"
     },
@@ -494,7 +494,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-29",
       "lang": "en",
       "category": "English",
       "date": "2026-06-16",
@@ -541,7 +541,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-27",
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {

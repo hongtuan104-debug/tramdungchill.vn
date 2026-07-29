@@ -16,7 +16,12 @@ const TEMPLATE_FILE = path.join(ROOT, "templates", "blog-post.html");
 const BLOG_DIR = path.join(ROOT, "blog");
 const SITEMAP = path.join(ROOT, "sitemap.xml");
 const SITE_URL = "https://tramdungchill.vn";
-const TODAY = new Date().toISOString().slice(0, 10);
+// Ngày theo giờ Việt Nam. toISOString() trả giờ UTC — chạy trước 7h sáng VN là
+// ra ngày HÔM QUA, làm bài vừa tới ngày đăng bị coi là chưa tới.
+const TODAY = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    year: "numeric", month: "2-digit", day: "2-digit"
+}).format(new Date());
 // Helpers
 
 function htmlEncode(str) {
@@ -267,6 +272,22 @@ try {
     var idxCount = articles.filter(function (a) { return a._indexable; }).length;
     console.log("Sau gộp SEO: " + articles.length + " bài (" + Object.keys(pillars).length + " trụ cột, " + Object.keys(noindexMap).length + " bài noindex, " + idxCount + " bài index được)");
 
+    // ⚠️ Chặn TRƯỚC khi ghi bất kỳ file nào: không cho phép trang vừa CHO Google
+    // đọc vừa khai ngày đăng ở tương lai. Đoạn dựng sitemap phía dưới loại bài
+    // chưa tới ngày, nhưng trang vẫn nằm trên web, vẫn được link từ danh sách bài
+    // ở blog.html và vẫn là đích canonical của bài gộp — Google tới nơi rồi thấy
+    // ngày ở tương lai, coi là dấu hiệu xấu. (29/07/2026 đã dính đúng ca này: bài
+    // "ăn nướng Đà Lạt bao nhiêu tiền" khai đăng 29/12/2026 suốt 4 tháng.)
+    // Phải chọn một: hoặc cho noindex, hoặc sửa ngày về sự thật.
+    var lungLo = articles.filter(function (a) { return a.date > TODAY && a._indexable !== false; });
+    if (lungLo.length) {
+        throw new Error(
+            "Có " + lungLo.length + " bài vừa cho Google đọc vừa khai ngày đăng ở tương lai: " +
+            lungLo.map(function (a) { return a.id + " (" + a.date + ")"; }).join(", ") +
+            " — hoặc khai noindex trong data/blog-seo.js, hoặc sửa date về ngày thật."
+        );
+    }
+
     console.log("Reading template...");
     const template = fs.readFileSync(TEMPLATE_FILE, "utf8");
 
@@ -424,6 +445,22 @@ try {
     // Regenerate sitemap.xml
     console.log("Regenerating sitemap.xml...");
 
+    // Giữ nguyên lastmod đang có trong sitemap thay vì đóng dấu ngày hôm nay.
+    // Đóng dấu vô điều kiện là "làm mới giả": trang không đổi một chữ nào mà vẫn
+    // khai vừa cập nhật — Google nói rõ đừng làm. Chỗ quyết định ngày là
+    // scripts/cap-nhat-lastmod.js, nó so nội dung thật rồi mới đổi ngày.
+    const lastmodDangCo = {};
+    try {
+        const smCu = fs.readFileSync(SITEMAP, "utf8");
+        (smCu.match(/<url>[\s\S]*?<\/url>/g) || []).forEach(function (b) {
+            const loc = (b.match(/<loc>([^<]*)<\/loc>/) || ["", ""])[1];
+            const lm = (b.match(/<lastmod>([^<]*)<\/lastmod>/) || ["", ""])[1];
+            if (loc && lm) lastmodDangCo[loc.replace(SITE_URL, "")] = lm;
+        });
+    } catch (e) {
+        // Chưa có sitemap (lần chạy đầu) thì dùng TODAY như cũ.
+    }
+
     const staticPages = [
         { loc: "/", lastmod: TODAY, changefreq: "weekly", priority: "1.0" },
         { loc: "/blog.html", lastmod: TODAY, changefreq: "daily", priority: "0.9" },
@@ -434,7 +471,9 @@ try {
         { loc: "/dip/team-building.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" }
         // review-qr.html là noindex,nofollow (trang tiện ích QR) → KHÔNG đưa vào sitemap.
-    ];
+    ].map(function (p) {
+        return Object.assign({}, p, { lastmod: lastmodDangCo[p.loc] || p.lastmod });
+    });
 
     // Chỉ xuất sitemap bài đã tới ngày (date<=hôm nay) VÀ còn index (loại future + noindex)
     const publishedArticles = articles.filter(a => a.date <= TODAY && a._indexable !== false);
