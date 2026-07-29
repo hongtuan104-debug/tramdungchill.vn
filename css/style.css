@@ -4745,3 +4745,24 @@ body.sticky-bar-active .fab-contact {
     .blog-post-body td,
     .blog-post-body tbody th { padding: 10px 12px; }
 }
+
+/* Breadcrumb trong trang bài viết.
+   .breadcrumb gốc có background:var(--night) + padding-top:100px vì ở
+   menu.html/blog.html nó nằm ngay dưới navbar tối và phải lấp khoảng trống của
+   navbar fixed. Trang bài thì nền cream và section đã tự có padding-top, nên
+   nền tối đó nổi lên thành một khối đen lạc lõng giữa trang sáng. */
+.blog-post-hero .breadcrumb {
+    background: transparent;
+    padding: 0 0 6px;
+    font-size: 0.85rem;
+    color: var(--smoke);
+}
+
+/* Trên nền sáng phải đổi màu chữ: --smoke trên --cream chỉ đạt ~3.5:1,
+   chưa đủ ngưỡng 4.5:1 cho cỡ chữ nhỏ. */
+.blog-post-hero .breadcrumb a {
+    color: var(--wood);
+    text-decoration: none;
+}
+.blog-post-hero .breadcrumb a:hover { color: var(--gold-dark); }
+.blog-post-hero .breadcrumb span { color: var(--smoke); }
