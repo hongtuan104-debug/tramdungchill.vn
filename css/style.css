@@ -4651,7 +4651,10 @@ body.sticky-bar-active .fab-contact {
     font-weight: 600;
     color: var(--night);
     line-height: 1.4;
-    margin: 30px 0 12px;
+    /* margin-left âm bù đúng padding-left: chữ h3 thẳng hàng với đoạn văn,
+       còn gạch vàng nằm ra ngoài lề. Nếu chỉ có padding-left thì h3 bị thụt
+       vào 14px so với mọi đoạn văn quanh nó. */
+    margin: 30px 0 12px -14px;
     padding-left: 14px;
     position: relative;
 }
@@ -4676,7 +4679,9 @@ body.sticky-bar-active .fab-contact {
 .blog-post-body ul,
 .blog-post-body ol {
     margin: 14px 0 22px;
-    padding-left: 22px;
+    /* list-style-position mặc định là outside: dấu chấm nằm ngoài hộp chữ.
+       Giữ padding-left vừa đủ cho dấu, để CHỮ trong li thẳng hàng với đoạn văn. */
+    padding-left: 20px;
 }
 
 .blog-post-body li { margin-bottom: 9px; }
