@@ -21,7 +21,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Grilling BBQ at Tram Dung Chill as the vintage Da Lat–Trai Mat train passes below at sunset",
     "badge": "",
     "featured": false,
-    "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8 stars by nearly 6,000 guests.",
+    "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8 stars by over 6,816 guests.",
     "tags": []
   },
   {

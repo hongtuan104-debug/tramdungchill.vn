@@ -447,11 +447,25 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 {
     const shown = {};
     const schema = {};
-    for (const f of files) {
+    // Quét cả data/*.js: blog-seo.js là NGUỒN sinh ra bài blog, schema-data.js
+    // nuôi JSON-LD. Bản trước chỉ quét .html nên hai file này vô hình → lọt số cũ.
+    const dataJs = fs.readdirSync(path.join(ROOT, "data"))
+        .filter((n) => n.endsWith(".js"))
+        .map((n) => path.join(ROOT, "data", n));
+    for (const f of files.concat(dataJs)) {
         const s = fs.readFileSync(f, "utf8");
-        for (const m of s.matchAll(/(gần |hơn |khoảng )?([0-9][0-9.,]{2,6})\+? (?:lượt )?(?:đánh giá|reviews?)/gi)) {
-            const n = m[2].replace(/[.,]/g, "");
+        // Cho phép thẻ đóng và MỘT từ đệm chen giữa số và chữ "đánh giá"/"reviews"
+        // — thực tế site viết "6,000 Google reviews", bản trước đòi chữ phải dính
+        // ngay sau dấu cách nên trượt hết, dẫn tới BÁO PASS OAN.
+        for (const m of s.matchAll(
+            /([0-9][0-9.,]{2,6})\+?(?:<\/(?:strong|b|em|span)>)?\s+(?:lượt\s+)?(?:Google\s+)?(?:đánh giá|reviews?)\b/gi
+        )) {
+            const n = m[1].replace(/[.,]/g, "");
             shown[n] = (shown[n] || 0) + 1;
+        }
+        // schema-data.js khai kiểu rating:{count:'6816'} chứ không phải JSON-LD
+        for (const m of s.matchAll(/rating\s*:\s*\{[^}]*count\s*:\s*['"]([0-9]+)['"]/g)) {
+            schema[m[1]] = (schema[m[1]] || 0) + 1;
         }
         for (const m of s.matchAll(/"reviewCount"\s*:\s*"?([0-9]+)/g)) {
             schema[m[1]] = (schema[m[1]] || 0) + 1;
