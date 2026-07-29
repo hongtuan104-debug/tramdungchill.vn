@@ -481,6 +481,33 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                      : checked + " tham chiếu, không cái nào 404");
 }
 
+// ── R8i. Mọi class trong template bài viết phải có CSS thật ──────────────
+// Lỗi đã xảy ra: template dùng .nav-links và .blog-post-body nhưng KHÔNG file
+// CSS nào định nghĩa chúng, nên nav dính liền một cục và thân bài rơi về style
+// mặc định trình duyệt. Lưới cũ soi schema/ngày/ngôn ngữ/ảnh 404 — không mục
+// nào biết trang trông ra sao, phải có người mở mắt nhìn mới thấy.
+{
+    const tpl = path.join(ROOT, "templates/blog-post.html");
+    if (!fs.existsSync(tpl)) {
+        add("Class trong template bài viết đều có CSS", false, "không thấy templates/blog-post.html");
+    } else {
+        const t = fs.readFileSync(tpl, "utf8");
+        const cssFiles = ["css/style.css"].map((f) => path.join(ROOT, f))
+            .filter((f) => fs.existsSync(f))
+            .map((f) => fs.readFileSync(f, "utf8")).join("\n");
+        const inline = (t.match(/<style>[\s\S]*?<\/style>/g) || []).join("");
+        const classes = [...new Set(
+            [...t.matchAll(/class="([^"]+)"/g)].flatMap((m) => m[1].split(/\s+/))
+        )].filter((c) => c && !/^\{\{/.test(c));
+
+        const missing = classes.filter((c) => !cssFiles.includes("." + c) && !inline.includes("." + c));
+        add("Class trong template bài viết đều có CSS",
+            missing.length === 0,
+            missing.length ? "thiếu: " + missing.slice(0, 5).map((c) => "." + c).join(", ")
+                           : classes.length + " class đều có định nghĩa");
+    }
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
