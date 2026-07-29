@@ -18,6 +18,18 @@ const SITEMAP = path.join(ROOT, "sitemap.xml");
 const SITE_URL = "https://tramdungchill.vn";
 // Ngày theo giờ Việt Nam. toISOString() trả giờ UTC — chạy trước 7h sáng VN là
 // ra ngày HÔM QUA, làm bài vừa tới ngày đăng bị coi là chưa tới.
+// Vân tay nội dung của CSS, gắn vào ?v= để trình duyệt tải lại khi CSS đổi.
+// Trước đây bài blog nạp ../css/style.css KHÔNG kèm version, nên sửa CSS xong
+// người dùng vẫn thấy bản cũ trong cache — đúng thứ vừa xảy ra với bảng giá.
+const CSS_VER = (function () {
+    try {
+        const p = path.join(ROOT, "dist", "style.min.css");
+        return require("crypto").createHash("md5")
+            .update(fs.readFileSync(p)).digest("hex").slice(0, 8);
+    } catch (e) {
+        return "dev";
+    }
+})();
 const TODAY = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Ho_Chi_Minh",
     year: "numeric", month: "2-digit", day: "2-digit"
@@ -425,6 +437,7 @@ try {
                 .replace(/{{T_CTA_TITLE}}/g, ui(article).ctaTitle)
                 .replace(/{{T_CTA_SUB}}/g, ui(article).ctaSub)
                 .replace(/{{T_CTA_BTN}}/g, ui(article).ctaBtn)
+                .replace(/{{CSS_VER}}/g, CSS_VER)
                 .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
                 .replace(/{{OG_LOCALE}}/g, article._lang === "en" ? "en_US" : "vi_VN")
                 .replace(/{{BYLINE}}/g, bylineHtml(article))
