@@ -68,6 +68,15 @@ tiem-nuong-tram-dung-chill/
   - Events: `PageView`, `ViewContent` (menu/dip/blog), `Lead` (form đặt bàn), `Contact` (click Phone/Zalo/FB)
   - **Conversions API (CAPI):** chưa cài, đợi đủ traffic
 
+## Footer — sinh tự động, ĐỪNG sửa HTML tay
+Footer nằm trong 8 file (component + template bài + 404 + 4 trang dịp), tất cả
+do `scripts/generate-footer.js` sinh giữa mốc `<!-- FOOTER:START --> … <!-- FOOTER:END -->`.
+- **Sửa chữ** → `data/translations.js` · **Sửa SĐT/địa chỉ/social** → `data/site-config.js`
+- Rồi chạy `node scripts/bundle-js.js` (đã gọi sẵn generate-footer) + `node scripts/generate-blog-pages.js`
+- Sửa tay từng file chính là cách cũ đã đẻ ra 5 footer lệch nhau (fix 30/07/2026)
+- ⚠️ `css/footer.css` và `css/responsive.css` KHÔNG trang nào nạp — bản chạy thật
+  nằm trong `css/style.css`, đó mới là file được bundle ra `dist/style.min.css`
+
 ## Bug đã fix (đừng làm lại)
 1. **Language switcher EN/VI hỏng** → Fix: đổi `const TRANSLATIONS` thành `var TRANSLATIONS`
 2. **`scripts/generate-blog-pages.js`:** `const BLOG_ARTICLES` không expose vào vm sandbox → append `;this.BLOG_ARTICLES = BLOG_ARTICLES;` sau dataSource trước khi `runInNewContext`
