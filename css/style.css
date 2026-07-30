@@ -1427,9 +1427,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     padding: 64px 0 28px;
 }
 
+/* BỐN cột, không phải ba: footer có 4 khối (thương hiệu · liên kết · dịp đặc
+   biệt · liên hệ). Khai 3 cột thì khối "Liên hệ" rơi xuống hàng hai, nằm lệch
+   dưới khối thương hiệu và chừa một mảng trống lớn bên phải — đúng cái đang
+   thấy trên trang chủ. */
 .footer-top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
     gap: 48px;
     margin-bottom: 48px;
 }
@@ -2850,9 +2854,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* Tablet landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
+    /* 4 khối trên bề ngang tablet: xếp 2×2, ba cột sẽ bóp nát cột liên hệ. */
     .footer-top {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 40px;
     }
     .booking-wrapper {
         grid-template-columns: 1fr 1.3fr;

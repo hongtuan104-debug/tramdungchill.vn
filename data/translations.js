@@ -248,6 +248,16 @@ var TRANSLATIONS = {
     'footer.hours.title': 'Giờ mở cửa',
     'footer.hours.value': '15:00 - 23:00 hàng ngày',
     'footer.copyright': '© 2026 Tiệm Nướng Trạm Dừng Chill. Đà Lạt, Việt Nam.',
+    'footer.occasion.title': 'Dịp đặc biệt',
+    'footer.occasion.train': 'Săn tàu Đà Lạt',
+    'footer.occasion.birthday': 'Tổ chức sinh nhật',
+    'footer.occasion.date': 'Cầu hôn &amp; hẹn hò',
+    'footer.occasion.team': 'Team building',
+    'footer.occasion.directions': 'Đường đi &amp; bản đồ',
+    // Địa chỉ giữ NGUYÊN tiếng Việt ở cả hai ngôn ngữ: đây là NAP (Name-Address-Phone)
+    // dùng cho local SEO — Google đối chiếu chuỗi này với Google Business Profile,
+    // dịch ra tiếng Anh là tự tạo một biến thể địa chỉ thứ hai.
+    'footer.address': '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt',
 
     // Notifications
     'notify.required': 'Vui lòng điền đầy đủ thông tin bắt buộc!',
@@ -506,6 +516,14 @@ var TRANSLATIONS = {
     'footer.hours.title': 'Opening hours',
     'footer.hours.value': '15:00 - 23:00 daily',
     'footer.copyright': '© 2026 Tram Dung Chill BBQ. Da Lat, Vietnam.',
+    'footer.occasion.title': 'Special occasions',
+    'footer.occasion.train': 'Da Lat train spotting',
+    'footer.occasion.birthday': 'Birthday parties',
+    'footer.occasion.date': 'Proposals &amp; date nights',
+    'footer.occasion.team': 'Team building',
+    'footer.occasion.directions': 'Directions &amp; map',
+    // Giữ nguyên tiếng Việt — xem ghi chú ở bản 'vi'.
+    'footer.address': '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt',
 
     // Notifications
     'notify.required': 'Please fill in all required fields!',

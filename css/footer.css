@@ -1,5 +1,8 @@
 /* ============================================
    FOOTER — Footer Section
+   ⚠️ KHÔNG trang nào nạp file này. Bản đang chạy nằm trong css/style.css
+   (mục FOOTER) — đó mới là file được bundle-js.js nén ra dist/style.min.css.
+   Giữ ở đây cho khớp để người sau sửa nhầm file vẫn ra cùng kết quả.
    ============================================ */
 
 /* ============================================
@@ -13,7 +16,7 @@
 
 .footer-top {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
     gap: 48px;
     margin-bottom: 48px;
 }

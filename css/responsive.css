@@ -10,8 +10,8 @@
 /* Tablet landscape */
 @media (min-width: 769px) and (max-width: 1024px) {
     .footer-top {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 40px;
     }
     .booking-wrapper {
         grid-template-columns: 1fr 1.3fr;

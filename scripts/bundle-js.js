@@ -198,6 +198,16 @@ for (const b of CSS_BUNDLES) {
     );
 }
 
+// ── Footer dùng chung cho mọi trang ──────────────────────────────
+// Chạy ở đây để không ai quên: footer nằm trong 7 file (component + template bài
+// + 404 + 4 trang dịp), sửa tay từng file là cách cũ đã đẻ ra 5 footer lệch nhau.
+console.log("\nĐồng bộ footer...");
+try {
+    require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "generate-footer.js")), { stdio: "inherit" });
+} catch (e) {
+    console.error("  Bước này lỗi (khong chan build): " + e.message);
+}
+
 // ── Preconnect + vân tay CSS cho các trang tĩnh ──────────────────
 // Chạy SAU khi có dist/style.min.css để băm được nội dung. Không có bước này
 // thì sửa CSS xong người dùng vẫn thấy bản cũ trong cache.

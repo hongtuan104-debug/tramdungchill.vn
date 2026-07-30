@@ -34,6 +34,16 @@ const TODAY = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Ho_Chi_Minh",
     year: "numeric", month: "2-digit", day: "2-digit"
 }).format(new Date());
+
+// Bảng dịch dùng chung với website. Footer trong template ghi {{I18N:khoá}} và
+// được thay ở đây theo ngôn ngữ CỦA BÀI — bài blog không nạp js/i18n.js nên
+// không thể để nút EN/VI lo, chữ phải chốt ngay lúc sinh trang.
+const TRANS = (function () {
+    const src = fs.readFileSync(path.join(ROOT, "data", "translations.js"), "utf8");
+    const sb = {};
+    vm.runInNewContext(src + "\n;this.TRANSLATIONS = TRANSLATIONS;", sb);
+    return sb.TRANSLATIONS;
+})();
 // Helpers
 
 function htmlEncode(str) {
@@ -447,6 +457,16 @@ try {
                 .replace(/{{PREV_TITLE}}/g, navMap[article.id] && navMap[article.id].prev ? htmlEncode(navMap[article.id].prev.title) : "")
                 .replace(/{{NEXT_TITLE}}/g, navMap[article.id] && navMap[article.id].next ? htmlEncode(navMap[article.id].next.title) : "")
                 .replace(/{{RELATED_POSTS}}/g, buildRelatedPosts(article));
+
+            // {{I18N:khoá}} — chữ dùng chung với website (footer). Thiếu khoá thì
+            // dừng hẳn: để nguyên chuỗi {{I18N:…}} là in mã lỗi ra mặt khách.
+            const dict = TRANS[article._lang === "en" ? "en" : "vi"] || {};
+            html = html.replace(/{{I18N:([A-Za-z0-9._-]+)}}/g, function (m, key) {
+                if (dict[key] === undefined) {
+                    throw new Error("Thiếu khoá dịch '" + key + "' trong data/translations.js");
+                }
+                return dict[key];
+            });
 
             const outPath = path.join(BLOG_DIR, article.id + ".html");
             fs.writeFileSync(outPath, html, "utf8");
