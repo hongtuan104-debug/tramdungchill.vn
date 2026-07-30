@@ -508,6 +508,33 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     }
 }
 
+// ── R8j. Mọi id mà JS gọi phải tồn tại trong HTML ────────────────────────
+// Bug thật: sau khi nav dựng lại theo components/nav.html, id "navLinks" biến
+// mất nhưng script vẫn getElementById("navLinks") → addEventListener trên null
+// → nút hamburger lỗi, MENU DI ĐỘNG KHÔNG MỞ trên cả 143 bài. Lưới cũ đối chiếu
+// class với CSS nhưng chưa từng kiểm id mà JS gọi.
+{
+    const PAGES = ["index.html", "menu.html", "blog.html", "blog/top-quan-nuong-da-lat.html",
+        "dip/san-tau-da-lat.html", "duong-di/index.html"];
+    const bad = [];
+    for (const p of PAGES) {
+        const abs = path.join(ROOT, p);
+        if (!fs.existsSync(abs)) continue;
+        const s = fs.readFileSync(abs, "utf8");
+        const ids = new Set([...s.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
+        // chỉ soi script inline trong chính trang (bundle ngoài dùng cho nhiều trang)
+        for (const sc of s.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)) {
+            for (const m of sc[1].matchAll(/getElementById\(\s*["']([^"']+)["']\s*\)/g)) {
+                if (!ids.has(m[1])) bad.push(p + " → #" + m[1]);
+            }
+        }
+    }
+    add("id mà script inline gọi đều tồn tại trong HTML",
+        bad.length === 0,
+        bad.length ? [...new Set(bad)].slice(0, 4).join(" | ")
+                   : PAGES.length + " trang không có id chết");
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
