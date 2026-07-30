@@ -3439,7 +3439,7 @@ const BLOG_ARTICLES = [
                             <p>Ăn nướng BBQ ngon mà lại <strong>tiết kiệm</strong> — tại sao không? Nhiều quán nướng Đà Lạt có chương trình khuyến mãi quanh năm: giảm giá ngày thường, combo deal, free món khi đặt trước. Biết cách săn deal, bạn tiết kiệm đáng kể!</p>
 
                             <h2>Trạm Dừng Chill — Ưu đãi đặc biệt 2026</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>ưu đãi hấp dẫn</strong>: Setup sinh nhật MIỄN PHÍ, combo nướng giá tốt từ 95K/người, ưu đãi nhóm đông từ 6 người. Follow fanpage để cập nhật khuyến mãi mới nhất!</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>ưu đãi hấp dẫn</strong>: Setup sinh nhật miễn phí, gọi món lẻ với mức chi từ 95K/người. Follow fanpage để cập nhật khuyến mãi mới nhất!</p>
 <img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Quán Nướng Đà Lạt Khuyến Mãi - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3845,7 +3845,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Quán ăn ngon mở cửa dịp Tết</h2>
-                            <p>Nhiều quán nhỏ nghỉ Tết, nhưng các quán lớn thường mở. <a href="index.html">Trạm Dừng Chill</a> <strong>mở cửa xuyên Tết</strong> phục vụ khách du lịch. Menu đầy đủ, view đẹp — bữa tất niên hoặc mùng 1 tại đây sẽ rất đáng nhớ!</p>
+                            <p>Nhiều quán nhỏ nghỉ Tết, nhưng các quán lớn thường mở. <a href="index.html">Trạm Dừng Chill</a> có menu đầy đủ và view đẹp cho bữa tất niên. Lịch mở cửa dịp Tết thay đổi từng năm, nên gọi 0989.765.070 hỏi trước.</p>
 
                             <h2>Kết luận</h2>
                             <p><strong>Tết 2027 ở Đà Lạt</strong> — mai anh đào, trời se lạnh, sum họp gia đình. Ăn Tết tại <a href="index.html">Trạm Dừng Chill</a> với BBQ view thung lũng. <a href="index.html#booking">Đặt bàn sớm — Tết hết chỗ nhanh!</a></p>`
@@ -4075,7 +4075,7 @@ const BLOG_ARTICLES = [
                             <p><strong>5. Sunset BBQ Đà Lạt:</strong> View hoàng hôn đẹp, có khu vực VIP cho couple.</p>
 
                             <h2>Gợi ý setup kỷ niệm ngày cưới</h2>
-                            <p>Đặt trước 3-5 ngày để nhà hàng chuẩn bị hoa, nến, bảng chúc mừng. Tại <a href="index.html">Trạm Dừng Chill</a>, bạn chỉ cần báo trước — team sẽ setup bàn tiệc lãng mạn hoàn toàn <strong>miễn phí</strong>, bao gồm hoa tươi, nến, bảng tên và âm nhạc theo yêu cầu.</p>
+                            <p>Đặt trước 3-5 ngày để nhà hàng chuẩn bị hoa, nến, bảng chúc mừng. Tại <a href="index.html">Trạm Dừng Chill</a>, bạn chỉ cần báo trước — team sẽ setup bàn tiệc lãng mạn hoàn toàn <strong>miễn phí</strong>, bao gồm hoa tươi, nến và bảng chúc mừng.</p>
 <img src="assets/images/blog/view-hoang-hon-33.webp" alt="Quán Nướng Đà Lạt Kỷ Niệm Ngày Cưới - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4901,7 +4901,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Tết Nguyên Đán</strong> là mùa du lịch đông nhất Đà Lạt trong năm — lượng khách tăng 5-7 lần so với bình thường. Tất cả quán nướng view đẹp đều full bàn từ 28 Tết đến mùng 6. Nếu không đặt trước, bạn gần như chắc chắn... phải ăn mì gói trong khách sạn!</p>
 
                             <h2>Quán nướng nào mở Tết 2027?</h2>
-                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Mở xuyên Tết, menu có lẩu hải sản, lẩu cá tầm và đồ nướng. Trang trí Tết lung linh với đèn lồng, hoa mai. <a href="index.html#booking"><strong>Đặt bàn Tết ngay →</strong></a></p>
+                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Menu có lẩu hải sản, lẩu cá tầm và đồ nướng. Gọi 0989.765.070 để hỏi lịch mở cửa dịp Tết. <a href="index.html#booking"><strong>Đặt bàn Tết ngay →</strong></a></p>
 
                                                         <p><strong>2. BBQ Garden:</strong> Mở từ mùng 1, có set nướng Tết gia đình.</p>
 
