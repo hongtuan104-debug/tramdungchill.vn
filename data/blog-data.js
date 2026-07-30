@@ -2138,8 +2138,8 @@ const BLOG_ARTICLES = [
         badge: "",
         featured: false,
         excerpt: "Thích vừa ăn nướng vừa nghe nhạc sống? Đây là 5 <strong>quán nướng Đà Lạt có nhạc sống</strong> hay nhất 2026 — từ acoustic nhẹ nhàng đến ban nhạc sôi động.",
-        body: `<h2>1. Trạm Dừng Chill — Acoustic giữa trời sao</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> thường xuyên tổ chức <strong>nhạc acoustic</strong> vào cuối tuần. Nghệ sĩ chơi guitar, hát những bản ballad nhẹ nhàng giữa không gian ngoài trời. Vừa nướng BBQ, vừa nghe nhạc, vừa ngắm biển sao nhà lồng — trải nghiệm chill hết nấc!</p>
+        body: `<h2>1. Trạm Dừng Chill — Saxophone giữa trời sao</h2>
+                            <p><a href="index.html">Trạm Dừng Chill</a> có <strong>nhạc sống</strong> với nghệ sĩ thổi saxophone giữa không gian ngoài trời. Vừa nướng BBQ, vừa nghe nhạc, vừa ngắm biển sao nhà lồng — trải nghiệm chill hết nấc!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cuối tuần</a> để trải nghiệm nhạc sống</p>
 <img src="assets/images/blog/view-xe-lua-1.webp" alt="Quán Nướng Đà Lạt Có Nhạc Sống - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -2176,7 +2176,7 @@ const BLOG_ARTICLES = [
                             <p>Quán nướng rooftop ở trung tâm, view thành phố, có DJ chơi nhạc vào cuối tuần. Phong cách trẻ trung, hiện đại. Giá từ 180K/người.</p>
 
                             <h2>Kết luận</h2>
-                            <p>Muốn trải nghiệm <strong>nướng BBQ + nhạc sống</strong> chill nhất Đà Lạt? <a href="index.html">Trạm Dừng Chill</a> với acoustic ngoài trời + view biển sao là lựa chọn khó cưỡng. <a href="index.html#booking">Đặt bàn ngay</a>!</p>`
+                            <p>Muốn trải nghiệm <strong>nướng BBQ + nhạc sống</strong> chill nhất Đà Lạt? <a href="index.html">Trạm Dừng Chill</a> với tiếng saxophone ngoài trời + view biển sao là lựa chọn khó cưỡng. <a href="index.html#booking">Đặt bàn ngay</a>!</p>`
     },
     {
         id: "bo-nuong-da-lat",
@@ -2618,7 +2618,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Đi Đà Lạt cùng boss mà lo không có quán cho vào? Đây là 4 <strong>quán nướng Đà Lạt pet friendly</strong> chào đón bạn và thú cưng 2026.",
         body: `<h2>1. Trạm Dừng Chill — Ngoài trời, thoải mái cho pet</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng ngoài trời nên <strong>chào đón thú cưng</strong>. Không gian rộng rãi, pet có thể nằm cạnh bàn thoải mái. Nhiều khách đã mang theo chó, mèo đến ăn nướng và chụp ảnh cùng view hoàng hôn. Quán có chỗ buộc dây cho pet an toàn.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng ngoài trời nên <strong>chào đón thú cưng</strong>. Không gian rộng rãi, pet có thể nằm cạnh bàn thoải mái. Nhiều khách đã mang theo chó, mèo đến ăn nướng và chụp ảnh cùng view hoàng hôn.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn cùng boss</a></p>
 <img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Quán Nướng Đà Lạt Pet Friendly - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -3150,8 +3150,8 @@ const BLOG_ARTICLES = [
         body: `<h2>Vì sao menu đa dạng quan trọng?</h2>
                             <p>Đi nhóm 6-10 người, chắc chắn có người thích bò, người thích hải sản, người ăn chay, trẻ con thích gà... <strong>Quán có menu đa dạng</strong> giúp mọi người đều hài lòng, không ai phải "nhịn" vì không có món mình thích.</p>
 
-                            <h2>Trạm Dừng Chill — Menu 50+ món</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> tự hào với <strong>menu hơn 50 món</strong>: BBQ (bò, hải sản, gà, heo), lẩu (nấm, Thái, gà lá é), đồ chiên, rau củ nướng, đồ uống. Từ 95K/người, combo linh hoạt theo số người. Menu có ảnh minh họa, dễ chọn.</p>
+                            <h2>Trạm Dừng Chill — Menu hơn 70 món</h2>
+                            <p><a href="index.html">Trạm Dừng Chill</a> tự hào với <strong>menu hơn 70 món</strong>: BBQ (bò, hải sản, gà, heo), lẩu (gà lá é, hải sản, cá tầm), đồ chiên, rau thêm, đồ uống. Từ 95K/người, combo linh hoạt theo số người. Menu có ảnh minh họa, dễ chọn.</p>
 <img src="assets/images/blog/khong-gian-ngay-4.webp" alt="Quán Nướng Đà Lạt Menu Đa Dạng - không gian quán nướng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3169,7 +3169,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>So sánh menu các quán nướng Đà Lạt</h2>
-                            <p><strong>Trạm Dừng Chill:</strong> 50+ món, đa phong cách. <strong>Korean BBQ:</strong> 30+ món, chuyên Hàn. <strong>Buffet nướng:</strong> 40+ món nhưng chất lượng bình bình. <strong>Quán nhỏ:</strong> 15-20 món, hạn chế. Muốn đa dạng + chất lượng thì Trạm Dừng Chill là lựa chọn tối ưu.</p>
+                            <p><strong>Trạm Dừng Chill:</strong> hơn 70 món, đa phong cách. <strong>Korean BBQ:</strong> 30+ món, chuyên Hàn. <strong>Buffet nướng:</strong> 40+ món nhưng chất lượng bình bình. <strong>Quán nhỏ:</strong> 15-20 món, hạn chế. Muốn đa dạng + chất lượng thì Trạm Dừng Chill là lựa chọn tối ưu.</p>
 <img src="assets/images/blog/khong-gian-dem-12.webp" alt="Quán Nướng Đà Lạt Menu Đa Dạng - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4487,7 +4487,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Quán nướng có menu chay</h2>
-                            <p><strong><a href="index.html">Trạm Dừng Chill</a>:</strong> Menu có nhiều món rau nướng, nấm nướng từ 35-65K. Nhóm bạn có cả người ăn chay lẫn ăn mặn đều phù hợp — ai nướng nấy, cùng bàn, cùng vui! <a href="index.html#booking">Đặt bàn →</a></p>
+                            <p><strong><a href="index.html">Trạm Dừng Chill</a>:</strong> Menu có phần rau và đồ chiên ăn kèm: Rau Thêm (20K), Kim Chi (30K), Khoai Lang Kén (70K), Khoai Tây Chiên (70K). Nhóm bạn có cả người ăn chay lẫn ăn mặn đều phù hợp — ai nướng nấy, cùng bàn, cùng vui! <a href="index.html#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/ban-nuong-3.webp" alt="Quán Nướng Đà Lạt Có Món Chay - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4683,8 +4683,8 @@ const BLOG_ARTICLES = [
 
 
 
-                            <h2>Gợi ý thay thế: Nướng BBQ + Âm nhạc acoustic</h2>
-                            <p>Nếu bạn thích không gian chill hơn là karaoke ồn ào, <a href="index.html">Trạm Dừng Chill</a> có <strong>nhạc acoustic cuối tuần</strong> — vừa nướng BBQ vừa nghe nhạc sống giữa view hoàng hôn. Đây là lựa chọn "chill" hơn mà vẫn vui. <a href="index.html#booking">Đặt bàn cuối tuần →</a></p>
+                            <h2>Gợi ý thay thế: Nướng BBQ + tiếng saxophone</h2>
+                            <p>Nếu bạn thích không gian chill hơn là karaoke ồn ào, <a href="index.html">Trạm Dừng Chill</a> có <strong>nhạc sống với tiếng saxophone</strong> — vừa nướng BBQ vừa nghe nhạc giữa view hoàng hôn. Đây là lựa chọn "chill" hơn mà vẫn vui. <a href="index.html#booking">Đặt bàn →</a></p>
 
                             <h2>Lưu ý khi hát karaoke quán nướng</h2>
                             <p>Nhiều quán yêu cầu đặt trước phòng karaoke. Hát ngoài trời chỉ được đến 22h (quy định chung). Kiểm tra chất lượng loa, mic trước khi đặt. Budget: 100-200K/người bao gồm nướng + karaoke.</p>
@@ -4696,7 +4696,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Kết luận</h2>
-                            <p><strong>Quán nướng karaoke Đà Lạt</strong> là lựa chọn vui nhất cho nhóm bạn. Hoặc chọn phong cách chill hơn tại <a href="index.html">Trạm Dừng Chill</a> với nhạc acoustic + view triệu đô. <a href="index.html#booking">Đặt bàn →</a></p>`
+                            <p><strong>Quán nướng karaoke Đà Lạt</strong> là lựa chọn vui nhất cho nhóm bạn. Hoặc chọn phong cách chill hơn tại <a href="index.html">Trạm Dừng Chill</a> với tiếng saxophone + view triệu đô. <a href="index.html#booking">Đặt bàn →</a></p>`
     },
     {
         id: "tip-chon-cho-ngoi-quan-nuong",
@@ -4807,7 +4807,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Giáng Sinh Đà Lạt</strong> được mệnh danh đẹp nhất Việt Nam — nhà thờ Domain de Marie, nhà thờ Con Gà trang trí rực rỡ, phố đi bộ lung linh đèn, thông Noel khắp nơi. Nhiệt độ 12-16°C tạo cảm giác Giáng Sinh châu Âu thu nhỏ. Đêm Noel nướng BBQ ngoài trời se lạnh = trải nghiệm Giáng Sinh perfect!</p>
 
                             <h2>Nướng BBQ đêm Noel tại Trạm Dừng Chill</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> trang trí Giáng Sinh đặc biệt — đèn led, cây thông mini mỗi bàn, nhạc Noel acoustic. Đêm 24/12 có event đặc biệt: <strong>set nướng Christmas</strong> kèm mocktail Noel, photo booth Giáng Sinh. View biển sao nhà lồng + đèn Noel lung linh = <strong>backdrop triệu đô</strong>! <a href="index.html#booking">Đặt bàn đêm Noel →</a></p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> trang trí Giáng Sinh đặc biệt — đèn led, cây thông mini mỗi bàn, nhạc Noel. Đêm 24/12 có event đặc biệt: <strong>set nướng Christmas</strong> kèm mocktail Noel, photo booth Giáng Sinh. View biển sao nhà lồng + đèn Noel lung linh = <strong>backdrop triệu đô</strong>! <a href="index.html#booking">Đặt bàn đêm Noel →</a></p>
 <img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Giáng Sinh Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5641,56 +5641,7 @@ const BLOG_ARTICLES = [
                             <h2>Kết luận</h2>
                             <p><strong>Ăn nướng Đà Lạt 2027</strong> không hề đắt — từ 95K/người đã có bữa nướng ngon view đẹp tại <a href="index.html">Trạm Dừng Chill</a>! <a href="index.html#booking">Đặt bàn ngay →</a></p>`
     },
-    {
-        id: "quan-nuong-da-lat-dam-cuoi",
-        title: "Quán Nướng Đà Lạt Đám Cưới — 5 Quán Nhận Tổ Chức Tiệc Cưới Nhỏ",
-        category: "Hẹn hò & Sinh nhật",
-        date: "2027-01-01",
-        image: "assets/images/blog/khong-gian-ngay-4.webp",
-        imageAlt: "Quán nướng Đà Lạt đám cưới - tiệc nướng ngoài trời view đẹp",
-        badge: "",
-        featured: false,
-        excerpt: "Tổ chức đám cưới nhỏ tại quán nướng Đà Lạt — xu hướng 2027! <strong>Quán nướng Đà Lạt đám cưới</strong> view đẹp, tiệc BBQ ấm cúng cho 20-50 khách.",
-        body: `<h2>Tiệc cưới BBQ — Xu hướng 2027</h2>
-                            <p>Ngày càng nhiều cặp đôi chọn <strong>tiệc cưới nhỏ kiểu BBQ</strong> thay vì tiệc cưới truyền thống ở nhà hàng. Lý do? Không gian ngoài trời lãng mạn, bầu không khí thân mật, khách mời thoải mái hơn, và chi phí tiết kiệm hơn nhiều. Đà Lạt với thời tiết mát mẻ, view đẹp là địa điểm hoàn hảo cho tiệc cưới BBQ.</p>
-
-                            <h2>5 quán nướng nhận tổ chức tiệc cưới</h2>
-                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Nhận tổ chức tiệc cưới nhỏ 20-40 khách. Setup bàn cưới với hoa, nến, backdrop — view hoàng hôn + biển sao nhà lồng làm backdrop tự nhiên tuyệt đẹp. <a href="index.html#booking">Liên hệ đặt tiệc cưới →</a></p>
-
-                                                        <p><strong>2. BBQ Garden Đà Lạt:</strong> Sân vườn rộng, nhận 50-80 khách, có sân khấu nhỏ.</p>
-
-
-
-
-
-
-                            <p><strong>3. Garden Party BBQ:</strong> Chuyên tiệc ngoài trời, nhận từ 30 khách.</p>
-
-                                                        <p><strong>4. Luxury BBQ Tuyền Lâm:</strong> View hồ, phù hợp tiệc cưới sang trọng.</p>
-
-
-
-
-
-
-                            <p><strong>5. Đồi Nướng BBQ:</strong> View đồi, giá hợp lý, nhận 30-50 khách.</p>
-
-
-                                                        <h2>Chi phí tiệc cưới BBQ Đà Lạt</h2>
-                            <p><strong>Menu nướng:</strong> 200-350K/khách (set nướng + lẩu + đồ uống). <strong>Setup:</strong> 2-5 triệu (hoa, nến, backdrop, âm thanh). <strong>Tổng 40 khách:</strong> 10-20 triệu — tiết kiệm hơn nhiều so với nhà hàng truyền thống (30-50 triệu)!</p>
-
-
-
-
-
-
-
-                            <h2>Lưu ý tổ chức tiệc cưới BBQ</h2>
-                            <p>Đặt trước 1-2 tháng. Kiểm tra thời tiết, có phương án mái che dự phòng. Chọn menu có cả món không cay cho người lớn tuổi. Thuê photographer sớm vì view đẹp = ảnh cưới đẹp!</p>
-
-                            <h2>Kết luận</h2>
-                            <p><strong>Tiệc cưới BBQ Đà Lạt</strong> — lãng mạn, ấm cúng, tiết kiệm! <a href="index.html">Trạm Dừng Chill</a> là lựa chọn tuyệt vời cho tiệc cưới nhỏ view đẹp. <a href="index.html#booking">Liên hệ ngay →</a></p>`
-    },
+    
     {
         id: "banh-mi-nuong-da-lat",
         title: "Bánh Mì Nướng Đà Lạt — 5 Quán Bánh Mì Than Hoa Giòn Rụm Nhất",

@@ -600,7 +600,6 @@ const BLOG_SEO = {
     "quan-nuong-da-lat-giao-hang": "",
     "quan-nuong-da-lat-thanh-toan-chuyen-khoan": "",
     "quan-nuong-da-lat-menu-da-dang": "",
-    "quan-nuong-da-lat-dam-cuoi": "",
     // → an-nuong-da-lat-bao-nhieu-tien
     "buffet-nuong-da-lat": "an-nuong-da-lat-bao-nhieu-tien",
     "combo-nuong-da-lat-tiet-kiem": "an-nuong-da-lat-bao-nhieu-tien",
