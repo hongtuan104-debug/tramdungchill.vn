@@ -314,7 +314,7 @@ const BLOG_ARTICLES = [
 
 
 
-                            <p><strong>Menu:</strong> BBQ hải sản, bò Mỹ, gà nướng, lẩu, đồ uống. Giá từ 95.000đ/người.</p>
+                            <p><strong>Menu:</strong> BBQ hải sản, bò nướng, gà nướng, lẩu, đồ uống. Giá từ 95.000đ/người.</p>
                             <p>👉 <a href="index.html#booking"><strong>Đặt bàn Trạm Dừng Chill</strong></a> | Hotline: <a href="tel:0989765070">0989.765.070</a></p>
 
                             <h2>Buổi khuya (22:00+): Ăn đêm Đà Lạt</h2>
@@ -338,7 +338,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Giá:</strong> 95.000đ - 300.000đ/người<br>
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
                             <strong>View:</strong> Hoàng hôn + Xe lửa + Nhà lồng lên đèn</p>
-                            <p>Với giá chỉ từ <strong>95.000đ/người</strong>, bạn được trải nghiệm nướng BBQ + lẩu nóng với view đẹp nhất Đà Lạt. Menu đa dạng: set nướng hải sản, bò Mỹ, gà nướng mật ong, lẩu thái, lẩu nấm...</p>
+                            <p>Với giá chỉ từ <strong>95.000đ/người</strong>, bạn được trải nghiệm nướng BBQ + lẩu nóng với view đẹp nhất Đà Lạt. Menu đa dạng: hải sản nướng, ba chỉ bò, bò tảng phô mai trứng muối, cánh gà nướng muối ớt và 3 nồi lẩu (gà lá é, hải sản, cá tầm).</p>
 
                                                         <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo tiết kiệm hơn gọi lẻ 30%!</p>
 <img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nướng Lẩu Đà Lạt Giá Rẻ - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -1019,7 +1019,7 @@ const BLOG_ARTICLES = [
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</p>
 
                             <h2>Combo mùa đông hoàn hảo</h2>
-                            <p>Set nướng hải sản + lẩu nấm nóng + trà gừng mật ong = công thức ấm bụng hoàn hảo cho đêm đông Đà Lạt. Gọi thêm rượu vang Đà Lạt để tăng cảm giác lãng mạn!</p>
+                            <p>Đồ nướng hải sản + lẩu cá tầm nóng + trà gừng táo đỏ mật ong = công thức ấm bụng hoàn hảo cho đêm đông Đà Lạt. Gọi thêm rượu vang Đà Lạt để tăng cảm giác lãng mạn!</p>
 
                             <h2>Kết luận</h2>
                             <p><strong>Nướng BBQ Đà Lạt mùa đông</strong> là trải nghiệm mà ai đến phố núi cũng nên thử ít nhất một lần. Đừng để cái lạnh cản bước — hãy biến nó thành gia vị cho bữa nướng đáng nhớ! <a href="index.html#booking">Đặt bàn ngay</a> tại Trạm Dừng Chill để có chỗ đẹp nhất.</p>`
@@ -1252,7 +1252,7 @@ const BLOG_ARTICLES = [
                             <p>Câu hỏi nhiều người thắc mắc: Đà Lạt ở trên núi, <strong>hải sản Đà Lạt</strong> có tươi không? Câu trả lời là CÓ! Nhờ hệ thống vận chuyển lạnh hiện đại, hải sản từ Phan Thiết, Nha Trang, Phan Rang được đưa lên Đà Lạt chỉ trong 3-4 tiếng — vẫn còn tươi roi rói. Nhiều quán nhập hải sản mỗi ngày, đảm bảo chất lượng.</p>
 
                             <h3>1. Trạm Dừng Chill — Set nướng hải sản view triệu đô</h3>
-                            <p><a href="index.html">Trạm Dừng Chill</a> có set <strong>nướng hải sản Đà Lạt</strong> gồm tôm sú, mực ống, sò điệp, nghêu nướng mỡ hành — tất cả nướng trên bếp than hoa ngay tại bàn. Vừa nướng vừa ngắm hoàng hôn và biển sao nhà lồng. Giá set hải sản từ 200K/người.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> có set <strong>nướng hải sản Đà Lạt</strong> gồm tôm nướng muối ớt, mực ướp sa tế, bạch tuộc nướng và ốc nhồi thịt — tất cả nướng trên bếp than hoa ngay tại bàn. Vừa nướng vừa ngắm hoàng hôn và biển sao nhà lồng. Giá set hải sản từ 200K/người.</p>
 
                                                         <p><strong>Món hot:</strong> Tôm sú nướng muối ớt, mực nướng sa tế, sò điệp nướng phô mai</p>
 <img src="assets/images/blog/khong-gian-dem-3.webp" alt="Nướng Hải Sản Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -1767,7 +1767,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Thứ 7 Chiều-Tối — Highlight ẩm thực</h2>
-                            <p><strong>16:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi set nướng hải sản + lẩu nấm, giá từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
+                            <p><strong>16:30 - Nướng BBQ tại <a href="index.html">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi đồ nướng hải sản + lẩu cá tầm, mức chi từ 95K/người. <a href="index.html#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
 <img src="assets/images/blog/khong-gian-dem-3.webp" alt="Ăn Gì Ở Đà Lạt Cuối Tuần - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -2188,8 +2188,8 @@ const BLOG_ARTICLES = [
         badge: "",
         featured: false,
         excerpt: "Tìm <strong>bò nướng Đà Lạt</strong> ngon, thịt tươi, giá tốt? Đây là top 5 quán bò nướng được dân sành ăn Đà Lạt đánh giá cao nhất 2026.",
-        body: `<h2>1. Trạm Dừng Chill — Bò Mỹ nướng than hoa view hoàng hôn</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> phục vụ <strong>bò Mỹ, bò Úc nhập khẩu</strong> chất lượng cao, thái lát vừa ăn, nướng trên than hoa thơm phức. Thịt bò tươi hàng ngày, không đông lạnh lâu. Set bò nướng cho 2 người từ 250K, bao gồm 3-4 loại thịt bò và rau củ nướng kèm.</p>
+        body: `<h2>1. Trạm Dừng Chill — Bò nướng than hoa view hoàng hôn</h2>
+                            <p><a href="index.html">Trạm Dừng Chill</a> phục vụ <strong>ba chỉ bò cuộn kim châm (137K), ba chỉ bò nướng muối tiêu (155K) và bò tảng nướng phô mai trứng muối (210K)</strong>, thái vừa ăn, nướng trên than hoa thơm phức. Thịt bò tươi hàng ngày, không đông lạnh lâu. Set bò nướng cho 2 người từ 250K, bao gồm 3-4 loại thịt bò và rau củ nướng kèm.</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn thưởng thức bò nướng</a></p>
 <img src="assets/images/blog/khong-gian-dem-3.webp" alt="Bò Nướng Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -2668,10 +2668,10 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Ở giữa phố núi mà muốn ăn <strong>hải sản tươi Đà Lạt</strong>? Nhiều quán ở đây nhập hải sản tươi sống hàng ngày từ biển — chất lượng không thua kém!",
         body: `<h2>Hải sản tươi ở Đà Lạt — Có thật không?</h2>
-                            <p>Nhiều người nghĩ <strong>hải sản Đà Lạt</strong> không tươi vì xa biển. Thực tế, nhờ logistics hiện đại, nhiều quán nhập hải sản tươi sống hàng ngày từ Phan Thiết, Nha Trang (chỉ 3-4 tiếng xe). Tôm sú, mực, cá, ghẹ — đều tươi roi rói!</p>
+                            <p>Nhiều người nghĩ <strong>hải sản Đà Lạt</strong> không tươi vì xa biển. Thực tế, nhờ logistics hiện đại, nhiều quán nhập hải sản tươi sống hàng ngày từ Phan Thiết, Nha Trang (chỉ 3-4 tiếng xe). Tôm, mực, cá tầm, bạch tuộc — đều tươi roi rói!</p>
 
                             <h2>Hải sản nướng tại Trạm Dừng Chill</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm sú, mực ống, cá basa, nghêu, sò. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm, mực, cá tầm, bạch tuộc, ốc. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
 <img src="assets/images/blog/view-hoang-hon-31.webp" alt="Hải Sản Tươi Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4571,7 +4571,7 @@ const BLOG_ARTICLES = [
                             <p>Nhiều du khách thắc mắc: Đà Lạt ở trên cao, hải sản có tươi không? Câu trả lời là CÓ! Đà Lạt cách Phan Rang (biển) chỉ 110km, cách Nha Trang 130km — hải sản được vận chuyển bằng xe lạnh hàng ngày, đến Đà Lạt vẫn tươi roi rói. Đặc biệt <strong>tôm sú, tôm hùm baby</strong> rất được ưa chuộng tại các quán nướng.</p>
 
                             <h2>Top 5 quán tôm nướng Đà Lạt</h2>
-                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Tôm sú nướng muối ớt, tôm nướng bơ tỏi — tươi, thịt ngọt, ăn kèm view hoàng hôn. Giá tôm nướng từ 85-150K/đĩa. <a href="index.html#booking">Đặt bàn thử tôm nướng →</a></p>
+                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Tôm nướng muối ớt (150K) và tôm chiên trứng muối (160K) — tươi, thịt ngọt, ăn kèm view hoàng hôn. <a href="index.html#booking">Đặt bàn thử tôm nướng →</a></p>
 
                                                         <p><strong>2. Hải Sản Đà Lạt BBQ:</strong> Chuyên hải sản nướng, tôm hùm baby giá 250K/con.</p>
 <img src="assets/images/blog/khong-gian-ngay-6.webp" alt="Tôm Nướng Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -4924,7 +4924,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Đặt trước 2-4 tuần:</strong> Tết là ngoại lệ — đặt sớm càng tốt! <strong>Đặt cọc:</strong> Hầu hết quán yêu cầu cọc 100-200K/bàn dịp Tết. <strong>Xác nhận lại:</strong> Gọi xác nhận trước 1-2 ngày. <strong>Đến đúng giờ:</strong> Quán chỉ giữ bàn 15-20 phút dịp Tết.</p>
 
                             <h2>Menu nướng Tết gợi ý</h2>
-                            <p>Set nướng Tết gia đình (4-6 người): Bò Mỹ + tôm sú + gà nướng + rau nướng + lẩu nấm + trái cây. Giá: 600-900K/set. Kèm rượu vang Đà Lạt cho không khí Tết sum vầy.</p>
+                            <p>Gợi ý cho gia đình 4-6 người: ba chỉ bò nướng muối tiêu (155K) + tôm nướng muối ớt (150K) + cánh gà nướng muối ớt (130K) + rau thêm (20K) + lẩu gà lá é (300K). Quán gọi món lẻ, kèm được rượu vang cho không khí Tết sum vầy.</p>
 <img src="assets/images/blog/mon-nuong-25.webp" alt="Đặt Bàn Quán Nướng Đà Lạt Tết - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4949,7 +4949,7 @@ const BLOG_ARTICLES = [
                             <p>Người lớn tuổi thường thích không gian <strong>yên tĩnh</strong>, không quá ồn ào. Menu cần có món mềm, dễ nhai — không chỉ toàn thịt nướng cứng. Bàn ghế thoải mái, không cần leo cầu thang. Chỗ đỗ xe thuận tiện vì ba mẹ không đi bộ xa được.</p>
 
                             <h2>5 quán nướng phù hợp người lớn tuổi</h2>
-                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Không gian thoáng đãng, yên tĩnh vào ngày thường. Menu có lẩu nấm, cá nướng, rau nướng — mềm, dễ ăn. View hoàng hôn để ba mẹ ngắm cảnh thư giãn. Có chỗ đỗ xe ngay cổng. <a href="index.html#booking">Đặt bàn cho gia đình →</a></p>
+                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Không gian thoáng đãng, yên tĩnh vào ngày thường. Menu có lẩu cá tầm, cá tầm nướng, rau thêm — mềm, dễ ăn. View hoàng hôn để ba mẹ ngắm cảnh thư giãn. Có chỗ đỗ xe ngay cổng. <a href="index.html#booking">Đặt bàn cho gia đình →</a></p>
 
                                                         <p><strong>2. Garden BBQ Đà Lạt:</strong> Sân vườn yên tĩnh, ghế tựa thoải mái.</p>
 
@@ -4971,7 +4971,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Menu gợi ý cho người lớn tuổi</h2>
-                            <p><strong>Cá nướng giấy bạc:</strong> Cá hồi/cá tầm nướng mềm, thơm. <strong>Lẩu nấm:</strong> Nước dùng thanh, nhiều loại nấm Đà Lạt bổ dưỡng. <strong>Rau nướng:</strong> Nấm, khoai, bắp — mềm, dễ nhai. <strong>Gà nướng mật ong:</strong> Mềm, ngọt, không cay.</p>
+                            <p><strong>Cá nướng giấy bạc:</strong> Cá hồi/cá tầm nướng mềm, thơm. <strong>Lẩu cá tầm:</strong> Nước dùng thanh ngọt, cá tầm Đà Lạt thịt chắc. <strong>Khoai lang kén:</strong> Mềm, dễ nhai. <strong>Bò tảng nướng phô mai trứng muối:</strong> Mềm, béo, không cay.</p>
 
 
 
@@ -5091,8 +5091,8 @@ const BLOG_ARTICLES = [
         body: `<h2>Gọi gì cho nhóm 4 người?</h2>
                             <p>Nhóm 4 người là size phổ biến nhất khi ăn nướng Đà Lạt — 2 cặp đôi, hoặc 4 bạn thân. Gọi đúng <strong>thực đơn nướng cho 4 người</strong> sẽ vừa đủ ăn, không thừa, không thiếu, lại tiết kiệm hơn gọi lẻ.</p>
 
-                            <h2>Set 1: Budget 400K (100K/người)</h2>
-                            <p><strong>Thịt bò nướng</strong> (1 đĩa) + <strong>Gà nướng mật ong</strong> (1 đĩa) + <strong>Nấm nướng bơ tỏi</strong> + <strong>Bắp nướng</strong> (2 trái) + <strong>Cơm trắng</strong> (4). Đủ no, đủ ngon, cực tiết kiệm!</p>
+                            <h2>Gợi ý tiết kiệm — khoảng 362K (~90K/người)</h2>
+                            <p><strong>Ba chỉ bò cuộn kim châm</strong> (137K) + <strong>chân gà nướng muối ớt</strong> (105K) + <strong>khoai lang kén</strong> (70K) + <strong>rau thêm</strong> (20K) + <strong>kim chi</strong> (30K). Đủ no, đủ ngon, cực tiết kiệm!</p>
 
 
 
@@ -5101,8 +5101,8 @@ const BLOG_ARTICLES = [
 
 
 
-                                                        <h2>Set 2: Standard 600K (150K/người)</h2>
-                            <p><strong>Bò Mỹ nướng</strong> + <strong>Tôm sú nướng</strong> (4 con) + <strong>Gà nướng sả</strong> + <strong>Nấm + rau nướng</strong> + <strong>Lẩu nấm</strong> (1 nồi nhỏ) + <strong>Đồ uống</strong> (4 lon). Set cân bằng thịt - hải sản - rau!</p>
+                                                        <h2>Gợi ý đầy đủ — khoảng 590K (~148K/người)</h2>
+                            <p><strong>Bò tảng nướng phô mai trứng muối</strong> (210K) + <strong>tôm nướng muối ớt</strong> (150K) + <strong>cánh gà nướng muối ớt</strong> (130K) + <strong>khoai tây chiên</strong> (70K) + <strong>kim chi</strong> (30K). Cân bằng thịt - hải sản - đồ ăn kèm!</p>
 <img src="assets/images/blog/ban-nuong-3.webp" alt="Thực Đơn Nướng Cho 4 Người Đà Lạt - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5420,7 +5420,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Quán nướng sang trọng</strong> khác quán bình dân ở 3 điểm: nguyên liệu premium (bò Wagyu, tôm hùm, cá hồi Na Uy), không gian thiết kế đẹp với view đắt giá, và dịch vụ chuyên nghiệp (nhân viên nướng giúp, setup bàn, pairing rượu vang). Giá cao hơn nhưng trải nghiệm xứng đáng.</p>
 
                             <h2>5 quán nướng premium Đà Lạt 2027</h2>
-                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a> (Premium Set):</strong> Tuy giá bình dân nhưng có set Premium từ 300K/người — bò Mỹ chất lượng cao, tôm sú size lớn, rượu vang. View 3-in-1 (hoàng hôn + xe lửa + biển sao) không quán premium nào sánh được! <a href="index.html#booking">Đặt set Premium →</a></p>
+                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a> (Premium Set):</strong> Tuy giá bình dân nhưng gọi món lẻ vẫn lên tới khoảng 300K/người — bò tảng nướng phô mai trứng muối (210K), tôm nướng muối ớt (150K), rượu vang (190K). View 3-in-1 (hoàng hôn + xe lửa + biển sao) không quán premium nào sánh được! <a href="index.html#booking">Đặt set Premium →</a></p>
 
                                                         <p><strong>2. Dalat Fine Dining BBQ:</strong> Bò Wagyu A5 nướng trên bàn đá nóng, giá từ 500K/người.</p>
 
@@ -5490,7 +5490,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Thịt nướng tại Trạm Dừng Chill</h2>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, đầu bếp chọn thịt bò Mỹ Ribeye/Sirloin chất lượng cao, cắt dày vừa, ướp gia vị vừa ăn. Thịt được bảo quản đúng nhiệt độ, nướng than hoa truyền thống cho <strong>hương vị BBQ chuẩn</strong>. <a href="index.html#booking">Đặt bàn thử ngay →</a></p>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, đầu bếp chọn thịt bò cho món bò tảng nướng phô mai trứng muối và ba chỉ bò, cắt dày vừa, ướp gia vị vừa ăn. Thịt được bảo quản đúng nhiệt độ, nướng than hoa truyền thống cho <strong>hương vị BBQ chuẩn</strong>. <a href="index.html#booking">Đặt bàn thử ngay →</a></p>
 <img src="assets/images/blog/view-hoang-hon-21.webp" alt="Cách Chọn Thịt Nướng Ngon - hoàng hôn tuyệt đẹp nhìn từ Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
