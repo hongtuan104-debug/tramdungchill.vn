@@ -236,6 +236,8 @@ var TRANSLATIONS = {
     'faq.a12': 'Khu ngoài trời cho phép mang theo thú cưng nhỏ như chó, mèo. Quán chỉ đề nghị giữ dây dắt và dọn vệ sinh giúp.',
     'faq.q13': 'Quán nhận thanh toán thế nào?',
     'faq.a13': 'Quán nhận tiền mặt và chuyển khoản ngân hàng.',
+    'faq.q14': 'Đặt bàn có phải đặt cọc trước không?',
+    'faq.a14': 'Đặt bàn bình thường thì không cần cọc — bạn nhắn hoặc gọi giữ chỗ là quán giữ bàn. Quán chỉ xin cọc ở hai trường hợp cần chuẩn bị trước: một là khi bạn muốn quán trang trí sinh nhật hoặc tiệc — phần trang trí miễn phí, quán nhận cọc 200.000đ và hoàn lại cho bạn sau khi ăn xong; hai là đoàn trên 10 người. Nhân viên sẽ báo rõ mức cọc và cách chuyển khi xác nhận đặt bàn qua Zalo.',
 
     // Map
     'map.title': 'Đường đến<br>Trạm Dừng Chill',
@@ -504,6 +506,8 @@ var TRANSLATIONS = {
     'faq.a12': 'Small pets such as dogs and cats are welcome in the outdoor area. We only ask that you keep them on a leash and clean up after them.',
     'faq.q13': 'What payment methods do you accept?',
     'faq.a13': 'We accept cash and bank transfer.',
+    'faq.q14': 'Do I need to pay a deposit to book a table?',
+    'faq.a14': 'A normal booking needs no deposit — just message or call and we hold the table for you. We only ask for a deposit in two cases where we prepare things in advance: first, when you want us to decorate for a birthday or a party — the decoration itself is free and we take a 200,000 VND deposit that is refunded to you after your meal; second, for groups of more than 10 people. Our staff will tell you the exact amount and how to send it when confirming your booking on Zalo.',
 
     // Map
     'map.title': 'How to get to<br>Tram Dung Chill',
