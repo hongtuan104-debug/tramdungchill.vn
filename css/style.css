@@ -4553,9 +4553,18 @@ body.sticky-bar-active .fab-contact {
     border: 1px solid rgba(212, 168, 83, 0.35);
     font-size: 0.92rem;
     line-height: 1.6;
-    color: var(--wood);
+    /* Khối này nằm trong .menu-hero — nền TỐI (--night → --charcoal) CỘNG overlay
+       vàng 12% ở trên, nên nền sáng hơn nền tối thuần.
+       Trước đây dùng --wood (#3D3229) + --gold-on-light (#8C6F23): cả hai là màu
+       dành cho NỀN SÁNG (xem ghi chú variables.css) nên chỉ đạt 1,03-1,30:1 —
+       gần như vô hình, đúng chỗ ghi mức chi/người mà khách cần thấy nhất.
+       Không dùng --smoke: trên nền tối THUẦN thì đạt, nhưng cộng overlay vàng vào
+       chỉ còn 3,02:1 — dưới ngưỡng WCAG 4,5:1 cho chữ 0,92rem.
+       --parchment 9,61:1 · --gold cho chữ đậm 5,48:1 (đo ở nền sáng nhất
+       của gradient là --charcoal, tức trường hợp khó nhất). */
+    color: var(--parchment);
 }
-.menu-hero-note strong { color: var(--gold-on-light); }
+.menu-hero-note strong { color: var(--gold); }
 
 @media (max-width: 540px) {
     .menu-hero-note { font-size: 0.86rem; padding: 11px 14px; }
