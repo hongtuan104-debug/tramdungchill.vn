@@ -1036,12 +1036,8 @@ const BLOG_ARTICLES = [
         body: `<h2>Buffet nướng Đà Lạt có gì hấp dẫn?</h2>
                             <p>Khác với buffet nướng ở Sài Gòn hay Hà Nội, <strong>buffet nướng Đà Lạt</strong> có lợi thế đặc biệt: thời tiết mát mẻ 18-22°C, ngồi nướng ngoài trời không nóng bức. Nhiều quán còn có view đồi thông, thung lũng hoặc hồ — ăn buffet mà như đi picnic sang chảnh!</p>
 
-                            <h2>Bảng so sánh giá 5 quán buffet nướng Đà Lạt</h2>
-                            <p><strong>1. Trạm Dừng Chill:</strong> Set combo từ 95K-300K/người (gọi món, không buffet) — chất lượng cao, view đẹp nhất<br>
-                            <strong>2. Buffet Đồi Thông:</strong> 159K/người — ăn không giới hạn, view rừng thông<br>
-                            <strong>3. K-BBQ Đà Lạt:</strong> 199K/người — phong cách Hàn Quốc, banchan miễn phí<br>
-                            <strong>4. BBQ Garden:</strong> 179K/người — sân vườn, set hải sản<br>
-                            <strong>5. Nướng & Lẩu 99:</strong> 129K/người — giá rẻ nhất, menu cơ bản</p>
+                            <h2>Buffet tính suất hay gọi món lẻ — khác nhau chỗ nào</h2>
+                            <p><strong>Trạm Dừng Chill</strong> gọi món lẻ, mức chi 95K–300K/người, không làm buffet — bạn trả đúng cho phần mình ăn. Các quán buffet nướng ở Đà Lạt thì tính suất cố định theo đầu người: ăn thả ga nhưng vẫn trả trọn suất dù ăn không hết. Giá và chất lượng mỗi nơi mỗi khác, nên hỏi rõ suất gồm những gì trước khi vào.</p>
 
 
 
@@ -2233,7 +2229,7 @@ const BLOG_ARTICLES = [
 
 
 
-                            <h2>2-3. Phố Nướng Lạc Dương và BBQ Garden</h2>
+                            <h2>Quán nướng khu ngoại ô — đường rộng, dễ đỗ xe</h2>
                             <p>Hai quán nằm ở ngoại ô Đà Lạt, đường rộng, bãi đỗ xe thoáng. Thích hợp cho đoàn ô tô 3-5 xe. Menu nướng phong phú, giá hợp lý.</p>
 
 
@@ -2377,7 +2373,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>So sánh giá 5 quán nướng Đà Lạt</h2>
-                            <p><strong>Trạm Dừng Chill:</strong> 95-300K/người — view đẹp nhất. <strong>Phố Nướng Lạc Dương:</strong> 120-250K/người — không gian rộng. <strong>BBQ Garden:</strong> 150-300K/người — sân vườn đẹp. <strong>Đồi Nướng BBQ:</strong> 100-200K/người — giá rẻ. <strong>Sunset BBQ:</strong> 180-350K/người — hiện đại.</p>
+                            <p><strong>Trạm Dừng Chill:</strong> 95–300K/người, gọi món lẻ nên dễ kiểm soát chi phí — gọi tới đâu trả tới đó. Các quán nướng khác ở Đà Lạt trải rộng nhiều mức giá tuỳ không gian và vị trí; quán khu trung tâm thường nhỉnh hơn quán ngoại ô. Xem menu trước khi đi là cách chắc nhất.</p>
 
 
 
@@ -3232,7 +3228,7 @@ const BLOG_ARTICLES = [
 
 
 
-                                                        <h2>4-5. Resort BBQ Hồ Tuyền Lâm và Villa Nướng Đà Lạt</h2>
+                                                        <h2>Địa điểm cao cấp quanh hồ Tuyền Lâm</h2>
                             <p>Hai địa điểm cao cấp hơn, phù hợp sự kiện sang trọng: đám cưới ngoài trời, corporate event. Giá từ 500K/người, bao gồm set nướng + trang trí.</p>
 
                             <h2>Mẹo tổ chức sự kiện nướng BBQ</h2>
@@ -3508,8 +3504,8 @@ const BLOG_ARTICLES = [
 
 
 
-                                                        <h2>2-3. Korean BBQ House và BBQ Garden — Rating 4.5-4.6 sao</h2>
-                            <p>Hai quán nướng có review tốt trên Google. Korean BBQ House được khen đồ ăn chuẩn vị Hàn. BBQ Garden được khen không gian đẹp, sân vườn thông. Tuy nhiên một số review chê về giá cao.</p>
+                                                        <h2>Các quán nướng khác có đánh giá tốt trên Google</h2>
+                            <p>Đà Lạt còn vài quán nướng có điểm đánh giá tốt trên Google, mỗi nơi mạnh một kiểu — có nơi được khen đồ ăn chuẩn vị Hàn, có nơi được khen không gian sân vườn. Điểm số và nhận xét thay đổi liên tục nên bạn cứ mở Google Maps xem trực tiếp trước khi đi.</p>
 
 
 
@@ -5277,7 +5273,7 @@ const BLOG_ARTICLES = [
 
                             
                                                         <h2>Quán nướng khác có chương trình 8/3</h2>
-                            <p><strong>BBQ Garden:</strong> Tặng voucher spa cho khách nữ. <strong>Sunset BBQ:</strong> Giảm 10% cho bàn có khách nữ. <strong>Nướng Hồ Tuyền Lâm:</strong> Set couple 8/3 kèm bánh kem nhỏ.</p>
+                            <p>Nhiều nơi ở Đà Lạt có chương trình riêng dịp 8/3, nhưng nội dung thay đổi từng năm và thường chỉ công bố sát ngày. Cách chắc nhất là gọi hỏi trực tiếp nơi bạn định đến.</p>
 
 
 
@@ -6107,7 +6103,7 @@ const BLOG_ARTICLES = [
 <img src="assets/images/blog/khach-nhom-2.webp" alt="Quán nướng Đà Lạt giá rẻ sinh viên - nhóm bạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Các quán nướng bình dân khác</h2>
-                            <p><strong>Nướng vỉa hè chợ đêm:</strong> 60-80K/người, đồ ăn đơn giản. <strong>Đồi Nướng BBQ:</strong> 100-150K/người, view đồi. Tuy nhiên, xét tổng thể view + giá + chất lượng, các quán nướng khu Huỳnh Tấn Phát vẫn là lựa chọn tối ưu nhất cho sinh viên.</p>
+                            <p><strong>Nướng vỉa hè quanh chợ đêm</strong> là lựa chọn rẻ nhất, đồ ăn đơn giản, hợp khi chỉ muốn ăn nhẹ. Còn xét tổng thể view + giá + chất lượng thì các quán nướng khu Huỳnh Tấn Phát vẫn đáng tiền hơn cho một buổi tối trọn vẹn.</p>
 
                             <h2>Đặt bàn nhóm sinh viên</h2>
                             <p>Nhóm đông nên <a href="index.html#booking"><strong>đặt bàn trước</strong></a> để quán sắp xếp chỗ phù hợp. Liên hệ: <a href="tel:0989765070">0989.765.070</a>. Giờ mở cửa: 15:00 - 23:00 hàng ngày.</p>`
@@ -6152,7 +6148,7 @@ const BLOG_ARTICLES = [
                             <p>Đa số quán nướng Đà Lạt mở từ 17:00-18:00. Nhưng nếu đến sớm từ 15:00, bạn sẽ: ngắm được hoàng hôn đẹp nhất (golden hour 16:00-17:30), chọn được bàn view đẹp nhất (chưa đông), ăn xong sớm còn kịp đi chợ đêm hoặc cafe tối.</p>
 
                             <h2>Danh sách quán nướng Đà Lạt mở sớm buổi chiều</h2>
-                            <p><strong>Từ 15:00:</strong> Trạm Dừng Chill (111 Huỳnh Tấn Phát). <strong>Từ 16:00:</strong> BBQ Garden, Nướng Hồ Tuyền Lâm. <strong>Từ 17:00:</strong> Đa số quán nướng khác. Nếu muốn ăn sớm ngắm hoàng hôn, lựa chọn hạn chế — cần đặt trước.</p>
+                            <p><strong>Từ 15:00:</strong> Trạm Dừng Chill (111 Huỳnh Tấn Phát). Phần lớn quán nướng khác ở Đà Lạt mở muộn hơn, thường quãng 16:00–17:00 trở đi. Muốn ăn sớm để kịp ngắm hoàng hôn thì lựa chọn khá hạn chế, nên đặt bàn trước.</p>
 
                             <h2>Trạm Dừng Chill — Mở sớm nhất từ 15:00</h2>
                             <p><a href="index.html">Trạm Dừng Chill</a> là một trong số ít quán nướng mở cửa từ 15:00, phục vụ đến 23:00 hàng ngày. Bạn có thể đến sớm gọi đồ uống, ăn nhẹ, rồi chuyển sang nướng BBQ khi hoàng hôn bắt đầu buông. Quán ở vị trí cao, view thung lũng mở rộng — lý tưởng để ngắm sunset.</p>
@@ -6441,7 +6437,7 @@ const BLOG_ARTICLES = [
                             <p>Khi cả nước nóng 35-40°C, Đà Lạt vẫn mát mẻ 18-25°C. Đây là lý do Đà Lạt trở thành điểm đến mùa hè số 1: trốn nóng, ăn ngon, view đẹp. Mùa hè 2027, hãy lên kế hoạch sớm vì Đà Lạt sẽ rất đông khách từ tháng 5.</p>
 
                             <h2>Quán nướng BBQ — Highlight ẩm thực mùa hè Đà Lạt</h2>
-                            <p>Nướng BBQ ngoài trời giữa tiết trời mát mẻ Đà Lạt — trải nghiệm mà vùng nóng không có được. Các quán nướng view đẹp: <a href="index.html">Trạm Dừng Chill</a> (view hoàng hôn + xe lửa), BBQ Garden (view rừng thông), Đồi Nướng (view đồi). Giá trung bình 100-250K/người.</p>
+                            <p>Nướng BBQ ngoài trời giữa tiết trời mát mẻ Đà Lạt — trải nghiệm mà vùng nóng không có được. Quán nướng view đẹp đáng kể tên là <a href="index.html">Trạm Dừng Chill</a> — view hoàng hôn cộng tàu lửa cổ chạy dưới chân quán. Ngoài ra Đà Lạt còn vài nơi có view rừng thông hoặc view đồi, giá tuỳ từng chỗ.</p>
 <img src="assets/images/blog/mon-nuong-24.webp" alt="Tổng hợp quán ăn Đà Lạt mùa hè - nướng BBQ ngoài trời" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Lẩu & các món nóng</h2>
