@@ -198,6 +198,16 @@ for (const b of CSS_BUNDLES) {
     );
 }
 
+// ── Preconnect + vân tay CSS cho các trang tĩnh ──────────────────
+// Chạy SAU khi có dist/style.min.css để băm được nội dung. Không có bước này
+// thì sửa CSS xong người dùng vẫn thấy bản cũ trong cache.
+console.log("\nGắn preconnect + vân tay CSS...");
+try {
+    require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "toi-uu-tai-trang.js")), { stdio: "inherit" });
+} catch (e) {
+    console.error("  Bước này lỗi (khong chan build): " + e.message);
+}
+
 // ── Sinh menu.html (JSON-LD MenuItem + danh sach mon tinh) tu data/menu-data.js ──
 console.log("\nGenerating menu.html (schema + static list)...");
 try {

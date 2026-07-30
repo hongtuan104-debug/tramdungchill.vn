@@ -535,6 +535,34 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                    : PAGES.length + " trang không có id chết");
 }
 
+// ── R8k. Link CSS phải kèm ?v= khớp vân tay file thật ────────────────────
+// Không có ?v= thì trình duyệt giữ CSS cũ trong cache: sửa CSS xong người dùng
+// vẫn thấy bản trước. Đã xảy ra thật — bảng giá trong bài blog có CSS đúng,
+// markup đúng, mà màn hình vẫn hiện bản cũ. Vân tay phải KHỚP md5 của file,
+// nếu lệch thì có nghĩa ai đó sửa CSS mà chưa chạy lại build.
+{
+    const cssFile = path.join(ROOT, "dist/style.min.css");
+    if (!fs.existsSync(cssFile)) {
+        add("Link CSS kèm vân tay khớp file thật", false, "chưa có dist/style.min.css");
+    } else {
+        const want = require("crypto").createHash("md5")
+            .update(fs.readFileSync(cssFile)).digest("hex").slice(0, 8);
+        const bad = [];
+        let checked = 0;
+        for (const f of files) {
+            const s = fs.readFileSync(f, "utf8");
+            for (const m of s.matchAll(/href="(?:\.\.\/)?dist\/style\.min\.css(\?v=([^"]*))?"/g)) {
+                checked++;
+                if (!m[2]) bad.push(rel(f) + ": thiếu ?v=");
+                else if (m[2] !== want) bad.push(rel(f) + ": ?v=" + m[2] + " ≠ " + want);
+            }
+        }
+        add("Link CSS kèm vân tay khớp file thật", bad.length === 0,
+            bad.length ? [...new Set(bad)].slice(0, 3).join(" | ")
+                       : checked + " link CSS đều mang vân tay " + want);
+    }
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");
