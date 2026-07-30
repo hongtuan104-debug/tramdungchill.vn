@@ -25,7 +25,7 @@
   khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
 - **Menu:** 73 món trong `data/menu-data.js` (36 món ăn + 37 đồ uống) → viết "hơn 70 món".
   Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
-- **Đánh giá:** 4,8/5 sao · **6.816 lượt** (GBP, xác nhận 29/07/2026)
+- **Đánh giá:** 4,8/5 sao · **6.889 lượt** (GBP, xác nhận 30/07/2026 — PR #14)
 - ⚠️ **Nguồn chuẩn cho mọi con số:** `data/facts.json`. Đừng chép số từ bài cũ —
   kiểm bằng `node scripts/check-facts.js` và `node scripts/seo-geo-verify.js`.
 
