@@ -13,6 +13,18 @@ const BLOG_ARTICLES = [
     "tags": []
   },
   {
+    "id": "tip-chon-cho-ngoi-quan-nuong",
+    "title": "Chọn Chỗ Ngồi Quán Nướng Đà Lạt: Quán Có Mấy Dãy Bàn, Dãy Nào Ngắm Được Xe Lửa?",
+    "category": "Mẹo & Kinh nghiệm",
+    "date": "2026-07-30",
+    "image": "assets/images/blog/view-xe-lua-20.webp",
+    "imageAlt": "Một dãy bàn nướng sát lan can ngoài trời ở Trạm Dừng Chill, đoàn tàu Đà Lạt – Trại Mát sáng đèn chạy ngay bên dưới",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Trạm Dừng Chill xếp bàn theo dãy: dãy lan can ngoài trời sát đường ray, dãy mái che nhìn toàn cảnh, dãy G chung view tàu. Cách chọn đúng dãy trước khi đặt bàn.",
+    "tags": []
+  },
+  {
     "id": "da-lat-restaurant-train-view-en",
     "title": "Da Lat Restaurant with a Train View: Dine While the Vintage Train Rolls By",
     "category": "English",

@@ -4656,7 +4656,7 @@ const BLOG_ARTICLES = [
         id: "tip-chon-cho-ngoi-quan-nuong",
         title: "Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt — Vị Trí Nào View Đẹp Nhất?",
         category: "Mẹo & Kinh nghiệm",
-        date: "2026-11-02",
+        date: "2026-07-30",
         image: "assets/images/blog/mon-nuong-13.webp",
         imageAlt: "Tip Chọn Chỗ Ngồi Quán Nướng Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
