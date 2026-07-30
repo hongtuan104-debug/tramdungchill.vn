@@ -4702,7 +4702,7 @@ const BLOG_ARTICLES = [
 
                             
                                                         <h2>Lưu ý đặt bàn Giáng Sinh</h2>
-                            <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt — <strong>quán nướng full bàn trước 1-2 tuần</strong>! Nếu muốn có chỗ đẹp đêm Noel, hãy <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>. Giá không tăng nhưng phải đặt cọc trước.</p>
+                            <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt — <strong>quán nướng full bàn trước 1-2 tuần</strong>! Nếu muốn có chỗ đẹp đêm Noel, hãy <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>. Giá không tăng, và đặt bàn thường cũng không phải cọc — quán chỉ xin cọc khi bạn muốn trang trí sinh nhật hoặc tiệc (cọc 200.000đ, hoàn lại sau khi ăn xong), hoặc khi đi đoàn trên 10 người.</p>
 <img src="assets/images/blog/khong-gian-dem-1.webp" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
