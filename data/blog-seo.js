@@ -594,7 +594,6 @@ const BLOG_SEO = {
     // → (ẩn hẳn — không canonical)
     "quan-nuong-da-lat-wifi-manh": "",
     "quan-nuong-da-lat-pet-friendly": "",
-    "quan-nuong-da-lat-chay": "",
     "quan-nuong-da-lat-co-karaoke": "",
     "quan-nuong-da-lat-co-nhac-song": "",
     "quan-nuong-da-lat-giao-hang": "",

@@ -1038,7 +1038,7 @@ const BLOG_ARTICLES = [
                             <p>Nhiều người nghĩ <strong>quán nướng Đà Lạt</strong> toàn đắt đỏ — nhưng thật ra, có rất nhiều quán ngon giá chỉ từ 60-95K/người. Bí quyết là chọn đúng quán và gọi đúng set combo tiết kiệm. Dưới đây là 5 gợi ý "ngon - bổ - rẻ" dành riêng cho sinh viên và dân du lịch tiết kiệm.</p>
 
                             <h3>1. Trạm Dừng Chill — Set nướng từ 95K/người</h3>
-                            <p>Đúng vậy, <a href="index.html">Trạm Dừng Chill</a> có set nướng khởi điểm chỉ <strong>95.000đ/người</strong> — bao gồm thịt nướng, rau sống, nước chấm và cơm. Với giá này bạn được ngồi view hoàng hôn + xe lửa + biển sao nhà lồng — view "triệu đô" giá sinh viên!</p>
+                            <p>Đúng vậy, <a href="index.html">Trạm Dừng Chill</a> có mức chi khởi điểm khoảng <strong>95.000đ/người</strong> khi gọi món lẻ. Với giá này bạn được ngồi view hoàng hôn + xe lửa + biển sao nhà lồng — view "triệu đô" giá sinh viên!</p>
 
                                                         <p><strong>Tip tiết kiệm:</strong> Đi nhóm 4-6 người, gọi set combo chia nhau sẽ rẻ hơn gọi lẻ 30%.</p>
 <img src="assets/images/blog/view-xe-lua-5.webp" alt="Quán Nướng Đà Lạt Dưới 100K - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -2433,7 +2433,7 @@ const BLOG_ARTICLES = [
                             <p>Gọi <strong>combo nướng</strong> thay vì gọi lẻ thường tiết kiệm 15-30% chi phí. Combo đã được quán chọn sẵn các món ăn kèm hợp lý, đủ cho số người — không lo gọi thừa hoặc thiếu.</p>
 
                             <h2>Trạm Dừng Chill — Combo từ 95K/người</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>combo nướng tiết kiệm</strong>: Combo 2 người từ 200K, Combo 4 người từ 380K, Combo nhóm 6-8 người từ 600K. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> có nhiều <strong>combo nướng tiết kiệm</strong>: quán gọi món lẻ chứ không bán combo cố định, mức chi khoảng 95.000đ–300.000đ một người tuỳ món. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
 <img src="assets/images/blog/khong-gian-dem-4.webp" alt="Combo Nướng Đà Lạt Tiết Kiệm - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4463,53 +4463,7 @@ const BLOG_ARTICLES = [
                             <h2>Kết luận</h2>
                             <p><strong>Rượu vang Đà Lạt uống kèm nướng</strong> là trải nghiệm ẩm thực tinh tế mà giá cả hợp lý. Ghé <a href="index.html">Trạm Dừng Chill</a> để thử combo BBQ + vang ngay! <a href="index.html#booking">Đặt bàn →</a></p>`
     },
-    {
-        id: "quan-nuong-da-lat-chay",
-        title: "Quán Nướng Đà Lạt Có Món Chay — BBQ Rau Củ Cho Người Ăn Chay",
-        category: "Ẩm thực Đà Lạt",
-        date: "2026-10-18",
-        image: "assets/images/blog/khong-gian-dem-2-v5.webp",
-        imageAlt: "Quán nướng Đà Lạt có món chay - rau củ nướng healthy",
-        badge: "",
-        featured: false,
-        excerpt: "Ăn chay cũng có thể nướng BBQ! Khám phá <strong>quán nướng Đà Lạt có món chay</strong> — từ nấm rừng nướng, đậu hũ nướng sả đến rau củ Đà Lạt nướng than hoa.",
-        body: `<h2>BBQ chay — Xu hướng mới tại Đà Lạt</h2>
-                            <p>Ngày càng nhiều du khách ăn chay hoặc ăn plant-based, và <strong>quán nướng Đà Lạt</strong> đã bắt kịp xu hướng này. Với lợi thế rau củ tươi ngon quanh năm, Đà Lạt là nơi lý tưởng để thưởng thức <strong>BBQ chay</strong> — nấm rừng nướng bơ tỏi, đậu hũ nướng sả ớt, bắp nướng mỡ hành, ớt chuông nướng phô mai.</p>
-
-                            <h2>Menu nướng chay phổ biến</h2>
-                            <p><strong>Nấm đùi gà nướng bơ tỏi:</strong> Giòn ngoài, mềm trong, thơm bơ tỏi — không thua gì thịt. <strong>Đậu hũ nướng sả ớt:</strong> Đậu hũ Đà Lạt dai, nướng than hoa thơm lừng. <strong>Bắp cải nướng kiểu Nhật:</strong> Ngọt tự nhiên, rưới sốt miso. <strong>Khoai lang nướng:</strong> Khoai Đà Lạt ngọt bùi, nướng than hoa vỏ giòn.</p>
-
-
-
-
-
-
-
-
-                                                        <h2>Quán nướng có menu chay</h2>
-                            <p><strong><a href="index.html">Trạm Dừng Chill</a>:</strong> Menu có phần rau và đồ chiên ăn kèm: Rau Thêm (20K), Kim Chi (30K), Khoai Lang Kén (70K), Khoai Tây Chiên (70K). Nhóm bạn có cả người ăn chay lẫn ăn mặn đều phù hợp — ai nướng nấy, cùng bàn, cùng vui! <a href="index.html#booking">Đặt bàn →</a></p>
-<img src="assets/images/blog/ban-nuong-3.webp" alt="Quán Nướng Đà Lạt Có Món Chay - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-
-
-
-
-
-                            <p><strong>Green Garden BBQ:</strong> Chuyên nướng chay, đa dạng 15+ món rau củ nướng.</p>
-
-
-
-
-
-
-
-                                                        <p><strong>BBQ Garden Đà Lạt:</strong> Có set chay riêng, giá từ 80K/người.</p>
-
-                            <h2>Lưu ý cho người ăn chay</h2>
-                            <p>Hỏi trước xem quán có bếp nướng riêng cho đồ chay hay dùng chung với đồ mặn. Một số quán dùng nước chấm có mắm — xin nước chấm chay riêng. Báo trước khi đặt bàn để nhà hàng chuẩn bị nguyên liệu chay đầy đủ.</p>
-
-                            <h2>Kết luận</h2>
-                            <p><strong>BBQ chay Đà Lạt</strong> là trải nghiệm tuyệt vời nhờ rau củ tươi ngon. Ghé <a href="index.html">Trạm Dừng Chill</a> để cả nhóm ăn chay lẫn mặn đều hài lòng! <a href="index.html#booking">Đặt bàn ngay →</a></p>`
-    },
+    
     {
         id: "du-lich-da-lat-bang-xe-may",
         title: "Du Lịch Đà Lạt Bằng Xe Máy — Cung Đường, Quán Ăn Dọc Đường 2026",
@@ -4947,7 +4901,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Tết Nguyên Đán</strong> là mùa du lịch đông nhất Đà Lạt trong năm — lượng khách tăng 5-7 lần so với bình thường. Tất cả quán nướng view đẹp đều full bàn từ 28 Tết đến mùng 6. Nếu không đặt trước, bạn gần như chắc chắn... phải ăn mì gói trong khách sạn!</p>
 
                             <h2>Quán nướng nào mở Tết 2027?</h2>
-                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Mở xuyên Tết, menu Tết đặc biệt có lẩu nấm + nướng hải sản. Trang trí Tết lung linh với đèn lồng, hoa mai. <a href="index.html#booking"><strong>Đặt bàn Tết ngay →</strong></a></p>
+                            <p><strong>1. <a href="index.html">Trạm Dừng Chill</a>:</strong> Mở xuyên Tết, menu có lẩu hải sản, lẩu cá tầm và đồ nướng. Trang trí Tết lung linh với đèn lồng, hoa mai. <a href="index.html#booking"><strong>Đặt bàn Tết ngay →</strong></a></p>
 
                                                         <p><strong>2. BBQ Garden:</strong> Mở từ mùng 1, có set nướng Tết gia đình.</p>
 
