@@ -1,6 +1,18 @@
 /* Blog listing data (lightweight — no body). Auto-sinh bởi generate-blog-pages.js — KHÔNG sửa tay. */
 const BLOG_ARTICLES = [
   {
+    "id": "an-vat-da-lat-buoi-toi",
+    "title": "Ăn Vặt Đà Lạt Buổi Tối — 15 Món Chợ Đêm Nên Thử Và Cách Đi Cho Trọn Tối",
+    "category": "Ẩm thực Đà Lạt",
+    "date": "2026-07-30",
+    "image": "assets/images/blog/view-nha-long-3-v4.webp",
+    "imageAlt": "Ăn vặt Đà Lạt buổi tối - nướng xiên que và đồ ăn đêm",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Ăn vặt Đà Lạt buổi tối nên ăn gì? 15 món chợ đêm đáng thử từ bánh tráng nướng, bánh căn tới sữa đậu nành nóng, kèm thứ tự nên ăn và mẹo đi không bị no ngang.",
+    "tags": []
+  },
+  {
     "id": "da-lat-restaurant-train-view-en",
     "title": "Da Lat Restaurant with a Train View: Dine While the Vintage Train Rolls By",
     "category": "English",
@@ -10,6 +22,18 @@ const BLOG_ARTICLES = [
     "badge": "",
     "featured": false,
     "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8 stars by over 6,889 guests.",
+    "tags": []
+  },
+  {
+    "id": "da-lat-ve-dem-di-dau",
+    "title": "Đà Lạt Về Đêm Đi Đâu? 8 Hoạt Động Đáng Thử Sau 20h",
+    "category": "Du lịch Đà Lạt",
+    "date": "2026-06-05",
+    "image": "assets/images/blog/view-nha-long-4-v3.webp",
+    "imageAlt": "Đà Lạt về đêm đi đâu - nướng BBQ ngắm nhà lồng lên đèn",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Đà Lạt về đêm đi đâu sau 20h? 8 gợi ý thật từ dân địa phương: nướng BBQ ngắm biển sao nhà lồng, dạo hồ Xuân Hương, chợ đêm, ăn khuya vỉa hè và săn mây rạng sáng.",
     "tags": []
   },
   {
@@ -70,6 +94,30 @@ const BLOG_ARTICLES = [
     "badge": "",
     "featured": false,
     "excerpt": "Lịch trình du lịch Đà Lạt 3 ngày 2 đêm chi tiết theo từng buổi: sáng đặc sản, chiều cafe, tối nướng BBQ ngắm hoàng hôn + xe lửa cổ tại Trạm Dừng Chill.",
+    "tags": []
+  },
+  {
+    "id": "cam-trai-da-lat",
+    "title": "Cắm Trại Đà Lạt 2026 — 5 Khu Vực Camping Đẹp Và Kinh Nghiệm Đi Thực Tế",
+    "category": "Du lịch Đà Lạt",
+    "date": "2026-04-10",
+    "image": "assets/images/blog/view-nha-long-1-v2.webp",
+    "imageAlt": "Cắm trại Đà Lạt - BBQ ngoài trời giữa rừng thông",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Cắm trại Đà Lạt nên đi mùa nào, cắm ở đâu? 5 khu vực đẹp quanh hồ Tuyền Lâm, Langbiang, suối Vàng, Cầu Đất và Trại Mát, kèm đồ cần mang và kinh nghiệm giữ ấm đêm lạnh.",
+    "tags": []
+  },
+  {
+    "id": "dac-san-da-lat-mua-ve",
+    "title": "Đặc Sản Đà Lạt Mua Về Làm Quà: 10 Món Nên Mua Và Cách Chọn Không Bị Hớ",
+    "category": "Ẩm thực Đà Lạt",
+    "date": "2026-04-08",
+    "image": "assets/images/blog/mon-nuong-2.webp",
+    "imageAlt": "Đặc sản Đà Lạt mua về - thịt nướng và sốt đặc biệt",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Đi Đà Lạt về nên mua gì? 10 đặc sản Đà Lạt mua về làm quà — mứt, hồng treo gió, dâu tây, cà phê Cầu Đất, trà atisô — kèm cách chọn và cách giữ quà không hỏng dọc đường.",
     "tags": []
   },
   {

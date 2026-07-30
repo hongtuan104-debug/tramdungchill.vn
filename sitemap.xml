@@ -114,6 +114,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/da-lat-mua-nao-dep-nhat.html"/>
   </url>
   <url>
+    <loc>https://tramdungchill.vn/blog/dac-san-da-lat-mua-ve.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/dac-san-da-lat-mua-ve.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/dac-san-da-lat-mua-ve.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/cam-trai-da-lat.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/cam-trai-da-lat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/cam-trai-da-lat.html"/>
+  </url>
+  <url>
     <loc>https://tramdungchill.vn/blog/lich-trinh-da-lat-3-ngay-2-dem.html</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -160,6 +176,22 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/mon-nuong-ngon-nhat-da-lat.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/mon-nuong-ngon-nhat-da-lat.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html"/>
+  </url>
+  <url>
+    <loc>https://tramdungchill.vn/blog/an-vat-da-lat-buoi-toi.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/blog/an-vat-da-lat-buoi-toi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/blog/an-vat-da-lat-buoi-toi.html"/>
   </url>
   <url>
     <loc>https://tramdungchill.vn/blog/an-nuong-da-lat-bao-nhieu-tien.html</loc>

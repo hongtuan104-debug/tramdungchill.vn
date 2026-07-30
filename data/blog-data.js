@@ -4090,7 +4090,7 @@ const BLOG_ARTICLES = [
         id: "an-vat-da-lat-buoi-toi",
         title: "Ăn Vặt Đà Lạt Buổi Tối — 15 Món Không Thể Bỏ Qua Ở Chợ Đêm",
         category: "Ẩm thực Đà Lạt",
-        date: "2026-09-24",
+        date: "2026-07-30",
         image: "assets/images/blog/view-nha-long-3-v4.webp",
         imageAlt: "Ăn vặt Đà Lạt buổi tối - nướng xiên que và đồ ăn đêm",
         badge: "",
