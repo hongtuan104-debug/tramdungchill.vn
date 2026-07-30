@@ -231,7 +231,10 @@
     }
     </script>
 
-    <!-- Schema.org JSON-LD: WebSite with SearchAction -->
+    <!-- Schema.org JSON-LD: WebSite
+         KHÔNG khai SearchAction ở đây: site tĩnh trên GitHub Pages, không có
+         ô tìm kiếm và không xử lý được ?s= — khai vào là khai năng lực không có.
+         Nếu sau này làm search thật cho blog thì mới thêm lại. -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -244,15 +247,7 @@
             "@type": "Restaurant",
             "@id": "https://tramdungchill.vn/#restaurant"
         },
-        "inLanguage": "vi",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://tramdungchill.vn/?s={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "vi"
     }
     </script>
 
