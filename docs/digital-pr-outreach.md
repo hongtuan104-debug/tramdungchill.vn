@@ -6,8 +6,19 @@
 > quán đơn lẻ nào lọt vào.** Truy vấn này mang ý định "cho tôi danh sách", nên
 > tối ưu on-page không thắng được.
 >
-> Đối thủ **Xóm Lèo được nhắc trong bài VinWonders**, Trạm Dừng Chill thì không.
-> Đó là khoảng cách thật — và nó đóng bằng quan hệ + hồ sơ, không phải bằng code.
+> ⚠️ **SỬA LẠI 30/07/2026 — trước đây tài liệu này ghi sai.** Bản cũ viết "đối thủ
+> Xóm Lèo được nhắc trong bài VinWonders, Trạm Dừng Chill thì không". Sếp Tuấn xác
+> nhận **"Tiệm Nướng & Chill Xóm Lèo" CHÍNH LÀ quán này**, không phải đối thủ — đó
+> là tên gọi khác, đã khai trong `alternateName` của schema từ trước
+> (`data/schema-data.js`: `Tram Dung Chill BBQ` · `Tiệm Nướng & Chill Xóm Lèo` ·
+> `Xóm Lèo`). Quán nằm ở khu Xóm Lèo nên dân quen gọi theo địa danh.
+>
+> Hệ quả: nếu bài VinWonders nhắc đúng cái tên đó thì **quán đã có mặt trên
+> listicle rồi, chỉ là dưới tên khác** — ngược hẳn kết luận cũ. Cần mở bài
+> VinWonders đọc lại xem nhắc "Xóm Lèo" với nghĩa TÊN QUÁN hay chỉ là ĐỊA DANH,
+> rồi mới kết luận còn khoảng cách hay không. Nếu là tên quán, việc cần làm không
+> phải xin được nhắc, mà là **xin sửa tên hiển thị thành tên chính + gắn link
+> website** để gom về một Entity.
 >
 > ⚠️ Tài liệu này là việc **con người phải làm**: gửi form, gửi email, gọi điện.
 > Không tự động hoá được và không nên tự động hoá.
@@ -22,7 +33,8 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | Trường | Giá trị |
 |---|---|
 | Tên đầy đủ | Tiệm Nướng Trạm Dừng Chill |
-| Tên khác | Tram Dung Chill BBQ |
+| Tên khác | Tram Dung Chill BBQ · **Tiệm Nướng & Chill Xóm Lèo** · **Xóm Lèo** |
+| ⚠️ Lưu ý khi điền form | Khai ĐỦ cả ba tên khác. Nhiều nơi (báo, listicle, khách cũ) biết quán dưới tên "Xóm Lèo" — bỏ sót tên này là mất cơ hội khớp với hồ sơ/bài viết đã có sẵn. Ba tên này khớp đúng `alternateName` trong schema, giữ nguyên để nhất quán. |
 | Địa chỉ | 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng |
 | Ghi chú địa chỉ | Phường 11 cũ — khu Trại Mát. **Luôn dùng tên mới "Phường Xuân Trường"** |
 | Điện thoại / Zalo | 0989.765.070 |
