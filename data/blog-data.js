@@ -3389,7 +3389,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Mực nướng</strong> là món "phải gọi" tại mọi quán BBQ ở Đà Lạt. Mực ống tươi nướng sa tế cay nhẹ, mực trứng nướng muối ớt béo bùi — mỗi loại một vẻ, đều ngon tuyệt. Ăn nóng ngay trên bếp, chấm muối tiêu chanh — đơn giản mà gây nghiện!</p>
 
                             <h3>1. Trạm Dừng Chill — Mực tươi nướng than hoa</h3>
-                            <p><a href="index.html">Trạm Dừng Chill</a> nhập <strong>mực ống tươi</strong> hàng ngày từ biển. Mực nướng trên than hoa, thịt giòn dai, không khô. Có nhiều cách chế biến: nướng sa tế, nướng muối ớt, nướng bơ tỏi. Giá mực nướng từ 80K/phần.</p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> có <strong>mực ướp sa tế (160K)</strong> nướng ngay tại bàn. Mực nướng trên than hoa, thịt giòn dai, không khô. Có nhiều cách chế biến: nướng sa tế, nướng muối ớt, nướng bơ tỏi. Giá mực nướng từ 80K/phần.</p>
 <img src="assets/images/blog/khong-gian-ngay-5.webp" alt="Mực Nướng Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5299,7 +5299,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Cá nướng tại Trạm Dừng Chill</h2>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, menu có <strong>cá tầm nướng và cá hồi nướng</strong> từ nguồn cung cấp tại Đà Lạt — đảm bảo tươi. Cá nướng giấy bạc + view hoàng hôn = bữa tối sang trọng mà giá bình dân. Giá từ 120-250K/đĩa. <a href="index.html#booking">Đặt bàn thử cá nướng →</a></p>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, menu có <strong>cá tầm nướng (162K)</strong> và <strong>cá tầm lúc lắc (165K)</strong> — cá tầm nuôi nước lạnh ngay vùng Đà Lạt. Cá nướng giấy bạc + view hoàng hôn = bữa tối sang trọng mà giá bình dân. Giá từ 120-250K/đĩa. <a href="index.html#booking">Đặt bàn thử cá nướng →</a></p>
 
                             <h2>Cách chọn cá nướng tươi</h2>
                             <p>Cá tươi: mắt trong, mang đỏ, thịt đàn hồi khi ấn. Hỏi quán xem cá nhập ngày nào. Quán uy tín thường có bể cá sống — chọn cá, nướng tại chỗ là chuẩn nhất!</p>
@@ -5311,7 +5311,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Kết luận</h2>
-                            <p><strong>Nướng cá Đà Lạt</strong> — cá tầm, cá hồi nước lạnh — là đặc sản không thể bỏ qua! Ghé <a href="index.html">Trạm Dừng Chill</a> thưởng thức ngay. <a href="index.html#booking">Đặt bàn →</a></p>`
+                            <p><strong>Nướng cá Đà Lạt</strong> là đặc sản không thể bỏ qua. Ghé <a href="index.html">Trạm Dừng Chill</a> thử cá tầm nướng (162K) hoặc cá tầm lúc lắc (165K). <a href="index.html#booking">Đặt bàn →</a></p>`
     },
     {
         id: "quan-nuong-da-lat-8-3",
@@ -6172,7 +6172,7 @@ const BLOG_ARTICLES = [
         imageAlt: "Ăn nướng hải sản Đà Lạt mùa xuân 2027",
         badge: "",
         featured: false,
-        excerpt: "Ai nói Đà Lạt không có hải sản tươi? Mùa xuân 2027, thưởng thức <strong>hải sản nướng Đà Lạt</strong> tôm sú, mực ống, nghêu nướng — tất cả tươi sống nhập hàng ngày.",
+        excerpt: "Ai nói Đà Lạt không có hải sản tươi? Mùa xuân 2027, thưởng thức <strong>hải sản nướng Đà Lạt</strong> — tôm, mực, bạch tuộc, cá tầm nướng than hoa.",
         body: `<h2>Hải sản Đà Lạt — Tươi hơn bạn nghĩ</h2>
                             <p>Nhiều người ngạc nhiên khi biết Đà Lạt có hải sản tươi sống. Thực tế, các quán nướng uy tín nhập hải sản hàng ngày từ Nha Trang (chỉ cách 3 giờ xe), Phan Thiết và Phan Rang. Xe lạnh vận chuyển đảm bảo tôm mực vẫn tươi sống khi đến quán.</p>
 

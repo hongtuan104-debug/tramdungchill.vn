@@ -407,6 +407,74 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                                        : "menu thật " + real + " món, không chỗ nào thổi phồng"));
 }
 
+// ── R8e2. Không gán cho quán món KHÔNG có trong menu ─────────────────────
+// Mục R8e chỉ chặn THỔI PHỒNG SỐ LƯỢNG, không đối chiếu TÊN MÓN — nên suốt một
+// thời gian dài site ghi "lẩu nấm 85-120K/nồi", "bò Mỹ", "tôm sú", "set combo
+// 600K" trong khi menu-data.js không có món nào như vậy và lẩu rẻ nhất là 300K.
+// Nặng nhất: FAQ schema của index.html và menu.html (Google hiển thị thẳng trong
+// kết quả tìm kiếm) liệt kê tôm sú, sò điệp, lẩu Thái, lẩu riêu cua, cá hồi.
+// Dọn ngày 30/07/2026. Mục này chặn tái diễn.
+//
+// Cách kiểm: chỉ soi câu có nhắc "Trạm Dừng Chill" — bài nói về ẩm thực Đà Lạt
+// nói chung được phép nhắc món quán không bán.
+{
+    // món hay bị bịa, đã đối chiếu là KHÔNG có trong menu-data.js
+    const CAM = [
+        "bò mỹ", "bò úc", "ribeye", "sirloin", "tôm sú", "mực ống", "mực lá",
+        "sò điệp", "nghêu", "cá basa", "cá hồi", "lẩu nấm", "lẩu thái",
+        "lẩu riêu cua", "lẩu kim chi", "gà nướng mật ong", "gà nướng sả",
+        "nấm nướng", "đậu hũ nướng",
+    ];
+    const files = [];
+    for (const d of ["blog", "dip"]) {
+        const dir = path.join(ROOT, d);
+        if (fs.existsSync(dir)) {
+            for (const f of fs.readdirSync(dir).filter((x) => x.endsWith(".html"))) files.push(path.join(dir, f));
+        }
+    }
+    for (const f of ["index.html", "menu.html"]) {
+        const p = path.join(ROOT, f);
+        if (fs.existsSync(p)) files.push(p);
+    }
+
+    // Soi 2 vùng riêng, KHÔNG soi cả <head>: các thẻ meta nằm sát nhau nên tách
+    // câu qua chúng sẽ dính nhầm (tiêu đề bài "Cá Tầm, Cá Hồi Nướng" là nói về
+    // cá Đà Lạt nói chung, không phải khai quán có món đó).
+    const vungSoi = (html) => {
+        const v = [];
+        const than = html.match(/<article[\s\S]*?<\/article>/) || html.match(/<main[\s\S]*?<\/main>/);
+        if (than) v.push(than[0].replace(/<script[\s\S]*?<\/script>/g, " "));
+        // câu hỏi/đáp trong FAQPage schema — chỗ Google hiển thị thẳng ra SERP
+        for (const m of html.matchAll(/<script[^>]*ld\+json[^>]*>([\s\S]*?)<\/script>/g)) {
+            if (!/FAQPage/.test(m[1])) continue;
+            for (const t of m[1].matchAll(/"(?:name|text)"\s*:\s*"((?:[^"\\]|\\.)*)"/g)) v.push(t[1]);
+        }
+        return v;
+    };
+
+    const bad = [];
+    for (const f of files) {
+        const html = fs.readFileSync(f, "utf8");
+        for (const vung of vungSoi(html)) {
+            const plain = vung.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
+            for (const cau of plain.split(/(?<=[.!?])\s+/)) {
+                if (!/Trạm Dừng Chill/i.test(cau)) continue;
+                const low = cau.toLowerCase();
+                for (const mon of CAM) {
+                    if (low.includes(mon)) {
+                        bad.push(rel(f) + ': "' + mon + '" — ' + cau.trim().slice(0, 60));
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    add("Không gán cho quán món không có trong menu",
+        bad.length === 0,
+        bad.length ? bad.slice(0, 3).join(" | ")
+                   : files.length + " trang · không chỗ nào gán món lạ cho quán");
+}
+
 // ── R8f. Meta description không được khai giá món lẻ như "giá quán" ──────
 // Bug thật đo được 19/06/2026: hỏi ChatGPT/Perplexity "giá bao nhiêu một người"
 // thì AI trả lời "29.000đ" — vì og/twitter description của menu.html ghi
