@@ -42,7 +42,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-07-31",
       "lang": "vi"
     },
     "nuong-bbq-ngam-xe-lua": {
@@ -83,7 +83,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-07-31",
       "lang": "vi"
     },
     "quan-nuong-da-lat-view-nha-long": {
@@ -165,7 +165,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-07-31",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
