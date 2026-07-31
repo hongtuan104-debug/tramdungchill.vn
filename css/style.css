@@ -1,4 +1,44 @@
 /* ============================================
+   FONT — Dancing Script tự chứa (không qua CDN)
+   ============================================
+   PageSpeed 31/07/2026 chỉ đích danh: <div class="hero-content"> gây 0,270 trên
+   tổng CLS 0,282 — tức 96% — và nguyên nhân liệt kê ngay dưới là 6 file phông
+   chữ web từ fonts.gstatic.com.
+
+   Cơ chế: .hero-title-main ("Trạm Dừng Chill") dùng Dancing Script cỡ
+   clamp(3.2rem, 9vw, 6rem) = 51–96px. Trong lúc chờ font tải, trình duyệt vẽ
+   bằng 'cursive' của hệ thống — metrics khác hẳn. Font về, chữ khổng lồ đó đổi
+   kích thước, cả khối hero xô xuống.
+
+   Vì sao tự chứa thay vì preload URL Google: URL gstatic có hash phiên bản (v29),
+   Google đổi lúc nào không báo — preload trỏ file cũ thì vừa phí vừa tải hai lần.
+   Tự chứa còn bớt được một chặng DNS + TLS tới gstatic.
+
+   Chỉ lấy weight 700 (toàn site chỉ dùng đúng weight này) và 2 bộ ký tự cần
+   thật: vietnamese 4,8 KB + latin 24,8 KB. Bộ vietnamese được preload trong
+   <head> vì tên quán có dấu. */
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../assets/fonts/dancing-script-700-vietnamese.woff2') format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+                   U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323,
+                   U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../assets/fonts/dancing-script-700-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                   U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                   U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ============================================
    VARIABLES — CSS Custom Properties
    ============================================ */
 
