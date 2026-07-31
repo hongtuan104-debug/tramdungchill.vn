@@ -21,5 +21,23 @@
   "gioDongCua": "23:00",
 
   "dienThoaiSchema": "+84989765070",
-  "dienThoaiHienThi": "0989.765.070"
+  "dienThoaiHienThi": "0989.765.070",
+
+  "_veTienNghi": [
+    "Muc nay KHONG phai so lieu nen luoi check-facts.js khong doi chieu.",
+    "De o day vi day la cho moi nguoi tim khi hoi 'quan co cai nay khong'.",
+    "Boi canh 31/07/2026: 3 bai blog dang mo index khai quan co WiFi va nhac",
+    "song saxophone, ma ca 4 nguon chuan (index.html, menu.html, llms.txt,",
+    "facts.json) deu KHONG cho nao nhac -> khong ai kiem chung duoc, phai di",
+    "hoi chu quan. Ghi vao day de lan sau khoi hoi lai."
+  ],
+  "tienNghi": {
+    "wifi": "Co WiFi mien phi, phu song toan quan ke ca cac day lan can ngoai troi",
+    "nhacSong": "Co nghe si choi saxophone tai quan",
+    "choDoXe": "Bai do mien phi cho o to con va xe may",
+    "loiVaoXeLan": false,
+    "_canhBaoXeLan": "QUAN KHONG co loi vao cho xe lan (bac them/doc kho). TUYET DOI khong tick o 'wheelchair accessible' o bat ky form nao — nguoi dung xe lan loc dung tieu chi do se di 7 km len Trai Mat roi moi biet khong vao duoc.",
+    "cocDatBan": "Dat ban an binh thuong KHONG can coc. Trang tri sinh nhat/tiec: trang tri MIEN PHI, coc 200.000d va HOAN LAI sau khi an xong. Doan tren 10 nguoi co coc, nhan vien bao muc khi xac nhan.",
+    "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song); coc xac nhan 30/07/2026"
+  }
 }
