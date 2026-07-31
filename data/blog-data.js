@@ -4681,7 +4681,8 @@ const BLOG_ARTICLES = [
                             <p><strong>Giáng Sinh Đà Lạt</strong> được mệnh danh đẹp nhất Việt Nam — nhà thờ Domain de Marie, nhà thờ Con Gà trang trí rực rỡ, phố đi bộ lung linh đèn, thông Noel khắp nơi. Nhiệt độ 12-16°C tạo cảm giác Giáng Sinh châu Âu thu nhỏ. Đêm Noel nướng BBQ ngoài trời se lạnh = trải nghiệm Giáng Sinh perfect!</p>
 
                             <h2>Nướng BBQ đêm Noel tại Trạm Dừng Chill</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> trang trí Giáng Sinh đặc biệt — đèn led, cây thông mini mỗi bàn, nhạc Noel. Đêm 24/12 có event đặc biệt: <strong>set nướng Christmas</strong> kèm mocktail Noel, photo booth Giáng Sinh. View biển sao nhà lồng + đèn Noel lung linh = <strong>backdrop triệu đô</strong>! <a href="index.html#booking">Đặt bàn đêm Noel →</a></p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> là quán nướng <strong>ngoài trời</strong> ở Trại Mát, cách trung tâm khoảng 7 km. Đêm tháng 12 trên này lạnh thật, nên quán có <strong>mền và lò than mang tận bàn</strong> — cứ báo nhân viên. Khoảng 18h30 hàng nghìn nhà lồng dưới thung lũng đồng loạt lên đèn, dân ở đây gọi là "biển sao nhà lồng"; ngồi nướng giữa trời lạnh mà nhìn xuống đúng lúc đó là cảnh đáng đi. Quán còn có nhạc sống saxophone và WiFi miễn phí phủ toàn quán.</p>
+                            <p>Quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bạn trả đúng cho món mình gọi, mức chi 95.000đ–300.000đ một người đã gồm VAT. Muốn ăn mừng dịp gì thì quán trang trí bàn tiệc <strong>miễn phí</strong> (bảng chúc mừng, nến, hoa tươi); phần trang trí có nhận cọc 200.000đ khi chốt lịch và <strong>hoàn lại sau khi ăn xong</strong>, còn đặt bàn ăn bình thường thì không cần cọc. <a href="index.html#booking">Đặt bàn đêm Noel →</a></p>
 <img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Giáng Sinh Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4702,7 +4703,7 @@ const BLOG_ARTICLES = [
 
                             
                                                         <h2>Lưu ý đặt bàn Giáng Sinh</h2>
-                            <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt — <strong>quán nướng full bàn trước 1-2 tuần</strong>! Nếu muốn có chỗ đẹp đêm Noel, hãy <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>. Giá không tăng, và đặt bàn thường cũng không phải cọc — quán chỉ xin cọc khi bạn muốn trang trí sinh nhật hoặc tiệc (cọc 200.000đ, hoàn lại sau khi ăn xong), hoặc khi đi đoàn trên 10 người.</p>
+                            <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt. Nói thẳng để bạn khỏi mất công: dãy lan can ngoài trời sát đường ray là dãy khách đặt nhiều nhất, cuối tuần và mùa cao điểm <strong>thường kín chỗ trước 2–4 tuần</strong>. Nếu nhất định muốn ngồi dãy đó đêm Noel thì <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>; đặt sát ngày thì chọn dãy X, khu K hay dãy G ngay bên cạnh — bàn cùng một dãy đều ngắm chung một view. <strong>Bàn view không phụ thu</strong>, và đặt bàn thường cũng không phải cọc — quán chỉ xin cọc khi bạn muốn trang trí sinh nhật hoặc tiệc (cọc 200.000đ, hoàn lại sau khi ăn xong), hoặc khi đi đoàn trên 10 người.</p>
 <img src="assets/images/blog/khong-gian-dem-1.webp" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
