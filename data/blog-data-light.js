@@ -169,34 +169,10 @@ const BLOG_ARTICLES = [
     "tags": []
   },
   {
-    "id": "an-nuong-da-lat-bao-nhieu-tien",
-    "title": "Ăn Nướng Đà Lạt Bao Nhiêu Tiền? Bảng Giá Menu Chi Tiết",
-    "category": "Quán nướng Đà Lạt",
-    "date": "2026-03-24",
-    "image": "assets/images/blog/mon-nuong-4-v7.webp",
-    "imageAlt": "Ăn nướng Đà Lạt bao nhiêu tiền - bảng giá menu BBQ chi tiết",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Ăn nướng Đà Lạt thường 95.000đ–300.000đ/người. Tại Trạm Dừng Chill có bảng giá ~73 món minh bạch, view xe lửa + hoàng hôn, giá đã gồm VAT.",
-    "tags": []
-  },
-  {
-    "id": "quan-an-gia-dinh-da-lat",
-    "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
-    "category": "Quán nướng Đà Lạt",
-    "date": "2026-03-23",
-    "image": "assets/images/blog/mon-nuong-4.webp",
-    "imageAlt": "Quán ăn Đà Lạt cho gia đình - bàn nướng BBQ ấm cúng ngoài trời",
-    "badge": "",
-    "featured": false,
-    "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
-    "tags": []
-  },
-  {
     "id": "top-quan-nuong-da-lat",
     "title": "Top Quán Nướng Đà Lạt View Đẹp Nhất — Hướng Dẫn Chọn Quán BBQ Theo Người Đà Lạt",
     "category": "Ẩm thực Đà Lạt",
-    "date": "2026-03-20",
+    "date": "2026-03-24",
     "image": "assets/images/blog/view-hoang-hon-2.webp",
     "imageAlt": "Top 7 quán nướng Đà Lạt view đẹp nhất - hoàng hôn thung lũng",
     "badge": "Nổi bật",
@@ -208,7 +184,7 @@ const BLOG_ARTICLES = [
     "id": "nuong-bbq-ngam-xe-lua",
     "title": "Nướng BBQ Ngắm Xe Lửa Đà Lạt — Trải Nghiệm Chỉ Có Tại Trạm Dừng Chill",
     "category": "Trải nghiệm",
-    "date": "2026-03-15",
+    "date": "2026-03-24",
     "image": "assets/images/blog/view-xe-lua-11b.webp",
     "imageAlt": "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - Trạm Dừng Chill Đà Lạt",
     "badge": "",
@@ -220,12 +196,36 @@ const BLOG_ARTICLES = [
     "id": "hen-ho-da-lat",
     "title": "Quán Hẹn Hò Lãng Mạn Đà Lạt — Date Night Nướng BBQ Ngắm Tàu Lửa & Biển Sao Nhà Lồng",
     "category": "Hẹn hò & Sinh nhật",
-    "date": "2026-03-05",
+    "date": "2026-03-24",
     "image": "assets/images/blog/view-nha-long-4.webp",
     "imageAlt": "Date Night Đà Lạt - Trạm Dừng Chill Đà Lạt",
     "badge": "",
     "featured": false,
     "excerpt": "Tìm quán hẹn hò lãng mạn Đà Lạt cho buổi date night? Trạm Dừng Chill: bàn riêng view thung lũng, 3 khoảnh khắc hoàng hôn — tàu lửa — biển sao, setup miễn phí.",
+    "tags": []
+  },
+  {
+    "id": "quan-an-gia-dinh-da-lat",
+    "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
+    "category": "Quán nướng Đà Lạt",
+    "date": "2026-03-24",
+    "image": "assets/images/blog/mon-nuong-4.webp",
+    "imageAlt": "Quán ăn Đà Lạt cho gia đình - bàn nướng BBQ ấm cúng ngoài trời",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
+    "tags": []
+  },
+  {
+    "id": "an-nuong-da-lat-bao-nhieu-tien",
+    "title": "Ăn Nướng Đà Lạt Bao Nhiêu Tiền? Bảng Giá Menu Chi Tiết",
+    "category": "Quán nướng Đà Lạt",
+    "date": "2026-03-24",
+    "image": "assets/images/blog/mon-nuong-4-v7.webp",
+    "imageAlt": "Ăn nướng Đà Lạt bao nhiêu tiền - bảng giá menu BBQ chi tiết",
+    "badge": "",
+    "featured": false,
+    "excerpt": "Ăn nướng Đà Lạt thường 95.000đ–300.000đ/người. Tại Trạm Dừng Chill có bảng giá ~73 món minh bạch, view xe lửa + hoàng hôn, giá đã gồm VAT.",
     "tags": []
   }
 ];
