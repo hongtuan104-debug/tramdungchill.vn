@@ -206,7 +206,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-07-31",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -548,7 +548,7 @@ const BLOG_SEO = {
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-07-31",
       "author": {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
