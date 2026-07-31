@@ -574,6 +574,20 @@ try {
         "const BLOG_ARTICLES = " + JSON.stringify(lightArr, null, 2) + ";\n";
     fs.writeFileSync(LIGHT_FILE, lightOut, "utf8");
     console.log("blog-data-light.js updated: " + lightArr.length + " bài hiển thị trên trang blog");
+
+    // Sinh luôn danh sách link tĩnh trong blog.html — đây mới là bản DUY NHẤT
+    // mà bot AI đọc được (blog.html vẽ danh sách bằng JS, bot không chạy JS).
+    //
+    // Vì sao gọi thẳng ở đây thay vì dặn "nhớ chạy sau": header của
+    // generate-blog-links.js đã dặn đúng câu đó từ đầu, mà thực tế vẫn trôi —
+    // khối tĩnh đứng yên ở 13 bài trong khi nguồn lên 19. Lời dặn không có ai
+    // thi hành thì sớm muộn cũng lệch. Nay hai máy dính liền, không lệch được nữa.
+    require("child_process").execFileSync(
+        process.execPath,
+        [path.join(__dirname, "generate-blog-links.js")],
+        { stdio: "inherit" }
+    );
+
     console.log("Done!");
 
 } catch (err) {

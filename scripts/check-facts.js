@@ -145,7 +145,10 @@ const PHEP_KIEM = [
     },
   },
   {
-    ten: 'So danh gia dang chu tieng Viet ("6.816 danh gia")',
+    // Nhan lay so THAT tu facts.json, khong ghi cung: nhan tung ke "6.816"
+    // trong khi nguon da len 6.889 (31/07/2026) — do nghe do ma tu noi sai so
+    // thi nguoi doc mat long tin vao ca luoi.
+    ten: `So danh gia dang chu tieng Viet ("${dinhDangVN(FACTS.soDanhGiaGoogle)} danh gia")`,
     // Yeu cau co chu "danh gia" ngay sau -> khong the khop nham "165000"
     mau: /(\d{1,3}(?:\.\d{3})+|\d{4,})\+?\s*(?:lượt\s+)?đánh giá/gi,
     batBuocCoKhop: true,
@@ -157,7 +160,7 @@ const PHEP_KIEM = [
     },
   },
   {
-    ten: 'So danh gia dang chu tieng Anh ("6,816 reviews")',
+    ten: `So danh gia dang chu tieng Anh ("${dinhDangEN(FACTS.soDanhGiaGoogle)} reviews")`,
     mau: /(\d{1,3}(?:,\d{3})+|\d{4,})\+?\s*(?:Google\s+)?reviews?\b/gi,
     batBuocCoKhop: false,
     kiemTra: (m) => {

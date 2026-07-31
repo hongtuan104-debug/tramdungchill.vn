@@ -881,6 +881,52 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             : files.length + " trang · không chỗ nào gọi ảnh không tồn tại");
 }
 
+// ── R15. Danh sách link tĩnh trong blog.html phải khớp nguồn ─────────────
+// Bối cảnh 31/07/2026: blog.html vẽ danh sách bài bằng JavaScript. Bot AI
+// (GPTBot/ClaudeBot/PerplexityBot) KHÔNG chạy JS nên chỉ đọc được khối tĩnh
+// giữa 2 mốc BLOG-LINKS. Khối đó đứng yên ở 13 bài trong khi nguồn đã có 19 —
+// tức 6 bài mở index vô hình với bot, suốt nhiều đợt đăng bài.
+//
+// Vì sao KHÔNG lưới nào bắt được: khối tĩnh là bản CHÉP TAY của nguồn, mà lưới
+// cũ chỉ soi trang ↔ sitemap. Cả hai đều đúng, chỉ bản chép là cũ. Đúng kiểu
+// bẫy của R13b — phải soi NGUỒN, không soi bản dựng.
+//
+// Công cụ vá đã có sẵn: scripts/generate-blog-links.js. Mục này canh để không
+// ai quên chạy nó (CI cũng đã gọi sẵn trong kiem-so-lieu.yml).
+{
+    const nguon = (() => {
+        const src = fs.readFileSync(path.join(ROOT, "data", "blog-data-light.js"), "utf8");
+        return new Function(src + '\n;return typeof BLOG_ARTICLES!=="undefined"?BLOG_ARTICLES:[];')();
+    })();
+
+    const html = fs.readFileSync(path.join(ROOT, "blog.html"), "utf8");
+    const khoi = html.match(/<!-- BLOG-LINKS:START -->([\s\S]*?)<!-- BLOG-LINKS:END -->/);
+
+    if (!khoi) {
+        add("Danh sách blog tĩnh cho bot khớp nguồn", false,
+            "KHÔNG thấy mốc BLOG-LINKS:START/END trong blog.html — bot AI không đọc được bài nào");
+    } else {
+        const trongKhoi = [...khoi[1].matchAll(/href="blog\/([^"]+)\.html"/g)].map((m) => m[1]);
+        const idNguon = nguon.map((a) => a.id);
+
+        const thieu = idNguon.filter((id) => !trongKhoi.includes(id));
+        const thua = trongKhoi.filter((id) => !idNguon.includes(id));
+
+        // Nguồn rỗng nghĩa là phép đọc hỏng, KHÔNG phải "mọi thứ khớp" — đó đúng
+        // kiểu pass giả mà lưới số liệu từng dính hồi 28/07.
+        const doDuoc = idNguon.length > 0;
+
+        add("Danh sách blog tĩnh cho bot khớp nguồn", doDuoc && thieu.length === 0 && thua.length === 0,
+            !doDuoc
+                ? "đọc data/blog-data-light.js ra 0 bài — phép đọc hỏng, không kết luận được"
+                : thieu.length || thua.length
+                    ? "lệch: thiếu " + thieu.length + " (" + thieu.slice(0, 4).join(", ") + ")"
+                      + (thua.length ? " · thừa " + thua.length + " (" + thua.slice(0, 4).join(", ") + ")" : "")
+                      + " — chạy: node scripts/generate-blog-links.js"
+                    : idNguon.length + " bài đang index đều có link tĩnh cho bot đọc");
+    }
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
