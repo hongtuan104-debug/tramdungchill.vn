@@ -2,12 +2,20 @@
 /**
  * CẬP NHẬT NGÀY SỬA CỦA TRANG — chỉ khi nội dung chữ thật sự đổi
  * ---------------------------------------------------------------
- * Vì sao cần: ngày sửa đang khai TAY ở 3 chỗ và rất dễ quên:
+ * Vì sao cần: ngày sửa đang khai TAY ở 4 chỗ và rất dễ quên:
  *   1. <lastmod> trong sitemap.xml
  *   2. "dateModified" trong schema JSON-LD của trang
  *   3. dòng chữ "Cập nhật 16/06/2026" hiển thị cho khách đọc
+ *   4. "dateModified" trong data/blog-seo.js — NGUỒN mà scripts/generate-blog-pages.js
+ *      đọc lại mỗi lần dựng bài
  * Quên sửa là Google tưởng trang đứng yên. (Ngày 29/07/2026: 12 trang trụ cột
  * khai 16/06 trong khi nội dung đã sửa cuối tháng 7.)
+ *
+ * ⚠️ CHỖ 4 LÀ BẮT BUỘC, ĐỪNG BỎ. Trước 31/07/2026 script chỉ ghi 3 chỗ đầu,
+ * nên mỗi lần có người chạy `node scripts/generate-blog-pages.js` sau con bot
+ * này là ngày bị KÉO LÙI về giá trị cũ trong blog-seo.js — âm thầm, không một
+ * dòng cảnh báo, và sau đó 3 chỗ lại khớp nhau nên soát cũng không ra.
+ * (Đã dính thật: quan-nuong-da-lat-view-nha-long, 30/07 → 27/07.)
  *
  * Vì sao KHÔNG lấy thẳng ngày commit git: mỗi lần sửa CSS, đổi tên class, sửa
  * chú thích… git đều ghi ngày mới. Khai ngày mới mà chữ trên trang y hệt là
@@ -36,6 +44,7 @@
 
 const fs = require('fs');
 const os = require('os');
+const vm = require('vm');
 const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
@@ -43,6 +52,7 @@ const { execFileSync } = require('child_process');
 const GOC = path.resolve(__dirname, '..');
 const FILE_SITEMAP = path.join(GOC, 'sitemap.xml');
 const FILE_DAU_VAN = path.join(GOC, 'data', 'dau-van-noi-dung.json');
+const FILE_SEO = path.join(GOC, 'data', 'blog-seo.js');
 const MIEN = 'https://tramdungchill.vn';
 
 /** Số commit gần nhất được dò khi chạy --khoi-tao. */
@@ -190,6 +200,79 @@ function ganNgaySua(html, ngayISO) {
   return ra;
 }
 
+// ─────────────────── đóng ngày ngược vào NGUỒN data/blog-seo.js ───────────────────
+/** 'https://tramdungchill.vn/blog/abc.html' → 'abc'. Trang không phải bài blog → null. */
+function maBaiTuUrl(loc) {
+  const m = loc.match(/\/blog\/([^/]+)\.html$/);
+  return m ? m[1] : null;
+}
+
+/**
+ * Ghi ngày sửa vào ĐÚNG khối của từng bài trong data/blog-seo.js.
+ *
+ * ⚠️ Vì sao phải cắt theo RANH GIỚI KHỐI chứ không dò thẳng "dateModified" ngay
+ * sau tên bài: thứ tự trường trong mỗi khối KHÔNG cố định (bài
+ * quan-an-gia-dinh-da-lat để dateModified ngay sau "lang", bài
+ * top-quan-nuong-da-lat để sau "author"). Dò kiểu lười `[\s\S]*?` mà gặp bài
+ * thiếu trường là nó chạy tuột sang bài kế rồi sửa nhầm ngày của bài đó.
+ *
+ * Mốc một bài trụ cột = dòng thụt đúng 4 dấu cách, giá trị là một khối `{`.
+ * Mục trong `noindex` cũng thụt 4 dấu cách nhưng giá trị là chuỗi nên không dính.
+ *
+ * Trả { raMoi, thieu } — `thieu` là mã những bài KHÔNG đặt được ngày (không có
+ * khối trong pillars, hoặc khối không có ô "dateModified").
+ */
+function ganNgayVaoNguon(noiDung, ngayTheoMa) {
+  const moc = [...noiDung.matchAll(/^ {4}"([^"]+)"\s*:\s*\{[ \t]*$/gm)]
+    .map((m) => ({ ma: m[1], dau: m.index }));
+  moc.forEach((k, i) => { k.het = i + 1 < moc.length ? moc[i + 1].dau : noiDung.length; });
+
+  const thieu = [];
+  const manh = [];
+  let cuoi = 0;
+
+  // Đi theo thứ tự xuất hiện trong file để nối chuỗi một lượt, không lệch chỉ số.
+  for (const k of moc) {
+    if (!ngayTheoMa.has(k.ma)) continue;
+    const khoi = noiDung.slice(k.dau, k.het);
+    if (!/"dateModified"\s*:\s*"\d{4}-\d{2}-\d{2}"/.test(khoi)) { thieu.push(k.ma); continue; }
+    manh.push(noiDung.slice(cuoi, k.dau));
+    manh.push(khoi.replace(
+      /("dateModified"\s*:\s*")\d{4}-\d{2}-\d{2}(")/,
+      `$1${ngayTheoMa.get(k.ma)}$2`,
+    ));
+    cuoi = k.het;
+  }
+  manh.push(noiDung.slice(cuoi));
+
+  const coKhoi = new Set(moc.map((k) => k.ma));
+  for (const ma of ngayTheoMa.keys()) if (!coKhoi.has(ma)) thieu.push(ma);
+
+  return { raMoi: manh.join(''), thieu };
+}
+
+/** Đọc lại file vừa dựng bằng chính lối máy tạo bài đọc, đối chiếu từng ngày. */
+function kiemNguonSauKhiSua(raMoi, ngayTheoMa, soKhoiCu) {
+  const hop = {};
+  try {
+    vm.runInNewContext(raMoi + '\n;this.BLOG_SEO = BLOG_SEO;', hop);
+  } catch (e) {
+    return `data/blog-seo.js sau khi sửa KHÔNG đọc được nữa: ${e.message}`;
+  }
+  const tru = (hop.BLOG_SEO || {}).pillars;
+  if (!tru) return 'data/blog-seo.js sau khi sửa không còn khối pillars';
+  if (Object.keys(tru).length !== soKhoiCu) {
+    return `số bài trụ cột đổi từ ${soKhoiCu} thành ${Object.keys(tru).length} — sửa hỏng file`;
+  }
+  for (const [ma, ngay] of ngayTheoMa) {
+    if (!tru[ma]) return `mất bài ${ma} khỏi pillars sau khi sửa`;
+    if (tru[ma].dateModified !== ngay) {
+      return `bài ${ma} đáng lẽ ${ngay} nhưng đọc lại ra ${tru[ma].dateModified}`;
+    }
+  }
+  return null;
+}
+
 // ─────────────────────────── dò lịch sử git (--khoi-tao) ───────────────────────────
 function chayGit(doiSoGit) {
   return execFileSync('git', doiSoGit, { cwd: GOC, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
@@ -261,6 +344,7 @@ function main() {
 
   const vanMoi = {};
   const ngayMoi = new Map();   // loc → ngày ISO cần ghi vào sitemap
+  const ghiSau = [];           // [đường dẫn, nội dung] — chỉ ghi sau khi kiểm xong nguồn
   const urlDaDoi = [];
   const banGhi = [];
   let soLech = 0;              // sitemap lệch schema do sửa tay — chỉ vá, không báo IndexNow
@@ -294,7 +378,10 @@ function main() {
 
     if (ngayDat) {
       const suaRoi = ganNgaySua(html, ngayDat);
-      if (!CHI_XEM) fs.writeFileSync(duongDanDay, suaRoi);
+      // Gom lại, ghi ở cuối. Phải đợi kiểm xong data/blog-seo.js mới được ghi:
+      // ghi HTML rồi mới phát hiện nguồn không nhận được ngày là để lại đúng cái
+      // lệch mà bản vá này sinh ra để dẹp.
+      ghiSau.push([duongDanDay, suaRoi]);
       // Tính lại dấu vân SAU khi sửa: dòng "Cập nhật …" hiển thị cũng là chữ,
       // không lưu bản mới thì lần chạy sau lại tưởng có người sửa bài.
       vanMoi[t.loc] = dauVan(suaRoi);
@@ -319,6 +406,43 @@ function main() {
 
   console.log(banGhi.join('\n'));
 
+  // ── Đóng ngày mới ngược vào NGUỒN data/blog-seo.js ──
+  // Bắt buộc, và phải làm TRƯỚC mọi lệnh ghi khác: thiếu bước này thì lần kế có
+  // ai chạy generate-blog-pages.js là ngày bị kéo lùi về giá trị cũ, âm thầm.
+  const ngayNguon = new Map();
+  for (const [loc, ngay] of ngayMoi) {
+    const ma = maBaiTuUrl(loc);
+    if (ma) ngayNguon.set(ma, ngay);
+  }
+
+  let nguonMoi = null;
+  if (ngayNguon.size > 0) {
+    const nguonCu = fs.readFileSync(FILE_SEO, 'utf8');
+    const soKhoiCu = (nguonCu.match(/^ {4}"[^"]+"\s*:\s*\{[ \t]*$/gm) || []).length;
+    const { raMoi, thieu } = ganNgayVaoNguon(nguonCu, ngayNguon);
+
+    if (thieu.length) {
+      loi(
+        `${thieu.length} bài đổi ngày nhưng KHÔNG có ô "dateModified" trong data/blog-seo.js: ` +
+        `${thieu.join(', ')}\n   Thêm ô đó vào khối của bài rồi chạy lại. Bỏ qua là ngày sẽ bị ` +
+        'generate-blog-pages.js kéo lùi, không ai thấy. (Chưa ghi file nào.)',
+      );
+    }
+    // Thay ngày ISO bằng ngày ISO thì độ dài file KHÔNG được đổi — lệch là sửa trúng chỗ khác.
+    if (raMoi.length !== nguonCu.length) {
+      loi(`sửa data/blog-seo.js làm đổi độ dài file (${nguonCu.length} → ${raMoi.length}) — dừng, chưa ghi file nào.`);
+    }
+    const hong = kiemNguonSauKhiSua(raMoi, ngayNguon, soKhoiCu);
+    if (hong) loi(`${hong} — dừng, chưa ghi file nào.`);
+
+    nguonMoi = raMoi;
+  }
+
+  if (!CHI_XEM) {
+    if (nguonMoi !== null) fs.writeFileSync(FILE_SEO, nguonMoi);
+    for (const [duongDanDay, noiDung] of ghiSau) fs.writeFileSync(duongDanDay, noiDung);
+  }
+
   if (ngayMoi.size > 0 && !CHI_XEM) {
     fs.writeFileSync(FILE_SITEMAP, ganLastmod(xml, ngayMoi));
   }
@@ -340,6 +464,9 @@ function main() {
   if (!CHI_XEM) fs.writeFileSync(fileDanhSach, urlDaDoi.join('\n') + (urlDaDoi.length ? '\n' : ''));
 
   console.log('');
+  if (ngayNguon.size > 0) {
+    console.log(`📌 Đóng ngày mới vào nguồn data/blog-seo.js cho ${ngayNguon.size} bài — máy tạo bài dựng lại sẽ ra đúng ngày này.`);
+  }
   if (soLech > 0) {
     console.log(`⚠️  Vá ${soLech} chỗ sitemap lệch schema (do sửa tay). Không báo IndexNow cho mấy chỗ này vì nội dung không đổi.`);
   }
