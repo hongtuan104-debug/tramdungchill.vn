@@ -34,6 +34,29 @@ function initHeroSlider() {
     startTimer();
 }
 
+/* Video nền hero chỉ tải trên máy tính.
+   File nặng 3,6 MB — trên mobile 4G chậm nó đẩy LCP lên 8,9 giây (PageSpeed
+   31/07/2026). Ẩn bằng CSS không cứu được vì trình duyệt vẫn tải hết rồi mới ẩn,
+   nên trong HTML thẻ <source> để data-src và chỉ gắn src thật ở đây.
+   Mobile giữ poster hero-sunset.jpg (232 KB) — nhẹ hơn 15 lần, vẫn đúng khung hình. */
+function initHeroVideo() {
+    const video = document.querySelector('.hero-video');
+    if (!video) return;
+    const source = video.querySelector('source[data-src]');
+    if (!source || source.src) return;
+
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Khách đang dùng gói tiết kiệm dữ liệu thì cũng không tải
+    const conn = navigator.connection;
+    if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ''))) return;
+
+    source.src = source.dataset.src;
+    video.load();
+    const played = video.play();
+    if (played && played.catch) played.catch(function () {});
+}
+
 function initHeroParticles() {
     const container = document.getElementById('heroParticles');
     if (!container) return;
