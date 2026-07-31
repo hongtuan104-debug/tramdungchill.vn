@@ -2469,7 +2469,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    /* 0.6s là quá lâu cho một lớp phủ che LCP: trình duyệt chỉ tính nội dung đã
+       hiện khi lớp này mờ hẳn, nên nửa giây thừa cộng thẳng vào LCP. 0.25s vẫn
+       đủ mượt mắt. */
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .preloader.hidden {

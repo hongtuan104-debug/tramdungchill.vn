@@ -130,18 +130,40 @@ function formatDateVi(dateStr) {
     return parts[2] + '/' + parts[1] + '/' + parts[0];
 }
 
+/* Preloader là lớp phủ kín màn hình (fixed, inset:0, z-index 9999), nên LCP chỉ
+   được tính TỪ LÚC nó biến mất — tức nó chính là thứ quyết định LCP, không phải
+   ảnh hay video nền.
+
+   Bản cũ đợi window.load rồi + 600ms, chốt chặn 3000ms. 'load' đợi MỌI tài nguyên
+   xong, kể cả iframe Google Maps và 4 pixel bên thứ ba (GA4, Meta, TikTok,
+   Clarity) — trên 4G chậm là rất lâu. Đo 31/07/2026: LCP 9,6 giây.
+
+   Nay chỉ đợi đúng thứ quyết định khung hình đầu: ảnh nền hero. Xong ảnh là gỡ
+   lớp phủ, không chờ pixel với bản đồ. Chốt chặn hạ còn 1200ms. */
 function initPreloader() {
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
 
-    let fallbackTimer = setTimeout(() => {
+    let xong = false;
+    const an = function () {
+        if (xong) return;
+        xong = true;
         preloader.classList.add('hidden');
-    }, 3000);
+    };
 
-    window.addEventListener('load', () => {
-        clearTimeout(fallbackTimer);
-        setTimeout(() => preloader.classList.add('hidden'), 600);
-    });
+    const hero = document.querySelector('.hero-video');
+    const poster = hero && hero.getAttribute('poster');
+    if (poster) {
+        const img = new Image();
+        img.onload = an;
+        img.onerror = an;
+        img.src = poster;
+        if (img.complete) an();
+    } else {
+        an();
+    }
+
+    setTimeout(an, 1200);
 }
 
 function initModalClose() {
