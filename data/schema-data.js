@@ -3,7 +3,15 @@
 const SCHEMA_DATA = {
     restaurant: {
         name: 'Tiệm Nướng Trạm Dừng Chill',
-        alternateName: ['Tram Dung Chill BBQ', 'Tiệm Nướng & Chill Xóm Lèo', 'Xóm Lèo'],
+        // 31/07/2026 — gỡ 'Tiệm Nướng & Chill Xóm Lèo' và 'Xóm Lèo' khỏi đây.
+        // Xóm Lèo là QUÁN RIÊNG ở 113 Huỳnh Tấn Phát (quán này ở 111): hồ sơ
+        // Google Maps riêng, web xomleo.vn riêng, SĐT riêng, số đánh giá riêng.
+        // Khai tên quán kia làm 'tên khác' của quán này là gộp hai doanh nghiệp
+        // làm một trong dữ liệu Google đọc — hai địa điểm cách nhau 2 số nhà,
+        // cùng ngành, rất dễ bị hiểu là hồ sơ trùng lặp, hại CẢ HAI.
+        // ⚠️ Câu đánh giá của khách nhắc "Xóm Lèo" (bên dưới) là ĐỊA DANH khu
+        // phố, không phải tên quán — GIỮ NGUYÊN, đó là lời khách nói thật.
+        alternateName: ['Tram Dung Chill BBQ'],
         description: 'Quán nướng BBQ view đẹp nhất Đà Lạt - Ngắm xe lửa, hoàng hôn và nhà lồng lên đèn lung linh. Đặc biệt: setup sinh nhật, kỷ niệm miễn phí.',
         images: [
             'https://tramdungchill.vn/assets/images/hero-sunset.jpg',

@@ -6,19 +6,30 @@
 > quán đơn lẻ nào lọt vào.** Truy vấn này mang ý định "cho tôi danh sách", nên
 > tối ưu on-page không thắng được.
 >
-> ⚠️ **SỬA LẠI 30/07/2026 — trước đây tài liệu này ghi sai.** Bản cũ viết "đối thủ
-> Xóm Lèo được nhắc trong bài VinWonders, Trạm Dừng Chill thì không". Sếp Tuấn xác
-> nhận **"Tiệm Nướng & Chill Xóm Lèo" CHÍNH LÀ quán này**, không phải đối thủ — đó
-> là tên gọi khác, đã khai trong `alternateName` của schema từ trước
-> (`data/schema-data.js`: `Tram Dung Chill BBQ` · `Tiệm Nướng & Chill Xóm Lèo` ·
-> `Xóm Lèo`). Quán nằm ở khu Xóm Lèo nên dân quen gọi theo địa danh.
+> ⚠️ **SỬA LẠI 31/07/2026 — bản 30/07 ghi sai, nay chốt lại cho dứt điểm.**
 >
-> Hệ quả: nếu bài VinWonders nhắc đúng cái tên đó thì **quán đã có mặt trên
-> listicle rồi, chỉ là dưới tên khác** — ngược hẳn kết luận cũ. Cần mở bài
-> VinWonders đọc lại xem nhắc "Xóm Lèo" với nghĩa TÊN QUÁN hay chỉ là ĐỊA DANH,
-> rồi mới kết luận còn khoảng cách hay không. Nếu là tên quán, việc cần làm không
-> phải xin được nhắc, mà là **xin sửa tên hiển thị thành tên chính + gắn link
-> website** để gom về một Entity.
+> Bản 30/07 viết *"Tiệm Nướng & Chill Xóm Lèo CHÍNH LÀ quán này"* và dặn khai đủ
+> ba tên khi gửi hồ sơ. **Sai.** Đo lại ngày 31/07:
+>
+> | | Trạm Dừng Chill | Tiệm Nướng & Chill Xóm Lèo |
+> |---|---|---|
+> | Địa chỉ | **111** Huỳnh Tấn Phát | **113** Huỳnh Tấn Phát |
+> | Google Maps | 4,8 sao · 6.889 lượt | 4,7 sao · ~1.690 lượt |
+> | Website | tramdungchill.vn | **xomleo.vn** |
+> | Điện thoại | 0989.765.070 | số khác |
+>
+> Là **hai quán riêng, chung một chủ** — thương hiệu thứ hai, không phải tên gọi
+> khác. Sếp Tuấn chốt ngày 31/07: **gỡ cả hai tên khỏi `alternateName`.**
+>
+> 🔑 Chỗ dễ nhầm và đã làm sai một lần: **"Xóm Lèo" là ĐỊA DANH khu phố** — cả hai
+> quán đều nằm trong khu đó, và quán bên kia lấy luôn tên khu làm thương hiệu. Vì
+> vậy khi thấy chữ "Xóm Lèo" ở đâu, phải hỏi *nghĩa địa danh hay nghĩa tên quán*
+> rồi mới kết luận. Câu đánh giá của khách trên web (*"Mình ăn nhiều quán ở Xóm
+> Lèo rồi…"*) là nghĩa **địa danh** — giữ nguyên, đừng sửa lời khách.
+>
+> Hệ quả cho việc gửi hồ sơ: nếu bài VinWonders nhắc "Xóm Lèo" với nghĩa tên quán
+> thì đó là **quán 113, không phải quán này** ⇒ vẫn còn khoảng cách thật, vẫn phải
+> đi xin. Nếu nhắc với nghĩa địa danh thì bài đó chưa nhắc quán nào cả.
 >
 > ⚠️ Tài liệu này là việc **con người phải làm**: gửi form, gửi email, gọi điện.
 > Không tự động hoá được và không nên tự động hoá.
@@ -33,8 +44,8 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | Trường | Giá trị |
 |---|---|
 | Tên đầy đủ | Tiệm Nướng Trạm Dừng Chill |
-| Tên khác | Tram Dung Chill BBQ · **Tiệm Nướng & Chill Xóm Lèo** · **Xóm Lèo** |
-| ⚠️ Lưu ý khi điền form | Khai ĐỦ cả ba tên khác. Nhiều nơi (báo, listicle, khách cũ) biết quán dưới tên "Xóm Lèo" — bỏ sót tên này là mất cơ hội khớp với hồ sơ/bài viết đã có sẵn. Ba tên này khớp đúng `alternateName` trong schema, giữ nguyên để nhất quán. |
+| Tên khác | Tram Dung Chill BBQ |
+| ⛔ Lưu ý khi điền form | **KHÔNG khai "Tiệm Nướng & Chill Xóm Lèo" hay "Xóm Lèo" làm tên khác của quán này.** Đó là quán riêng ở **113** Huỳnh Tấn Phát (hồ sơ Google Maps riêng, web xomleo.vn riêng). Khai gộp là tự tay trộn hai hồ sơ doanh nghiệp cách nhau 2 số nhà, cùng ngành — Google rất dễ hiểu là hồ sơ trùng lặp và ẩn bớt một cái. Khớp đúng `alternateName` trong schema (đã gỡ ngày 31/07). |
 | Địa chỉ | 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng |
 | Ghi chú địa chỉ | Phường 11 cũ — khu Trại Mát. **Luôn dùng tên mới "Phường Xuân Trường"** |
 | Điện thoại / Zalo | 0989.765.070 |
@@ -42,7 +53,7 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | Giờ mở cửa | 15:00 – 23:00, tất cả các ngày |
 | Mức giá | 95.000đ – 300.000đ / người (đã gồm VAT) |
 | Số món | hơn 70 món (menu thật: 73) |
-| Đánh giá Google | 4,8 sao · 6.816 lượt |
+| Đánh giá Google | 4,8 sao · 6.889 lượt |
 | Loại hình | Nhà hàng món nướng · BBQ nướng tại bàn, lẩu, hải sản |
 | Cách trung tâm | ~7 km, ~20 phút xe theo hướng Trại Mát |
 | Đỗ xe | Bãi đỗ miễn phí cho ô tô con và xe máy |
@@ -71,7 +82,7 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 > Quán mở từ 15:00 — sớm nhất khu vực — nên đón trọn khung hoàng hôn vàng, rồi
 > khoảng 18:30 hàng ngàn nhà lồng đồng loạt lên đèn. Menu hơn 70 món gồm BBQ,
 > lẩu và hải sản, mức chi 95.000–300.000đ/người đã gồm VAT. Bàn view không phụ
-> thu. Setup sinh nhật và kỷ niệm miễn phí. 4,8 sao với 6.816 đánh giá Google.
+> thu. Setup sinh nhật và kỷ niệm miễn phí. 4,8 sao với 6.889 đánh giá Google.
 
 ### Ba điểm khác biệt (khi họ hỏi "quán có gì đặc biệt")
 
@@ -138,7 +149,7 @@ biên tập viên nhận ra ngay và bỏ qua.
 > - Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt (cách trung tâm ~7km)
 > - Giờ mở cửa: 15:00–23:00 — sớm nhất khu vực nên đón được trọn hoàng hôn
 > - Mức giá: 95.000–300.000đ/người, đã gồm VAT
-> - Đánh giá: 4,8 sao với 6.816 lượt trên Google
+> - Đánh giá: 4,8 sao với 6.889 lượt trên Google
 > - Website: https://tramdungchill.vn
 >
 > Nếu anh/chị cần ảnh chất lượng cao hoặc muốn ghé trải nghiệm thực tế, tôi sẵn
@@ -158,7 +169,7 @@ thiên vị vào nhóm spam, và trang nào nhận cũng chịu rủi ro cùng m
 
 > Chào anh/chị, mình là chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Bên mình có
 > điểm khá riêng là tàu lửa cổ Đà Lạt–Trại Mát chạy ngay dưới chân quán, khách
-> vừa nướng vừa ngắm tàu và hoàng hôn thung lũng. Quán 4,8 sao với 6.816 đánh
+> vừa nướng vừa ngắm tàu và hoàng hôn thung lũng. Quán 4,8 sao với 6.889 đánh
 > giá Google, mở 15:00–23:00, 95–300k/người.
 > Nếu quý trang có kế hoạch cập nhật bài về quán nướng Đà Lạt, mình rất mong
 > được cân nhắc. Mình có sẵn ảnh chất lượng cao và có thể mời anh/chị ghé trải
