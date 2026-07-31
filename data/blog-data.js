@@ -392,7 +392,7 @@ const BLOG_ARTICLES = [
                             <p>Đà Lạt có khí hậu mát mẻ quanh năm, phong cảnh đẹp và nhiều hoạt động ngoài trời — lý tưởng cho <strong>team building Đà Lạt</strong>. Từ Sài Gòn bay chỉ 50 phút, hoặc đi xe khoảng 6 tiếng, chi phí hợp lý cho cả đoàn.</p>
 
                             <h3>1. Tiệc nướng BBQ ngoài trời — Gắn kết qua bếp lửa</h3>
-                            <p>Không gì phá vỡ khoảng cách đồng nghiệp nhanh bằng cùng nhau nướng thịt! Tại <a href="index.html">Trạm Dừng Chill</a>, nhóm 20-50 người có thể book riêng khu vực ngoài trời, vừa nướng BBQ vừa ngắm hoàng hôn và xe lửa cổ chạy qua. Giá chỉ từ 95K/người, có set combo cho nhóm lớn.</p>
+                            <p>Không gì phá vỡ khoảng cách đồng nghiệp nhanh bằng cùng nhau nướng thịt! Tại <a href="index.html">Trạm Dừng Chill</a>, nhóm 20-50 người có thể book riêng khu vực ngoài trời, vừa nướng BBQ vừa ngắm hoàng hôn và xe lửa cổ chạy qua. Giá chỉ từ 95K/người, gọi món lẻ nên nhóm trả đúng cho món mình gọi.</p>
 
 
                                                         <h3>2. Trò chơi teamwork giữa đồi thông</h3>
@@ -871,7 +871,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Tip tiết kiệm</h2>
-                            <p>Đi nhóm 3-4 người chia phòng và thuê xe. Ăn set combo tại <strong>Trạm Dừng Chill</strong> tiết kiệm hơn gọi lẻ. Book khách sạn trước 2 tuần qua app để có giá tốt.</p>
+                            <p>Đi nhóm 3-4 người chia phòng và thuê xe. Ăn tại <strong>Trạm Dừng Chill</strong> thì gọi món lẻ, cả nhóm chia nhau vài món nướng cộng một nồi lẩu là vừa. Book khách sạn trước 2 tuần qua app để có giá tốt.</p>
 
                             <h2>Kết luận</h2>
                             <p><strong>Lịch trình du lịch Đà Lạt 3 ngày 2 đêm</strong> này đảm bảo bạn không bỏ lỡ trải nghiệm nào! Đặc biệt, đừng bỏ qua bữa tối ngày đầu tại <a href="index.html#booking">Trạm Dừng Chill</a> — đây sẽ là highlight của chuyến đi!</p>`
@@ -1047,7 +1047,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Buffet hay gọi món — Chọn kiểu nào?</h2>
-                            <p>Nếu bạn ăn khoẻ và muốn thử nhiều món thì buffet là lựa chọn. Nhưng nếu bạn muốn <strong>chất lượng từng miếng thịt</strong> và trải nghiệm view đẹp, gọi set combo tại <a href="index.html">Trạm Dừng Chill</a> sẽ đáng tiền hơn. Thịt bò Mỹ, hải sản tươi, gà nướng mật ong — mỗi món đều được chọn lọc kỹ.</p>
+                            <p>Nếu bạn ăn khoẻ và muốn thử nhiều món thì buffet là lựa chọn. Nhưng nếu bạn muốn <strong>chất lượng từng miếng thịt</strong> và trải nghiệm view đẹp, gọi món lẻ tại <a href="index.html">Trạm Dừng Chill</a> sẽ đáng tiền hơn — bạn trả đúng cho món mình gọi, không phải trả cho phần không ăn. Thịt bò Mỹ, hải sản tươi, gà nướng mật ong — mỗi món đều được chọn lọc kỹ.</p>
 <img src="assets/images/blog/ban-nuong-2.webp" alt="Buffet Nướng Đà Lạt Giá Bao Nhiêu? So Sánh 5 Quán Hot Nhất - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3085,7 +3085,7 @@ const BLOG_ARTICLES = [
 
 
 
-                            <h2>Gợi ý combo cho nhóm đông</h2>
+                            <h2>Gợi ý cách gọi món cho nhóm đông</h2>
                             <p>Combo 6-8 người: gọi mix bò + hải sản + gà + rau củ nướng + 1 nồi lẩu. Thêm mì hoặc cơm ăn kèm. Đảm bảo ai cũng có món thích, giá chia đều khoảng 150-200K/người — rất hợp lý!</p>
 
                             <h2>Kết luận</h2>
@@ -5005,14 +5005,14 @@ const BLOG_ARTICLES = [
     },
     {
         id: "thuc-don-nuong-cho-4-nguoi",
-        title: "Thực Đơn Nướng Cho 4 Người Đà Lạt — Gợi Ý Set Combo Tiết Kiệm",
+        title: "Thực Đơn Nướng Cho 4 Người Đà Lạt — Gợi Ý Gọi Món Tiết Kiệm",
         category: "Mẹo & Kinh nghiệm",
         date: "2026-11-29",
         image: "assets/images/blog/mon-nuong-4-v6.webp",
-        imageAlt: "Thực đơn nướng cho 4 người Đà Lạt - set combo BBQ đầy đủ",
+        imageAlt: "Thực đơn nướng cho 4 người Đà Lạt - mâm BBQ đầy đủ gọi lẻ từng món",
         badge: "",
         featured: false,
-        excerpt: "Nhóm 4 người ăn nướng Đà Lạt gọi gì cho vừa ngon vừa tiết kiệm? Đây là gợi ý <strong>thực đơn nướng cho 4 người</strong> từ 400K đến 800K — set combo đầy đủ!",
+        excerpt: "Nhóm 4 người ăn nướng Đà Lạt gọi gì cho vừa ngon vừa tiết kiệm? Đây là gợi ý <strong>thực đơn nướng cho 4 người</strong> từ 400K đến 800K — gọi lẻ từng món, cả bàn dùng chung.",
         body: `<h2>Gọi gì cho nhóm 4 người?</h2>
                             <p>Nhóm 4 người là size phổ biến nhất khi ăn nướng Đà Lạt — 2 cặp đôi, hoặc 4 bạn thân. Gọi đúng <strong>thực đơn nướng cho 4 người</strong> sẽ vừa đủ ăn, không thừa, không thiếu, lại tiết kiệm hơn gọi lẻ.</p>
 
@@ -5045,11 +5045,11 @@ const BLOG_ARTICLES = [
 
 
 
-                            <h2>Đặt set combo tại Trạm Dừng Chill</h2>
-                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, có sẵn <strong>set combo 4 người</strong> từ 380K-800K — tiết kiệm hơn gọi lẻ 10-15%. Set đã bao gồm nước chấm, rau sống, cơm. Khi <a href="index.html#booking"><strong>đặt bàn</strong></a>, báo trước số người để quán tư vấn set phù hợp nhất!</p>
+                            <h2>Gọi món cho bàn 4 người tại Trạm Dừng Chill</h2>
+                            <p>Tại <a href="index.html">Trạm Dừng Chill</a>, quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bàn 4 người trả đúng cho món mình gọi, không phải trả cho phần không ăn. Bốn người thường rơi vào khoảng 380K-1.200K tuỳ gọi nhiều hay ít. Khi <a href="index.html#booking"><strong>đặt bàn</strong></a>, báo trước số người để nhân viên gợi ý mâm hợp khẩu vị và ngân sách.</p>
 
                             <h2>Kết luận</h2>
-                            <p><strong>Thực đơn nướng 4 người</strong> lý tưởng từ 400-800K tùy budget. Đặt set combo tại <a href="index.html">Trạm Dừng Chill</a> để tiết kiệm và ngon nhất! <a href="index.html#booking">Đặt bàn ngay →</a></p>`
+                            <p><strong>Thực đơn nướng 4 người</strong> lý tưởng từ 400-800K tùy budget. Ở Trạm Dừng Chill bạn cứ <a href="index.html">gọi lẻ từng món</a> rồi cả bàn dùng chung — vài món nướng cộng một nồi lẩu là vừa. <a href="index.html#booking">Đặt bàn ngay →</a></p>`
     },
     {
         id: "quan-nuong-da-lat-valentine",
@@ -5498,7 +5498,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Giá tại Trạm Dừng Chill</h2>
-                            <p><a href="index.html">Trạm Dừng Chill</a> thuộc phân khúc <strong>trung cấp, giá 95-300K/người</strong> — nhưng view thuộc hàng premium! Set combo 2 người từ 250K, set 4 người từ 380K, set 6 người từ 550K. Giá hợp lý + view xe lửa + hoàng hôn + biển sao = giá trị vượt trội. <a href="index.html#booking">Xem menu & đặt bàn →</a></p>
+                            <p><a href="index.html">Trạm Dừng Chill</a> thuộc phân khúc <strong>trung cấp, giá 95-300K/người</strong> — nhưng view thuộc hàng premium! Quán gọi món lẻ, không bán combo hay set cố định — hai người thường khoảng 190-600K, bốn người khoảng 380K-1.200K, tuỳ gọi nhiều hay ít. Giá hợp lý + view xe lửa + hoàng hôn + biển sao = giá trị vượt trội. <a href="index.html#booking">Xem menu & đặt bàn →</a></p>
 <img src="assets/images/blog/ban-nuong-3.webp" alt="Ăn Nướng Đà Lạt Bao Nhiêu Tiền - bàn nướng BBQ tại Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5508,7 +5508,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Mẹo tiết kiệm khi ăn nướng</h2>
-                            <p>Gọi set combo tiết kiệm hơn gọi lẻ 10-15%. Đi nhóm 4-6 người chia tiền hợp lý nhất. Đi ngày thường (thứ 2-5) một số quán có khuyến mãi. Uống nước mang theo thay vì gọi nước quán.</p>
+                            <p>Đi nhóm 4-6 người chia tiền hợp lý nhất — gọi vài món nướng dùng chung cộng một nồi lẩu thay vì mỗi người một phần riêng. Đi ngày thường (thứ 2-5) một số quán có khuyến mãi. Uống nước mang theo thay vì gọi nước quán.</p>
 
 
 
@@ -6021,7 +6021,7 @@ const BLOG_ARTICLES = [
                             <p>Hẹn hò kiểu nướng BBQ đang là trend hot 2027: hai người cùng nướng đồ ăn, trò chuyện tự nhiên quanh bếp than, không gian thoải mái hơn nhà hàng sang trọng. Đà Lạt với tiết trời se lạnh càng thêm lãng mạn — đúng kiểu "chill mà chất".</p>
 
                             <h2>Tiêu chí quán nướng lý tưởng cho couple</h2>
-                            <p><strong>View đẹp:</strong> Hoàng hôn, đèn đêm — backdrop hoàn hảo cho ảnh couple. <strong>Riêng tư:</strong> Bàn cách biệt, không quá ồn ào. <strong>Setup lãng mạn:</strong> Hoa, nến, bảng chúc mừng. <strong>Giá hợp lý:</strong> Không phụ thu dịp lễ, set combo cho 2 người.</p>
+                            <p><strong>View đẹp:</strong> Hoàng hôn, đèn đêm — backdrop hoàn hảo cho ảnh couple. <strong>Riêng tư:</strong> Bàn cách biệt, không quá ồn ào. <strong>Setup lãng mạn:</strong> Hoa, nến, bảng chúc mừng. <strong>Giá hợp lý:</strong> Không phụ thu dịp lễ, không phụ thu bàn view.</p>
 
                             <h2>Trạm Dừng Chill — Date night view triệu đô</h2>
                             <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, Phường Xuân Trường là lựa chọn hàng đầu cho couple. Quán có bàn riêng view hoàng hôn, <strong>setup hẹn hò miễn phí</strong> khi đặt trước. Buổi tối, hàng ngàn đèn nhà lồng lên sáng tạo không gian cực kỳ lãng mạn.</p>
@@ -6093,7 +6093,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Sinh viên du lịch Đà Lạt muốn ăn nướng ngon mà <strong>giá rẻ</strong>? Đây là danh sách <strong>quán nướng Đà Lạt giá rẻ cho sinh viên</strong> — ăn no, view đẹp, chỉ từ 95K/người.",
         body: `<h2>Sinh viên Đà Lạt — Ngân sách bao nhiêu là đủ?</h2>
-                            <p>Với nhóm sinh viên 4-6 người, ngân sách ăn nướng Đà Lạt lý tưởng khoảng 100-150K/người. Mức này đủ để ăn no các món nướng ngon: thịt bò, hải sản, rau nướng kèm nước uống. Quan trọng là chọn quán có set combo tiết kiệm thay vì gọi lẻ.</p>
+                            <p>Với nhóm sinh viên 4-6 người, ngân sách ăn nướng Đà Lạt lý tưởng khoảng 100-150K/người. Mức này đủ để ăn no các món nướng ngon: thịt bò, hải sản, rau nướng kèm nước uống. Quan trọng là chọn quán niêm yết giá rõ từng món và không phụ thu bàn view, để cả nhóm chủ động gọi vừa túi tiền.</p>
 
                             <h2>Mẹo ăn nướng tiết kiệm tại Đà Lạt</h2>
                             <p><strong>Đi nhóm đông:</strong> Gọi combo chia nhau rẻ hơn gọi riêng. <strong>Đi ngày thường:</strong> Nhiều quán giảm giá ngày thường. <strong>Đặt trước online:</strong> Có khuyến mãi hoặc phần tặng thêm. <strong>Đến sớm:</strong> Một số quán có ưu đãi "happy hour" buổi chiều.</p>

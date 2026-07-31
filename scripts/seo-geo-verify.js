@@ -927,6 +927,63 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     }
 }
 
+// ── R16. Không trang nào được khai quán CÓ bán combo / set cố định ───────
+// Bối cảnh 31/07/2026: chủ quán sửa menu.html cho đúng — "quán gọi món lẻ,
+// không bán combo hay set cố định" — nhưng SÁU trang khác đang mở index vẫn
+// khai ngược lại. Nặng nhất là dip/team-building.html hỏi thẳng "Có combo
+// riêng cho đoàn không?" rồi trả lời "Có combo cho nhóm 2, 4, 6 và trên 10
+// khách" — nằm trong FAQPage schema, tức Google hiện thẳng ra kết quả tìm.
+//
+// 🔑 Đây là lần thứ hai vấp đúng một kiểu: sửa đúng cho MỘT trang rồi tưởng
+// xong (y như vụ ngày-sửa-bị-kéo-lùi hôm 31/07). Mục này để lần sau máy nhắc.
+//
+// Chỗ dễ BÁO OAN đã xử:
+//  1. Câu PHỦ ĐỊNH ("không bán combo", "không bắt gọi combo") là ĐÚNG — bỏ qua.
+//  2. "combo" nghĩa "cách phối món" trong bài lẩu-nướng là cách nói bình thường
+//     của tiếng Việt, và bài đó ghi rõ "giá lẻ từng món" ngay bên dưới ⇒ chỉ
+//     bắt khi câu văn gắn combo với NHÓM NGƯỜI hoặc với chuyện RẺ HƠN gọi lẻ,
+//     tức là đang bán một gói.
+//  3. Trang noindex không xét (Google không đọc).
+{
+    const KHAI_CO_COMBO = [
+        // "combo cho nhóm 4", "combo nhóm 4 người", "set cho đoàn"…
+        /\b(?:combo|set)\s+(?:riêng\s+)?(?:cho\s+)?(?:nhóm|đoàn|gia đình|bàn)\b/i,
+        // "menu combo", "combo view" — nghe như một mặt hàng quán bán
+        /\bmenu\s+combo\b|\bcombo\s+view\b/i,
+        // "tiết kiệm hơn gọi lẻ" — chỉ đúng khi có gói để so
+        /combo[^.]{0,80}(?:tiết kiệm|rẻ hơn|lợi hơn)\s+(?:hơn\s+)?gọi lẻ/i,
+        // "tuỳ combo" — hàm ý giá phụ thuộc gói
+        /\btuỳ\s+combo\b|\btùy\s+combo\b/i,
+    ];
+    // Câu phủ định thì hợp lệ — phải loại TRƯỚC khi xét.
+    const PHU_DINH = /không\s+(?:bán|có|bắt gọi|yêu cầu)\s+[^.]{0,40}combo|combo[^.]{0,30}(?:cố định)?\s*(?:—|-)?\s*bạn trả đúng/i;
+
+    const pham = [];
+    for (const f of files) {
+        const tu = rel(f);
+        const s = fs.readFileSync(f, "utf8");
+        if (/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(s)) continue;
+        if (tu.startsWith("components/")) continue;
+
+        // Xét theo từng CÂU để câu phủ định không che cho câu khai sai nằm cạnh.
+        const chu = s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " ");
+        for (const cau of chu.split(/(?<=[.!?])\s+/)) {
+            if (!/combo|\bset\b/i.test(cau)) continue;
+            if (PHU_DINH.test(cau)) continue;
+            if (KHAI_CO_COMBO.some((r) => r.test(cau))) {
+                pham.push(tu + " → " + cau.trim().replace(/\s+/g, " ").slice(0, 90));
+            }
+        }
+    }
+
+    const trang = [...new Set(pham.map((x) => x.split(" → ")[0]))];
+    add("Không trang nào khai quán bán combo / set cố định", pham.length === 0,
+        pham.length
+            ? trang.length + " trang khai sai (" + trang.slice(0, 3).join(", ") + ") · "
+              + pham.length + " câu — quán gọi món lẻ, xem menu.html"
+            : "trang đang cho Google đọc · không câu nào khai quán bán combo");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
