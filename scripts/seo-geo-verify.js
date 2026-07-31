@@ -765,6 +765,71 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         ngayXau.length ? ngayXau.slice(0, 5).join(" · ") : soTrang + " trang, không trang nào khai ngày ở tương lai hay sửa-trước-khi-đăng");
 }
 
+// ── R13b. Ngày sửa phải khớp ở CẢ BA chỗ: nguồn ↔ trang ↔ sitemap ────────
+// Bối cảnh 30–31/07/2026: `scripts/cap-nhat-lastmod.js` đóng ngày mới vào trang
+// HTML + sitemap, nhưng KHÔNG ghi `data/blog-seo.js` — mà đó mới là chỗ
+// `scripts/generate-blog-pages.js` đọc lại khi dựng bài. Nên chỉ cần có người
+// chạy máy tạo bài sau con bot là ngày bị KÉO LÙI về giá trị cũ. Âm thầm: dựng
+// xong thì trang và sitemap lại khớp nhau nên soát hai chỗ đó không ra gì.
+// (Đã dính thật: quan-nuong-da-lat-view-nha-long, 30/07 bị kéo về 27/07.)
+//
+// Phép kiểm này canh đúng cái khe đó — soát NGUỒN chứ không chỉ soát bản dựng.
+// Rớt phép này nghĩa là: hoặc con bot ghi thiếu nguồn, hoặc có người sửa tay một
+// trong ba chỗ. Cách sửa: `node scripts/generate-blog-pages.js` (nếu nguồn đúng)
+// hoặc `node scripts/cap-nhat-lastmod.js` (nếu trang mới là đúng).
+{
+    const vm = require("vm");
+    const lech = [];
+    let soBai = 0;
+
+    try {
+        const hop = {};
+        vm.runInNewContext(
+            fs.readFileSync(path.join(ROOT, "data/blog-seo.js"), "utf8") + "\n;this.BLOG_SEO = BLOG_SEO;",
+            hop
+        );
+        const truCot = (hop.BLOG_SEO || {}).pillars || {};
+
+        const smText = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+        const lastmod = new Map();
+        for (const k of smText.match(/<url>[\s\S]*?<\/url>/g) || []) {
+            const loc = (k.match(/<loc>([^<]*)<\/loc>/) || ["", ""])[1].trim();
+            const lm = (k.match(/<lastmod>([^<]*)<\/lastmod>/) || ["", ""])[1].trim();
+            if (loc) lastmod.set(loc.replace("https://tramdungchill.vn/", ""), lm);
+        }
+
+        for (const ma of Object.keys(truCot)) {
+            const nguon = truCot[ma].dateModified;
+            const duong = "blog/" + ma + ".html";
+            const day = path.join(ROOT, duong);
+            // Bài trụ cột chưa dựng ra trang thì không có gì để đối chiếu.
+            if (!nguon || !fs.existsSync(day)) continue;
+            soBai++;
+
+            const s = fs.readFileSync(day, "utf8");
+            const trenTrang = (s.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || ["", ""])[1];
+            if (trenTrang && trenTrang !== nguon) {
+                lech.push(duong + ": nguồn " + nguon + " ≠ trang " + trenTrang);
+            }
+            // Bài đang noindex không nằm trong sitemap — không có gì để so.
+            const trongMap = lastmod.get(duong);
+            if (trongMap && trenTrang && trongMap !== trenTrang) {
+                lech.push(duong + ": trang " + trenTrang + " ≠ sitemap " + trongMap);
+            }
+        }
+    } catch (e) {
+        lech.push("không đọc được data/blog-seo.js hoặc sitemap.xml — " + e.message);
+    }
+
+    add("Ngày sửa khớp cả 3 chỗ (blog-seo.js ↔ trang ↔ sitemap)",
+        lech.length === 0 && soBai > 0,
+        lech.length
+            ? lech.length + " chỗ lệch — chạy generate-blog-pages.js sẽ kéo lùi ngày: " + lech.slice(0, 5).join(" · ")
+            : soBai > 0
+                ? soBai + " bài trụ cột · ngày sửa khớp nhau ở cả nguồn, trang và sitemap"
+                : "KHÔNG đối chiếu được bài nào — nghi phép kiểm hỏng, không phải 'sạch'");
+}
+
 // ── R14. Mọi ảnh / logo phải trỏ tới file CÓ THẬT ────────────────────────
 // Bối cảnh 29/07/2026: `assets/images/logo-gold.svg` được khai trong
 // publisher.logo của schema trên 143 bài — mà file đó CHƯA BAO GIỜ tồn tại,
