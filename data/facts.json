@@ -38,6 +38,7 @@
     "loiVaoXeLan": false,
     "_canhBaoXeLan": "QUAN KHONG co loi vao cho xe lan (bac them/doc kho). TUYET DOI khong tick o 'wheelchair accessible' o bat ky form nao — nguoi dung xe lan loc dung tieu chi do se di 7 km len Trai Mat roi moi biet khong vao duoc.",
     "cocDatBan": "Dat ban an binh thuong KHONG can coc. Trang tri sinh nhat/tiec: trang tri MIEN PHI, coc 200.000d va HOAN LAI sau khi an xong. Doan tren 10 nguoi co coc, nhan vien bao muc khi xac nhan.",
-    "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song); coc xac nhan 30/07/2026"
+    "giaDipLe": "KHONG phu thu dip le. Gia giu nguyen ca dem 24/12, Valentine, Tet. Ban view cung khong phu thu.",
+    "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song + gia dip le); coc xac nhan 30/07/2026"
   }
 }

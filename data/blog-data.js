@@ -6,7 +6,7 @@ const BLOG_ARTICLES = [
         id: "top-quan-nuong-da-lat",
         title: "Top 7 Quán Nướng Đà Lạt View Đẹp Nhất 2026",
         category: "Ẩm thực Đà Lạt",
-        date: "2026-03-20",
+        date: "2026-03-24",
         image: "assets/images/blog/view-hoang-hon-2.webp",
         imageAlt: "Top 7 quán nướng Đà Lạt view đẹp nhất - hoàng hôn thung lũng",
         badge: "Nổi bật",
@@ -65,7 +65,7 @@ const BLOG_ARTICLES = [
         id: "nuong-bbq-ngam-xe-lua",
         title: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt — Chỉ Có Tại Trạm Dừng Chill",
         category: "Trải nghiệm",
-        date: "2026-03-15",
+        date: "2026-03-24",
         image: "assets/images/blog/view-xe-lua-11b.webp",
         imageAlt: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
@@ -160,7 +160,7 @@ const BLOG_ARTICLES = [
         id: "hen-ho-da-lat",
         title: "Date Night Đà Lạt — Nướng BBQ Ngắm Biển Sao Nhà Lồng Cùng Người Thương",
         category: "Hẹn hò & Sinh nhật",
-        date: "2026-03-05",
+        date: "2026-03-24",
         image: "assets/images/blog/view-nha-long-4.webp",
         imageAlt: "Date Night Đà Lạt - Trạm Dừng Chill Đà Lạt",
         badge: "",
@@ -211,7 +211,7 @@ const BLOG_ARTICLES = [
         id: "quan-an-gia-dinh-da-lat",
         title: "Quán Ăn Đà Lạt Cho Gia Đình — 6 Địa Điểm Ấm Cúng, View Đẹp, Trẻ Con Mê",
         category: "Quán nướng Đà Lạt",
-        date: "2026-03-23",
+        date: "2026-03-24",
         image: "assets/images/blog/mon-nuong-4.webp",
         imageAlt: "Quán ăn Đà Lạt cho gia đình - bàn nướng BBQ ấm cúng ngoài trời",
         badge: "",
@@ -4703,7 +4703,7 @@ const BLOG_ARTICLES = [
 
                             
                                                         <h2>Lưu ý đặt bàn Giáng Sinh</h2>
-                            <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt. Nói thẳng để bạn khỏi mất công: dãy lan can ngoài trời sát đường ray là dãy khách đặt nhiều nhất, cuối tuần và mùa cao điểm <strong>thường kín chỗ trước 2–4 tuần</strong>. Nếu nhất định muốn ngồi dãy đó đêm Noel thì <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>; đặt sát ngày thì chọn dãy X, khu K hay dãy G ngay bên cạnh — bàn cùng một dãy đều ngắm chung một view. <strong>Bàn view không phụ thu</strong>, và đặt bàn thường cũng không phải cọc — quán chỉ xin cọc khi bạn muốn trang trí sinh nhật hoặc tiệc (cọc 200.000đ, hoàn lại sau khi ăn xong), hoặc khi đi đoàn trên 10 người.</p>
+                            <p>Giáng Sinh là mùa cao điểm nhất Đà Lạt. Nói thẳng để bạn khỏi mất công: dãy lan can ngoài trời sát đường ray là dãy khách đặt nhiều nhất, cuối tuần và mùa cao điểm <strong>thường kín chỗ trước 2–4 tuần</strong>. Nếu nhất định muốn ngồi dãy đó đêm Noel thì <a href="index.html#booking"><strong>đặt bàn ngay từ đầu tháng 12</strong></a>; đặt sát ngày thì chọn dãy X, khu K hay dãy G ngay bên cạnh — bàn cùng một dãy đều ngắm chung một view. <strong>Đêm lễ quán không phụ thu, giá giữ nguyên như ngày thường</strong>, bàn view cũng không phụ thu, và đặt bàn thường cũng không phải cọc — quán chỉ xin cọc khi bạn muốn trang trí sinh nhật hoặc tiệc (cọc 200.000đ, hoàn lại sau khi ăn xong), hoặc khi đi đoàn trên 10 người.</p>
 <img src="assets/images/blog/khong-gian-dem-1.webp" alt="Giáng Sinh Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
