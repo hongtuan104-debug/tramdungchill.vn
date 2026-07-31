@@ -221,6 +221,40 @@ function dichLoi(ma, j, ten) {
       console.log(`      Lượt xem trang     : ${n(2).toLocaleString('vi-VN')}`);
       console.log(`      Ngồi lại trung bình: ${Math.round(n(3))} giây\n`);
 
+      // ── Câu quan trọng nhất: có ai LIÊN HỆ không ──────────────────────
+      // Đếm lượt khách vào mà không biết mấy người bấm đặt bàn thì vô nghĩa.
+      const VIEC = {
+        conversion_event_submit_lead_form: 'Gửi form đặt bàn',
+        click_phone: 'Bấm gọi điện',
+        click_zalo: 'Bấm nhắn Zalo',
+        click_directions: 'Bấm xem chỉ đường',
+        form_start: 'Bắt đầu điền form (chưa chắc gửi)',
+      };
+      const ev = await goi(
+        `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
+        ve,
+        {
+          dateRanges: [{ startDate: `${SO_NGAY}daysAgo`, endDate: 'today' }],
+          dimensions: [{ name: 'eventName' }],
+          metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+          orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
+          limit: 40,
+        }
+      );
+      if (ev.ok && ev.j.rows?.length) {
+        const map = new Map(ev.j.rows.map((r) => [r.dimensionValues[0].value, Number(r.metricValues[1].value)]));
+        console.log('   💬 Khách LIÊN HỆ quán (số người):');
+        for (const [ma, nhan] of Object.entries(VIEC)) {
+          if (map.has(ma)) console.log(`      ${String(map.get(ma)).padStart(6)}  ${nhan}`);
+        }
+        const dat = map.get('conversion_event_submit_lead_form') || 0;
+        const nguoi = n(0);
+        if (nguoi > 0) {
+          console.log(`\n      → Cứ ${Math.round(nguoi / Math.max(dat, 1)).toLocaleString('vi-VN')} người vào web thì 1 người gửi form đặt bàn`);
+          console.log(`        (${((dat / nguoi) * 100).toFixed(2)}%)\n`);
+        }
+      }
+
       for (const [ten, chieu, so] of [
         ['Khách đến từ đâu', 'sessionDefaultChannelGroup', 'sessions'],
         ['Trang được xem nhiều nhất', 'pagePath', 'screenPageViews'],
