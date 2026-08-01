@@ -554,6 +554,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    /* Nền lót hoàng hôn: chữ hero màu trắng, nếu ảnh chưa về (hoặc trình duyệt
+       đời cũ không đọc nổi WebP) mà nền trắng thì không ai đọc được chữ.
+       Gradient này còn hiện ngay lúc trang vừa mở nên đỡ cảm giác trống. */
+    background: linear-gradient(160deg, #2B1B10 0%, #6B3A1F 45%, #1A1208 100%);
 }
 
 /* Hero Video Background */
@@ -4088,6 +4092,10 @@ body.sticky-bar-active .fab-contact {
     height: 100%;
     object-fit: cover;
     display: block;
+    /* Poster được hoãn tới khi cuộn tới (xem js/sticky-tiktok.js), nên trong lúc
+       chờ phải có nền — không thì hiện ô đen giữa dải video. Màu này lấy tông
+       trầm của ảnh nên lúc poster hiện ra không bị giật màu. */
+    background: var(--charcoal);
 }
 .tiktok-overlay {
     position: absolute;

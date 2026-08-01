@@ -44,6 +44,16 @@
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     var video = entry.target;
+
+                    /* Ảnh poster cũng phải hoãn: trình duyệt tải poster NGAY cả khi
+                       preload="none". Ba poster TikTok nặng 503 KB mà nằm tận 28-30%
+                       trang — tải sớm chỉ tranh băng thông với ảnh hero, đẩy LCP lên.
+                       Nên trong HTML để data-poster, tới đây mới gán thật. */
+                    if (video.dataset.poster) {
+                        video.poster = video.dataset.poster;
+                        video.removeAttribute('data-poster');
+                    }
+
                     var source = video.querySelector('source[data-src]');
                     if (source) {
                         source.src = source.dataset.src;
