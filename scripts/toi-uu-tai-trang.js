@@ -3,12 +3,22 @@
  * Hai việc nhỏ nhưng ảnh hưởng trực tiếp tới tốc độ tải và tới việc người dùng
  * có thấy bản CSS mới hay không.
  *
- * 1) PRECONNECT cho domain script bên thứ ba chạy NGAY lúc tải trang.
+ * 1) DNS-PREFETCH cho domain script bên thứ ba.
  *    Meta Pixel (connect.facebook.net), TikTok Pixel (analytics.tiktok.com) và
- *    Clarity (clarity.ms) đều tải script ngay. Thiếu preconnect thì mỗi domain
- *    phải làm lại DNS → TCP → TLS từ đầu, trên mạng di động mất cỡ 100–300ms
- *    mỗi cái. Chỉ thêm cho domain TẢI SCRIPT, không thêm cho facebook.com hay
- *    instagram.com vì chúng chỉ là link, preconnect vào đó là mở kết nối vô ích.
+ *    Clarity (clarity.ms). Chỉ thêm cho domain TẢI SCRIPT, không thêm cho
+ *    facebook.com hay instagram.com vì chúng chỉ là link.
+ *
+ *    Trước đây chỗ này dùng preconnect, và hồi đó là đúng: ba script ấy tải
+ *    ngay lúc mở trang nên bắt tay sẵn TCP + TLS giúp tiết kiệm 100–300ms mỗi
+ *    domain trên mạng di động.
+ *
+ *    Nhưng js/lazy-tracking.js đã hoãn cả ba tới khi khách chạm vào trang hoặc
+ *    sau 3 giây. Preconnect vì thế quay ra hại: nó giành băng thông và socket
+ *    ngay giây đầu — đúng lúc trình duyệt cần trọn đường truyền cho ảnh hero,
+ *    tức phần tử LCP — rồi kết nối nằm không, thường bị đóng trước khi pixel
+ *    kịp dùng. dns-prefetch giữ phần lợi thật (tra sẵn DNS) mà gần như miễn phí.
+ *
+ *    Nếu sau này bỏ hoãn pixel (gỡ data-tdc-lazy trong HTML) thì đổi ngược lại.
  *
  * 2) VÂN TAY CSS (?v=md5) cho các trang tĩnh.
  *    Trang bài blog đã có (generator lo), nhưng index/menu/blog/duong-di/dip thì
@@ -26,7 +36,7 @@ const crypto = require("crypto");
 const ROOT = path.resolve(__dirname, "..");
 const SKIP_DIRS = /^(node_modules|\.git|dist|docs|plans|dev|templates|blog)$/;
 
-// domain TẢI SCRIPT ngay lúc load → đáng preconnect
+// domain tải script bên thứ ba → đáng tra sẵn DNS
 const SCRIPT_HOSTS = [
     { host: "connect.facebook.net", when: /connect\.facebook\.net/ },
     { host: "analytics.tiktok.com", when: /analytics\.tiktok\.com/ },
@@ -58,15 +68,22 @@ for (const f of allHtml(ROOT)) {
     const before = fs.readFileSync(f, "utf8");
     let s = before;
 
-    // ── 1. preconnect
+    // ── 1. dns-prefetch (xem lý do đổi từ preconnect ở đầu file)
+    // Dọn preconnect cũ do chính script này chèn ở các lần build trước.
+    s = s.replace(
+        new RegExp('[ \\t]*<link rel="preconnect" href="https://(?:' +
+            SCRIPT_HOSTS.map((h) => h.host.replace(/\./g, "\\.")).join("|") +
+            ')"[^>]*>\\r?\\n?', "g"),
+        "");
+
     const missing = SCRIPT_HOSTS.filter((h) =>
-        h.when.test(s) && !new RegExp('rel="preconnect"[^>]*' + h.host.replace(/\./g, "\\.")).test(s));
+        h.when.test(s) && !new RegExp('rel="dns-prefetch"[^>]*' + h.host.replace(/\./g, "\\.")).test(s));
     if (missing.length) {
         const tags = missing.map((h) =>
-            '    <link rel="preconnect" href="https://' + h.host + '" crossorigin>').join("\n");
-        // chèn ngay sau preconnect đã có, hoặc trước </head>
-        if (/<link rel="preconnect"[^>]*>/.test(s)) {
-            s = s.replace(/(<link rel="preconnect"[^>]*>)(?![\s\S]*<link rel="preconnect")/,
+            '    <link rel="dns-prefetch" href="https://' + h.host + '">').join("\n");
+        // chèn ngay sau dns-prefetch đã có, hoặc trước </head>
+        if (/<link rel="dns-prefetch"[^>]*>/.test(s)) {
+            s = s.replace(/(<link rel="dns-prefetch"[^>]*>)(?![\s\S]*<link rel="dns-prefetch")/,
                 "$1\n" + tags.replace(/^\s+/, ""));
         } else {
             s = s.replace(/([ \t]*)<\/head>/, tags + "\n$1</head>");
