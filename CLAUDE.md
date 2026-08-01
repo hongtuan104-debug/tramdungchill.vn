@@ -76,6 +76,14 @@ do `scripts/generate-footer.js` sinh giữa mốc `<!-- FOOTER:START --> … <!-
 - Sửa tay từng file chính là cách cũ đã đẻ ra 5 footer lệch nhau (fix 30/07/2026)
 - ⚠️ `css/footer.css` và `css/responsive.css` KHÔNG trang nào nạp — bản chạy thật
   nằm trong `css/style.css`, đó mới là file được bundle ra `dist/style.min.css`
+- ⚠️ `css/variables.css` cũng là file chết — biến màu thật nằm trong `css/style.css`
+
+## Thẻ resource hints + vân tay CSS — cũng sinh tự động
+`scripts/toi-uu-tai-trang.js` (do `bundle-js.js` gọi) tự chèn `dns-prefetch` cho
+3 domain pixel và gắn `?v=<md5>` vào link CSS của **mọi trang tĩnh**. Sửa tay
+trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dính: đổi tay
+`preconnect` → `dns-prefetch`, build xong production có CẢ HAI.
+→ Muốn đổi thì sửa trong `scripts/toi-uu-tai-trang.js`, đừng sửa HTML.
 
 ## Bug đã fix (đừng làm lại)
 1. **Language switcher EN/VI hỏng** → Fix: đổi `const TRANSLATIONS` thành `var TRANSLATIONS`
