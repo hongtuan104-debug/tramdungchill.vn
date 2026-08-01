@@ -45,9 +45,15 @@
     /* Màu chữ dành riêng cho NỀN SÁNG (cream/linen/white).
        --smoke và --gold-dark đạt chuẩn trên nền tối nhưng trên nền kem chỉ được
        3,79:1 và 2,77:1 — dưới ngưỡng WCAG 4,5:1 cho chữ thường. Không đổi hai
-       biến gốc vì làm đậm thêm thì trên nền tối lại tụt xuống 4,07:1. */
-    --text-muted: #7D7160;     /* 4,52:1 trên --cream */
-    --gold-on-light: #8C6F23;  /* 4,51:1 trên --cream */
+       biến gốc vì làm đậm thêm thì trên nền tối lại tụt xuống 4,07:1.
+
+       Làm đậm thêm 01/08/2026: hai giá trị cũ (#7D7160 · #8C6F23) chỉ tính cho
+       --cream, mà khối đánh giá lại nằm trên --linen (#F5EDE3) tối hơn một chút
+       — ở đó chúng tụt còn 4,11 và 4,10, vẫn dưới chuẩn. PageSpeed 01/08 chỉ
+       đích danh loạt phần tử trong .reviews-section và .story-section.
+       Giá trị mới đo trên CẢ BA nền sáng, lấy nền tối nhất (linen) làm chuẩn. */
+    --text-muted: #766A5A;     /* cream 5,00 · linen 4,55 · white 5,27 */
+    --gold-on-light: #846821;  /* cream 4,99 · linen 4,54 · white 5,26 */
 
     --radius: 12px;
     --radius-lg: 20px;

@@ -82,6 +82,22 @@
     --shadow-gold: 0 4px 25px rgba(212, 168, 83, 0.3);
     --glow-gold: 0 0 40px rgba(212, 168, 83, 0.15);
 
+    /* Màu chữ dành riêng cho NỀN SÁNG (cream / linen / white).
+       --smoke và --gold-dark đạt chuẩn trên nền tối, nhưng trên nền sáng chỉ được
+       3,45-4,00:1 và 2,52-2,92:1 — dưới ngưỡng WCAG 4,5:1 cho chữ thường.
+
+       ⚠️ Hai biến này TỪNG chỉ được khai trong css/variables.css — mà file đó
+       KHÔNG trang nào nạp và bundle-js.js cũng không gộp. Nên suốt thời gian qua
+       12 chỗ dùng var(--text-muted) / var(--gold-on-light) đều bị trình duyệt bỏ
+       qua, chữ rơi về màu kế thừa (FAQ, trích dẫn blog, meta bài, breadcrumb).
+       Cùng loại bẫy mà CLAUDE.md đã ghi cho footer.css và responsive.css:
+       file không được nạp thì sửa ở đó không có tác dụng.
+       Nay khai tại đây — css/style.css là file thật sự được bundle ra dist.
+
+       Giá trị đo trên cả ba nền sáng, lấy nền tối nhất (--linen) làm chuẩn. */
+    --text-muted: #766A5A;     /* cream 5,00 · linen 4,55 · white 5,27 */
+    --gold-on-light: #846821;  /* cream 4,99 · linen 4,54 · white 5,26 */
+
     --radius: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
@@ -3564,8 +3580,12 @@ body.sticky-bar-active .fab-contact {
     color: var(--night-soft);
     margin-bottom: 10px;
 }
+/* seat.note nằm trên nền --cream: --smoke chỉ 3,79:1. Các .section-desc
+   khác vẫn giữ --smoke vì nhiều cái nằm trên nền tối. */
+.experience .section-desc { color: var(--text-muted); }
+
 .perk-card p {
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 0.92rem;
     line-height: 1.7;
     margin: 0;
@@ -3630,12 +3650,12 @@ body.sticky-bar-active .fab-contact {
     color: var(--wood);
 }
 .reviews-rating-text strong {
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
     font-weight: 700;
     font-size: 1.05rem;
 }
 .reviews-rating-text span {
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 0.85rem;
 }
 .reviews-grid {
@@ -3719,7 +3739,7 @@ body.sticky-bar-active .fab-contact {
 }
 .review-info span {
     display: block;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 0.78rem;
     margin-top: 2px;
 }
@@ -3736,10 +3756,10 @@ body.sticky-bar-active .fab-contact {
 .reviews-cta-sub {
     margin-top: 16px;
     font-size: 0.88rem;
-    color: var(--smoke);
+    color: var(--text-muted);
 }
 .reviews-cta-sub a {
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
     font-weight: 600;
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -3832,7 +3852,7 @@ body.sticky-bar-active .fab-contact {
     margin-bottom: 24px;
 }
 .story-content p {
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.85;
     margin-bottom: 18px;
@@ -3852,13 +3872,13 @@ body.sticky-bar-active .fab-contact {
     display: block;
     font-family: var(--font-display);
     font-size: 2rem;
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
     line-height: 1;
     margin-bottom: 6px;
 }
 .story-stat span {
     font-size: 0.78rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
