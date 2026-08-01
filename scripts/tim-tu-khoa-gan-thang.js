@@ -115,19 +115,38 @@ async function keoHet(ve, dimensions, tu, den) {
 
 const so = (n) => Number(n).toLocaleString('vi-VN');
 
+/**
+ * Ngưỡng chống NHIỄU. Bài học 01/08: câu "quán nướng ngon đà lạt" hiện ra ĐÚNG
+ * 2 lần trong 90 ngày (một lần hạng 2, một lần hạng 58) → máy lấy trung bình ra
+ * "hạng 2,0". Đem con số đó đi khoe là dẫn người đọc đi sai đường.
+ * ⇒ Dưới ngưỡng này thì hạng KHÔNG có ý nghĩa, phải nói thẳng ra.
+ */
+const NGUONG_NHIEU = 10;
+
 function inNhom(ten, giaiThich, ds, gioiHan = 25) {
+  const that = ds.filter((r) => r.impressions >= NGUONG_NHIEU);
+  const nhieu = ds.filter((r) => r.impressions < NGUONG_NHIEU);
+
   console.log(`\n${'═'.repeat(78)}`);
-  console.log(`  ${ten}   (${ds.length} câu)`);
+  console.log(`  ${ten}   (${that.length} câu đáng tin${nhieu.length ? ` · ${nhieu.length} câu quá ít lượt, đã tách riêng` : ''})`);
   console.log(`  ${giaiThich}`);
   console.log('═'.repeat(78));
-  if (!ds.length) return console.log('   (không có câu nào)');
-  console.log('   hiện ra   bấm vào   hạng   câu người ta gõ');
-  for (const r of ds.slice(0, gioiHan)) {
-    console.log(
-      `   ${so(r.impressions).padStart(7)}   ${so(r.clicks).padStart(7)}   ${r.position.toFixed(1).padStart(4)}   ${r.keys[0]}`
-    );
+  if (!that.length) {
+    console.log(`   (không câu nào đạt ngưỡng ${NGUONG_NHIEU} lượt hiện)`);
+  } else {
+    console.log('   hiện ra   bấm vào   hạng   câu người ta gõ');
+    for (const r of that.slice(0, gioiHan)) {
+      console.log(
+        `   ${so(r.impressions).padStart(7)}   ${so(r.clicks).padStart(7)}   ${r.position.toFixed(1).padStart(4)}   ${r.keys[0]}`
+      );
+    }
+    if (that.length > gioiHan) console.log(`   … còn ${that.length - gioiHan} câu nữa`);
   }
-  if (ds.length > gioiHan) console.log(`   … còn ${ds.length - gioiHan} câu nữa`);
+  if (nhieu.length) {
+    const vd = nhieu.sort((a, b) => a.position - b.position)[0];
+    console.log(`\n   ⚠️  ${nhieu.length} câu bị loại vì hiện ra dưới ${NGUONG_NHIEU} lần — hạng của chúng là NHIỄU, đừng tin.`);
+    console.log(`      Ví dụ: "${vd.keys[0]}" ghi hạng ${vd.position.toFixed(1)} nhưng chỉ hiện ra ${vd.impressions} lần.`);
+  }
 }
 
 (async () => {
@@ -205,6 +224,39 @@ function inNhom(ten, giaiThich, ds, gioiHan = 25) {
     hienMaKhongBam,
     15
   );
+
+  // ── TỈ LỆ BẤM: đứng hạng cao mà không ai vào thì hạng vô nghĩa ─────────
+  // Bối cảnh 01/08: trang chủ đứng hạng 1,2–1,7 cho tên quán nhưng chỉ 6% người
+  // bấm, trong khi trang thực đơn cùng thứ hạng được 30–50%. Lý do: người gõ tên
+  // quán cần địa chỉ/giờ/đánh giá — thứ đã hiện sẵn trong khối bản đồ Google,
+  // khỏi vào web. Người gõ "menu …" thì thứ họ cần CHÍNH LÀ trang mình → bấm luôn.
+  // ⇒ Muốn thêm khách từ nhóm này thì phải làm DÒNG CHỮ Google hiện ra hấp dẫn hơn,
+  //   không phải leo hạng (đã hạng 1 rồi).
+  {
+    const dang = cau.filter((r) => r.impressions >= 100 && r.position <= 5).sort((a, b) => b.impressions - a.impressions);
+    console.log(`\n${'═'.repeat(78)}`);
+    console.log('  📊 TỈ LỆ BẤM — câu đã đứng TOP 5 và hiện ra ≥100 lần');
+    console.log('  Đã ở hạng 1–5 thì leo tiếp không giúp gì. Muốn thêm khách phải sửa');
+    console.log('  TIÊU ĐỀ và DÒNG MÔ TẢ mà Google hiện ra.');
+    console.log('═'.repeat(78));
+    if (!dang.length) {
+      console.log('   (chưa câu nào đạt)');
+    } else {
+      console.log('   hiện ra   bấm vào   tỉ lệ   hạng   câu người ta gõ');
+      for (const r of dang.slice(0, 18)) {
+        const ty = ((r.clicks / r.impressions) * 100);
+        const canh = ty < 10 ? '  ⚠️' : '';
+        console.log(
+          `   ${so(r.impressions).padStart(7)}   ${so(r.clicks).padStart(7)}   ${ty.toFixed(1).padStart(5)}%   ${r.position.toFixed(1).padStart(4)}   ${r.keys[0]}${canh}`
+        );
+      }
+      const tongI = dang.reduce((a, r) => a + r.impressions, 0);
+      const tongC = dang.reduce((a, r) => a + r.clicks, 0);
+      console.log(`\n   Cộng lại: ${so(tongI)} lượt hiện → ${so(tongC)} lượt bấm (${((tongC / tongI) * 100).toFixed(1)}%)`);
+      console.log(`   ⚠️ = dưới 10%: Google có cho mình đứng đầu nhưng khách không vào.`);
+      console.log(`   Nếu nhích được lên 12% thì có thêm ~${so(Math.round(tongI * 0.12 - tongC))} người vào web.`);
+    }
+  }
 
   // ── Trang nào đang gánh ────────────────────────────────────────────────
   const trang = await keoHet(ve, ['page'], iso(tu), iso(den));
