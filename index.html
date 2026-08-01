@@ -33,10 +33,16 @@
     <meta name="theme-color" content="#D4A853">
     <meta name="google-site-verification" content="googlef9138a5a20ad2da4">
 
-    <!-- Resource hints -->
-<link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-    <link rel="preconnect" href="https://analytics.tiktok.com" crossorigin>
-    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
+    <!-- Resource hints
+         Ba tên miền pixel (Facebook / TikTok / Clarity) trước đây dùng preconnect.
+         Nhưng từ khi js/lazy-tracking.js hoãn pixel tới lúc khách chạm hoặc sau 3
+         giây, preconnect thành phản tác dụng: nó bắt tay TCP + TLS ngay giây đầu —
+         đúng lúc trình duyệt cần trọn băng thông cho ảnh hero (phần tử LCP) — rồi
+         kết nối ngồi không, có khi bị đóng trước khi pixel kịp dùng.
+         dns-prefetch giữ được phần lợi thật sự (tra sẵn DNS) mà gần như không tốn gì. -->
+<link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://analytics.tiktok.com">
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://maps.app.goo.gl">
@@ -78,7 +84,7 @@
     .lang-text{font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.5px;line-height:1}
     .nav-toggle{display:none;flex-direction:column;gap:5px;padding:10px;z-index:1001;min-width:44px;min-height:44px;align-items:center;justify-content:center}
     .nav-toggle span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s var(--ease);border-radius:2px}
-    .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#2B1B10 0%,#6B3A1F 45%,#1A1208 100%)}
     .hero-video-wrapper{position:absolute;inset:0;overflow:hidden}
     .hero-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
     .hero-slider-mobile{display:none}
@@ -523,6 +529,9 @@
     </script>
     <!-- VIDEO_JSONLD:END -->
 <script defer src="js/lazy-tracking.js"></script>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://analytics.tiktok.com" crossorigin>
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
