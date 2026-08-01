@@ -66,6 +66,19 @@ var TRANSLATIONS = {
     'perks.6.desc': 'Bàn view xe lửa, hoàng hôn, nhà lồng — tất cả đều cùng giá. Không tính thêm 1 đồng.',
     'perks.cta': 'Đặt Bàn Trải Nghiệm Ngay',
 
+    // Chọn chỗ ngồi theo view
+    'seat.tag': 'Chọn chỗ ngồi',
+    'seat.title': 'Bạn muốn ngắm view nào?<br><em>Mỗi view có một dãy bàn riêng</em>',
+    'seat.sub': 'Trạm Dừng Chill là tiệm nướng ngoài trời, bàn xếp theo dãy. Bàn trong cùng một dãy đều ngắm chung một view — không cần giành bàn đầu dãy.',
+    'seat.1.title': 'Muốn tàu chạy ngay dưới chân',
+    'seat.1.desc': 'Dãy lan can ngoài trời sát đường ray nhất, cũng là dãy khách đặt nhiều nhất — cuối tuần và mùa cao điểm kín trước 2–4 tuần. Đặt sát ngày thì lấy dãy X, cũng lan can ngoài trời và tàu vẫn rất gần. Nhóm đông thì dãy G ngay kế bên, chung một view tàu, cả nhóm ngồi liền một hàng.',
+    'seat.2.title': 'Muốn hoàng hôn và nhà lồng lên đèn',
+    'seat.2.desc': 'Dãy lan can mái che nằm phía trên, nhìn được toàn cảnh: hoàng hôn từ 15:00, rồi khoảng 18:30 cả thung lũng nhà lồng đồng loạt sáng đèn. Dãy B kế bên cùng hướng nhìn. Hai dãy này có mái, nên tối mưa hay Đà Lạt trở lạnh thì ngồi dễ chịu hơn.',
+    'seat.3.title': 'Muốn ngắm đủ ba thứ mà chỉ ngồi một chỗ',
+    'seat.3.desc': 'Khu K là dãy lan can ngoài trời mới, gom được cả hoàng hôn, nhà lồng lẫn đoàn tàu. Mấy dãy không sát đường ray thì bù lại nằm sát mấy góc chụp ảnh riêng của quán: khu check-in đoàn tàu và cối xay gió.',
+    'seat.note': 'Bàn view không phụ thu, dãy nào cũng cùng giá. Khi đặt bạn cứ ghi thẳng tên dãy muốn ngồi, nhân viên giữ chỗ nhanh hơn.',
+    'seat.cta': 'Đặt bàn và chọn dãy',
+    'seat.guide': 'Xem chi tiết từng dãy bàn và cách nhắn giữ chỗ →',
     // Story
     'story.tag': 'Câu chuyện',
     'story.title': 'Nơi mỗi bữa ăn<br><em>là một kỷ niệm</em>',
@@ -337,6 +350,19 @@ var TRANSLATIONS = {
     'perks.6.desc': 'Train view, sunset view, greenhouse view — all the same price. Not a single dong extra.',
     'perks.cta': 'Book Your Experience',
 
+    // Pick your seat by view
+    'seat.tag': 'Pick your seat',
+    'seat.title': 'Which view do you want?<br><em>Each view has its own row of tables</em>',
+    'seat.sub': 'Tram Dung Chill is an open-air grill house and the tables are arranged in rows. Every table in the same row shares the same view — no need to fight for the first table.',
+    'seat.1.title': 'You want the train right below you',
+    'seat.1.desc': 'The open-air railing row sits closest to the track and is the most requested row — on weekends and in high season it is booked out 2–4 weeks ahead. Booking late? Take row X: also open-air railing, train still very close. Big group? Row G is right next door, shares the same train view, and seats everyone in one line.',
+    'seat.2.title': 'You want the sunset and the greenhouse lights',
+    'seat.2.desc': 'The covered railing row sits higher up with the full panorama: sunset from 15:00, then around 18:30 the whole greenhouse valley lights up. Row B next to it faces the same way. Both rows are roofed, so they are the comfortable pick on a rainy or cold Da Lat evening.',
+    'seat.3.title': 'You want all three from one seat',
+    'seat.3.desc': 'Area K is our newest open-air railing row and takes in the sunset, the greenhouses and the train. Rows away from the track sit right beside our own photo corners: the train check-in spots and the windmill.',
+    'seat.note': 'No surcharge for view tables — every row costs the same. Just name the row you want when you book and our staff can hold it faster.',
+    'seat.cta': 'Book a table and pick your row',
+    'seat.guide': 'See every row in detail and how to message us →',
     // Story
     'story.tag': 'Our Story',
     'story.title': 'Where every meal<br><em>becomes a memory</em>',

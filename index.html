@@ -711,6 +711,58 @@
         </div>
     </section>
 
+    <!-- Chọn chỗ ngồi theo view — giúp khách QUYẾT, không chỉ khẳng định "view đẹp".
+         Vỏ dùng class .experience (nền kem PHẲNG) chứ KHÔNG dùng .perks-section:
+         .perks-section là gradient kem→linen, đặt ngay trên mục perks sẽ để linen
+         đụng kem — hở một đường ghép. Ruột dùng lại .perks-grid/.perk-card đã có
+         sẵn CSS, không đẻ class mới. -->
+    <section class="experience" id="chon-cho-ngoi">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="seat.tag">Chọn chỗ ngồi</span>
+                <h2 class="section-title" data-i18n="seat.title">Bạn muốn ngắm view nào?<br><em>Mỗi view có một dãy bàn riêng</em></h2>
+                <p class="perks-sub" data-i18n="seat.sub">Trạm Dừng Chill là tiệm nướng ngoài trời, bàn xếp theo dãy. Bàn trong cùng một dãy đều ngắm chung một view — không cần giành bàn đầu dãy.</p>
+            </div>
+
+            <div class="perks-grid">
+                <article class="perk-card">
+                    <div class="perk-icon">
+                        <!-- Đầu máy xe lửa — chép nguyên từ mục "Bàn view không phụ thu" ngay dưới -->
+                        <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="20" y="14" width="32" height="18" rx="2"/><path d="M8 20h12v12H8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><rect x="11" y="10" width="5" height="6"/><circle cx="14" cy="26" r="2"/><rect x="36" y="18" width="6" height="6"/><circle cx="14" cy="38" r="5"/><circle cx="28" cy="38" r="5"/><circle cx="42" cy="38" r="5"/><path d="M2 44h60"/></svg>
+                    </div>
+                    <h3 data-i18n="seat.1.title">Muốn tàu chạy ngay dưới chân</h3>
+                    <p data-i18n="seat.1.desc">Dãy lan can ngoài trời sát đường ray nhất, cũng là dãy khách đặt nhiều nhất — cuối tuần và mùa cao điểm kín trước 2–4 tuần. Đặt sát ngày thì lấy dãy X, cũng lan can ngoài trời và tàu vẫn rất gần. Nhóm đông thì dãy G ngay kế bên, chung một view tàu, cả nhóm ngồi liền một hàng.</p>
+                </article>
+
+                <article class="perk-card">
+                    <div class="perk-icon">
+                        <!-- Mặt trời lặn -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="16 5 12 9 8 5"/></svg>
+                    </div>
+                    <h3 data-i18n="seat.2.title">Muốn hoàng hôn và nhà lồng lên đèn</h3>
+                    <p data-i18n="seat.2.desc">Dãy lan can mái che nằm phía trên, nhìn được toàn cảnh: hoàng hôn từ 15:00, rồi khoảng 18:30 cả thung lũng nhà lồng đồng loạt sáng đèn. Dãy B kế bên cùng hướng nhìn. Hai dãy này có mái, nên tối mưa hay Đà Lạt trở lạnh thì ngồi dễ chịu hơn.</p>
+                </article>
+
+                <article class="perk-card">
+                    <div class="perk-icon">
+                        <!-- Con mắt -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 data-i18n="seat.3.title">Muốn ngắm đủ ba thứ mà chỉ ngồi một chỗ</h3>
+                    <p data-i18n="seat.3.desc">Khu K là dãy lan can ngoài trời mới, gom được cả hoàng hôn, nhà lồng lẫn đoàn tàu. Mấy dãy không sát đường ray thì bù lại nằm sát mấy góc chụp ảnh riêng của quán: khu check-in đoàn tàu và cối xay gió.</p>
+                </article>
+            </div>
+
+            <div class="perks-cta">
+                <p class="section-desc" style="margin-bottom:20px" data-i18n="seat.note">Bàn view không phụ thu, dãy nào cũng cùng giá. Khi đặt bạn cứ ghi thẳng tên dãy muốn ngồi, nhân viên giữ chỗ nhanh hơn.</p>
+                <a href="#booking" class="btn btn-golden">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span data-i18n="seat.cta">Đặt bàn và chọn dãy</span>
+                </a>
+                <p style="margin-top:18px"><a href="blog/tip-chon-cho-ngoi-quan-nuong.html" style="color:var(--gold-on-light);text-decoration:underline;text-underline-offset:2px;font-size:0.95rem" data-i18n="seat.guide">Xem chi tiết từng dãy bàn và cách nhắn giữ chỗ →</a></p>
+            </div>
+        </div>
+    </section>
     <!-- 6 Đặc Quyền - Unique Services -->
     <section class="perks-section" id="perks">
         <div class="container">
