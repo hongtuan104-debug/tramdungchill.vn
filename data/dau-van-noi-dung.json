@@ -1,16 +1,15 @@
 {
   "_ghiChu": "Dấu vân phần CHỮ HIỂN THỊ của từng trang trong sitemap. Máy tự ghi — đừng sửa tay. Xem scripts/cap-nhat-lastmod.js.",
-  "capNhatLuc": "2026-08-01",
+  "capNhatLuc": "2026-08-02",
   "trang": {
     "https://tramdungchill.vn/": "eec894f6a5c76484bfced24869b092f983fe0843",
-    "https://tramdungchill.vn/blog.html": "d160e9ec1ca0836aa4d231a120a5b688bb074b7f",
+    "https://tramdungchill.vn/blog.html": "42b981278a81d2d752a0afa21a0a53cd6085b72f",
     "https://tramdungchill.vn/menu.html": "113c2edd63e2762a28733fd7195f7623452d0b37",
     "https://tramdungchill.vn/dip/san-tau-da-lat.html": "aa869df96a3b6c4f0bc5b16e9753f204eabd4698",
     "https://tramdungchill.vn/dip/cau-hon-hen-ho.html": "fc000c327a0d1dcf74e63c730f27c89d3e012605",
     "https://tramdungchill.vn/dip/sinh-nhat.html": "214da5f8fa42ec3668f8cdcb995d7cb3fc7390a9",
     "https://tramdungchill.vn/dip/team-building.html": "1d035f65d6adc9b9312e03861464de695e1c80ea",
     "https://tramdungchill.vn/duong-di/": "b3d62e23dda6fcaa7658cb093d0faa2a7d976da9",
-    "https://tramdungchill.vn/blog/top-quan-nuong-da-lat.html": "ba5946b4a320538ea788f8289015c35d9bb78c6e",
     "https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html": "68ba3f44cc4cbb9e3d34cbe05959531e9abd8293",
     "https://tramdungchill.vn/blog/hen-ho-da-lat.html": "f17dfb7a3ce99c66c7c2d316c51acbff6c4d65f8",
     "https://tramdungchill.vn/blog/quan-an-gia-dinh-da-lat.html": "dc76652cbdad9187bf9bb9843c1b0dd7c85cba9e",
