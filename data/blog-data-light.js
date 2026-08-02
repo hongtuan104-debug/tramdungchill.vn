@@ -169,18 +169,6 @@ const BLOG_ARTICLES = [
     "tags": []
   },
   {
-    "id": "top-quan-nuong-da-lat",
-    "title": "Top Quán Nướng Đà Lạt View Đẹp Nhất — Hướng Dẫn Chọn Quán BBQ Theo Người Đà Lạt",
-    "category": "Ẩm thực Đà Lạt",
-    "date": "2026-03-24",
-    "image": "assets/images/blog/view-hoang-hon-2.webp",
-    "imageAlt": "Top 7 quán nướng Đà Lạt view đẹp nhất - hoàng hôn thung lũng",
-    "badge": "Nổi bật",
-    "featured": true,
-    "excerpt": "Tìm quán nướng Đà Lạt view đẹp? Trạm Dừng Chill là quán BBQ duy nhất ngắm trọn 3 view xe lửa, hoàng hôn và biển sao nhà lồng, giá từ 95.000đ, 4.8 sao Google.",
-    "tags": []
-  },
-  {
     "id": "nuong-bbq-ngam-xe-lua",
     "title": "Nướng BBQ Ngắm Xe Lửa Đà Lạt — Trải Nghiệm Chỉ Có Tại Trạm Dừng Chill",
     "category": "Trải nghiệm",

@@ -290,7 +290,15 @@ try {
         if (Object.prototype.hasOwnProperty.call(noindexMap, a.id)) {
             a._indexable = false;
             var target = noindexMap[a.id];
-            a._canonical = target ? (SITE_URL + "/blog/" + target + ".html") : (SITE_URL + "/blog/" + a.id + ".html");
+            // Đích "/" = TRANG CHỦ. Thêm 02/08/2026: đo được 20 bài đang dồn tín
+            // hiệu vào /blog/top-quan-nuong-da-lat.html — trang đó đứng hạng 30–58
+            // cho đúng mấy câu mà TRANG CHỦ đứng hạng 13–23. Dồn về một trang yếu
+            // hơn là phí. Trước đây bản đồ này chỉ trỏ được sang bài blog khác.
+            a._canonical = !target
+                ? (SITE_URL + "/blog/" + a.id + ".html")
+                : target === "/"
+                    ? SITE_URL + "/"
+                    : SITE_URL + "/blog/" + target + ".html";
         } else {
             a._indexable = true;
             a._canonical = SITE_URL + "/blog/" + a.id + ".html";
