@@ -83,7 +83,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-01",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "quan-nuong-da-lat-view-nha-long": {
@@ -124,7 +124,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {
@@ -165,7 +165,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-31",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -206,7 +206,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-31",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -247,7 +247,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -370,7 +370,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -541,7 +541,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-08-04",
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {
@@ -695,7 +695,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-07-30",
+      "dateModified": "2026-08-04",
       "lang": "vi",
       "category": "Mẹo & Kinh nghiệm",
       "image": "assets/images/blog/view-xe-lua-20.webp",
