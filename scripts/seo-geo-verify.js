@@ -469,10 +469,42 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             }
         }
     }
+    // Bản dịch cũng phải sạch. Mục này trước chỉ soi HTML nên bỏ lọt data/translations.js:
+    // applyTranslations() ghi đè innerHTML của mọi [data-i18n] NGAY CẢ khi đang ở tiếng
+    // Việt, nên FAQ index.html đã dọn ngày 30/07/2026 vẫn bị chuỗi cũ đè ngược lại lúc
+    // JS chạy — khách thật vẫn đọc "tôm sú, sò điệp, lẩu Thái, riêu cua" suốt 5 ngày.
+    // Dọn 04/08/2026. HTML tĩnh sạch mà bản dịch bẩn thì trang vẫn bẩn.
+    const CAM_EN = ["tiger prawn", "scallop", "salmon", "thai seafood", "sea bass"];
+    const dichBan = [];
+    {
+        const tFile = path.join(ROOT, "data", "translations.js");
+        if (fs.existsSync(tFile)) {
+            const sb = {};
+            try {
+                require("vm").runInNewContext(fs.readFileSync(tFile, "utf8"), sb);
+                const T = sb.TRANSLATIONS || {};
+                for (const lang of Object.keys(T)) {
+                    for (const key of Object.keys(T[lang])) {
+                        const low = String(T[lang][key]).toLowerCase();
+                        for (const mon of CAM.concat(CAM_EN)) {
+                            if (low.includes(mon)) {
+                                dichBan.push("translations.js [" + lang + "] " + key + ': "' + mon + '"');
+                                break;
+                            }
+                        }
+                    }
+                }
+            } catch (e) {
+                dichBan.push("translations.js: doc loi — " + e.message);
+            }
+        }
+    }
+
+    const tatCa = bad.concat(dichBan);
     add("Không gán cho quán món không có trong menu",
-        bad.length === 0,
-        bad.length ? bad.slice(0, 3).join(" | ")
-                   : files.length + " trang · không chỗ nào gán món lạ cho quán");
+        tatCa.length === 0,
+        tatCa.length ? tatCa.slice(0, 3).join(" | ")
+                     : files.length + " trang + bản dịch vi/en · không chỗ nào gán món lạ cho quán");
 }
 
 // ── R8f. Meta description không được khai giá món lẻ như "giá quán" ──────
