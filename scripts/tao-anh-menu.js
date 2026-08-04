@@ -132,24 +132,36 @@ async function main() {
         const img = sharp(srcPath, { limitInputPixels: false });
         const info = await img.metadata();
 
-        meta[page.slug] = { w: info.width, h: info.height, n: page.n };
+        // Chỉ xuất cỡ NHỎ HƠN ảnh gốc. Trước đây script kẹp về info.width nên ảnh
+        // gốc 1055px vẫn đẻ ra file tên "-1600.webp" rộng đúng 1055px: srcset khai
+        // 1600w trong khi file chỉ 1055px, trình duyệt tính sai độ phân giải và
+        // repo gánh thêm 5,9 MB bản trùng. Cỡ nào không có thật thì không khai.
+        const useSizes = sizes.filter(function (w) { return w < info.width; });
+        // Thêm bản đúng cỡ gốc CHỈ KHI cỡ lớn nhất còn kém gốc trên 10%. Ảnh gốc
+        // 1055px mà giữ cả bản 1000px lẫn 1055px là hai file gần y hệt nhau —
+        // trình duyệt không bao giờ thấy khác biệt, repo gánh thêm 5 MB.
+        if (!useSizes.length || useSizes[useSizes.length - 1] < info.width * 0.9) {
+            useSizes.push(info.width);
+        }
 
-        const targets = sizes.concat([thumb]);
+        meta[page.slug] = { w: info.width, h: info.height, n: page.n, sizes: useSizes };
+
+        const targets = useSizes.concat([thumb]);
         for (const w of targets) {
             const outPath = path.join(OUT_DIR, page.slug + "-" + w + ".webp");
-            // Không phóng to quá ảnh gốc — chỉ tốn dung lượng, không thêm chi tiết
-            const targetW = Math.min(w, info.width);
             await sharp(srcPath, { limitInputPixels: false })
-                .resize({ width: targetW, withoutEnlargement: true })
+                .resize({ width: w, withoutEnlargement: true })
                 .webp({ quality: w === thumb ? 62 : QUALITY, effort: 5 })
                 .toFile(outPath);
             written++;
         }
 
-        const kb = (fs.statSync(path.join(OUT_DIR, page.slug + "-1000.webp")).size / 1024).toFixed(0);
+        const biggest = useSizes[useSizes.length - 1];
+        const kb = (fs.statSync(path.join(OUT_DIR, page.slug + "-" + biggest + ".webp")).size / 1024).toFixed(0);
         console.log(
             "  " + String(page.n).padStart(2, "0") + "  " + item.file +
-            "  →  " + page.slug + "-*.webp  (" + info.width + "×" + info.height + ", bản 1000w " + kb + " KB)"
+            "  →  " + page.slug + "-*.webp  (" + info.width + "×" + info.height +
+            ", cỡ " + useSizes.join("/") + ", bản lớn nhất " + kb + " KB)"
         );
     }
 

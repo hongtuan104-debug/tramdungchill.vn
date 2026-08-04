@@ -534,8 +534,8 @@ var MenuFlipbook = (function () {
                 thumb.alt = '';
                 thumb.width = 200;
                 thumb.height = Math.round(200 * (img && img.height ? img.height / img.width : 1.42));
-                /* Bản 200w dành riêng cho mục lục — dùng lại ảnh 1000w ở đây là tải thừa 26 lần */
-                thumb.src = (img ? img.getAttribute('src') : '').replace(/-1000\.webp$/, '-200.webp');
+                /* Bản 200w dành riêng cho mục lục — dùng lại ảnh cỡ lớn ở đây là tải thừa 26 lần */
+                thumb.src = (img ? img.getAttribute('src') : '').replace(/-\d+\.webp$/, '-200.webp');
                 btn.appendChild(thumb);
 
                 var cap = el('span', 'flipbook-thumb-cap');

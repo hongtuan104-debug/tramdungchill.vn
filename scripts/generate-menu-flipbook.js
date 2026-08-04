@@ -66,7 +66,11 @@ function buildFlipbookHtml(data, meta) {
 
     data.MENU_PAGES.forEach(function (p) {
         const m = meta[p.slug] || { w: 1058, h: 1500 };
-        const srcset = sizes.map(function (w) {
+        // Cỡ thật do tao-anh-menu.js ghi lại; khai cỡ không có file là trình duyệt
+        // tải 404 hoặc tính sai độ phân giải cần dùng.
+        const mySizes = m.sizes && m.sizes.length ? m.sizes : sizes;
+        const biggest = mySizes[mySizes.length - 1];
+        const srcset = mySizes.map(function (w) {
             return dir + "/" + p.slug + "-" + w + ".webp " + w + "w";
         }).join(", ");
         const eager = p.n === 1;
@@ -74,7 +78,7 @@ function buildFlipbookHtml(data, meta) {
 
         out.push('                <figure class="flip-page" data-page="' + p.n + '" data-group="' + esc(p.group) + '"' +
             (g ? ' data-group-label="' + esc(g.label) + '" data-group-i18n="' + esc(g.i18n) + '"' : '') + '>');
-        out.push('                    <img src="' + dir + "/" + p.slug + '-1000.webp"');
+        out.push('                    <img src="' + dir + "/" + p.slug + "-" + biggest + '.webp"');
         out.push('                         srcset="' + srcset + '"');
         out.push('                         sizes="(min-width: 900px) 46vw, 92vw"');
         out.push('                         width="' + m.w + '" height="' + m.h + '"');
