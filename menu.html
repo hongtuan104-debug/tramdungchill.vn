@@ -1429,13 +1429,14 @@
 </section>
     <!-- MENU_FLIPBOOK:END -->
 
-    <!-- Menu Content (rendered by menu-page-renderer.js) -->
-    <!-- Danh sách món tĩnh (noscript) cho AI crawler / không-JS — SINH TỰ ĐỘNG bởi scripts/generate-menu.js, KHÔNG sửa tay -->
-    <section class="menu-content"><div class="container">
-        <div class="section-header">
-            <span class="section-tag" data-i18n="flip.priceTag">Bảng giá</span>
-            <h2 class="section-title" data-i18n="flip.priceTitle">Giá từng món<br><em>tra nhanh, không cần lật</em></h2>
-        </div>
+    <!-- Bảng giá text hiển thị đã BỎ ngày 04/08/2026 theo yêu cầu sếp Tuấn: khách
+         xem giá ngay trong quyển menu ảnh phía trên, để thêm bảng nữa là đọc hai lần.
+         Danh sách dưới đây nằm trong <noscript> nên khách có JS KHÔNG nhìn thấy —
+         nó chỉ để GPTBot/ClaudeBot/PerplexityBot (không chạy JS) đọc được tên món và
+         giá, thứ mà 26 tấm ảnh menu không cho máy đọc. Bỏ nốt khối này là AI mất sạch
+         dữ liệu giá, chỉ còn JSON-LD.
+         SINH TỰ ĐỘNG bởi scripts/generate-menu.js — KHÔNG sửa tay phần giữa marker. -->
+    <div class="menu-static-only">
         <!-- MENU_STATIC:START -->
 <noscript>
 <div class="menu-static-fallback">
@@ -1561,8 +1562,7 @@
 </div>
 </noscript>
         <!-- MENU_STATIC:END -->
-        <div class="menu-page-content"></div>
-    </div></section>
+    </div>
 
     <!-- FAQ: text đọc được, khớp 1:1 với FAQPage schema (sinh bởi scripts/sync-faq-schema.js) -->
     <section class="faq-section" id="faq">

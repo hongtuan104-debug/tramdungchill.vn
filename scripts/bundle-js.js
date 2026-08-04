@@ -7,7 +7,7 @@
  *   dist/common.min.js  — shared modules (layout-loader, utils, schema-generator, navbar, i18n, scroll-ui, app)
  *   dist/index.min.js   — index page specific (hero, menu-renderer, gallery, booking)
  *   dist/blog.min.js    — blog page specific (blog-renderer)
- *   dist/menu.min.js    — menu page specific (menu-page-renderer)
+ *   dist/menu.min.js    — menu page specific (menu-flipbook)
  */
 
 "use strict";
@@ -44,7 +44,6 @@ const BLOG_FILES = [
 ];
 
 const MENU_FILES = [
-    "js/menu-page-renderer.js",
     "js/menu-flipbook.js"
 ];
 
