@@ -80,9 +80,12 @@ do `scripts/generate-footer.js` sinh giữa mốc `<!-- FOOTER:START --> … <!-
 - ⚠️ `css/variables.css` cũng là file chết — biến màu thật nằm trong `css/style.css`
 
 ## Menu ảnh dạng sách lật (flipbook) — cũng sinh tự động
-Trang menu có **hai lớp**: quyển menu ảnh 26 trang lật được (trên) + bảng giá text (dưới).
-Bảng giá text phải giữ — ảnh thì Google/AI không đọc được giá, bỏ nó là mất
-keyword "giá quán nướng đà lạt".
+Trang menu: hero → **quyển menu ảnh 26 trang lật được** → FAQ → khối đặt bàn.
+Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu cũ bỏ đi").
+- Giá cho máy đọc giờ nằm ở 2 chỗ: **JSON-LD Menu** (81 món, sinh từ menu-data.js)
+  và khối **`<noscript>` MENU_STATIC** — khối này khách có JS KHÔNG thấy, nó chỉ để
+  GPTBot/ClaudeBot/PerplexityBot đọc được giá vì chúng không chạy JS và không đọc
+  được chữ trong ảnh. **Đừng xoá nó vì "trang không hiển thị"** — đó là chủ đích.
 - **Nguồn tên file + alt + thứ tự trang:** `data/menu-pages.js`
 - **Đổi/thêm ảnh:** copy ảnh gốc vào `assets/menu-pages/_goc/` (đặt tên `1.jpg`…`26.jpg`,
   số quyết định thứ tự trang), rồi:
@@ -104,6 +107,12 @@ trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dí
 → Muốn đổi thì sửa trong `scripts/toi-uu-tai-trang.js`, đừng sửa HTML.
 
 ## Bug đã fix (đừng làm lại)
+0. **Sửa chữ trong HTML mà quên `data/translations.js`** → chữ cũ hiện lại khi JS chạy.
+   `applyTranslations()` ghi đè `innerHTML` của MỌI phần tử `[data-i18n]`, **kể cả khi
+   đang ở tiếng Việt**. Nên HTML tĩnh sạch mà bản dịch bẩn thì khách vẫn đọc bản bẩn —
+   FAQ index.html dọn 30/07/2026 vẫn khai "tôm sú, sò điệp, lẩu Thái" tới 04/08/2026.
+   → Sửa chữ có `data-i18n` thì **luôn sửa cả 2 ngôn ngữ trong translations.js**.
+   `seo-geo-verify.js` nay soi cả file này.
 1. **Language switcher EN/VI hỏng** → Fix: đổi `const TRANSLATIONS` thành `var TRANSLATIONS`
 2. **`scripts/generate-blog-pages.js`:** `const BLOG_ARTICLES` không expose vào vm sandbox → append `;this.BLOG_ARTICLES = BLOG_ARTICLES;` sau dataSource trước khi `runInNewContext`
 3. **Telegram không nhận thông báo** → Token đúng: `AAGO55X` (chữ **O**, KHÔNG phải số 0)
