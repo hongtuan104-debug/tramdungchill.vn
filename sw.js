@@ -4,7 +4,8 @@
 // Đổi tên cache mỗi khi JS/CSS dùng chung thay đổi kiểu "phải có bản mới mới
 // đúng". JS/CSS chạy cache-first, giữ nguyên tên là máy khách cũ còn dùng bản
 // cũ thêm nhiều lượt ghé. v2: footer dùng chung cho mọi trang (30/07/2026).
-const CACHE_NAME = 'tdc-v2';
+// v3: menu ảnh lật trang — đổi common.min.js, menu.min.js và style.min.css (04/08/2026).
+const CACHE_NAME = 'tdc-v3';
 const STATIC_ASSETS = [
     '/',
     '/index.html',

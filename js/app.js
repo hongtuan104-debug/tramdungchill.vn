@@ -47,5 +47,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (typeof renderBlog === 'function') renderBlog();
     } else if (page === 'menu') {
         if (typeof renderMenuPage === 'function') renderMenuPage();
+        if (typeof initMenuFlipbook === 'function') initMenuFlipbook();
     }
 });

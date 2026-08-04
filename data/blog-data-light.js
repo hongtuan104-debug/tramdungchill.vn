@@ -213,7 +213,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Ăn nướng Đà Lạt bao nhiêu tiền - bảng giá menu BBQ chi tiết",
     "badge": "",
     "featured": false,
-    "excerpt": "Ăn nướng Đà Lạt thường 95.000đ–300.000đ/người. Tại Trạm Dừng Chill có bảng giá ~73 món minh bạch, view xe lửa + hoàng hôn, giá đã gồm VAT.",
+    "excerpt": "Ăn nướng Đà Lạt thường 95.000đ–300.000đ/người. Tại Trạm Dừng Chill có bảng giá ~81 món minh bạch, view xe lửa + hoàng hôn, giá đã gồm VAT.",
     "tags": []
   }
 ];

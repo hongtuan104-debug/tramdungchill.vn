@@ -5001,3 +5001,483 @@ body.sticky-bar-active .fab-contact {
     .fab-main::after,
     .sticky-book-btn::after { animation: none; opacity: 0; }
 }
+
+/* ============================================
+   MENU FLIPBOOK — quyển menu lật từng trang
+   ============================================
+   Ba trạng thái của khối này:
+   1. Không JS (hoặc JS chưa chạy): .flipbook không có .is-ready
+      → 26 trang xếp thành lưới, cuộn xem bình thường. Đây là bản Google/AI đọc.
+   2. Có JS: .is-ready → hai trang mở ra như quyển sách thật.
+   3. Toàn màn hình: .is-fullscreen → sách chiếm hết màn hình.
+
+   Ảnh trang KHÔNG được tải hết cùng lúc: ở chế độ sách, .flipbook-pages bị
+   display:none nên các ảnh loading="lazy" nằm trong đó không tải — chỉ trang
+   đang mở (đã chuyển sang slot) và trang kề (preload bằng JS) mới tải.
+   Bỏ display:none là 26 ảnh tải một lượt, khoảng 5 MB cho một lần vào trang. */
+
+.menu-flipbook-section {
+    background: linear-gradient(180deg, var(--night) 0%, var(--night-soft) 55%, var(--night) 100%);
+    padding: 90px 0 70px;
+    color: var(--cream);
+    position: relative;
+}
+
+.menu-flipbook-section .section-tag { color: var(--gold); }
+.menu-flipbook-section .section-title { color: var(--cream); }
+.menu-flipbook-section .section-title em { color: var(--gold); }
+
+.menu-flipbook-hint {
+    max-width: 620px;
+    margin: 14px auto 0;
+    text-align: center;
+    color: var(--smoke);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* Chế độ lưới (không JS) */
+.flipbook-pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 36px;
+}
+
+.flip-page {
+    margin: 0;
+    background: var(--charcoal);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.flip-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.flip-page-caption {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+    color: var(--smoke);
+    text-align: center;
+}
+
+/* Chế độ sách */
+.flipbook.is-ready .flipbook-pages { display: none; }
+.flipbook.is-ready { outline: none; margin-top: 34px; }
+.flipbook.is-ready:focus-visible { outline: 2px solid var(--gold); outline-offset: 14px; border-radius: var(--radius); }
+
+.flipbook-viewport {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0 clamp(0px, 4vw, 62px);
+}
+
+.flipbook-stage {
+    position: relative;
+    perspective: 2600px;
+    perspective-origin: center 45%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.flipbook-book {
+    position: relative;
+    display: flex;
+    width: min(100%, 1040px, calc(72vh * 1.412));
+    aspect-ratio: 1.412;
+    filter: drop-shadow(0 22px 45px rgba(0, 0, 0, 0.55));
+}
+
+.flipbook-book.is-single {
+    width: min(100%, 470px, calc(72vh * 0.706));
+    aspect-ratio: 0.706;
+}
+
+.flipbook-book.is-single .flipbook-slot--left { display: none; }
+
+/* Gáy sách: vệt tối ở giữa hai trang, đúng chỗ giấy gập xuống */
+.flipbook-book::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 34px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 42%, rgba(0,0,0,0.62) 50%, rgba(0,0,0,0.5) 58%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.flipbook-book.is-single::after { display: none; }
+
+.flipbook-slot {
+    position: relative;
+    flex: 1 1 50%;
+    height: 100%;
+    background: #14100c;
+    overflow: hidden;
+}
+
+.flipbook-slot--left { border-radius: var(--radius) 0 0 var(--radius); }
+.flipbook-slot--right { border-radius: 0 var(--radius) var(--radius) 0; }
+.flipbook-book.is-single .flipbook-slot--right { border-radius: var(--radius); }
+
+/* Slot trống = mặt bàn bên cạnh quyển sách đang mở bìa, không phải lỗi thiếu ảnh */
+.flipbook-slot.is-empty {
+    background:
+        linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 35%),
+        repeating-linear-gradient(94deg, #241d16 0px, #1b1610 3px, #241d16 7px);
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.7);
+}
+
+.flipbook.is-ready .flipbook-slot .flip-page {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.flipbook.is-ready .flipbook-slot .flip-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Dồn nội dung về phía gáy để hai trang liền mạch như quyển in */
+.flipbook.is-ready .flipbook-slot--left .flip-page img { object-position: right center; }
+.flipbook.is-ready .flipbook-slot--right .flip-page img { object-position: left center; }
+.flipbook.is-ready .flipbook-book.is-single .flip-page img { object-position: center; }
+
+.flipbook.is-ready .flip-page-caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.flipbook.is-ready .flipbook-slot:not(.is-empty) { cursor: zoom-in; }
+
+/* Tờ giấy đang lật */
+.flipbook-leaf {
+    position: absolute;
+    transform-style: preserve-3d;
+    will-change: transform;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.flipbook-leaf-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    background: #14100c;
+}
+
+.flipbook-leaf-face.is-blank {
+    background:
+        linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%),
+        repeating-linear-gradient(94deg, #241d16 0px, #1b1610 3px, #241d16 7px);
+}
+
+.flipbook-leaf-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.flipbook-leaf-back { transform: rotateY(180deg); }
+
+.flipbook-leaf.is-forward .flipbook-leaf-front img { object-position: left center; }
+.flipbook-leaf.is-forward .flipbook-leaf-back img { object-position: right center; }
+.flipbook-leaf.is-backward .flipbook-leaf-front img { object-position: right center; }
+.flipbook-leaf.is-backward .flipbook-leaf-back img { object-position: left center; }
+.flipbook-leaf.is-single .flipbook-leaf-face img { object-position: center; }
+
+/* Bóng chạy trên mặt giấy khi tờ cong lên — JS chỉnh opacity theo tiến trình lật */
+.flipbook-leaf-shade {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flipbook-leaf.is-forward .flipbook-leaf-front .flipbook-leaf-shade,
+.flipbook-leaf.is-backward .flipbook-leaf-back .flipbook-leaf-shade {
+    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 45%, rgba(255,255,255,0.06) 100%);
+}
+
+.flipbook-leaf.is-forward .flipbook-leaf-back .flipbook-leaf-shade,
+.flipbook-leaf.is-backward .flipbook-leaf-front .flipbook-leaf-shade {
+    background: linear-gradient(270deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 45%, rgba(255,255,255,0.06) 100%);
+}
+
+/* Nút lật hai bên */
+.flipbook-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(20, 16, 12, 0.82);
+    border: 1px solid rgba(212, 168, 83, 0.45);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .25s var(--ease), transform .25s var(--ease), opacity .25s var(--ease);
+    z-index: 6;
+    backdrop-filter: blur(6px);
+}
+
+.flipbook-arrow svg { width: 22px; height: 22px; }
+.flipbook-arrow--prev { left: 0; }
+.flipbook-arrow--next { right: 0; }
+
+.flipbook-arrow:hover:not(:disabled) {
+    background: var(--gold);
+    color: var(--night);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.flipbook-arrow:disabled { opacity: 0.25; cursor: default; }
+.flipbook-arrow:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+/* Thanh công cụ */
+.flipbook-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    max-width: 1040px;
+    margin: 22px auto 0;
+    padding: 10px 14px;
+    background: rgba(26, 22, 18, 0.85);
+    border: 1px solid rgba(212, 168, 83, 0.22);
+    border-radius: var(--radius-full);
+}
+
+.flipbook-bar-right { display: flex; align-items: center; gap: 8px; }
+
+.flipbook-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    background: transparent;
+    border: 1px solid rgba(212, 168, 83, 0.35);
+    color: var(--gold);
+    font-size: 0.88rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background .22s var(--ease), color .22s var(--ease);
+}
+
+.flipbook-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+.flipbook-btn--icon { padding: 8px; }
+.flipbook-btn:hover { background: rgba(212, 168, 83, 0.16); }
+.flipbook-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+.flipbook-btn[aria-pressed="false"] { color: var(--smoke); border-color: rgba(139, 125, 107, 0.4); }
+
+.flipbook-counter {
+    color: var(--cream);
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.flipbook-live {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+/* Bảng mục lục */
+.flipbook-index {
+    max-width: 1040px;
+    margin: 16px auto 0;
+    padding: 18px;
+    background: rgba(26, 22, 18, 0.92);
+    border: 1px solid rgba(212, 168, 83, 0.22);
+    border-radius: var(--radius-lg);
+}
+
+.flipbook-index[hidden] { display: none; }
+
+.flipbook-index-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.flipbook-index-title { color: var(--cream); font-size: 0.95rem; }
+
+.flipbook-index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    gap: 12px;
+    max-height: 46vh;
+    overflow-y: auto;
+}
+
+.flipbook-thumb {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+    background: rgba(15, 13, 10, 0.6);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color .2s var(--ease), transform .2s var(--ease);
+}
+
+.flipbook-thumb img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+.flipbook-thumb-cap {
+    font-size: 0.72rem;
+    color: var(--smoke);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.flipbook-thumb:hover { border-color: rgba(212, 168, 83, 0.5); transform: translateY(-2px); }
+.flipbook-thumb.is-active { border-color: var(--gold); }
+.flipbook-thumb.is-active .flipbook-thumb-cap { color: var(--gold); }
+.flipbook-thumb:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
+/* Phóng to đọc chữ */
+.flipbook-zoom {
+    position: fixed;
+    inset: 0;
+    z-index: 3500;
+    background: rgba(8, 7, 5, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flipbook-zoom[hidden] { display: none; }
+
+.flipbook-zoom-inner {
+    max-width: 96vw;
+    max-height: 88vh;
+    overflow: auto;
+    cursor: zoom-in;
+    -webkit-overflow-scrolling: touch;
+}
+
+.flipbook-zoom-inner.is-zoomed { cursor: zoom-out; }
+
+.flipbook-zoom-img {
+    display: block;
+    max-width: 96vw;
+    max-height: 88vh;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+}
+
+.flipbook-zoom-inner.is-zoomed .flipbook-zoom-img {
+    max-width: none;
+    max-height: none;
+    width: 200%;
+}
+
+.flipbook-zoom-close,
+.flipbook-zoom-nav {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(26, 22, 18, 0.9);
+    border: 1px solid rgba(212, 168, 83, 0.4);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.flipbook-zoom-close svg,
+.flipbook-zoom-nav svg { width: 22px; height: 22px; }
+.flipbook-zoom-close { top: 18px; right: 18px; }
+.flipbook-zoom-nav--prev { left: 14px; top: 50%; transform: translateY(-50%); }
+.flipbook-zoom-nav--next { right: 14px; top: 50%; transform: translateY(-50%); }
+.flipbook-zoom-nav:disabled { opacity: 0.25; cursor: default; }
+.flipbook-zoom-close:hover,
+.flipbook-zoom-nav:hover:not(:disabled) { background: var(--gold); color: var(--night); }
+
+.flipbook-zoom-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--smoke);
+    font-size: 0.85rem;
+}
+
+/* Toàn màn hình */
+.flipbook.is-fullscreen {
+    background: var(--night);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flipbook.is-fullscreen .flipbook-book { width: min(100%, calc(84vh * 1.412)); }
+.flipbook.is-fullscreen .flipbook-book.is-single { width: min(100%, calc(84vh * 0.706)); }
+.flipbook.is-fullscreen .flipbook-index { max-height: 40vh; overflow-y: auto; }
+
+/* Màn hình nhỏ */
+@media (max-width: 899px) {
+    .menu-flipbook-section { padding: 60px 0 50px; }
+    .flipbook-viewport { padding: 0 6px; }
+    .flipbook-arrow { width: 42px; height: 42px; }
+    .flipbook-bar { border-radius: var(--radius-lg); justify-content: center; }
+    .flipbook-counter { order: -1; width: 100%; text-align: center; }
+    .flipbook-index-grid { grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+    .flipbook-pages { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .flipbook-book.is-single { width: min(100%, calc(66vh * 0.706)); }
+}
+
+/* Người bật "giảm chuyển động": bỏ hẳn animation lật, chuyển trang tức thì.
+   Tiếng lật vẫn giữ — đó là lựa chọn riêng ở nút loa, không liên quan tiền đình. */
+@media (prefers-reduced-motion: reduce) {
+    .flipbook-leaf { display: none; }
+    .flipbook-arrow,
+    .flipbook-btn,
+    .flipbook-thumb { transition: none; }
+}

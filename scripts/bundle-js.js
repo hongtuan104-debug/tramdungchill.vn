@@ -44,7 +44,8 @@ const BLOG_FILES = [
 ];
 
 const MENU_FILES = [
-    "js/menu-page-renderer.js"
+    "js/menu-page-renderer.js",
+    "js/menu-flipbook.js"
 ];
 
 // ── Simple minifier (no npm deps) ───────────────────────────
@@ -224,6 +225,16 @@ try {
     require("./generate-menu").generateMenu();
 } catch (e) {
     console.error("  Menu generation failed (khong chan build): " + e.message);
+}
+
+// ── Chen quyen menu anh (26 trang) vao menu.html ────────────────
+// Chay SAU generate-menu de khong bi ghi de lan nhau (hai script sua cung file,
+// moi script chi dong vao vung marker cua minh).
+console.log("\nChen quyen menu anh (flipbook)...");
+try {
+    require("./generate-menu-flipbook").generateMenuFlipbook();
+} catch (e) {
+    console.error("  Flipbook generation failed (khong chan build): " + e.message);
 }
 
 console.log("\nAll done!");

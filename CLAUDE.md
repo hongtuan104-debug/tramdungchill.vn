@@ -23,7 +23,8 @@
 - **USP chính:** Hoàng hôn 15h, nhà lồng đèn 18h30, bò tảng phô mai trứng muối
 - **Giá:** 95k - 300k/người (đã VAT). GBP hiển thị bucket "100-300N đ" — đây là
   khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
-- **Menu:** 73 món trong `data/menu-data.js` (36 món ăn + 37 đồ uống) → viết "hơn 70 món".
+- **Menu:** 81 món trong `data/menu-data.js` (44 món ăn + 37 đồ uống) → viết "hơn 70 món".
+  Đồng bộ theo menu in 26 trang ngày 04/08/2026 — sếp Tuấn xác nhận **bản in là chuẩn**.
   Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
 - **Đánh giá:** 4,8/5 sao · **6.889 lượt** (GBP, xác nhận 30/07/2026 — PR #14)
 - ⚠️ **Nguồn chuẩn cho mọi con số:** `data/facts.json`. Đừng chép số từ bài cũ —
@@ -77,6 +78,23 @@ do `scripts/generate-footer.js` sinh giữa mốc `<!-- FOOTER:START --> … <!-
 - ⚠️ `css/footer.css` và `css/responsive.css` KHÔNG trang nào nạp — bản chạy thật
   nằm trong `css/style.css`, đó mới là file được bundle ra `dist/style.min.css`
 - ⚠️ `css/variables.css` cũng là file chết — biến màu thật nằm trong `css/style.css`
+
+## Menu ảnh dạng sách lật (flipbook) — cũng sinh tự động
+Trang menu có **hai lớp**: quyển menu ảnh 26 trang lật được (trên) + bảng giá text (dưới).
+Bảng giá text phải giữ — ảnh thì Google/AI không đọc được giá, bỏ nó là mất
+keyword "giá quán nướng đà lạt".
+- **Nguồn tên file + alt + thứ tự trang:** `data/menu-pages.js`
+- **Đổi/thêm ảnh:** copy ảnh gốc vào `assets/menu-pages/_goc/` (đặt tên `1.jpg`…`26.jpg`,
+  số quyết định thứ tự trang), rồi:
+  `node scripts/tao-anh-menu.js` → `node scripts/bundle-js.js`
+- Ảnh gốc **không commit** (đã gitignore) — chỉ bản WebP 560/1000/1600 + thumb 200 lên web
+- HTML nằm giữa `<!-- MENU_FLIPBOOK:START --> … <!-- MENU_FLIPBOOK:END -->` trong menu.html,
+  do `scripts/generate-menu-flipbook.js` ghi đè. **Sửa tay là mất ở lần build sau.**
+- Chưa đủ 26 ảnh thì generator để trống vùng marker — cố tình, tránh 26 lỗi 404
+- Tiếng lật trang tổng hợp bằng Web Audio API trong `js/menu-flipbook.js` (0 KB tải thêm),
+  khách bật/tắt ở nút loa, lưu trong localStorage `tdc-menu-sound`
+- ⚠️ Đổi `css/style.css` hay JS dùng chung → nhớ bump `CACHE_NAME` trong `sw.js`,
+  không thì khách cũ vẫn chạy bản cache cũ
 
 ## Thẻ resource hints + vân tay CSS — cũng sinh tự động
 `scripts/toi-uu-tai-trang.js` (do `bundle-js.js` gọi) tự chèn `dns-prefetch` cho

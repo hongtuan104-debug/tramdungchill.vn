@@ -1,0 +1,770 @@
+/* ============================================
+   MENU FLIPBOOK — sách lật 26 trang menu ảnh
+   ============================================
+   Nâng cấp khối HTML tĩnh (do scripts/generate-menu-flipbook.js sinh) thành
+   quyển menu lật được, có tiếng giấy lật.
+
+   NGUYÊN TẮC: đây là lớp NÂNG CẤP, không phải điều kiện để menu tồn tại.
+   Không JS hoặc JS lỗi thì 26 thẻ img vẫn nằm nguyên trong HTML, khách cuộn xem
+   dạng lưới — chỉ mất hiệu ứng lật.
+
+   ÂM THANH: tổng hợp bằng Web Audio API, không tải file mp3 nào.
+   Nhiễu trắng qua bộ lọc băng thông quét tần số = tiếng giấy sột soạt; thêm một
+   cú chạm trầm ở cuối = lúc trang đập xuống. Đổi ngẫu nhiên nhẹ mỗi lần lật để
+   không nghe như tiếng máy lặp lại.
+   AudioContext chỉ được tạo SAU cú chạm đầu tiên của khách — trình duyệt chặn
+   âm thanh tự phát, tạo sớm thì context nằm ở trạng thái suspended vĩnh viễn.
+*/
+
+var MenuFlipbook = (function () {
+    'use strict';
+
+    var SOUND_KEY = 'tdc-menu-sound';
+    var DOUBLE_MIN_WIDTH = 900;
+
+    /* ---------- Tiếng lật trang (tổng hợp) ---------- */
+
+    function createFlipSound() {
+        var ctx = null;
+        var noise = null;
+        var failed = false;
+
+        function ensureCtx() {
+            if (failed) return null;
+            if (!ctx) {
+                var AC = window.AudioContext || window.webkitAudioContext;
+                if (!AC) { failed = true; return null; }
+                try {
+                    ctx = new AC();
+                } catch (e) {
+                    failed = true;
+                    return null;
+                }
+            }
+            if (ctx.state === 'suspended' && ctx.resume) ctx.resume();
+            return ctx;
+        }
+
+        function ensureNoise(c) {
+            if (noise) return noise;
+            var len = Math.floor(c.sampleRate * 0.6);
+            noise = c.createBuffer(1, len, c.sampleRate);
+            var data = noise.getChannelData(0);
+            for (var i = 0; i < len; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+            return noise;
+        }
+
+        function play(strength) {
+            var c = ensureCtx();
+            if (!c) return;
+
+            var t0 = c.currentTime;
+            var vol = typeof strength === 'number' ? strength : 1;
+            var rand = function (a, b) { return a + Math.random() * (b - a); };
+
+            var master = c.createGain();
+            master.gain.value = 0.55 * vol;
+            master.connect(c.destination);
+
+            /* Lớp 1: tiếng giấy trượt — nhiễu qua băng thông quét lên rồi xuống */
+            var src = c.createBufferSource();
+            src.buffer = ensureNoise(c);
+            src.playbackRate.value = rand(0.9, 1.15);
+
+            var band = c.createBiquadFilter();
+            band.type = 'bandpass';
+            band.Q.value = rand(0.7, 1.1);
+            var fStart = rand(700, 950);
+            var fPeak = rand(2600, 3400);
+            var fEnd = rand(900, 1300);
+            band.frequency.setValueAtTime(fStart, t0);
+            band.frequency.exponentialRampToValueAtTime(fPeak, t0 + 0.14);
+            band.frequency.exponentialRampToValueAtTime(fEnd, t0 + 0.34);
+
+            var hp = c.createBiquadFilter();
+            hp.type = 'highpass';
+            hp.frequency.value = 380;
+
+            var g = c.createGain();
+            var dur = rand(0.3, 0.4);
+            g.gain.setValueAtTime(0.0001, t0);
+            g.gain.exponentialRampToValueAtTime(0.32, t0 + 0.025);
+            g.gain.exponentialRampToValueAtTime(0.1, t0 + 0.16);
+            g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+
+            src.connect(band);
+            band.connect(hp);
+            hp.connect(g);
+            g.connect(master);
+            src.start(t0);
+            src.stop(t0 + dur + 0.05);
+
+            /* Lớp 2: cú chạm khi trang đập xuống — nhiễu ngắn lọc thấp */
+            var tap = c.createBufferSource();
+            tap.buffer = noise;
+            tap.playbackRate.value = rand(0.6, 0.9);
+
+            var lp = c.createBiquadFilter();
+            lp.type = 'lowpass';
+            lp.frequency.value = rand(900, 1500);
+
+            var tg = c.createGain();
+            var tapAt = t0 + dur * 0.72;
+            tg.gain.setValueAtTime(0.0001, tapAt);
+            tg.gain.exponentialRampToValueAtTime(0.22, tapAt + 0.012);
+            tg.gain.exponentialRampToValueAtTime(0.0001, tapAt + 0.11);
+
+            tap.connect(lp);
+            lp.connect(tg);
+            tg.connect(master);
+            tap.start(tapAt);
+            tap.stop(tapAt + 0.16);
+        }
+
+        return { play: play };
+    }
+
+    /* ---------- Tiện ích ---------- */
+
+    function el(tag, cls, html) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (html) e.innerHTML = html;
+        return e;
+    }
+
+    function icon(path) {
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + path + '</svg>';
+    }
+
+    var ICONS = {
+        prev: '<polyline points="15 18 9 12 15 6"/>',
+        next: '<polyline points="9 18 15 12 9 6"/>',
+        grid: '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
+        zoom: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>',
+        sound: '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>',
+        mute: '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/>',
+        expand: '<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>',
+        shrink: '<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/>',
+        close: '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
+    };
+
+    function t(key, fallback) {
+        var lang = document.documentElement.lang === 'en' ? 'en' : 'vi';
+        if (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
+            return TRANSLATIONS[lang][key];
+        }
+        return fallback;
+    }
+
+    /* Lấy ứng viên lớn nhất trong srcset để phóng to đọc chữ */
+    function largestSrc(img) {
+        var set = img.getAttribute('srcset');
+        if (!set) return img.currentSrc || img.src;
+        var best = null;
+        set.split(',').forEach(function (part) {
+            var bits = part.trim().split(/\s+/);
+            if (!bits[0]) return;
+            var w = parseInt(bits[1] || '0', 10);
+            if (!best || w > best.w) best = { url: bits[0], w: w };
+        });
+        return best ? best.url : (img.currentSrc || img.src);
+    }
+
+    /* ---------- Khởi tạo ---------- */
+
+    function init() {
+        var root = document.getElementById('menuFlipbook');
+        if (!root) return;
+
+        var pagesWrap = root.querySelector('.flipbook-pages');
+        var figures = Array.prototype.slice.call(root.querySelectorAll('.flip-page'));
+        if (!pagesWrap || figures.length < 2) return;
+
+        var total = figures.length;
+        var sound = createFlipSound();
+        var soundOn = localStorage.getItem(SOUND_KEY) !== 'off';
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        var spreads = [];
+        var index = 0;
+        var isDouble = false;
+        var flipping = null;
+
+        /* --- Dựng khung điều khiển --- */
+        var viewport = el('div', 'flipbook-viewport');
+        var stage = el('div', 'flipbook-stage');
+        var book = el('div', 'flipbook-book');
+        var slotLeft = el('div', 'flipbook-slot flipbook-slot--left');
+        var slotRight = el('div', 'flipbook-slot flipbook-slot--right');
+        book.appendChild(slotLeft);
+        book.appendChild(slotRight);
+        stage.appendChild(book);
+        viewport.appendChild(stage);
+
+        var btnPrev = el('button', 'flipbook-arrow flipbook-arrow--prev', icon(ICONS.prev));
+        var btnNext = el('button', 'flipbook-arrow flipbook-arrow--next', icon(ICONS.next));
+        btnPrev.type = 'button';
+        btnNext.type = 'button';
+        viewport.appendChild(btnPrev);
+        viewport.appendChild(btnNext);
+
+        var bar = el('div', 'flipbook-bar');
+        var btnIndex = el('button', 'flipbook-btn', icon(ICONS.grid) + '<span class="flipbook-btn-text"></span>');
+        var counter = el('span', 'flipbook-counter');
+        var btnZoom = el('button', 'flipbook-btn flipbook-btn--icon', icon(ICONS.zoom));
+        var btnSound = el('button', 'flipbook-btn flipbook-btn--icon', icon(soundOn ? ICONS.sound : ICONS.mute));
+        var btnFull = el('button', 'flipbook-btn flipbook-btn--icon', icon(ICONS.expand));
+        [btnIndex, btnZoom, btnSound, btnFull].forEach(function (b) { b.type = 'button'; });
+        bar.appendChild(btnIndex);
+        bar.appendChild(counter);
+        var barRight = el('div', 'flipbook-bar-right');
+        barRight.appendChild(btnZoom);
+        barRight.appendChild(btnSound);
+        barRight.appendChild(btnFull);
+        bar.appendChild(barRight);
+
+        var indexPanel = el('div', 'flipbook-index');
+        indexPanel.hidden = true;
+
+        var live = el('p', 'flipbook-live');
+        live.setAttribute('aria-live', 'polite');
+        live.setAttribute('role', 'status');
+
+        root.insertBefore(viewport, pagesWrap);
+        root.insertBefore(bar, pagesWrap);
+        root.insertBefore(indexPanel, pagesWrap);
+        root.appendChild(live);
+
+        root.setAttribute('role', 'region');
+        root.setAttribute('tabindex', '0');
+        root.classList.add('is-ready');
+
+        /* --- Nhãn (dịch được) --- */
+        function applyLabels() {
+            btnPrev.setAttribute('aria-label', t('flip.prev', 'Trang trước'));
+            btnPrev.title = t('flip.prev', 'Trang trước');
+            btnNext.setAttribute('aria-label', t('flip.next', 'Trang sau'));
+            btnNext.title = t('flip.next', 'Trang sau');
+            btnIndex.querySelector('.flipbook-btn-text').textContent = t('flip.index', 'Mục lục');
+            btnIndex.setAttribute('aria-label', t('flip.index', 'Mục lục'));
+            btnZoom.setAttribute('aria-label', t('flip.zoom', 'Phóng to trang'));
+            btnZoom.title = t('flip.zoom', 'Phóng to trang');
+            btnFull.setAttribute('aria-label', t('flip.full', 'Toàn màn hình'));
+            btnFull.title = t('flip.full', 'Toàn màn hình');
+            root.setAttribute('aria-label', t('flip.aria', 'Menu ảnh dạng sách lật') + ', ' + total + ' ' + t('flip.pagesWord', 'trang'));
+            var idxTitle = indexPanel.querySelector('.flipbook-index-title');
+            if (idxTitle) idxTitle.textContent = t('flip.indexTitle', 'Mục lục — bấm để nhảy tới trang');
+            refreshIndexLabels();
+            updateSoundLabel();
+            updateCounter();
+        }
+
+        function updateSoundLabel() {
+            var label = soundOn ? t('flip.soundOff', 'Tắt tiếng lật trang') : t('flip.soundOn', 'Bật tiếng lật trang');
+            btnSound.setAttribute('aria-label', label);
+            btnSound.title = label;
+            btnSound.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+            btnSound.innerHTML = icon(soundOn ? ICONS.sound : ICONS.mute);
+        }
+
+        /* --- Chia trang thành từng mặt sách --- */
+        function buildSpreads(double) {
+            var list = [];
+            var i;
+            if (!double) {
+                for (i = 1; i <= total; i++) list.push({ left: null, right: i });
+                return list;
+            }
+            /* Bìa đứng một mình bên phải như quyển sách đóng, rồi mở ra từng cặp */
+            list.push({ left: null, right: 1 });
+            i = 2;
+            while (i + 1 <= total) {
+                list.push({ left: i, right: i + 1 });
+                i += 2;
+            }
+            if (i <= total) list.push({ left: i, right: null });
+            return list;
+        }
+
+        function spreadOfPage(n) {
+            for (var i = 0; i < spreads.length; i++) {
+                if (spreads[i].left === n || spreads[i].right === n) return i;
+            }
+            return 0;
+        }
+
+        function figureOf(n) {
+            return n ? figures[n - 1] : null;
+        }
+
+        function setSlot(slot, n) {
+            var fig = figureOf(n);
+            if (!fig) {
+                slot.classList.add('is-empty');
+                slot.removeAttribute('data-page');
+                return;
+            }
+            slot.classList.remove('is-empty');
+            slot.setAttribute('data-page', String(n));
+            if (fig.parentNode !== slot) slot.appendChild(fig);
+        }
+
+        function stash(n) {
+            var fig = figureOf(n);
+            if (fig && fig.parentNode !== pagesWrap) pagesWrap.appendChild(fig);
+        }
+
+        function renderFrame(left, right) {
+            /* Trả các trang không dùng về kho ẩn, nếu không chúng nằm lại trong slot cũ */
+            figures.forEach(function (fig, i) {
+                var n = i + 1;
+                if (n !== left && n !== right) stash(n);
+            });
+            setSlot(slotLeft, left);
+            setSlot(slotRight, right);
+            book.classList.toggle('is-single', !isDouble);
+        }
+
+        function render() {
+            var sp = spreads[index];
+            renderFrame(sp.left, sp.right);
+            updateCounter();
+            btnPrev.disabled = index === 0;
+            btnNext.disabled = index === spreads.length - 1;
+            preload(index + 1);
+            preload(index - 1);
+            markIndexActive();
+        }
+
+        function updateCounter() {
+            var sp = spreads[index];
+            var label = sp.left && sp.right
+                ? sp.left + '–' + sp.right
+                : String(sp.left || sp.right);
+            counter.textContent = t('flip.page', 'Trang') + ' ' + label + ' / ' + total;
+            live.textContent = counter.textContent;
+        }
+
+        function preload(i) {
+            if (i < 0 || i >= spreads.length) return;
+            [spreads[i].left, spreads[i].right].forEach(function (n) {
+                var fig = figureOf(n);
+                if (!fig) return;
+                var img = fig.querySelector('img');
+                if (!img || img.dataset.preloaded) return;
+                img.dataset.preloaded = '1';
+                var pre = new Image();
+                if (img.getAttribute('sizes')) pre.sizes = img.getAttribute('sizes');
+                if (img.getAttribute('srcset')) pre.srcset = img.getAttribute('srcset');
+                pre.src = img.getAttribute('src');
+            });
+        }
+
+        /* --- Lật --- */
+
+        function flipDuration() {
+            if (reduceMotion) return 0;
+            return isDouble ? 640 : 520;
+        }
+
+        function buildLeafFace(n, cls) {
+            var face = el('div', 'flipbook-leaf-face ' + cls);
+            var fig = figureOf(n);
+            if (fig) {
+                var img = fig.querySelector('img');
+                if (img) {
+                    var clone = img.cloneNode(false);
+                    clone.removeAttribute('loading');
+                    clone.removeAttribute('fetchpriority');
+                    clone.setAttribute('alt', '');
+                    clone.setAttribute('aria-hidden', 'true');
+                    face.appendChild(clone);
+                }
+            } else {
+                face.classList.add('is-blank');
+            }
+            face.appendChild(el('span', 'flipbook-leaf-shade'));
+            return face;
+        }
+
+        function finishFlip() {
+            if (!flipping) return;
+            var f = flipping;
+            flipping = null;
+            if (f.anim) {
+                try { f.anim.cancel(); } catch (e) { /* trình duyệt cũ */ }
+            }
+            if (f.leaf && f.leaf.parentNode) f.leaf.parentNode.removeChild(f.leaf);
+            root.classList.remove('is-flipping');
+            index = f.target;
+            render();
+        }
+
+        function go(target, dir) {
+            if (target < 0 || target >= spreads.length || target === index) return;
+            if (flipping) finishFlip();
+
+            if (soundOn) sound.play(isDouble ? 1 : 0.85);
+
+            var cur = spreads[index];
+            var nxt = spreads[target];
+            var dur = flipDuration();
+
+            if (!dur) {
+                index = target;
+                render();
+                return;
+            }
+
+            var forward = dir > 0;
+            var frontPage, backPage, origin, fromDeg, toDeg, slot;
+
+            if (isDouble) {
+                /* Sách mở: tờ giấy quay quanh gáy ở giữa. Mặt trước là trang đang
+                   bị lật đi, mặt sau là trang lộ ra ở nửa bên kia sau 180°. */
+                frontPage = forward ? cur.right : cur.left;
+                backPage = forward ? nxt.left : nxt.right;
+                renderFrame(forward ? cur.left : nxt.left, forward ? nxt.right : cur.right);
+                slot = forward ? slotRight : slotLeft;
+                origin = forward ? 'left center' : 'right center';
+                fromDeg = 0;
+                toDeg = forward ? -180 : 180;
+            } else {
+                /* Một trang: gáy nằm ở cạnh trái màn hình.
+                   Lật tới — trang hiện tại bay đi, để lộ trang sau nằm dưới.
+                   Lật lui — trang TRƯỚC bay ngược vào, phủ lên trang hiện tại;
+                   nên tờ giấy xuất phát từ -180° chứ không phải 0°, nếu không
+                   khách sẽ thấy một tờ trắng lật ra rồi trang mới hiện ra sau. */
+                frontPage = forward ? cur.right : nxt.right;
+                backPage = null;
+                renderFrame(null, forward ? nxt.right : cur.right);
+                slot = slotRight;
+                origin = 'left center';
+                fromDeg = forward ? 0 : -180;
+                toDeg = forward ? -180 : 0;
+            }
+
+            var box = slot.getBoundingClientRect();
+            var stageBox = stage.getBoundingClientRect();
+
+            var leaf = el('div', 'flipbook-leaf ' + (forward ? 'is-forward' : 'is-backward') + (isDouble ? '' : ' is-single'));
+            leaf.style.left = (box.left - stageBox.left) + 'px';
+            leaf.style.top = (box.top - stageBox.top) + 'px';
+            leaf.style.width = box.width + 'px';
+            leaf.style.height = box.height + 'px';
+            leaf.style.transformOrigin = origin;
+            leaf.appendChild(buildLeafFace(frontPage, 'flipbook-leaf-front'));
+            leaf.appendChild(buildLeafFace(backPage, 'flipbook-leaf-back'));
+            stage.appendChild(leaf);
+
+            root.classList.add('is-flipping');
+
+            var from = 'rotateY(' + fromDeg + 'deg)';
+            var to = 'rotateY(' + toDeg + 'deg)';
+            var anim = null;
+            leaf.style.transform = from;
+
+            if (leaf.animate) {
+                anim = leaf.animate(
+                    [
+                        { transform: from },
+                        { transform: 'rotateY(' + ((fromDeg + toDeg) / 2) + 'deg)', offset: 0.5 },
+                        { transform: to }
+                    ],
+                    { duration: dur, easing: 'cubic-bezier(.42,0,.28,1)', fill: 'forwards' }
+                );
+                anim.onfinish = finishFlip;
+                anim.oncancel = function () { /* finishFlip đã dọn */ };
+
+                /* Bóng đậm dần khi tờ giấy dựng đứng rồi nhạt đi — tách riêng khỏi
+                   animation xoay để chỉ chạm opacity, thứ GPU ghép được, không bắt
+                   trình duyệt tính lại bố cục giữa lúc lật. */
+                var shades = leaf.querySelectorAll('.flipbook-leaf-shade');
+                for (var si = 0; si < shades.length; si++) {
+                    shades[si].animate(
+                        [{ opacity: 0 }, { opacity: 0.85, offset: 0.5 }, { opacity: 0 }],
+                        { duration: dur, easing: 'ease-in-out' }
+                    );
+                }
+            } else {
+                leaf.style.transition = 'transform ' + dur + 'ms cubic-bezier(.42,0,.28,1)';
+                requestAnimationFrame(function () { leaf.style.transform = to; });
+                setTimeout(finishFlip, dur + 20);
+            }
+
+            flipping = { leaf: leaf, anim: anim, target: target };
+        }
+
+        function next() { go(index + 1, 1); }
+        function prev() { go(index - 1, -1); }
+
+        function goToPage(n) {
+            var target = spreadOfPage(n);
+            if (target === index) return;
+            go(target, target > index ? 1 : -1);
+        }
+
+        /* --- Mục lục --- */
+
+        function buildIndexPanel() {
+            indexPanel.innerHTML = '';
+            var head = el('div', 'flipbook-index-head');
+            head.appendChild(el('span', 'flipbook-index-title', t('flip.indexTitle', 'Mục lục — bấm để nhảy tới trang')));
+            var closeIdx = el('button', 'flipbook-btn flipbook-btn--icon', icon(ICONS.close));
+            closeIdx.type = 'button';
+            closeIdx.setAttribute('aria-label', t('flip.close', 'Đóng'));
+            closeIdx.addEventListener('click', toggleIndex);
+            head.appendChild(closeIdx);
+            indexPanel.appendChild(head);
+
+            var grid = el('div', 'flipbook-index-grid');
+            figures.forEach(function (fig, i) {
+                var n = i + 1;
+                var img = fig.querySelector('img');
+                var btn = el('button', 'flipbook-thumb');
+                btn.type = 'button';
+                btn.dataset.page = String(n);
+
+                var thumb = new Image();
+                thumb.loading = 'lazy';
+                thumb.decoding = 'async';
+                thumb.alt = '';
+                thumb.width = 200;
+                thumb.height = Math.round(200 * (img && img.height ? img.height / img.width : 1.42));
+                /* Bản 200w dành riêng cho mục lục — dùng lại ảnh 1000w ở đây là tải thừa 26 lần */
+                thumb.src = (img ? img.getAttribute('src') : '').replace(/-1000\.webp$/, '-200.webp');
+                btn.appendChild(thumb);
+
+                var cap = el('span', 'flipbook-thumb-cap');
+                btn.dataset.groupLabel = fig.getAttribute('data-group-label') || '';
+                btn.dataset.groupI18n = fig.getAttribute('data-group-i18n') || '';
+                btn.appendChild(cap);
+                btn.addEventListener('click', function () {
+                    goToPage(n);
+                    toggleIndex(false);
+                });
+                grid.appendChild(btn);
+            });
+            indexPanel.appendChild(grid);
+            refreshIndexLabels();
+        }
+
+        /* Nhãn nhóm đổi theo ngôn ngữ mà không dựng lại 26 ảnh nhỏ */
+        function refreshIndexLabels() {
+            var thumbs = indexPanel.querySelectorAll('.flipbook-thumb');
+            for (var i = 0; i < thumbs.length; i++) {
+                var btn = thumbs[i];
+                var n = btn.dataset.page;
+                var group = btn.dataset.groupI18n
+                    ? t(btn.dataset.groupI18n, btn.dataset.groupLabel)
+                    : btn.dataset.groupLabel;
+                var cap = btn.querySelector('.flipbook-thumb-cap');
+                if (cap) cap.textContent = group ? n + '. ' + group : String(n);
+                btn.setAttribute('aria-label', t('flip.page', 'Trang') + ' ' + n + (group ? ' — ' + group : ''));
+            }
+        }
+
+        function markIndexActive() {
+            var sp = spreads[index];
+            var thumbs = indexPanel.querySelectorAll('.flipbook-thumb');
+            for (var i = 0; i < thumbs.length; i++) {
+                var n = parseInt(thumbs[i].dataset.page, 10);
+                var on = n === sp.left || n === sp.right;
+                thumbs[i].classList.toggle('is-active', on);
+                thumbs[i].setAttribute('aria-current', on ? 'true' : 'false');
+            }
+        }
+
+        function toggleIndex(force) {
+            var show = typeof force === 'boolean' ? force : indexPanel.hidden;
+            indexPanel.hidden = !show;
+            btnIndex.setAttribute('aria-expanded', show ? 'true' : 'false');
+            if (show) {
+                markIndexActive();
+                indexPanel.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+            }
+        }
+
+        /* --- Phóng to --- */
+
+        var zoom = el('div', 'flipbook-zoom');
+        zoom.hidden = true;
+        var zoomInner = el('div', 'flipbook-zoom-inner');
+        var zoomImg = new Image();
+        zoomImg.className = 'flipbook-zoom-img';
+        zoomImg.decoding = 'async';
+        var zoomClose = el('button', 'flipbook-zoom-close', icon(ICONS.close));
+        zoomClose.type = 'button';
+        var zoomPrev = el('button', 'flipbook-zoom-nav flipbook-zoom-nav--prev', icon(ICONS.prev));
+        var zoomNext = el('button', 'flipbook-zoom-nav flipbook-zoom-nav--next', icon(ICONS.next));
+        zoomPrev.type = 'button';
+        zoomNext.type = 'button';
+        zoomInner.appendChild(zoomImg);
+        zoom.appendChild(zoomInner);
+        zoom.appendChild(zoomClose);
+        zoom.appendChild(zoomPrev);
+        zoom.appendChild(zoomNext);
+        var zoomCaption = el('p', 'flipbook-zoom-caption');
+        zoom.appendChild(zoomCaption);
+        document.body.appendChild(zoom);
+
+        var zoomPage = 1;
+
+        function openZoom(n) {
+            zoomPage = n || spreads[index].right || spreads[index].left;
+            showZoom();
+            zoom.hidden = false;
+            document.body.style.overflow = 'hidden';
+            zoomClose.focus();
+        }
+
+        function showZoom() {
+            var fig = figureOf(zoomPage);
+            if (!fig) return;
+            var img = fig.querySelector('img');
+            zoomImg.src = largestSrc(img);
+            zoomImg.alt = img.getAttribute('alt') || '';
+            zoomInner.classList.remove('is-zoomed');
+            zoomInner.scrollTop = 0;
+            zoomInner.scrollLeft = 0;
+            zoomCaption.textContent = t('flip.page', 'Trang') + ' ' + zoomPage + ' / ' + total + ' — ' + t('flip.zoomHint', 'bấm vào ảnh để phóng to thêm');
+            zoomPrev.disabled = zoomPage <= 1;
+            zoomNext.disabled = zoomPage >= total;
+        }
+
+        function closeZoom() {
+            zoom.hidden = true;
+            document.body.style.overflow = '';
+            goToPage(zoomPage);
+            root.focus();
+        }
+
+        zoomClose.addEventListener('click', closeZoom);
+        zoom.addEventListener('click', function (e) { if (e.target === zoom) closeZoom(); });
+        zoomInner.addEventListener('click', function () { zoomInner.classList.toggle('is-zoomed'); });
+        zoomPrev.addEventListener('click', function () {
+            if (zoomPage > 1) { zoomPage--; if (soundOn) sound.play(0.7); showZoom(); }
+        });
+        zoomNext.addEventListener('click', function () {
+            if (zoomPage < total) { zoomPage++; if (soundOn) sound.play(0.7); showZoom(); }
+        });
+
+        /* --- Sự kiện --- */
+
+        btnPrev.addEventListener('click', prev);
+        btnNext.addEventListener('click', next);
+        btnIndex.addEventListener('click', function () { toggleIndex(); });
+        btnZoom.addEventListener('click', function () { openZoom(); });
+
+        btnSound.addEventListener('click', function () {
+            soundOn = !soundOn;
+            localStorage.setItem(SOUND_KEY, soundOn ? 'on' : 'off');
+            updateSoundLabel();
+            if (soundOn) sound.play(0.8);
+        });
+
+        btnFull.addEventListener('click', function () {
+            if (document.fullscreenElement) {
+                if (document.exitFullscreen) document.exitFullscreen();
+            } else if (root.requestFullscreen) {
+                root.requestFullscreen().catch(function () { /* trình duyệt từ chối */ });
+            }
+        });
+
+        document.addEventListener('fullscreenchange', function () {
+            var on = document.fullscreenElement === root;
+            root.classList.toggle('is-fullscreen', on);
+            btnFull.innerHTML = icon(on ? ICONS.shrink : ICONS.expand);
+        });
+
+        /* Bấm vào trang: nửa ngoài để lật, giữa trang để phóng to */
+        book.addEventListener('click', function (e) {
+            var slot = e.target.closest ? e.target.closest('.flipbook-slot') : null;
+            if (!slot || slot.classList.contains('is-empty')) return;
+            var page = parseInt(slot.getAttribute('data-page'), 10);
+            var box = slot.getBoundingClientRect();
+            var x = (e.clientX - box.left) / box.width;
+            var isLeft = slot === slotLeft;
+            /* Mép ngoài 28% = lật, phần còn lại = xem to */
+            if (isLeft && x < 0.28) { prev(); return; }
+            if (!isLeft && x > 0.72) { next(); return; }
+            openZoom(page);
+        });
+
+        root.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+            else if (e.key === 'Home') { e.preventDefault(); go(0, -1); }
+            else if (e.key === 'End') { e.preventDefault(); go(spreads.length - 1, 1); }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (!zoom.hidden) {
+                if (e.key === 'Escape') closeZoom();
+                else if (e.key === 'ArrowRight') zoomNext.click();
+                else if (e.key === 'ArrowLeft') zoomPrev.click();
+                return;
+            }
+            if (e.key === 'Escape' && !indexPanel.hidden) toggleIndex(false);
+        });
+
+        /* Vuốt ngang trên điện thoại */
+        var touchX = 0;
+        var touchY = 0;
+        var swiping = false;
+        viewport.addEventListener('touchstart', function (e) {
+            touchX = e.changedTouches[0].clientX;
+            touchY = e.changedTouches[0].clientY;
+            swiping = true;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', function (e) {
+            if (!swiping) return;
+            swiping = false;
+            var dx = e.changedTouches[0].clientX - touchX;
+            var dy = e.changedTouches[0].clientY - touchY;
+            /* Chỉ tính là vuốt ngang khi rõ ràng hơn cuộn dọc, tránh cướp thao tác cuộn trang */
+            if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.6) {
+                if (dx < 0) next(); else prev();
+            }
+        }, { passive: true });
+
+        /* Đổi bố cục khi xoay máy hoặc kéo cửa sổ */
+        function syncLayout() {
+            var wantDouble = window.innerWidth >= DOUBLE_MIN_WIDTH;
+            if (wantDouble === isDouble && spreads.length) return;
+            /* Kết thúc cú lật đang dở TRƯỚC khi đổi cách chia trang — finishFlip
+               nhớ chỉ số của bảng spread cũ, đổi bảng trước là nhảy sai trang. */
+            if (flipping) finishFlip();
+            var currentPage = spreads.length ? (spreads[index].right || spreads[index].left) : 1;
+            isDouble = wantDouble;
+            spreads = buildSpreads(isDouble);
+            index = spreadOfPage(currentPage);
+            render();
+        }
+
+        var resizeTimer = null;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(syncLayout, 150);
+        });
+
+        /* Đổi ngôn ngữ EN/VI: cập nhật lại nhãn nút */
+        var langBtn = document.getElementById('langToggle');
+        if (langBtn) langBtn.addEventListener('click', function () { setTimeout(applyLabels, 260); });
+
+        /* --- Chạy --- */
+        buildIndexPanel();
+        syncLayout();
+        applyLabels();
+    }
+
+    return { init: init };
+})();
+
+function initMenuFlipbook() {
+    MenuFlipbook.init();
+}

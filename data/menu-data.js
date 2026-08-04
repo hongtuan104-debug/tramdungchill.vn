@@ -30,26 +30,31 @@ const MENU_CATEGORIES = [
 
 const MENU_ITEMS = {
     bestseller: [
-        { name: 'Ba Chỉ Bò Cuộn Kim Châm', price: '137K', badge: 'Best Seller' },
+        { name: 'Ba Chỉ Bò Cuộn Nấm Kim Châm', price: '137K', badge: 'Best Seller' },
         { name: 'Ba Chỉ Bò Nướng Muối Tiêu', price: '155K' },
-        { name: 'Bò Tảng Nướng Phô Mai Trứng Muối', price: '210K', badge: 'Best Seller' },
+        { name: 'Bò Kobe Nướng Tảng Phô Mai Trứng Muối', price: '209K', badge: 'Best Seller' },
+        { name: 'Bò Okachi Nướng Tảng Phô Mai Trứng Muối', price: '229K' },
+        { name: 'Vếu Heo Ướp Sate', price: '145K' },
+        { name: 'Vếu Heo Ướp Chao', price: '145K' },
         { name: 'Ốc Nhồi Thịt', price: '165K' },
         { name: 'Cá Tầm Lúc Lắc', price: '165K' },
-        { name: 'Cá Tầm Rang Muối', price: '200K' },
-        { name: 'Sườn Cay Thái Lan', price: '260K', badge: 'Hot' },
-        { name: 'Tôm Chiên Trứng Muối', price: '160K' },
+        { name: 'Cá Tầm Rang Muối', price: '199K' },
+        { name: 'Sườn Cay Thái Lan', price: '259K', badge: 'Hot' },
+        { name: 'Tôm Chiên Trứng Muối', price: '158K' },
     ],
 
     nuong: [
-        { name: 'Ba Chỉ Heo Hàn Quốc', price: '170K' },
+        { name: 'Bò Nướng Cục', price: '159K' },
+        { name: 'Bò Nướng Xiêng', price: '162K' },
+        { name: 'Ba Chỉ Heo Hàn Quốc', price: '169K' },
         { name: 'Ba Chỉ Heo Nướng Ngũ Vị', price: '132K' },
-        { name: 'Sườn Que Nướng', price: '155K' },
-        { name: 'Chân Gà Nướng Muối Ớt', price: '105K' },
+        { name: 'Sườn Que Nướng', price: '154K' },
+        { name: 'Chân Gà Nướng Muối Ớt', price: '104K' },
         { name: 'Cánh Gà Nướng Muối Ớt', price: '130K' },
         { name: 'Ếch Nướng Muối Ớt', price: '145K' },
         { name: 'Tôm Nướng Muối Ớt', price: '150K' },
         { name: 'Mực Ướp Sate', price: '160K' },
-        { name: 'Bạch Tuột Nướng', price: '155K' },
+        { name: 'Bạch Tuộc Nướng', price: '155K' },
         { name: 'Cá Tầm Nướng', price: '162K' },
     ],
 
@@ -77,10 +82,13 @@ const MENU_ITEMS = {
     ],
 
     laurai: [
-        { name: 'Xúc Xích Đức Nướng', price: '20K' },
+        { name: 'Đậu Hũ Non Chiên Chà Bông', price: '145K' },
+        { name: 'Xúc Xích Đức Nướng', price: '30K' },
+        { name: 'Bò Lúc Lắc', price: '160K' },
+        { name: 'Sụn Gà Chiên Mắm', price: '145K' },
+        { name: 'Vú Heo Cháy Tỏi', price: '155K' },
         { name: 'Ếch Chiên Nước Mắm', price: '155K' },
         { name: 'Cánh Gà Chiên Nước Mắm', price: '145K' },
-        { name: 'Bò Lúc Lắc', price: '160K' },
     ],
 
     tralanh: [
@@ -128,8 +136,8 @@ const MENU_ITEMS = {
     ruou: [
         { name: 'Rượu Mơ Hương Đào (18%)', price: '160K' },
         { name: 'Rượu Mơ 300ml (29%)', price: '110K' },
-        { name: 'Rượu Mơ 350ml (18%)', price: '130K' },
-        { name: 'Rượu Mơ 500ml (18%)', price: '170K' },
+        { name: 'Rượu Mơ 350ml (12%)', price: '130K' },
+        { name: 'Rượu Mơ 500ml (12%)', price: '170K' },
         { name: 'Soju Mix Vị 360ml', price: '110K' },
         { name: 'Rượu Vang Classic 750ml', price: '190K' },
         { name: 'Rượu Vang Export 750ml', price: '210K' },
