@@ -83,7 +83,7 @@ const MENU_ITEMS = {
 
     laurai: [
         { name: 'Đậu Hũ Non Chiên Chà Bông', price: '145K' },
-        { name: 'Xúc Xích Đức Nướng', price: '30K' },
+        { name: 'Xúc Xích Đức Nướng', price: '20K' },
         { name: 'Bò Lúc Lắc', price: '160K' },
         { name: 'Sụn Gà Chiên Mắm', price: '145K' },
         { name: 'Vú Heo Cháy Tỏi', price: '155K' },
