@@ -45,7 +45,10 @@ var MENU_PAGES = [
         n: 1,
         group: 'bia-sach',
         slug: 'menu-quan-nuong-da-lat-01-bia-tram-dung-chill',
-        alt: 'Bìa menu Tiệm Nướng Trạm Dừng Chill — quán nướng Đà Lạt view hoàng hôn và tàu cổ, 111-113 Huỳnh Tấn Phát, mở cửa 15h-23h'
+        // Không nêu số nhà ở alt trang bìa: ảnh bìa còn in "111-113" trong khi cả site
+        // và Google Business Profile dùng "111". Nhắc lại số lệch trong alt là tự gửi
+        // cho Google hai địa chỉ khác nhau của cùng một quán.
+        alt: 'Bìa menu Tiệm Nướng Trạm Dừng Chill — quán nướng Đà Lạt view hoàng hôn và tàu cổ, đường Huỳnh Tấn Phát, Xuân Trường, mở cửa 15h-23h'
     },
     {
         n: 2,
@@ -195,7 +198,7 @@ var MENU_PAGES = [
         n: 26,
         group: 'lien-he',
         slug: 'menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google',
-        alt: 'Trang cuối menu Trạm Dừng Chill: địa chỉ 111-113 Huỳnh Tấn Phát, Xuân Trường - Đà Lạt, hotline 0989 765 070, giờ mở cửa 15h-23h, mã QR đánh giá Google Maps'
+        alt: 'Trang cuối menu Trạm Dừng Chill: địa chỉ 111 Huỳnh Tấn Phát, Xuân Trường - Đà Lạt, hotline 0989 765 070, giờ mở cửa 15h-23h, mã QR đánh giá Google Maps'
     }
 ];
 
