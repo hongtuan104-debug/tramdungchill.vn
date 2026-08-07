@@ -98,6 +98,10 @@ Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu c�
   khách bật/tắt ở nút loa, lưu trong localStorage `tdc-menu-sound`
 - ⚠️ Đổi `css/style.css` hay JS dùng chung → nhớ bump `CACHE_NAME` trong `sw.js`,
   không thì khách cũ vẫn chạy bản cache cũ
+- **Thay ảnh menu thì KHÔNG cần bump `CACHE_NAME`**: URL ảnh mang vân tay `?v=<md5>`
+  do generator gắn, đổi ảnh là URL đổi theo. Trước khi có vân tay (07/08/2026) thay
+  ảnh xong khách vẫn thấy bản cũ — `/assets/menu-pages/` rơi vào nhánh cache-first
+  của service worker, Ctrl+F5 cũng không phá được lớp đó.
 
 ## Thẻ resource hints + vân tay CSS — cũng sinh tự động
 `scripts/toi-uu-tai-trang.js` (do `bundle-js.js` gọi) tự chèn `dns-prefetch` cho

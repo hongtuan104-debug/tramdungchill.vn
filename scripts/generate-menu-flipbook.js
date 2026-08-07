@@ -22,6 +22,7 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const crypto = require("crypto");
 
 const ROOT = path.resolve(__dirname, "..");
 const PAGES_DATA = path.join(ROOT, "data", "menu-pages.js");
@@ -44,6 +45,19 @@ function esc(s) {
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;");
+}
+
+/* Vân tay theo nội dung file — thay ảnh mà giữ nguyên URL thì service worker
+   (cache-first cho mọi thứ ngoài /assets/images/) và cache trình duyệt đều tiếp
+   tục trả bản cũ; khách bấm Ctrl+F5 cũng không phá được lớp service worker.
+   Đã dính đúng lỗi này ngày 07/08/2026 khi thay trang 01 và trang 10.
+   Đổi ảnh → md5 đổi → URL đổi → không còn chỗ nào giữ được bản cũ. */
+function fingerprint(absPath) {
+    try {
+        return crypto.createHash("md5").update(fs.readFileSync(absPath)).digest("hex").slice(0, 8);
+    } catch (e) {
+        return null;
+    }
 }
 
 function buildFlipbookHtml(data, meta) {
@@ -70,15 +84,20 @@ function buildFlipbookHtml(data, meta) {
         // tải 404 hoặc tính sai độ phân giải cần dùng.
         const mySizes = m.sizes && m.sizes.length ? m.sizes : sizes;
         const biggest = mySizes[mySizes.length - 1];
+        const urlOf = function (w) {
+            const rel = dir + "/" + p.slug + "-" + w + ".webp";
+            const v = fingerprint(path.join(ROOT, rel));
+            return rel + (v ? "?v=" + v : "");
+        };
         const srcset = mySizes.map(function (w) {
-            return dir + "/" + p.slug + "-" + w + ".webp " + w + "w";
+            return urlOf(w) + " " + w + "w";
         }).join(", ");
         const eager = p.n === 1;
         const g = groups[p.group];
 
         out.push('                <figure class="flip-page" data-page="' + p.n + '" data-group="' + esc(p.group) + '"' +
             (g ? ' data-group-label="' + esc(g.label) + '" data-group-i18n="' + esc(g.i18n) + '"' : '') + '>');
-        out.push('                    <img src="' + dir + "/" + p.slug + "-" + biggest + '.webp"');
+        out.push('                    <img src="' + urlOf(biggest) + '"');
         out.push('                         srcset="' + srcset + '"');
         out.push('                         sizes="(min-width: 900px) 46vw, 92vw"');
         out.push('                         width="' + m.w + '" height="' + m.h + '"');
