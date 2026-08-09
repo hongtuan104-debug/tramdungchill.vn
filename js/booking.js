@@ -230,6 +230,7 @@ function initBookingForm() {
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify({
+                        brand: 'tram',
                         name: data.name,
                         phone: data.phone,
                         date: data.date,
