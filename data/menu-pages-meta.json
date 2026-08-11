@@ -99,13 +99,12 @@
     ]
   },
   "menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi": {
-    "w": 1728,
-    "h": 2444,
+    "w": 1024,
+    "h": 1536,
     "n": 12,
     "sizes": [
       560,
-      1000,
-      1600
+      1000
     ]
   },
   "menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc": {
@@ -226,14 +225,12 @@
     ]
   },
   "menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google": {
-    "w": 1792,
-    "h": 2400,
+    "w": 1024,
+    "h": 1536,
     "n": 26,
     "sizes": [
       560,
-      1000,
-      1600,
-      1792
+      1000
     ]
   }
 }
