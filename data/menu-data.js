@@ -38,18 +38,18 @@ const MENU_ITEMS = {
         { name: 'Vếu Heo Ướp Chao', price: '145K' },
         { name: 'Ốc Nhồi Thịt', price: '165K' },
         { name: 'Cá Tầm Lúc Lắc', price: '165K' },
-        { name: 'Cá Tầm Rang Muối', price: '199K' },
-        { name: 'Sườn Cay Thái Lan', price: '259K', badge: 'Hot' },
-        { name: 'Tôm Chiên Trứng Muối', price: '158K' },
+        { name: 'Cá Tầm Rang Muối', price: '200K' },
+        { name: 'Sườn Cay Thái Lan', price: '260K', badge: 'Hot' },
+        { name: 'Tôm Chiên Trứng Muối', price: '160K' },
     ],
 
     nuong: [
         { name: 'Bò Nướng Cục', price: '159K' },
         { name: 'Bò Nướng Xiêng', price: '162K' },
-        { name: 'Ba Chỉ Heo Hàn Quốc', price: '169K' },
+        { name: 'Ba Chỉ Heo Hàn Quốc', price: '170K' },
         { name: 'Ba Chỉ Heo Nướng Ngũ Vị', price: '132K' },
-        { name: 'Sườn Que Nướng', price: '154K' },
-        { name: 'Chân Gà Nướng Muối Ớt', price: '104K' },
+        { name: 'Sườn Que Nướng', price: '155K' },
+        { name: 'Chân Gà Nướng Muối Ớt', price: '105K' },
         { name: 'Cánh Gà Nướng Muối Ớt', price: '130K' },
         { name: 'Ếch Nướng Muối Ớt', price: '145K' },
         { name: 'Tôm Nướng Muối Ớt', price: '150K' },
@@ -82,7 +82,7 @@ const MENU_ITEMS = {
     ],
 
     laurai: [
-        { name: 'Đậu Hũ Non Chiên Chà Bông', price: '145K' },
+        { name: 'Đậu Hũ Non Chiên Chà Bông', price: '99K' },
         { name: 'Xúc Xích Đức Nướng', price: '20K' },
         { name: 'Bò Lúc Lắc', price: '160K' },
         { name: 'Sụn Gà Chiên Mắm', price: '145K' },
