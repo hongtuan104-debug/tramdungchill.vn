@@ -86,7 +86,7 @@ const MENU_ITEMS = {
         { name: 'Xúc Xích Đức Nướng', price: '20K' },
         { name: 'Bò Lúc Lắc', price: '160K' },
         { name: 'Sụn Gà Chiên Mắm', price: '145K' },
-        { name: 'Vú Heo Cháy Tỏi', price: '155K' },
+        { name: 'Vếu Heo Cháy Tỏi', price: '155K' },
         { name: 'Ếch Chiên Nước Mắm', price: '155K' },
         { name: 'Cánh Gà Chiên Nước Mắm', price: '145K' },
     ],
