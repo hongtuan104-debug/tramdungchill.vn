@@ -120,7 +120,7 @@ const MENU_ITEMS = {
         { name: 'Coca Cola', price: '19K' },
         { name: 'Sprite', price: '19K' },
         { name: 'Sting', price: '19K' },
-        { name: 'StrongBow', price: '34K' },
+        { name: 'Strongbow', price: '34K' },
         { name: 'Nước Suối', price: '12K' },
     ],
 
