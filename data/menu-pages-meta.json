@@ -99,12 +99,13 @@
     ]
   },
   "menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi": {
-    "w": 1055,
-    "h": 1491,
+    "w": 1728,
+    "h": 2444,
     "n": 12,
     "sizes": [
       560,
-      1000
+      1000,
+      1600
     ]
   },
   "menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc": {
