@@ -226,12 +226,14 @@
     ]
   },
   "menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google": {
-    "w": 1086,
-    "h": 1448,
+    "w": 1792,
+    "h": 2400,
     "n": 26,
     "sizes": [
       560,
-      1000
+      1000,
+      1600,
+      1792
     ]
   }
 }
