@@ -533,11 +533,24 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                          : "mọi meta mô tả dùng mức chi 95.000–300.000đ/người");
 }
 
-// ── R8g. KHÔNG được khai quán có lối vào cho xe lăn ──────────────────────
-// Sếp Tuấn xác nhận 29/07/2026: quán có bậc thềm/dốc khó, xe lăn vào không
-// tiện. Đây không phải chuyện điểm SEO — người dùng xe lăn lọc đúng tiêu chí
-// đó rồi đi 7 km lên Trại Mát mới biết không vào được. Chốt chặn ở đây để
-// không ai (kể cả AI viết bài) vô tình thêm vào schema hay nội dung.
+// ── R8g. Chưa khai chuyện lối vào cho xe lăn trên web ────────────────────
+//
+// ⚠️ HAI LỜI KHAI NGƯỢC NHAU CỦA CHỦ QUÁN — đọc kỹ trước khi đụng:
+//   • 29/07/2026: "quán có bậc thềm/dốc khó, xe lăn vào không tiện."
+//   • 12/08/2026: "người đi xe lăn đi vào quán bình thường, mặt bằng không dốc."
+//     (trả lời khi được hỏi thẳng, có liệt kê sẵn 4 ô tiếp cận đang bật trên Maps)
+//
+// Lời 12/08 là lời MỚI NHẤT và trực tiếp nhất ⇒ nhiều khả năng quán CÓ vào được,
+// và ghi chép 29/07 mới là cái sai. Hồ sơ Google Maps đang khai CÓ đủ 4 ô
+// (đỗ xe · chỗ ngồi · lối vào · nhà vệ sinh) — đã soi 12/08, KHÔNG tắt, vì khai
+// đúng. Xóm Lèo không khai ô nào.
+//
+// Vì sao vẫn giữ chốt chặn này: hai lời khai ngược nhau thì chưa đủ chắc để
+// ĐĂNG LÊN WEB. Riêng ô "nhà vệ sinh cho xe lăn" thì chủ quán chưa xác nhận
+// lần nào. Khai sai chiều này hại người thật: có người lọc đúng tiêu chí đó,
+// đi 7 km lên Trại Mát rồi mới biết không dùng được.
+// ⇒ Chốt giữ nguyên. Muốn gỡ thì phải hỏi chủ quán XÁC NHẬN LẠI TỪNG Ô một lần
+//   nữa, rồi mới bỏ chốt và thêm vào web (đây là điểm cộng thật, đối thủ không có).
 {
     const CLAIMS = /wheelchair|xe lăn|người khuyết tật|accessible entrance|isAccessibleForFree/i;
     const offenders = [];

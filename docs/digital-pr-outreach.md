@@ -58,13 +58,26 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | Cách trung tâm | ~7 km, ~20 phút xe theo hướng Trại Mát |
 | Đỗ xe | Bãi đỗ miễn phí cho ô tô con và xe máy |
 
-> ⛔ **KHÔNG tick ô "lối vào cho xe lăn" / "wheelchair accessible"** ở bất kỳ form
-> nào. Sếp Tuấn xác nhận 29/07/2026: quán **có bậc thềm/dốc khó**, xe lăn vào
-> không tiện. TripAdvisor, Foody, ShopeeFood đều có sẵn checkbox này — bỏ trống.
+> ⚠️ **LỐI VÀO CHO XE LĂN — bản 29/07 ghi SAI, sửa lại 12/08/2026.**
 >
-> Khai sai chuyện tiếp cận không phải lỗi SEO mà là chuyện người thật: có người
-> dùng xe lăn lọc đúng tiêu chí đó, đi 7 km lên Trại Mát rồi mới biết không vào
-> được. **Google Business Profile hiện đang khai sai điều này và cần tắt đi.**
+> Bản 29/07 viết: *"quán có bậc thềm/dốc khó, xe lăn vào không tiện"*, và dặn
+> **tắt** 4 ô tiếp cận trên Google Business Profile.
+>
+> **Hỏi lại chủ quán ngày 12/08/2026** (hỏi thẳng, có đọc sẵn 4 ô đang bật trên
+> Maps: đỗ xe · chỗ ngồi · lối vào · nhà vệ sinh) — chủ quán trả lời:
+> *"Người đi xe lăn đi vào quán bình thường mà. Mặt bằng có không dốc á."*
+>
+> ⇒ **Hồ sơ Google Maps đang khai ĐÚNG. ĐÃ SOI 12/08 VÀ KHÔNG TẮT.**
+> Suýt tắt nhầm — tắt rồi thì người đi xe lăn lọc theo tiêu chí đó sẽ **không
+> còn thấy quán mình** trong kết quả.
+>
+> **Khi điền form bên thứ ba** (TripAdvisor, Foody, ShopeeFood): tick được ô
+> lối vào / chỗ ngồi / đỗ xe. Riêng ô **nhà vệ sinh cho xe lăn** thì chủ quán
+> chưa xác nhận lần nào ⇒ **bỏ trống cho tới khi hỏi được.**
+>
+> 🔑 Bài học: hai phiên ghi hai điều ngược nhau về cùng một sự thật. Chuyện
+> **tiếp cận cho người khuyết tật thì đừng suy đoán** — hỏi chủ quán, và hỏi
+> **từng ô một**, vì sai chiều nào cũng hại người thật.
 
 ### Mô tả ngắn (50 từ) — dùng cho form có giới hạn ký tự
 
