@@ -193,7 +193,7 @@ function initBookingForm() {
         // === TDC Booking App — auto-create booking (FIRST để đảm bảo event_id từ client được dùng) ===
         let webhookOk = true;
         try {
-            await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
+            const appRes = await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -219,7 +219,17 @@ function initBookingForm() {
                     ttp: clickIds.ttp
                 })
             });
-        } catch (e) { console.warn('App webhook skip:', e); }
+            // fetch KHÔNG ném lỗi khi máy chủ trả 4xx/5xx — phải tự kiểm mã trả về,
+            // không thì đơn rớt mà khách vẫn thấy màn hình cảm ơn (lỗi rơi âm thầm).
+            // Đơn TRÙNG được máy chủ trả 200 kèm deduped:true ⇒ không báo động oan.
+            if (!appRes.ok) {
+                console.warn('App webhook trả mã lỗi:', appRes.status);
+                webhookOk = false;
+            }
+        } catch (e) {
+            console.warn('App webhook skip:', e);
+            webhookOk = false;
+        }
 
         // Send data via webhook (Google Apps Script → Google Sheet) — AFTER để dedup 5min catch sendToApp
         const webhookUrl = SITE_CONFIG.webhookUrl;

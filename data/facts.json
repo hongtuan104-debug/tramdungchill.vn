@@ -35,8 +35,8 @@
     "wifi": "Co WiFi mien phi, phu song toan quan ke ca cac day lan can ngoai troi",
     "nhacSong": "Co nghe si choi saxophone tai quan",
     "choDoXe": "Bai do mien phi cho o to con va xe may",
-    "loiVaoXeLan": false,
-    "_canhBaoXeLan": "QUAN KHONG co loi vao cho xe lan (bac them/doc kho). TUYET DOI khong tick o 'wheelchair accessible' o bat ky form nao — nguoi dung xe lan loc dung tieu chi do se di 7 km len Trai Mat roi moi biet khong vao duoc.",
+    "loiVaoXeLan": true,
+    "_canhBaoXeLan": "SUA 12/08/2026 — ban truoc ghi false la SAI. Hoi thang chu quan 12/08 (co doc san 4 o tiep can dang bat tren Google Maps): 'Nguoi di xe lan di vao quan binh thuong ma. Mat bang co khong doc a.' => quan CO vao duoc, ho so Maps dang khai DUNG, DA SOI VA KHONG TAT. Ban 29/07 ghi 'co bac them/doc kho' la ghi nham. LUU Y: rieng o 'nha ve sinh cho xe lan' chu quan CHUA xac nhan lan nao - dung tick o do o form ben thu ba cho toi khi hoi duoc. Chot chan R8g trong seo-geo-verify.js VAN GIU (chua dang len web) vi hai phien tung ghi hai dieu nguoc nhau.",
     "cocDatBan": "Dat ban an binh thuong KHONG can coc. Trang tri sinh nhat/tiec: trang tri MIEN PHI, coc 200.000d va HOAN LAI sau khi an xong. Doan tren 10 nguoi co coc, nhan vien bao muc khi xac nhan.",
     "giaDipLe": "KHONG phu thu dip le. Gia giu nguyen ca dem 24/12, Valentine, Tet. Ban view cung khong phu thu.",
     "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song + gia dip le); coc xac nhan 30/07/2026"
