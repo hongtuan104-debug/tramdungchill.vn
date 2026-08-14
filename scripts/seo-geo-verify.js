@@ -443,7 +443,13 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     const vungSoi = (html) => {
         const v = [];
         const than = html.match(/<article[\s\S]*?<\/article>/) || html.match(/<main[\s\S]*?<\/main>/);
-        if (than) v.push(than[0].replace(/<script[\s\S]*?<\/script>/g, " "));
+        // Bỏ <nav> cùng lý do bỏ <script>: đó là ĐIỀU HƯỚNG, không phải câu khẳng
+        // định về quán. Mục lục nối các tiêu đề thành khối text không dấu chấm, nên
+        // phép tách câu bên dưới dính mục "Cá nướng tại Trạm Dừng Chill" vào câu mở
+        // bài "...vùng nuôi cá tầm và cá hồi" thành MỘT câu và báo oan (12/08/2026).
+        if (than) v.push(than[0]
+            .replace(/<script[\s\S]*?<\/script>/g, " ")
+            .replace(/<nav[\s\S]*?<\/nav>/g, " "));
         // câu hỏi/đáp trong FAQPage schema — chỗ Google hiển thị thẳng ra SERP
         for (const m of html.matchAll(/<script[^>]*ld\+json[^>]*>([\s\S]*?)<\/script>/g)) {
             if (!/FAQPage/.test(m[1])) continue;

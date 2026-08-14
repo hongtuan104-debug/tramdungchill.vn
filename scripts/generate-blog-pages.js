@@ -86,6 +86,61 @@ function fixAssetPaths(body) {
         .replace(/href="menu\.html/g, 'href="../menu.html')
         .replace(/href="blog\.html/g, 'href="../blog.html');
 }
+/* ---- Mục lục nhảy trang (12/08/2026) ----------------------------------
+   Vì sao thêm: Google dựng "chip" sitelink dưới kết quả tìm kiếm từ heading
+   CÓ id cộng với link neo trỏ tới nó — đo trên bài PasGo đang đứng #1 cụm
+   "quán nướng ngon Đà Lạt": 2 chip của họ lấy nguyên văn từ H2/H3 trong bài,
+   không dính dáng gì tới schema. Trước hôm nay cả site không một heading nào
+   mang id, nên Google không có chỗ bám.
+   Đây đồng thời là điều hướng thật: bài 2.000 chữ đọc trên điện thoại mà
+   không có mục lục thì khách phải cuộn mù. */
+function slugTiengViet(s) {
+    return String(s)
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d").replace(/Đ/g, "D")
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, " ")
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .slice(0, 60)
+        .replace(/-$/, "");
+}
+
+function themMucLuc(body, u) {
+    var daDung = {};
+    var muc = [];
+
+    body = body.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, function (all, attrs, inner) {
+        if (/\sid\s*=/i.test(attrs)) return all;      // đã có id thì tôn trọng
+        var chu = stripHtml(inner);
+        if (!chu) return all;
+        var id = slugTiengViet(chu) || "muc";
+        if (daDung[id]) {                              // hai mục trùng tên → id phải khác
+            var i = 2;
+            while (daDung[id + "-" + i]) i++;
+            id = id + "-" + i;
+        }
+        daDung[id] = true;
+        muc.push({ id: id, chu: chu });
+        return "<h2" + attrs + ' id="' + id + '">' + inner + "</h2>";
+    });
+
+    // Dưới 3 mục thì mục lục chỉ tổ chiếm chỗ, không giúp ai điều hướng
+    if (muc.length < 3) return body;
+
+    var nav = '<nav class="toc" aria-label="' + htmlEncode(u.toc) + '">'
+        + '<p class="toc-title">' + htmlEncode(u.toc) + "</p><ol>"
+        + muc.map(function (m) {
+            return '<li><a href="#' + m.id + '">' + htmlEncode(m.chu) + "</a></li>";
+        }).join("")
+        + "</ol></nav>";
+
+    // Chèn ngay trước mục đầu tiên — khách đọc hết đoạn mở bài là thấy đường đi
+    var viTri = body.indexOf("<h2");
+    return viTri < 0 ? body : body.slice(0, viTri) + nav + body.slice(viTri);
+}
+
 function blogPostingSchema(article, excerptClean) {
     // E-E-A-T: tác giả là Person nếu bài có _author (trụ cột), mặc định Organization
     var author = article._author
@@ -163,7 +218,8 @@ var UI = {
         ctaSub: "Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt",
         ctaBtn: "Đặt bàn ngay →",
         byline: "Đội ngũ Trạm Dừng Chill · Tiệm Nướng Trạm Dừng Chill",
-        updated: "Cập nhật", prev: "Bài trước", next: "Bài sau"
+        updated: "Cập nhật", prev: "Bài trước", next: "Bài sau",
+        toc: "Nội dung bài viết"
     },
     en: {
         home: "Home", menu: "Menu", blog: "Blog", book: "Book a table",
@@ -172,7 +228,8 @@ var UI = {
         ctaSub: "Grilled BBQ with sunset and vintage train views — only in Da Lat",
         ctaBtn: "Book now →",
         byline: "The Trạm Dừng Chill team · Tiệm Nướng Trạm Dừng Chill",
-        updated: "Updated", prev: "Previous", next: "Next"
+        updated: "Updated", prev: "Previous", next: "Next",
+        toc: "In this article"
     }
 };
 function ui(article) { return UI[article._lang === "en" ? "en" : "vi"]; }
@@ -414,7 +471,10 @@ try {
             const updatedHtml = (article._dateModified && article._dateModified !== article.date)
                 ? ' · <span class="blog-updated">' + ui(article).updated + ' ' + formatDateVI(article._dateModified) + '</span>'
                 : '';
-            const bodyFixed = fixAssetPaths((article.body || "") + faqHtml(article));
+            const bodyFixed = themMucLuc(
+                fixAssetPaths((article.body || "") + faqHtml(article)),
+                ui(article)
+            );
 
             const image400w = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp');
             const image800w = article.image.replace(/\.(jpg|webp)$/i, '-800w.webp');

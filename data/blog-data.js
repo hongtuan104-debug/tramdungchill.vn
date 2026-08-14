@@ -1964,8 +1964,8 @@ const BLOG_ARTICLES = [
         badge: "",
         featured: false,
         excerpt: "Đến Đà Lạt mà chưa biết nên gọi <strong>món nướng gì ngon nhất</strong>? Đây là 10 món BBQ phải thử khi đến phố núi — từ bò Mỹ, hải sản tươi đến gà nướng lá é đặc sản.",
-        body: `<h2>1-3. Bò Mỹ, Bò Úc và Bò Wagyu nướng</h2>
-                            <p><strong>Bò nướng</strong> là linh hồn của mọi bữa BBQ. Tại Đà Lạt, nhiều quán nhập bò Mỹ, bò Úc chất lượng cao. Bò Wagyu mềm tan, bò Mỹ đậm vị — nướng trên than hoa vừa chín tới là ngon nhất. Tại <a href="index.html">Trạm Dừng Chill</a>, bò nướng luôn là món best-seller.</p>
+        body: `<h2>1-3. Bò nướng tảng, bò cuộn nấm và ba chỉ bò</h2>
+                            <p><strong>Bò nướng</strong> là linh hồn của mọi bữa BBQ. Tại Đà Lạt, nhiều quán nhập bò chất lượng cao — thịt mềm, vân mỡ đều, nướng trên than hoa vừa chín tới là ngon nhất. Tại <a href="index.html">Trạm Dừng Chill</a>, bò nướng tảng phô mai trứng muối luôn là món best-seller.</p>
 
                             <h2>4-5. Tôm sú nướng muối ớt và Mực nướng sa tế</h2>
                             <p><strong>Hải sản nướng</strong> giữa phố núi nghe lạ nhưng cực ngon! Tôm sú nướng muối ớt giòn vỏ, ngọt thịt. Mực nướng sa tế cay nhẹ, dẻo dai. Các quán nướng uy tín ở Đà Lạt nhập hải sản tươi hàng ngày từ Phan Thiết, Nha Trang.</p>
@@ -5193,28 +5193,28 @@ const BLOG_ARTICLES = [
     },
     {
         id: "nuong-ca-da-lat",
-        title: "Nướng Cá Đà Lạt — Cá Tầm, Cá Hồi Nướng Tươi Từ Hồ Tuyền Lâm",
+        title: "Nướng Cá Đà Lạt — Cá Tầm Nướng Tươi Từ Hồ Tuyền Lâm",
         category: "Ẩm thực Đà Lạt",
         date: "2026-12-11",
         image: "assets/images/blog/view-hoang-hon-1-v9.webp",
         imageAlt: "Nướng cá Đà Lạt - cá nướng than hoa tươi ngon tại bàn",
         badge: "",
         featured: false,
-        excerpt: "Đà Lạt có cá tầm, cá hồi nuôi trong nước lạnh — <strong>nướng cá Đà Lạt</strong> tươi ngon không kém vùng biển! Top quán và cách chọn cá nướng ngon nhất.",
+        excerpt: "Đà Lạt có cá tầm nuôi trong nước lạnh — <strong>nướng cá Đà Lạt</strong> tươi ngon không kém vùng biển! Top quán và cách chọn cá nướng ngon nhất.",
         body: `<h2>Cá Đà Lạt — Đặc sản nước lạnh</h2>
-                            <p>Ít ai biết Đà Lạt là vùng nuôi <strong>cá tầm và cá hồi</strong> lớn nhất miền Nam Việt Nam! Nhờ nguồn nước lạnh 15-20°C từ hồ Tuyền Lâm và các suối vùng cao, cá tầm, cá hồi Đà Lạt thịt chắc, ngọt, tươi — nướng than hoa cực ngon.</p>
+                            <p>Ít ai biết Đà Lạt là vùng nuôi <strong>cá tầm</strong> lớn nhất miền Nam Việt Nam! Nhờ nguồn nước lạnh 15-20°C từ hồ Tuyền Lâm và các suối vùng cao, cá tầm Đà Lạt thịt chắc, ngọt, tươi — nướng than hoa cực ngon.</p>
 
                             <h2>Các món cá nướng phải thử</h2>
                             <p><strong>Cá tầm nướng giấy bạc:</strong> Cá nguyên con, gói giấy bạc với sả, hành, ớt — nướng than hoa 20 phút. Mở ra thơm phức, thịt trắng mềm.</p>
 
-                                                        <p><strong>Cá hồi nướng muối ớt:</strong> Phi lê cá hồi nướng da giòn, thịt hồng cam. Chấm muối ớt xanh — ngon xuất sắc!</p>
+                                                        <p><strong>Cá tầm rang muối:</strong> Cá tầm cắt khúc rang muối giòn rụm, mặn mà. Chấm muối ớt xanh — ngon xuất sắc!</p>
 <img src="assets/images/blog/view-xe-lua-5.webp" alt="Nướng Cá Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
 
 
 
-                            <p><strong>Cá hồi nướng sốt teriyaki:</strong> Kiểu Nhật, ngọt mặn hài hòa.</p>
+                            <p><strong>Cá tầm lúc lắc:</strong> Cá tầm xào lúc lắc cùng ớt chuông, hành tây — ngọt mặn hài hòa.</p>
 
                                                         <p><strong>Cá tầm nướng than hoa:</strong> Nướng trực tiếp, da cá giòn rụm, thịt ngọt tự nhiên.</p>
 <img src="assets/images/blog/mon-nuong-10.webp" alt="Nướng Cá Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -5949,7 +5949,7 @@ const BLOG_ARTICLES = [
 <img src="assets/images/blog/setup-hen-ho-14.webp" alt="Quán nướng Đà Lạt Valentine 2027 - setup hẹn hò lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Gợi ý set menu Valentine cho 2 người</h2>
-                            <p>Combo nướng cho couple thường gồm: bò Úc nướng, hải sản tươi (tôm, mực), rau nướng mùa, kèm nước uống. Tại Đà Lạt, mức giá trung bình cho dinner BBQ Valentine khoảng 200-400K/cặp — rất hợp lý so với nhà hàng fine dining.</p>
+                            <p>Combo nướng cho couple thường gồm: bò nướng tảng, hải sản tươi (tôm, mực), rau nướng mùa, kèm nước uống. Tại Đà Lạt, mức giá trung bình cho dinner BBQ Valentine khoảng 200-400K/cặp — rất hợp lý so với nhà hàng fine dining.</p>
 
                             <h2>Đặt bàn sớm — Valentine luôn cháy chỗ</h2>
                             <p>Kinh nghiệm mọi năm: các quán nướng view đẹp thường full bàn từ 3-5 ngày trước Valentine. <a href="index.html#booking"><strong>Đặt bàn Trạm Dừng Chill ngay</strong></a> để chọn vị trí đẹp nhất. Hotline: <a href="tel:0989765070">0989.765.070</a>. Quán mở cửa 15:00 - 23:00 hàng ngày.</p>`
@@ -5991,8 +5991,8 @@ const BLOG_ARTICLES = [
         badge: "",
         featured: false,
         excerpt: "Đà Lạt tháng 2 se lạnh — không gì tuyệt bằng ngồi quanh bếp than hồng thưởng thức <strong>món nướng ngon Đà Lạt</strong>. Đây là danh sách must-try cho tín đồ BBQ.",
-        body: `<h2>Bò Úc nướng sa tế — "King" của bàn nướng</h2>
-                            <p>Thịt bò Úc thái dày, ướp sa tế cay nhẹ rồi nướng trên than hoa. Bên ngoài cháy xém thơm lừng, bên trong vẫn mềm ngọt. Chấm muối ớt xanh Đà Lạt — đỉnh của đỉnh. Đây là món gọi nhiều nhất tại các quán nướng phố núi.</p>
+        body: `<h2>Bò nướng tảng phô mai trứng muối — "King" của bàn nướng</h2>
+                            <p>Thịt bò thái tảng dày, nướng trên than hoa rồi phủ phô mai chảy cùng sốt trứng muối. Bên ngoài cháy xém thơm lừng, bên trong vẫn mềm ngọt. Chấm muối ớt xanh Đà Lạt — đỉnh của đỉnh. Đây là món gọi nhiều nhất tại các quán nướng phố núi.</p>
 
                             <h2>Hải sản nướng mùa xuân</h2>
                             <p>Tháng 2, hải sản về Đà Lạt tươi ngon: tôm sú nướng bơ tỏi, mực nướng muối ớt, nghêu nướng mỡ hành. Dù Đà Lạt là vùng cao, các quán uy tín đều nhập hải sản tươi sống hàng ngày từ Nha Trang, Phan Thiết.</p>
@@ -6208,7 +6208,7 @@ const BLOG_ARTICLES = [
 <img src="assets/images/blog/setup-hen-ho-12.webp" alt="Quán nướng Đà Lạt 8/3 - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Menu gợi ý cho dinner 8/3</h2>
-                            <p>Combo lãng mạn cho 2: bò Úc nướng, tôm sú nướng bơ tỏi, rau nướng mùa, kèm 2 ly nước. View hoàng hôn + biển đèn nhà lồng = backdrop dinner xịn hơn cả nhà hàng 5 sao.</p>
+                            <p>Combo lãng mạn cho 2: bò nướng tảng, tôm nướng muối ớt, rau nướng mùa, kèm 2 ly nước. View hoàng hôn + biển đèn nhà lồng = backdrop dinner xịn hơn cả nhà hàng 5 sao.</p>
 
                             <h2>Đặt bàn 8/3 ngay kẻo hết chỗ</h2>
                             <p>Kinh nghiệm: bàn couple view đẹp luôn full trước 8/3 ít nhất 5 ngày. <a href="index.html#booking"><strong>Đặt bàn 8/3 ngay</strong></a> hoặc gọi <a href="tel:0989765070">0989.765.070</a>. Quán mở 15:00 - 23:00 hàng ngày.</p>`

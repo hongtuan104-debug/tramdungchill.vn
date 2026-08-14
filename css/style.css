@@ -5481,3 +5481,51 @@ body.sticky-bar-active .fab-contact {
     .flipbook-btn,
     .flipbook-thumb { transition: none; }
 }
+
+/* ── Mục lục nhảy trang (12/08/2026) ──────────────────────────────
+   Sinh tự động bởi scripts/generate-blog-pages.js — đừng viết tay vào bài.
+   Mục đích kép: khách đọc trên điện thoại không phải cuộn mù qua bài 2.000
+   chữ, và Google có heading mang id để dựng chip sitelink dưới kết quả tìm. */
+.blog-post-body .toc {
+    margin: 28px 0 36px;
+    padding: 20px 24px;
+    background: var(--linen);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: var(--radius);
+}
+
+.blog-post-body .toc-title {
+    margin: 0 0 12px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--night);
+}
+
+.blog-post-body .toc ol {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--charcoal);
+}
+
+.blog-post-body .toc li { margin: 6px 0; }
+
+.blog-post-body .toc a {
+    color: var(--gold-dark);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--ease);
+}
+
+.blog-post-body .toc a:hover,
+.blog-post-body .toc a:focus-visible { border-bottom-color: var(--gold); }
+
+/* Navbar dính trên cùng che mất tiêu đề khi nhảy neo — chừa chỗ cho nó */
+.blog-post-body h2[id] { scroll-margin-top: 90px; }
+
+@media (max-width: 540px) {
+    .blog-post-body .toc { padding: 16px 18px; margin: 22px 0 28px; }
+    .blog-post-body .toc-title { font-size: 0.94rem; }
+}

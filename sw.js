@@ -8,7 +8,11 @@
 // v4: dọn ảnh menu cũ còn kẹt trong cache sau khi thay trang 01 và 10 (07/08/2026).
 //     Từ nay ảnh menu mang vân tay ?v= trong URL nên đổi ảnh không cần bump nữa —
 //     bump lần này là để xoá bản đã kẹt ở máy khách từ trước khi có vân tay.
-const CACHE_NAME = 'tdc-v4';
+// v5: mục lục nhảy trang trong bài blog — style.min.css có thêm khối .toc
+//     (12/08/2026). Bài blog nạp CSS kèm ?v=<md5> nên trình duyệt tự tải lại,
+//     nhưng service worker giữ '/dist/style.min.css' KHÔNG query ở nhánh
+//     cache-first, lớp đó chỉ chịu buông khi tên cache đổi.
+const CACHE_NAME = 'tdc-v5';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
