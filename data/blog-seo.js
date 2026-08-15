@@ -637,7 +637,7 @@ const BLOG_SEO = {
         { "q": "Đi ăn vặt chợ đêm Đà Lạt cần chuẩn bị gì?", "a": "Mang áo khoác vì tối phố núi xuống nhiệt nhanh, ngồi ghế nhựa ngoài trời một lúc là lạnh tay. Nên thủ thêm khăn giấy, ít tiền mặt lẻ và đi giày dễ đi bộ vì khu này nhiều dốc. Đi nhóm thì gọi ít phần rồi chia nhau để nếm được nhiều hàng." }
       ],
       "author": {"name":"Nguyễn Duy","role":"Chủ tiệm nướng Trạm Dừng Chill"},
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-15",
       "lang": "vi"
     },
     "da-lat-ve-dem-di-dau": {
