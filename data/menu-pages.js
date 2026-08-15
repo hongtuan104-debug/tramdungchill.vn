@@ -114,7 +114,7 @@ var MENU_PAGES = [
         n: 12,
         group: 'laurai',
         slug: 'menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi',
-        alt: 'Món lai rai: sụn gà chiên mắm, vếu heo cháy tỏi'
+        alt: 'Món lai rai: sụn gà chiên mắm, cánh gà chiên nước mắm, vếu heo cháy tỏi, ếch chiên nước mắm'
     },
     {
         n: 13,
