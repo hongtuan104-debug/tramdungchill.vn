@@ -45,7 +45,7 @@ const MENU_ITEMS = {
 
     nuong: [
         { name: 'Bò Nướng Cục', price: '159K' },
-        { name: 'Bò Nướng Xiêng', price: '162K' },
+        { name: 'Bò Nướng Xiên', price: '162K' },
         { name: 'Ba Chỉ Heo Hàn Quốc', price: '170K' },
         { name: 'Ba Chỉ Heo Nướng Ngũ Vị', price: '132K' },
         { name: 'Sườn Que Nướng', price: '155K' },
@@ -109,7 +109,7 @@ const MENU_ITEMS = {
     ],
 
     soda: [
-        { name: 'Soda Việt Quốc', price: '42K' },
+        { name: 'Soda Việt Quất', price: '42K' },
         { name: 'Soda Chanh', price: '42K' },
         { name: 'Soda Blue', price: '42K' },
         { name: 'Soda Dâu Tây', price: '42K' },
