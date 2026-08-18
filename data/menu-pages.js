@@ -144,7 +144,7 @@ var MENU_PAGES = [
         n: 17,
         group: 'soda',
         slug: 'menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue',
-        alt: 'Soda tại quán nướng Đà Lạt: soda việt quốc, soda chanh, soda blue'
+        alt: 'Soda tại quán nướng Đà Lạt: soda việt quất, soda chanh, soda blue'
     },
     {
         n: 18,
