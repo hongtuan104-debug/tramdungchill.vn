@@ -44,8 +44,8 @@ const MENU_ITEMS = {
     ],
 
     nuong: [
-        { name: 'Bò Nướng Cục', price: '159K' },
-        { name: 'Bò Nướng Xiên', price: '162K' },
+        { name: 'Bò Nướng Cục', price: '170K' },
+        { name: 'Bò Nướng Xiên', price: '185K' },
         { name: 'Ba Chỉ Heo Hàn Quốc', price: '170K' },
         { name: 'Ba Chỉ Heo Nướng Ngũ Vị', price: '132K' },
         { name: 'Sườn Que Nướng', price: '155K' },
