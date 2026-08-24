@@ -5,7 +5,7 @@
  *
  * Output:
  *   dist/common.min.js  — shared modules (layout-loader, utils, schema-generator, navbar, i18n, scroll-ui, app)
- *   dist/index.min.js   — index page specific (hero, menu-renderer, gallery, booking)
+ *   dist/index.min.js   — index page specific (hero, gallery, booking)
  *   dist/blog.min.js    — blog page specific (blog-renderer)
  *   dist/menu.min.js    — menu page specific (menu-flipbook)
  */
@@ -33,7 +33,6 @@ const COMMON_FILES = [
 
 const INDEX_FILES = [
     "js/hero.js",
-    "js/menu-renderer.js",
     "js/gallery.js",
     "js/booking.js",
     "js/sticky-tiktok.js"
@@ -231,7 +230,9 @@ try {
 // moi script chi dong vao vung marker cua minh).
 console.log("\nChen quyen menu anh (flipbook)...");
 try {
-    require("./generate-menu-flipbook").generateMenuFlipbook();
+    const flip = require("./generate-menu-flipbook");
+    flip.generateMenuFlipbook();
+    flip.generateMenuPreview();
 } catch (e) {
     console.error("  Flipbook generation failed (khong chan build): " + e.message);
 }

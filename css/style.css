@@ -5529,3 +5529,67 @@ body.sticky-bar-active .fab-contact {
     .blog-post-body .toc { padding: 16px 18px; margin: 22px 0 28px; }
     .blog-post-body .toc-title { font-size: 0.94rem; }
 }
+
+/* ============================================
+   MENU PREVIEW — cửa vào quyển menu ảnh (trang chủ)
+   ============================================
+   Thay cho bảng giá dạng tab bỏ ngày 24/08/2026. Trang chủ không còn liệt kê
+   giá bằng chữ: khách đọc giá ngay trên ảnh menu, máy đọc lấy từ JSON-LD của
+   menu.html. Khối này chỉ là cửa vào — vài trang thu nhỏ + một nút. */
+
+.menu-preview {
+    margin-top: 36px;
+    text-align: center;
+}
+
+.menu-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
+.menu-preview-page {
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--charcoal);
+    box-shadow: var(--shadow-medium);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+
+.menu-preview-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.menu-preview-page:hover {
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 14px 34px rgba(15, 13, 10, 0.28);
+}
+
+.menu-preview-page:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.menu-preview-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .menu-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 420px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-preview-page { transition: none; }
+    .menu-preview-page:hover { transform: none; }
+}

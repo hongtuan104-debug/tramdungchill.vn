@@ -120,8 +120,8 @@
     /*CRIT-EXTRA-START*/.hero-trust{margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(0,0,0,0.35);border:1px solid rgba(212,168,83,0.25);border-radius:var(--radius-full);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:0.82rem;color:rgba(255,255,255,0.85)}.trust-stars{color:var(--gold);letter-spacing:1px;font-size:0.85rem;text-shadow:0 0 8px rgba(212,168,83,0.5);flex-shrink:0}.trust-stars{font-size:0.75rem;letter-spacing:0.5px}.trust-text{white-space:nowrap;letter-spacing:0.2px}.mouse{width:22px;height:34px;border:2px solid rgba(255,255,255,0.3);border-radius:12px;position:relative}.scroll-arrow,.mouse-wheel{animation:none}.mouse-wheel{width:3px;height:8px;background:var(--gold);border-radius:3px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollWheel 2s ease-in-out infinite}.sticky-book-bar{position:fixed;bottom:0;transform:translateY(100%);left:0;right:0;z-index:1000;background:linear-gradient(135deg,rgba(15,13,10,0.98),rgba(26,22,18,0.98));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(212,168,83,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:transform 0.4s var(--ease);box-shadow:0 -8px 30px rgba(0,0,0,0.4)}.sticky-book-info{flex:1;min-width:0}.sticky-book-title{font-size:0.95rem;font-weight:700;color:var(--gold);margin-bottom:2px}.sticky-book-title{font-size:0.88rem}.sticky-book-sub{font-size:0.72rem;color:rgba(255,255,255,0.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sticky-book-sub{font-size:0.68rem}.sticky-book-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--night);font-weight:700;font-size:0.9rem;border-radius:var(--radius-full);box-shadow:0 4px 20px rgba(212,168,83,0.4);transition:all 0.3s var(--ease);flex-shrink:0;text-decoration:none;animation:pulse-glow 2.5s ease-in-out infinite}.sticky-book-btn{padding:10px 18px;font-size:0.85rem}.sticky-book-bar.visible{transform:translateY(0)}/*CRIT-EXTRA-END*/</style>
 
     <!-- Full CSS — async load (non-render-blocking) -->
-    <link rel="stylesheet" href="dist/style.min.css?v=cae7cc4f" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=cae7cc4f"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=2c2466fe" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=2c2466fe"></noscript>
     <!-- Google Fonts — async load -->
     <noscript><link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-vietnamese.woff2">
@@ -908,9 +908,49 @@
                 <p class="section-desc" data-i18n="menu.desc">Tươi ngon mỗi ngày — từ nướng BBQ, lẩu nóng đến đồ uống mát lạnh</p>
             </div>
 
-            <!-- Menu rendered dynamically by js/menu-renderer.js from data/menu-data.js -->
-            <div class="menu-tabs" role="tablist"></div>
-            <div class="menu-content"></div>
+            <!-- Khoi xem truoc quyen menu anh — SINH TU DONG boi scripts/generate-menu-flipbook.js
+                 tu data/menu-pages.js. KHONG sua tay phan giua marker: lan build sau se ghi de.
+                 Bang gia dang tab da bo ngay 24/08/2026 theo yeu cau sep Tuan — gia gio doc tren
+                 chinh anh menu, may doc thi lay tu JSON-LD cua menu.html. -->
+            <!-- MENU_PREVIEW:START -->
+            <div class="menu-preview">
+                <div class="menu-preview-grid">
+                    <a class="menu-preview-page" href="menu.html#menu-anh">
+                        <img src="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-560.webp?v=e14d1517"
+                             srcset="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-560.webp?v=e14d1517 560w, assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-1000.webp?v=e0616436 1000w"
+                             sizes="(min-width: 900px) 22vw, 44vw"
+                             width="1054" height="1492"
+                             alt="Bìa menu Tiệm Nướng Trạm Dừng Chill — quán nướng Đà Lạt view hoàng hôn và tàu cổ, đường Huỳnh Tấn Phát, Xuân Trường, mở cửa 15h-23h"
+                             loading="lazy" decoding="async">
+                    </a>
+                    <a class="menu-preview-page" href="menu.html#menu-anh">
+                        <img src="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-560.webp?v=acb7df73"
+                             srcset="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-560.webp?v=acb7df73 560w, assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-1000.webp?v=6f861809 1000w"
+                             sizes="(min-width: 900px) 22vw, 44vw"
+                             width="1055" height="1491"
+                             alt="Trang best seller menu quán nướng Đà Lạt: bò Kobe nướng tảng phô mai trứng muối, bò Okachi nướng tảng, ba chỉ bò nướng muối tiêu, vếu heo ướp sate"
+                             loading="lazy" decoding="async">
+                    </a>
+                    <a class="menu-preview-page" href="menu.html#menu-anh">
+                        <img src="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-560.webp?v=a71da600"
+                             srcset="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-560.webp?v=a71da600 560w, assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-1000.webp?v=402dbd3c 1000w"
+                             sizes="(min-width: 900px) 22vw, 44vw"
+                             width="1054" height="1492"
+                             alt="Thực đơn BBQ nướng tại bàn Đà Lạt: bò nướng cục, bò nướng xiên, ba chỉ heo nướng ngũ vị"
+                             loading="lazy" decoding="async">
+                    </a>
+                    <a class="menu-preview-page" href="menu.html#menu-anh">
+                        <img src="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-560.webp?v=987aa3a3"
+                             srcset="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-560.webp?v=987aa3a3 560w, assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-1000.webp?v=563d0d3b 1000w"
+                             sizes="(min-width: 900px) 22vw, 44vw"
+                             width="1055" height="1491"
+                             alt="Menu lẩu Đà Lạt: lẩu gà lá é, lẩu hải sản, lẩu cá tầm — nồi lẩu nóng cho nhóm đông"
+                             loading="lazy" decoding="async">
+                    </a>
+                </div>
+                <a href="menu.html#menu-anh" class="btn btn-golden menu-preview-cta" data-i18n="menu.viewAll">Xem quyển menu đầy đủ</a>
+            </div>
+            <!-- MENU_PREVIEW:END -->
 
             <div class="menu-note">
                 <p data-i18n="menu.note">* Giá đã bao gồm VAT. Menu có thể thay đổi theo mùa.</p>

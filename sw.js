@@ -12,7 +12,9 @@
 //     (12/08/2026). Bài blog nạp CSS kèm ?v=<md5> nên trình duyệt tự tải lại,
 //     nhưng service worker giữ '/dist/style.min.css' KHÔNG query ở nhánh
 //     cache-first, lớp đó chỉ chịu buông khi tên cache đổi.
-const CACHE_NAME = 'tdc-v5';
+// v6: trang chu bo bang gia dang tab, thay bang khoi xem truoc quyen menu anh
+//     (24/08/2026) — doi style.min.css, common.min.js va index.min.js.
+const CACHE_NAME = 'tdc-v6';
 const STATIC_ASSETS = [
     '/',
     '/index.html',

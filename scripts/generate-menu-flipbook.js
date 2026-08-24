@@ -28,9 +28,12 @@ const ROOT = path.resolve(__dirname, "..");
 const PAGES_DATA = path.join(ROOT, "data", "menu-pages.js");
 const META_FILE = path.join(ROOT, "data", "menu-pages-meta.json");
 const MENU_HTML = path.join(ROOT, "menu.html");
+const INDEX_HTML = path.join(ROOT, "index.html");
 const IMG_DIR = path.join(ROOT, "assets", "menu-pages");
 
 const START = "<!-- MENU_FLIPBOOK:START -->";
+const P_START = "<!-- MENU_PREVIEW:START -->";
+const P_END = "<!-- MENU_PREVIEW:END -->";
 const END = "<!-- MENU_FLIPBOOK:END -->";
 
 function loadPages() {
@@ -160,11 +163,87 @@ function generateMenuFlipbook() {
     fs.writeFileSync(MENU_HTML, html, "utf8");
 }
 
-module.exports = { generateMenuFlipbook };
+
+/* ── Khoi xem truoc tren TRANG CHU ─────────────────────────────────────
+   Trang chu truoc day co bang gia dang tab (js/menu-renderer.js dung tu
+   menu-data.js). Bo ngay 24/08/2026: khach da doc gia ngay tren anh menu,
+   giu them mot bang nua la bat doc hai lan cung mot thu.
+   Khoi nay chi la cua vao: vai trang menu thu nho + nut sang menu.html.
+   Anh mang van tay ?v= nen doi anh la URL doi theo, khong ket cache. */
+const PREVIEW_PAGES = [1, 2, 5, 10];
+
+function buildPreviewHtml(data, meta) {
+    const dir = data.MENU_PAGE_DIR;
+    const out = [];
+    out.push('            <div class="menu-preview">');
+    out.push('                <div class="menu-preview-grid">');
+
+    PREVIEW_PAGES.forEach(function (n) {
+        const p = data.MENU_PAGES.find(function (x) { return x.n === n; });
+        if (!p) return;
+        const m = meta[p.slug] || { w: 1055, h: 1491 };
+        const mySizes = m.sizes && m.sizes.length ? m.sizes : data.MENU_PAGE_SIZES;
+        const urlOf = function (w) {
+            const rel = dir + "/" + p.slug + "-" + w + ".webp";
+            const v = fingerprint(path.join(ROOT, rel));
+            return rel + (v ? "?v=" + v : "");
+        };
+        const srcset = mySizes.map(function (w) { return urlOf(w) + " " + w + "w"; }).join(", ");
+        out.push('                    <a class="menu-preview-page" href="menu.html#menu-anh">');
+        out.push('                        <img src="' + urlOf(mySizes[0]) + '"');
+        out.push('                             srcset="' + srcset + '"');
+        out.push('                             sizes="(min-width: 900px) 22vw, 44vw"');
+        out.push('                             width="' + m.w + '" height="' + m.h + '"');
+        out.push('                             alt="' + esc(p.alt) + '"');
+        out.push('                             loading="lazy" decoding="async">');
+        out.push('                    </a>');
+    });
+
+    out.push('                </div>');
+    out.push('                <a href="menu.html#menu-anh" class="btn btn-golden menu-preview-cta" data-i18n="menu.viewAll">Xem quyển menu đầy đủ</a>');
+    out.push('            </div>');
+    return out.join("\n");
+}
+
+function generateMenuPreview() {
+    const data = loadPages();
+    const pages = data.MENU_PAGES;
+    const thieu = PREVIEW_PAGES.filter(function (n) {
+        const p = pages.find(function (x) { return x.n === n; });
+        return !p || !fs.existsSync(path.join(IMG_DIR, p.slug + "-560.webp"));
+    });
+
+    let html = fs.readFileSync(INDEX_HTML, "utf8");
+    const s = html.indexOf(P_START);
+    const e = html.indexOf(P_END);
+    if (s === -1 || e === -1 || e < s) {
+        console.error("  generate-menu-preview: KHONG tim thay marker MENU_PREVIEW trong index.html -> bo qua");
+        return;
+    }
+
+    let content;
+    if (thieu.length) {
+        content = "            <!-- Chua du anh menu cho khoi xem truoc (thieu trang " + thieu.join(", ") + ") -->";
+        console.error("  generate-menu-preview: thieu anh trang " + thieu.join(", ") + " -> de trong");
+    } else {
+        let meta = {};
+        if (fs.existsSync(META_FILE)) {
+            try { meta = JSON.parse(fs.readFileSync(META_FILE, "utf8")); } catch (err) { /* dung ti le mac dinh */ }
+        }
+        content = buildPreviewHtml(data, meta);
+        console.log("  generate-menu-preview: chen " + PREVIEW_PAGES.length + " trang xem truoc vao index.html");
+    }
+
+    html = html.slice(0, s + P_START.length) + "\n" + content + "\n            " + html.slice(e);
+    fs.writeFileSync(INDEX_HTML, html, "utf8");
+}
+
+module.exports = { generateMenuFlipbook, generateMenuPreview };
 
 if (require.main === module) {
     try {
         generateMenuFlipbook();
+        generateMenuPreview();
     } catch (e) {
         console.error("generate-menu-flipbook fatal:", e.message);
         process.exit(1);

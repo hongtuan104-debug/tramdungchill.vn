@@ -111,7 +111,8 @@ var TRANSLATIONS = {
     // Menu
     'menu.tag': 'Thực đơn',
     'menu.title': 'Menu Tiệm Nướng',
-    'menu.desc': 'Tươi ngon mỗi ngày — từ nướng BBQ, lẩu nóng đến đồ uống mát lạnh',
+    'menu.desc': 'Hơn 80 món tươi ngon mỗi ngày — nướng BBQ, lẩu nóng, hải sản đến đồ uống mát lạnh',
+    'menu.viewAll': 'Xem quyển menu đầy đủ',
     'menu.note': '* Giá đã bao gồm VAT. Menu có thể thay đổi theo mùa.',
 
     // Menu flipbook (quyển menu ảnh lật từng trang — trang menu.html)
@@ -425,7 +426,8 @@ var TRANSLATIONS = {
     // Menu
     'menu.tag': 'Our menu',
     'menu.title': 'BBQ Menu',
-    'menu.desc': 'Fresh daily — from BBQ grill, hot pot to refreshing drinks',
+    'menu.desc': 'Over 80 dishes, fresh daily — BBQ grill, hot pot, seafood and refreshing drinks',
+    'menu.viewAll': 'See the full menu book',
     'menu.note': '* Prices include VAT. Menu may change seasonally.',
 
     // Menu flipbook (page-turning photo menu — menu.html)
