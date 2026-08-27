@@ -46,7 +46,8 @@ const SCHEMA_DATA = {
             'https://www.tiktok.com/@tiemnuongtramdungchill',
             'https://www.youtube.com/@TramDungChill',
             'https://www.threads.com/@tiemnuongtramdungchill',
-            'https://maps.app.goo.gl/LYKSGggSms2nwTWq7'
+            'https://maps.app.goo.gl/LYKSGggSms2nwTWq7',
+            'https://www.tripadvisor.com/Restaurant_Review-g293922-d32995088-Reviews-Ti_m_Nu_ng_Tr_m_D_ng_Chill-Da_Lat_Lam_Dong_Province.html'
         ]
     },
     faq: [
