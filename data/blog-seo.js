@@ -124,7 +124,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {
@@ -165,7 +165,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -206,7 +206,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -247,7 +247,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -288,7 +288,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
@@ -329,7 +329,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "lich-trinh-da-lat-3-ngay-2-dem": {
@@ -370,7 +370,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -411,7 +411,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "da-lat-cho-nguoi-nuoc-ngoai": {
@@ -494,7 +494,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "en",
       "category": "English",
       "date": "2026-06-16",
@@ -541,14 +541,14 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "author": {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
