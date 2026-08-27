@@ -22,6 +22,7 @@ Có UTM → GA4 tách:
 | `facebook` | Facebook Ads + FB organic post/page |
 | `instagram` | Instagram Ads + IG organic post/bio |
 | `google` | Google Ads + Google My Business link |
+| `bing` | Bing Ads + hồ sơ Bing Places (Bing Maps) |
 | `zalo` | Zalo OA, Zalo share, Zalo group link |
 | `youtube` | YouTube Ads + video description |
 | `kol` | Gửi link cho KOL/influencer share |
@@ -61,6 +62,7 @@ Phải match với **"chủ đề / USP"** của ad, KHÔNG phải platform.
 | `lookalike_1p` | Ads lookalike 1% từ seed list |
 | `brand_awareness` | Ads đánh nhận diện chung |
 | `seo_blog` | Link từ blog post share |
+| `local_listing` | Link đặt trong hồ sơ bản đồ (Bing Places, Google Business Profile) |
 
 **Rule đặt tên:** snake_case, **không dấu**, không khoảng trắng.
 
@@ -110,6 +112,27 @@ https://tramdungchill.vn/?utm_source=kol&utm_medium=affiliate&utm_campaign=hoang
 https://tramdungchill.vn/?utm_source=zalo&utm_medium=messenger&utm_campaign=sinh_nhat
 ```
 
+### Bing Places (hồ sơ Bing Maps)
+
+Dán **đúng phần query** này vào ô "Thẻ UTM" trong Bing Places for Business
+(bật sẵn tuỳ chọn "Thêm UTM dành riêng cho Bing"). Bing tự nối vào sau URL trang web:
+
+```
+?utm_source=bing&utm_medium=referral&utm_campaign=local_listing
+```
+
+Vì sao `referral` chứ không phải `organic` hay `maps`:
+- `organic` → GA4 gộp chung vào **Organic Search** với traffic SEO từ Bing, mất luôn
+  khả năng biết ai đến từ hồ sơ bản đồ.
+- `maps` → GA4 không nhận trong nhóm kênh mặc định, rơi vào **Unassigned**.
+- `referral` → GA4 xếp vào nhóm **Referral** rõ ràng, đúng nghĩa "link từ nơi khác trỏ về",
+  và đã có sẵn trong bảng quy ước.
+
+### Google Business Profile (đối xứng, khi cần tag)
+```
+https://tramdungchill.vn/?utm_source=google&utm_medium=referral&utm_campaign=local_listing
+```
+
 ### QR code offline (menu, card)
 ```
 https://tramdungchill.vn/menu.html?utm_source=qr&utm_medium=qr&utm_campaign=menu_ban_offline
@@ -135,6 +158,7 @@ https://tramdungchill.vn/menu.html?utm_source=qr&utm_medium=qr&utm_campaign=menu
    - `tiktok / cpc`
    - `tiktok / organic`
    - `facebook / cpc`
+   - `bing / referral`  ← hồ sơ Bing Places
    - …
 4. Nếu chỉ thấy `(not set) / (not set)` hoặc `direct / none` → URL chưa đúng, check lại
 
