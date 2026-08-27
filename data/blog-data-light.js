@@ -170,14 +170,14 @@ const BLOG_ARTICLES = [
   },
   {
     "id": "nuong-bbq-ngam-xe-lua",
-    "title": "Nướng BBQ Ngắm Xe Lửa Đà Lạt — Trải Nghiệm Chỉ Có Tại Trạm Dừng Chill",
+    "title": "Nướng BBQ Ngắm Tàu Lửa Đà Lạt — Trải Nghiệm Chỉ Có Tại Trạm Dừng Chill",
     "category": "Trải nghiệm",
     "date": "2026-03-24",
     "image": "assets/images/blog/view-xe-lua-11b.webp",
     "imageAlt": "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - Trạm Dừng Chill Đà Lạt",
     "badge": "",
     "featured": false,
-    "excerpt": "Vừa nướng BBQ vừa ngắm đoàn tàu cổ Đà Lạt – Trại Mát chạy ngang dưới chân quán — trải nghiệm chỉ có tại Trạm Dừng Chill, 4.8 sao Google.",
+    "excerpt": "Vừa nướng BBQ vừa ngắm đoàn tàu lửa cổ Đà Lạt – Trại Mát chạy ngang trên đường tàu dưới chân quán — trải nghiệm chỉ có tại Trạm Dừng Chill, 4.8 sao Google.",
     "tags": []
   },
   {
