@@ -83,7 +83,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-14",
+      "dateModified": "2026-08-27",
       "lang": "vi"
     },
     "quan-nuong-da-lat-view-nha-long": {
