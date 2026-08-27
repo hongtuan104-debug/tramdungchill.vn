@@ -349,6 +349,12 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // ── R8d. Citation nguồn uy tín trên bài pillar (Princeton GEO: cite +115%) ──
 // Chỉ đếm link ra ngoài trong <article>, và chặn domain lạ — rải citation bừa
 // là pattern spam Google nêu đích danh từ 05/2026.
+//
+// Link mang rel="nofollow" KHÔNG tính là citation và không bị whitelist chặn:
+// nofollow tự nó đã tuyên bố "dẫn để bạn đọc tham khảo, không bảo chứng", nên
+// nó không mang ý nghĩa trích nguồn mà check này đang canh. Thực tế đang dùng:
+// các bài nhắc quán hàng xóm Xóm Lèo (113 Huỳnh Tấn Phát) đều để nofollow —
+// có link cho khách bấm, nhưng không truyền tín hiệu xếp hạng cho đối thủ.
 {
     const ALLOWED = /^https:\/\/(vi|en)\.wikipedia\.org\//;
     const dir = path.join(ROOT, "blog");
@@ -361,7 +367,9 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     const offDomain = [];
     for (const f of indexed) {
         const art = (fs.readFileSync(path.join(dir, f), "utf8").match(/<article[\s\S]*?<\/article>/) || [""])[0];
-        const ext = [...art.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1])
+        const ext = [...art.matchAll(/<a\s[^>]*href="(https?:\/\/[^"]+)"[^>]*>/g)]
+            .filter((m) => !/rel="[^"]*nofollow/i.test(m[0]))   // nofollow ≠ citation
+            .map((m) => m[1])
             .filter((u) => !/tramdungchill\.vn|facebook|instagram|tiktok|youtube|threads|zalo|goo\.gl|google\.com/i.test(u));
         if (ext.length) withCite++;
         for (const u of ext) if (!ALLOWED.test(u)) offDomain.push(f.replace(".html", "") + " → " + u.slice(0, 50));
