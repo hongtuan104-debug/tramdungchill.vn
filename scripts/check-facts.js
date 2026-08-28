@@ -266,6 +266,22 @@ const PHEP_KIEM = [
     },
   },
   {
+    // Bay 28/08/2026: llms.txt ghi tran "73 mon" (so cu truoc khi dong bo menu
+    // in 04/08). Hai phep kiem duoi deu doi tien to "hon"/"khoang" nen dang
+    // tran lot luoi — ma llms.txt la file viet RIENG cho AI doc.
+    ten: 'So mon dang tran "N mon" (khong co "hon" / "khoang" dan truoc)',
+    mau: /(?<!hơn\s)(?<!trên\s)(?<!khoảng\s)(?<!xấp xỉ\s)(?<!~)\b(\d{2,3})\s*món/gi,
+    batBuocCoKhop: false,
+    kiemTra: (m) => {
+      const n = parseInt(m[1], 10);
+      // Duoi 60 la dem mon trong mot bua ("goi 5 mon"), khong phai tong menu.
+      if (n < 60) return null;
+      return n === SO_MON
+        ? null
+        : `ghi tran "${n} mon" nhung menu that co ${SO_MON} mon`;
+    },
+  },
+  {
     ten: 'Cau "khoang N mon" / "~N mon" (phai dung chinh xac)',
     mau: /(?:khoảng|xấp xỉ|~)\s*(\d{2,3})\s*món/gi,
     batBuocCoKhop: false,
