@@ -309,6 +309,7 @@ try {
         var existing = byId[pid];
         if (existing) {
             if (p.title) existing.title = p.title;
+            if (p.seoTitle) existing.seoTitle = p.seoTitle;
             if (p.excerpt) existing.excerpt = p.excerpt;
             if (p.image) existing.image = p.image;
             if (p.imageAlt) existing.imageAlt = p.imageAlt;
@@ -323,6 +324,7 @@ try {
             var na = {
                 id: pid,
                 title: p.title,
+                seoTitle: p.seoTitle,
                 category: p.category || "Blog",
                 date: p.date,
                 image: p.image,
@@ -458,10 +460,16 @@ try {
             // ngay giữa title, nuốt mất keyword ở đuôi. Nay: title ngắn thì thêm
             // hậu tố thương hiệu, title đã dài thì để nguyên vẹn, không hậu tố.
             const BRAND = " — Trạm Dừng Chill Đà Lạt";
+            // seoTitle: ban rut gon RIENG cho the <title> (Google cat o ~60 ky tu).
+            // H1 / og:title / schema headline van dung article.title day du — title
+            // dai khong bi phat, chi bi cat khi hien thi, nen giu ban dai cho nguoi
+            // doc va AI, chi thay ban ngan o cho bi cat.
             const titleTag = htmlEncode(
-                article.title.length + BRAND.length <= 65
-                    ? article.title + BRAND
-                    : article.title
+                article.seoTitle
+                    ? article.seoTitle
+                    : article.title.length + BRAND.length <= 65
+                      ? article.title + BRAND
+                      : article.title
             );
             const imageAltEncoded = htmlEncode(article.imageAlt || article.title);
             const keywords = article.title.toLowerCase() + ", đà lạt, quán nướng, bbq";
