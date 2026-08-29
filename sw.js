@@ -14,7 +14,10 @@
 //     cache-first, lớp đó chỉ chịu buông khi tên cache đổi.
 // v6: trang chu bo bang gia dang tab, thay bang khoi xem truoc quyen menu anh
 //     (24/08/2026) — doi style.min.css, common.min.js va index.min.js.
-const CACHE_NAME = 'tdc-v6';
+// v7: phông lót khớp số đo chặn CLS — style.min.css có thêm 3 @font-face
+//     Fallback và font stack đổi (29/08/2026). Lớp cache-first giữ
+//     '/dist/style.min.css' không query nên phải đổi tên cache mới buông.
+const CACHE_NAME = 'tdc-v7';
 const STATIC_ASSETS = [
     '/',
     '/index.html',

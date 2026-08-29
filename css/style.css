@@ -119,6 +119,74 @@
 }
 
 /* ============================================
+   PHÔNG LÓT KHỚP SỐ ĐO — chặn nhảy layout (CLS)
+   ============================================
+   PageSpeed 29/08/2026 vẫn chỉ đúng <div class="hero-content">: 0,269 trên tổng
+   0,269 — tức 100%. Tự chứa phông (31/07) mới bỏ được chặng gstatic, KHÔNG bỏ
+   được cú nhảy: font-display:swap vẫn vẽ bằng phông máy trước rồi mới đổi.
+
+   Vì sao đổi phông làm CẢ KHỐI hero dịch chứ không riêng chữ: .hero là flex +
+   align-items:center nên .hero-content được canh giữa theo chiều dọc. Khối cao
+   thêm bao nhiêu thì mép trên dịch lên một nửa bấy nhiêu — toàn bộ khối tính là
+   đã dịch. Mà khối cao thêm vì SỐ DÒNG đổi.
+
+   Đo trên khung nhìn 412px (Moto G Power như Lighthouse mô phỏng), H1 cỡ 51,2px
+   trong ô rộng 364px:
+     "Trạm Dừng Chill" bằng Dancing Script  → 324px = 1 dòng
+     "Trạm Dừng Chill" bằng Arial (phông lót cũ) → 376px = 2 DÒNG
+   Đúng cú nhảy đó: hero cao thêm một dòng 54px, canh giữa nên dịch 27px.
+   Chữ Inter trong hero KHÔNG đổi số dòng — thủ phạm chỉ là H1.
+
+   Cách chữa: khai họ phông "lót" trỏ vào phông có sẵn trong máy, kèm size-adjust
+   để bề rộng trung bình khớp phông thật → số dòng không đổi → không nhảy.
+   Số đo lấy bằng cách đọc thẳng bảng cmap + hmtx trong chính file .woff2 ở
+   assets/fonts, cân theo TẦN SUẤT KÝ TỰ THẬT của index+menu+blog (20.810 ký tự).
+   KHÔNG dùng bảng tần suất chữ cái tiếng Anh kiểu capsize: tiếng Việt nhiều dấu
+   thanh với ư/ơ/đ nên tỉ lệ lệch hẳn — Inter ra 107,51% theo tiếng Anh nhưng chỉ
+   104,82% theo chữ thật, và 107,51% đủ rộng để làm dòng địa chỉ trong .hero-badge
+   vắt xuống hai dòng, tức đẻ ra cú nhảy mới. Chỉ tính ký tự CẢ HAI phông đều có,
+   vì ký tự thiếu một bên cũng làm lệch tỉ lệ (Georgia thiếu nhiều chữ Việt).
+     Inter    ÷ Arial   104,82% → ×0,985 = 103,25%
+     Dancing  ÷ Arial    84,18% → ×0,985 =  82,92%
+     Playfair ÷ Georgia 100,15% → ×0,985 =  98,65%
+   Nhân 0,985 là cố ý cho phông lót HẸP hơn phông thật ~1,5%: hẹp thì không bao
+   giờ đẻ thêm dòng, còn rộng hơn một chút là đủ đẩy chữ xuống dòng rồi nhảy.
+   ascent/descent-override chia tiếp cho size-adjust, để hộp dòng cũng khớp ở
+   những chỗ dùng line-height: normal.
+
+   Android không có Arial thật, nhưng fonts.xml của hệ thống ánh xạ Arial →
+   Roboto, mà Roboto rộng 911/2048 — lệch Arial chưa tới 1%. Nên một bộ số dùng
+   chung được cho cả Android lẫn Windows/macOS.
+
+   ⚠️ Ba khối này CÒN ĐƯỢC CHÉP vào critical CSS inline của index/menu/blog/404/
+   duong-di. Sửa ở đây thì sửa cả trong đó — không thì đúng lúc dễ nhảy nhất
+   (CSS async chưa về) trình duyệt lại không biết mấy họ phông này. */
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    size-adjust: 103.25%;
+    ascent-override: 93.83%;
+    descent-override: 23.36%;
+    line-gap-override: 0%;
+}
+@font-face {
+    font-family: 'Dancing Script Fallback';
+    src: local('Arial');
+    size-adjust: 82.92%;
+    ascent-override: 110.95%;
+    descent-override: 33.77%;
+    line-gap-override: 0%;
+}
+@font-face {
+    font-family: 'Playfair Fallback';
+    src: local('Georgia');
+    size-adjust: 98.65%;
+    ascent-override: 109.68%;
+    descent-override: 25.44%;
+    line-gap-override: 0%;
+}
+
+/* ============================================
    VARIABLES — CSS Custom Properties
    ============================================ */
 
@@ -151,9 +219,9 @@
     --border: #E0D5C7;
 
     /* Typography */
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', -apple-system, sans-serif;
-    --font-accent: 'Dancing Script', cursive;
+    --font-display: 'Playfair Display', 'Playfair Fallback', Georgia, serif;
+    --font-body: 'Inter', 'Inter Fallback', -apple-system, sans-serif;
+    --font-accent: 'Dancing Script', 'Dancing Script Fallback', cursive;
 
     /* Effects */
     --shadow-soft: 0 4px 20px rgba(15, 13, 10, 0.08);

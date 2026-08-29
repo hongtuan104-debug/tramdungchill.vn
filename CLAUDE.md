@@ -121,6 +121,26 @@ trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dí
 2. **`scripts/generate-blog-pages.js`:** `const BLOG_ARTICLES` không expose vào vm sandbox → append `;this.BLOG_ARTICLES = BLOG_ARTICLES;` sau dataSource trước khi `runInNewContext`
 3. **Telegram không nhận thông báo** → Token đúng: `AAGO55X` (chữ **O**, KHÔNG phải số 0)
 4. **Zalo không nhận thông báo** → Dùng deployment Apps Script `AKfycbz46uJ...` (quyền "Bất kỳ ai"), KHÔNG dùng `AKfycbw3y1TpNm...` (cần đăng nhập)
+5. **4 thẻ `preload` phông nằm TRONG `<noscript>`** → với mọi khách có JS chúng
+   không chạy, tức preload chưa từng hoạt động dù nhìn HTML tưởng có. Phông chỉ
+   được phát hiện sau khi `style.min.css` (tải async) về nên đổi phông xảy ra rất
+   muộn → hero xô chỗ, CLS 0,269 suốt từ 31/07 tới 29/08/2026. Cái `<noscript>` đó
+   vốn chỉ để bọc thẻ `<link rel=stylesheet>` dự phòng, thẻ preload bị dính vào sau.
+   → Sửa 29/08/2026: đưa preload ra ngoài, và chỉ giữ Dancing Script (31 KB) —
+   preload thêm Inter 58 KB sẽ giành băng thông với ảnh hero (phần tử LCP).
+
+## Phông lót chống CLS — sửa thì sửa cả 6 chỗ
+`css/style.css` khai 3 `@font-face` tên `*Fallback` (Inter / Dancing Script /
+Playfair) trỏ vào phông máy sẵn có kèm `size-adjust`, để lúc phông thật chưa về
+chữ vẫn chiếm đúng bề rộng → **không đổi số dòng → không nhảy layout**.
+Đây mới là thứ chữa CLS; tự chứa phông (31/07) chỉ bỏ được chặng gstatic.
+- Cả 3 khối này **được chép vào critical CSS inline** của `index/menu/blog/404/
+  duong-di` — vì lúc dễ nhảy nhất là lúc CSS async chưa về. Sửa `style.css` mà
+  quên 5 file kia là công cốc.
+- Bộ số **không được tự nghĩ**: tính từ bảng `cmap`+`hmtx` trong chính file
+  `.woff2`, cân theo tần suất ký tự thật của trang (tiếng Việt lệch hẳn tiếng Anh).
+- Đổi phông / đổi subset / đổi nhiều chữ hero → chạy `node scripts/kiem-phong-lot.js`
+  (chạy tay, cần Arial+Georgia của Windows, KHÔNG nằm trong build).
 
 ## Flow đặt bàn
 ```
