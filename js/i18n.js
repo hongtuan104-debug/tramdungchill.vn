@@ -87,9 +87,17 @@ function initScrollProgress() {
 
     let ticking = false;
 
+    /* Chiều cao cuộn được của trang — đo một lần thay vì mỗi khung hình.
+       scrollHeight/clientHeight đều buộc tính lại bố cục, mà khung trước vừa ghi
+       bar.style.width nên bố cục đang bẩn → lần đọc nào cũng tính lại thật.
+       Trang không cao lên trong lúc cuộn, nên số này giữ nguyên được. */
+    const docHeightCache = cachedLayout(function () {
+        return document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    });
+
     function updateProgress() {
+        const docHeight = docHeightCache.get();
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         bar.style.width = progress + '%';
         ticking = false;

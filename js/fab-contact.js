@@ -128,9 +128,18 @@
             }
         });
 
+        /* "Trang có ngắn không" — đo một lần thay vì mỗi khung hình cuộn.
+           document.body.scrollHeight buộc tính lại bố cục, mà ngay dòng dưới lại
+           ghi class nên khung sau đọc là tính lại thật. Trang ngắn hay dài thì
+           trong lúc cuộn không đổi. */
+        const shortPage = cachedLayout(function () {
+            return document.body.scrollHeight <= window.innerHeight + 400;
+        });
+
         // Show after scrolling 200px (or immediately on short pages)
         function checkScroll() {
-            const show = window.scrollY > 200 || document.body.scrollHeight <= window.innerHeight + 400;
+            // scrollY > 200 xét trước: cuộn rồi thì khỏi cần đo gì cả
+            const show = window.scrollY > 200 || shortPage.get();
             fabEl.classList.toggle('visible', show);
         }
 

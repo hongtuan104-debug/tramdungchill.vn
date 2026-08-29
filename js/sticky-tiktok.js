@@ -10,27 +10,46 @@
         var bar = document.getElementById('stickyBookBar');
         if (!bar) return;
 
-        var hero = document.querySelector('.hero');
-        var heroHeight = hero ? hero.offsetHeight : 600;
-        var bookingSection = document.getElementById('booking');
-        var lastScroll = 0;
+        /* Chiều cao hero + mốc khối đặt bàn — đo một lần rồi dùng lại.
+           Bản cũ đọc hero.offsetHeight ngay lúc DOMContentLoaded, đúng lúc bố cục
+           còn bẩn nên phải tính lại cả trang: PageSpeed 29/08/2026 tính riêng
+           dòng đó 52ms — nặng nhất trong nhóm "buộc chỉnh lại luồng".
+           Còn offsetTop thì bản cũ đọc lại MỖI sự kiện cuộn, mà ngay dưới nó lại
+           ghi class vào <body> — làm bẩn toàn trang rồi lần cuộn sau đọc lại,
+           thành ra bắt tính lại bố cục liên tục suốt lúc cuộn. */
+        var geo = cachedLayout(function () {
+            var hero = document.querySelector('.hero');
+            var booking = document.getElementById('booking');
+            return {
+                heroHeight: hero ? hero.offsetHeight : 600,
+                bookingTop: booking ? booking.offsetTop - 200 : Infinity
+            };
+        });
 
-        function handleScroll() {
-            var scrollY = window.pageYOffset;
-            var bookingTop = bookingSection ? bookingSection.offsetTop - 200 : Infinity;
-
-            // Show after scroll past 60% of hero, hide when in booking section
-            if (scrollY > heroHeight * 0.6 && scrollY < bookingTop) {
-                bar.classList.add('visible');
-                document.body.classList.add('sticky-bar-active');
-            } else {
-                bar.classList.remove('visible');
-                document.body.classList.remove('sticky-bar-active');
-            }
-            lastScroll = scrollY;
+        var shown = null;
+        function apply(show) {
+            if (show === shown) return;   // ghi lại class y hệt cũng làm bẩn bố cục
+            shown = show;
+            bar.classList.toggle('visible', show);
+            document.body.classList.toggle('sticky-bar-active', show);
         }
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        // Show after scroll past 60% of hero, hide when in booking section
+        function handleScroll() {
+            var scrollY = window.pageYOffset;
+            /* Ở đỉnh trang thì chắc chắn ẩn — thoát sớm, khỏi đo gì. Nhờ vậy lượt
+               tải đầu (Lighthouse đo ở đỉnh) không phải tính lại bố cục lần nào. */
+            if (scrollY === 0) { apply(false); return; }
+            var g = geo.get();
+            apply(scrollY > g.heroHeight * 0.6 && scrollY < g.bookingTop);
+        }
+
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () { handleScroll(); ticking = false; });
+        }, { passive: true });
         handleScroll();
     }
 

@@ -57,22 +57,35 @@ function initScrollUI() {
 
     let ticking = false;
 
+    /* Vị trí các mục và link nav tương ứng — đo một lần thay vì mỗi khung hình.
+       Bản cũ trong onScroll đọc offsetTop rồi ghi class rồi lại đọc offsetTop
+       của mục sau… mỗi vòng lặp là một lần bắt trình duyệt tính lại bố cục cả
+       trang, nhân với số mục, nhân với mỗi khung hình cuộn. Còn querySelector
+       tra link cũng lặp lại y hệt dù kết quả không bao giờ đổi. */
+    const layout = cachedLayout(function () {
+        const out = [];
+        sections.forEach(section => {
+            const id = section.getAttribute('id');
+            const link = document.querySelector('.nav-link[href="#' + id + '"]');
+            if (!link) return;
+            out.push({ link: link, top: section.offsetTop, height: section.offsetHeight });
+        });
+        return out;
+    });
+
     function onScroll() {
         const scrollY = window.scrollY;
+
+        // ĐỌC hết trước, GHI hết sau — xen kẽ mới là thứ đẻ ra reflow.
+        const items = layout.get();
 
         if (navbar) navbar.classList.toggle('scrolled', scrollY > 60);
         if (fab) fab.classList.toggle('visible', scrollY > 400);
         if (backToTop) backToTop.classList.toggle('visible', scrollY > 800);
 
         const offset = scrollY + 120;
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-            const link = document.querySelector('.nav-link[href="#' + id + '"]');
-            if (link) {
-                link.classList.toggle('active', offset >= top && offset < top + height);
-            }
+        items.forEach(item => {
+            item.link.classList.toggle('active', offset >= item.top && offset < item.top + item.height);
         });
 
         ticking = false;

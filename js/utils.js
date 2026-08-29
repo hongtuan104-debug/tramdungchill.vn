@@ -130,6 +130,49 @@ function formatDateVi(dateStr) {
     return parts[2] + '/' + parts[1] + '/' + parts[0];
 }
 
+/**
+ * Đo layout một lần rồi dùng lại, thay vì đọc offsetTop/scrollHeight mỗi khung
+ * hình cuộn.
+ *
+ * VÌ SAO: đọc offsetTop / offsetHeight / scrollHeight buộc trình duyệt tính lại
+ * bố cục NGAY tại chỗ. Các hàm cuộn của mình đang làm đúng kiểu tệ nhất — ghi
+ * class (làm bố cục bẩn) rồi đọc số đo (bắt tính lại), lặp trong vòng lặp. Mỗi
+ * vòng là một lần tính lại cả trang. PageSpeed 29/08/2026 đo được 114ms "buộc
+ * chỉnh lại luồng" trong JS của mình, trên tổng 256ms.
+ *
+ * Mà mấy số đó KHÔNG đổi trong lúc cuộn — chỉ đổi khi trang đổi chiều cao.
+ * Nên đo một lần, dùng lại, và chỉ đo lại khi kích thước thật sự đổi.
+ *
+ * Dùng ResizeObserver chứ không phải sự kiện 'resize': nó bắt được MỌI thứ làm
+ * trang cao lên (ảnh về, đổi ngôn ngữ, mở accordion, flipbook), còn 'resize'
+ * chỉ nổ khi người dùng đổi cỡ cửa sổ.
+ *
+ * @param {Function} measure hàm đọc số đo — trả về giá trị gì cũng được
+ * @returns {{get: Function, invalidate: Function}} get() trả số đo, đo lại nếu cũ
+ */
+function cachedLayout(measure) {
+    let value = null;
+    let fresh = false;
+    function invalidate() { fresh = false; }
+
+    if (typeof ResizeObserver === 'function') {
+        // Callback chỉ bật cờ, không đụng DOM — không có nguy cơ lặp vô hạn.
+        try { new ResizeObserver(invalidate).observe(document.body); } catch (e) { /* bỏ qua */ }
+    } else {
+        window.addEventListener('resize', invalidate, { passive: true });
+    }
+    // Chốt chặn: ảnh cuối cùng về cũng làm trang cao lên.
+    window.addEventListener('load', invalidate);
+
+    return {
+        get: function () {
+            if (!fresh) { value = measure(); fresh = true; }
+            return value;
+        },
+        invalidate: invalidate
+    };
+}
+
 /* Preloader là lớp phủ kín màn hình (fixed, inset:0, z-index 9999), nên LCP chỉ
    được tính TỪ LÚC nó biến mất — tức nó chính là thứ quyết định LCP, không phải
    ảnh hay video nền.

@@ -17,7 +17,10 @@
 // v7: phông lót khớp số đo chặn CLS — style.min.css có thêm 3 @font-face
 //     Fallback và font stack đổi (29/08/2026). Lớp cache-first giữ
 //     '/dist/style.min.css' không query nên phải đổi tên cache mới buông.
-const CACHE_NAME = 'tdc-v7';
+// v8: bo cac so do layout thay vi doc offsetTop/scrollHeight moi khung hinh cuon
+//     (29/08/2026) — doi common.min.js va index.min.js. Hai file nay KHONG mang
+//     van tay ?v= trong URL nen doi ten cache la cach duy nhat de khach cu nhan.
+const CACHE_NAME = 'tdc-v8';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
