@@ -139,6 +139,23 @@ trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dí
    nên một chữ `<body>` nằm trong comment ở `<head>` là nó cắt nhầm chỗ và báo
    thiếu cả 12 chủ đề fan-out. Dính đúng lỗi này ngày 30/08/2026.
 
+8. **Critical CSS inline chỉ có bản DESKTOP của hero** → CLS 0,275 (30/08/2026).
+   Trên khung 412px, khung hình đầu vẽ hero theo số đo desktop; tới khi
+   `dist/style.min.css` (tải async) về thì override mobile ập vào một lượt —
+   nặng nhất là `.hero-buttons{flex-direction:column}` biến 2 nút ngang thành
+   dọc. `.hero` là `flex; align-items:center` nên cả khối tự căn giữa lại → nhảy.
+   Lỗi này VỐN VẪN LUÔN CÓ, chỉ bị lớp `.preloader` che; bỏ preloader là lộ ra.
+   → Đã chép đủ 6 khối media query của hero vào critical CSS, đặt **SAU**
+   `CRIT-EXTRA` (trong đó `.hero-trust`/`.trust-stars` khai KHÔNG kèm media
+   query, chen trước thì rule không điều kiện sẽ thắng).
+   ⚠️ **Sửa rule mobile của hero trong `css/style.css` thì PHẢI sửa cả khối
+   `CRIT-MOBILE` trong `index.html`.** Kiểm nhanh: quét mọi rule `.hero*`/`.btn`/
+   `.trust*` nằm trong media query khớp khung 412x823, đối chiếu với critical CSS
+   — phải khớp 11/11.
+   ⚠️ Trước khi đổ lỗi cho phông, chạy `node scripts/kiem-phong-lot.js` (đợt này
+   nó báo phông lót vẫn đúng số dòng) và so text tĩnh với `data/translations.js`.
+   Cả hai đều sạch, thủ phạm là media query thiếu.
+
 ## Phông lót chống CLS — sửa thì sửa cả 6 chỗ
 `css/style.css` khai 3 `@font-face` tên `*Fallback` (Inter / Dancing Script /
 Playfair) trỏ vào phông máy sẵn có kèm `size-adjust`, để lúc phông thật chưa về
