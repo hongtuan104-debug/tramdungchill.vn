@@ -647,32 +647,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     object-fit: cover;
 }
 
-/* Hide image slider on all devices - video shows everywhere */
-.hero-slider-mobile { display: none !important; }
-.hero-time-bar { display: none !important; }
-
-.hero-slider { position: absolute; inset: 0; }
-
-.hero-slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 1.8s ease;
-    will-change: opacity, transform;
-}
-
-.hero-slide.active {
-    opacity: 1;
-    animation: slowZoom 10s ease-out forwards;
-}
-
-@keyframes slowZoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.06); }
-}
-
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -801,51 +775,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     justify-content: center;
     flex-wrap: wrap;
 }
-
-/* Time indicator dots */
-.hero-time-bar {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    display: flex;
-    gap: 12px;
-}
-
-.time-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.4);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s var(--ease);
-    position: relative;
-}
-
-.time-dot.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    box-shadow: 0 0 12px rgba(212,168,83,0.5);
-}
-
-.time-dot::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.8);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.time-dot:hover::after,
-.time-dot.active::after { opacity: 1; }
 
 /* Scroll hint */
 .hero-scroll-hint {
@@ -3230,7 +3159,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .hero-content { padding: 0 20px; }
     .hero-description br { display: none; }
     .hero-description { font-size: 1.05rem; line-height: 1.75; }
-    .hero-time-bar { bottom: 70px; }
     .hero-scroll-hint { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 
     /* === SECTIONS — tighter padding === */
@@ -3434,7 +3362,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         width: 100%;
         justify-content: center;
     }
-    .hero-time-bar { bottom: 50px; }
 
     /* Gallery — single column */
     .gallery-grid {
@@ -3518,7 +3445,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
    ============================================ */
 @media (max-width: 768px) and (max-height: 500px) {
     .hero { min-height: 100vh; }
-    .hero-time-bar { display: none; }
     .hero-scroll-hint { display: none; }
     .map-embed { min-height: 200px; }
     .nav-menu { padding: 0 32px; gap: 4px; }
@@ -3534,7 +3460,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-    .hero-slide.active { animation: none; }
     .particle { display: none; }
     .fab-main { animation: none; }
     .scroll-arrow, .mouse-wheel { animation: none; }

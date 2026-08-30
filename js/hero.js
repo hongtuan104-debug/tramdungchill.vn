@@ -2,37 +2,10 @@
    Tram Dung Chill - Hero Slider & Particles
    ============================================ */
 
-function initHeroSlider() {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.time-dot');
-    if (slides.length <= 1) return;
-
-    let current = 0;
-    const total = slides.length;
-    let timer;
-
-    function goToSlide(index) {
-        slides[current].classList.remove('active');
-        if (dots[current]) dots[current].classList.remove('active');
-        current = index % total;
-        slides[current].classList.add('active');
-        if (dots[current]) dots[current].classList.add('active');
-    }
-
-    function startTimer() {
-        timer = setInterval(() => goToSlide(current + 1), 7000);
-    }
-
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            clearInterval(timer);
-            goToSlide(parseInt(dot.dataset.slide));
-            startTimer();
-        });
-    });
-
-    startTimer();
-}
+/* initHeroSlider() da bo ngay 30/08/2026.
+   Khoi .hero-slider-mobile bi display:none o ca critical CSS lan style.css nen
+   ba anh do chua tung hien thi; ham nay chi con doi mau ba cham .time-dot va
+   nuoi mot setInterval 7 giay chay mai. Video + poster lo het phan nen hero. */
 
 /* Video nền hero chỉ tải trên máy tính.
    File nặng 3,6 MB — trên mobile 4G chậm nó đẩy LCP lên 8,9 giây (PageSpeed

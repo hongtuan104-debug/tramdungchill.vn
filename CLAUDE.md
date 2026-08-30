@@ -129,6 +129,16 @@ trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dí
    → Sửa 29/08/2026: đưa preload ra ngoài, và chỉ giữ Dancing Script (31 KB) —
    preload thêm Inter 58 KB sẽ giành băng thông với ảnh hero (phần tử LCP).
 
+6. **Lớp `.preloader` che kín màn hình** → nó phủ `fixed;inset:0;z-index:9999`
+   nền tối cho tới khi JS chạy xong VÀ ảnh poster tải xong. Hệ quả: FCP đếm đúng
+   cái spinner chứ không phải nội dung, rồi màn hình đứng im → Speed Index 5,0 giây
+   (PageSpeed 30/08/2026). Bỏ hẳn 30/08/2026 — `.hero` đã có nền gradient nâu
+   trong critical CSS nên không hề chớp trắng.
+7. **Đừng viết chuỗi `<body>` hay `<script>` trong chú thích HTML.**
+   `scripts/seo-geo-verify.js` tách phần thân trang bằng `split(/<body[^>]*>/)`,
+   nên một chữ `<body>` nằm trong comment ở `<head>` là nó cắt nhầm chỗ và báo
+   thiếu cả 12 chủ đề fan-out. Dính đúng lỗi này ngày 30/08/2026.
+
 ## Phông lót chống CLS — sửa thì sửa cả 6 chỗ
 `css/style.css` khai 3 `@font-face` tên `*Fallback` (Inter / Dancing Script /
 Playfair) trỏ vào phông máy sẵn có kèm `size-adjust`, để lúc phông thật chưa về

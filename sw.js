@@ -20,7 +20,7 @@
 // v8: bo cac so do layout thay vi doc offsetTop/scrollHeight moi khung hinh cuon
 //     (29/08/2026) — doi common.min.js va index.min.js. Hai file nay KHONG mang
 //     van tay ?v= trong URL nen doi ten cache la cach duy nhat de khach cu nhan.
-const CACHE_NAME = 'tdc-v8';
+const CACHE_NAME = 'tdc-v9';
 const STATIC_ASSETS = [
     '/',
     '/index.html',

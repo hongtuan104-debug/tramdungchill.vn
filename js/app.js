@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Page-specific initialization
     if (page === 'index') {
-        if (typeof initPreloader === 'function') initPreloader();
         if (typeof initHeroVideo === 'function') initHeroVideo();
-        if (typeof initHeroSlider === 'function') initHeroSlider();
         if (typeof initHeroParticles === 'function') initHeroParticles();
         if (typeof initLazyImages === 'function') initLazyImages();
         if (typeof initGalleryLightbox === 'function') initGalleryLightbox();

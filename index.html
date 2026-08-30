@@ -60,12 +60,6 @@
     .container{max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     ::selection{background:var(--gold);color:var(--night)}
-    .preloader{position:fixed;inset:0;z-index:9999;background:var(--night);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
-    .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-    .preloader-inner{text-align:center;color:var(--gold)}
-    .preloader-flame{width:40px;height:40px;margin:0 auto 16px;border:3px solid rgba(212,168,83,0.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .preloader-inner p{font-family:var(--font-accent);font-size:1.5rem;letter-spacing:2px}
     .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s var(--ease)}
     .navbar.scrolled{background:rgba(15,13,10,0.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:12px 0;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
     .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
@@ -87,12 +81,6 @@
     .hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(160deg,#2B1B10 0%,#6B3A1F 45%,#1A1208 100%)}
     .hero-video-wrapper{position:absolute;inset:0;overflow:hidden}
     .hero-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
-    .hero-slider-mobile{display:none}
-    @media(max-width:480px){.hero-video-wrapper{display:block}.hero-slider-mobile{display:none}}
-    .hero-slider{position:absolute;inset:0}
-    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;will-change:opacity,transform}
-    .hero-slide.active{opacity:1;animation:slowZoom 10s ease-out forwards}
-    @keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,10,0.5) 0%,rgba(15,13,10,0.15) 35%,rgba(15,13,10,0.1) 50%,rgba(15,13,10,0.5) 85%,rgba(15,13,10,0.8) 100%);z-index:1}
     .hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none}
     .hero-content{position:relative;z-index:3;text-align:center;color:var(--white);padding:0 24px;max-width:800px}
@@ -111,17 +99,14 @@
     .animate-fade-up{opacity:0;transform:translateY(30px);animation:fadeUp .9s var(--ease) forwards}
     .delay-1{animation-delay:.15s}.delay-2{animation-delay:.3s}.delay-3{animation-delay:.5s}.delay-4{animation-delay:.7s}
     @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-    .hero-time-bar{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:12px}
-    .time-dot{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);background:transparent;cursor:pointer;transition:all .3s var(--ease);position:relative}
-    .time-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px rgba(212,168,83,0.5)}
-    @media(min-width:481px){.hero-time-bar{display:none!important}.hero-slider-mobile{display:none!important}.hero-scroll-hint{bottom:30px}}
+    @media(min-width:481px){.hero-scroll-hint{bottom:30px}}
     .hero-scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;pointer-events:none}
     .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--sunset));z-index:1001;transition:width .05s linear;box-shadow:0 0 8px rgba(212,168,83,0.5)}
     /*CRIT-EXTRA-START*/.hero-trust{margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(0,0,0,0.35);border:1px solid rgba(212,168,83,0.25);border-radius:var(--radius-full);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:0.82rem;color:rgba(255,255,255,0.85)}.trust-stars{color:var(--gold);letter-spacing:1px;font-size:0.85rem;text-shadow:0 0 8px rgba(212,168,83,0.5);flex-shrink:0}.trust-stars{font-size:0.75rem;letter-spacing:0.5px}.trust-text{white-space:nowrap;letter-spacing:0.2px}.mouse{width:22px;height:34px;border:2px solid rgba(255,255,255,0.3);border-radius:12px;position:relative}.scroll-arrow,.mouse-wheel{animation:none}.mouse-wheel{width:3px;height:8px;background:var(--gold);border-radius:3px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollWheel 2s ease-in-out infinite}.sticky-book-bar{position:fixed;bottom:0;transform:translateY(100%);left:0;right:0;z-index:1000;background:linear-gradient(135deg,rgba(15,13,10,0.98),rgba(26,22,18,0.98));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(212,168,83,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:transform 0.4s var(--ease);box-shadow:0 -8px 30px rgba(0,0,0,0.4)}.sticky-book-info{flex:1;min-width:0}.sticky-book-title{font-size:0.95rem;font-weight:700;color:var(--gold);margin-bottom:2px}.sticky-book-title{font-size:0.88rem}.sticky-book-sub{font-size:0.72rem;color:rgba(255,255,255,0.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sticky-book-sub{font-size:0.68rem}.sticky-book-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--night);font-weight:700;font-size:0.9rem;border-radius:var(--radius-full);box-shadow:0 4px 20px rgba(212,168,83,0.4);transition:all 0.3s var(--ease);flex-shrink:0;text-decoration:none;animation:pulse-glow 2.5s ease-in-out infinite}.sticky-book-btn{padding:10px 18px;font-size:0.85rem}.sticky-book-bar.visible{transform:translateY(0)}/*CRIT-EXTRA-END*/</style>
 
     <!-- Full CSS — async load (non-render-blocking) -->
-    <link rel="stylesheet" href="dist/style.min.css?v=c0fa557f" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=c0fa557f"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=95ac565f" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=95ac565f"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -537,14 +522,6 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-flame"></div>
-            <p>Trạm Dừng Chill</p>
-        </div>
-    </div>
-
     <!-- Navigation (loaded dynamically from components/nav.html) -->
     <div id="nav-placeholder"></div>
     <noscript>
@@ -561,7 +538,11 @@
 
     <!-- Hero Section - Cinematic -->
     <section class="hero" id="home">
-        <!-- Hero Video Background (desktop) + Image Fallback (mobile)
+        <!-- Hero Video Background (desktop) + poster (mobile)
+             30/08/2026: khối .hero-slider 3 ảnh "dự phòng cho mobile" đã bỏ. Nó
+             bị display:none ở cả critical CSS lẫn style.css, không nơi nào bật
+             lại, nên chưa từng hiển thị lần nào; ba chấm .time-dot đi kèm chỉ
+             đổi màu qua lại cho một slideshow không tồn tại. Mobile xem poster.
              Video 3,6 MB nên KHÔNG gắn src sẵn: dùng data-src, js/hero.js chỉ gắn
              thật khi màn hình >= 768px. Ẩn bằng CSS display:none là không đủ —
              trình duyệt vẫn tải đủ 3,6 MB rồi mới ẩn, đó chính là lý do LCP trên
@@ -574,11 +555,6 @@
             <video class="hero-video" muted loop playsinline preload="none" width="1200" height="1802" aria-label="Toàn cảnh Tiệm Nướng Trạm Dừng Chill lúc hoàng hôn, thung lũng nhà lồng Đà Lạt" poster="assets/images/hero-sunset.webp">
                 <source data-src="assets/images/hero-video.mp4" type="video/mp4">
             </video>
-        </div>
-        <div class="hero-slider hero-slider-mobile">
-            <div class="hero-slide active" data-caption="sunset" style="background-image: url('assets/images/hero-sunset.jpg')" role="img" aria-label="Quán nướng Đà Lạt view hoàng hôn đẹp nhất - Trạm Dừng Chill BBQ"></div>
-            <div class="hero-slide" data-caption="night" style="background-image: url('assets/images/hero-night.jpg')" role="img" aria-label="Quán nướng BBQ Đà Lạt về đêm với nhà lồng lên đèn lung linh"></div>
-            <div class="hero-slide" data-caption="couple" style="background-image: url('assets/images/hero-couple.jpg')" role="img" aria-label="Hẹn hò quán nướng view đẹp Đà Lạt - Trạm Dừng Chill"></div>
         </div>
         <div class="hero-overlay"></div>
 
@@ -616,13 +592,6 @@
                 <span class="trust-stars">★★★★★</span>
                 <span class="trust-text"><strong>4.8/5</strong> · <strong>6.889</strong> đánh giá Google · <strong>13M+</strong> views viral</span>
             </div>
-        </div>
-
-        <!-- Time of day indicator -->
-        <div class="hero-time-bar">
-            <button class="time-dot active" data-slide="0" data-label="Hoàng hôn" aria-label="Slide 1: Hoàng hôn"></button>
-            <button class="time-dot" data-slide="1" data-label="Về đêm" aria-label="Slide 2: Về đêm"></button>
-            <button class="time-dot" data-slide="2" data-label="Khoảnh khắc" aria-label="Slide 3: Khoảnh khắc"></button>
         </div>
 
         <div class="hero-scroll-hint">
@@ -1598,9 +1567,6 @@
             <button class="btn btn-golden" id="closeModalBtn">Đóng</button>
         </div>
     </div>
-
-    <!-- External Libraries -->
-    <script defer src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 
     <!-- Data Files -->
     <script defer src="data/site-config.js"></script>

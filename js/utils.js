@@ -173,41 +173,15 @@ function cachedLayout(measure) {
     };
 }
 
-/* Preloader là lớp phủ kín màn hình (fixed, inset:0, z-index 9999), nên LCP chỉ
-   được tính TỪ LÚC nó biến mất — tức nó chính là thứ quyết định LCP, không phải
-   ảnh hay video nền.
+/* initPreloader() đã bỏ hẳn ngày 30/08/2026 cùng với markup .preloader.
 
-   Bản cũ đợi window.load rồi + 600ms, chốt chặn 3000ms. 'load' đợi MỌI tài nguyên
-   xong, kể cả iframe Google Maps và 4 pixel bên thứ ba (GA4, Meta, TikTok,
-   Clarity) — trên 4G chậm là rất lâu. Đo 31/07/2026: LCP 9,6 giây.
+   Lớp phủ đó che kín màn hình bằng nền var(--night) cho tới khi JS chạy xong VÀ
+   ảnh poster tải xong. Hệ quả đo được (PageSpeed 30/08/2026): FCP 1,9 giây đếm
+   đúng cái spinner chứ không phải nội dung, rồi màn hình đứng im màu tối cho tới
+   khi poster về → Speed Index 5,0 giây.
 
-   Nay chỉ đợi đúng thứ quyết định khung hình đầu: ảnh nền hero. Xong ảnh là gỡ
-   lớp phủ, không chờ pixel với bản đồ. Chốt chặn hạ còn 1200ms. */
-function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    if (!preloader) return;
-
-    let xong = false;
-    const an = function () {
-        if (xong) return;
-        xong = true;
-        preloader.classList.add('hidden');
-    };
-
-    const hero = document.querySelector('.hero-video');
-    const poster = hero && hero.getAttribute('poster');
-    if (poster) {
-        const img = new Image();
-        img.onload = an;
-        img.onerror = an;
-        img.src = poster;
-        if (img.complete) an();
-    } else {
-        an();
-    }
-
-    setTimeout(an, 1200);
-}
+   Bỏ đi không hề chớp trắng: .hero đã có sẵn nền linear-gradient nâu trong
+   critical CSS, nên khung hình đầu tiên vẫn ra đúng tông. */
 
 function initModalClose() {
     const btn = document.getElementById('closeModalBtn');
@@ -279,10 +253,45 @@ function setCurrentYear() {
     if (el) el.textContent = new Date().getFullYear();
 }
 
+/* Thư viện qrcode-generator nằm trên CDN jsdelivr, trước 30/08/2026 được nạp
+   ngay lúc vào trang bằng <script defer> trong index.html — trong khi thẻ QR
+   nằm tận cuối trang, khách phải cuộn rất lâu mới thấy.
+
+   Nay chỉ nạp khi khách cuộn gần tới, nên đường tải trang đầu bớt hẳn một
+   origin bên thứ ba. Ô .qr-code đã khoá cứng 200x200 trong CSS nên lúc mã QR
+   hiện ra không đẩy layout (CLS = 0).
+
+   Trang review-qr.html vẫn nạp sớm như cũ: ở đó mã QR CHÍNH LÀ nội dung. */
 function initQRCode() {
     const container = document.getElementById('qrCode');
     if (!container) return;
 
+    const NGUON = 'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js';
+    let daNap = false;
+
+    function nap() {
+        if (daNap) return;
+        daNap = true;
+        if (typeof qrcode !== 'undefined') { veQR(container); return; }
+        const sc = document.createElement('script');
+        sc.src = NGUON;
+        sc.async = true;
+        sc.onload = function () { veQR(container); };
+        sc.onerror = function () { veQR(container); };   // rơi vào nhánh link dự phòng
+        document.head.appendChild(sc);
+    }
+
+    if (!('IntersectionObserver' in window)) { nap(); return; }
+
+    const theoDoi = new IntersectionObserver(function (muc) {
+        for (let i = 0; i < muc.length; i++) {
+            if (muc[i].isIntersecting) { theoDoi.disconnect(); nap(); return; }
+        }
+    }, { rootMargin: '400px' });
+    theoDoi.observe(container);
+}
+
+function veQR(container) {
     const reviewUrl = SITE_CONFIG.social.googleMaps;
 
     if (typeof qrcode !== 'undefined') {
