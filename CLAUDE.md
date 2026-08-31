@@ -79,6 +79,25 @@ do `scripts/generate-footer.js` sinh giữa mốc `<!-- FOOTER:START --> … <!-
   nằm trong `css/style.css`, đó mới là file được bundle ra `dist/style.min.css`
 - ⚠️ `css/variables.css` cũng là file chết — biến màu thật nằm trong `css/style.css`
 
+## Nav — cũng sinh tự động, ĐỪNG sửa HTML tay
+Trước 31/08/2026, index/menu/blog/đường-đi chỉ có `<div id="nav-placeholder">` rỗng;
+thanh nav do `components/layout-loader.js` **fetch lúc chạy**. Trên 4G chậm chuỗi này
+nằm thẳng trên đường tới LCP: tải `common.min.js` → DOMContentLoaded → fetch nav →
+chèn DOM → **rồi mới** fetch footer (hai vòng khứ hồi NỐI TIẾP). PageSpeed 31/08/2026
+chỉ đích danh phần tử LCP là `<span class="logo-main">` với render delay 2.500ms.
+- Nay `scripts/generate-nav.js` nướng `components/nav.html` vào giữa mốc
+  `<!-- NAV:START --> … <!-- NAV:END -->`; footer 4 trang này cũng đã thêm vào
+  `generate-footer.js` (cờ `baked:true`). Bài blog + 4 trang dịp vốn đã có nav tĩnh.
+- **Sửa nav** → sửa `components/nav.html` rồi chạy `node scripts/bundle-js.js`
+- ⚠️ Generator phải làm ĐÚNG những gì `fixLinksIn()` trong layout-loader làm lúc chạy:
+  trang chủ đổi link thành neo (`#booking`), thư mục con thêm `../`, gắn class
+  `active` theo `data-page`, trang con thêm `scrolled` vào `.navbar`.
+  **Đổi `fixLinksIn` thì đổi cả `generate-nav.js` và `bakeLinks()` trong generate-footer.js.**
+- ⚠️ **ĐỪNG gỡ khối `<noscript>` nav** dù trông như trùng với nav tĩnh. Trên mobile
+  `.nav-menu` bị `transform:translateX(100%)` đẩy ra ngoài màn hình, chỉ JS mới mở
+  được — không có JS thì khách mobile mất sạch đường đi nếu bỏ khối đó.
+- `layout-loader.js` giữ nguyên: nó tự bỏ qua khi không thấy placeholder.
+
 ## Menu ảnh dạng sách lật (flipbook) — cũng sinh tự động
 Trang menu: hero → **quyển menu ảnh 26 trang lật được** → FAQ → khối đặt bàn.
 Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu cũ bỏ đi").

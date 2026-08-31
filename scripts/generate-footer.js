@@ -151,7 +151,15 @@ const targets = [
     // vài tuần, khi cache cũ đã hết vòng đời.
     { file: "components/footer-simple.html", prefix: "", mode: "i18n", whole: true },
     { file: "templates/blog-post.html", prefix: "../", mode: "template" },
-    { file: "404.html", prefix: "", mode: "vi" }
+    { file: "404.html", prefix: "", mode: "vi" },
+    // Bốn trang dưới đây trước 31/08/2026 chỉ có <div id="footer-placeholder">
+    // rỗng, footer do layout-loader fetch về. Đó là vòng khứ hồi thứ hai (nối
+    // tiếp ngay sau nav) nằm trên đường tới LCP — xem scripts/generate-nav.js.
+    // baked:true → tự áp dụng phép biến đổi link mà loader vẫn làm lúc chạy.
+    { file: "index.html",          prefix: "",     mode: "i18n", baked: true, home: true },
+    { file: "menu.html",           prefix: "",     mode: "i18n", baked: true },
+    { file: "blog.html",           prefix: "",     mode: "i18n", baked: true },
+    { file: "duong-di/index.html", prefix: "../",  mode: "i18n", baked: true }
 ];
 
 for (const name of fs.readdirSync(path.join(ROOT, "dip"))) {
@@ -161,12 +169,27 @@ for (const name of fs.readdirSync(path.join(ROOT, "dip"))) {
 }
 
 function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+/* Trang nướng tĩnh (baked) KHÔNG có layout-loader chạy sau, nên phải tự áp dụng
+   đúng phép biến đổi mà fixLinksIn() làm lúc chạy. Tiền tố thư mục đã do
+   navItem() gắn sẵn qua opts.prefix; ở đây chỉ còn việc đổi link về mục trên
+   trang chủ thành neo. Đổi fixLinksIn thì đổi cả hàm này. */
+function bakeLinks(html, isHome) {
+    if (!isHome) return html;
+    return html.replace(/<a\s[^>]*>/g, function (tag) {
+        const m = tag.match(/data-home-href="([^"]*)"/);
+        if (!m) return tag;
+        return tag.replace(/href="[^"]*"/, 'href="' + m[1] + '"');
+    });
+}
+
+const PLACEHOLDER = '<div id="footer-placeholder"></div>';
 const BLOCK_RE = new RegExp(escapeRe(START) + "[\\s\\S]*?" + escapeRe(END));
 
 let written = 0;
 for (const t of targets) {
     const abs = path.join(ROOT, t.file);
-    const footer = buildFooter(t);
+    let footer = buildFooter(t);
+    if (t.baked) footer = bakeLinks(footer, t.home);
     const before = fs.readFileSync(abs, "utf8");
     let after;
 
@@ -176,10 +199,12 @@ for (const t of targets) {
         const block = START + "\n    " + footer.replace(/\n/g, "\n    ") + "\n    " + END;
         if (BLOCK_RE.test(before)) {
             after = before.replace(BLOCK_RE, block);
+        } else if (before.indexOf(PLACEHOLDER) !== -1) {
+            after = before.replace(PLACEHOLDER, block);
         } else if (/<footer[\s\S]*?<\/footer>/.test(before)) {
             after = before.replace(/<footer[\s\S]*?<\/footer>/, block);
         } else {
-            console.error("  ✗ " + t.file + " — không thấy mốc FOOTER:START lẫn thẻ <footer>, bỏ qua");
+            console.error("  ✗ " + t.file + " — không thấy mốc FOOTER:START, #footer-placeholder lẫn thẻ <footer>, bỏ qua");
             continue;
         }
     }

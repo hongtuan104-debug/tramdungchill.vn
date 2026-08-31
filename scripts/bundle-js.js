@@ -200,6 +200,17 @@ for (const b of CSS_BUNDLES) {
 // ── Footer dùng chung cho mọi trang ──────────────────────────────
 // Chạy ở đây để không ai quên: footer nằm trong 7 file (component + template bài
 // + 404 + 4 trang dịp), sửa tay từng file là cách cũ đã đẻ ra 5 footer lệch nhau.
+// Nướng thanh nav vào 4 trang còn nạp nav lúc chạy (index/menu/blog/đường-đi).
+// Phải chạy TRƯỚC generate-footer.js: cả hai cùng sửa các file đó, chạy sau thì
+// bản đọc vào của script kia đã cũ.
+console.log("");
+console.log("Đồng bộ nav...");
+try {
+    require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "generate-nav.js")), { stdio: "inherit" });
+} catch (e) {
+    console.error("  Bước này lỗi (khong chan build): " + e.message);
+}
+
 console.log("\nĐồng bộ footer...");
 try {
     require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "generate-footer.js")), { stdio: "inherit" });
