@@ -20,20 +20,23 @@
 // v8: bo cac so do layout thay vi doc offsetTop/scrollHeight moi khung hinh cuon
 //     (29/08/2026) — doi common.min.js va index.min.js. Hai file nay KHONG mang
 //     van tay ?v= trong URL nen doi ten cache la cach duy nhat de khach cu nhan.
-const CACHE_NAME = 'tdc-v9';
+// v10: danh sach precache tu 14 muc (600 KB, do that 31/08/2026) xuong 3 muc
+//      (137 KB), va js/app.js hoan dang ky SW toi sau 'load'.
+//      Ba khoan lang phi thuan cua ban cu:
+//        - '/' va '/index.html' la HAI URL khac nhau nhung CUNG mot noi dung
+//          -> tai trang 134 KB hai lan.
+//        - '/dist/style.min.css' KHONG mang van tay ?v=, ma bo xu ly fetch duoi
+//          day khop URL chinh xac (caches.match(event.request)) -> ban cache nay
+//          khong bao gio duoc dung. 91 KB tai xong vut di.
+//        - menu.html + blog.html + 2 bundle rieng cua chung = 155 KB cua trang
+//          khach chua chac ghe.
+//      Nhung thu bo di khong mat gi: bo xu ly fetch ben duoi VAN tu cache lai
+//      moi file khi khach thuc su tai no, nen sau lan ghe dau la day du nhu cu.
+//      Chi giu lai dung phan lam "vo offline": index.html cho nhanh du phong
+//      caches.match('/index.html'), manifest va favicon cho PWA.
+const CACHE_NAME = 'tdc-v10';
 const STATIC_ASSETS = [
-    '/',
     '/index.html',
-    '/menu.html',
-    '/blog.html',
-    '/dist/style.min.css',
-    '/dist/common.min.js',
-    '/dist/index.min.js',
-    '/dist/blog.min.js',
-    '/dist/menu.min.js',
-    '/data/site-config.js',
-    '/data/translations.js',
-    '/data/schema-data.js',
     '/manifest.json',
     '/assets/images/favicon.svg'
 ];

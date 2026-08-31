@@ -823,13 +823,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .animate-fade-up {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeUp 0.9s var(--ease) forwards;
+    /* 0,4s + do tre rat ngan ben duoi: phan tu o opacity:0 lau chung nao thi
+       Chrome chua tinh no lam ung vien LCP chung ay (do 31/08/2026). */
+    animation: fadeUp 0.4s var(--ease) forwards;
 }
 
-.delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.3s; }
-.delay-3 { animation-delay: 0.5s; }
-.delay-4 { animation-delay: 0.7s; }
+.delay-1 { animation-delay: 0.04s; }
+.delay-2 { animation-delay: 0.08s; }
+.delay-3 { animation-delay: 0.12s; }
+.delay-4 { animation-delay: 0.16s; }
 
 @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
@@ -1265,11 +1267,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     overflow: hidden;
 }
 
+/* Nen trang tri khoi dat ban. Anh bi blur(2px) + opacity 0.12 nen do phan giai
+   khong anh huong gi mat thuong. Truoc 31/08/2026 no dung hero-night 67 KB — tai
+   ve chi de lam mo tit con 12%. Ban booking-bg 400px nay 17,9 KB, nhin y het. */
 .booking-bg-layer {
     position: absolute;
     inset: 0;
-    background: url('../assets/images/hero-night.jpg') center/cover no-repeat;
-    background: url('../assets/images/hero-night.webp') center/cover no-repeat;
+    background: url('../assets/images/booking-bg.jpg') center/cover no-repeat;
+    background: url('../assets/images/booking-bg.webp') center/cover no-repeat;
     opacity: 0.12;
     filter: blur(2px);
 }

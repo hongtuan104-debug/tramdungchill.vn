@@ -3,9 +3,26 @@
    Async entry point with page detection
    ============================================ */
 
-// Register Service Worker
+/* Đăng ký service worker — CHỜ trang tải xong đã.
+
+   Bản cũ gọi register() ngay ở thân script, tức chạy ngay khi common.min.js
+   thực thi (trước cả DOMContentLoaded). Sự kiện install của SW liền chạy
+   cache.addAll(STATIC_ASSETS) — đo thật ngày 31/08/2026 là 600 KB — giành băng
+   thông với ảnh hero, phông và CSS ngay giữa lúc trình duyệt đang vẽ khung hình
+   đầu. Trên 4G chậm của PageSpeed, 600 KB ăn gần 3 giây băng thông.
+
+   Nay đợi 'load' rồi mới đăng ký, và còn nhường thêm một khe rảnh nữa. Khách
+   vẫn được đúng lợi ích cũ (chạy offline, vào lại nhanh) — chỉ là dọn kho lúc
+   trang đã vẽ xong thay vì tranh chỗ lúc đang vẽ. */
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(function() {});
+    var dangKySW = function () {
+        var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
+        khiRanh(function () {
+            navigator.serviceWorker.register('/sw.js').catch(function () {});
+        }, { timeout: 3000 });
+    };
+    if (document.readyState === 'complete') dangKySW();
+    else window.addEventListener('load', dangKySW, { once: true });
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
