@@ -248,4 +248,14 @@ try {
     console.error("  Flipbook generation failed (khong chan build): " + e.message);
 }
 
+// Cat nho phong xuong dung ky tu site dung. Chay CUOI CUNG: no quet chu tu cac
+// file .html, ma nav/footer/menu deu vua duoc sinh o cac buoc tren.
+console.log("");
+console.log("Cat nho phong...");
+try {
+    require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "cat-phong.js")), { stdio: "inherit" });
+} catch (e) {
+    console.error("  Buoc nay loi (khong chan build): " + e.message);
+}
+
 console.log("\nAll done!");

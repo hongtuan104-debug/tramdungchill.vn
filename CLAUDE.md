@@ -175,6 +175,27 @@ trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dí
    nó báo phông lót vẫn đúng số dòng) và so text tĩnh với `data/translations.js`.
    Cả hai đều sạch, thủ phạm là media query thiếu.
 
+## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
+`scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
+xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom
+từ chính nội dung — mọi trang .html + cả 2 ngôn ngữ trong `data/translations.js`
+— nên thêm chữ mới rồi build lại là tự khớp.
+- ⚠️ **Luôn cắt TỪ `_goc/`, không bao giờ cắt từ file đã cắt.** Cắt lại từ bản đã
+  cắt thì glyph đã bỏ mất vĩnh viễn. Đừng xoá thư mục `_goc`.
+- ⚠️ **Phải giữ dấu cách (mã 32) và no-break space (160) trong bộ ký tự.** Bản đầu
+  lọc `> 32` để bỏ ký tự điều khiển, mà 32 chính là dấu cách → phông không có
+  glyph khoảng trắng. `kiem-phong-lot.js` bắt được ngay: bề rộng "Trạm Dừng Chill"
+  tụt 324px → 297px và size-adjust lệch 82,92% → 81,97%.
+- Cắt glyph **KHÔNG** đổi số đo glyph còn lại — đã kiểm bằng thí nghiệm: cắt với
+  tập ký tự cực rộng cho ra đúng 82,92% và 324px như bản gốc. Nên bộ số size-adjust
+  của phông lót vẫn đúng nguyên, **không sinh CLS**. Khác hẳn phương án "hoãn tải
+  phông" — cái đó dời thời điểm swap và có thể làm CLS của khách thật tệ đi, nên
+  đã bị loại.
+- `.gitignore` chặn `package.json`, nên máy vừa clone sẽ không có `subset-font`.
+  Script tự bỏ qua bước cắt trong trường hợp đó (phông đã cắt nằm sẵn trong git).
+  Cài lại: `npm install --save-dev subset-font`
+- **Sau khi đổi phông hay đổi nhiều chữ → chạy `node scripts/kiem-phong-lot.js`.**
+
 ## Phông lót chống CLS — sửa thì sửa cả 6 chỗ
 `css/style.css` khai 3 `@font-face` tên `*Fallback` (Inter / Dancing Script /
 Playfair) trỏ vào phông máy sẵn có kèm `size-adjust`, để lúc phông thật chưa về
