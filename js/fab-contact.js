@@ -154,8 +154,24 @@
             }
         }, { passive: true });
 
-        // Initial check
-        checkScroll();
+        /* Lần đo ĐẦU TIÊN — hoãn tới lúc trang rảnh.
+
+           Bản cũ gọi checkScroll() ngay tại đây, tức ngay sau khi vừa
+           appendChild cả cây FAB vào body. Layout đang bẩn, mà checkScroll đọc
+           window.scrollY + document.body.scrollHeight nên trình duyệt buộc phải
+           tính lại bố cục TOÀN TRANG (884 phần tử) ngay giữa lúc dựng trang.
+           PageSpeed 01/09/2026 đổ 200ms "buộc chỉnh lại luồng" vào đúng dòng đó
+           — nguồn lớn nhất của cả trang.
+
+           Nút FAB chỉ hiện sau khi cuộn 200px (hoặc ngay nếu trang ngắn), nên
+           chẳng có lý do gì phải tính trong lúc trang đang vẽ. Khách cuộn sớm
+           hơn thì bộ nghe 'scroll' bên trên đã lo rồi. */
+        var doLanDau = function () {
+            var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
+            khiRanh(checkScroll, { timeout: 2000 });
+        };
+        if (document.readyState === 'complete') doLanDau();
+        else window.addEventListener('load', doLanDau, { once: true });
     }
 
     if (document.readyState === 'loading') {
