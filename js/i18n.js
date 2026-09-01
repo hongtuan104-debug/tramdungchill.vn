@@ -127,5 +127,18 @@ function initScrollProgress() {
         }
     }, { passive: true });
 
-    updateProgress();
+    /* Lần gọi ĐẦU TIÊN — hoãn tới lúc trang rảnh, cùng lý do với
+       js/fab-contact.js và js/sticky-tiktok.js: đọc scrollHeight/clientHeight/
+       scrollY lúc bố cục còn bẩn là bắt trình duyệt tính lại cả trang ngay giữa
+       lúc đang dựng. Ba chỗ này thay nhau gánh lần tính đầu — hoãn chỗ này thì
+       chỗ kia lãnh, nên phải hoãn cả ba.
+
+       Ở đỉnh trang progress = 0, mà .scroll-progress vốn đã khai width:0% trong
+       CSS, nên lần gọi đầu chẳng đổi gì cả. */
+    var doLanDau = function () {
+        var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
+        khiRanh(updateProgress, { timeout: 2000 });
+    };
+    if (document.readyState === 'complete') doLanDau();
+    else window.addEventListener('load', doLanDau, { once: true });
 }

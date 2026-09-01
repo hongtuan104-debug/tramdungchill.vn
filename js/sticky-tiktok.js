@@ -36,9 +36,12 @@
 
         // Show after scroll past 60% of hero, hide when in booking section
         function handleScroll() {
+            /* Ở đỉnh trang thì chắc chắn ẩn — thoát sớm, khỏi gọi geo.get().
+               LƯU Ý: bản thân việc đọc window.pageYOffset ĐÃ buộc tính lại bố cục
+               nếu DOM đang bẩn. Chú thích cũ ở đây khẳng định lượt tải đầu không
+               phải tính lại lần nào — sai. Vì vậy lời gọi đầu tiên đã được hoãn
+               xuống cuối hàm, xem chú thích ở đó. */
             var scrollY = window.pageYOffset;
-            /* Ở đỉnh trang thì chắc chắn ẩn — thoát sớm, khỏi đo gì. Nhờ vậy lượt
-               tải đầu (Lighthouse đo ở đỉnh) không phải tính lại bố cục lần nào. */
             if (scrollY === 0) { apply(false); return; }
             var g = geo.get();
             apply(scrollY > g.heroHeight * 0.6 && scrollY < g.bookingTop);
@@ -50,7 +53,24 @@
             ticking = true;
             requestAnimationFrame(function () { handleScroll(); ticking = false; });
         }, { passive: true });
-        handleScroll();
+
+        /* Lần gọi ĐẦU TIÊN — hoãn tới lúc trang rảnh.
+
+           Bản cũ gọi ngay tại đây, tức ngay sau DOMContentLoaded khi bố cục còn
+           bẩn, nên chỉ riêng việc đọc window.pageYOffset đã bắt trình duyệt tính
+           lại bố cục toàn trang. PageSpeed 01/09/2026 đổ 248ms "buộc chỉnh lại
+           luồng" vào đúng dòng đó — sau khi js/fab-contact.js được hoãn thì nó
+           trở thành thằng gánh lần tính đầu tiên.
+
+           Không mất gì: .sticky-book-bar mặc định đã ẩn (transform:translateY(100%)),
+           chỉ .visible mới kéo lên. Khách cuộn sớm hơn thì bộ nghe 'scroll' ở trên
+           đã lo. Hoãn chỉ để trang được vẽ xong trước. */
+        var doLanDau = function () {
+            var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
+            khiRanh(handleScroll, { timeout: 2000 });
+        };
+        if (document.readyState === 'complete') doLanDau();
+        else window.addEventListener('load', doLanDau, { once: true });
     }
 
     // === TIKTOK GALLERY: Lazy load + autoplay on view ===
