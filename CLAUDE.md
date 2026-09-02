@@ -175,6 +175,20 @@ trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dí
    nó báo phông lót vẫn đúng số dòng) và so text tĩnh với `data/translations.js`.
    Cả hai đều sạch, thủ phạm là media query thiếu.
 
+9. **Bắn pixel so le ở ĐƯỜNG TƯƠNG TÁC → mất sự kiện conversion** (rà soát 02/09/2026).
+   Khi cú chạm đầu tiên chính là cú bấm CTA (icon gọi trên navbar mobile),
+   pointerdown chỉ kịp bật Meta; khối định nghĩa `function gtag` là thẻ thứ 5,
+   cần 4 khe requestIdleCallback nữa — click của cùng cú chạm tới trước, guard
+   `typeof gtag === 'function'` nuốt lặng sự kiện GA4 + conversion Ads rồi trang
+   nhảy sang app gọi. → Quy tắc trong `js/lazy-tracking.js`: **đường tương tác
+   bật CẢ 5 đồng bộ, chỉ đường hẹn giờ mới so le** (Lighthouse không tương tác
+   nên điểm không đổi). Đừng "tối ưu" lại chỗ này.
+10. **Trình đối chiếu critical CSS phải BỎ COMMENT trước khi tách rule.** Rule
+   `/* Hero adjustments */ .hero-title-sub {...}` bị regex `^s*.hero` bỏ sót
+   vì chuỗi bắt đầu bằng `/*` — vì thế 30/08 quét "11/11 khớp" mà thật ra thiếu 2
+   rule (`.hero-title-sub` 480px và `.hero{min-height:100dvh}` 768px), lộ ra ở
+   rà soát 02/09/2026. Kiểm đúng là **13/13** sau khi strip comment.
+
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
 xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom
@@ -194,6 +208,11 @@ từ chính nội dung — mọi trang .html + cả 2 ngôn ngữ trong `data/tr
 - `.gitignore` chặn `package.json`, nên máy vừa clone sẽ không có `subset-font`.
   Script tự bỏ qua bước cắt trong trường hợp đó (phông đã cắt nằm sẵn trong git).
   Cài lại: `npm install --save-dev subset-font`
+- ⚠️ **Bộ ký tự phải gom cả: entity đã giải mã (`&times;` → ×), `content:"−"`
+  trong CSS, chữ JS gán lúc chạy (✓/✗ của toast), thuộc tính placeholder/value.**
+  Bản đầu chỉ quét chữ giữa các thẻ HTML nên dấu − (FAQ) và × (đóng lightbox)
+  rơi về Arial — rà soát 02/09/2026 bắt được. cat-phong.js nay quét thô cả
+  css/ + js/ + components/ kèm giải mã escape.
 - **Sau khi đổi phông hay đổi nhiều chữ → chạy `node scripts/kiem-phong-lot.js`.**
 
 ## Phông lót chống CLS — sửa thì sửa cả 6 chỗ

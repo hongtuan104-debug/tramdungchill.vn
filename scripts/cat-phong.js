@@ -55,6 +55,44 @@ function gomKyTu() {
     tap.add(" ");
     tap.add(String.fromCharCode(160));
 
+    /* ── Sửa 02/09/2026: thêm các nguồn bị sót ────────────────────────────
+       Bản đầu chỉ quét CHỮ nằm giữa các thẻ HTML nên sót glyph thật sự được vẽ:
+       - content:"−" trong css/style.css (dấu đóng FAQ) → dấu trừ rơi về Arial
+       - &times; ở nút đóng lightbox (index.html) — entity chưa giải mã nên bộ
+         ký tự chỉ chứa các chữ cái 'times' chứ không chứa dấu nhân
+       - chữ JS gán lúc chạy (dấu tick/gạch chéo của toast trong utils.js...)
+       Nay: giải mã entity, quét cả thuộc tính hiển thị được (placeholder/value/
+       data-label), và quét thô toàn bộ css/*.css + js/*.js + components/* (giải
+       mã cả escape u-hex của JS lẫn hex của CSS). Gồm luôn comment — thà thừa
+       vài glyph còn hơn thiếu một. */
+    const U = String.fromCodePoint.bind(String);
+    const TEN_ENTITY = {
+        amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: U(160),
+        times: U(215), divide: U(247), minus: U(8722), hellip: U(8230),
+        ndash: U(8211), mdash: U(8212), middot: U(183), deg: U(176),
+        copy: U(169), reg: U(174), laquo: U(171), raquo: U(187),
+        lsaquo: U(8249), rsaquo: U(8250), bull: U(8226), star: U(9733),
+        larr: U(8592), rarr: U(8594), asymp: U(8776), plusmn: U(177)
+    };
+    function giaiMaEntity(t) {
+        return t
+            .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => U(parseInt(h, 16)))
+            .replace(/&#(\d+);/g, (_, d) => U(parseInt(d, 10)))
+            .replace(/&([a-zA-Z]+);/g, (m, ten) => TEN_ENTITY[ten] !== undefined ? TEN_ENTITY[ten] : m);
+    }
+    // Escape trong chuỗi JS ("\" + "u" + 4 hex) và CSS ("\" + hex). Viết regex
+    // bằng RegExp() với mã 92 để không phụ thuộc cách shell/heredoc xử backslash.
+    const BS = String.fromCharCode(92);
+    const RE_JS_U = new RegExp(BS + BS + "u([0-9a-fA-F]{4})", "g");
+    const RE_JS_UNGOAC = new RegExp(BS + BS + "u" + BS + "{([0-9a-fA-F]+)" + BS + "}", "g");
+    const RE_CSS_HEX = new RegExp(BS + BS + "([0-9a-fA-F]{2,6}) ?", "g");
+    function giaiMaEscape(t) {
+        return t
+            .replace(RE_JS_UNGOAC, (_, h) => { try { return U(parseInt(h, 16)); } catch (e) { return ""; } })
+            .replace(RE_JS_U, (_, h) => U(parseInt(h, 16)))
+            .replace(RE_CSS_HEX, (m, h) => { try { return U(parseInt(h, 16)); } catch (e) { return m; } });
+    }
+
     // Chữ hiển thị trong mọi trang HTML
     const files = [];
     (function di(d) {
@@ -72,7 +110,22 @@ function gomKyTu() {
         s = s.replace(/<script[\s\S]*?<\/script>/g, "")
              .replace(/<style[\s\S]*?<\/style>/g, "")
              .replace(/<!--[\s\S]*?-->/g, "");
-        nap(s.replace(/<[^>]+>/g, " "));
+        // thuộc tính có hiển thị thật (ô nhập, nút) — gom TRƯỚC khi bỏ thẻ
+        for (const m of s.matchAll(/(?:placeholder|value|data-label|aria-label|title)="([^"]*)"/g)) {
+            nap(giaiMaEntity(m[1]));
+        }
+        nap(giaiMaEntity(s.replace(/<[^>]+>/g, " ")));
+    }
+
+    // Chuỗi trong CSS (content:"…") và JS (toast, nút flipbook…) — quét thô cả
+    // file sau khi giải mã escape; components/ có cả .js lẫn .html.
+    for (const thuMuc of ["css", "js", "components"]) {
+        const abs = path.join(ROOT, thuMuc);
+        if (!fs.existsSync(abs)) continue;
+        for (const f of fs.readdirSync(abs)) {
+            if (!/\.(css|js|html)$/.test(f)) continue;
+            nap(giaiMaEntity(giaiMaEscape(fs.readFileSync(path.join(abs, f), "utf8"))));
+        }
     }
 
     // Cả 2 ngôn ngữ: khách bấm EN là chữ đổi hết

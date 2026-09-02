@@ -34,9 +34,22 @@
 //      moi file khi khach thuc su tai no, nen sau lan ghe dau la day du nhu cu.
 //      Chi giu lai dung phan lam "vo offline": index.html cho nhanh du phong
 //      caches.match('/index.html'), manifest va favicon cho PWA.
-const CACHE_NAME = 'tdc-v10';
+// v11: (1) 3 commit sau v10 (9a3aa2f, 22b3361, d379415) đổi dist/common.min.js
+//      và dist/index.min.js mà quên bump — vi phạm quy tắc trong CLAUDE.md, khách
+//      cũ bị dính bundle cũ thêm một lượt ghé vì nhánh JS/CSS là cache-first.
+//      (2) Trả 5 file nhỏ không mang vân tay vào precache: bản v10 cắt hết khiến
+//      offline-sau-một-lượt-ghé tệ hơn v9 (SW chưa điều khiển trang ở lượt đầu
+//      nên runtime cache chưa có gì; HTML mở được mà không có JS/data).
+//      style.min.css KHÔNG precache được: URL thật mang ?v=<md5> mà SW không biết,
+//      cache bản trần chỉ phí 91 KB (bài học v9).
+const CACHE_NAME = 'tdc-v11';
 const STATIC_ASSETS = [
     '/index.html',
+    '/dist/common.min.js',
+    '/dist/index.min.js',
+    '/data/site-config.js',
+    '/data/translations.js',
+    '/data/schema-data.js',
     '/manifest.json',
     '/assets/images/favicon.svg'
 ];

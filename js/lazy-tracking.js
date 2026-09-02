@@ -67,16 +67,36 @@
         return hangDoi;
     }
 
-    /* Bắn so le: mỗi lần rảnh chỉ bật đúng một pixel */
-    function batPixel() {
+    /* soLe=true: mỗi lần rảnh chỉ bật một pixel (đường hẹn giờ).
+       soLe=false: bật CẢ 5 đồng bộ ngay (đường tương tác).
+
+       ── Sửa 02/09/2026: cú chạm phải bật đồng bộ ──────────────────────────
+       Bản 30/08 bắn so le cho CẢ đường tương tác. Rà soát 02/09 bắt được lỗi
+       thật: khi cú chạm ĐẦU TIÊN chính là cú bấm chuyển đổi (khách mobile vào
+       trang rồi bấm ngay icon gọi trên navbar), pointerdown chỉ kịp bật thẻ
+       đầu tiên (Meta); khối định nghĩa function gtag là thẻ THỨ NĂM, cần 4
+       khe requestIdleCallback nữa (tệ nhất ~2s khi main thread đang bận).
+       Sự kiện click của chính cú chạm đó tới sau vài chục ms, chạy vào guard
+       "typeof gtag === 'function'" trong utils.js/booking.js → false → sự
+       kiện contact GA4 + conversion Google Ads + ttq bị nuốt lặng rồi trang
+       nhảy sang app gọi — mất hẳn, không bắn lại được. Bản cũ trước 30/08
+       bật cả 5 đồng bộ trong handler nên không dính.
+
+       Bật đồng bộ ở đường tương tác KHÔNG ảnh hưởng điểm PageSpeed:
+       Lighthouse không bao giờ tương tác với trang, nó chỉ đi đường hẹn giờ. */
+    function batPixel(soLe) {
         if (daChay) return;
         daChay = true;
 
         var ds = layHangDoi();
-        var i = 0;
+        if (!soLe) {
+            for (var i = 0; i < ds.length; i++) bat(ds[i]);
+            return;
+        }
+        var j = 0;
         (function ke() {
-            if (i >= ds.length) return;
-            bat(ds[i++]);
+            if (j >= ds.length) return;
+            bat(ds[j++]);
             khiRanh(ke, { timeout: 500 });
         })();
     }
@@ -88,15 +108,27 @@
         for (var i = 0; i < ds.length; i++) bat(ds[i]);
     }
 
+    /* Chú ý: không gắn thẳng batPixel làm listener — addEventListener truyền
+       Event làm tham số đầu, thành batPixel(Event) tức soLe truthy → lại so le.
+       Bọc trong hàm để gọi rõ ràng batPixel(false) = bật hết đồng bộ. */
+    function batNgay() { batPixel(false); }
     var sk = ['pointerdown', 'touchstart', 'keydown', 'scroll', 'mousemove', 'wheel'];
     for (var k = 0; k < sk.length; k++) {
-        window.addEventListener(sk[k], batPixel, { once: true, passive: true });
+        window.addEventListener(sk[k], batNgay, { once: true, passive: true });
     }
 
     // Chốt chặn: đếm từ lúc trang tải xong, không phải từ lúc parse
-    function hen() { setTimeout(batPixel, HOAN_SAU_LOAD); }
+    function henSoLe() { batPixel(true); }
+    function hen() { setTimeout(henSoLe, HOAN_SAU_LOAD); }
     if (document.readyState === 'complete') hen();
     else window.addEventListener('load', hen, { once: true });
+
+    /* Chốt chặn TUYỆT ĐỐI 10s từ parse: trên mạng rất chậm sự kiện 'load' tới
+       muộn nhiều giây, cửa sổ mất PageView của khách vào-rồi-thoát sẽ rộng hơn
+       bản cũ (3s từ parse). Trần 10s giữ cửa sổ đó có giới hạn. Còn pagehide
+       bên dưới KHÔNG cứu được PageView: thẻ script chèn lúc đang rời trang
+       không kịp tải mạng — chỉ coi là nỗ lực vớt vát, không phải lưới an toàn. */
+    setTimeout(henSoLe, 10000);
 
     window.addEventListener('pagehide', batHet, { once: true });
 })();
