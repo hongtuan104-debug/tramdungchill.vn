@@ -84,7 +84,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "quan-nuong-da-lat-view-nha-long": {
@@ -168,7 +168,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -210,7 +210,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -251,7 +251,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -293,7 +293,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
@@ -335,7 +335,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "lich-trinh-da-lat-3-ngay-2-dem": {
@@ -376,7 +376,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -418,7 +418,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "da-lat-cho-nguoi-nuoc-ngoai": {
@@ -460,7 +460,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "en",
       "category": "English"
     },
@@ -503,7 +503,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Owner, Tram Dung Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "en",
       "category": "English",
       "date": "2026-06-16",
@@ -551,14 +551,14 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "author": {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
@@ -632,7 +632,7 @@ const BLOG_SEO = {
         { "q": "Đi cắm trại hướng Trại Mát thì ăn tối ở đâu trên đường?", "a": "Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường — từ trung tâm chạy hướng Trại Mát rồi đi tiếp là tới, thuận đường nếu bạn cắm trại phía Trại Mát – Xuân Trường hoặc đi tiếp lên Cầu Đất. Quán mở 15:00–23:00, giá 95.000đ–300.000đ mỗi người đã gồm VAT, hơn 70 món gồm cả đồ ăn lẫn đồ uống, gọi lẻ từng món. Muốn xem đủ ba cảnh thì nên có mặt trước 16:30 và ngồi qua 18h30: tàu lửa cổ chạy dưới chân quán từ khoảng 16:30, hoàng hôn thung lũng khoảng 17h, biển sao nhà lồng lên đèn từ 18h30. Quán đạt 4,8 sao với 7.060 lượt đánh giá trên Google; đi nhóm đông thì nên đặt bàn trước qua website." }
       ],
       "author": {"name":"Nguyễn Duy","role":"Chủ tiệm nướng Trạm Dừng Chill"},
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "an-vat-da-lat-buoi-toi": {
@@ -650,7 +650,7 @@ const BLOG_SEO = {
         { "q": "Đi ăn vặt chợ đêm Đà Lạt cần chuẩn bị gì?", "a": "Mang áo khoác vì tối phố núi xuống nhiệt nhanh, ngồi ghế nhựa ngoài trời một lúc là lạnh tay. Nên thủ thêm khăn giấy, ít tiền mặt lẻ và đi giày dễ đi bộ vì khu này nhiều dốc. Đi nhóm thì gọi ít phần rồi chia nhau để nếm được nhiều hàng." }
       ],
       "author": {"name":"Nguyễn Duy","role":"Chủ tiệm nướng Trạm Dừng Chill"},
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi"
     },
     "da-lat-ve-dem-di-dau": {
@@ -709,7 +709,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Chủ tiệm nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-08-28",
+      "dateModified": "2026-09-04",
       "lang": "vi",
       "category": "Mẹo & Kinh nghiệm",
       "image": "assets/images/blog/view-xe-lua-20.webp",
