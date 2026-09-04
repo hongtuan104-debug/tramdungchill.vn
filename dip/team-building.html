@@ -91,7 +91,7 @@ fbq('init','1281459450582041');
 fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'Team building',content_category:'landing_dip'});
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1281459450582041&ev=PageView&noscript=1"/></noscript>
+<noscript><img alt="" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1281459450582041&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 
 <!-- TikTok Pixel Code -->
@@ -306,22 +306,22 @@ fbq('track','ViewContent',{content_name:'Team building',content_category:'landin
             <form id="bookingForm" class="booking-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Tên người liên hệ *</label>
-                        <input type="text" name="name" placeholder="Người tổ chức tiệc" required>
+                        <label for="dip-name">Tên người liên hệ *</label>
+                        <input id="dip-name" type="text" name="name" placeholder="Người tổ chức tiệc" required>
                     </div>
                     <div class="form-group">
-                        <label>Zalo hoặc WhatsApp *</label>
-                        <input type="tel" name="phone" placeholder="0xxx.xxx.xxx" required>
+                        <label for="dip-phone">Zalo hoặc WhatsApp *</label>
+                        <input id="dip-phone" type="tel" name="phone" placeholder="0xxx.xxx.xxx" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Tên công ty</label>
-                        <input type="text" name="company" placeholder="Tên công ty (nếu có)">
+                        <label for="dip-company">Tên công ty</label>
+                        <input id="dip-company" type="text" name="company" placeholder="Tên công ty (nếu có)">
                     </div>
                     <div class="form-group">
-                        <label>Loại tiệc</label>
-                        <select name="occasion">
+                        <label for="dip-occasion">Loại tiệc</label>
+                        <select id="dip-occasion" name="occasion">
                             <option value="team-building">Team Building</option>
                             <option value="year-end">Year-End Party</option>
                             <option value="gala">Gala Dinner</option>
@@ -332,12 +332,12 @@ fbq('track','ViewContent',{content_name:'Team building',content_category:'landin
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Ngày tổ chức *</label>
-                        <input type="date" name="date" required>
+                        <label for="dip-date">Ngày tổ chức *</label>
+                        <input id="dip-date" type="date" name="date" required>
                     </div>
                     <div class="form-group">
-                        <label>Số khách dự kiến *</label>
-                        <select name="guests" required>
+                        <label for="dip-guests">Số khách dự kiến *</label>
+                        <select id="dip-guests" name="guests" required>
                             <option value="">Chọn số khách</option>
                             <option value="20">10-20 khách</option>
                             <option value="35">20-35 khách</option>
@@ -349,8 +349,8 @@ fbq('track','ViewContent',{content_name:'Team building',content_category:'landin
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Yêu cầu / Ngân sách dự kiến</label>
-                    <textarea name="note" rows="3" placeholder="Ví dụ: Ngân sách 300K-500K/người, cần backdrop chụp ảnh, có MC..."></textarea>
+                    <label for="dip-note">Yêu cầu / Ngân sách dự kiến</label>
+                    <textarea id="dip-note" name="note" rows="3" placeholder="Ví dụ: Ngân sách 300K-500K/người, cần backdrop chụp ảnh, có MC..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-golden btn-block" id="submitBtn">
                     <span class="btn-text">🎉 Yêu Cầu Báo Giá Ngay</span>

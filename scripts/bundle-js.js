@@ -248,6 +248,18 @@ try {
     console.error("  Flipbook generation failed (khong chan build): " + e.message);
 }
 
+// Chen width/height that vao moi <img> con thieu. Khong co cap nay, trinh duyet
+// khong biet ti le anh nen danh cho no chieu cao 0px roi bung ra khi tai xong,
+// day chu ben duoi xuong — dung dinh nghia CLS. Ra soat 04/09/2026 dem duoc 770
+// the <img> thieu. Chay duoc nhieu lan: the nao du width+height thi bo qua.
+console.log("");
+console.log("Chen kich thuoc anh...");
+try {
+    require("./chen-kich-thuoc-anh").chay();
+} catch (e) {
+    console.error("  Buoc nay loi (khong chan build): " + e.message);
+}
+
 // Cat nho phong xuong dung ky tu site dung. Chay CUOI CUNG: no quet chu tu cac
 // file .html, ma nav/footer/menu deu vua duoc sinh o cac buoc tren.
 console.log("");

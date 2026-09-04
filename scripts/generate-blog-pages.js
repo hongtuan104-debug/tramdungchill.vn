@@ -664,6 +664,13 @@ try {
         { stdio: "inherit" }
     );
 
+    // Chen width/height that vao moi <img> vua sinh. Phai chay O DAY chu khong
+    // chi trong bundle-js.js: 141 trang blog duoc dung SAU khi bundle-js chay
+    // xong, nen neu chi moc mot ben thi bai moi sinh ra van thieu kich thuoc.
+    // Goi thang giong generate-blog-links.js ben tren — loi dan "nho chay sau"
+    // da tung troi mot lan roi.
+    require("./chen-kich-thuoc-anh").chay();
+
     console.log("Done!");
 
 } catch (err) {

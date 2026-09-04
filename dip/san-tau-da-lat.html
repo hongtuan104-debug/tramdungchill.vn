@@ -115,7 +115,7 @@ fbq('init','1281459450582041');
 fbq('track','PageView');
 fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landing_dip'});
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1281459450582041&ev=PageView&noscript=1"/></noscript>
+<noscript><img alt="" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1281459450582041&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 
 <!-- TikTok Pixel Code -->
@@ -505,22 +505,22 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
             <form id="bookingForm" class="booking-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Tên của bạn *</label>
-                        <input type="text" name="name" placeholder="Tên người đặt bàn" required>
+                        <label for="dip-name">Tên của bạn *</label>
+                        <input id="dip-name" type="text" name="name" placeholder="Tên người đặt bàn" required>
                     </div>
                     <div class="form-group">
-                        <label>Zalo hoặc WhatsApp *</label>
-                        <input type="tel" name="phone" placeholder="0xxx.xxx.xxx" required>
+                        <label for="dip-phone">Zalo hoặc WhatsApp *</label>
+                        <input id="dip-phone" type="tel" name="phone" placeholder="0xxx.xxx.xxx" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Ngày đến *</label>
-                        <input type="date" name="date" required>
+                        <label for="dip-date">Ngày đến *</label>
+                        <input id="dip-date" type="date" name="date" required>
                     </div>
                     <div class="form-group">
-                        <label>Chuyến tàu muốn săn *</label>
-                        <select name="time" required>
+                        <label for="dip-time">Chuyến tàu muốn săn *</label>
+                        <select id="dip-time" name="time" required>
                             <option value="">Chọn khung giờ</option>
                             <option value="15:00">15:00 — Đến sớm, thong thả chọn bàn view đẹp trước giờ tàu</option>
                             <option value="16:00" selected>16:00 — Đón hai chuyến tàu liền nhau 🚂 (≈16:30 và 17:15) ⭐⭐</option>
@@ -534,8 +534,8 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Số khách *</label>
-                        <select name="guests" required>
+                        <label for="dip-guests">Số khách *</label>
+                        <select id="dip-guests" name="guests" required>
                             <option value="">Chọn số khách</option>
                             <option value="2">2 khách</option>
                             <option value="4">3-4 khách</option>
@@ -544,13 +544,13 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Loại</label>
-                        <input type="text" name="occasion" value="Săn tàu" readonly>
+                        <label for="dip-occasion">Loại</label>
+                        <input id="dip-occasion" type="text" name="occasion" value="Săn tàu" readonly>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Yêu cầu đặc biệt</label>
-                    <textarea name="note" rows="3" placeholder="Ví dụ: Muốn bàn view tàu rõ nhất, có em bé..."></textarea>
+                    <label for="dip-note">Yêu cầu đặc biệt</label>
+                    <textarea id="dip-note" name="note" rows="3" placeholder="Ví dụ: Muốn bàn view tàu rõ nhất, có em bé..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-golden btn-block" id="submitBtn">
                     <span class="btn-text">🚂 Đặt Bàn Săn Tàu Ngay</span>
