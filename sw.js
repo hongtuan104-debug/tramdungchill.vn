@@ -42,7 +42,7 @@
 //      nên runtime cache chưa có gì; HTML mở được mà không có JS/data).
 //      style.min.css KHÔNG precache được: URL thật mang ?v=<md5> mà SW không biết,
 //      cache bản trần chỉ phí 91 KB (bài học v9).
-const CACHE_NAME = 'tdc-v11';
+const CACHE_NAME = 'tdc-v12';
 const STATIC_ASSETS = [
     '/index.html',
     '/dist/common.min.js',
