@@ -24,7 +24,7 @@ const SCHEMA_DATA = {
             street: '111 Huỳnh Tấn Phát, Phường Xuân Trường',
             locality: 'Đà Lạt',
             region: 'Lâm Đồng',
-            postalCode: '670000',
+            postalCode: '66000',
             country: 'VN'
         },
         geo: { latitude: 11.9542, longitude: 108.4946 },
@@ -33,7 +33,7 @@ const SCHEMA_DATA = {
         priceRange: '₫95.000 - ₫300.000',
         currenciesAccepted: 'VND',
         paymentAccepted: 'Cash, Bank Transfer',
-        rating: { value: '4.8', count: '6889', best: '5' },
+        rating: { value: '4.8', count: '7060', best: '5' },
         amenities: [
             { name: 'Sunset View', value: true },
             { name: 'Train View', value: true },
