@@ -68,6 +68,21 @@
         .btn-outline{border:1.5px solid rgba(212,168,83,0.5);color:var(--gold)}
         .btn-outline:hover{background:rgba(212,168,83,0.1);border-color:var(--gold);transform:translateY(-2px)}
 
+        /* Gợi ý điều hướng. Khối này tồn tại để trang 404 có một H2 thật:
+           trước đó dàn bài nhảy thẳng H1 → H3 của footer — lỗi nhảy cấp
+           duy nhất còn lại của site (rà soát tiêu chí 64-73, 04/09/2026).
+           Đặt CSS ở đây chứ không ở css/style.css vì 404.html không nằm
+           trong 8 trang mà toi-uu-tai-trang.js gắn vân tay — sửa style.css
+           sẽ đổi vân tay và bắt build lại 149 trang cho một khối chỉ trang
+           404 dùng. */
+        .error-suggest{max-width:480px;margin:0 auto}
+        .error-suggest h2{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--gold);margin-bottom:14px}
+        .error-links{list-style:none;margin:0;padding:0;text-align:left}
+        .error-links li{border-top:1px solid rgba(212,168,83,0.15)}
+        .error-links li:last-child{border-bottom:1px solid rgba(212,168,83,0.15)}
+        .error-links a{display:block;padding:14px 4px;color:var(--smoke);font-size:0.92rem;transition:color .3s,padding-left .3s}
+        .error-links a:hover{color:var(--gold);padding-left:12px}
+
         /* Footer dùng chung — bản đầy đủ nằm trong css/style.css (nạp async bên
            dưới). Vài dòng dựng khung ở đây để footer không đổ thành một cột chữ
            trần trong lúc chờ CSS lớn về. */
@@ -174,6 +189,16 @@
                 <a href="index.html" class="btn btn-primary">Về trang chủ</a>
                 <a href="blog.html" class="btn btn-outline">Xem blog</a>
             </div>
+
+            <section class="error-suggest">
+                <h2>Có thể bạn đang tìm</h2>
+                <ul class="error-links">
+                    <li><a href="menu.html">Thực đơn — hơn 70 món nướng và đồ uống</a></li>
+                    <li><a href="index.html#booking">Đặt bàn — giữ chỗ view hoàng hôn</a></li>
+                    <li><a href="duong-di/">Đường đến quán — 111 Huỳnh Tấn Phát, Đà Lạt</a></li>
+                    <li><a href="blog.html">Blog — kinh nghiệm ăn chơi Đà Lạt</a></li>
+                </ul>
+            </section>
         </div>
     </main>
 
