@@ -174,7 +174,12 @@ function minifyCSS(source) {
 //   nội dung bài rơi về style mặc định của trình duyệt.
 const CSS_BUNDLES = [
     { src: "style.css", out: "style.min.css" },
-    { src: "blog-post.css", out: "blog-post.min.css" }
+    { src: "blog-post.css", out: "blog-post.min.css" },
+    // dip-landing.css chi 4 trang dip dung, nen giu file rieng thay vi gop
+    // vao style.css — gop se bat 147 trang con lai tai them 8,9 KB CSS chet.
+    // Truoc 05/09/2026 no duoc nap thang tu css/ nen khong minify va khong
+    // co van tay: sua CSS xong khach cu van thay ban cu.
+    { src: "dip-landing.css", out: "dip-landing.min.css" }
 ];
 
 for (const b of CSS_BUNDLES) {

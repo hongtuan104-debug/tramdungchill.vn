@@ -59,7 +59,16 @@ if (!fs.existsSync(cssPath)) {
     console.error("Chưa có dist/style.min.css — chạy bundle-js.js trước.");
     process.exit(1);
 }
-const VER = crypto.createHash("md5").update(fs.readFileSync(cssPath)).digest("hex").slice(0, 8);
+// Van tay tinh RIENG cho tung bundle CSS. Dung chung mot ma thi sua
+// dip-landing.css ma style.css khong doi se ra van tay y het — khach cu
+// nap lai dung ban cu, dung kieu loi da tung giu anh menu cu truoc 07/08/2026.
+const VERS = {};
+for (const f of fs.readdirSync(path.join(ROOT, "dist"))) {
+    if (!f.endsWith(".css")) continue;
+    VERS[f] = crypto.createHash("md5")
+        .update(fs.readFileSync(path.join(ROOT, "dist", f))).digest("hex").slice(0, 8);
+}
+const VER = VERS["style.min.css"];
 
 let addedPre = 0, addedVer = 0, touched = 0;
 const rel = (p) => path.relative(ROOT, p).replace(/\\/g, "/");
@@ -92,9 +101,11 @@ for (const f of allHtml(ROOT)) {
     }
 
     // ── 2. vân tay cho link CSS nội bộ chưa có ?v=
-    s = s.replace(/href="((?:\.\.\/)?dist\/style\.min\.css)(\?v=[^"]*)?"/g, (m, p1) => {
+    s = s.replace(/href="((?:\.\.\/)?dist\/([a-z0-9.-]+\.min\.css))(\?v=[^"]*)?"/gi, (m, p1, ten) => {
+        const v = VERS[ten];
+        if (!v) return m;          // bundle chua sinh — de nguyen, dung lam hong link
         addedVer++;
-        return 'href="' + p1 + "?v=" + VER + '"';
+        return 'href="' + p1 + "?v=" + v + '"';
     });
 
     if (s !== before) {
@@ -104,6 +115,6 @@ for (const f of allHtml(ROOT)) {
     }
 }
 
-console.log("\nVân tay CSS: " + VER);
+console.log("\nVân tay CSS: " + Object.keys(VERS).map((k) => k + "=" + VERS[k]).join(" · "));
 console.log("  thêm " + addedPre + " thẻ preconnect · gắn ?v= cho " + addedVer + " link CSS");
 console.log("  " + touched + " trang được cập nhật");
