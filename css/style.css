@@ -348,7 +348,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .btn-full { width: 100%; justify-content: center; }
-.btn-sm { padding: 11px 22px; font-size: 0.88rem; }
+/* Hai nút .btn-sm đều là CTA (đặt bàn ở khối trải nghiệm, chỉ đường Google Maps).
+   padding 11px + chữ 0.88rem chỉ cho ra 44,5px — thiếu 3,5px so với mức 48 (#138). */
+.btn-sm { padding: 11px 22px; font-size: 0.88rem; min-height: 48px; }
 
 /* ============================================
    SECTION HEADERS
@@ -2780,8 +2782,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     bottom: 24px;
     left: 24px;
     z-index: 999;
-    width: 44px;
-    height: 44px;
+    /* 44px cũ đạt WCAG nhưng dưới mức 48 Google khuyến nghị (#138) */
+    width: 48px;
+    height: 48px;
     background: var(--white);
     color: var(--night-soft);
     border-radius: 50%;
@@ -3306,8 +3309,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         top: 16px;
         right: 16px;
         font-size: 2rem;
-        min-width: 44px;
-        min-height: 44px;
+        min-width: 48px;
+        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -3540,6 +3543,11 @@ body.sticky-bar-active .fab-contact {
     transition: all 0.3s var(--ease);
     flex-shrink: 0;
     text-decoration: none;
+    /* padding 12px + chữ 0.9rem chỉ ra 47px; ở <=480px tụt còn 41,8px.
+       Đây là CTA đặt bàn của thanh dính đáy màn hình — nâng đủ 48 (#138).
+       Thanh cao thêm ~6px ở khung hẹp, vẫn dưới mốc 90px mà
+       body.sticky-bar-active dùng để đẩy FAB và nút lên-đầu-trang. */
+    min-height: 48px;
 }
 .sticky-book-btn:hover {
     transform: translateY(-2px) scale(1.03);
@@ -3550,7 +3558,7 @@ body.sticky-bar-active .fab-contact {
     .sticky-book-bar { padding: 10px 14px; }
     .sticky-book-title { font-size: 0.88rem; }
     .sticky-book-sub { font-size: 0.68rem; }
-    .sticky-book-btn { padding: 10px 18px; font-size: 0.85rem; }
+    .sticky-book-btn { padding: 10px 18px; font-size: 0.85rem; min-height: 48px; }
 }
 
 /* ============================================
