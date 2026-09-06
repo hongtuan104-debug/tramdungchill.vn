@@ -3523,7 +3523,7 @@ body.sticky-bar-active .fab-contact {
     margin-bottom: 2px;
 }
 .sticky-book-sub {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     color: rgba(255,255,255,0.65);
     white-space: nowrap;
     overflow: hidden;
@@ -3557,7 +3557,7 @@ body.sticky-bar-active .fab-contact {
 @media (max-width: 480px) {
     .sticky-book-bar { padding: 10px 14px; }
     .sticky-book-title { font-size: 0.88rem; }
-    .sticky-book-sub { font-size: 0.68rem; }
+    .sticky-book-sub { font-size: 0.75rem; }
     .sticky-book-btn { padding: 10px 18px; font-size: 0.85rem; min-height: 48px; }
 }
 
@@ -3984,7 +3984,7 @@ body.sticky-bar-active .fab-contact {
 @media (max-width: 480px) {
     .story-stats { gap: 12px; }
     .story-stat strong { font-size: 1.4rem; }
-    .story-stat span { font-size: 0.68rem; }
+    .story-stat span { font-size: 0.75rem; }
 }
 
 /* ============================================
@@ -4021,17 +4021,29 @@ body.sticky-bar-active .fab-contact {
 }
 
 @media (max-width: 600px) {
+    /* .trust-text vốn white-space:nowrap, mà chuỗi "4.8/5 · 7.060 đánh giá Google
+       · 13M+ views viral" đo bằng hmtx ra 381px kể cả sao và padding. .hero-trust
+       chỉ được max-width:95vw, tức 304px ở màn 320px → chữ TRÀN 77px ra ngoài
+       viền bo tròn, rồi body{overflow-x:hidden} cắt cụt đuôi. Lỗi này CÓ SẴN
+       (51px với cỡ chữ cũ), nâng cỡ chữ chỉ làm lộ rõ hơn.
+       normal chỉ CHO PHÉP xuống dòng chứ không ép: màn từ 480px trở lên vẫn
+       một dòng như cũ, chỉ màn hẹp mới ngắt. */
+    .trust-text { white-space: normal; text-align: center; }
+
     .hero-trust {
         margin-top: 20px;
         padding: 7px 14px;
-        font-size: 0.72rem;
+        /* 0.72rem = 11,5px — dưới ngưỡng đọc thoải mái trên điện thoại (#137).
+           Đây là dòng "4,8/5 · 7.060 đánh giá", bằng chứng xã hội mạnh nhất
+           của quán mà lại là chữ nhỏ nhất màn hình đầu. */
+        font-size: 0.75rem;
         gap: 8px;
         max-width: 95vw;
     }
     .trust-stars { font-size: 0.75rem; letter-spacing: 0.5px; }
 }
 @media (max-width: 380px) {
-    .hero-trust { font-size: 0.68rem; padding: 6px 12px; }
+    .hero-trust { font-size: 0.75rem; padding: 6px 12px; }
 
     /* Màn siêu hẹp: nhường chỗ ngang cho tên quán.
 
@@ -4359,7 +4371,8 @@ body.sticky-bar-active .fab-contact {
     animation: train-pulse 1.8s ease-in-out infinite;
 }
 .train-tier-count {
-    font-size: 0.68rem;
+    /* "2 chuyến" — nội dung thật, 0.68rem = 10,9px quá nhỏ (#137) */
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.3px;
     color: rgba(255, 255, 255, 0.55);
