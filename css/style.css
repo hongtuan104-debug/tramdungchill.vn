@@ -3470,7 +3470,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     }
     .particle { display: none; }
     .fab-main { animation: none; }
-    .scroll-arrow, .mouse-wheel { animation: none; }
+    .mouse-wheel { animation: none; }
     .reveal { opacity: 1; transform: none; }
 }
 
