@@ -97,6 +97,14 @@ chỉ đích danh phần tử LCP là `<span class="logo-main">` với render de
   `.nav-menu` bị `transform:translateX(100%)` đẩy ra ngoài màn hình, chỉ JS mới mở
   được — không có JS thì khách mobile mất sạch đường đi nếu bỏ khối đó.
 - `layout-loader.js` giữ nguyên: nó tự bỏ qua khi không thấy placeholder.
+- ⚠️ **Nav mobile của index.html nằm ở HAI nơi** (thêm 06/09/2026): `css/style.css`
+  và khối `CRIT-NAV` trong critical CSS inline của chính `index.html`. Trước đó
+  critical chỉ có nav bản desktop, nên khung hình đầu trên điện thoại vẽ menu ngang
+  7 mục, không hamburger — đúng bản chất lỗi hero ở bug #8, chỉ khác là `.navbar`
+  `position:fixed` nên cái nhảy nằm BÊN TRONG thanh nav chứ không đẩy cả trang.
+  → **Sửa rule nav mobile trong style.css thì PHẢI sửa cả `CRIT-NAV`.** Critical
+  cố ý lược `backdrop-filter`/`transition` (không ảnh hưởng bố cục), còn lại phải
+  khớp từng khai báo — kiểm bằng cách bỏ comment rồi đối chiếu, hiện là 12/12.
 
 ## Menu ảnh dạng sách lật (flipbook) — cũng sinh tự động
 Trang menu: hero → **quyển menu ảnh 26 trang lật được** → FAQ → khối đặt bàn.
