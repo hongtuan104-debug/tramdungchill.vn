@@ -221,6 +221,12 @@ từ chính nội dung — mọi trang .html + cả 2 ngôn ngữ trong `data/tr
   Bản đầu chỉ quét chữ giữa các thẻ HTML nên dấu − (FAQ) và × (đóng lightbox)
   rơi về Arial — rà soát 02/09/2026 bắt được. cat-phong.js nay quét thô cả
   css/ + js/ + components/ kèm giải mã escape.
+- ⚠️ **Chú thích tiếng Việt trong `css/` `js/` `components/` CŨNG lọt vào bộ ký tự.**
+  `cat-phong.js` cố ý quét thô để không sót chữ JS gán lúc chạy, nên nó không phân
+  biệt được chú thích với nội dung thật. Hệ quả: viết comment có dấu là phông subset
+  nhích lên vài chục byte, và `git status` hiện 4 file .woff2 đổi sau khi build —
+  **đó là bình thường, cứ commit kèm**, đừng tưởng build hỏng. Chỉ đáng bận tâm nếu
+  chú thích mang ký tự lạ (×, −, emoji) mà nội dung site không hề dùng.
 - **Sau khi đổi phông hay đổi nhiều chữ → chạy `node scripts/kiem-phong-lot.js`.**
 
 ## Phông lót chống CLS — sửa thì sửa cả 6 chỗ
