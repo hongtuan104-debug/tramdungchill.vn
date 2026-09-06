@@ -143,6 +143,26 @@
             fabEl.classList.toggle('visible', show);
         }
 
+        /* Khối đặt bàn đang trong tầm nhìn thì rút FAB đi.
+
+           FAB neo cố định góc phải dưới (56px, z-index 999) còn nút "Gửi đặt bàn"
+           trên mobile là width:100% — khi khách cuộn tới cuối form thì FAB nằm đè
+           lên đúng góc phải nút Gửi (checklist Mobile #143). Thanh sticky đã tự ẩn
+           ở khu này từ lâu (js/sticky-tiktok.js), riêng FAB thì chưa ai xử.
+
+           Dùng IntersectionObserver chứ KHÔNG đo offsetTop trong sự kiện cuộn:
+           observer không đọc số đo nào từ JS nên không buộc trình duyệt tính lại
+           bố cục — đúng lý do đã phải hoãn checkScroll xuống requestIdleCallback
+           ở dưới. Thêm một phép đo vào vòng cuộn là dựng lại đúng 200ms đã gỡ. */
+        const khoiDatBan = document.getElementById('booking');
+        if (khoiDatBan && 'IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                const dangHien = entries[0].isIntersecting;
+                fabEl.classList.toggle('in-booking', dangHien);
+                if (dangHien) fabEl.classList.remove('open');   // đang mở thì đóng luôn
+            }).observe(khoiDatBan);
+        }
+
         let ticking = false;
         window.addEventListener('scroll', function() {
             if (!ticking) {

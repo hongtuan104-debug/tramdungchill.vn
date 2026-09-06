@@ -148,6 +148,31 @@ function initBookingForm() {
         dateInput.min = todayStr;
     }
 
+    /* Đánh dấu ô sai rồi đưa con trỏ về đúng ô đó.
+
+       Trước đây khi thiếu trường, form chỉ bắn một toast chung ở góc TRÊN PHẢI
+       màn hình — còn ô nào thiếu thì khách phải tự dò. Trên điện thoại, khối
+       đặt bàn dài 7 ô và toast lại nằm ngoài tầm mắt khách đang nhìn nút Gửi ở
+       cuối form, nên khách không biết phải sửa gì (checklist Mobile #142).
+
+       focus() giải quyết cả hai: cuộn đúng ô vào tầm nhìn VÀ mở sẵn bàn phím
+       đúng loại (type=tel ra bàn phím số). aria-invalid để trình đọc màn hình
+       và CSS cùng biết ô nào đang sai. */
+    function clearInvalid() {
+        form.querySelectorAll('[aria-invalid="true"]').forEach(function (el) {
+            el.removeAttribute('aria-invalid');
+        });
+    }
+    function markInvalid(name) {
+        const el = form.querySelector('[name="' + name + '"]');
+        if (!el) return;
+        el.setAttribute('aria-invalid', 'true');
+        el.focus();
+    }
+    // Khách vừa gõ lại là gỡ dấu đỏ ngay, không bắt chờ tới lượt Gửi sau
+    form.addEventListener('input', clearInvalid);
+    form.addEventListener('change', clearInvalid);
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -159,8 +184,11 @@ function initBookingForm() {
         const data = Object.fromEntries(formData);
 
         // Validation
-        if (!data.name || !data.phone || !data.date || !data.time || !data.guests) {
+        clearInvalid();
+        const oThieu = ['name', 'phone', 'date', 'time', 'guests'].find(function (k) { return !data[k]; });
+        if (oThieu) {
             showNotification(t('notify.required', 'Vui lòng điền đầy đủ thông tin bắt buộc!'), 'error');
+            markInvalid(oThieu);
             return;
         }
 
@@ -170,6 +198,7 @@ function initBookingForm() {
         if (/^84[0-9]{9}$/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(2);
         if (!/^0[0-9]{9}$/.test(cleanPhone)) {
             showNotification(t('notify.phone', 'Số điện thoại không hợp lệ (cần 10 số)!'), 'error');
+            markInvalid('phone');
             return;
         }
 

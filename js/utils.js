@@ -199,6 +199,10 @@ function showNotification(message, type = 'success') {
 
     const toast = document.createElement('div');
     toast.className = 'toast-notification toast-' + type;
+    /* Trước đây toast không có vai trò nào: trình đọc màn hình im lặng, khách
+       khiếm thị bấm Gửi mà không biết form báo lỗi gì (checklist Mobile #142). */
+    toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
+    toast.setAttribute('aria-live', type === 'error' ? 'assertive' : 'polite');
     const icon = document.createElement('span');
     icon.className = 'toast-icon';
     icon.textContent = type === 'success' ? '\u2713' : '\u2717';
@@ -225,7 +229,11 @@ function showNotification(message, type = 'success') {
         boxShadow: '0 8px 30px rgba(0,0,0,0.25)',
         transform: 'translateX(120%)',
         transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
-        maxWidth: '400px',
+        /* Neo right:24px mà không có left, nên khi nội dung dài hơn màn hình thì
+           hộp tràn sang trái ra ngoài viewport — mà body có overflow-x:hidden
+           nên phần tràn bị CẮT MẤT, khách đọc hụt đầu câu. Chuỗi lỗi số điện
+           thoại ~361px đã vượt màn 320px và 360px (checklist Mobile #134/#142). */
+        maxWidth: 'min(400px, calc(100vw - 48px))',
     });
 
     document.body.appendChild(toast);

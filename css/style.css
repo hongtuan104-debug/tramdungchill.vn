@@ -593,8 +593,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     gap: 5px;
     padding: 10px;
     z-index: 1001;
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 48px;
+    min-height: 48px;
     align-items: center;
     justify-content: center;
 }
@@ -1176,6 +1176,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .gallery-item:hover .gallery-caption { opacity: 1; }
+/* Bàn phím: Tab vào link trong ô ảnh cũng phải thấy caption */
+.gallery-item:focus-within .gallery-caption { opacity: 1; }
+/* Máy cảm ứng KHÔNG có hover — trước đây caption đứng nguyên opacity:0 nên
+   khách mobile không bao giờ đọc được chữ mô tả ảnh (checklist Mobile #140).
+   Hiện sẵn thay vì chờ hover. */
+@media (hover: none) {
+    .gallery-caption { opacity: 1; }
+}
 
 .gallery-caption span {
     color: var(--white);
@@ -1416,6 +1424,22 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .form-group textarea { resize: vertical; }
+
+/* Ô nhập đang sai — booking.js gắn aria-invalid khi validate hỏng.
+   Dùng chính thuộc tính trợ năng làm móc CSS nên không thể lệch nhau:
+   trình đọc màn hình và mắt khách luôn thấy cùng một ô (checklist Mobile #142). */
+.form-group input[aria-invalid="true"],
+.form-group select[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+.form-group input[aria-invalid="true"]:focus,
+.form-group select[aria-invalid="true"]:focus,
+.form-group textarea[aria-invalid="true"]:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
 
 .form-hint {
     text-align: center;
@@ -2666,6 +2690,18 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     pointer-events: auto;
 }
 
+/* Khách đang ở khối đặt bàn — fab-contact.js gắn class này qua
+   IntersectionObserver. Rút FAB đi để nó thôi đè lên nút "Gửi đặt bàn"
+   (nút này width:100% trên mobile, checklist Mobile #143).
+   Phải đứng SAU .fab-contact.visible vì cùng độ ưu tiên — thứ tự quyết định. */
+@media (max-width: 768px) {
+    .fab-contact.in-booking {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
 .fab-main {
     width: 56px;
     height: 56px;
@@ -3043,7 +3079,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     /* === NAVIGATION === */
     .nav-toggle { display: flex; }
     .nav-phone span { display: none; }
-    .nav-phone { padding: 8px; border: none; }
+    .nav-phone {
+        padding: 8px;
+        border: none;
+        /* Vùng chạm 48x48 (checklist Mobile #138). Trước đây svg 16px + padding 8px
+           = 32x32 — nút GỌI là CTA chuyển đổi chính trên mobile mà lại nhỏ nhất trang.
+           Lấy đúng 48px bằng .nav-toggle nên navbar KHÔNG cao thêm → không sinh CLS. */
+        min-width: 48px;
+        min-height: 48px;
+        justify-content: center;
+    }
 
     .nav-right {
         position: relative;
@@ -3053,7 +3098,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
     .lang-toggle {
         padding: 0 10px;
-        height: 34px;
+        /* 34px cũ dưới ngưỡng vùng chạm; 48px khớp .nav-toggle / .nav-phone */
+        height: 48px;
     }
 
     /* Logo — prevent overflow on small screens */
@@ -4024,6 +4070,21 @@ body.sticky-bar-active .fab-contact {
 }
 @media (max-width: 380px) {
     .hero-trust { font-size: 0.68rem; padding: 6px 12px; }
+
+    /* Màn siêu hẹp: nhường chỗ ngang cho tên quán.
+
+       Đo bằng bảng hmtx của chính file phông (scripts/kiem-phong-lot.js):
+       "Trạm Dừng Chill" ở Dancing Script 700 cỡ 16px rộng 101,3px, cộng ngôi sao
+       22,4px và gap 12px là 135,7px. Màn 320px trừ padding 24px hai bên còn 272px,
+       nav-right chiếm 168,6px (48+48 vùng chạm + nút ngôn ngữ 56,6 + 2 gap) →
+       logo chỉ còn 103,4px. .logo-main lại có white-space:nowrap nên không xuống
+       dòng mà TRÀN ra đè vào nav-right (nav-right z-index 1003 nên chữ bị che).
+
+       Ba nhát cắt dưới đây trả lại 58px: padding 24→14 (+20), gap 8→6 (+4),
+       và bỏ ngôi sao trang trí (+34,4). Logo còn 127,4px cho 101,3px chữ. */
+    .nav-container { padding: 0 14px; }
+    .nav-right { gap: 6px; }
+    .logo-icon { display: none; }
 }
 
 /* ============================================
@@ -5290,7 +5351,10 @@ body.sticky-bar-active .fab-contact {
 }
 
 .flipbook-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
-.flipbook-btn--icon { padding: 8px; }
+/* Vùng chạm 48px cho cả nút chữ lẫn nút icon (nút loa, nút mục lục).
+   Nút icon cũ là svg 17px + padding 8px = 33x33 — dưới ngưỡng #138. */
+.flipbook-btn { min-height: 48px; }
+.flipbook-btn--icon { padding: 8px; min-width: 48px; justify-content: center; }
 .flipbook-btn:hover { background: rgba(212, 168, 83, 0.16); }
 .flipbook-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
 .flipbook-btn[aria-pressed="false"] { color: var(--smoke); border-color: rgba(139, 125, 107, 0.4); }
@@ -5460,7 +5524,7 @@ body.sticky-bar-active .fab-contact {
 @media (max-width: 899px) {
     .menu-flipbook-section { padding: 60px 0 50px; }
     .flipbook-viewport { padding: 0 6px; }
-    .flipbook-arrow { width: 42px; height: 42px; }
+    .flipbook-arrow { width: 48px; height: 48px; }
     .flipbook-bar { border-radius: var(--radius-lg); justify-content: center; }
     .flipbook-counter { order: -1; width: 100%; text-align: center; }
     .flipbook-index-grid { grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); }
