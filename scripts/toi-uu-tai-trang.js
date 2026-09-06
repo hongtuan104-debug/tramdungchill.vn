@@ -26,12 +26,32 @@
  *    người dùng vẫn thấy bản trước. Đúng lỗi đã xảy ra thật với bảng giá trong
  *    bài blog: CSS đúng, markup đúng, mà màn hình vẫn hiện bản cũ.
  *
+ * 3) VÂN TAY JS (?v=md5) — thêm 06/09/2026.
+ *    Trước hôm nay CSS có vân tay mà JS thì không: 183 thẻ <script src> nội bộ,
+ *    KHÔNG cái nào mang ?v=. Cách bù duy nhất là đổi CACHE_NAME trong sw.js
+ *    BẰNG TAY — và đã quên thật: chú thích v11 trong sw.js tự ghi nhận 3 commit
+ *    (9a3aa2f, 22b3361, d379415) đổi bundle mà không bump, khách cũ dính bản cũ
+ *    thêm một lượt ghé vì nhánh JS/CSS là cache-first.
+ *
+ *    Nặng nhất không phải bundle mà là data/site-config.js + data/translations.js
+ *    (nguồn chữ nav/footer) và js/lazy-tracking.js (152 trang) — sửa số điện
+ *    thoại hay chữ footer xong mà khách giữ bản cũ là đúng loại lỗi CLAUDE.md
+ *    đã cảnh báo ở bug #0.
+ *
+ *    ⚠️ Vân tay JS ràng buộc với sw.js: STATIC_ASSETS phải liệt kê ĐÚNG URL kèm
+ *    ?v= thì bản precache mới dùng được, vì bộ xử lý fetch khớp URL chính xác
+ *    (caches.match(event.request)). Việc đó do scripts/cap-nhat-sw.js lo, chạy
+ *    ngay sau script này trong bundle-js.js. Bỏ bước đó = lặp lại bài học v9:
+ *    tải về rồi vứt đi, và mất luôn khả năng mở offline.
+ *
  * Chạy sau bundle-js.js (cần dist/style.min.css đã có để băm).
  */
 "use strict";
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+
+const { bamFile, regexScriptJS } = require("./van-tay");
 
 const ROOT = path.resolve(__dirname, "..");
 const SKIP_DIRS = /^(node_modules|\.git|dist|docs|plans|dev|templates|blog)$/;
@@ -70,7 +90,8 @@ for (const f of fs.readdirSync(path.join(ROOT, "dist"))) {
 }
 const VER = VERS["style.min.css"];
 
-let addedPre = 0, addedVer = 0, touched = 0;
+let addedPre = 0, addedVer = 0, addedVerJs = 0, touched = 0;
+const jsDaBam = new Set();     // để in ra cuối, tiện đối chiếu với sw.js
 const rel = (p) => path.relative(ROOT, p).replace(/\\/g, "/");
 
 for (const f of allHtml(ROOT)) {
@@ -108,6 +129,19 @@ for (const f of allHtml(ROOT)) {
         return 'href="' + p1 + "?v=" + v + '"';
     });
 
+    // ── 3. vân tay cho <script src> JS nội bộ
+    // Băm theo file THẬT trên đĩa, giải đường dẫn tương đối so với chính trang
+    // đang sửa — dip/ và duong-di/ viết "../dist/...", trang gốc viết "dist/...",
+    // hai đường dẫn khác nhau nhưng phải cho ra cùng một mã.
+    s = s.replace(regexScriptJS(), (m, dau, duongDan, cuoi, dongCuoi) => {
+        const thuc = path.resolve(path.dirname(f), duongDan);
+        const v = bamFile(thuc);
+        if (!v) return m;          // file chưa sinh — để nguyên, đừng làm hỏng link
+        jsDaBam.add(rel(thuc) + "=" + v);
+        addedVerJs++;
+        return dau + duongDan + "?v=" + v + dongCuoi;
+    });
+
     if (s !== before) {
         fs.writeFileSync(f, s, "utf8");
         touched++;
@@ -116,5 +150,7 @@ for (const f of allHtml(ROOT)) {
 }
 
 console.log("\nVân tay CSS: " + Object.keys(VERS).map((k) => k + "=" + VERS[k]).join(" · "));
-console.log("  thêm " + addedPre + " thẻ preconnect · gắn ?v= cho " + addedVer + " link CSS");
+console.log("Vân tay JS : " + [...jsDaBam].sort().join(" · "));
+console.log("  thêm " + addedPre + " thẻ preconnect · gắn ?v= cho " + addedVer +
+    " link CSS · " + addedVerJs + " thẻ script JS");
 console.log("  " + touched + " trang được cập nhật");

@@ -226,12 +226,13 @@ try {
 // ── Preconnect + vân tay CSS cho các trang tĩnh ──────────────────
 // Chạy SAU khi có dist/style.min.css để băm được nội dung. Không có bước này
 // thì sửa CSS xong người dùng vẫn thấy bản cũ trong cache.
-console.log("\nGắn preconnect + vân tay CSS...");
+console.log("\nGắn preconnect + vân tay CSS/JS...");
 try {
     require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "toi-uu-tai-trang.js")), { stdio: "inherit" });
 } catch (e) {
     console.error("  Bước này lỗi (khong chan build): " + e.message);
 }
+
 
 // ── Sinh menu.html (JSON-LD MenuItem + danh sach mon tinh) tu data/menu-data.js ──
 console.log("\nGenerating menu.html (schema + static list)...");
@@ -261,6 +262,23 @@ console.log("");
 console.log("Chen kich thuoc anh...");
 try {
     require("./chen-kich-thuoc-anh").chay();
+} catch (e) {
+    console.error("  Buoc nay loi (khong chan build): " + e.message);
+}
+
+// ── Đồng bộ danh sách precache của service worker ────────────────
+// Chạy SAU MỌI bước sửa HTML, vì hai lý do:
+//  1) toi-uu-tai-trang.js vừa đổi URL trong HTML sang dạng mang ?v=, mà bộ xử lý
+//     fetch của sw.js khớp URL CHÍNH XÁC. Lệch nhau thì bản precache trỏ vào URL
+//     không ai gọi — tải về rồi vứt đi, mất luôn vỏ offline (bài học v9).
+//  2) CACHE_NAME băm từ nội dung các file precache, trong đó có index.html —
+//     mà generate-menu-preview và chen-kich-thuoc-anh còn sửa file đó ở trên.
+//     Đặt bước này lên trước chúng thì hash tính từ bản cũ, phải build hai lần
+//     mới ra đúng tên cache.
+console.log("");
+console.log("Dong bo service worker...");
+try {
+    require("./cap-nhat-sw").chay();
 } catch (e) {
     console.error("  Buoc nay loi (khong chan build): " + e.message);
 }

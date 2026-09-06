@@ -30,6 +30,11 @@ const CSS_VER = (function () {
         return "dev";
     }
 })();
+// Vân tay cho js/lazy-tracking.js — 142 bài blog đều nạp file này. Trang tĩnh
+// được scripts/toi-uu-tai-trang.js gắn ?v=, nhưng nó cố ý bỏ qua thư mục blog/
+// (bài blog sinh từ template, sửa thẳng vào file sinh ra là mất ở lần build sau)
+// nên chỗ này phải tự lo. Dùng chung scripts/van-tay.js để hai bên ra cùng mã.
+const JS_LAZY_VER = require("./van-tay").bamFile(path.join(ROOT, "js", "lazy-tracking.js")) || "dev";
 const TODAY = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Ho_Chi_Minh",
     year: "numeric", month: "2-digit", day: "2-digit"
@@ -524,6 +529,7 @@ try {
                 .replace(/{{T_CTA_SUB}}/g, ui(article).ctaSub)
                 .replace(/{{T_CTA_BTN}}/g, ui(article).ctaBtn)
                 .replace(/{{CSS_VER}}/g, CSS_VER)
+                .replace(/{{JS_LAZY_VER}}/g, JS_LAZY_VER)
                 .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
                 .replace(/{{OG_LOCALE}}/g, article._lang === "en" ? "en_US" : "vi_VN")
                 .replace(/{{BYLINE}}/g, bylineHtml(article))
@@ -670,6 +676,19 @@ try {
     // Goi thang giong generate-blog-links.js ben tren — loi dan "nho chay sau"
     // da tung troi mot lan roi.
     require("./chen-kich-thuoc-anh").chay();
+
+    // Vân tay lại + đồng bộ sw.js. Cũng vì lý do trên: script này VỪA ghi đè
+    // data/blog-data-light.js (khối 18 bài hiển thị) và blog.html, mà blog.html
+    // nạp file đó kèm ?v=<md5> do bundle-js.js gắn TRƯỚC ĐÓ. Thêm một bài blog
+    // là mã băm cũ trỏ vào nội dung mới — trình duyệt giữ nguyên bản cache, danh
+    // sách bài trên trang blog đứng im. Đúng kiểu lỗi khối tĩnh 13/19 bài kể trên,
+    // chỉ khác là lần này nằm ở lớp cache nên nhìn file trong repo không thấy gì sai.
+    require("child_process").execFileSync(
+        process.execPath,
+        [path.join(__dirname, "toi-uu-tai-trang.js")],
+        { stdio: "inherit" }
+    );
+    require("./cap-nhat-sw").chay();
 
     console.log("Done!");
 

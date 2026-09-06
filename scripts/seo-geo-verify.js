@@ -690,6 +690,63 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     }
 }
 
+// ── R8l. Thẻ <script src> nội bộ phải kèm ?v= khớp vân tay file thật ─────
+// Cùng lý do R8k, nhưng JS mới là chỗ đau hơn: nhánh JS/CSS trong sw.js chạy
+// cache-first, nên trước 06/09/2026 cách duy nhất để khách cũ nhận bundle mới là
+// đổi CACHE_NAME BẰNG TAY — và đã quên thật 3 commit liền (chú thích v11 trong
+// sw.js tự ghi nhận). Nặng nhất không phải bundle mà là data/site-config.js và
+// data/translations.js: sửa số điện thoại hay chữ footer xong mà khách giữ bản cũ.
+{
+    const bad = [];
+    let checked = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(
+            /<script\b[^>]*\ssrc="((?:\.\.\/)*(?:dist|js|data)\/[A-Za-z0-9._-]+\.js)(?:\?v=([a-f0-9]+))?"/g)) {
+            checked++;
+            const thuc = path.resolve(path.dirname(f), m[1]);
+            if (!fs.existsSync(thuc)) continue;      // link hỏng đã có mục khác lo
+            const want = require("crypto").createHash("md5")
+                .update(fs.readFileSync(thuc)).digest("hex").slice(0, 8);
+            if (!m[2]) bad.push(rel(f) + ": " + m[1] + " thiếu ?v=");
+            else if (m[2] !== want) bad.push(rel(f) + ": " + m[1] + " ?v=" + m[2] + " ≠ " + want);
+        }
+    }
+    add("Thẻ script JS kèm vân tay khớp file thật", bad.length === 0,
+        bad.length ? [...new Set(bad)].slice(0, 3).join(" | ")
+                   : checked + " thẻ script nội bộ đều mang vân tay đúng");
+}
+
+// ── R8m. STATIC_ASSETS trong sw.js phải khớp URL trang thật gọi ──────────
+// Bộ xử lý fetch của sw.js khớp URL CHÍNH XÁC (caches.match(event.request)).
+// Ghi '/dist/common.min.js' trần trong khi trang gọi '...?v=e8c99505' thì bản
+// precache không bao giờ được dùng: tải về rồi vứt đi, và mất luôn vỏ offline.
+// Đã dính đúng lỗi này một lần với style.min.css (bài học v9 ghi trong sw.js).
+{
+    const swFile = path.join(ROOT, "sw.js");
+    if (!fs.existsSync(swFile)) {
+        add("Precache sw.js khớp URL trang thật gọi", false, "không thấy sw.js");
+    } else {
+        const khoi = (fs.readFileSync(swFile, "utf8")
+            .match(/SW-ASSETS:START[\s\S]*?SW-ASSETS:END/) || [""])[0];
+        const pre = [...khoi.matchAll(/'(\/[^']+)'/g)].map((m) => m[1])
+            .filter((u) => /\.(?:js|css)$/.test(u.split("?")[0]));
+        // mọi URL js/css mà các trang thật sự gọi, quy về dạng gốc "/..."
+        const goi = new Set();
+        for (const f of files) {
+            for (const m of fs.readFileSync(f, "utf8")
+                .matchAll(/\s(?:src|href)="((?:\.\.\/)*(?:dist|js|data)\/[^"]+\.(?:js|css)(?:\?v=[a-f0-9]+)?)"/g)) {
+                goi.add("/" + m[1].replace(/^(?:\.\.\/)+/, ""));
+            }
+        }
+        const bad = pre.filter((u) => !goi.has(u));
+        add("Precache sw.js khớp URL trang thật gọi",
+            pre.length > 0 && bad.length === 0,
+            bad.length ? "precache trỏ URL không trang nào gọi: " + bad.slice(0, 3).join(" | ")
+                       : pre.length + " tài sản precache đều khớp URL thật");
+    }
+}
+
 // ── R9. Mọi key data-i18n đều có bản dịch vi + en ────────────────────────
 {
     const src = fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8");

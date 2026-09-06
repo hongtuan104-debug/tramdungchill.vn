@@ -42,17 +42,22 @@
 //      nên runtime cache chưa có gì; HTML mở được mà không có JS/data).
 //      style.min.css KHÔNG precache được: URL thật mang ?v=<md5> mà SW không biết,
 //      cache bản trần chỉ phí 91 KB (bài học v9).
-const CACHE_NAME = 'tdc-v13';
+/* SW-ASSETS:START — sinh bởi scripts/cap-nhat-sw.js, ĐỪNG sửa tay.
+   Sửa danh sách precache trong chính script đó rồi chạy node scripts/bundle-js.js.
+   URL kèm ?v= là BẮT BUỘC: bộ xử lý fetch bên dưới khớp URL chính xác, ghi
+   URL trần trong khi trang gọi URL có vân tay = precache không bao giờ dùng được. */
+const CACHE_NAME = 'tdc-v13-4c052c66';
 const STATIC_ASSETS = [
     '/index.html',
-    '/dist/common.min.js',
-    '/dist/index.min.js',
-    '/data/site-config.js',
-    '/data/translations.js',
-    '/data/schema-data.js',
+    '/dist/common.min.js?v=e8c99505',
+    '/dist/index.min.js?v=5a7b46b4',
+    '/data/site-config.js?v=0b3cedf9',
+    '/data/translations.js?v=cdd4a49e',
+    '/data/schema-data.js?v=cf7860b7',
     '/manifest.json',
     '/assets/images/favicon.svg'
 ];
+/* SW-ASSETS:END */
 
 // Install: pre-cache critical assets
 self.addEventListener('install', function(event) {

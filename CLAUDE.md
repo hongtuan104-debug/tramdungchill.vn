@@ -123,19 +123,42 @@ Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu c�
 - Chưa đủ 26 ảnh thì generator để trống vùng marker — cố tình, tránh 26 lỗi 404
 - Tiếng lật trang tổng hợp bằng Web Audio API trong `js/menu-flipbook.js` (0 KB tải thêm),
   khách bật/tắt ở nút loa, lưu trong localStorage `tdc-menu-sound`
-- ⚠️ Đổi `css/style.css` hay JS dùng chung → nhớ bump `CACHE_NAME` trong `sw.js`,
-  không thì khách cũ vẫn chạy bản cache cũ
+- ~~⚠️ Đổi `css/style.css` hay JS dùng chung → nhớ bump `CACHE_NAME`~~ — **hết cần
+  từ 06/09/2026**, xem mục "Vân tay CSS + JS" bên dưới. `CACHE_NAME` nay tự sinh
+  theo nội dung; sửa tay chỉ còn ý nghĩa khi muốn ép xoá cache vì lý do khác.
 - **Thay ảnh menu thì KHÔNG cần bump `CACHE_NAME`**: URL ảnh mang vân tay `?v=<md5>`
   do generator gắn, đổi ảnh là URL đổi theo. Trước khi có vân tay (07/08/2026) thay
   ảnh xong khách vẫn thấy bản cũ — `/assets/menu-pages/` rơi vào nhánh cache-first
   của service worker, Ctrl+F5 cũng không phá được lớp đó.
 
-## Thẻ resource hints + vân tay CSS — cũng sinh tự động
+## Thẻ resource hints + vân tay CSS/JS — cũng sinh tự động
 `scripts/toi-uu-tai-trang.js` (do `bundle-js.js` gọi) tự chèn `dns-prefetch` cho
-3 domain pixel và gắn `?v=<md5>` vào link CSS của **mọi trang tĩnh**. Sửa tay
-trong HTML sẽ bị build ghi đè ở lần chạy sau — 01/08/2026 đã dính: đổi tay
-`preconnect` → `dns-prefetch`, build xong production có CẢ HAI.
+3 domain pixel và gắn `?v=<md5>` vào link CSS **và mọi thẻ `<script src>` nội bộ**
+(`dist/` `js/` `data/`) của **mọi trang tĩnh**. Sửa tay trong HTML sẽ bị build ghi
+đè ở lần chạy sau — 01/08/2026 đã dính: đổi tay `preconnect` → `dns-prefetch`,
+build xong production có CẢ HAI.
 → Muốn đổi thì sửa trong `scripts/toi-uu-tai-trang.js`, đừng sửa HTML.
+
+### Vân tay JS + service worker (06/09/2026)
+Trước hôm đó CSS có vân tay mà JS thì không — 183 thẻ script nội bộ, không cái
+nào mang `?v=`. Cách bù duy nhất là bump `CACHE_NAME` **bằng tay**, và đã quên
+thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
+- **Vân tay JS**: `toi-uu-tai-trang.js` lo trang tĩnh · `generate-blog-pages.js`
+  lo 142 bài blog qua `{{JS_LAZY_VER}}` trong template · cả hai dùng chung
+  `scripts/van-tay.js` để không lệch thuật toán.
+- **`CACHE_NAME` tự sinh** = `<tiền tố>-<md5 nội dung precache>`, do
+  `scripts/cap-nhat-sw.js` ghi giữa mốc `/* SW-ASSETS:START … END */`.
+  Tiền tố vẫn đọc từ `sw.js` nên muốn bump tay cứ sửa như cũ.
+- ⚠️ **`STATIC_ASSETS` trong `sw.js` PHẢI mang đúng `?v=`** như URL trang thật
+  gọi: bộ xử lý fetch khớp URL chính xác (`caches.match(event.request)`), ghi URL
+  trần = precache tải về rồi vứt đi + mất vỏ offline. Đã dính đúng lỗi này một
+  lần với `style.min.css` (bài học v9). **Sửa danh sách precache trong
+  `cap-nhat-sw.js`, đừng sửa `sw.js`.**
+- ⚠️ `generate-blog-pages.js` ghi đè `data/blog-data-light.js` nên nó **tự chạy
+  lại** `toi-uu-tai-trang.js` + `cap-nhat-sw.js` ở cuối. Đừng gỡ hai dòng đó:
+  thêm một bài blog là `blog.html` trỏ vân tay cũ, danh sách bài đứng im.
+- Máy canh: `seo-geo-verify.js` có 2 mục mới — "Thẻ script JS kèm vân tay khớp
+  file thật" và "Precache sw.js khớp URL trang thật gọi".
 
 ## Bug đã fix (đừng làm lại)
 0. **Sửa chữ trong HTML mà quên `data/translations.js`** → chữ cũ hiện lại khi JS chạy.
