@@ -32,6 +32,21 @@
   "chiPhiNhom4Min": 380000,
   "chiPhiNhom4Max": 1200000,
 
+  "_veSucChua": [
+    "Chu quan xac nhan 07/09/2026: 'quan chi co gan 250 ban va khoang 1500 cho'.",
+    "Giu tu han dinh khi hien thi: 'gan 250 ban', 'khoang 1.500 cho' — dung ghi tran.",
+    "TRUOC 07/09/2026 web khai THIEU rat nhieu: index.html khai",
+    "maximumAttendeeCapacity 100 trong schema Restaurant, va dip/team-building.html",
+    "khai 'Suc chua 100+ khach' o 6 cho (meta description, og:title, JSON-LD, H1, H3,",
+    "than bai). Voi 1.500 cho that thi '100+' la tu ban re minh — dung khach doan lon",
+    "ma trang tiec cong ty dang nham toi.",
+    "PHAN BIET voi 'quy mo doan quan nhan': do la con so KHAC (van hanh: bep, nhan su),",
+    "hien web ghi 'nhan doan tu 20 den 100 khach' o 8 cho. CHUA hoi duoc chu quan,",
+    "dung tu suy tu suc chua ra."
+  ],
+  "soBan": 250,
+  "sucChuaChoNgoi": 1500,
+
   "gioMoCua": "15:00",
   "gioDongCua": "23:00",
 

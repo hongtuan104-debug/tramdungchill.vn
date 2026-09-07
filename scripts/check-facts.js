@@ -222,6 +222,31 @@ const PHEP_KIEM = [
     },
   },
   {
+    ten: 'Suc chua trong JSON-LD ("maximumAttendeeCapacity")',
+    mau: /"maximumAttendeeCapacity"\s*:\s*"?([0-9]+)"?/g,
+    batBuocCoKhop: true,
+    kiemTra: (m) =>
+      Number(m[1]) === FACTS.sucChuaChoNgoi
+        ? null
+        : `ghi ${m[1]}, nguon chuan la ${FACTS.sucChuaChoNgoi}`,
+  },
+  {
+    // Chi bat so tu 100 tro len de khong dinh "xe limousine 16-29 cho" hay
+    // "ban 4 cho". Doi hoi co tu han dinh (gan/khoang/hon) dung truoc: chu quan
+    // noi "GAN 250 ban va KHOANG 1500 cho", ghi tran la sai sac thai.
+    ten: 'So ban / so cho ngoi dang chu (phai kem "gan" / "khoang")',
+    mau: /(?:gần|khoảng|hơn|trên)\s+([0-9][0-9.,]{2,6})\s*(bàn|chỗ)\b/gi,
+    batBuocCoKhop: true,
+    kiemTra: (m) => {
+      const n = boPhanCach(m[1]);
+      if (!Number.isFinite(n) || n < 100) return null; // ngoai tam: khong phai so suc chua
+      const chuan = /bàn/i.test(m[2]) ? FACTS.soBan : FACTS.sucChuaChoNgoi;
+      return n === chuan
+        ? null
+        : `ghi ${m[1]} ${m[2]}, nguon chuan la ${dinhDangVN(chuan)}`;
+    },
+  },
+  {
     // Vi sao co phep nay: con so combo bia "800.000d - 1.200.000d" song 5 tuan
     // (31/07 -> 07/09/2026) o 10 cho, giua hai lan don dep, chi vi facts.json
     // khong khai truong nao cho no nen luoi khong co gi de doi chieu.
