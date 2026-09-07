@@ -17,6 +17,21 @@
   "giaMax": 300000,
   "priceRangeSchema": "₫95.000 - ₫300.000",
 
+  "_veChiPhiNhom4": [
+    "Cau 'Nhom 4 nguoi thuong het khoang ...' xuat hien o 12 cho tren web.",
+    "Con so nay = giaMin x 4 va giaMax x 4, KHONG phai gia combo — quan khong ban combo.",
+    "LICH SU (dung de lam lai): truoc 31/07/2026 menu.html khai 'Combo nhom 4 nguoi",
+    "khoang 800.000d - 1.200.000d'. Commit 1db5559 xoa vi doi chieu menu-data.js",
+    "khong co combo/set nao, va ghi ro '4 nguoi x muc chi 95-300K = 380K - 1.200K,",
+    "khong phai 800K tro len'. Commit e30dd2e don tiep 6 trang. Nhung CA HAI bo sot",
+    "index.html, translations.js (ca vi lan en), dip/sinh-nhat.html, dip/san-tau-da-lat.html",
+    "-> so combo bia 800.000d song them 5 tuan, den 07/09/2026 moi don not.",
+    "Song duoc lau vay vi facts.json CHUA co truong nay nen check-facts.js khong canh.",
+    "Nay da co: sua so o day thi luoi chi ra ngay moi cho ghi khac."
+  ],
+  "chiPhiNhom4Min": 380000,
+  "chiPhiNhom4Max": 1200000,
+
   "gioMoCua": "15:00",
   "gioDongCua": "23:00",
 

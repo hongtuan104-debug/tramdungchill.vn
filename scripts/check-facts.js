@@ -222,6 +222,23 @@ const PHEP_KIEM = [
     },
   },
   {
+    // Vi sao co phep nay: con so combo bia "800.000d - 1.200.000d" song 5 tuan
+    // (31/07 -> 07/09/2026) o 10 cho, giua hai lan don dep, chi vi facts.json
+    // khong khai truong nao cho no nen luoi khong co gi de doi chieu.
+    // Bat ca hai kieu viet: "800.000d - 1.200.000d" (vi) va "800,000₫ - 1,200,000₫" (en).
+    ten: 'Chi phi nhom 4 nguoi (phai la giaMin x4 - giaMax x4, khong phai gia combo)',
+    mau: /(?:nhóm 4 người|group of four)[^.]{0,40}?([0-9][0-9.,]{4,9})\s*(?:đ|₫)?\s*[–\-]\s*([0-9][0-9.,]{4,9})\s*(?:đ|₫)/gi,
+    batBuocCoKhop: true,
+    kiemTra: (m) => {
+      const min = boPhanCach(m[1]);
+      const max = boPhanCach(m[2]);
+      const loi = [];
+      if (min !== FACTS.chiPhiNhom4Min) loi.push(`can duoi ghi ${m[1]}, nguon chuan la ${dinhDangVN(FACTS.chiPhiNhom4Min)}`);
+      if (max !== FACTS.chiPhiNhom4Max) loi.push(`can tren ghi ${m[2]}, nguon chuan la ${dinhDangVN(FACTS.chiPhiNhom4Max)}`);
+      return loi.length ? loi.join(' · ') : null;
+    },
+  },
+  {
     ten: 'Khoang gia trong JSON-LD ("priceRange")',
     mau: /"priceRange"\s*:\s*"([^"]+)"/g,
     batBuocCoKhop: true,
