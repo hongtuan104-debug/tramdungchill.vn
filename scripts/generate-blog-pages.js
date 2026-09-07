@@ -12,6 +12,7 @@ const vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const DATA_FILE = path.join(ROOT, "data", "blog-data.js");
+const FACTS_FILE = path.join(ROOT, "data", "facts.json");
 const TEMPLATE_FILE = path.join(ROOT, "templates", "blog-post.html");
 const BLOG_DIR = path.join(ROOT, "blog");
 const SITEMAP = path.join(ROOT, "sitemap.xml");
@@ -211,6 +212,15 @@ function faqHtml(article) {
     return '\n<section class="blog-faq"><h2>' + ui(article).faq + '</h2>\n' + items + '\n</section>';
 }
 
+// Số đánh giá cho dòng "bằng chứng" trong khối CTA cuối bài. ĐỌC TỪ data/facts.json
+// chứ không viết cứng: đổi số ở nguồn chuẩn là 141 bài tự khớp theo, khỏi phải nhớ
+// sửa thêm chỗ nào. (check-facts.js vẫn soi con số này như mọi chỗ khác trên web.)
+var FACTS = JSON.parse(fs.readFileSync(FACTS_FILE, "utf8"));
+// "7060" -> "7.060" (kiểu Việt) và "7,060" (kiểu Anh)
+var SO_DANH_GIA_VI = String(FACTS.soDanhGiaGoogle).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+var SO_DANH_GIA_EN = String(FACTS.soDanhGiaGoogle).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+var DIEM_VI = String(FACTS.diemDanhGiaGoogle).replace(".", ",");
+
 // Chuỗi giao diện theo ngôn ngữ bài. Trước đây nav/breadcrumb/CTA/FAQ đều cứng
 // tiếng Việt, nên 2 bài tiếng Anh hiện "Trang chủ / Thực đơn / Đặt bàn ngay" —
 // vừa khó hiểu với khách nước ngoài (CTA không đọc được thì không có chuyển đổi),
@@ -222,6 +232,8 @@ var UI = {
         ctaTitle: "Đặt Bàn Trạm Dừng Chill",
         ctaSub: "Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt",
         ctaBtn: "Đặt bàn ngay →",
+        ctaTrust: DIEM_VI + " sao · " + SO_DANH_GIA_VI + " lượt đánh giá trên Google",
+        ctaTrustAria: "Xem đánh giá của khách",
         byline: "Đội ngũ Trạm Dừng Chill · Tiệm Nướng Trạm Dừng Chill",
         updated: "Cập nhật", prev: "Bài trước", next: "Bài sau",
         toc: "Nội dung bài viết"
@@ -232,6 +244,8 @@ var UI = {
         ctaTitle: "Book a table at Trạm Dừng Chill",
         ctaSub: "Grilled BBQ with sunset and vintage train views — only in Da Lat",
         ctaBtn: "Book now →",
+        ctaTrust: FACTS.diemDanhGiaGoogle + " stars · " + SO_DANH_GIA_EN + " Google reviews",
+        ctaTrustAria: "Read guest reviews",
         byline: "The Trạm Dừng Chill team · Tiệm Nướng Trạm Dừng Chill",
         updated: "Updated", prev: "Previous", next: "Next",
         toc: "In this article"
@@ -528,6 +542,8 @@ try {
                 .replace(/{{T_CTA_TITLE}}/g, ui(article).ctaTitle)
                 .replace(/{{T_CTA_SUB}}/g, ui(article).ctaSub)
                 .replace(/{{T_CTA_BTN}}/g, ui(article).ctaBtn)
+                .replace(/{{T_CTA_TRUST}}/g, ui(article).ctaTrust)
+                .replace(/{{T_CTA_TRUST_ARIA}}/g, ui(article).ctaTrustAria)
                 .replace(/{{CSS_VER}}/g, CSS_VER)
                 .replace(/{{JS_LAZY_VER}}/g, JS_LAZY_VER)
                 .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
