@@ -241,6 +241,39 @@ body.dip-landing {
     color: var(--gold-light);
     margin-bottom: 16px;
 }
+/* Cỡ chữ cho con số giá. Trước 07/09/2026 mấy trang dịp khai thẳng
+   style="font-size:3rem" trong HTML — mà inline thắng cả media query không
+   !important, nên rule mobile .dip-pricing-big{3.5rem} ở cuối file CHẾT hẳn:
+   điện thoại hiện chữ NHỎ hơn desktop định. Khai bằng class để mobile còn đè được.
+   -range: chuỗi dài ("95.000đ – 300.000đ") · -mid: chuỗi vừa ("Từ 250K") */
+.dip-pricing-big.dip-pricing-range { font-size: 2.6rem; }
+.dip-pricing-big.dip-pricing-mid { font-size: 3.5rem; }
+
+/* Ba lời cam kết trong khối giá. Dùng <ul>/<li> thật thay cho "·" + <br>
+   nhét trong một <p>: trình đọc màn hình mới xướng được "danh sách 3 mục",
+   và bot GEO (GPTBot/ClaudeBot/Perplexity) trích danh sách chuẩn hơn văn xuôi. */
+.dip-pricing-list {
+    list-style: none;
+    padding: 0;
+    margin: 22px auto 0;
+    max-width: 580px;
+    text-align: left;
+}
+.dip-pricing-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+}
+.dip-pricing-list li::before {
+    content: "·";
+    position: absolute;
+    left: 6px;
+    color: var(--gold);
+    font-weight: 700;
+}
+
 .dip-pricing-detail {
     color: rgba(255,255,255,0.7);
     font-size: 0.95rem;
@@ -410,5 +443,8 @@ body.dip-landing {
     .booking-form .form-row { grid-template-columns: 1fr; }
     .dip-form-wrapper { padding: 32px 24px; }
     .dip-pricing-big { font-size: 3.5rem; }
+    .dip-pricing-big.dip-pricing-range { font-size: 1.9rem; }
+    .dip-pricing-big.dip-pricing-mid { font-size: 2.6rem; }
     .dip-pricing h2 { font-size: 1.4rem; }
+    .dip-pricing-list li { font-size: 0.95rem; }
 }
