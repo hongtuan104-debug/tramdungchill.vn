@@ -317,6 +317,9 @@ var TRANSLATIONS = {
     'blog.copylink': 'Sao chép link',
     'blog.all': 'Tất cả',
     'blog.filters': 'Lọc theo danh mục',
+    'blog.empty.title': 'Không tìm thấy bài viết nào',
+    'blog.empty.desc': 'Thử từ khoá ngắn hơn, hoặc xoá bộ lọc để xem lại toàn bộ bài viết.',
+    'blog.empty.reset': 'Xoá bộ lọc',
 
     // Schema
     'schema.blog.desc': 'Chia sẻ trải nghiệm ăn nướng BBQ, du lịch Đà Lạt',
@@ -630,6 +633,9 @@ var TRANSLATIONS = {
     'blog.copylink': 'Copy link',
     'blog.all': 'All',
     'blog.filters': 'Filter by category',
+    'blog.empty.title': 'No articles found',
+    'blog.empty.desc': 'Try a shorter keyword, or clear the filters to see all articles again.',
+    'blog.empty.reset': 'Clear filters',
 
     // Schema
     'schema.blog.desc': 'BBQ dining experiences and Da Lat travel tips',

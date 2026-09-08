@@ -138,10 +138,9 @@ function initBlogFilters(articles) {
         filtersContainer.appendChild(btn);
     });
 
-    // Cache card list for performance
-    const cachedCards = document.querySelectorAll('.blog-card');
-
-    // Add click handlers
+    // Add click handlers — nút chỉ ghi lại lựa chọn rồi để apDungLoc() quyết
+    // định card nào hiện. KHÔNG tự bật/tắt .hidden ở đây: làm vậy là xoá mất
+    // từ khoá khách đang gõ (xem chú thích ở LOC_HIEN_TAI).
     const buttons = filtersContainer.querySelectorAll('.blog-filter-btn');
     buttons.forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -152,25 +151,8 @@ function initBlogFilters(articles) {
             btn.classList.add('active');
             btn.setAttribute('aria-pressed', 'true');
 
-            const selectedCategory = btn.getAttribute('data-category');
-
-            cachedCards.forEach(function(card) {
-                if (selectedCategory === 'all') {
-                    card.classList.remove('hidden');
-                    card.style.opacity = '0';
-                    setTimeout(function() { card.style.opacity = '1'; }, 50);
-                } else {
-                    const cardCategory = card.querySelector('.blog-category');
-                    const cardCatText = cardCategory ? cardCategory.textContent.trim() : '';
-                    if (cardCatText === selectedCategory) {
-                        card.classList.remove('hidden');
-                        card.style.opacity = '0';
-                        setTimeout(function() { card.style.opacity = '1'; }, 50);
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }
-            });
+            LOC_HIEN_TAI.danhMuc = btn.getAttribute('data-category');
+            apDungLoc(true);
         });
     });
 }
@@ -223,20 +205,135 @@ function injectBlogSchema(articles) {
     document.head.appendChild(script);
 }
 
+/* ===== Lọc bài viết: MỘT nguồn sự thật cho cả ô tìm kiếm lẫn nút danh mục =====
+   Trước 08/09/2026 đây là hai hàm rời nhau, mỗi hàm tự bật/tắt class .hidden
+   trên toàn bộ card mà không biết hàm kia vừa làm gì. Khách gãy thật thế này:
+   bấm lọc "English" → còn bài tiếng Anh; gõ tiếp vào ô tìm kiếm → search chạy
+   lại trên cả 141 card, kéo bài tiếng Việt hiện lại, trong khi nút "English"
+   vẫn sáng vàng. Nay hai chỗ chỉ ghi vào LOC_HIEN_TAI rồi gọi apDungLoc(),
+   nơi duy nhất quyết định card nào hiện. */
+const LOC_HIEN_TAI = { danhMuc: 'all', tuKhoa: '' };
+
+function apDungLoc(coHieuUng) {
+    const cards = document.querySelectorAll('.blog-card');
+    const tuKhoa = LOC_HIEN_TAI.tuKhoa;
+    const danhMuc = LOC_HIEN_TAI.danhMuc;
+    let soHien = 0;
+
+    cards.forEach(function(card) {
+        const elCat = card.querySelector('.blog-category');
+        const catGoc = elCat ? elCat.textContent.trim() : '';
+
+        // Danh mục so khớp nguyên văn (đúng như data-category của nút),
+        // còn từ khoá thì so chữ thường cho khách gõ thoải mái.
+        const hopDanhMuc = danhMuc === 'all' || catGoc === danhMuc;
+
+        let hopTuKhoa = true;
+        if (tuKhoa) {
+            const h2 = card.querySelector('h2');
+            const p = card.querySelector('p');
+            const title = h2 ? h2.textContent.toLowerCase() : '';
+            const excerpt = p ? p.textContent.toLowerCase() : '';
+            hopTuKhoa = title.indexOf(tuKhoa) !== -1 ||
+                        excerpt.indexOf(tuKhoa) !== -1 ||
+                        catGoc.toLowerCase().indexOf(tuKhoa) !== -1;
+        }
+
+        const hien = hopDanhMuc && hopTuKhoa;
+        card.classList.toggle('hidden', !hien);
+
+        if (hien) {
+            soHien++;
+            // Hiệu ứng mờ-dần chỉ chạy khi bấm đổi danh mục. Chạy nó theo từng
+            // ký tự khách gõ thì cả lưới nhấp nháy, rất khó chịu.
+            if (coHieuUng) {
+                card.style.opacity = '0';
+                setTimeout(function() { card.style.opacity = '1'; }, 50);
+            }
+        }
+    });
+
+    capNhatKhoiRong(soHien);
+}
+
+/* Khối "không tìm thấy". Thiếu nó thì gõ một từ vu vơ là 141 card biến sạch,
+   để lại khoảng trắng không lời giải thích — khách không biết mình gõ hụt hay
+   web hỏng, mà cũng chẳng thấy đường nào quay ra. */
+function layKhoiRong() {
+    let el = document.getElementById('blogEmpty');
+    if (el) return el;
+
+    const grid = document.querySelector('.blog-grid');
+    if (!grid || !grid.parentNode) return null;
+
+    el = document.createElement('div');
+    el.id = 'blogEmpty';
+    el.className = 'blog-empty';
+    el.hidden = true;
+    // role=status + aria-live: khách dùng screen reader được đọc kết quả rỗng,
+    // thay vì im lặng tưởng trang chưa phản hồi.
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+
+    // data-i18n là BẮT BUỘC ở đây, không phải trang trí: t() chỉ chạy đúng MỘT
+    // lần lúc dựng khối. Khách search (dựng khối tiếng Việt) rồi mới bấm nút
+    // EN thì applyTranslations() chỉ ghi lại các phần tử [data-i18n] — thiếu
+    // thuộc tính này là khối đứng nguyên tiếng Việt giữa trang tiếng Anh.
+    const tieuDe = document.createElement('p');
+    tieuDe.className = 'blog-empty-title';
+    tieuDe.setAttribute('data-i18n', 'blog.empty.title');
+    tieuDe.textContent = t('blog.empty.title', 'Không tìm thấy bài viết nào');
+    el.appendChild(tieuDe);
+
+    const moTa = document.createElement('p');
+    moTa.className = 'blog-empty-desc';
+    moTa.setAttribute('data-i18n', 'blog.empty.desc');
+    moTa.textContent = t('blog.empty.desc', 'Thử từ khoá ngắn hơn, hoặc xoá bộ lọc để xem lại toàn bộ bài viết.');
+    el.appendChild(moTa);
+
+    // Gắn listener lên chính nút, không lên phần tử con: applyTranslations ghi
+    // innerHTML của nút chứ không thay nút, nên listener sống sót khi đổi ngôn ngữ.
+    const nut = document.createElement('button');
+    nut.type = 'button';
+    nut.className = 'blog-empty-reset';
+    nut.setAttribute('data-i18n', 'blog.empty.reset');
+    nut.textContent = t('blog.empty.reset', 'Xoá bộ lọc');
+    nut.addEventListener('click', xoaLoc);
+    el.appendChild(nut);
+
+    grid.parentNode.insertBefore(el, grid.nextSibling);
+    return el;
+}
+
+function capNhatKhoiRong(soHien) {
+    const el = layKhoiRong();
+    if (el) el.hidden = soHien !== 0;
+}
+
+function xoaLoc() {
+    LOC_HIEN_TAI.danhMuc = 'all';
+    LOC_HIEN_TAI.tuKhoa = '';
+
+    const searchInput = document.getElementById('blogSearch');
+    if (searchInput) searchInput.value = '';
+
+    document.querySelectorAll('.blog-filter-btn').forEach(function(b) {
+        const laTatCa = b.getAttribute('data-category') === 'all';
+        b.classList.toggle('active', laTatCa);
+        b.setAttribute('aria-pressed', laTatCa ? 'true' : 'false');
+    });
+
+    apDungLoc(true);
+    if (searchInput) searchInput.focus();
+}
+
 function initBlogSearch() {
     const searchInput = document.getElementById('blogSearch');
     if (!searchInput) return;
 
     searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        const cards = document.querySelectorAll('.blog-card');
-        cards.forEach(function(card) {
-            const title = card.querySelector('h2') ? card.querySelector('h2').textContent.toLowerCase() : '';
-            const excerpt = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
-            const category = card.querySelector('.blog-category') ? card.querySelector('.blog-category').textContent.toLowerCase() : '';
-            const match = !query || title.indexOf(query) !== -1 || excerpt.indexOf(query) !== -1 || category.indexOf(query) !== -1;
-            card.classList.toggle('hidden', !match);
-        });
+        LOC_HIEN_TAI.tuKhoa = this.value.toLowerCase().trim();
+        apDungLoc(false);
     });
 }
 

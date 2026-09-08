@@ -61,18 +61,25 @@ async function loadLayout() {
                 if (navbar) navbar.classList.add('scrolled');
             }
 
-            // Highlight active nav link (blog-post highlights blog)
+            // Highlight active nav link (blog-post highlights blog).
+            // Kèm aria-current="page" — phải khớp đúng những gì
+            // scripts/generate-nav.js nướng sẵn vào HTML tĩnh, nếu không thì
+            // trang nạp nav lúc chạy sẽ thiếu tín hiệu cho screen reader.
             const activePage = (page === 'blog-post') ? 'blog' : page;
             document.querySelectorAll('.nav-link[data-page]').forEach(function(link) {
                 if (link.getAttribute('data-page') === activePage) {
                     link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
                 }
             });
 
             // On index, mark "Trang chu" as active
             if (page === 'index') {
                 const homeLink = document.querySelector('.nav-link[data-page="index"]');
-                if (homeLink) homeLink.classList.add('active');
+                if (homeLink) {
+                    homeLink.classList.add('active');
+                    homeLink.setAttribute('aria-current', 'page');
+                }
             }
         } catch (err) {
             console.warn('Failed to load nav:', err);

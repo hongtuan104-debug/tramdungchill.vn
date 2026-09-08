@@ -62,13 +62,18 @@ function buildNav(t) {
         });
     }
 
-    // 3) Link đang đứng thì tô đậm.
+    // 3) Link đang đứng thì tô đậm — kèm aria-current="page".
+    //    Class .active chỉ đổi diện mạo, khách dùng screen reader không nghe thấy
+    //    gì; aria-current mới là thứ đọc thành "trang hiện tại". Thiếu nó thì
+    //    tiêu chuẩn "vị trí hiện tại được nhận biết" chỉ đạt bằng mắt.
     const activePage = t.page;
     let daActive = 0;
     html = html.replace(/<a\b[^>]*>/g, function (tag) {
         if (tag.indexOf('data-page="' + activePage + '"') === -1) return tag;
         daActive++;
-        return tag.replace(/class="([^"]*)"/, 'class="$1 active"');
+        return tag
+            .replace(/class="([^"]*)"/, 'class="$1 active"')
+            .replace(/^<a\b/, '<a aria-current="page"');
     });
 
     // 4) Trang con: navbar luôn ở trạng thái đặc (không trong suốt như trang chủ).
