@@ -30,6 +30,10 @@ function renderBlog() {
 
     // Init search
     initBlogSearch();
+
+    // Trả lại trạng thái lọc ghi trong URL — phải chạy SAU hai hàm init trên,
+    // vì nó cần các nút danh mục đã dựng xong mới tô đúng nút đang chọn.
+    khoiPhucTuURL();
 }
 
 function buildBlogCard(article) {
@@ -153,6 +157,7 @@ function initBlogFilters(articles) {
 
             LOC_HIEN_TAI.danhMuc = btn.getAttribute('data-category');
             apDungLoc(true);
+            ghiURL();
         });
     });
 }
@@ -212,7 +217,71 @@ function injectBlogSchema(articles) {
    lại trên cả 141 card, kéo bài tiếng Việt hiện lại, trong khi nút "English"
    vẫn sáng vàng. Nay hai chỗ chỉ ghi vào LOC_HIEN_TAI rồi gọi apDungLoc(),
    nơi duy nhất quyết định card nào hiện. */
-const LOC_HIEN_TAI = { danhMuc: 'all', tuKhoa: '' };
+/* tuKhoa để SO KHỚP (đã hạ chữ thường), tuKhoaHienThi giữ nguyên văn khách gõ
+   để còn ghi vào URL và trả lại đúng vào ô tìm kiếm lúc khôi phục. */
+const LOC_HIEN_TAI = { danhMuc: 'all', tuKhoa: '', tuKhoaHienThi: '' };
+
+/* ---- Trạng thái lọc ghi vào URL ----
+   Kịch bản có thật: khách lọc "English", bấm vào một bài, đọc xong bấm Back —
+   trước 08/09/2026 blog.html tải lại từ đầu và bộ lọc reset về "Tất cả", khách
+   mất chỗ đang xem giữa 141 bài. Nay trạng thái nằm trong URL nên Back trả lại
+   đúng thứ họ đang xem, và link đã lọc cũng gửi cho người khác được.
+
+   Dùng replaceState chứ KHÔNG pushState: bấm 5 lần đổi danh mục mà đẻ 5 entry
+   thì khách phải bấm Back 5 lần mới rời được trang. replaceState vẫn đủ cho
+   kịch bản trên, vì rời sang bài viết là trình duyệt tự tạo entry mới.
+   canonical của blog.html cố định nên query param không đẻ trang trùng lặp. */
+const THAM_SO_DANH_MUC = 'danh-muc';
+const THAM_SO_TIM = 'tim';
+let hanGhiURL = null;
+
+function ghiURL() {
+    if (typeof history === 'undefined' || !history.replaceState) return;
+    try {
+        const p = new URLSearchParams();
+        if (LOC_HIEN_TAI.danhMuc !== 'all') p.set(THAM_SO_DANH_MUC, LOC_HIEN_TAI.danhMuc);
+        if (LOC_HIEN_TAI.tuKhoaHienThi) p.set(THAM_SO_TIM, LOC_HIEN_TAI.tuKhoaHienThi);
+        const chuoi = p.toString();
+        history.replaceState(null, '', location.pathname + (chuoi ? '?' + chuoi : '') + location.hash);
+    } catch (e) { /* trình duyệt chặn history thì thôi, lọc vẫn chạy */ }
+}
+
+// Gõ phím thì hoãn lại rồi mới ghi: Safari giới hạn số lần gọi history trong
+// một khoảng thời gian, gõ cả câu mà ghi từng ký tự là chạm trần.
+function henGhiURL() {
+    if (hanGhiURL) clearTimeout(hanGhiURL);
+    hanGhiURL = setTimeout(ghiURL, 300);
+}
+
+function docURL() {
+    try {
+        const p = new URLSearchParams(location.search);
+        LOC_HIEN_TAI.danhMuc = p.get(THAM_SO_DANH_MUC) || 'all';
+        LOC_HIEN_TAI.tuKhoaHienThi = p.get(THAM_SO_TIM) || '';
+        LOC_HIEN_TAI.tuKhoa = LOC_HIEN_TAI.tuKhoaHienThi.toLowerCase().trim();
+    } catch (e) { /* URL lạ thì giữ mặc định */ }
+}
+
+/* Kéo giao diện về khớp LOC_HIEN_TAI. Chỉ gọi khi trạng thái đến TỪ NGOÀI
+   (mở trang có sẵn query, hoặc bấm Back) — đừng gọi trong lúc khách đang gõ,
+   vì ghi ngược vào ô tìm kiếm sẽ nhảy con trỏ. */
+function dongBoGiaoDien() {
+    const searchInput = document.getElementById('blogSearch');
+    if (searchInput && searchInput.value !== LOC_HIEN_TAI.tuKhoaHienThi) {
+        searchInput.value = LOC_HIEN_TAI.tuKhoaHienThi;
+    }
+    document.querySelectorAll('.blog-filter-btn').forEach(function(b) {
+        const khop = b.getAttribute('data-category') === LOC_HIEN_TAI.danhMuc;
+        b.classList.toggle('active', khop);
+        b.setAttribute('aria-pressed', khop ? 'true' : 'false');
+    });
+}
+
+function khoiPhucTuURL() {
+    docURL();
+    dongBoGiaoDien();
+    apDungLoc(false);
+}
 
 function apDungLoc(coHieuUng) {
     const cards = document.querySelectorAll('.blog-card');
@@ -313,17 +382,13 @@ function capNhatKhoiRong(soHien) {
 function xoaLoc() {
     LOC_HIEN_TAI.danhMuc = 'all';
     LOC_HIEN_TAI.tuKhoa = '';
+    LOC_HIEN_TAI.tuKhoaHienThi = '';
+
+    dongBoGiaoDien();
+    apDungLoc(true);
+    ghiURL();
 
     const searchInput = document.getElementById('blogSearch');
-    if (searchInput) searchInput.value = '';
-
-    document.querySelectorAll('.blog-filter-btn').forEach(function(b) {
-        const laTatCa = b.getAttribute('data-category') === 'all';
-        b.classList.toggle('active', laTatCa);
-        b.setAttribute('aria-pressed', laTatCa ? 'true' : 'false');
-    });
-
-    apDungLoc(true);
     if (searchInput) searchInput.focus();
 }
 
@@ -332,8 +397,15 @@ function initBlogSearch() {
     if (!searchInput) return;
 
     searchInput.addEventListener('input', function() {
+        LOC_HIEN_TAI.tuKhoaHienThi = this.value;
         LOC_HIEN_TAI.tuKhoa = this.value.toLowerCase().trim();
         apDungLoc(false);
+        henGhiURL();
+    });
+
+    // Back/Forward giữa các trạng thái lọc, và cả lúc trang trở lại từ bfcache.
+    window.addEventListener('popstate', function() {
+        khoiPhucTuURL();
     });
 }
 

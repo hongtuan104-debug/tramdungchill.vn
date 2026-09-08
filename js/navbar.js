@@ -44,4 +44,16 @@ function initNavbar() {
     navLinks.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
+
+    // ESC đóng menu — trên mobile .nav-menu phủ kín inset:0, mà trước 08/09/2026
+    // chỉ đóng được bằng chuột (nút toggle / overlay / bấm một link). Khách dùng
+    // bàn phím phải Tab ngược về đúng nút hamburger mới thoát được lớp phủ.
+    // Lightbox ảnh (gallery.js) và menu lật (menu-flipbook.js) đều đã nghe ESC,
+    // nên thiếu ở đây còn là bất nhất ngay trong cùng site.
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+            closeMenu();
+            navToggle.focus();   // trả tiêu điểm về chỗ khách vừa rời đi
+        }
+    });
 }
