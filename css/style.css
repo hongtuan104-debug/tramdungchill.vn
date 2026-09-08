@@ -480,6 +480,33 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     letter-spacing: 0.3px;
 }
 
+/* Skip link — WCAG 2.4.1. Không có nó, khách dùng bàn phím phải Tab qua 7 mục
+   nav + nút ngôn ngữ + nút gọi trên MỌI trang mới chạm được nội dung.
+
+   Trạng thái ẩn cố tình viết inline ngay trên thẻ trong components/nav.html,
+   KHÔNG để ở đây: index/menu/blog/404/duong-di nạp style.min.css bằng
+   media="print" onload (async), nên nếu ẩn bằng file này thì khung hình đầu sẽ
+   vẽ skip link thành một link thường chiếm nguyên một dòng rồi mới biến mất —
+   đúng kiểu nhảy layout đã ghi ở bug #8. Inline style áp dụng ngay từ byte đầu.
+   Vì thế rule hiện lại dưới đây buộc phải !important để thắng inline style. */
+.skip-link:focus {
+    position: fixed !important;
+    left: 12px !important;
+    top: 12px !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    z-index: 2000;
+    padding: 12px 22px;
+    background: var(--gold);
+    color: var(--night);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    outline: 2px solid var(--night);
+}
+
 .nav-link:hover {
     color: var(--white);
     background: rgba(255,255,255,0.1);
