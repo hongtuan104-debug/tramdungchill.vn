@@ -93,6 +93,16 @@ chỉ đích danh phần tử LCP là `<span class="logo-main">` với render de
   trang chủ đổi link thành neo (`#booking`), thư mục con thêm `../`, gắn class
   `active` theo `data-page`, trang con thêm `scrolled` vào `.navbar`.
   **Đổi `fixLinksIn` thì đổi cả `generate-nav.js` và `bakeLinks()` trong generate-footer.js.**
+- ⚠️ **Trạng thái "đang đứng ở trang này" nằm ở BA nơi** (thêm 08/09/2026) —
+  `class="active"` + `aria-current="page"` phải đi thành cặp ở cả ba:
+  `scripts/generate-nav.js` (4 trang chính) · `components/layout-loader.js`
+  (bản chạy lúc runtime) · `templates/blog-post.html` (141 bài, nav tĩnh viết tay).
+  Trước 08/09/2026 `.nav-link.active` dùng CHUNG rule với `:hover` nên trang đang
+  đứng trông y hệt mục đang rê chuột, và `aria-current` bằng 0 trên toàn site.
+  Rule `.active` **không** nằm trong critical CSS (ở đó chỉ có nav mobile) nên
+  sửa nó không phải đụng khối `CRIT-NAV`.
+  Trang `duong-di/` không có mục trên nav (cố ý — nó ở footer) nên không có gì
+  để tô active; chỉ báo vị trí của nó là **breadcrumb**, đừng gỡ.
 - ⚠️ **ĐỪNG gỡ khối `<noscript>` nav** dù trông như trùng với nav tĩnh. Trên mobile
   `.nav-menu` bị `transform:translateX(100%)` đẩy ra ngoài màn hình, chỉ JS mới mở
   được — không có JS thì khách mobile mất sạch đường đi nếu bỏ khối đó.
