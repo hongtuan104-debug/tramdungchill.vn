@@ -363,6 +363,17 @@ try {
         }
     });
 
+    // Bài tiếng Anh KHÔNG phải trụ cột cũng phải khai lang="en".
+    // Nhánh gán _lang ở trên chỉ chạy cho pillars, nên bài thường mang
+    // category:"English" rơi thẳng về mặc định "vi" — sunset-bbq-da-lat-guide
+    // dính đúng vậy: nội dung 100% tiếng Anh mà <html lang="vi">, og:locale
+    // vi_VN, hreflang="vi". Screen reader đọc tiếng Anh bằng bộ đọc tiếng Việt
+    // thì khách nghe không ra chữ nào.
+    // Chỉ suy khi pillar chưa khai — pillar khai gì thì tôn trọng cái đó.
+    articles.forEach(function (a) {
+        if (!a._lang && a.category === "English") a._lang = "en";
+    });
+
     // Đánh dấu indexable + canonical override cho mọi bài
     articles.forEach(function (a) {
         if (Object.prototype.hasOwnProperty.call(noindexMap, a.id)) {
