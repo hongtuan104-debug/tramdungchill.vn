@@ -395,7 +395,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .section-desc {
     font-size: 1.05rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     max-width: 550px;
     margin: 0 auto;
     line-height: 1.7;
@@ -979,7 +979,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .exp-card-content p {
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 0.88rem;
     line-height: 1.7;
     margin-bottom: 16px;
@@ -1088,7 +1088,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     border-radius: var(--radius-full);
     font-size: 0.88rem;
     font-weight: 500;
-    color: var(--smoke);
+    color: var(--text-muted);
     transition: all 0.3s var(--ease);
 }
 
@@ -1168,7 +1168,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     text-align: center;
     margin-top: 28px;
     font-size: 0.85rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-style: italic;
 }
 /* ============================================
@@ -1261,7 +1261,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .review-desc {
     font-size: 1rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -1305,7 +1305,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .qr-card p {
     font-size: 0.9rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-weight: 500;
 }
 /* ============================================
@@ -1413,7 +1413,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .form-subtitle {
     text-align: center;
     font-size: 0.88rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     margin-bottom: 16px;
 }
 
@@ -1498,7 +1498,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .form-hint {
     text-align: center;
     font-size: 0.8rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     margin-top: 12px;
 }
 
@@ -1549,7 +1549,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     text-align: center;
     gap: 12px;
     margin: 0 0 18px;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 0.8rem;
 }
 .booking-or::before,
@@ -1583,7 +1583,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .booking-mini-author {
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--smoke);
+    color: var(--text-muted);
 }
 /* ============================================
    MAP — Map Section
@@ -1626,7 +1626,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     display: flex;
     gap: 12px;
     margin-bottom: 24px;
-    color: var(--smoke);
+    color: var(--text-muted);
 }
 
 .map-address svg { flex-shrink: 0; margin-top: 2px; color: var(--sunset-deep); }
@@ -1919,7 +1919,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     margin-bottom: 14px;
     font-size: 0.82rem;
     font-family: var(--font-body);
-    color: var(--smoke);
+    color: var(--text-muted);
 }
 
 .blog-meta time {
@@ -2080,7 +2080,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .blog-share-label {
     font-family: var(--font-body);
     font-size: 0.82rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -2532,7 +2532,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .menu-note p {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-style: italic;
 }
 
@@ -2992,7 +2992,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .modal-content p {
-    color: var(--smoke);
+    color: var(--text-muted);
     margin-bottom: 8px;
     line-height: 1.6;
 }
@@ -3631,7 +3631,7 @@ body.sticky-bar-active .fab-contact {
 }
 .perks-sub {
     text-align: center;
-    color: var(--smoke);
+    color: var(--text-muted);
     font-size: 1rem;
     margin-top: -8px;
     margin-bottom: 50px;
