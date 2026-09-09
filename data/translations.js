@@ -287,6 +287,7 @@ var TRANSLATIONS = {
     // Map
     'map.title': 'Đường đến<br>Trạm Dừng Chill',
     'map.cta': 'Chỉ đường Google Maps',
+    'map.detail': 'Xem hướng dẫn đường đi chi tiết →',
 
     // Footer
     'footer.desc': 'Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ, đợi hoàng hôn buông và nhà lồng lên đèn lung linh.',
@@ -606,6 +607,7 @@ var TRANSLATIONS = {
     // Map
     'map.title': 'How to get to<br>Tram Dung Chill',
     'map.cta': 'Get directions on Google Maps',
+    'map.detail': 'See detailed directions →',
 
     // Footer
     'footer.desc': 'Where you enjoy BBQ while watching trains, sunsets and the glowing greenhouse valley.',
