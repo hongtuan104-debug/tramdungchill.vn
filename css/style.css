@@ -1462,11 +1462,18 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     outline: none;
 }
 
+/* Chỉ báo focus của form đặt bàn. Bản cũ dùng border --gold (#D4A853) + quầng
+   rgba(gold,0.12), đo ra: viền focus chỉ hơn viền thường 1,52:1 và cái quầng
+   1,09:1 so với nền trắng — tức gần như vô hình. WCAG 2.4.11 đòi ≥3:1 giữa
+   trạng thái focus và không focus. Khách điền form bằng bàn phím không biết
+   mình đang đứng ở ô nào, mà đây lại đúng là đường ra đơn đặt bàn.
+   --gold-on-light (#846821) là màu vàng đậm sẵn có trong bảng màu: 5,27:1 với
+   nền trắng và 3,64:1 với viền thường — đạt chuẩn mà vẫn giữ đúng tông. */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(212,168,83,0.12);
+    border-color: var(--gold-on-light);
+    box-shadow: 0 0 0 3px rgba(132,104,33,0.35);
     background: var(--white);
 }
 
