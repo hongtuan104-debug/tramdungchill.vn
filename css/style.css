@@ -1632,6 +1632,29 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .map-address svg { flex-shrink: 0; margin-top: 2px; color: var(--sunset-deep); }
 .map-address p { font-size: 0.95rem; line-height: 1.6; }
 
+/* Hàng link sang 3 trang dịp, đặt trong khối đặt bàn (nền --night-soft).
+   Nền tối nên dùng --gold (8,80:1 trên night), không phải --gold-on-light —
+   màu đó chỉ hợp nền sáng. Chữ nhãn dùng trắng mờ 0,75 = 11,00:1. */
+.dip-links {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    align-items: center;
+}
+.dip-links a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    transition: color 0.3s var(--ease);
+}
+.dip-links a:hover { color: var(--gold-light); }
+
 /* Link "xem hướng dẫn đường đi chi tiết" dưới nút Google Maps.
    --gold-on-light chứ không phải --gold: link nằm trên thẻ nền trắng, gold chỉ
    đạt 2,20:1 còn gold-on-light 5,27:1. Gạch chân để phân biệt được cả khi
