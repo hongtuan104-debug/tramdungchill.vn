@@ -27,7 +27,10 @@ const SITE_CONFIG = {
         city: 'Đà Lạt',
         province: 'Lâm Đồng',
         country: 'VN',
-        full: '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt',
+        full: '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng',
+        // Bản tiếng Anh cho khách bấm EN — phải khớp 'footer.address' của en
+        // trong data/translations.js, nếu không JS sẽ ghi đè lại lúc chạy.
+        fullEn: '111 Huynh Tan Phat, Xuan Truong - Da Lat Ward, Lam Dong',
     },
 
     hours: {

@@ -508,7 +508,10 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     // "95[.,]000" — bài tiếng Việt viết 95.000, bài tiếng Anh viết 95,000
     const TOPICS = {
         "giá": /95[.,]000/,
-        "địa chỉ": /Huỳnh Tấn Phát/i,
+        // Bài tiếng Anh viết KHÔNG DẤU ("111 Huynh Tan Phat") — trước 12/09/2026
+        // chúng lọt lưới này nhờ footer còn để tiếng Việt; nay footer bài EN đã dịch
+        // nên phải nhận cả hai cách viết, không thì báo thiếu oan.
+        "địa chỉ": /Huỳnh Tấn Phát|Huynh Tan Phat/i,
         "giờ mở": /15:00/,
         "khoảng cách": /\b7\s*km\b/i,
         "đỗ xe": /đỗ xe|đậu xe|bãi đỗ|parking/i

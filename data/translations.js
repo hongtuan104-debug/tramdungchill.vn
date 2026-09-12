@@ -309,7 +309,7 @@ var TRANSLATIONS = {
     // Địa chỉ giữ NGUYÊN tiếng Việt ở cả hai ngôn ngữ: đây là NAP (Name-Address-Phone)
     // dùng cho local SEO — Google đối chiếu chuỗi này với Google Business Profile,
     // dịch ra tiếng Anh là tự tạo một biến thể địa chỉ thứ hai.
-    'footer.address': '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt',
+    'footer.address': '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng',
 
     // Notifications
     'notify.required': 'Vui lòng điền đầy đủ thông tin bắt buộc!',
@@ -631,7 +631,7 @@ var TRANSLATIONS = {
     'footer.occasion.team': 'Team building',
     'footer.occasion.directions': 'Directions &amp; map',
     // Giữ nguyên tiếng Việt — xem ghi chú ở bản 'vi'.
-    'footer.address': '111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt',
+    'footer.address': '111 Huynh Tan Phat, Xuan Truong - Da Lat Ward, Lam Dong',
 
     // Notifications
     'notify.required': 'Please fill in all required fields!',
