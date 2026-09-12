@@ -22,9 +22,6 @@ function renderBlog() {
     // Auto-insert share buttons
     initBlogShare();
 
-    // Inject BlogPosting JSON-LD for each visible article (SEO rich snippets)
-    injectBlogSchema(articles);
-
     // Init category filters
     initBlogFilters(articles);
 
@@ -162,53 +159,25 @@ function initBlogFilters(articles) {
     });
 }
 
-function injectBlogSchema(articles) {
-    const existing = document.getElementById('blog-schema-ld');
-    if (existing) existing.remove();
+/* injectBlogSchema() — GỠ 12/09/2026. Đừng dựng lại.
 
-    const schemaItems = articles.map(function(a) {
-        const desc = a.excerpt.replace(/<[^>]*>/g, '').substring(0, 200);
-        return {
-            '@type': 'BlogPosting',
-            'headline': a.title,
-            'description': desc,
-            'image': 'https://tramdungchill.vn/' + a.image,
-            'datePublished': a.date,
-            'dateModified': a.date,
-            'author': {
-                '@type': 'Organization',
-                '@id': 'https://tramdungchill.vn/#restaurant',
-                'name': 'Tiệm Nướng Trạm Dừng Chill'
-            },
-            'publisher': {
-                '@type': 'Organization',
-                '@id': 'https://tramdungchill.vn/#restaurant',
-                'name': 'Tiệm Nướng Trạm Dừng Chill',
-                'logo': {
-                    '@type': 'ImageObject',
-                    'url': 'https://tramdungchill.vn/assets/images/favicon-180.png'
-                }
-            },
-            'mainEntityOfPage': {
-                '@type': 'WebPage',
-                '@id': 'https://tramdungchill.vn/blog/' + a.id + '.html'
-            },
-            'url': 'https://tramdungchill.vn/blog/' + a.id + '.html',
-            'inLanguage': a.category === 'English' ? 'en' : 'vi',
-            'articleSection': a.category,
-            'keywords': a.title.toLowerCase()
-        };
-    });
+   Hàm này chèn một node BlogPosting cho MỖI bài hiển thị trên blog.html (18 node).
+   Nghe thì hợp lý, nhưng mỗi bài vốn đã có BlogPosting đầy đủ ngay trên trang bài
+   của nó — nơi Google thật sự cần — nên đây là mô tả thứ hai cho cùng một thực thể,
+   mà bản này lại sai ở bốn chỗ:
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'blog-schema-ld';
-    script.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': schemaItems
-    });
-    document.head.appendChild(script);
-}
+     · không có @id, nên nó KHÔNG nối vào bài thật mà đẻ ra thực thể mới;
+     · logo khai favicon-180 trong khi nguồn chuẩn là favicon-512;
+     · author/publisher khai "@type": "Organization" cho @id #restaurant, mà thực
+       thể đó là Restaurant — sai kiểu cho cùng một @id;
+     · dateModified luôn bằng ngày đăng, trong khi bài thật có ngày sửa riêng.
+
+   Thêm nữa nó chỉ tồn tại sau khi JS chạy: GPTBot/ClaudeBot/PerplexityBot không
+   chạy JS nên chẳng bao giờ thấy, còn Google thì thấy hai bản đánh nhau.
+
+   Trang danh sách đã có CollectionPage + Blog (@id blog.html#blog) mô tả đúng bản
+   chất của nó. Muốn liệt kê bài thì nối bằng @id vào node Blog tĩnh, đừng nhân bản
+   BlogPosting ở đây. */
 
 /* ===== Lọc bài viết: MỘT nguồn sự thật cho cả ô tìm kiếm lẫn nút danh mục =====
    Trước 08/09/2026 đây là hai hàm rời nhau, mỗi hàm tự bật/tắt class .hidden

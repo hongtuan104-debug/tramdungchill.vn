@@ -253,6 +253,14 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    ⚠️ **`data/schema-data.js` vẫn phải GIỮ trên đĩa** — `generate-menu.js` và
    `check-facts.js` đọc nó bằng Node lúc build. Nó chỉ thôi là tài sản của trình
    duyệt, không phải file thừa.
+   ⚠️ **Có HAI đường inject, không phải một.** Ngày 12/09 gỡ `schema-generator.js`
+   xong vẫn sót `js/blog-renderer.js`: nó chèn **18 node BlogPosting** trên
+   blog.html, mỗi bài một node — trùng với BlogPosting thật của từng trang bài, lại
+   thiếu `@id`, khai logo `favicon-180` (chuẩn là 512) và đặt `"@type":"Organization"`
+   cho `@id` `#restaurant` (thực thể đó là `Restaurant`). Nó lọt qua mọi vòng kiểm
+   vì các luật chỉ đọc HTML tĩnh, mà node đó chỉ hiện sau khi JS chạy — chỉ lộ ra
+   khi đưa trang qua validator.schema.org (nó render JS). Nay R7c mục (d) quét
+   **mọi** file trong `js/` và `dist/`, không riêng `common.min.js`.
    → Máy canh R7c mục (d) chặn cả ba đường sống lại: file generator xuất hiện lại,
    trang tải `schema-data.js`, hoặc bundle mang hàm `build*Schema`.
 

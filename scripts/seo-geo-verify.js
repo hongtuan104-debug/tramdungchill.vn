@@ -359,9 +359,21 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             bad.push(f + ": còn tải data/schema-data.js về trình duyệt (chỉ script build cần nó)");
         }
     }
-    const bundle = fs.readFileSync(path.join(ROOT, "dist", "common.min.js"), "utf8");
-    if (/injectSchema\(|buildBlogSchema|buildRestaurantSchema/.test(bundle)) {
-        bad.push("dist/common.min.js: còn mang hàm sinh schema lúc chạy");
+    // Quét MỌI file JS, không riêng common.min.js: 12/09/2026 phát hiện
+    // js/blog-renderer.js vẫn chèn 18 node BlogPosting lúc chạy trên blog.html —
+    // trùng với BlogPosting thật của từng bài, lại thiếu @id, sai logo và sai
+    // @type cho @id #restaurant. Nó lọt qua mọi vòng kiểm trước đó vì các luật
+    // chỉ đọc HTML tĩnh, mà node đó chỉ hiện ra sau khi JS chạy.
+    for (const d of ["js", "dist"]) {
+        for (const f of fs.readdirSync(path.join(ROOT, d))) {
+            if (!f.endsWith(".js")) continue;
+            const s = fs.readFileSync(path.join(ROOT, d, f), "utf8");
+            // chỉ tính code thật, bỏ chú thích khối để ghi chú "đừng dựng lại" không bị bắt nhầm
+            const code = s.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^[ \t]*\/\/.*$/gm, "");
+            if (/application\/ld\+json/.test(code)) {
+                bad.push(d + "/" + f + ": chèn JSON-LD lúc chạy — schema phải nằm inline trong HTML");
+            }
+        }
     }
 
     // (f) bài blog ĐANG INDEX phải có node WebPage đầy đủ, @id khớp canonical.
