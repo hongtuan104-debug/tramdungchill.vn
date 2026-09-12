@@ -230,6 +230,38 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    rule (`.hero-title-sub` 480px và `.hero{min-height:100dvh}` 768px), lộ ra ở
    rà soát 02/09/2026. Kiểm đúng là **13/13** sau khi strip comment.
 
+11. **Schema: quán chỉ có MỘT thực thể, `@id` là `https://tramdungchill.vn/#restaurant`.**
+   Rà 12/09/2026 thấy 4 trang dịp, 141 bài blog và 3 khối VideoObject ở trang chủ
+   đều dựng node mang tên quán mà **không có `@id`** → với Google đó là nhiều doanh
+   nghiệp trùng tên, không phải một. Địa chỉ trang dịp còn thiếu "Phường Xuân Trường"
+   + mã bưu chính, logo blog.html là `favicon-180` trong khi trang chủ khai
+   `favicon-512` — hai giá trị cho **cùng một `@id`**.
+   → Mọi node `Restaurant`/`Organization` mang tên quán **phải** có `@id` đó; định
+   nghĩa đầy đủ chỉ nằm ở `index.html`, nơi khác chỉ tham chiếu. Trong
+   `generate-blog-pages.js` dùng hàm `QUAN()`, đừng viết node mới.
+
+12. **`js/schema-generator.js` KHÔNG được inject schema lúc chạy nữa.**
+   Nó viết từ hồi blog.html chưa có JSON-LD tĩnh nên inject một node `Blog`; sau
+   này blog.html được thêm node `Blog` inline mà không ai tắt phần inject → **2 node
+   `Blog` cho cùng 1 trang**, bản JS lại không `@id`. Chạy thật trong production
+   suốt thời gian đó, không phải code chết. Nay `generateSchemas()` rỗng.
+   ⚠️ Hệ quả chưa dọn: `index/menu/blog` vẫn tải `data/schema-data.js` (~4 KB) và
+   bundle vẫn mang `buildRestaurantSchema`/`buildMenuSchema`/`buildBlogSchema`
+   không ai gọi. Gỡ được nhưng phải sửa kèm precache trong `cap-nhat-sw.js`.
+
+13. **Breadcrumb: khai MỘT kiểu, và schema phải khớp bản hiển thị.**
+   menu.html + blog.html từng khai cả microdata trong `<nav>` lẫn JSON-LD cho cùng
+   một dãy. 4 trang dịp thì ngược lại: có JSON-LD mà trên trang không hiện gì.
+   Bài blog lệch kiểu thứ ba: schema ghi tiêu đề đầy đủ còn trang cắt ở 60 ký tự
+   kèm "…". → Toàn site nay chỉ dùng **JSON-LD**, tên từng chặng khớp từng chữ với
+   `<nav class="breadcrumb">`. Trang chủ **không** có BreadcrumbList (không có phân
+   cấp nào để thể hiện).
+   ⚠️ `.breadcrumb` trong `style.css` để `padding-top:100px` chừa chỗ cho
+   `.navbar position:fixed`. Trang dịp dùng `.dip-nav position:sticky` (nằm TRONG
+   luồng) nên `css/dip-landing.css` phải ghi đè `padding:0`, không thì thừa hẳn
+   một mảng tối trước hero.
+   → Máy canh: luật **R7c** trong `seo-geo-verify.js` canh cả 6 thứ trên.
+
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
 xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom
