@@ -68,7 +68,7 @@
 <link rel="preload" as="image" href="../assets/images/gallery-5.jpg" fetchpriority="high">
 
 <link rel="stylesheet" href="../dist/style.min.css?v=df2f8ef6">
-<link rel="stylesheet" href="../dist/dip-landing.min.css?v=cdc058ab">
+<link rel="stylesheet" href="../dist/dip-landing.min.css?v=d17f6134">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2">
@@ -81,14 +81,16 @@
   "serviceType": "Nướng BBQ tại bàn ngắm tàu lửa Đà Lạt – Trại Mát",
   "provider": {
     "@type": "Restaurant",
+    "@id": "https://tramdungchill.vn/#restaurant",
     "name": "Tiệm Nướng Trạm Dừng Chill",
-    "url": "https://tramdungchill.vn",
+    "url": "https://tramdungchill.vn/",
     "telephone": "+84989765070",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "111 Huỳnh Tấn Phát",
+      "streetAddress": "111 Huỳnh Tấn Phát, Phường Xuân Trường",
       "addressLocality": "Đà Lạt",
       "addressRegion": "Lâm Đồng",
+      "postalCode": "66000",
       "addressCountry": "VN"
     },
     "aggregateRating": {
@@ -222,6 +224,22 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
 </nav>
 
     <main id="main-content">
+        <!-- Breadcrumb — khuôn giống duong-di/ và menu.html.
+             Tên mục phải khớp từng chữ với BreadcrumbList trong JSON-LD ở <head>:
+             schema mô tả thứ khách nhìn thấy, không phải thứ chỉ Google đọc được. -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol>
+                    <li>
+                        <a href="../index.html"><span>Trang chủ</span></a>
+                    </li>
+                    <li>
+                        <span>Săn tàu Đà Lạt</span>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+
 
 <section class="dip-hero" style="background-image:url('../assets/images/gallery-5.jpg')">
     <div class="dip-hero-overlay"></div>
@@ -694,7 +712,7 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
 
 <script src="../data/site-config.js?v=0b3cedf9"></script>
 <!-- Common bundle: bật đo lường click Gọi/Zalo (Contact) + FAB liên hệ nổi -->
-<script defer src="../dist/common.min.js?v=e8d0ba69"></script>
+<script defer src="../dist/common.min.js?v=7f309d07"></script>
 <script>
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
     e.preventDefault();

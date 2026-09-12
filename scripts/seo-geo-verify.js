@@ -235,8 +235,12 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // Chốt chặn cho lỗi từng gặp: regex gỡ FAQPage cũ nuốt nhầm Restaurant/Menu.
 {
     const EXPECTED = {
-        "index.html": ["Restaurant,LocalBusiness", "WebSite", "BreadcrumbList", "WebPage", "FAQPage"],
-        "menu.html": ["Menu", "BreadcrumbList", "FAQPage"],
+        // index.html KHONG con BreadcrumbList: trang chu khong co phan cap dieu huong
+        // de the hien, va breadcrumb 1 phan tu thi Google bo qua (go 12/09/2026).
+        "index.html": ["Restaurant,LocalBusiness", "WebSite", "WebPage", "FAQPage"],
+        "menu.html": ["Menu", "BreadcrumbList", "WebPage", "FAQPage"],
+        "blog.html": ["CollectionPage", "Blog", "BreadcrumbList"],
+        "duong-di/index.html": ["WebPage", "BreadcrumbList", "FAQPage"],
         "dip/san-tau-da-lat.html": ["WebPage", "BreadcrumbList", "FAQPage"],
         "dip/sinh-nhat.html": ["WebPage", "BreadcrumbList", "Service", "FAQPage"],
         "dip/team-building.html": ["WebPage", "BreadcrumbList", "FAQPage"],
@@ -258,6 +262,99 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     add("Không trang nào mất schema (Restaurant/Menu/WebPage/Breadcrumb)",
         bad.length === 0,
         bad.length ? bad.join(" | ") : Object.keys(EXPECTED).length + " trang giữ đủ schema");
+}
+
+// ── R7c. Schema không trùng, không có node doanh nghiệp "rời rạc" ───────
+// Ba lỗi THẬT gặp ngày 12/09/2026:
+//  1) blog.html vừa có node Blog inline, vừa bị js/schema-generator.js inject
+//     thêm một node Blog nữa lúc chạy -> 2 thực thể cho cùng 1 trang.
+//  2) menu.html/blog.html khai breadcrumb HAI lần: microdata trong <nav> và JSON-LD.
+//  3) Trang dịp + bài blog để node Organization/Restaurant cùng tên quán mà
+//     KHÔNG có @id -> Google đọc thành nhiều doanh nghiệp khác nhau.
+{
+    const TEN_QUAN = "Tiệm Nướng Trạm Dừng Chill";
+    const ID_QUAN = "https://tramdungchill.vn/#restaurant";
+    const TRANG = ["index.html", "menu.html", "blog.html", "duong-di/index.html",
+        "dip/sinh-nhat.html", "dip/team-building.html", "dip/cau-hon-hen-ho.html",
+        "dip/san-tau-da-lat.html", "blog/top-quan-nuong-da-lat.html"];
+    const bad = [];
+    for (const p of TRANG) {
+        const abs = path.join(ROOT, p);
+        if (!fs.existsSync(abs)) continue;
+        const s = fs.readFileSync(abs, "utf8");
+
+        // (a) breadcrumb không được khai cả microdata lẫn JSON-LD
+        const micro = /itemtype=["']https?:\/\/schema\.org\/BreadcrumbList/.test(s);
+        const jsonldBc = /"@type"\s*:\s*"BreadcrumbList"/.test(s);
+        if (micro && jsonldBc) bad.push(p + ": breadcrumb khai 2 lần (microdata + JSON-LD)");
+
+        // (b) mọi node mang tên quán phải có @id trỏ về đúng thực thể chung
+        const loai = [];
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            let j;
+            try { j = JSON.parse(m[1]); } catch (e) { bad.push(p + ": JSON-LD hỏng"); continue; }
+            const tt = Array.isArray(j["@type"]) ? j["@type"].join(",") : j["@type"];
+            loai.push(tt);
+            (function di(o) {
+                if (Array.isArray(o)) return o.forEach(di);
+                if (!o || typeof o !== "object") return;
+                const ty = Array.isArray(o["@type"]) ? o["@type"].join(",") : o["@type"];
+                if (/Restaurant|LocalBusiness|Organization/.test(ty || "") && o.name === TEN_QUAN && !o["@id"]) {
+                    bad.push(p + ": node " + ty + " tên quán nhưng thiếu @id");
+                }
+                if (o["@id"] === ID_QUAN && /Organization/.test(ty || "") && !/Restaurant|LocalBusiness/.test(ty || "")) {
+                    bad.push(p + ": @id #restaurant khai @type Organization (phải là Restaurant)");
+                }
+                Object.values(o).forEach(di);
+            })(j);
+        }
+        // (e) BreadcrumbList trong schema phải có bản HIỂN THỊ khớp tên.
+        // Schema mô tả thứ khách nhìn thấy; 4 trang dịp từng khai breadcrumb cho
+        // Google đọc mà trên trang không có gì (sửa 12/09/2026).
+        if (jsonldBc) {
+            let tenSchema = null;
+            for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+                let j;
+                try { j = JSON.parse(m[1]); } catch (e) { continue; }
+                if (j["@type"] === "BreadcrumbList") tenSchema = (j.itemListElement || []).map((x) => x.name);
+            }
+            const nav = s.match(/<nav class="breadcrumb"[\s\S]*?<\/nav>/);
+            if (!nav) {
+                bad.push(p + ": có BreadcrumbList nhưng trang không hiển thị breadcrumb nào");
+            } else if (tenSchema) {
+                // Hai kiểu markup cùng tồn tại: trang chính dùng <ol><li>…</li></ol>
+                // (dấu › do CSS ::after vẽ, không nằm trong HTML), bài blog dùng
+                // một hàng <a> › <a> › <span>. Đọc thiếu một kiểu là báo lệch oan.
+                const chuoi = (x) => x.replace(/<[^>]*>/g, " ")
+                    .replace(/&amp;/g, "&").replace(/&nbsp;/g, " ")
+                    .replace(/\s+/g, " ").trim();
+                const li = [...nav[0].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)];
+                const tenDom = li.length
+                    ? li.map((x) => chuoi(x[1]))
+                    : chuoi(nav[0]).split("›").map((x) => x.trim()).filter(Boolean);
+                const lech = tenSchema.filter((x) => !tenDom.includes(x))
+                    .concat(tenDom.filter((x) => !tenSchema.includes(x)));
+                if (lech.length) bad.push(p + ": breadcrumb schema ≠ hiển thị (" + lech.join(", ") + ")");
+            }
+        }
+
+        // (c) không trang nào có 2 node cùng @type ở cấp cao nhất
+        const dem = {};
+        loai.forEach((x) => { dem[x] = (dem[x] || 0) + 1; });
+        for (const [x, n] of Object.entries(dem)) {
+            if (n > 1 && x !== "VideoObject") bad.push(p + ": " + n + " node " + x + " trùng nhau");
+        }
+    }
+    // (d) schema-generator.js không được inject thêm JSON-LD (mọi trang đã có bản inline)
+    const gen = fs.readFileSync(path.join(ROOT, "js", "schema-generator.js"), "utf8");
+    const than = (gen.match(/function generateSchemas\(\)[\s\S]*?\n}/) || [""])[0];
+    if (/injectSchema\(/.test(than)) {
+        bad.push("js/schema-generator.js: vẫn inject schema lúc chạy -> dễ trùng với bản inline");
+    }
+
+    add("Schema không trùng / không có node doanh nghiệp rời rạc",
+        bad.length === 0,
+        bad.length ? bad.join(" | ") : TRANG.length + " trang: 1 thực thể quán duy nhất, breadcrumb khai 1 kiểu");
 }
 
 // ── R8. Bộ câu hỏi query fan-out phải có text đọc được trên trang chủ ────

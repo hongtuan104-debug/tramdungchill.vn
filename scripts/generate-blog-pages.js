@@ -147,6 +147,21 @@ function themMucLuc(body, u) {
     return viTri < 0 ? body : body.slice(0, viTri) + nav + body.slice(viTri);
 }
 
+// Doanh nghiep chi co MOT thuc the tren toan site: Restaurant @id '/#restaurant'
+// (dinh nghia day du o index.html). author / publisher / worksFor cua bai blog deu
+// tro ve dung @id do thay vi moi cho de mot node Organization rieng — node roi rac
+// cung ten se bi doc thanh nhieu doanh nghiep khac nhau.
+function QUAN(them) {
+    var o = {
+        "@type": "Restaurant",
+        "@id": SITE_URL + "/#restaurant",
+        "name": "Tiệm Nướng Trạm Dừng Chill",
+        "url": SITE_URL + "/"
+    };
+    if (them) for (var k in them) o[k] = them[k];
+    return o;
+}
+
 function blogPostingSchema(article, excerptClean) {
     // E-E-A-T: tác giả là Person nếu bài có _author (trụ cột), mặc định Organization
     var author = article._author
@@ -154,9 +169,9 @@ function blogPostingSchema(article, excerptClean) {
             "@type": "Person",
             "name": article._author.name,
             "jobTitle": article._author.role || undefined,
-            "worksFor": { "@type": "Organization", "name": "Tiệm Nướng Trạm Dừng Chill", "url": SITE_URL }
+            "worksFor": QUAN()
         }
-        : { "@type": "Organization", "name": "Tiệm Nướng Trạm Dừng Chill", "url": SITE_URL };
+        : QUAN();
     return JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -167,15 +182,12 @@ function blogPostingSchema(article, excerptClean) {
         "datePublished": article.date,
         "dateModified": article._dateModified || article.date,
         "author": author,
-        "publisher": {
-            "@type": "Organization",
-            "name": "Tiệm Nướng Trạm Dừng Chill",
-            "url": SITE_URL,
+        "publisher": QUAN({
             "logo": {
                 "@type": "ImageObject",
                 "url": SITE_URL + "/assets/images/favicon-512.png"
             }
-        },
+        }),
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": SITE_URL + "/blog/" + article.id + ".html"
@@ -286,7 +298,11 @@ function breadcrumbSchema(article) {
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": article.title,
+                // Phải là titleShort — ĐÚNG chuỗi breadcrumb hiển thị trên trang,
+                // chứ không phải title đầy đủ. Breadcrumb hiển thị cắt ở 60 ký tự
+                // (chỗ hẹp), nên khai title dài ở đây là schema mô tả một thứ khách
+                // không hề nhìn thấy. Đổi cách cắt ở dưới thì đổi luôn chỗ này.
+                "name": truncate(article.title, 60),
                 "item": SITE_URL + "/blog/" + article.id + ".html"
             }
         ]

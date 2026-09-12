@@ -100,7 +100,9 @@ function buildMenuJsonLd(d) {
             "@id": SITE_URL + "/#restaurant",
             "name": r.name,
             "alternateName": r.alternateName,
-            "url": r.url,
+            // Canonical trang chu la "https://tramdungchill.vn/" (co dau /), nen url
+            // trong schema phai khop y het — khong dung r.url (ban tran, dung de ghep chuoi).
+            "url": SITE_URL + "/",
             "telephone": r.telephone,
             "address": {
                 "@type": "PostalAddress",

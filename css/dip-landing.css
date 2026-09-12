@@ -448,3 +448,18 @@ body.dip-landing {
     .dip-pricing h2 { font-size: 1.4rem; }
     .dip-pricing-list li { font-size: 0.95rem; }
 }
+
+/* Breadcrumb — 12/09/2026
+   4 trang dịp vốn CÓ BreadcrumbList trong schema mà không hiển thị gì cho khách;
+   mục 186 của cẩm nang schema đòi hai thứ đó phải khớp nhau. Nay thêm bản nhìn
+   thấy được, dùng đúng khuôn .breadcrumb của style.css.
+   Phải ghi đè padding: bản dùng chung để 100px trên đỉnh vì các trang chính có
+   .navbar position:fixed cần chừa chỗ. Trang dịp dùng .dip-nav position:sticky —
+   nav nằm TRONG luồng — nên để nguyên 100px là thừa hẳn một mảng tối trước hero. */
+.dip-landing .breadcrumb {
+    padding: 0;
+}
+
+.dip-landing .breadcrumb ol {
+    padding: 10px 0;
+}

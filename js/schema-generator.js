@@ -2,15 +2,16 @@
    Generate JSON-LD tu data/schema-data.js */
 
 function generateSchemas() {
-    const page = detectCurrentPage();
-
-    // NOTE: index.html va menu.html da co JSON-LD INLINE trong HTML (nguon chuan).
-    // Inline nam trong HTML tho -> AI crawler khong chay JS (GPTBot/ClaudeBot/PerplexityBot)
-    // van doc duoc. Neu inject them bang JS o day se bi TRUNG schema + xung dot du lieu.
-    // => Chi blog.html (trang index blog, khong co schema inline) moi can JS inject.
-    if (page === 'blog') {
-        injectSchema(buildBlogSchema());
-    }
+    // 12/09/2026 — KHONG con trang nao can inject schema bang JS.
+    // index.html / menu.html van co JSON-LD inline nhu truoc. blog.html TRUOC DAY
+    // khong co schema inline nen cho inject 1 node Blog o day; nhung blog.html nay
+    // DA CO node Blog inline (@id .../blog.html#blog, publisher + isPartOf tro @id).
+    // Giu ca hai = 2 node Blog cho cung 1 trang, ban JS lai KHONG co @id va publisher
+    // la Organization roi rac -> trung thuc the, dung loi ma checklist schema goi la
+    // 'schema trung hoac mau thuan'. Ban inline moi la nguon chuan: no nam trong HTML
+    // tho nen GPTBot/ClaudeBot/PerplexityBot (khong chay JS) doc duoc.
+    // => Bo hep inject. Ham giu lai de app.js goi khong vo, va de sau nay co trang
+    //    that su can inject thi co cho dat.
 }
 
 function injectSchema(data) {
