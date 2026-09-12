@@ -402,6 +402,44 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         bad.length ? bad.join(" | ") : TRANG.length + " trang: 1 thực thể quán duy nhất, breadcrumb khai 1 kiểu");
 }
 
+// ── R7d. Địa chỉ: đúng số nhà, đúng tên phường SAU sáp nhập 2025 ────────
+// Phường 11 đã đổi tên thành PHƯỜNG XUÂN TRƯỜNG. Khách tra "Phường 11" hay
+// "Ward 11" trên bản đồ bây giờ bị lệch đường — quán còn phải đi nhắc mấy trang
+// báo sửa hộ (docs/thu-xin-nhac-ten-2026-08.md), trong khi 12/09/2026 phát hiện
+// chính blog nhà mình vẫn còn 3 chỗ khai tên cũ.
+// Số 113 Huỳnh Tấn Phát là Xóm Lèo — QUÁN RIÊNG, không được gán cho quán này.
+{
+    const bad = [];
+    const walk = (d, out = []) => {
+        for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+            const fp = path.join(d, e.name);
+            if (e.isDirectory()) {
+                if (["node_modules", ".git", "assets", "dist", "scripts", "docs", "plans", "dev"].includes(e.name)) continue;
+                walk(fp, out);
+            } else if (/\.(html|js)$/.test(e.name)) out.push(fp);
+        }
+        return out;
+    };
+    for (const f of walk(ROOT)) {
+        const rel = path.relative(ROOT, f).split(path.sep).join("/");
+        const s = fs.readFileSync(f, "utf8");
+        s.split(/\r?\n/).forEach((l, i) => {
+            // tên phường cũ dùng như phường HIỆN TẠI (kèm "cũ"/"formerly" thì được)
+            if (/(?:Ward\s*1[12]\b|[Pp]hường\s*1[12]\b)/.test(l) && !/cũ|formerly/i.test(l)) {
+                bad.push(rel + ":" + (i + 1) + " khai phường cũ");
+            }
+            // số nhà khác gán cho quán này
+            const m = l.match(/(\d{1,4})\s*(?:Huỳnh\s+Tấn\s+Phát|Huynh\s+Tan\s+Phat)/);
+            if (m && m[1] !== "111" && !/Xóm\s*Lèo|quán riêng|QUÁN RIÊNG/i.test(l)) {
+                bad.push(rel + ":" + (i + 1) + " số nhà " + m[1] + " (quán ở 111)");
+            }
+        });
+    }
+    add("Địa chỉ đúng số nhà 111 · đúng tên phường sau sáp nhập",
+        bad.length === 0,
+        bad.length ? bad.slice(0, 6).join(" | ") : "toàn site: 111 Huỳnh Tấn Phát, Phường Xuân Trường");
+}
+
 // ── R8. Bộ câu hỏi query fan-out phải có text đọc được trên trang chủ ────
 {
     const s = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");

@@ -1086,7 +1086,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Da Lat</strong> sits at 1,500 meters above sea level in Vietnam's Central Highlands, with year-round temperatures of 18-25°C. Unlike Saigon or Hanoi where grilling outdoors means sweating, Da Lat's cool climate makes outdoor BBQ a magical experience — especially at sunset when the valley turns golden.</p>
 
                             <h2>Top Pick: Tram Dung Chill — The Triple-View BBQ Experience</h2>
-                            <p><a href="index.html">Tram Dung Chill</a> is the most unique <strong>BBQ restaurant in Da Lat</strong> for tourists. Located at 111 Huynh Tan Phat, Ward 11, this outdoor grill offers three breathtaking views in one evening:</p>
+                            <p><a href="index.html">Tram Dung Chill</a> is the most unique <strong>BBQ restaurant in Da Lat</strong> for tourists. Located at 111 Huynh Tan Phat, Xuan Truong Ward, this outdoor grill offers three breathtaking views in one evening:</p>
 
                                                         <p><strong>5:00 PM:</strong> Golden sunset over the valley<br>
                             <strong>5:30-6:30 PM:</strong> A vintage French-era train passes right below the restaurant<br>
@@ -1777,7 +1777,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Đường Huỳnh Tấn Phát là <strong>con đường ẩm thực mới nổi</strong> ở Đà Lạt với nhiều quán ăn view đẹp, giá tốt. Dân địa phương gợi ý những quán ngon nhất trên con đường này.",
         body: `<h2>Đường Huỳnh Tấn Phát — Con đường ẩm thực mới nổi</h2>
-                            <p>Nằm ở phường 11, đường Huỳnh Tấn Phát nổi lên như <strong>tuyến phố ẩm thực mới</strong> của Đà Lạt nhờ vị trí trên cao, view thung lũng nhà lồng tuyệt đẹp. Nhiều quán ăn mới mở ở đây tận dụng địa thế để tạo không gian ngoài trời thoáng đãng.</p>
+                            <p>Nằm ở Phường Xuân Trường (Phường 11 cũ), đường Huỳnh Tấn Phát nổi lên như <strong>tuyến phố ẩm thực mới</strong> của Đà Lạt nhờ vị trí trên cao, view thung lũng nhà lồng tuyệt đẹp. Nhiều quán ăn mới mở ở đây tận dụng địa thế để tạo không gian ngoài trời thoáng đãng.</p>
 
                             <h2>Trạm Dừng Chill — Quán nướng BBQ view xe lửa</h2>
                             <p>Tọa lạc tại 111 Huỳnh Tấn Phát, <a href="index.html">Trạm Dừng Chill</a> là <strong>quán nướng nổi tiếng nhất</strong> trên con đường này. Điểm đặc biệt: view hoàng hôn, xe lửa chạy ngang, biển sao nhà lồng về đêm. Menu đa dạng từ BBQ hải sản, bò Mỹ đến lẩu nóng. Giá từ 95.000đ/người.</p>
@@ -5858,7 +5858,7 @@ const BLOG_ARTICLES = [
                             <p>Arrive by 16:00 for the best sunset experience. Bring a light jacket — evenings drop to 16-18°C. The restaurant is 10 minutes from Da Lat night market by motorbike. Cash and bank transfer accepted. English menu available at <a href="index.html">Tram Dung Chill</a>.</p>
 
                             <h2>Getting There</h2>
-                            <p><strong>Address:</strong> 111 Huynh Tan Phat, Ward 11, Da Lat. From Da Lat city center: 10 minutes by motorbike/taxi. From Da Lat train station: 5 minutes. Grab/taxi available. <a href="index.html#booking">Book your sunset BBQ now →</a></p>`
+                            <p><strong>Address:</strong> 111 Huynh Tan Phat, Xuan Truong Ward (formerly Ward 11), Da Lat. From Da Lat city center: 10 minutes by motorbike/taxi. From Da Lat train station: 5 minutes. Grab/taxi available. <a href="index.html#booking">Book your sunset BBQ now →</a></p>`
     },
     {
         id: "tong-hop-quan-nuong-da-lat-2027",
