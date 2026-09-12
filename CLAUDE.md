@@ -269,6 +269,19 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    một mảng tối trước hero.
    → Máy canh: luật **R7c** trong `seo-geo-verify.js` canh cả 6 thứ trên.
 
+14. **Trang nào CẦN schema, trang nào KHÔNG** (rà hết 14 trang + 141 bài, 12/09/2026).
+   - `404.html` và `review-qr.html` khai `noindex, nofollow` và cố ý không nằm trong
+     sitemap → **đừng thêm schema hay canonical vào đó**. Google không index thì
+     không đọc schema, còn canonical trên trang noindex là hai tín hiệu đánh nhau.
+   - `components/*.html` là mảnh nav/footer, `googlef913….html` là file xác minh
+     Search Console — không phải trang, không có gì để khai.
+   - Bài blog: `mainEntityOfPage` trước đây chỉ có `@type` + `@id`, tức một node
+     WebPage rỗng. Nay **bài đang index** (18 bài) mang đủ `url`/`name`/
+     `description`/`inLanguage`/`isPartOf` neo vào `#website`, và `@id` = `url` =
+     đúng canonical của trang. **Bài noindex (123) cố ý giữ dạng gọn**: khai
+     `url` = chính nó trong khi canonical trỏ bài khác chỉ tổ mâu thuẫn.
+   → Máy canh R7c mục (f) quét cả thư mục `blog/`, bỏ qua bài noindex.
+
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
 xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom

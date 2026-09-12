@@ -364,6 +364,27 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         bad.push("dist/common.min.js: còn mang hàm sinh schema lúc chạy");
     }
 
+    // (f) bài blog ĐANG INDEX phải có node WebPage đầy đủ, @id khớp canonical.
+    // Trước 12/09/2026 mainEntityOfPage chỉ có @type + @id — một node trống, không
+    // nói được trang là gì và không nối vào WebSite. Bài noindex cố ý giữ dạng gọn.
+    for (const f of fs.readdirSync(path.join(ROOT, "blog")).filter((x) => x.endsWith(".html"))) {
+        const s = fs.readFileSync(path.join(ROOT, "blog", f), "utf8");
+        const robots = (s.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/i) || [])[1] || "";
+        if (/noindex/i.test(robots)) continue;
+        const can = (s.match(/rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) || [])[1];
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            let j;
+            try { j = JSON.parse(m[1]); } catch (e) { continue; }
+            if (j["@type"] !== "BlogPosting") continue;
+            const mep = j.mainEntityOfPage || {};
+            if (!mep.url || !mep.name || !mep.isPartOf) {
+                bad.push("blog/" + f + ": bài đang index mà WebPage thiếu url/name/isPartOf");
+            } else if (mep["@id"] !== can || mep.url !== can) {
+                bad.push("blog/" + f + ": WebPage url/@id không khớp canonical");
+            }
+        }
+    }
+
     add("Schema không trùng / không có node doanh nghiệp rời rạc",
         bad.length === 0,
         bad.length ? bad.join(" | ") : TRANG.length + " trang: 1 thực thể quán duy nhất, breadcrumb khai 1 kiểu");

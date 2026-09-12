@@ -188,10 +188,28 @@ function blogPostingSchema(article, excerptClean) {
                 "url": SITE_URL + "/assets/images/favicon-512.png"
             }
         }),
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": SITE_URL + "/blog/" + article.id + ".html"
-        },
+        // Trang chứa bài. Với bài ĐANG INDEX thì khai node WebPage đầy đủ
+        // (name/url/description/inLanguage/isPartOf) và neo vào @id của WebSite —
+        // trước 12/09/2026 chỗ này chỉ có @type + @id, tức một node trống rỗng
+        // không nói được trang là gì, cũng không nối vào thực thể site.
+        // Bài NOINDEX giữ nguyên dạng gọn: Google không index nên không đọc tới,
+        // mà khai url = chính nó trong khi canonical trỏ bài khác chỉ tổ mâu thuẫn.
+        "mainEntityOfPage": article._indexable === false
+            ? { "@type": "WebPage", "@id": SITE_URL + "/blog/" + article.id + ".html" }
+            : {
+                "@type": "WebPage",
+                "@id": article._canonical,
+                "url": article._canonical,
+                "name": article.title,
+                "description": truncate(excerptClean, 160),
+                "inLanguage": article._lang || "vi",
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "@id": SITE_URL + "/#website",
+                    "name": "Tiệm Nướng Trạm Dừng Chill",
+                    "url": SITE_URL + "/"
+                }
+            },
         "articleSection": article.category,
         "wordCount": stripHtml(article.body).split(/\s+/).filter(Boolean).length,
         "inLanguage": article._lang || "vi"
