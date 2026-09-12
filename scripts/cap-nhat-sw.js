@@ -26,7 +26,9 @@ const SW = path.join(ROOT, "sw.js");
 
 // Danh sách precache — nguồn chuẩn, sửa ở ĐÂY chứ không sửa trong sw.js.
 // Đây đúng phần làm nên "vỏ offline" sau một lượt ghé (bài học v10/v11):
-// HTML dự phòng + JS dùng chung + 3 file data nav/footer/schema cần để dựng trang.
+// HTML dự phòng + JS dùng chung + 2 file data nav/footer cần để dựng trang.
+// schema-data.js bỏ khỏi đây 12/09/2026: không trang nào tải nó nữa (nó chỉ còn
+// là nguồn cho các script build chạy bằng Node, không phải tài sản của trình duyệt).
 // style.min.css KHÔNG nằm đây: trang nạp nó kèm ?v= riêng theo từng bundle CSS,
 // còn bộ xử lý fetch vẫn cache lại lúc khách tải thật, nên precache chỉ tổ phí.
 const TAI_SAN = [
@@ -35,7 +37,6 @@ const TAI_SAN = [
     "/dist/index.min.js",
     "/data/site-config.js",
     "/data/translations.js",
-    "/data/schema-data.js",
     "/manifest.json",
     "/assets/images/favicon.svg"
 ];

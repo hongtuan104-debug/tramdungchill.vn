@@ -240,14 +240,21 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    nghĩa đầy đủ chỉ nằm ở `index.html`, nơi khác chỉ tham chiếu. Trong
    `generate-blog-pages.js` dùng hàm `QUAN()`, đừng viết node mới.
 
-12. **`js/schema-generator.js` KHÔNG được inject schema lúc chạy nữa.**
-   Nó viết từ hồi blog.html chưa có JSON-LD tĩnh nên inject một node `Blog`; sau
-   này blog.html được thêm node `Blog` inline mà không ai tắt phần inject → **2 node
-   `Blog` cho cùng 1 trang**, bản JS lại không `@id`. Chạy thật trong production
-   suốt thời gian đó, không phải code chết. Nay `generateSchemas()` rỗng.
-   ⚠️ Hệ quả chưa dọn: `index/menu/blog` vẫn tải `data/schema-data.js` (~4 KB) và
-   bundle vẫn mang `buildRestaurantSchema`/`buildMenuSchema`/`buildBlogSchema`
-   không ai gọi. Gỡ được nhưng phải sửa kèm precache trong `cap-nhat-sw.js`.
+12. **Schema KHÔNG sinh bằng JS lúc chạy — `js/schema-generator.js` đã xoá.**
+   File đó viết từ hồi blog.html chưa có JSON-LD tĩnh nên inject một node `Blog`;
+   sau này blog.html được thêm node `Blog` inline mà không ai tắt phần inject →
+   **2 node `Blog` cho cùng 1 trang**, bản JS lại không `@id`. Chạy thật trong
+   production suốt thời gian đó, không phải code chết.
+   Dọn 12/09/2026: xoá `js/schema-generator.js`, bỏ khỏi `COMMON_FILES` trong
+   `bundle-js.js`, bỏ lời gọi trong `js/app.js`, bỏ thẻ tải `data/schema-data.js`
+   ở index/menu/blog và bỏ nó khỏi precache trong `cap-nhat-sw.js`.
+   → `dist/common.min.js` **30,1 KB → 25,7 KB**, cộng 5,8 KB + 1 request nữa
+   không còn phải tải.
+   ⚠️ **`data/schema-data.js` vẫn phải GIỮ trên đĩa** — `generate-menu.js` và
+   `check-facts.js` đọc nó bằng Node lúc build. Nó chỉ thôi là tài sản của trình
+   duyệt, không phải file thừa.
+   → Máy canh R7c mục (d) chặn cả ba đường sống lại: file generator xuất hiện lại,
+   trang tải `schema-data.js`, hoặc bundle mang hàm `build*Schema`.
 
 13. **Breadcrumb: khai MỘT kiểu, và schema phải khớp bản hiển thị.**
    menu.html + blog.html từng khai cả microdata trong `<nav>` lẫn JSON-LD cho cùng

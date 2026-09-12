@@ -23,7 +23,6 @@ const DIST = path.join(ROOT, "dist");
 const COMMON_FILES = [
     "components/layout-loader.js",
     "js/utils.js",
-    "js/schema-generator.js",
     "js/navbar.js",
     "js/i18n.js",
     "js/scroll-ui.js",

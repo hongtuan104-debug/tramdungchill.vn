@@ -345,11 +345,23 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             if (n > 1 && x !== "VideoObject") bad.push(p + ": " + n + " node " + x + " trùng nhau");
         }
     }
-    // (d) schema-generator.js không được inject thêm JSON-LD (mọi trang đã có bản inline)
-    const gen = fs.readFileSync(path.join(ROOT, "js", "schema-generator.js"), "utf8");
-    const than = (gen.match(/function generateSchemas\(\)[\s\S]*?\n}/) || [""])[0];
-    if (/injectSchema\(/.test(than)) {
-        bad.push("js/schema-generator.js: vẫn inject schema lúc chạy -> dễ trùng với bản inline");
+    // (d) không được sinh schema bằng JS lúc chạy nữa. js/schema-generator.js đã
+    // xoá 12/09/2026; data/schema-data.js vẫn còn TRÊN ĐĨA vì các script build chạy
+    // bằng Node đọc nó (generate-menu, check-facts, chính file này), nhưng không
+    // trang nào được tải nó về trình duyệt — tải là dấu hiệu ai đó dựng lại đường
+    // inject cũ, thứ từng đẻ ra 2 node Blog trên blog.html.
+    if (fs.existsSync(path.join(ROOT, "js", "schema-generator.js"))) {
+        bad.push("js/schema-generator.js đã sống lại — schema phải nằm inline trong HTML");
+    }
+    for (const f of ["index.html", "menu.html", "blog.html"]) {
+        const s = fs.readFileSync(path.join(ROOT, f), "utf8");
+        if (/<script[^>]*src="[^"]*schema-data\.js/.test(s)) {
+            bad.push(f + ": còn tải data/schema-data.js về trình duyệt (chỉ script build cần nó)");
+        }
+    }
+    const bundle = fs.readFileSync(path.join(ROOT, "dist", "common.min.js"), "utf8");
+    if (/injectSchema\(|buildBlogSchema|buildRestaurantSchema/.test(bundle)) {
+        bad.push("dist/common.min.js: còn mang hàm sinh schema lúc chạy");
     }
 
     add("Schema không trùng / không có node doanh nghiệp rời rạc",
