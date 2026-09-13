@@ -396,6 +396,37 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    lại luồng" 112ms → đổi sang `matchMedia` + hoãn tạo hạt tới lúc rảnh.
    TikTok tự bắt click (INP 66–108ms/cú chạm): sếp chọn **để sau** (13/09/2026).
 
+21. **CSS tải async kích ~280 transition cùng lúc** (PageSpeed mobile "100 phần tử ảnh động không được ghép",
+   13/09/2026). 5 trang nạp `dist/style.min.css` kiểu `media="print" onload` (index/menu/blog/duong-di/tac-gia).
+   Lúc CSS về, 30 rule `transition: all` (thẻ ưu đãi, link nav, thẻ trải nghiệm…) TRƯỢT từ giá trị lúc chưa có
+   CSS (padding 0, viền 0, cỡ chữ mặc định) sang giá trị thật trong 0,3–0,4s — padding/viền/cỡ chữ đổi từng
+   khung hình = tính lại bố cục liên tục. Đo CDP (`plans/cong-cu-do-hieu-nang/do-animation.js`): 354 animation,
+   281 không ghép lớp.
+   → Mỗi trang đó có `<style id="chan-transition">` tắt transition khi `<html>` chưa có class `tdc-css`, và
+   `onload` của link gắn `tdc-css` sau **2 khung hình** (khung 1 áp CSS mới với transition đang tắt, khung 2
+   mới bật lại — bật cùng khung là transition vẫn chạy). Sau sửa: 63 animation, PageSpeed đếm **0**.
+   Còn lại là `.reveal` (opacity/transform, ghép lớp được) — đúng chủ đích.
+   ⚠️ **Thêm trang mới nạp CSS async thì chép cả khối chặn lẫn onload** — luật **R8o** chặn thiếu.
+   Trang nạp CSS đồng bộ (bài blog, trang dịp) không dính vì CSS áp trước lần tính style đầu tiên.
+22. **FAB + nút lên-đầu-trang từng dời bằng `bottom` khi thanh đặt bàn dính đáy hiện/ẩn** → mỗi khung hình
+   của cú trượt là một layout shift lúc khách CUỘN (PageSpeed không cuộn nên không bao giờ thấy). Đo CDP khi
+   thao tác: 0,0134 → **0,0010**. Nay dùng thuộc tính `translate` (tách khỏi `transform` nên không đè
+   translateY ẩn/hiện của FAB). Luật R8o cũng chặn rule `sticky-bar-active` nào còn khai `bottom`.
+   ⚠️ CrUX CLS 0,06 (13/09/2026) là trung bình 28 ngày — còn gồm các ngày trước bản sửa #17/#18 (lab lúc đó
+   0,287). Cuộn hết trang chủ bằng CDP sau sửa chỉ ra 0,0006; con số CrUX tự giảm dần, đừng săn thêm.
+23. **Ảnh gallery: WebP 480/800/1200 + srcset** (13/09/2026). 6 ảnh `gallery-*.jpg` 105–294 KB chỉ có bản
+   JPG 1200px, điện thoại hiện ~372px. Bản 800px (Moto G của PageSpeed chọn) tổng 326 KB so với 1.039 KB JPG.
+   - Sinh ảnh: `node scripts/tao-anh-webp.js` (cần `npm install --save-dev sharp`, chạy tay khi thay ảnh).
+     **Giữ JPG gốc**: og:image và `<noscript>` vẫn dùng.
+   - index.html: 10 thẻ lazy mang `data-srcset` + `sizes`; `js/gallery.js` gắn srcset TRƯỚC src. `sizes` đo
+     bằng `do-co-anh.js` và **tính cả `object-fit: cover`** — ô cao hẹp (gallery-tall, khối Câu chuyện) phải
+     tải ảnh rộng hơn chính ô. Đổi lưới gallery trong CSS thì đo lại sizes.
+   - 4 trang dịp: preload + nền hero dùng `-1200.webp` (nền phủ theo chiều cao nên mobile cần ~1.500px thật).
+   - Luật **R8p**: thẻ srcset nào cũng phải có `sizes`, ảnh gallery lazy không được quay về JPG.
+   - Cùng đợt: `js/lazy-tracking.js` giờ được nén ra **`dist/lazy-tracking.min.js`** (PageSpeed "Rút gọn
+     JavaScript" 3,3 KiB) — **sửa file nguồn trong `js/` rồi build**, mọi trang + template blog nạp bản dist.
+     `scroll-ui.js` hoãn lần `onScroll()` đầu qua một khung hình (hết "buộc chỉnh lại luồng" ở offsetTop).
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

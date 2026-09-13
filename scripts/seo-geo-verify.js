@@ -1631,6 +1631,56 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                     : tong + " biểu thức calc/min/max/clamp trong dist/*.css đều hợp lệ");
 }
 
+// ── R8o. CSS async không được kích transition lúc tải · FAB không dời bằng bottom ──
+// 13/09/2026: PageSpeed mobile báo "100 phần tử ảnh động không được ghép". Đo CDP:
+// lúc dist/style.min.css (tải async) về, ~280 transition tự chạy cùng lúc — 30 rule
+// `transition: all` (thẻ ưu đãi, link nav, thẻ trải nghiệm…) trượt từ giá trị lúc
+// chưa có CSS (padding 0, viền 0, cỡ chữ mặc định) sang giá trị thật trong 0,3–0,4s,
+// tức padding/viền/cỡ chữ đổi từng khung hình = tính lại bố cục liên tục.
+// Chữa: <style id="chan-transition"> tắt transition tới khi onload của link gắn class
+// tdc-css sau 2 khung hình (CLAUDE.md bug #21). Trang nạp CSS đồng bộ không dính.
+// Cùng đợt: FAB + nút lên đầu từng dời bằng `bottom` khi thanh đặt bàn hiện/ẩn — mỗi
+// khung hình là một layout shift lúc khách cuộn (PageSpeed không cuộn nên không thấy).
+{
+    const pham = [];
+    let soTrang = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        const link = (s.match(/<link\b[^>]*dist\/style\.min\.css[^>]*>/g) || []).find((l) => /media="print"/.test(l));
+        if (!link) continue;
+        soTrang++;
+        const coChan = /<style id="chan-transition">[^<]*:root:not\(\.tdc-css\) \*[^<]*transition:none!important/.test(s);
+        const coGo = /classList\.add\('tdc-css'\)/.test(link);
+        if (!coChan || !coGo) pham.push(rel(f) + (coChan ? "" : " thiếu khối chặn") + (coGo ? "" : " · onload không gắn tdc-css"));
+    }
+    const css = fs.readFileSync(path.join(ROOT, "css", "style.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+    const dayBottom = (css.match(/sticky-bar-active[^{]*\{[^}]*\bbottom\s*:/g) || []).length;
+    if (dayBottom) pham.push("css/style.css: " + dayBottom + " rule sticky-bar-active còn đẩy nút bằng bottom");
+    add("CSS async không kích transition lúc tải · FAB không dời bằng bottom", pham.length === 0 && soTrang > 0,
+        pham.length ? pham.slice(0, 4).join(" | ")
+                    : soTrang + " trang nạp CSS async đều chặn transition · FAB/nút lên đầu dời bằng translate");
+}
+
+// ── R8p. Ảnh có srcset (kể cả data-srcset lazy) phải khai sizes ──────────────
+// Thiếu sizes thì trình duyệt coi ảnh rộng 100vw → vẫn chọn bản to, srcset thành vô
+// ích. Kèm chặn ảnh gallery lazy quay về JPG 1200px (PageSpeed 13/09/2026: gallery-1.jpg
+// 153 KB hiện ở 372px; nay WebP 480/800/1200 do scripts/tao-anh-webp.js sinh).
+{
+    const pham = [];
+    let tong = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(/<(?:img|source)\b[^>]*\b(?:data-)?srcset=["'][^"']*\d+w[^"']*["'][^>]*>/gi)) {
+            tong++;
+            if (!/\bsizes=/.test(m[0])) pham.push(rel(f) + ": " + m[0].slice(0, 70));
+        }
+        for (const m of s.matchAll(/<img\b[^>]*\bdata-src="[^"]*gallery-\d+\.jpg"/gi)) pham.push(rel(f) + ": ảnh gallery lazy còn trỏ JPG");
+    }
+    add("Ảnh srcset có sizes · gallery lazy dùng WebP", pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 3).join(" | ")
+                    : tong + " thẻ ảnh srcset đều khai sizes");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

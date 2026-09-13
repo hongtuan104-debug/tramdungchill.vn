@@ -45,6 +45,14 @@ const MENU_FILES = [
     "js/menu-flipbook.js"
 ];
 
+/* lazy-tracking chạy trên cả 152 trang (kể cả bài blog, trang dịp) nên tách bundle
+   riêng thay vì gộp vào common. Trước 13/09/2026 trang nạp thẳng js/lazy-tracking.js
+   chưa nén — PageSpeed mục "Rút gọn JavaScript": 3,3 KiB, phí 2,7 KiB, gần như toàn
+   là chú thích giải thích lịch sử sửa. Chú thích vẫn giữ nguyên ở file nguồn. */
+const TRACKING_FILES = [
+    "js/lazy-tracking.js"
+];
+
 // ── Simple minifier (no npm deps) ───────────────────────────
 
 function minify(source) {
@@ -120,6 +128,7 @@ outputs.push(bundle(COMMON_FILES, "common.min.js"));
 outputs.push(bundle(INDEX_FILES, "index.min.js"));
 outputs.push(bundle(BLOG_FILES, "blog.min.js"));
 outputs.push(bundle(MENU_FILES, "menu.min.js"));
+outputs.push(bundle(TRACKING_FILES, "lazy-tracking.min.js"));
 
 // ── Syntax-check each bundle ─────────────────────────────────
 

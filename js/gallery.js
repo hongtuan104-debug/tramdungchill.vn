@@ -7,6 +7,19 @@
  * Swaps data-src into src when image enters viewport, then adds .loaded
  * class for the fade-in effect.
  */
+
+/* Gắn data-srcset TRƯỚC data-src (thêm 13/09/2026, ảnh gallery WebP 480/800/1200).
+   Hai thuộc tính gán trong cùng một nhịp nên trình duyệt chọn ảnh một lần theo
+   srcset + sizes; gán src trước thì có máy kịp tải luôn bản 1200px rồi mới đổi. */
+function ganNguonAnh(img) {
+    if (img.dataset.srcset) {
+        img.srcset = img.dataset.srcset;
+        img.removeAttribute('data-srcset');
+    }
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+}
+
 function initLazyImages() {
     const lazyImages = document.querySelectorAll('img[data-src]');
     if (!lazyImages.length) return;
@@ -18,8 +31,7 @@ function initLazyImages() {
                 if (!entry.isIntersecting) return;
 
                 const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
+                ganNguonAnh(img);
 
                 img.addEventListener('load', function () {
                     img.classList.add('loaded');
@@ -43,8 +55,7 @@ function initLazyImages() {
     } else {
         // Fallback: load all images immediately for older browsers
         lazyImages.forEach(function (img) {
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
+            ganNguonAnh(img);
             img.addEventListener('load', function () {
                 img.classList.add('loaded');
             }, { once: true });

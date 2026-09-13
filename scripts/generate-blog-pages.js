@@ -31,11 +31,11 @@ const CSS_VER = (function () {
         return "dev";
     }
 })();
-// Vân tay cho js/lazy-tracking.js — 142 bài blog đều nạp file này. Trang tĩnh
+// Vân tay cho dist/lazy-tracking.min.js (bản nén của js/lazy-tracking.js, 13/09/2026) — 142 bài blog đều nạp file này. Trang tĩnh
 // được scripts/toi-uu-tai-trang.js gắn ?v=, nhưng nó cố ý bỏ qua thư mục blog/
 // (bài blog sinh từ template, sửa thẳng vào file sinh ra là mất ở lần build sau)
 // nên chỗ này phải tự lo. Dùng chung scripts/van-tay.js để hai bên ra cùng mã.
-const JS_LAZY_VER = require("./van-tay").bamFile(path.join(ROOT, "js", "lazy-tracking.js")) || "dev";
+const JS_LAZY_VER = require("./van-tay").bamFile(path.join(ROOT, "dist", "lazy-tracking.min.js")) || "dev";
 const TODAY = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Ho_Chi_Minh",
     year: "numeric", month: "2-digit", day: "2-digit"

@@ -3598,13 +3598,22 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
        transform vẫn giữ nguyên và thanh KHÔNG BAO GIỜ hiện ra. */
     transform: translateY(0);
 }
-/* Shift back-to-top and FAB UP when sticky bar is visible (all devices) */
-body.sticky-bar-active #backToTop,
-body.sticky-bar-active #fabContainer,
-body.sticky-bar-active #fabContact,
+/* Nâng nút lên-đầu-trang + FAB khi thanh đặt bàn dính đáy đang hiện (mọi thiết bị).
+   Sửa 13/09/2026: bản cũ đổi `bottom: 90px !important` kèm transition bottom — mỗi
+   khung hình của cú trượt là một lần dời vị trí trong bố cục, Chrome tính là layout
+   shift. Đo CDP: ~0,013 mỗi lần khách cuộn tới khối đặt bàn (thanh ẩn → hai nút trượt
+   xuống). PageSpeed không thấy vì nó không cuộn, nhưng CLS khách thật tính cả phiên.
+   Nay dùng thuộc tính `translate` — tách riêng khỏi `transform` nên không đè
+   translateY(20px) ẩn/hiện của FAB hay hover của nút lên đầu; chỉ ghép lớp, không đụng
+   bố cục, không tính CLS. Mốc đích giữ nguyên: cách đáy 90px. */
+body.sticky-bar-active .back-to-top,
 body.sticky-bar-active .fab-contact {
-    bottom: 90px !important;
-    transition: bottom 0.3s ease !important;
+    translate: 0 -66px;     /* bottom 24px → 90px */
+}
+@media (max-width: 768px) {
+    body.sticky-bar-active .fab-contact {
+        translate: 0 -74px; /* ≤768px FAB đứng bottom 16px → 90px */
+    }
 }
 .sticky-book-info {
     flex: 1;

@@ -104,7 +104,12 @@ function initScrollUI() {
         });
     }
 
-    onScroll();
+    /* Lần gọi đầu hoãn qua khung hình đầu tiên (13/09/2026). Gọi thẳng ở đây là
+       đọc offsetTop lúc DOMContentLoaded — bố cục đang dang dở nên trình duyệt phải
+       tính lại bố cục tại chỗ: PageSpeed ghi "buộc chỉnh lại luồng" đúng dòng
+       offsetTop trong common.min.js. Sau khi khung hình vẽ xong thì bố cục đã sạch,
+       đọc không tốn gì. Khách không thấy khác: nav chỉ đổi màu khi đã cuộn quá 60px. */
+    requestAnimationFrame(function () { setTimeout(onScroll, 0); });
 
     // Lazy load Google Maps iframe when scrolled into view
     const mapEmbed = document.getElementById('mapEmbed');
