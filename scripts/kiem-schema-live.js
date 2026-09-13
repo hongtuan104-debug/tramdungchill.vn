@@ -6,7 +6,8 @@
  * Chạy SAU khi push và GitHub Pages deploy xong:
  *   node scripts/kiem-schema-live.js              # 1 URL cho mỗi mẫu trang
  *   node scripts/kiem-schema-live.js --all        # mọi URL trong sitemap.xml
- *   node scripts/kiem-schema-live.js /menu.html   # URL tuỳ chọn
+ *   node scripts/kiem-schema-live.js menu.html    # URL tuỳ chọn — KHÔNG gõ "/" ở đầu:
+ *                                                 # Git Bash đổi "/menu.html" thành đường dẫn Windows
  * Thoát khác 0 nếu có lỗi / cảnh báo / lệch số khối.
  *
  * Validator RENDER JS rồi mới đọc schema, nên nó trả lời được luôn câu "HTML Google
@@ -46,9 +47,19 @@ const DAI_DIEN = [
 ];
 
 const args = process.argv.slice(2);
+// Git Bash (MSYS) tự đổi đối số "/menu.html" thành "C:/Program Files/Git/menu.html"
+// trước khi Node nhận — dính thật 13/09/2026: 4 URL thành "https://tramdungchill.vnC:/…".
+// Gặp dạng đó thì dừng và nói cách gõ, đừng gửi URL rác cho validator rồi báo ❌ oan.
+const biDoi = args.filter((u) => /^[A-Za-z]:[\\/]/.test(u));
+if (biDoi.length) {
+    console.error("❌ Đối số đã bị Git Bash đổi thành đường dẫn Windows: " + biDoi.join(", ") +
+        "\n   Gõ không có dấu / ở đầu (vd: tac-gia/nguyen-duy.html) hoặc URL đầy đủ https://…");
+    process.exit(1);
+}
 const urls = args.includes("--all")
     ? trongSitemap
-    : (args.length ? args : DAI_DIEN).map((u) => (u.startsWith("http") ? u : SITE + u));
+    : (args.length ? args : DAI_DIEN)
+        .map((u) => (u.startsWith("http") ? u : SITE + "/" + u.replace(/^\/+/, "")));
 
 function fileTinh(url) {
     let p = url.replace(SITE, "").replace(/^\//, "");
@@ -75,6 +86,9 @@ function gomLoi(o, duong, out) {
     let hong = 0;
 
     for (const url of urls) {
+        // Giãn nhịp: gọi dồn là validator trả HTTP 429 (trang "unusual traffic" của
+        // Google) — dính thật 13/09/2026 sau ~45 lượt gọi trong một buổi.
+        if (urls.indexOf(url) > 0) await new Promise((r) => setTimeout(r, 3000));
         let j;
         try {
             const res = await fetch("https://validator.schema.org/validate", {
@@ -82,6 +96,11 @@ function gomLoi(o, duong, out) {
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: "url=" + encodeURIComponent(url),
             });
+            if (res.status === 429) {
+                hong++;
+                console.log("  ❌  " + url + "\n        validator đang chặn tạm vì gọi dồn (HTTP 429) — đợi 15–30 phút rồi chạy lại. Không phải lỗi của trang.");
+                continue;
+            }
             j = JSON.parse((await res.text()).replace(/^\)\]\}'\s*/, ""));
         } catch (e) {
             hong++;
