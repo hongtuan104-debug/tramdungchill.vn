@@ -342,6 +342,22 @@ chưa có profile mạng xã hội → trang đặt trên site.
 - Crawl budget hẹp (~0,9 request khám phá/ngày, xem memory crawl budget) và trang chỉ có
   link từ byline blog → Google crawl chậm là bình thường; muốn nhanh thì Yêu cầu lập chỉ mục.
 
+## hreflang — CHỈ khai trong sitemap.xml
+Rà 13/09/2026 theo tài liệu Google (localized-versions): 2 bài tiếng Anh khai
+`hreflang="en"` trong HTML nhưng sitemap khai `"vi"` cho chính URL đó (generator ghi
+cứng) — hai nguồn đá nhau đúng ở 2 trang dành cho khách nước ngoài. 123 bài noindex
+còn khai hreflang trỏ chính nó trong khi canonical trỏ bài khác.
+- Nay chỉ còn MỘT nguồn: `sitemapUrl()` trong `generate-blog-pages.js`, mã theo `_lang`
+  của bài. Google coi HTML / HTTP header / sitemap là tương đương, dùng nhiều cách
+  "no benefit". **Đừng thêm `<link rel="alternate" hreflang>` vào HTML** — R13d chặn.
+- Chưa trang nào có bản dịch ở URL riêng → mỗi cụm chỉ gồm chính nó + x-default, tức
+  hreflang hiện KHÔNG định tuyến được gì. Nút EN trên trang chính đổi chữ bằng JS trên
+  cùng URL: Google nhận ngôn ngữ từ chữ hiển thị (không từ `lang`/hreflang) nên chỉ
+  thấy bản tiếng Việt. Muốn khách nước ngoài tìm thấy từ Google thì phải có URL tiếng
+  Anh riêng, nội dung viết cho họ, rồi khai cụm HAI CHIỀU trong `sitemapUrl()`.
+- R13d: không hreflang trong HTML · URL tự khai chính nó, mã khớp `<html lang>` · mọi URL
+  trong cụm phải nằm trong sitemap (index được, canonical chính nó) · liên kết hai chiều.
+
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
 xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom

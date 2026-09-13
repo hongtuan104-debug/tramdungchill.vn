@@ -722,7 +722,6 @@ try {
                 .replace(/{{JSON_LD_FAQ}}/g, faqSchemaBlock(article))
                 .replace(/{{ROBOTS}}/g, article._indexable === false ? "noindex, follow" : "index, follow")
                 .replace(/{{CANONICAL_HREF}}/g, article._canonical)
-                .replace(/{{HREFLANG_LANG}}/g, article._lang === "en" ? "en" : "vi")
                 // Bài tiếng Anh phải khai lang="en": <html lang> nằm trong accessibility
                 // tree (screen reader chọn giọng đọc theo nó) và là tín hiệu ngôn ngữ
                 // Google đọc. Trước đây hardcode "vi" nên 2 bài EN tự mâu thuẫn với
@@ -815,7 +814,14 @@ try {
     // Chỉ xuất sitemap bài đã tới ngày (date<=hôm nay) VÀ còn index (loại future + noindex)
     const publishedArticles = articles.filter(a => a.date <= TODAY && a._indexable !== false);
 
-    function sitemapUrl(loc, lastmod, changefreq, priority) {
+    // hreflang CHỈ khai ở đây (13/09/2026) — không khai trong HTML nữa. Google coi
+    // HTML / HTTP header / sitemap là tương đương, dùng nhiều cách không lợi gì mà
+    // dễ lệch: trước hôm nay dòng dưới ghi cứng "vi" cho cả 2 bài tiếng Anh trong khi
+    // HTML của chính chúng khai "en". Sitemap phủ đủ mọi trang index và tự loại bài
+    // noindex nên là nguồn gọn nhất. Mã phải khớp <html lang> của trang (R13d canh).
+    // Chưa trang nào có bản dịch ở URL khác, nên mỗi cụm chỉ gồm chính nó + x-default;
+    // khi có bản dịch thật thì thêm link chéo HAI CHIỀU tại đây.
+    function sitemapUrl(loc, lastmod, changefreq, priority, lang) {
         const fullUrl = SITE_URL + loc;
         var lines = [
             "  <url>",
@@ -823,7 +829,7 @@ try {
             "    <lastmod>" + lastmod + "</lastmod>",
             "    <changefreq>" + changefreq + "</changefreq>",
             "    <priority>" + priority + "</priority>",
-            '    <xhtml:link rel="alternate" hreflang="vi" href="' + fullUrl + '"/>',
+            '    <xhtml:link rel="alternate" hreflang="' + (lang || "vi") + '" href="' + fullUrl + '"/>',
             '    <xhtml:link rel="alternate" hreflang="x-default" href="' + fullUrl + '"/>',
             "  </url>"
         ];
@@ -841,7 +847,8 @@ try {
     }
 
     for (const article of publishedArticles) {
-        sitemapLines.push(sitemapUrl("/blog/" + article.id + ".html", article._dateModified || article.date, "monthly", article._pillar ? "0.8" : "0.7"));
+        sitemapLines.push(sitemapUrl("/blog/" + article.id + ".html", article._dateModified || article.date, "monthly", article._pillar ? "0.8" : "0.7",
+            article._lang === "en" ? "en" : "vi"));
     }
 
     sitemapLines.push("</urlset>");

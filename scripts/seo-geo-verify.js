@@ -154,18 +154,29 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // <html lang> nằm trong accessibility tree (screen reader chọn giọng theo nó).
 // Trước đây template hardcode lang="vi" nên 2 bài tiếng Anh tự mâu thuẫn với
 // hreflang="en" + schema inLanguage="en" của chính mình, và hiện nav/CTA tiếng Việt.
+// Từ 13/09/2026 hreflang chỉ khai trong sitemap.xml (xem R13d) nên đọc mã ở đó;
+// bài noindex không có trong sitemap thì không có hreflang để so.
 {
     const dir = path.join(ROOT, "blog");
     const posts = fs.readdirSync(dir).filter((f) => f.endsWith(".html"));
     const VN_UI = ["Trang chủ", "Thực đơn", "Câu hỏi thường gặp", "Bài viết liên quan", "Đặt bàn ngay"];
+    const hreSitemap = {};   // "/blog/x.html" -> mã hreflang tự khai trong sitemap.xml
+    for (const k of fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8").match(/<url>[\s\S]*?<\/url>/g) || []) {
+        const loc = (k.match(/<loc>https:\/\/tramdungchill\.vn([^<]*)<\/loc>/) || [])[1];
+        if (!loc) continue;
+        const tu = [...k.matchAll(/hreflang="([^"]+)"\s+href="([^"]+)"/g)]
+            .find((m) => m[1] !== "x-default" && m[2] === "https://tramdungchill.vn" + loc);
+        hreSitemap[loc] = tu ? tu[1] : undefined;
+    }
     const bad = [];
     for (const f of posts) {
         const s = fs.readFileSync(path.join(dir, f), "utf8");
         const lang = (s.match(/<html lang="([^"]+)"/) || [])[1];
-        const hre = (s.match(/hreflang="([^"]+)"/) || [])[1];
+        const trongSm = ("/blog/" + f) in hreSitemap;
+        const hre = hreSitemap["/blog/" + f];
         const inl = (s.match(/"inLanguage":\s*"([^"]+)"/) || [])[1];
         const og = (s.match(/og:locale" content="([^"]+)"/) || [])[1];
-        if (lang !== hre || lang !== inl || og !== (lang === "en" ? "en_US" : "vi_VN")) {
+        if ((trongSm && lang !== hre) || lang !== inl || og !== (lang === "en" ? "en_US" : "vi_VN")) {
             bad.push(f.replace(".html", "") + " (lang=" + lang + " hreflang=" + hre + " schema=" + inl + " og=" + og + ")");
             continue;
         }
@@ -175,7 +186,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             if (leak.length) bad.push(f.replace(".html", "") + " còn UI tiếng Việt: " + leak.join(","));
         }
     }
-    add("Tín hiệu ngôn ngữ nhất quán (html lang · hreflang · og · schema · UI)",
+    add("Tín hiệu ngôn ngữ nhất quán (html lang · hreflang sitemap · og · schema · UI)",
         bad.length === 0,
         bad.length ? bad.slice(0, 3).join(" | ") : posts.length + " bài nhất quán");
 }
@@ -1242,6 +1253,58 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                 : "đổi chữ mà dấu vân đứng yên → bot sẽ bỏ sót bài sửa thật";
     }
     add("Dấu vân lastmod bỏ qua thay đổi chỉ-là-link trong schema", ok, chiTiet);
+}
+
+// ── R13d. hreflang: MỘT nguồn (sitemap), đúng ngôn ngữ, cụm hai chiều ─────
+// 13/09/2026: 2 bài tiếng Anh khai hreflang="en" trong HTML nhưng sitemap khai "vi"
+// cho CHÍNH URL đó (generator ghi cứng) — hai cách khai đá nhau đúng ở 2 trang duy
+// nhất dành cho khách nước ngoài; 123 bài noindex còn khai hreflang trỏ chính nó
+// trong khi canonical trỏ bài khác. Google coi HTML / HTTP header / sitemap là tương
+// đương, dùng nhiều cách "no benefit" → site chỉ khai trong sitemap.xml.
+// Theo tài liệu Google (localized-versions, cập nhật 22/12/2025):
+//  (a) không trang HTML nào tự khai hreflang — tránh hai nguồn lệch nhau
+//  (b) URL có hreflang phải tự khai chính nó, mã khớp <html lang> của trang
+//  (c) mọi URL trong cụm phải nằm trong sitemap (tức index được, canonical chính nó)
+//  (d) hai chiều: A khai B thì B phải khai lại A — "If two pages don't both point to
+//      each other, the tags will be ignored."
+{
+    const bad = [];
+    for (const f of files) {
+        if (/<link[^>]+hreflang=/i.test(fs.readFileSync(f, "utf8"))) {
+            bad.push(rel(f) + ": khai hreflang trong HTML (chỉ khai ở sitemap.xml)");
+        }
+    }
+    const cum = {};   // loc -> { mã: href }
+    for (const k of fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8").match(/<url>[\s\S]*?<\/url>/g) || []) {
+        const loc = (k.match(/<loc>([^<]+)<\/loc>/) || [])[1];
+        if (!loc) continue;
+        cum[loc] = {};
+        for (const m of k.matchAll(/hreflang="([^"]+)"\s+href="([^"]+)"/g)) cum[loc][m[1]] = m[2];
+    }
+    let soCheo = 0;
+    for (const [loc, ds] of Object.entries(cum)) {
+        const ma = Object.keys(ds).filter((x) => x !== "x-default");
+        if (!ma.length) continue;                      // URL không khai hreflang: hợp lệ
+        const tuKhai = ma.find((x) => ds[x] === loc);
+        if (!tuKhai) { bad.push(loc + ": thiếu tự khai (self-reference)"); continue; }
+        let duoi = loc.replace("https://tramdungchill.vn/", "");
+        if (duoi === "" || duoi.endsWith("/")) duoi += "index.html";
+        const abs = path.join(ROOT, duoi);
+        const lang = ((fs.existsSync(abs) ? fs.readFileSync(abs, "utf8") : "").match(/<html lang="([^"]+)"/) || [])[1];
+        if (lang && tuKhai.split("-")[0] !== lang.split("-")[0]) {
+            bad.push(loc + ": sitemap khai hreflang=" + tuKhai + " nhưng trang <html lang=" + lang + ">");
+        }
+        for (const [x, href] of Object.entries(ds)) {
+            if (href === loc) continue;
+            soCheo++;
+            if (!cum[href]) { bad.push(loc + ": hreflang " + x + " trỏ URL không có trong sitemap (noindex/không tồn tại): " + href); continue; }
+            if (!Object.values(cum[href]).includes(loc)) bad.push(loc + " → " + href + ": không khai ngược lại, Google bỏ qua cặp này");
+        }
+    }
+    add("hreflang một nguồn (sitemap) · đúng ngôn ngữ · hai chiều", bad.length === 0,
+        bad.length ? bad.slice(0, 4).join(" | ") + (bad.length > 4 ? " … +" + (bad.length - 4) + " lỗi nữa" : "")
+                   : Object.keys(cum).length + " URL · 0 thẻ hreflang trong HTML · " + soCheo +
+                     " liên kết chéo (chưa trang nào có bản dịch ở URL riêng)");
 }
 
 // ── R13b. Ngày sửa phải khớp ở CẢ BA chỗ: nguồn ↔ trang ↔ sitemap ────────
