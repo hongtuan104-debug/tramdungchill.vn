@@ -220,7 +220,13 @@ const HERO = [
     ["H1 ten quan", dancing, arial, want["Dancing Script Fallback"], "Trạm Dừng Chill", 51.2, 364],
     ["badge dia chi", inter, arial, want["Inter Fallback"], "111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt", 12.8, 322],
     ["mo ta dong 1", inter, arial, want["Inter Fallback"], "Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ,", 18.4, 364],
-    ["mo ta dong 2", inter, arial, want["Inter Fallback"], "đợi hoàng hôn buông và nhà lồng lên đèn lung linh", 18.4, 364]
+    ["mo ta dong 2", inter, arial, want["Inter Fallback"], "đợi hoàng hôn buông và nhà lồng lên đèn lung linh", 18.4, 364],
+    // .hero-trust ≤480px ép 2 dòng (.trust-line nowrap) — mỗi dòng phải lọt ô chữ HẸP NHẤT:
+    // màn 320px → 320 − padding hero 32 − padding badge 24 − viền 2 − 5 sao ~58 − gap 8 = 196px.
+    // Thiếu 2 dòng này, 13/09/2026 lọt một cú xô 0,013 mỗi lượt tải (chuỗi cũ tự ngắt:
+    // Inter 2 dòng, phông lót 1 dòng). Số 7.060 đổi thì sửa luôn ở đây.
+    ["trust dong 1", inter, arial, want["Inter Fallback"], "4.8/5 · 7.060 đánh giá Google", 12, 196],
+    ["trust dong 2", inter, arial, want["Inter Fallback"], "13M+ views viral", 12, 196]
 ];
 for (const [label, real, fb, sa, text, px, avail] of HERO) {
     const wReal = widthEm(real, text) * px, wFb = widthEm(fb, text) * px * sa;

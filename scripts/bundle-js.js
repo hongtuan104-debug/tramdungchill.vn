@@ -156,8 +156,29 @@ function minifyCSS(source) {
     out = out.replace(/\n/g, "");
     // Collapse whitespace
     out = out.replace(/\s{2,}/g, " ");
-    // Remove spaces around CSS punctuation
+
+    /* Cất riêng nội dung trong NGOẶC TRÒN trước khi bỏ dấu cách quanh dấu câu.
+       Bên trong calc()/min()/max()/clamp(), dấu + và - là TOÁN TỬ và CSS bắt buộc
+       phải có dấu cách hai bên: "calc(50%+20px)" là biểu thức hỏng. Bản cũ xoá
+       cách quanh "+" (vốn để nén bộ chọn anh em "a + b") trên toàn file, nên từ
+       lúc có rule đó production chạy 2 calc hỏng (phát hiện 13/09/2026):
+         - .hero-scroll-hint{bottom:calc(16px+env(...))} — có env() nên trình duyệt
+           chỉ thấy hỏng lúc tính giá trị → "unset" luôn cả bottom:30px gốc → chữ
+           "Cuộn xuống" trên mobile bị căn GIỮA hero, đè lên dòng mô tả, và nhảy
+           365px khi CSS async về (layout shift 0,019).
+         - .lightbox-next{left:calc(50%+20px)} — nút "ảnh tiếp" trên mobile mất vị trí.
+       Trong ngoặc chỉ gộp khoảng trắng và bỏ cách quanh "," ":" (an toàn ở mọi
+       ngữ cảnh: rgba(), media query, :not()...). Máy canh: R8n trong seo-geo-verify.js. */
+    const trongNgoac = [];
+    out = out.replace(/\((?:[^()]|\((?:[^()]|\((?:[^()]|\([^()]*\))*\))*\))*\)/g, (m) => {
+        trongNgoac.push(m.replace(/\s+/g, " ").replace(/\s*([,:])\s*/g, "$1").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")"));
+        return "\u0001" + (trongNgoac.length - 1) + "\u0001";
+    });
+    // Remove spaces around CSS punctuation (ngoài ngoặc tròn)
     out = out.replace(/\s*([{}:;,>~+])\s*/g, "$1");
+    out = out.replace(/\u0001(\d+)\u0001/g, (_, i) => trongNgoac[+i]);
+    if (/\u0001/.test(out)) throw new Error("minifyCSS: còn sót dấu giữ chỗ trong CSS đã nén");
+
     // Remove trailing semicolons before }
     out = out.replace(/;}/g, "}");
     // Remove leading/trailing whitespace

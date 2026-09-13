@@ -1606,6 +1606,31 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                     : "mọi link sang xomleo.vn đều kèm chữ \"cùng chủ\"");
 }
 
+// ── R8n. calc()/min()/max()/clamp() trong CSS đã nén phải còn dấu cách quanh + - ──
+// 13/09/2026: minifyCSS trong bundle-js.js xoá cách quanh "+" trên toàn file
+// (định nén bộ chọn "a + b"), biến calc(16px + env(...)) thành calc(16px+env(...))
+// — biểu thức HỎNG. Không báo lỗi gì: trình duyệt lặng lẽ bỏ khai báo, nên chữ
+// "Cuộn xuống" trên mobile bị căn giữa hero đè lên mô tả và nút "ảnh tiếp" của
+// lightbox mất vị trí, suốt từ lúc có hai rule đó. Bản gốc css/style.css thì đúng,
+// nên chỉ soi được ở file ĐÃ NÉN.
+{
+    const pham = [];
+    const dist = path.join(ROOT, "dist");
+    const fileCss = fs.existsSync(dist) ? fs.readdirSync(dist).filter((f) => f.endsWith(".css")) : [];
+    let tong = 0;
+    for (const f of fileCss) {
+        const s = fs.readFileSync(path.join(dist, f), "utf8");
+        for (const m of s.matchAll(/(?:calc|min|max|clamp)\(((?:[^()]|\((?:[^()]|\([^()]*\))*\))*)\)/g)) {
+            tong++;
+            const trong = m[1].replace(/var\(--[\w-]+/g, "V").replace(/env\([\w-]+/g, "E");
+            if (/[^\s(,]\+|\+[^\s]/.test(trong) || /[\d%a-z)]-(?=[\d.(]|V|E)/i.test(trong)) pham.push(f + ": " + m[0].slice(0, 60));
+        }
+    }
+    add("calc() trong CSS đã nén còn đủ dấu cách quanh + −", pham.length === 0,
+        pham.length ? pham.length + " biểu thức hỏng: " + pham.slice(0, 3).join(" | ")
+                    : tong + " biểu thức calc/min/max/clamp trong dist/*.css đều hợp lệ");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

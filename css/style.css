@@ -4104,6 +4104,7 @@ body.sticky-bar-active .fab-contact {
     white-space: nowrap;
     letter-spacing: 0.2px;
 }
+.trust-line { white-space: nowrap; }
 .trust-text strong {
     color: var(--gold-light);
     font-weight: 700;
@@ -4130,6 +4131,17 @@ body.sticky-bar-active .fab-contact {
         max-width: 95vw;
     }
     .trust-stars { font-size: 0.75rem; letter-spacing: 0.5px; }
+}
+@media (max-width: 480px) {
+    /* ÉP đúng 2 dòng thay vì để trình duyệt tự ngắt (13/09/2026).
+       Ở màn ~412px ô chữ còn ~272px, chuỗi đủ đo bằng Inter thật ra ~282px → 2 dòng,
+       nhưng phông lót Arial hẹp hơn chút → 1 dòng. Phông thật về là .hero-trust cao
+       35 → 54px, .hero-content tự căn giữa lại → CLS 0,013 MỌI lượt tải (đo bằng
+       layout-shift sources). Ngắt cố định thì phông nào cũng 2 dòng, mỗi dòng ngắn
+       hơn ô chữ hẹp nhất (196px ở màn 320) nên không bao giờ tự xuống hàng nữa.
+       SỬA KHỐI NÀY THÌ SỬA CẢ CRIT-MOBILE TRONG index.html. */
+    .trust-line { display: block; }
+    .trust-sep { display: none; }
 }
 @media (max-width: 380px) {
     .hero-trust { font-size: 0.75rem; padding: 6px 12px; }

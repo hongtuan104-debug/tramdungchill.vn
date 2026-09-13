@@ -348,6 +348,31 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    quét mọi trang kể cả noindex, alt/title/meta, JSON-LD, dữ liệu gốc) +
    **R8m** (link Xóm Lèo thiếu chữ "cùng chủ") trong `seo-geo-verify.js`.
 
+17. **Bộ nén CSS tự làm hỏng `calc()`** (phát hiện 13/09/2026). `minifyCSS` trong
+   `bundle-js.js` xoá dấu cách quanh `+` trên cả file (định nén bộ chọn `a + b`), biến
+   `calc(16px + env(...))` → `calc(16px+env(...))` và `calc(50% + 20px)` → `calc(50%+20px)`:
+   biểu thức hỏng, trình duyệt **lặng lẽ bỏ**, không lỗi nào hiện ra. Chạy thật trên production:
+   chữ "Cuộn xuống" trên mobile bị căn GIỮA hero đè lên dòng mô tả (có `env()` nên thành "unset"
+   luôn cả `bottom:30px` gốc) và nhảy 365px khi CSS async về; nút "ảnh tiếp" của lightbox mobile
+   mất vị trí. `css/style.css` gốc viết đúng nên đọc nguồn không bao giờ thấy — chỉ lộ ở file nén.
+   → Nay cất nội dung trong ngoặc tròn trước khi bỏ dấu cách. Dấu giữ chỗ viết bằng chuỗi escape
+   `\u0001` — ⚠️ **đừng dán ký tự điều khiển thật vào file**: chỉ 1 byte NUL là git coi cả
+   `bundle-js.js` là nhị phân, diff thành "Binary files differ" (đã dính lúc sửa).
+   → Máy canh **R8n**: mọi `calc/min/max/clamp` trong `dist/*.css` phải có dấu cách quanh `+ −`.
+
+18. **Dòng đánh giá hero tự xuống hàng khác nhau giữa phông lót và phông thật** (13/09/2026) →
+   `.hero-content` xô **0,013 mọi lượt tải** trên mobile. Ở khung ~412px ô chữ còn ~272px, chuỗi
+   "4.8/5 · 7.060 đánh giá Google · 13M+ views viral" đo bằng Inter thật ~282px (2 dòng), Arial lót
+   vừa 1 dòng → phông về là `.hero-trust` cao 35 → 54px. Sửa: ≤480px ép đúng 2 dòng bằng
+   `.trust-line{display:block}` (sửa cả `CRIT-MOBILE`). `kiem-phong-lot.js` nay kiểm thêm 2 dòng này
+   với ô hẹp nhất 196px — trước đó chỉ kiểm H1, địa chỉ, mô tả nên lọt.
+   Đo bằng Chrome DevTools Protocol (layout-shift sources, script ở scratchpad, không vào repo):
+   CLS 0,024–0,031 → **0,0005–0,0007** sau khi sửa cả #17 lẫn #18, kể cả khi giữ CSS lại 4 giây.
+   ⚠️ **Đừng sửa theo một lượt PageSpeed đơn lẻ.** Lượt 13/09 16:21 báo CLS 0,287, nhưng 6 lượt đo
+   khác (Lighthouse 13.4.1 cục bộ, bóp mạng thật, CDP giữ CSS) đều ≤ 0,031. Cùng lượt đó có ~90
+   request `pubads.g.doubleclick.net/gampad/ads` + `playstream.media` mà site không hề gọi (HTML live
+   trùng git từng byte, lượt đo cục bộ không có) → lượt đo bị nhiễu.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
