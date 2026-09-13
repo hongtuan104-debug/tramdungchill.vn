@@ -311,7 +311,36 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      chính quán thì không được hiện sao. **Sếp Tuấn chốt GIỮ NGUYÊN (13/09/2026)** —
      đừng hỏi lại, trừ khi Search Console báo Manual Action "spammy structured
      markup": khi đó gỡ phần này là việc đầu tiên.
-   - Mục 201/202 (báo cáo Rich result, Manual Actions) chỉ xem được trong Search Console.
+   - Mục 201/202 (báo cáo Rich result, Manual Actions) chỉ xem được trong Search Console —
+     máy này không vào được, nhưng GSC gửi mail cho chủ site. Rà Gmail 13/09/2026: 17 mail
+     từ `sc-noreply@google.com` từ 22/03/2026, **0 mail Manual Action**; lỗi dữ liệu có cấu
+     trúc duy nhất là "Trường trùng lặp FAQPage" (06/04/2026) — đúng thời bug #12 còn chèn
+     schema bằng JS, nay mỗi trang 1 FAQPage và Google đã gỡ luôn báo cáo FAQ.
+
+## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
+`tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
+`data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
+trước đó 18 bài index ghi "Nguyễn Duy" mà không trỏ đi đâu. Sếp xác nhận: người thật,
+chưa có profile mạng xã hội → trang đặt trên site.
+- **Vỏ trang** (head, CSS, pixel, lời mời ghé quán) viết tay theo khuôn `duong-di/`.
+  Nav/footer do `generate-nav.js` + `generate-footer.js` nướng (tự nhận mọi file trong `tac-gia/`).
+- **Hai vùng có mốc do `generate-blog-pages.js` ghi đè**: `TAC_GIA_JSONLD` (ProfilePage +
+  BreadcrumbList) và `TAC_GIA_NOI_DUNG` (breadcrumb + tên/vai trò + thẻ bài). Sửa tay là mất.
+- Generator đổi tên → slug (`Nguyễn Duy`/`Nguyen Duy` → `nguyen-duy`); **có file
+  `tac-gia/<slug>.html` thì mới gắn**: Person trong BlogPosting thêm `@id` + `url`, byline
+  thành link `rel="author"`, trang vào sitemap. Chưa có file thì bài giữ nguyên như cũ —
+  máy KHÔNG tự đẻ trang. Thêm tác giả mới = chép vỏ trang đổi tên file rồi chạy build.
+- ⚠️ **ProfilePage KHÔNG khai `dateModified`**: `cap-nhat-lastmod.js` ghi đè mọi
+  `dateModified` của trang trong sitemap, generator mà cũng ghi là hai máy giật ngày qua lại
+  (loại lỗi R13b canh). Ngày tạo nằm ngay trong mốc `TAC_GIA_JSONLD:START ngayTao=…`.
+- ⚠️ **Tiểu sử KHÔNG tự viết.** Trang chỉ có tên, vai trò (từ blog-seo.js) và bài có thật.
+  Sếp gửi vài dòng tiểu sử thật thì thêm vào vỏ trang (ngoài vùng mốc).
+- Critical CSS của trang chép từ `duong-di/` → sửa phông lót trong `style.css` thì sửa cả
+  file này (`kiem-phong-lot.js` đã soi nó).
+- Máy canh: R7e mục (h) ProfilePage có mainEntity + name; mục (i) mọi `author.url` phải
+  trỏ trang có thật và `@id` khớp ProfilePage trên trang đó.
+- Crawl budget hẹp (~0,9 request khám phá/ngày, xem memory crawl budget) và trang chỉ có
+  link từ byline blog → Google crawl chậm là bình thường; muốn nhanh thì Yêu cầu lập chỉ mục.
 
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
@@ -352,7 +381,7 @@ chữ vẫn chiếm đúng bề rộng → **không đổi số dòng → không
 Đây mới là thứ chữa CLS; tự chứa phông (31/07) chỉ bỏ được chặng gstatic.
 - Cả 3 khối này **được chép vào critical CSS inline** của `index/menu/blog/404/
   duong-di` — vì lúc dễ nhảy nhất là lúc CSS async chưa về. Sửa `style.css` mà
-  quên 5 file kia là công cốc.
+  quên 5 file kia là công cốc. (Từ 13/09/2026 thêm file thứ 6: `tac-gia/nguyen-duy.html`.)
 - Bộ số **không được tự nghĩ**: tính từ bảng `cmap`+`hmtx` trong chính file
   `.woff2`, cân theo tần suất ký tự thật của trang (tiếng Việt lệch hẳn tiếng Anh).
 - Đổi phông / đổi subset / đổi nhiều chữ hero → chạy `node scripts/kiem-phong-lot.js`

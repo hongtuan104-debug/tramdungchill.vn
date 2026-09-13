@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nguyễn Duy — Tác giả blog Trạm Dừng Chill Đà Lạt</title>
+    <meta name="description" content="Nguyễn Duy, chủ tiệm nướng Trạm Dừng Chill ở Đà Lạt. Tổng hợp các bài viết trên blog của quán: kinh nghiệm ăn nướng, lịch trình, hẹn hò, tổ chức tiệc và du lịch Đà Lạt.">
+    <meta property="og:title" content="Nguyễn Duy — Tác giả blog Trạm Dừng Chill">
+    <meta property="og:description" content="Chủ tiệm nướng Trạm Dừng Chill, Đà Lạt — các bài viết trên blog của quán.">
+    <meta property="og:image" content="https://tramdungchill.vn/assets/images/hero-sunset.jpg">
+    <meta property="og:url" content="https://tramdungchill.vn/tac-gia/nguyen-duy.html">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:site_name" content="Tiệm Nướng Trạm Dừng Chill">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tramdungchill.vn/tac-gia/nguyen-duy.html">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
+    <meta name="theme-color" content="#D4A853">
+
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://analytics.tiktok.com">
+
+    <!-- Critical CSS inline — chép nguyên từ duong-di/index.html. Ba khối phông lót
+         *Fallback phải khớp css/style.css (kiem-phong-lot.js soi cả file này). -->
+    <style>@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:103.25%;ascent-override:93.83%;descent-override:23.36%;line-gap-override:0%}@font-face{font-family:'Dancing Script Fallback';src:local('Arial');size-adjust:82.92%;ascent-override:110.95%;descent-override:33.77%;line-gap-override:0%}@font-face{font-family:'Playfair Fallback';src:local('Georgia');size-adjust:98.65%;ascent-override:109.68%;descent-override:25.44%;line-gap-override:0%}:root{--gold:#D4A853;--gold-light:#F0D48A;--gold-dark:#B8922E;--sunset:#E8814F;--night:#0F0D0A;--night-soft:#1A1612;--charcoal:#2C2420;--wood:#3D3229;--smoke:#8B7D6B;--cream:#FDF8F3;--linen:#F5EDE3;--white:#FFFFFF;--border:#E0D5C7;--font-display:'Playfair Display','Playfair Fallback',Georgia,serif;--font-body:'Inter','Inter Fallback',-apple-system,sans-serif;--font-accent:'Dancing Script','Dancing Script Fallback',cursive;--shadow-soft:0 4px 20px rgba(15,13,10,0.08);--shadow-medium:0 8px 30px rgba(15,13,10,0.12);--shadow-gold:0 4px 25px rgba(212,168,83,0.3);--radius:12px;--radius-lg:20px;--radius-xl:28px;--radius-full:50px;--ease:cubic-bezier(0.4,0,0.2,1)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}body{font-family:var(--font-body);color:var(--wood);background:var(--cream);line-height:1.6;overflow-x:hidden}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}button{border:none;background:none;cursor:pointer;font-family:inherit}.container{max-width:1200px;margin:0 auto;padding:0 24px;width:100%}.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s var(--ease)}.navbar.scrolled{background:rgba(15,13,10,0.92);backdrop-filter:blur(20px);padding:12px 0}.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}</style>
+
+    <!-- Full CSS — async -->
+    <link rel="stylesheet" href="../dist/style.min.css?v=df2f8ef6" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../dist/style.min.css?v=df2f8ef6"></noscript>
+    <!-- Preload phông logo trên nav (Dancing Script) — lý do xem bug #5 trong CLAUDE.md -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-vietnamese.woff2">
+
+    <!-- Page-specific styles. Thẻ bài dùng lại .blog-grid/.blog-card của style.css
+         (đúng khuôn blog.html) nên ở đây chỉ còn phần đầu trang và lời mời ghé quán. -->
+    <style>
+        /* Breadcrumb đứng đầu đã gánh padding-top:100px né .navbar position:fixed,
+           nên hero chỉ cần 40px — cùng lý do với .directions-hero của duong-di. */
+        .author-hero{
+            padding:40px 0 56px;
+            background:linear-gradient(135deg,var(--night) 0%,var(--night-soft) 50%,var(--charcoal) 100%);
+            text-align:center;
+        }
+        .author-tag{
+            display:inline-flex;align-items:center;gap:8px;
+            font-size:.72rem;font-weight:700;letter-spacing:.3em;
+            color:var(--gold);text-transform:uppercase;
+            padding:8px 18px;border:1px solid rgba(212,168,83,.3);
+            border-radius:var(--radius-full);background:rgba(212,168,83,.06);
+            margin-bottom:20px;
+        }
+        .author-hero h1{
+            font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);
+            color:var(--cream);font-weight:700;letter-spacing:-.02em;
+            line-height:1.15;margin-bottom:12px;
+        }
+        .author-role{color:var(--gold-light);font-size:1.05rem;margin-bottom:6px}
+        .author-meta{color:var(--smoke);font-size:.95rem}
+        .author-posts{padding:56px 0 24px;background:var(--cream)}
+        .author-cta{padding:0 0 80px;background:var(--cream);text-align:center;color:var(--wood)}
+        .author-cta p{margin-bottom:16px}
+        .author-cta-buttons{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap}
+        .author-cta-link{color:var(--gold-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+    </style>
+    <!-- TAC_GIA_JSONLD:START ngayTao=2026-09-13 — sinh bởi scripts/generate-blog-pages.js, đừng sửa tay -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "@id": "https://tramdungchill.vn/tac-gia/nguyen-duy.html#webpage",
+        "url": "https://tramdungchill.vn/tac-gia/nguyen-duy.html",
+        "name": "Nguyễn Duy — Tác giả blog Trạm Dừng Chill",
+        "dateCreated": "2026-09-13",
+        "inLanguage": "vi",
+        "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://tramdungchill.vn/#website",
+            "name": "Tiệm Nướng Trạm Dừng Chill",
+            "url": "https://tramdungchill.vn/"
+        },
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "https://tramdungchill.vn/tac-gia/nguyen-duy.html#person",
+            "name": "Nguyễn Duy",
+            "alternateName": [
+                "Nguyen Duy"
+            ],
+            "jobTitle": "Chủ tiệm nướng Trạm Dừng Chill",
+            "description": "Chủ tiệm nướng Trạm Dừng Chill, tác giả 18 bài viết trên blog của quán.",
+            "url": "https://tramdungchill.vn/tac-gia/nguyen-duy.html",
+            "worksFor": {
+                "@type": "Restaurant",
+                "@id": "https://tramdungchill.vn/#restaurant",
+                "name": "Tiệm Nướng Trạm Dừng Chill",
+                "url": "https://tramdungchill.vn/"
+            },
+            "agentInteractionStatistic": {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/WriteAction",
+                "userInteractionCount": 18
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang chủ",
+                "item": "https://tramdungchill.vn/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://tramdungchill.vn/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Nguyễn Duy",
+                "item": "https://tramdungchill.vn/tac-gia/nguyen-duy.html"
+            }
+        ]
+    }
+    </script>
+    <!-- TAC_GIA_JSONLD:END -->
+<script defer src="../js/lazy-tracking.js?v=a422ed69"></script>
+</head>
+<body>
+
+    <!-- Shared Navigation -->
+    <!-- NAV:START — sinh bởi scripts/generate-nav.js, ĐỪNG sửa tay -->
+    <a class="skip-link" href="#main-content" data-i18n="nav.skip" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Bỏ qua tới nội dung</a>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo" data-home-href="#home">
+                <span class="logo-icon">&#9733;</span>
+                <div class="logo-text-wrapper">
+                    <span class="logo-sub">Tiệm Nướng</span>
+                    <span class="logo-main">Trạm Dừng Chill</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html" class="nav-link" data-i18n="nav.home" data-home-href="#home" data-page="index">Trang chủ</a></li>
+                <li><a href="../index.html#experience" class="nav-link" data-i18n="nav.experience" data-home-href="#experience">Trải nghiệm</a></li>
+                <li><a href="../menu.html" class="nav-link" data-i18n="nav.menu" data-page="menu">Thực đơn</a></li>
+                <li><a href="../index.html#gallery" class="nav-link" data-i18n="nav.gallery" data-home-href="#gallery">Không gian</a></li>
+                <li><a href="../index.html#review" class="nav-link" data-i18n="nav.review" data-home-href="#review">Đánh giá</a></li>
+                <li><a href="../blog.html" class="nav-link" data-i18n="nav.blog" data-page="blog">Blog</a></li>
+                <li><a href="../index.html#booking" class="nav-link nav-cta" data-i18n="nav.booking" data-home-href="#booking">Đặt bàn</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch to English" title="Switch to English">
+                    <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span class="lang-text">EN</span>
+                </button>
+                <a href="tel:0989765070" class="nav-phone" aria-label="Gọi 0989.765.070">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>0989.765.070</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <!-- NAV:END -->
+    <noscript>
+        <!-- Navbar tĩnh ở trên là position:fixed nên ĐÈ LÊN thanh nav dự phòng này
+             khi không có JS — trả navbar về static để cả hai cùng hiển thị. -->
+        <style>.navbar{position:static}.nav-overlay{display:none}</style>
+        <nav style="background:#0F0D0A;padding:12px 16px;text-align:center;font-size:0.9rem;">
+            <a href="/" style="color:#D4A853;margin:0 8px;">Trang chủ</a>
+            <a href="/menu.html" style="color:#D4A853;margin:0 8px;">Thực đơn</a>
+            <a href="/blog.html" style="color:#D4A853;margin:0 8px;">Blog</a>
+            <a href="/duong-di/" style="color:#D4A853;margin:0 8px;">Đường đi</a>
+            <a href="/index.html#booking" style="color:#D4A853;margin:0 8px;">Đặt bàn</a>
+        </nav>
+    </noscript>
+
+    <main id="main-content">
+        <!-- TAC_GIA_NOI_DUNG:START — breadcrumb + tên + thẻ bài, sinh bởi scripts/generate-blog-pages.js, đừng sửa tay -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol>
+                    <li><a href="../index.html"><span>Trang chủ</span></a></li>
+                    <li><a href="../blog.html"><span>Blog</span></a></li>
+                    <li><span aria-current="page">Nguyễn Duy</span></li>
+                </ol>
+            </div>
+        </nav>
+        <section class="author-hero">
+            <div class="container">
+                <span class="author-tag">Tác giả</span>
+                <h1>Nguyễn Duy</h1>
+                <p class="author-role">Chủ tiệm nướng Trạm Dừng Chill</p>
+                <p class="author-meta">18 bài viết trên blog Trạm Dừng Chill</p>
+            </div>
+        </section>
+        <section class="author-posts" aria-label="Bài viết của Nguyễn Duy">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1182" height="2560" src="../assets/images/blog/view-nha-long-3-v4.webp" srcset="../assets/images/blog/view-nha-long-3-v4-400w.webp 400w, ../assets/images/blog/view-nha-long-3-v4-800w.webp 800w, ../assets/images/blog/view-nha-long-3-v4.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Ăn vặt Đà Lạt buổi tối - nướng xiên que và đồ ăn đêm" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-07-30">30/07/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
+                            <h2><a href="../blog/an-vat-da-lat-buoi-toi.html">Ăn Vặt Đà Lạt Buổi Tối — 15 Món Chợ Đêm Nên Thử Và Cách Đi Cho Trọn Tối</a></h2>
+                            <p>Ăn vặt Đà Lạt buổi tối nên ăn gì? 15 món chợ đêm đáng thử từ bánh tráng nướng, bánh căn tới sữa đậu nành nóng, kèm thứ tự nên ăn và mẹo đi không bị no ngang.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="1600" src="../assets/images/blog/view-xe-lua-20.webp" srcset="../assets/images/blog/view-xe-lua-20-400w.webp 400w, ../assets/images/blog/view-xe-lua-20-800w.webp 800w, ../assets/images/blog/view-xe-lua-20.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Một dãy bàn nướng sát lan can ngoài trời ở Trạm Dừng Chill, đoàn tàu Đà Lạt – Trại Mát sáng đèn chạy ngay bên dưới" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-07-30">30/07/2026</time><span class="blog-category">Mẹo &amp; Kinh nghiệm</span></div>
+                            <h2><a href="../blog/tip-chon-cho-ngoi-quan-nuong.html">Chọn Chỗ Ngồi Quán Nướng Đà Lạt: Quán Có Mấy Dãy Bàn, Dãy Nào Ngắm Được Xe Lửa?</a></h2>
+                            <p>Trạm Dừng Chill xếp bàn theo dãy: dãy lan can ngoài trời sát đường ray, dãy mái che nhìn toàn cảnh, dãy G chung view tàu. Cách chọn đúng dãy trước khi đặt bàn.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card" lang="en">
+                        <div class="blog-card-img"><img width="900" height="1200" src="../assets/images/blog/view-xe-lua-11b.webp" srcset="../assets/images/blog/view-xe-lua-11b-400w.webp 400w, ../assets/images/blog/view-xe-lua-11b-800w.webp 800w, ../assets/images/blog/view-xe-lua-11b.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Grilling BBQ at Tram Dung Chill as the vintage Da Lat–Trai Mat train passes below at sunset" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-06-16">16/06/2026</time><span class="blog-category">English</span></div>
+                            <h2><a href="../blog/da-lat-restaurant-train-view-en.html">Da Lat Restaurant with a Train View: Dine While the Vintage Train Rolls By</a></h2>
+                            <p>Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8 stars by over 7,060 guests.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="900" src="../assets/images/blog/view-nha-long-4-v3.webp" srcset="../assets/images/blog/view-nha-long-4-v3-400w.webp 400w, ../assets/images/blog/view-nha-long-4-v3-800w.webp 800w, ../assets/images/blog/view-nha-long-4-v3.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Đà Lạt về đêm đi đâu - nướng BBQ ngắm nhà lồng lên đèn" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-06-05">05/06/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
+                            <h2><a href="../blog/da-lat-ve-dem-di-dau.html">Đà Lạt Về Đêm Đi Đâu? 8 Hoạt Động Đáng Thử Sau 20h</a></h2>
+                            <p>Đà Lạt về đêm đi đâu sau 20h? 8 gợi ý thật từ dân địa phương: nướng BBQ ngắm biển sao nhà lồng, dạo hồ Xuân Hương, chợ đêm, ăn khuya vỉa hè và săn mây rạng sáng.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="900" src="../assets/images/blog/mon-nuong-4-v3.webp" srcset="../assets/images/blog/mon-nuong-4-v3-400w.webp 400w, ../assets/images/blog/mon-nuong-4-v3-800w.webp 800w, ../assets/images/blog/mon-nuong-4-v3.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Món nướng ngon nhất Đà Lạt - thịt bò sườn gà nướng than hoa" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-05-24">24/05/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
+                            <h2><a href="../blog/mon-nuong-ngon-nhat-da-lat.html">Món Nướng Ngon Nhất Đà Lạt — Bò Tảng Phô Mai, Hải Sản &amp; BBQ Tại Trạm Dừng Chill</a></h2>
+                            <p>Món nướng ngon nhất Đà Lạt gọi tên Bò Tảng Nướng Phô Mai Trứng Muối ở Trạm Dừng Chill — vừa nướng vừa ngắm tàu lửa cổ chạy ngang, 4.8 sao Google.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/setup-sinh-nhat-3.webp" srcset="../assets/images/blog/setup-sinh-nhat-3-400w.webp 400w, ../assets/images/blog/setup-sinh-nhat-3-800w.webp 800w, ../assets/images/blog/setup-sinh-nhat-3.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Setup Sinh Nhật Miễn Phí Đà Lạt - Trạm Dừng Chill Đà Lạt" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-05-18">18/05/2026</time><span class="blog-category">Hẹn hò &amp; Sinh nhật</span></div>
+                            <h2><a href="../blog/setup-sinh-nhat-mien-phi-da-lat.html">Setup Sinh Nhật Miễn Phí Đà Lạt — Quán Nào Tặng Trang Trí Bàn Tiệc?</a></h2>
+                            <p>Tìm quán setup sinh nhật miễn phí ở Đà Lạt? Trạm Dừng Chill tặng trang trí bàn tiệc (hoa, nến, bảng chúc mừng) — view xe lửa, hoàng hôn, biển sao nhà lồng.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/view-nha-long-1-v4.webp" srcset="../assets/images/blog/view-nha-long-1-v4-400w.webp 400w, ../assets/images/blog/view-nha-long-1-v4-800w.webp 800w, ../assets/images/blog/view-nha-long-1-v4.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Quán nướng Đà Lạt view nhà lồng - biển đèn lung linh ban đêm" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-05-03">03/05/2026</time><span class="blog-category">View đẹp Đà Lạt</span></div>
+                            <h2><a href="../blog/quan-nuong-da-lat-view-nha-long.html">Quán Nướng Đà Lạt View Nhà Lồng — Ngắm &quot;Biển Sao&quot; Thung Lũng Lung Linh Về Đêm</a></h2>
+                            <p>Tiệm Nướng Trạm Dừng Chill nằm trên đồi cao nhìn thẳng xuống thung lũng nhà lồng — nơi 3 khoảnh khắc hoàng hôn, xe lửa, biển sao nối nhau trong một tối.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/view-hoang-hon-1-v2.webp" srcset="../assets/images/blog/view-hoang-hon-1-v2-400w.webp 400w, ../assets/images/blog/view-hoang-hon-1-v2-800w.webp 800w, ../assets/images/blog/view-hoang-hon-1-v2.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Lẩu nướng Đà Lạt mùa lạnh - ấm bụng giữa sương phố núi" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-04-15">15/04/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
+                            <h2><a href="../blog/lau-nuong-da-lat-mua-lanh.html">Lẩu Nướng Đà Lạt Mùa Lạnh — Combo Ấm Bụng, View Sương Mù &amp; Xe Lửa</a></h2>
+                            <p>Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù &amp; xe lửa, hơn 7.060 đánh giá 4.8 sao.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="1200" src="../assets/images/blog/mon-nuong-1.webp" srcset="../assets/images/blog/mon-nuong-1-400w.webp 400w, ../assets/images/blog/mon-nuong-1-800w.webp 800w, ../assets/images/blog/mon-nuong-1.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Lịch trình du lịch Đà Lạt 3 ngày 2 đêm - nướng BBQ ngắm hoàng hôn" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-04-14">14/04/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
+                            <h2><a href="../blog/lich-trinh-da-lat-3-ngay-2-dem.html">Lịch Trình Du Lịch Đà Lạt 3 Ngày 2 Đêm — Trọn Vẹn Từ A Đến Z</a></h2>
+                            <p>Lịch trình du lịch Đà Lạt 3 ngày 2 đêm chi tiết theo từng buổi: sáng đặc sản, chiều cafe, tối nướng BBQ ngắm hoàng hôn + xe lửa cổ tại Trạm Dừng Chill.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/view-nha-long-1-v2.webp" srcset="../assets/images/blog/view-nha-long-1-v2-400w.webp 400w, ../assets/images/blog/view-nha-long-1-v2-800w.webp 800w, ../assets/images/blog/view-nha-long-1-v2.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Cắm trại Đà Lạt - BBQ ngoài trời giữa rừng thông" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-04-10">10/04/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
+                            <h2><a href="../blog/cam-trai-da-lat.html">Cắm Trại Đà Lạt 2026 — 5 Khu Vực Camping Đẹp Và Kinh Nghiệm Đi Thực Tế</a></h2>
+                            <p>Cắm trại Đà Lạt nên đi mùa nào, cắm ở đâu? 5 khu vực đẹp quanh hồ Tuyền Lâm, Langbiang, suối Vàng, Cầu Đất và Trại Mát, kèm đồ cần mang và kinh nghiệm giữ ấm đêm lạnh.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="900" src="../assets/images/blog/mon-nuong-2.webp" srcset="../assets/images/blog/mon-nuong-2-400w.webp 400w, ../assets/images/blog/mon-nuong-2-800w.webp 800w, ../assets/images/blog/mon-nuong-2.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Đặc sản Đà Lạt mua về - thịt nướng và sốt đặc biệt" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-04-08">08/04/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
+                            <h2><a href="../blog/dac-san-da-lat-mua-ve.html">Đặc Sản Đà Lạt Mua Về Làm Quà: 10 Món Nên Mua Và Cách Chọn Không Bị Hớ</a></h2>
+                            <p>Đi Đà Lạt về nên mua gì? 10 đặc sản Đà Lạt mua về làm quà — mứt, hồng treo gió, dâu tây, cà phê Cầu Đất, trà atisô — kèm cách chọn và cách giữ quà không hỏng dọc đường.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/view-hoang-hon-21.webp" srcset="../assets/images/blog/view-hoang-hon-21-400w.webp 400w, ../assets/images/blog/view-hoang-hon-21-800w.webp 800w, ../assets/images/blog/view-hoang-hon-21.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Đà Lạt mùa nào đẹp nhất - hoàng hôn vàng trên thung lũng" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-04-04">04/04/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
+                            <h2><a href="../blog/da-lat-mua-nao-dep-nhat.html">Đà Lạt Mùa Nào Đẹp Nhất? Hướng Dẫn Chọn Thời Điểm Đi Theo Từng Tháng</a></h2>
+                            <p>Đà Lạt đẹp quanh năm, nhưng mùa khô (tháng 11–4) là lý tưởng nhất để ngồi ngoài trời ngắm hoàng hôn, săn tàu lửa và nướng BBQ tại Trạm Dừng Chill.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card" lang="en">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/view-nha-long-1-v3.webp" srcset="../assets/images/blog/view-nha-long-1-v3-400w.webp 400w, ../assets/images/blog/view-nha-long-1-v3-800w.webp 800w, ../assets/images/blog/view-nha-long-1-v3.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Best BBQ restaurant Da Lat - sunset view grilled BBQ outdoor" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-04-03">03/04/2026</time><span class="blog-category">English</span></div>
+                            <h2><a href="../blog/da-lat-cho-nguoi-nuoc-ngoai.html">Best BBQ Restaurant in Da Lat for Foreign Tourists — A Local Guide</a></h2>
+                            <p>A local owner&#39;s honest guide to the best BBQ in Da Lat for tourists: triple-view dining, a clear photo-and-price menu, real prices in USD, and how to book.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/view-nha-long-1.webp" srcset="../assets/images/blog/view-nha-long-1-400w.webp 400w, ../assets/images/blog/view-nha-long-1-800w.webp 800w, ../assets/images/blog/view-nha-long-1.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Team building Đà Lạt - nhóm bạn nướng BBQ ngoài trời" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-03-29">29/03/2026</time><span class="blog-category">Trải nghiệm</span></div>
+                            <h2><a href="../blog/team-building-da-lat.html">Team Building Đà Lạt: Quán Nướng View Đẹp Cho Nhóm Đông, Đặt Bàn Trước</a></h2>
+                            <p>Tìm địa điểm team building Đà Lạt cho nhóm đông? Tiệm Nướng Trạm Dừng Chill có bàn lớn, view xe lửa + hoàng hôn + biển sao, giá 95K–300K/người.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="900" height="1200" src="../assets/images/blog/view-xe-lua-11b.webp" srcset="../assets/images/blog/view-xe-lua-11b-400w.webp 400w, ../assets/images/blog/view-xe-lua-11b-800w.webp 800w, ../assets/images/blog/view-xe-lua-11b.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt - Trạm Dừng Chill Đà Lạt" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Trải nghiệm</span></div>
+                            <h2><a href="../blog/nuong-bbq-ngam-xe-lua.html">Nướng BBQ Ngắm Tàu Lửa Đà Lạt — Trải Nghiệm Chỉ Có Tại Trạm Dừng Chill</a></h2>
+                            <p>Vừa nướng BBQ vừa ngắm đoàn tàu lửa cổ Đà Lạt – Trại Mát chạy ngang trên đường tàu dưới chân quán — trải nghiệm chỉ có tại Trạm Dừng Chill, 4.8 sao Google.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="900" src="../assets/images/blog/view-nha-long-4.webp" srcset="../assets/images/blog/view-nha-long-4-400w.webp 400w, ../assets/images/blog/view-nha-long-4-800w.webp 800w, ../assets/images/blog/view-nha-long-4.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Date Night Đà Lạt - Trạm Dừng Chill Đà Lạt" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Hẹn hò &amp; Sinh nhật</span></div>
+                            <h2><a href="../blog/hen-ho-da-lat.html">Quán Hẹn Hò Lãng Mạn Đà Lạt — Date Night Nướng BBQ Ngắm Tàu Lửa &amp; Biển Sao Nhà Lồng</a></h2>
+                            <p>Tìm quán hẹn hò lãng mạn Đà Lạt cho buổi date night? Trạm Dừng Chill: bàn riêng view thung lũng, 3 khoảnh khắc hoàng hôn — tàu lửa — biển sao, setup miễn phí.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="900" src="../assets/images/blog/mon-nuong-4.webp" srcset="../assets/images/blog/mon-nuong-4-400w.webp 400w, ../assets/images/blog/mon-nuong-4-800w.webp 800w, ../assets/images/blog/mon-nuong-4.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Quán ăn Đà Lạt cho gia đình - bàn nướng BBQ ấm cúng ngoài trời" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Quán nướng Đà Lạt</span></div>
+                            <h2><a href="../blog/quan-an-gia-dinh-da-lat.html">Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé</a></h2>
+                            <p>Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-card-img"><img width="1200" height="900" src="../assets/images/blog/mon-nuong-4-v7.webp" srcset="../assets/images/blog/mon-nuong-4-v7-400w.webp 400w, ../assets/images/blog/mon-nuong-4-v7-800w.webp 800w, ../assets/images/blog/mon-nuong-4-v7.webp 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="Ăn nướng Đà Lạt bao nhiêu tiền - bảng giá menu BBQ chi tiết" loading="lazy"></div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Quán nướng Đà Lạt</span></div>
+                            <h2><a href="../blog/an-nuong-da-lat-bao-nhieu-tien.html">Ăn Nướng Đà Lạt Bao Nhiêu Tiền? Bảng Giá Menu Chi Tiết</a></h2>
+                            <p>Ăn nướng Đà Lạt thường 95.000đ–300.000đ/người. Tại Trạm Dừng Chill có bảng giá ~81 món minh bạch, view xe lửa + hoàng hôn, giá đã gồm VAT.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- TAC_GIA_NOI_DUNG:END -->
+
+        <section class="author-cta">
+            <div class="container">
+                <p>Tiệm Nướng Trạm Dừng Chill · 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt · Mở cửa 15:00 – 23:00 hằng ngày</p>
+                <div class="author-cta-buttons">
+                    <a class="btn btn-golden" href="../index.html#booking">Đặt bàn</a>
+                    <a class="author-cta-link" href="../menu.html">Xem thực đơn →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- FOOTER:START — sinh bởi scripts/generate-footer.js, ĐỪNG sửa tay -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Trạm Dừng Chill</h3>
+                    <p data-i18n="footer.desc">Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ, đợi hoàng hôn buông và nhà lồng lên đèn lung linh.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/tiemnuongtramdungchill" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="https://www.tiktok.com/@tiemnuongtramdungchill" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.19a8.16 8.16 0 0 0 4.29 1.2V6.69z"/></svg></a>
+                        <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" aria-label="Google Maps" title="Google Maps"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4 data-i18n="footer.link.title">Liên kết</h4>
+                    <ul>
+                        <li><a href="../index.html" data-home-href="#home" data-i18n="nav.home">Trang chủ</a></li>
+                        <li><a href="../index.html#experience" data-home-href="#experience" data-i18n="nav.experience">Trải nghiệm</a></li>
+                        <li><a href="../menu.html" data-i18n="nav.menu">Menu</a></li>
+                        <li><a href="../index.html#gallery" data-home-href="#gallery" data-i18n="nav.gallery">Không gian</a></li>
+                        <li><a href="../blog.html" data-i18n="nav.blog">Blog</a></li>
+                        <li><a href="../index.html#booking" data-home-href="#booking" data-i18n="nav.booking">Đặt bàn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 data-i18n="footer.occasion.title">Dịp đặc biệt</h4>
+                    <ul>
+                        <li><a href="../dip/san-tau-da-lat.html" data-i18n="footer.occasion.train">Săn tàu Đà Lạt</a></li>
+                        <li><a href="../dip/sinh-nhat.html" data-i18n="footer.occasion.birthday">Tổ chức sinh nhật</a></li>
+                        <li><a href="../dip/cau-hon-hen-ho.html" data-i18n="footer.occasion.date">Cầu hôn &amp; hẹn hò</a></li>
+                        <li><a href="../dip/team-building.html" data-i18n="footer.occasion.team">Team building</a></li>
+                        <li><a href="../duong-di/" data-i18n="footer.occasion.directions">Đường đi &amp; bản đồ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contact.title">Liên hệ</h4>
+                    <ul>
+                        <li><a href="tel:0989765070">0989.765.070</a></li>
+                        <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>
+                        <li data-i18n="footer.hours.value">15:00 - 23:00 hàng ngày</li>
+                        <li><a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" data-i18n="footer.address">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">© 2026 Tiệm Nướng Trạm Dừng Chill. Đà Lạt, Việt Nam.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER:END -->
+    <noscript>
+        <div style="background:#1A1612;padding:24px 16px;text-align:center;color:#8B7D6B;font-size:0.85rem;">
+            <p>Tiệm Nướng Trạm Dừng Chill — 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt · <a href="tel:0989765070" style="color:#D4A853;">0989.765.070</a> · 15:00–23:00 hằng ngày</p>
+            <p style="margin-top:8px;">
+                <a href="/menu.html" style="color:#D4A853;margin:0 6px;">Thực đơn</a> ·
+                <a href="/blog.html" style="color:#D4A853;margin:0 6px;">Blog</a> ·
+                <a href="/duong-di/" style="color:#D4A853;margin:0 6px;">Đường đi</a> ·
+                <a href="/dip/san-tau-da-lat.html" style="color:#D4A853;margin:0 6px;">Săn tàu Đà Lạt</a> ·
+                <a href="/dip/sinh-nhat.html" style="color:#D4A853;margin:0 6px;">Sinh nhật</a> ·
+                <a href="/dip/cau-hon-hen-ho.html" style="color:#D4A853;margin:0 6px;">Cầu hôn</a> ·
+                <a href="/dip/team-building.html" style="color:#D4A853;margin:0 6px;">Team building</a>
+            </p>
+        </div>
+    </noscript>
+
+    <!-- Data Files -->
+    <script defer src="../data/site-config.js?v=1d1a31a8"></script>
+    <script defer src="../data/translations.js?v=4282c65f"></script>
+
+    <!-- Bundled & Minified JS (includes layout-loader) -->
+    <script defer src="../dist/common.min.js?v=78bc83f6"></script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
+    <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');</script>
+
+    <!-- Meta Pixel -->
+    <script type="text/plain" data-tdc-lazy>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1281459450582041');
+    fbq('track','PageView');
+    </script>
+    <noscript><img alt="" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1281459450582041&ev=PageView&noscript=1"/></noscript>
+    <!-- TikTok Pixel Code Start -->
+    <script type="text/plain" data-tdc-lazy>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+      ttq.load('D7IFUA3C77U3A048FDR0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+</body>
+</html>

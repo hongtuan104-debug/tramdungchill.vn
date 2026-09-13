@@ -66,6 +66,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/duong-di/"/>
   </url>
   <url>
+    <loc>https://tramdungchill.vn/tac-gia/nguyen-duy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tramdungchill.vn/tac-gia/nguyen-duy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tramdungchill.vn/tac-gia/nguyen-duy.html"/>
+  </url>
+  <url>
     <loc>https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html</loc>
     <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>

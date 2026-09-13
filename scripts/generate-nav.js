@@ -40,6 +40,15 @@ const targets = [
     { file: "duong-di/index.html", page: "duong-di", prefix: "../" }
 ];
 
+// Trang tác giả (13/09/2026, tac-gia/<slug>.html): vỏ viết tay như duong-di, nav
+// nướng sẵn. Không mục nào trên nav trỏ tới nên không tô active — chỉ báo vị trí
+// là breadcrumb (do generate-blog-pages.js sinh).
+if (fs.existsSync(path.join(ROOT, "tac-gia"))) {
+    for (const name of fs.readdirSync(path.join(ROOT, "tac-gia"))) {
+        if (name.endsWith(".html")) targets.push({ file: "tac-gia/" + name, page: "tac-gia", prefix: "../" });
+    }
+}
+
 /* Giữ nguyên thứ tự của fixLinksIn: data-home-href TRƯỚC, rồi mới thêm ../ */
 function buildNav(t) {
     let html = NAV_SRC;

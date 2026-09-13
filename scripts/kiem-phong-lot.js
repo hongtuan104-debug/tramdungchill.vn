@@ -192,7 +192,8 @@ const want = {
     "Playfair Fallback": ratio(playfair, georgia, corpus) * MARGIN
 };
 
-const FILES = ["css/style.css", "index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html"];
+const FILES = ["css/style.css", "index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html",
+    "tac-gia/nguyen-duy.html"];
 let bad = 0;
 console.log("Bo so size-adjust tinh lai tu phong + chu hien tai:\n");
 

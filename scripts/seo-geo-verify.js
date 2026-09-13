@@ -34,7 +34,8 @@ const files = allHtml(ROOT);
 const KEY_PAGES = [
     "index.html", "menu.html", "blog.html", "duong-di/index.html",
     "dip/san-tau-da-lat.html", "dip/sinh-nhat.html",
-    "dip/team-building.html", "dip/cau-hon-hen-ho.html"
+    "dip/team-building.html", "dip/cau-hon-hen-ho.html",
+    "tac-gia/nguyen-duy.html"
 ];
 
 const results = [];
@@ -244,7 +245,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         "dip/san-tau-da-lat.html": ["WebPage", "BreadcrumbList", "FAQPage"],
         "dip/sinh-nhat.html": ["WebPage", "BreadcrumbList", "Service", "FAQPage"],
         "dip/team-building.html": ["WebPage", "BreadcrumbList", "FAQPage"],
-        "dip/cau-hon-hen-ho.html": ["WebPage", "BreadcrumbList", "FAQPage"]
+        "dip/cau-hon-hen-ho.html": ["WebPage", "BreadcrumbList", "FAQPage"],
+        "tac-gia/nguyen-duy.html": ["ProfilePage", "BreadcrumbList"]
     };
     const bad = [];
     for (const [p, want] of Object.entries(EXPECTED)) {
@@ -276,7 +278,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     const ID_QUAN = "https://tramdungchill.vn/#restaurant";
     const TRANG = ["index.html", "menu.html", "blog.html", "duong-di/index.html",
         "dip/sinh-nhat.html", "dip/team-building.html", "dip/cau-hon-hen-ho.html",
-        "dip/san-tau-da-lat.html", "blog/top-quan-nuong-da-lat.html"];
+        "dip/san-tau-da-lat.html", "blog/top-quan-nuong-da-lat.html", "tac-gia/nguyen-duy.html"];
     const bad = [];
     for (const p of TRANG) {
         const abs = path.join(ROOT, p);
@@ -457,6 +459,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     const soLe = (x) => (String(x).split(".")[1] || "").length;
     const coChu = (x) => typeof x === "string" && x.trim().length > 0;
     const videoDaGap = new Map(); // name/description -> @id: Google cần mỗi video một tên, một mô tả riêng
+    const hoSo = new Map();       // @id của mainEntity trên trang ProfilePage -> đường dẫn trang
+    const tacGiaTro = [];         // author.url khai trong bài viết, đối chiếu sau vòng lặp
 
     for (const f of files) {
         const p = rel(f);
@@ -520,6 +524,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                 if (Date.parse(j.dateModified) < Date.parse(j.datePublished)) bad.push(p + ": dateModified trước datePublished");
                 const tacGia = [].concat(j.author || []);
                 if (!tacGia.length || tacGia.some((x) => !coChu(x.name))) bad.push(p + ": " + t + " thiếu author.name");
+                tacGia.filter((x) => x.url).forEach((x) => tacGiaTro.push({ p: p, id: x["@id"], url: x.url }));
             }
 
             // (e) BreadcrumbList: position chạy 1..n, có name, có item (trừ chặng cuối)
@@ -536,6 +541,16 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             // (f) FAQPage tối thiểu
             if (t === "FAQPage" && [].concat(j.mainEntity || []).some((q) => !coChu(q.name) || !coChu((q.acceptedAnswer || {}).text))) {
                 bad.push(p + ": FAQPage có câu thiếu name hoặc acceptedAnswer.text");
+            }
+
+            // (h) ProfilePage (trang tác giả): mainEntity phải là Person/Organization có name
+            if (t === "ProfilePage") {
+                const me = j.mainEntity || {};
+                if (!/Person|Organization/.test([].concat(me["@type"] || []).join(",")) || !coChu(me.name)) {
+                    bad.push(p + ": ProfilePage thiếu mainEntity Person/Organization có name");
+                } else if (me["@id"]) {
+                    hoSo.set(me["@id"], p);
+                }
             }
 
             // (g) AggregateRating / Review ở mọi cấp lồng
@@ -558,7 +573,15 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         }
     }
 
-    add("Schema đủ thuộc tính Google cần (LocalBusiness/Video/Article/Breadcrumb/Rating)",
+    // (i) author.url phải trỏ trang có thật, và trang đó là ProfilePage của ĐÚNG người
+    //     (@id khớp) — trỏ nhầm trang hay trang bị xoá thì Google mất mối nối tác giả.
+    for (const x of tacGiaTro) {
+        const duoi = x.url.replace("https://tramdungchill.vn/", "");
+        if (!fs.existsSync(path.join(ROOT, duoi))) bad.push(x.p + ": author.url trỏ trang không tồn tại " + duoi);
+        else if (!x.id || hoSo.get(x.id) !== duoi) bad.push(x.p + ": author @id không khớp ProfilePage trên " + duoi);
+    }
+
+    add("Schema đủ thuộc tính Google cần (LocalBusiness/Video/Article/Breadcrumb/Rating/Profile)",
         bad.length === 0,
         bad.length ? bad.slice(0, 4).join(" | ") + (bad.length > 4 ? " … +" + (bad.length - 4) + " lỗi nữa" : "")
                    : soTrang + " trang index · " + Object.entries(dem).map(([k, v]) => k + " " + v).join(", ")

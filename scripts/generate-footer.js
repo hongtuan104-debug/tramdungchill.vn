@@ -168,6 +168,15 @@ for (const name of fs.readdirSync(path.join(ROOT, "dip"))) {
     }
 }
 
+// Trang tác giả (13/09/2026): khuôn duong-di — có nút EN/VI nên mode i18n, footer nướng sẵn.
+if (fs.existsSync(path.join(ROOT, "tac-gia"))) {
+    for (const name of fs.readdirSync(path.join(ROOT, "tac-gia"))) {
+        if (name.endsWith(".html")) {
+            targets.push({ file: "tac-gia/" + name, prefix: "../", mode: "i18n", baked: true });
+        }
+    }
+}
+
 function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 /* Trang nướng tĩnh (baked) KHÔNG có layout-loader chạy sau, nên phải tự áp dụng
    đúng phép biến đổi mà fixLinksIn() làm lúc chạy. Tiền tố thư mục đã do

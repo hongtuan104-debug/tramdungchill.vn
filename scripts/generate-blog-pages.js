@@ -167,7 +167,11 @@ function blogPostingSchema(article, excerptClean) {
     var author = article._author
         ? {
             "@type": "Person",
+            // Có trang tác giả (tac-gia/<slug>.html) thì neo @id + url vào đó —
+            // Google khuyến nghị author.url là "trang định danh duy nhất tác giả".
+            "@id": article._authorPage ? article._authorPage.url + "#person" : undefined,
             "name": article._author.name,
+            "url": article._authorPage ? article._authorPage.url : undefined,
             "jobTitle": article._author.role || undefined,
             "worksFor": QUAN()
         }
@@ -290,7 +294,139 @@ function bylineHtml(article) {
         return ' <span class="blog-byline">✍️ ' + ui(article).byline + '</span>';
     }
     var role = article._author.role ? ' · ' + htmlEncode(article._author.role) : "";
-    return ' <span class="blog-byline">✍️ ' + htmlEncode(article._author.name) + role + '</span>';
+    var ten = htmlEncode(article._author.name);
+    if (article._authorPage) {
+        ten = '<a href="../tac-gia/' + article._authorPage.slug + '.html" rel="author">' + ten + '</a>';
+    }
+    return ' <span class="blog-byline">✍️ ' + ten + role + '</span>';
+}
+
+// ---- Trang tác giả (13/09/2026) ----------------------------------------
+// Vì sao: Google khuyến nghị author.url cho Article — "một trang định danh duy
+// nhất tác giả". Trước hôm nay 18 bài đang index ghi tác giả Nguyễn Duy mà
+// không trỏ đi đâu. Vỏ trang (CSS, pixel, nav/footer) viết tay trong
+// tac-gia/<slug>.html; máy chỉ điền hai vùng có mốc để danh sách bài luôn khớp nguồn:
+//   TAC_GIA_JSONLD   → ProfilePage + BreadcrumbList
+//   TAC_GIA_NOI_DUNG → breadcrumb + tên/vai trò + thẻ bài
+// ⚠️ KHÔNG khai dateModified: scripts/cap-nhat-lastmod.js ghi đè mọi "dateModified"
+//    của trang trong sitemap — generator mà cũng ghi thì hai máy giật ngày qua lại
+//    (đúng loại lỗi R13b canh). Ngày tạo đọc từ chính mốc START (ngayTao=...).
+// ⚠️ Tiểu sử KHÔNG tự viết — chỉ tên, vai trò (data/blog-seo.js) và bài có thật.
+function dienTrangTacGia(tg) {
+    var bai = tg.bai
+        .filter(function (a) { return a._indexable !== false && a.date <= TODAY; })
+        .sort(function (a, b) { return b.date.localeCompare(a.date); });
+    // Tên + vai trò chuẩn lấy ở bài tiếng Việt; tên không dấu của bài tiếng Anh
+    // thành alternateName (cùng một người, cùng một @id).
+    var goc = tg.bai.filter(function (a) { return a._lang !== "en"; })[0] || tg.bai[0];
+    var ten = goc._author.name;
+    var vaiTro = goc._author.role || "";
+    var tenKhac = tg.bai.map(function (a) { return a._author.name; })
+        .filter(function (n, i, arr) { return n !== ten && arr.indexOf(n) === i; });
+
+    var html = fs.readFileSync(tg.file, "utf8");
+    var reJson = /(<!-- TAC_GIA_JSONLD:START[^>]*-->)[\s\S]*?(<!-- TAC_GIA_JSONLD:END -->)/;
+    var reNoiDung = /(<!-- TAC_GIA_NOI_DUNG:START[^>]*-->)[\s\S]*?(<!-- TAC_GIA_NOI_DUNG:END -->)/;
+    var mocJson = html.match(reJson);
+    if (!mocJson || !reNoiDung.test(html)) {
+        throw new Error("tac-gia/" + tg.slug + ".html thiếu mốc TAC_GIA_JSONLD hoặc TAC_GIA_NOI_DUNG");
+    }
+    var ngayTao = (mocJson[1].match(/ngayTao=(\d{4}-\d{2}-\d{2})/) || [])[1];
+
+    var profile = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "@id": tg.url + "#webpage",
+        "url": tg.url,
+        "name": ten + " — Tác giả blog Trạm Dừng Chill",
+        "dateCreated": ngayTao,
+        "inLanguage": "vi",
+        "isPartOf": {
+            "@type": "WebSite",
+            "@id": SITE_URL + "/#website",
+            "name": "Tiệm Nướng Trạm Dừng Chill",
+            "url": SITE_URL + "/"
+        },
+        "mainEntity": {
+            "@type": "Person",
+            "@id": tg.url + "#person",
+            "name": ten,
+            "alternateName": tenKhac.length ? tenKhac : undefined,
+            "jobTitle": vaiTro || undefined,
+            "description": (vaiTro ? vaiTro + ", " : "") + "tác giả " + bai.length + " bài viết trên blog của quán.",
+            "url": tg.url,
+            "worksFor": QUAN(),
+            "agentInteractionStatistic": {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/WriteAction",
+                "userInteractionCount": bai.length
+            }
+        }
+    }, null, 4);
+    // Tên chặng phải trùng từng chữ với breadcrumb hiển thị bên dưới (R7c mục e)
+    var breadcrumb = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": SITE_URL + "/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": SITE_URL + "/blog.html" },
+            { "@type": "ListItem", "position": 3, "name": ten, "item": tg.url }
+        ]
+    }, null, 4);
+    var khoiJson = '\n    <script type="application/ld+json">\n    ' + profile.replace(/\n/g, "\n    ") +
+        '\n    </script>\n    <script type="application/ld+json">\n    ' + breadcrumb.replace(/\n/g, "\n    ") +
+        '\n    </script>\n    ';
+
+    // Thẻ bài: đúng khuôn .blog-card mà js/blog-renderer.js dựng trên blog.html
+    var the = bai.map(function (a) {
+        var anh = "../" + a.image;
+        var coFile = function (duoi) { return fs.existsSync(path.join(ROOT, a.image.replace(/\.(jpg|webp)$/i, duoi))); };
+        var srcset = coFile("-400w.webp") && coFile("-800w.webp")
+            ? ' srcset="' + anh.replace(/\.(jpg|webp)$/i, "-400w.webp") + ' 400w, ' +
+              anh.replace(/\.(jpg|webp)$/i, "-800w.webp") + ' 800w, ' + anh + ' 1200w"' +
+              ' sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px"'
+            : "";
+        return '                    <article class="blog-card"' + (a._lang === "en" ? ' lang="en"' : "") + '>\n' +
+            '                        <div class="blog-card-img"><img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.imageAlt || a.title) + '" loading="lazy"></div>\n' +
+            '                        <div class="blog-card-content">\n' +
+            '                            <div class="blog-meta"><time datetime="' + a.date + '">' + formatDateVI(a.date) + '</time><span class="blog-category">' + htmlEncode(a.category) + '</span></div>\n' +
+            '                            <h2><a href="../blog/' + a.id + '.html">' + htmlEncode(a.title) + '</a></h2>\n' +
+            '                            <p>' + htmlEncode(truncate(stripHtml(a.excerpt || ""), 180)) + '</p>\n' +
+            '                        </div>\n' +
+            '                    </article>';
+    }).join("\n");
+
+    var noiDung = '\n' +
+        '        <nav class="breadcrumb" aria-label="Breadcrumb">\n' +
+        '            <div class="container">\n' +
+        '                <ol>\n' +
+        '                    <li><a href="../index.html"><span>Trang chủ</span></a></li>\n' +
+        '                    <li><a href="../blog.html"><span>Blog</span></a></li>\n' +
+        '                    <li><span aria-current="page">' + htmlEncode(ten) + '</span></li>\n' +
+        '                </ol>\n' +
+        '            </div>\n' +
+        '        </nav>\n' +
+        '        <section class="author-hero">\n' +
+        '            <div class="container">\n' +
+        '                <span class="author-tag">Tác giả</span>\n' +
+        '                <h1>' + htmlEncode(ten) + '</h1>\n' +
+        (vaiTro ? '                <p class="author-role">' + htmlEncode(vaiTro) + '</p>\n' : '') +
+        '                <p class="author-meta">' + bai.length + ' bài viết trên blog Trạm Dừng Chill</p>\n' +
+        '            </div>\n' +
+        '        </section>\n' +
+        '        <section class="author-posts" aria-label="Bài viết của ' + htmlEncode(ten) + '">\n' +
+        '            <div class="container">\n' +
+        '                <div class="blog-grid">\n' + the + '\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </section>\n        ';
+
+    // Hàm thay thế (không dùng chuỗi) để ký tự $ trong nội dung không bị hiểu thành mẫu
+    var moi = html
+        .replace(reJson, function (m, dau, cuoi) { return dau + khoiJson + cuoi; })
+        .replace(reNoiDung, function (m, dau, cuoi) { return dau + noiDung + cuoi; });
+    if (moi !== html) fs.writeFileSync(tg.file, moi, "utf8");
+    console.log("Trang tác giả tac-gia/" + tg.slug + ".html: " + bai.length + " bài");
 }
 
 function breadcrumbSchema(article) {
@@ -427,6 +563,19 @@ try {
             a._canonical = SITE_URL + "/blog/" + a.id + ".html";
         }
     });
+    // Gắn trang tác giả cho bài có _author — xem dienTrangTacGia(). Chỉ gắn khi file
+    // tac-gia/<slug>.html ĐÃ có: máy không tự đẻ trang, vỏ trang do người viết.
+    var tacGia = {};
+    articles.forEach(function (a) {
+        if (!a._author || !a._author.name) return;
+        var slug = slugTiengViet(a._author.name);   // "Nguyễn Duy" và "Nguyen Duy" cùng ra nguyen-duy
+        var file = path.join(ROOT, "tac-gia", slug + ".html");
+        if (!fs.existsSync(file)) return;
+        if (!tacGia[slug]) tacGia[slug] = { slug: slug, file: file, url: SITE_URL + "/tac-gia/" + slug + ".html", bai: [] };
+        a._authorPage = tacGia[slug];
+        tacGia[slug].bai.push(a);
+    });
+
     var idxCount = articles.filter(function (a) { return a._indexable; }).length;
     console.log("Sau gộp SEO: " + articles.length + " bài (" + Object.keys(pillars).length + " trụ cột, " + Object.keys(noindexMap).length + " bài noindex, " + idxCount + " bài index được)");
 
@@ -623,6 +772,10 @@ try {
     console.log("Generated " + generated + " blog pages in blog/");
     if (errors > 0) console.error(errors + " errors encountered");
 
+    // Trang tác giả: điền SAU khi dựng bài (dùng chung _indexable/_lang), TRƯỚC
+    // chen-kich-thuoc-anh + toi-uu-tai-trang ở cuối để ảnh và vân tay được lo luôn.
+    Object.keys(tacGia).forEach(function (slug) { dienTrangTacGia(tacGia[slug]); });
+
     // Regenerate sitemap.xml
     console.log("Regenerating sitemap.xml...");
 
@@ -652,7 +805,10 @@ try {
         { loc: "/dip/team-building.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" }
         // review-qr.html là noindex,nofollow (trang tiện ích QR) → KHÔNG đưa vào sitemap.
-    ].map(function (p) {
+    ].concat(Object.keys(tacGia).sort().map(function (slug) {
+        // Trang tác giả index được → phải có trong sitemap (R12 canh cả hai chiều)
+        return { loc: "/tac-gia/" + slug + ".html", lastmod: TODAY, changefreq: "monthly", priority: "0.5" };
+    })).map(function (p) {
         return Object.assign({}, p, { lastmod: lastmodDangCo[p.loc] || p.lastmod });
     });
 
