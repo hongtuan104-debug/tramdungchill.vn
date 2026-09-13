@@ -383,6 +383,18 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    `animate-fade-up` cho phần tử LCP** (kiểm phần tử LCP bằng PageSpeed trước khi thêm hiệu ứng vào hero).
    ⚠️ Lighthouse chạy trên máy làm việc KHÔNG dùng để chấm điểm được (TBT 2,7–12s so với 290ms của
    PageSpeed, kể cả bật GPU) — chỉ dùng so trước/sau cùng điều kiện; điểm thật phải lấy từ pagespeed.web.dev.
+   ⚠️ LCP trên PageSpeed (2,4s) cao hơn FCP (1,8s) là **LCP mô phỏng**: Chrome thật đo LCP = FCP ngay cả
+   khi giữ phông Dancing Script lại 3s (đo CDP 13/09). Lighthouse cộng mọi request bắt đầu trước khung
+   hình đầu vào LCP chứ không vào FCP — đừng săn "font swap" cho khoảng chênh này.
+
+20. **Giờ bật pixel ở đường hẹn giờ: tải xong + 6 giây** (sếp Tuấn duyệt 13/09/2026). Hai lượt PageSpeed
+   mobile cùng ngày, JS lúc tải không đổi: TBT 290ms rồi 840ms (24 → 10/30 điểm). Lighthouse ngừng ghi
+   ~1s sau khi mạng + CPU yên — sát mốc load + 2,5s cũ, nên pixel lúc lọt vào cửa sổ đo lúc không.
+   Nay `HOAN_SAU_LOAD = 6000` trong `js/lazy-tracking.js`. **Đừng kéo về 2,5s** "cho đỡ mất PageView":
+   khách chạm/cuộn vẫn bật ngay (bug #9), chỉ mất PageView người rời trang trong 2,5–6s mà không tương tác.
+   Cùng đợt: `initHeroParticles` (js/hero.js) đọc `window.innerWidth` lúc DOMContentLoaded gây "buộc chỉnh
+   lại luồng" 112ms → đổi sang `matchMedia` + hoãn tạo hạt tới lúc rảnh.
+   TikTok tự bắt click (INP 66–108ms/cú chạm): sếp chọn **để sau** (13/09/2026).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

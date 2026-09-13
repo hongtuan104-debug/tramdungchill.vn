@@ -8,8 +8,17 @@
    Cách làm: các khối pixel trong HTML để type="text/plain" nên trình duyệt KHÔNG
    chạy lúc tải trang. Đoạn này biến chúng thành <script> thật khi:
      - khách chạm / cuộn / bấm / gõ phím  (tương tác đầu tiên), HOẶC
-     - sau khi trang tải xong + 2,5 giây  (chốt chặn)
+     - sau khi trang tải xong + 6 giây    (chốt chặn — xem mục 13/09/2026)
    cái nào đến trước.
+
+   ── Sửa 13/09/2026: chốt chặn 2,5s → 6s (sếp Tuấn duyệt) ────────────────────
+   Hai lượt PageSpeed mobile cùng ngày, JS lúc tải không đổi: TBT 290ms rồi
+   840ms (24 → 10/30 điểm). Lighthouse ngừng ghi khoảng 1s sau khi mạng + CPU
+   yên, tức rơi đúng quanh mốc load + 2,5s cũ → lượt nào máy chủ đo tải chậm
+   hơn chút là cả bốn bundle pixel lọt vào cửa sổ đo. 6s để hẳn ra ngoài.
+   Khách thật gần như không đổi: chạm/cuộn vẫn bật ngay (đường tương tác bên
+   dưới). Chỉ mất PageView của người mở trang rồi rời đi trong 2,5–6s mà không
+   chạm, không cuộn. ĐỪNG kéo về 2,5s "cho đỡ mất PageView".
 
    ── Sửa 30/08/2026: giãn chốt chặn + bắn so le ──────────────────────────────
    Bản cũ đặt setTimeout(batPixel, 3000) tính từ lúc parse, rồi bật CẢ 5 script
@@ -28,13 +37,13 @@
    Vì sao vẫn giữ được dữ liệu marketing:
    - Mọi hành vi đáng giá (đặt bàn, bấm gọi, mở Zalo, xem menu) đều CẦN tương
      tác — chạm đầu tiên bật pixel ngay, không qua chốt chặn.
-   - Khách ở lại quá (load + 2,5s) mà không chạm gì vẫn được ghi PageView.
+   - Khách ở lại quá (load + 6s) mà không chạm gì vẫn được ghi PageView.
    - Khách đóng tab sớm: 'pagehide' bắn nốt phần còn lại, bỏ qua giãn cách.
 
    Muốn quay lại cách cũ: bỏ type="text/plain" data-tdc-lazy trong HTML là xong,
    không cần gỡ file này. */
 (function () {
-    var HOAN_SAU_LOAD = 2500;   // ms, chốt chặn tính từ sự kiện 'load'
+    var HOAN_SAU_LOAD = 6000;   // ms, chốt chặn tính từ sự kiện 'load' (13/09/2026: 2500 → 6000)
     var daChay = false;
     var hangDoi = null;
 
