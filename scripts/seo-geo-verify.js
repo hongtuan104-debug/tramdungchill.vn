@@ -1551,32 +1551,37 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                     : "răng cưa là của tuyến gốc qua đèo, đoạn 7 km còn chạy thì không");
 }
 
-// ── R8l. Không tự xưng "quán duy nhất" / "chỉ có ở Trạm Dừng Chill" ──────
+// ── R8l. KHÔNG dùng chữ "duy nhất" / "số một" — ở bất kỳ đâu ────────────
 // Rà E-E-A-T 13/09/2026 (checklist #208): 17 bài index giới thiệu quán số 113 kế
 // bên "cũng nhìn xuống thung lũng và ngắm được tàu" — có bài viết câu đó NGAY SAU
 // câu "quán nướng duy nhất ngắm trọn 3 view". Tuyên bố độc quyền mà chính trang
-// tự phủ nhận là nội dung thiếu tin cậy. "Hiếm có", "đặc biệt" thì được; cái bị
-// chặn là khẳng định không nơi nào khác có. Quét cả alt/title/meta content.
+// tự phủ nhận là nội dung thiếu tin cậy.
+// Cùng ngày SẾP TUẤN CHỐT RỘNG HƠN: không dùng chữ "duy nhất" hay "số một" ở đâu
+// cả — kể cả câu không tự xưng ("cách duy nhất", "tiêu chí số 1", "best-seller số 1",
+// "#1 rated") và kể cả bài noindex (khách vẫn mở đọc được). Viết lại câu, đừng lách
+// bằng từ đồng nghĩa: "độc nhất", "No.1", "top 1", "hạng 1" cũng bị chặn.
+// Quét: mọi trang HTML (cả noindex) + alt/title/meta + JSON-LD + dữ liệu gốc sinh bài.
 {
-    const TU_XUNG = /(quán|nhà hàng|tiệm|nơi|điểm|trải nghiệm|view)[^.!?]{0,40}(duy nhất|độc nhất)|chỉ có (ở|tại) (Trạm|quán)|only at Tram|one-of-a-kind|the only (bbq|restaurant|place|spot)/i;
+    const CAM = /duy nhất|độc nhất|số một|số 1(?!\d)|#1(?![\w-])|\btop ?1(?!\d)|hạng 1(?!\d)|\bno\.\s?1(?!\d)|number (?:one|1(?!\d))|chỉ có (?:ở|tại) (?:Trạm|quán)|only at Tram|one-of-a-kind|\bthe only\b/i;
+    const NGUON = [...files, ...["data/translations.js", "llms.txt", "data/blog-seo.js", "data/blog-data.js"]
+        .map((f) => path.join(ROOT, f))];
     const pham = [];
-    for (const f of [...files, path.join(ROOT, "data/translations.js"), path.join(ROOT, "llms.txt")]) {
+    for (const f of NGUON) {
         const tu = rel(f);
         let s = fs.readFileSync(f, "utf8");
-        if (tu.startsWith("components/")) continue;
-        if (/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(s)) continue;
+        if (f.endsWith(".js")) s = s.replace(/\/\*[\s\S]*?\*\//g, " ").replace(/^\s*\/\/.*$/gm, " ");
         const thuocTinh = [...s.matchAll(/\s(?:alt|content|title)="([^"]*)"/g)].map((m) => m[1] + ".").join(" ");
         s = s.replace(/<!--[\s\S]*?-->/g, " ")
              .replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/gi, " ")
              .replace(/<style[\s\S]*?<\/style>/gi, " ")
              .replace(/<[^>]+>/g, " ") + " " + thuocTinh;
-        for (const cau of s.split(/(?<=[.!?])\s+/)) {
-            if (TU_XUNG.test(cau)) pham.push(tu + " → " + cau.trim().replace(/\s+/g, " ").slice(0, 90));
+        for (const cau of s.split(/(?<=[.!?])\s+|\\n/)) {
+            if (CAM.test(cau)) pham.push(tu + " → " + cau.trim().replace(/\s+/g, " ").slice(0, 90));
         }
     }
-    add("Không tự xưng quán duy nhất / chỉ có ở Trạm Dừng Chill", pham.length === 0,
+    add("Không dùng chữ \"duy nhất\" / \"số một\" (sếp cấm 13/09/2026)", pham.length === 0,
         pham.length ? pham.length + " câu: " + pham.slice(0, 2).join(" | ")
-                    : "trang đang index không câu nào khẳng định độc quyền");
+                    : "mọi trang (cả noindex) + dữ liệu gốc sạch");
 }
 
 // ── R8m. Nhắc Xóm Lèo thì phải nói rõ là quán cùng chủ ──────────────────

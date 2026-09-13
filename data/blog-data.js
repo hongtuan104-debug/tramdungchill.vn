@@ -16,7 +16,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
                             <strong>Giờ mở cửa:</strong> 15:00 - 23:00 hàng ngày<br>
                             <strong>Giá:</strong> 95.000đ - 300.000đ/người</p>
-                            <p>Đây là quán nướng duy nhất ở Đà Lạt ngắm trọn 3 view trong một buổi, mở đầu bằng <strong>view ngắm xe lửa chạy ngang</strong> ngay dưới chân quán. Buổi chiều, bạn vừa nướng BBQ vừa ngắm hoàng hôn buông xuống thung lũng. Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh.</p>
+                            <p>Đây là quán nướng Đà Lạt ngắm trọn 3 view trong một buổi, mở đầu bằng <strong>view ngắm xe lửa chạy ngang</strong> ngay dưới chân quán. Buổi chiều, bạn vừa nướng BBQ vừa ngắm hoàng hôn buông xuống thung lũng. Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh.</p>
 
                                                         <p><strong>Điểm cộng:</strong> Setup sinh nhật & kỷ niệm MIỄN PHÍ, view 180° thoáng đãng, đặt bàn online xác nhận qua Zalo trong 15 phút.</p>
 <img src="assets/images/blog/view-hoang-hon-1.webp" alt="Top 7 Quán Nướng Đà Lạt View Đẹp Nhất - hoàng hôn thung lũng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -59,11 +59,11 @@ const BLOG_ARTICLES = [
                             <p>View hoàng hôn đẹp, phong cách hiện đại. Menu buffet nướng đa dạng. Giá từ 180.000đ/người.</p>
 
                             <h2>Kết luận</h2>
-                            <p>Nếu bạn muốn trải nghiệm nướng BBQ với <strong>view đẹp nhất Đà Lạt</strong>, hãy thử <a href="index.html">Trạm Dừng Chill</a> — nơi duy nhất có cả 3 view: xe lửa, hoàng hôn và biển sao nhà lồng. <a href="index.html#booking">Đặt bàn ngay</a> để được chọn vị trí đẹp nhất!</p>`
+                            <p>Nếu bạn muốn trải nghiệm nướng BBQ với <strong>view đẹp nhất Đà Lạt</strong>, hãy thử <a href="index.html">Trạm Dừng Chill</a> — nơi có đủ cả 3 view: xe lửa, hoàng hôn và biển sao nhà lồng. <a href="index.html#booking">Đặt bàn ngay</a> để được chọn vị trí đẹp nhất!</p>`
     },
     {
         id: "nuong-bbq-ngam-xe-lua",
-        title: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt — Chỉ Có Tại Trạm Dừng Chill",
+        title: "Trải Nghiệm Nướng BBQ Ngắm Xe Lửa Đà Lạt — Tàu Cổ Chạy Ngay Dưới Chân Quán",
         category: "Trải nghiệm",
         date: "2026-03-24",
         image: "assets/images/blog/view-xe-lua-11b.webp",
@@ -803,7 +803,7 @@ const BLOG_ARTICLES = [
 
 <h2>Xếp lịch cà phê theo giờ trong ngày</h2>
 <ul>
-<li><strong>6h–9h:</strong> kiểu ban công nhìn thung lũng — giờ duy nhất còn sương.</li>
+<li><strong>6h–9h:</strong> kiểu ban công nhìn thung lũng — giờ vẫn còn sương.</li>
 <li><strong>9h–12h:</strong> kiểu rừng thông hoặc nhà kính, nắng đẹp mà chưa gắt.</li>
 <li><strong>13h–16h:</strong> kiểu vườn dâu, kiểu vintage — hợp để ngồi lâu.</li>
 <li><strong>Sau 16h30:</strong> đổi sang chỗ nào có hướng tây để đón hoàng hôn.</li>
@@ -1505,7 +1505,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h3>2. Trà Gừng Mật Ong — Ấm bụng mùa lạnh</h3>
-                            <p>Thức uống ấm bụng số 1 khi <strong>ăn nướng Đà Lạt</strong> mùa lạnh. Gừng tươi Đà Lạt thơm cay nhẹ, kết hợp mật ong rừng — vừa ngon vừa tốt cho sức khoẻ.</p>
+                            <p>Thức uống ấm bụng khi <strong>ăn nướng Đà Lạt</strong> mùa lạnh. Gừng tươi Đà Lạt thơm cay nhẹ, kết hợp mật ong rừng — vừa ngon vừa tốt cho sức khoẻ.</p>
 <img src="assets/images/blog/view-nha-long-4.webp" alt="Đồ Uống Đà Lạt Ngon - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -1558,7 +1558,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Lần đầu đi Đà Lạt? Đây là 10 <strong>kinh nghiệm du lịch Đà Lạt</strong> thiết thực nhất — từ mang gì, ở đâu, ăn gì đến di chuyển ra sao. Đọc xong là yên tâm lên đường!",
         body: `<h2>1. Thời tiết Đà Lạt — Mang áo khoác dù mùa nào</h2>
-                            <p>Đà Lạt quanh năm 18-25°C ban ngày, nhưng đêm xuống 12-18°C. Dù đi mùa hè vẫn cần áo khoác! <strong>Kinh nghiệm du lịch Đà Lạt</strong> số 1: mang áo khoác dày + khăn choàng + áo mưa nhẹ.</p>
+                            <p>Đà Lạt quanh năm 18-25°C ban ngày, nhưng đêm xuống 12-18°C. Dù đi mùa hè vẫn cần áo khoác! <strong>Kinh nghiệm du lịch Đà Lạt</strong> quan trọng: mang áo khoác dày + khăn choàng + áo mưa nhẹ.</p>
 
                             <h3>2. Di chuyển đến Đà Lạt</h3>
                             <p><strong>Bay:</strong> Sân bay Liên Khương, từ Sài Gòn bay 50 phút, giá 500K-1.5 triệu.<br>
@@ -1948,7 +1948,7 @@ const BLOG_ARTICLES = [
 <li><strong>Khói ám quần áo.</strong> Ăn nướng than là chuyện không tránh được. Đừng mặc áo khoác len đẹp nhất, hoặc chuẩn bị mang đi giặt.</li>
 <li><strong>Lạnh sau 20h.</strong> Ngồi ngoài trời Đà Lạt buổi tối lạnh hơn con số trên điện thoại. Bếp than ấm phần trước mặt, còn lưng thì vẫn lạnh.</li>
 <li><strong>Đường về.</strong> Quán ngoại ô, đường tối và ít đèn. Nếu uống bia hoặc rượu thì đặt xe, đừng tự chạy.</li>
-<li><strong>Chỗ đẹp không giữ được.</strong> Phần lớn quán ở Đà Lạt, gồm cả Trạm Dừng Chill, không nhận giữ riêng bàn view — ai đến trước ngồi trước. Muốn chỗ ưng ý thì đi sớm, đó là cách duy nhất thật sự hiệu quả.</li>
+<li><strong>Chỗ đẹp không giữ được.</strong> Phần lớn quán ở Đà Lạt, gồm cả Trạm Dừng Chill, không nhận giữ riêng bàn view — ai đến trước ngồi trước. Muốn chỗ ưng ý thì đi sớm, đó là cách thật sự hiệu quả.</li>
 </ul>
 
 <h2>Kết luận</h2>
@@ -2160,7 +2160,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "<strong>Đà Lạt về đêm đi đâu</strong> là câu hỏi phổ biến của du khách. Thành phố sương mù không ngủ sớm — đây là 8 hoạt động thú vị sau 20h cho chuyến đi 2026.",
         body: `<h2>1. Nướng BBQ ngắm biển sao nhà lồng</h2>
-                            <p>Highlight số 1 của <strong>Đà Lạt về đêm</strong>! Tại <a href="index.html">Trạm Dừng Chill</a>, sau 18:30 hàng ngàn nhà lồng đồng loạt lên đèn, tạo nên biển sao lung linh giữa thung lũng. Vừa nướng BBQ nóng hổi, vừa ngắm view đêm — trải nghiệm đáng nhớ nhất!</p>
+                            <p>Điểm nhấn của <strong>Đà Lạt về đêm</strong>! Tại <a href="index.html">Trạm Dừng Chill</a>, sau 18:30 hàng ngàn nhà lồng đồng loạt lên đèn, tạo nên biển sao lung linh giữa thung lũng. Vừa nướng BBQ nóng hổi, vừa ngắm view đêm — trải nghiệm đáng nhớ nhất!</p>
                             <p>👉 <a href="index.html#booking">Đặt bàn ngay</a></p>
 <img src="assets/images/blog/view-nha-long-3.webp" alt="Đà Lạt Về Đêm Đi Đâu - cảnh đêm nhà lồng Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -3115,7 +3115,7 @@ const BLOG_ARTICLES = [
 <h2>Ba kiểu sườn nướng bạn sẽ gặp ở Đà Lạt</h2>
 
 <h3>Sườn que, sườn cây kiểu Việt</h3>
-<p>Sườn cắt thành que, ướp sả ớt hoặc mật ong, nướng trực tiếp trên than hoa. <strong>Nhận ra bằng cách nào:</strong> miếng nhỏ, cầm tay được, mặt ngoài xém cạnh. <strong>Hợp với ai:</strong> người thích vị quen thuộc, ăn nhẩn nha vừa nướng vừa nói chuyện. Đây cũng là kiểu duy nhất bạn tự nướng được tại bàn, tức là tự quyết định chín tới hay chín kỹ.</p>
+<p>Sườn cắt thành que, ướp sả ớt hoặc mật ong, nướng trực tiếp trên than hoa. <strong>Nhận ra bằng cách nào:</strong> miếng nhỏ, cầm tay được, mặt ngoài xém cạnh. <strong>Hợp với ai:</strong> người thích vị quen thuộc, ăn nhẩn nha vừa nướng vừa nói chuyện. Đây cũng là kiểu bạn được tự nướng tại bàn, tức là tự quyết định chín tới hay chín kỹ.</p>
 
 <h3>Sườn ướp cay kiểu Thái</h3>
 <p>Ướp nặng tay với ớt, sả, vị chua cay đi trước vị ngọt. <strong>Nhận ra bằng cách nào:</strong> màu đỏ sẫm, mùi bốc lên rõ ngay khi bưng ra. <strong>Hợp với ai:</strong> người ăn cay được, và hợp trời lạnh — đây có lẽ là món cân bằng tốt nhất với cái lạnh Đà Lạt. Không hợp trẻ nhỏ.</p>
@@ -3521,7 +3521,7 @@ const BLOG_ARTICLES = [
                             <p>Xem review gần nhất (1-3 tháng). Đọc cả review 1 sao để biết nhược điểm. Chú ý review có ảnh thật. <strong>Quán 4.5+ sao với 100+ review</strong> thường đáng tin cậy.</p>
 
                             <h2>Kết luận</h2>
-                            <p><strong>Quán nướng đánh giá cao</strong> trên Google? <a href="index.html">Trạm Dừng Chill</a> 4.8 sao — số 1 Đà Lạt! <a href="index.html#booking">Đặt bàn ngay</a>!</p>`
+                            <p><strong>Quán nướng đánh giá cao</strong> trên Google? <a href="index.html">Trạm Dừng Chill</a> 4.8 sao trên Google! <a href="index.html#booking">Đặt bàn ngay</a>!</p>`
     },
     {
         id: "du-lich-da-lat-thang-11",
@@ -4333,7 +4333,7 @@ const BLOG_ARTICLES = [
 <ul>
 <li><strong>Mùa mưa từ khoảng tháng 5 đến tháng 10 hay có mây thấp và sương.</strong> Có hôm lên tới nơi chỉ thấy một màu trắng. Đó là rủi ro có thật, không quán nào bảo đảm được.</li>
 <li><strong>Mang áo ấm, kể cả buổi chiều đang nắng.</strong> Ngồi yên ngoài trời hai tiếng ở Đà Lạt lạnh hơn bạn nghĩ nhiều.</li>
-<li><strong>Chỗ ngồi đẹp thường theo nguyên tắc đến trước.</strong> Nhiều quán ngoài trời không nhận giữ bàn view, nên cách chắc ăn duy nhất là đi sớm.</li>
+<li><strong>Chỗ ngồi đẹp thường theo nguyên tắc đến trước.</strong> Nhiều quán ngoài trời không nhận giữ bàn view, nên cách chắc ăn là đi sớm.</li>
 <li><strong>Chụp cảnh chiều tối cần chống rung.</strong> Ánh sáng yếu, cầm tay dễ nhoè — tựa máy vào lan can hoặc mặt bàn là đủ khác biệt.</li>
 <li><strong>Đừng ngồi ngay đầu hướng gió của bếp nướng</strong> nếu bạn định chụp nhiều: khói tạt vào ống kính là hỏng ảnh, mà quần áo cũng ám mùi.</li>
 </ul>
@@ -5634,7 +5634,7 @@ const BLOG_ARTICLES = [
 
 
 
-                                                        <p><strong>4. Biển sao nhà lồng:</strong> 19:00-20:00, chụp view phía sau. <strong>5. Xe lửa chạy ngang:</strong> Khoảnh khắc tàu qua — chỉ có tại Trạm Dừng Chill! <strong>6. Bốc khói dramatic:</strong> Chụp close-up thịt nướng đang bốc khói.</p>
+                                                        <p><strong>4. Biển sao nhà lồng:</strong> 19:00-20:00, chụp view phía sau. <strong>5. Xe lửa chạy ngang:</strong> Khoảnh khắc tàu chạy ngang ngay dưới chân quán! <strong>6. Bốc khói dramatic:</strong> Chụp close-up thịt nướng đang bốc khói.</p>
 <img src="assets/images/blog/khong-gian-dem-16.webp" alt="Check-in Quán Nướng Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5826,7 +5826,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Da Lat</strong> (Dalat) sits at 1,500m elevation in Vietnam's Central Highlands, offering cool weather (16-25°C year-round), stunning valley views, and the most romantic sunsets in Vietnam. The combination of outdoor BBQ grilling + golden sunset + cool mountain air creates an unforgettable dining experience unique to Da Lat.</p>
 
                             <h2>Best Sunset BBQ Restaurant: Tram Dung Chill</h2>
-                            <p><strong><a href="index.html">Tram Dung Chill</a></strong> is the #1 rated sunset BBQ spot in Da Lat. What makes it special: <strong>3 views in 1 evening</strong> — golden sunset over the valley (16:30-17:30), vintage train passing below (17:30), and the "sea of stars" from thousands of greenhouse lights at night (19:00+). Prices start from just 95,000 VND/person (~$4 USD). <a href="index.html#booking">Book a table →</a></p>
+                            <p><strong><a href="index.html">Tram Dung Chill</a></strong> is a 4.8-star sunset BBQ spot in Da Lat. What makes it special: <strong>3 views in 1 evening</strong> — golden sunset over the valley (16:30-17:30), vintage train passing below (17:30), and the "sea of stars" from thousands of greenhouse lights at night (19:00+). Prices start from just 95,000 VND/person (~$4 USD). <a href="index.html#booking">Book a table →</a></p>
 <img src="assets/images/blog/khong-gian-dem-16.webp" alt="Sunset BBQ in Da Lat - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5944,7 +5944,7 @@ const BLOG_ARTICLES = [
                             <h2>Tiêu chí chọn quán nướng Valentine</h2>
                             <p>Một buổi dinner BBQ Valentine hoàn hảo cần: view đẹp (hoàng hôn hoặc ánh đèn đêm), không gian riêng tư cho couple, setup bàn lãng mạn với hoa và nến, đồ ăn ngon đa dạng, và quan trọng nhất — giá hợp lý không "chặt chém" dịp lễ.</p>
 
-                            <h2>Trạm Dừng Chill — Lựa chọn số 1 cho Valentine</h2>
+                            <h2>Trạm Dừng Chill — Lựa chọn đáng cân nhắc cho Valentine</h2>
                             <p>Nằm tại 111 Huỳnh Tấn Phát, Phường Xuân Trường, <a href="index.html">Trạm Dừng Chill</a> sở hữu view hoàng hôn thung lũng và biển đèn nhà lồng — backdrop Valentine không đâu bằng. Quán <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các cặp đôi đặt trước, không phụ thu dịp lễ.</p>
 <img src="assets/images/blog/setup-hen-ho-14.webp" alt="Quán nướng Đà Lạt Valentine 2027 - setup hẹn hò lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -6076,7 +6076,7 @@ const BLOG_ARTICLES = [
                             <h2>Top view BBQ ngoài trời đẹp nhất Đà Lạt</h2>
                             <p><strong>View hoàng hôn thung lũng:</strong> Ngồi trên cao nhìn xuống, mặt trời lặn phía sau dãy núi — khoảnh khắc tuyệt đẹp. <strong>View nhà lồng đêm:</strong> Hàng ngàn đèn led trong nhà kính nông nghiệp tạo "biển sao" lung linh. <strong>View xe lửa cổ:</strong> Đoàn tàu chạy ngang tạo cảm giác cổ điển, lãng mạn.</p>
 
-                            <h2>Trạm Dừng Chill — Quán duy nhất có cả 3 view</h2>
+                            <h2>Trạm Dừng Chill — Quán có đủ cả 3 view</h2>
                             <p>Tại <a href="index.html">Trạm Dừng Chill</a>, bạn được tận hưởng cả 3 view trong một buổi tối: hoàng hôn (16:00-17:30), xe lửa chạy ngang (17:30-18:30), và biển đèn nhà lồng (từ 18:30). Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt.</p>
 <img src="assets/images/blog/view-nha-long-2.webp" alt="BBQ Đà Lạt view đẹp - biển đèn nhà lồng Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -6326,14 +6326,14 @@ const BLOG_ARTICLES = [
         imageAlt: "Quán nướng Đà Lạt gần ga Trại Mát - ngắm xe lửa cổ",
         badge: "",
         featured: false,
-        excerpt: "Tìm <strong>quán nướng Đà Lạt gần ga Trại Mát</strong>? Khu vực này có quán nướng view xe lửa cổ chạy ngang — trải nghiệm độc nhất chỉ có ở Đà Lạt.",
+        excerpt: "Tìm <strong>quán nướng Đà Lạt gần ga Trại Mát</strong>? Khu vực này có quán nướng view xe lửa cổ chạy ngang — trải nghiệm hiếm có ở Đà Lạt.",
         body: `<h2>Ga Trại Mát — Điểm đến nostalgic Đà Lạt</h2>
                             <p>Ga Trại Mát là ga cuối tuyến đường sắt cổ Đà Lạt - Trại Mát, cách trung tâm 7km. Đoàn tàu hơi nước cổ kính chạy giữa vườn hoa và nhà lồng — tạo nên cảnh quan độc đáo. Khu vực xung quanh ga có nhiều quán ăn, café view đẹp.</p>
 
                             <h2>Ăn nướng ngắm xe lửa — Trải nghiệm chỉ có ở Đà Lạt</h2>
                             <p>Tưởng tượng: bạn đang nướng thịt thơm phức, bất chợt tiếng còi tàu vang lên, đoàn xe lửa cổ từ từ chạy ngang. Khoảnh khắc "chill" không đâu có — chỉ tại Đà Lạt. Đây là trải nghiệm được du khách đánh giá cao nhất khi đến phố núi.</p>
 
-                            <h2>Trạm Dừng Chill — Quán nướng view xe lửa số 1</h2>
+                            <h2>Trạm Dừng Chill — Quán nướng view xe lửa</h2>
                             <p><a href="index.html">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, Phường Xuân Trường nằm ngay trên tuyến đường sắt Đà Lạt - Trại Mát. Từ quán, bạn nhìn thẳng xuống đường ray và ngắm xe lửa chạy ngang mỗi ngày. Không quán nướng nào ở Đà Lạt có view này.</p>
 <img src="assets/images/blog/view-xe-lua-20.webp" alt="Quán nướng Đà Lạt gần ga Trại Mát - xe lửa chạy ngang Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -6354,7 +6354,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Đà Lạt 2027 có gì ngon? Từ <strong>nướng BBQ view hoàng hôn</strong> đến lẩu gà lá é, bánh tráng nướng chợ đêm — đây là 5 trải nghiệm ẩm thực Đà Lạt bạn phải thử.",
         body: `<h2>1. Nướng BBQ ngoài trời ngắm hoàng hôn</h2>
-                            <p>Trải nghiệm số 1 mà mọi du khách nên thử: ngồi ngoài trời se lạnh, tự tay nướng thịt bò, hải sản trên than hoa, vừa ăn vừa ngắm hoàng hôn buông xuống thung lũng. Đây là trải nghiệm "signature" của Đà Lạt mà không thành phố nào có được.</p>
+                            <p>Trải nghiệm mọi du khách nên thử: ngồi ngoài trời se lạnh, tự tay nướng thịt bò, hải sản trên than hoa, vừa ăn vừa ngắm hoàng hôn buông xuống thung lũng. Đây là trải nghiệm "signature" của Đà Lạt mà không thành phố nào có được.</p>
 
                             <h3>2. Lẩu gà lá é — Đặc sản chỉ Đà Lạt mới ngon</h3>
                             <p>Gà ta thả vườn nấu cùng lá é (húng quế Đà Lạt), nước lẩu trong ngọt thanh, thơm mùi lá é đặc trưng. Ăn kèm bún, rau sống Đà Lạt giòn ngọt. Đây là món "phải ăn" khi đến phố núi — đặc biệt ngon trong tiết trời se lạnh.</p>
@@ -6435,7 +6435,7 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Mùa hè 2027 đi Đà Lạt ăn gì? <strong>Tổng hợp quán ăn Đà Lạt</strong> từ nướng BBQ, lẩu mát đến ăn vặt chợ đêm — cẩm nang ẩm thực đầy đủ cho mùa hè sắp tới.",
         body: `<h2>Đà Lạt mùa hè — "Máy lạnh thiên nhiên" của Việt Nam</h2>
-                            <p>Khi cả nước nóng 35-40°C, Đà Lạt vẫn mát mẻ 18-25°C. Đây là lý do Đà Lạt trở thành điểm đến mùa hè số 1: trốn nóng, ăn ngon, view đẹp. Mùa hè 2027, hãy lên kế hoạch sớm vì Đà Lạt sẽ rất đông khách từ tháng 5.</p>
+                            <p>Khi cả nước nóng 35-40°C, Đà Lạt vẫn mát mẻ 18-25°C. Đây là lý do Đà Lạt trở thành điểm đến mùa hè được nhiều người chọn: trốn nóng, ăn ngon, view đẹp. Mùa hè 2027, hãy lên kế hoạch sớm vì Đà Lạt sẽ rất đông khách từ tháng 5.</p>
 
                             <h2>Quán nướng BBQ — Highlight ẩm thực mùa hè Đà Lạt</h2>
                             <p>Nướng BBQ ngoài trời giữa tiết trời mát mẻ Đà Lạt — trải nghiệm mà vùng nóng không có được. Quán nướng view đẹp đáng kể tên là <a href="index.html">Trạm Dừng Chill</a> — view hoàng hôn cộng tàu lửa cổ chạy dưới chân quán. Ngoài ra Đà Lạt còn vài nơi có view rừng thông hoặc view đồi, giá tuỳ từng chỗ.</p>

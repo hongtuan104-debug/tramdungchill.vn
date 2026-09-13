@@ -325,6 +325,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - 17 bài giới thiệu quán số 113 "cũng ngắm được tàu" ngay cạnh câu "quán **duy nhất** ngắm
      trọn 3 view" — tự phủ nhận chính mình. Đã gỡ mọi tuyên bố độc quyền (tiêu đề bài
      `nuong-bbq-ngam-xe-lua` đổi theo). Muốn nhấn thì dùng "hiếm có", "đặc biệt".
+   - ⛔ **Sếp Tuấn cấm hẳn (13/09/2026): KHÔNG dùng chữ "duy nhất" hay "số một"** ở bất kỳ đâu —
+     kể cả câu không tự xưng ("cách duy nhất", "tiêu chí số 1", "best-seller số 1", "#1 rated")
+     và cả bài noindex. Viết lại câu, đừng lách bằng "độc nhất", "No.1", "top 1", "hạng 1".
    - **Alt ảnh đại diện tả chủ đề bài chứ không tả ảnh**: khay gà sống nhúng lẩu ghi "bò sườn gà
      nướng than hoa", ảnh bàn tiệc sinh nhật về đêm ghi "BBQ giữa rừng thông". Đã sửa 19 alt
      (17 trong `blog-data.js`, 2 override trong `blog-seo.js`). **Viết alt phải mở ảnh ra xem** —
@@ -341,7 +344,8 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - `dip/san-tau-da-lat.html` bỏ "Tips chuyên gia" + "thành công 100%" (chính trang ghi "không
      phải ai đến cũng thấy tàu"), thêm cảnh báo không bước xuống đường ray. Bài gia đình thêm
      một gạch đầu dòng về đường sắt cạnh lan can.
-   → Máy canh: **R8k** (răng cưa) + **R8l** (tự xưng độc quyền, quét cả alt/title/meta) +
+   → Máy canh: **R8k** (răng cưa) + **R8l** (cấm "duy nhất"/"số một" và câu tự xưng độc quyền;
+   quét mọi trang kể cả noindex, alt/title/meta, JSON-LD, dữ liệu gốc) +
    **R8m** (link Xóm Lèo thiếu chữ "cùng chủ") trong `seo-geo-verify.js`.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
