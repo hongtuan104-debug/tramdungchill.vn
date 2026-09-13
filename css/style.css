@@ -871,7 +871,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     opacity: 0;
     transform: translateY(30px);
     /* 0,4s + do tre rat ngan ben duoi: phan tu o opacity:0 lau chung nao thi
-       Chrome chua tinh no lam ung vien LCP chung ay (do 31/08/2026). */
+       Chrome chua tinh no lam ung vien LCP chung ay (do 31/08/2026).
+       CHU Y 13/09/2026: DUNG gan lop nay cho <h1> ten quan (.hero-title) - do la phan
+       tu LCP. Do tre khai 0,04s nhung khung hinh DAU cua animation phai cho main
+       thread chay xong JS luc tai trang, nen tren may yeu ten quan hien muon ca may
+       giay. Do CDP (412px, CPU 4x, 3 luot/trung vi): LCP 7,97s -> 4,63s khi bo lop
+       nay khoi rieng h1, FCP khong doi. Cac phan tu hero khac van mo dan binh thuong. */
     animation: fadeUp 0.4s var(--ease) forwards;
 }
 

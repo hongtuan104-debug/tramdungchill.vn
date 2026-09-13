@@ -373,6 +373,17 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    request `pubads.g.doubleclick.net/gampad/ads` + `playstream.media` mà site không hề gọi (HTML live
    trùng git từng byte, lượt đo cục bộ không có) → lượt đo bị nhiễu.
 
+19. **Hiệu ứng mờ dần trên tên quán kéo LCP mobile muộn cả mấy giây** (13/09/2026). `<h1 class="hero-title">`
+   từng mang `animate-fade-up delay-1` (bắt đầu `opacity:0`). Chrome không tính phần tử trong suốt là ứng
+   viên LCP, mà khung hình ĐẦU của animation phải chờ main thread chạy xong JS lúc tải trang — độ trễ
+   khai 0,04s không nói lên gì. Đo CDP (412px, CPU 4×, 4G chậm, 3 lượt lấy trung vị): FCP ~3,6s nhưng
+   LCP 7,97s; bỏ lớp đó khỏi riêng h1 → LCP 4,63s (bỏ cả hero → 4,22s). Phông Dancing Script về lúc
+   ~2,0s nên KHÔNG phải thủ phạm dù chữ thật rộng hơn phông lót.
+   → Tên quán nay hiện ngay; địa chỉ/mô tả/nút/dòng đánh giá vẫn mờ dần. **Đừng gắn lại
+   `animate-fade-up` cho phần tử LCP** (kiểm phần tử LCP bằng PageSpeed trước khi thêm hiệu ứng vào hero).
+   ⚠️ Lighthouse chạy trên máy làm việc KHÔNG dùng để chấm điểm được (TBT 2,7–12s so với 290ms của
+   PageSpeed, kể cả bật GPU) — chỉ dùng so trước/sau cùng điều kiện; điểm thật phải lấy từ pagespeed.web.dev.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
