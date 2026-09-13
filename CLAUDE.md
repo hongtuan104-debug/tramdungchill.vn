@@ -426,6 +426,23 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Cùng đợt: `js/lazy-tracking.js` giờ được nén ra **`dist/lazy-tracking.min.js`** (PageSpeed "Rút gọn
      JavaScript" 3,3 KiB) — **sửa file nguồn trong `js/` rồi build**, mọi trang + template blog nạp bản dist.
      `scroll-ui.js` hoãn lần `onScroll()` đầu qua một khung hình (hết "buộc chỉnh lại luồng" ở offsetTop).
+24. **TBT mobile nhảy 130 ↔ 300+ms với cùng một code = 3 lần tính bố cục toàn trang** (13/09/2026, PageSpeed
+   ra 98 rồi 93–95 mà code không đổi phần tải trang). Trace Lighthouse: ba tác vụ dài lúc tải đều là Layout
+   ~1.350–1.430 phần tử — vẽ đầu (trước FCP) · `style.min.css` async về · phông Inter/Playfair về. CSS và phông
+   về sát nhau thì gộp một lần (lượt điểm cao), lệch nhau thì TBT tính hai lần.
+   ⚠️ Lighthouse gắn tác vụ thứ ba cho `lazy-tracking.min.js` chỉ vì trùng nhịp sự kiện `load` — bên trong KHÔNG
+   có pixel (không request nào tới tiktok/facebook/clarity trong lượt đo), đừng săn nhầm.
+   → Làm nhẹ mỗi lần dựng chữ: `html,button,input,select,textarea{text-rendering:optimizeSpeed;font-kerning:none;
+   font-variant-ligatures:none}` trong `style.css` VÀ ở đầu critical CSS của 6 trang (mốc `CHU-NHANH`: index/menu/
+   blog/404/duong-di/tac-gia). Lighthouse 13.4.1 cục bộ, 2 đợt × 3 lượt: Style&Layout −18…−26%, TBT −24/−25%,
+   FCP/LCP không đổi; ảnh chụp logo Dancing Script vẫn nối nét. `kiem-phong-lot.js` vẫn khớp số dòng (bảng hmtx
+   nó đọc vốn không tính kerning). Máy canh **R8q**. Nút/ô nhập khai riêng vì trình duyệt đặt `font:` viết tắt
+   cho chúng, kerning bật lại thay vì kế thừa từ `html`.
+   - **Phông tĩnh đủ mọi độ đậm — ĐÃ ĐO, LOẠI**: TBT −43% nhưng trang dùng đủ 5 độ đậm Inter + 4 Playfair nên tải
+     21 file/210 KB thay vì 8 file/115 KB → FCP +450ms, LCP +530ms. Chi tiết memory `tbt-mobile-layout-phong-bien-thien`.
+   - Đo A/B khi PageSpeed API hết lượt (429, hạn mức ngày reset ~15h giờ VN): Lighthouse trong
+     `npm-cache/_npx/5390d7d89c0de19d` + bản sao `git worktree` của commit cũ phục vụ ở cổng khác, chạy xen kẽ
+     3 lượt, so trung vị. Điểm tuyệt đối trên máy này thấp hơn PageSpeed nhiều — chỉ dùng để so trước/sau.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
@@ -512,6 +529,9 @@ chữ vẫn chiếm đúng bề rộng → **không đổi số dòng → không
   `.woff2`, cân theo tần suất ký tự thật của trang (tiếng Việt lệch hẳn tiếng Anh).
 - Đổi phông / đổi subset / đổi nhiều chữ hero → chạy `node scripts/kiem-phong-lot.js`
   (chạy tay, cần Arial+Georgia của Windows, KHÔNG nằm trong build).
+- Cùng 6 file đó còn giữ rule **dựng chữ nhanh** (mốc `CHU-NHANH`, tắt kerning + ligature — bug #24).
+  Gỡ hay đổi rule trong `style.css` thì đổi cả 6 bản inline, không thì chữ phông lót bị dựng lại lúc
+  CSS async về. R8q canh.
 
 ## Flow đặt bàn
 ```

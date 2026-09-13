@@ -281,6 +281,24 @@ html {
     overflow-x: hidden;
 }
 
+/* Dựng chữ nhanh — tắt kerning + ligature (13/09/2026, CLAUDE.md bug #24).
+   TBT mobile của trang gần hết là tính bố cục toàn trang lúc CSS async về và lúc phông về,
+   mà phần nặng là dựng chữ (phông biến thiên + dấu tiếng Việt). Lighthouse A/B 2 đợt, mỗi đợt 3 lượt:
+   Style&Layout giảm 18 đến 26%, TBT giảm 24-25%, FCP/LCP không đổi, ảnh chụp gần như y hệt.
+   LƯU Ý: critical CSS inline của index/menu/blog/404/duong-di/tac-gia PHẢI có cùng rule (mốc
+   CHU-NHANH) — thiếu thì chữ phông lót bị dựng lại lúc CSS về, lệch vài px, có thể đổi dòng.
+   button/input/select/textarea khai riêng: trình duyệt đặt `font:` viết tắt cho chúng nên
+   kerning bật lại thay vì kế thừa từ html. Máy canh R8q. */
+html,
+button,
+input,
+select,
+textarea {
+    text-rendering: optimizeSpeed;
+    font-kerning: none;
+    font-variant-ligatures: none;
+}
+
 body {
     font-family: var(--font-body);
     color: var(--wood);

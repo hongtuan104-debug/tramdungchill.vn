@@ -1681,6 +1681,32 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                     : tong + " thẻ ảnh srcset đều khai sizes");
 }
 
+// ── R8q. Dựng chữ nhanh (tắt kerning + ligature) ở style.css VÀ critical CSS ──
+// 13/09/2026: TBT mobile của trang gần hết là tính bố cục toàn trang lúc CSS async về và lúc
+// phông về; phần nặng là dựng chữ. Lighthouse A/B 2 đợt × 3 lượt: text-rendering:optimizeSpeed +
+// font-kerning:none + font-variant-ligatures:none bớt ~20% Style&Layout, TBT −24–25%, FCP/LCP
+// không đổi, giao diện gần như y hệt (CLAUDE.md bug #24). Critical CSS PHẢI có cùng rule: thiếu
+// thì lúc CSS về, chữ đang vẽ bằng phông lót bị dựng lại không kerning → lệch vài px → có thể
+// đổi chỗ xuống dòng → layout shift. button/input/select/textarea khai riêng vì trình duyệt
+// đặt `font:` viết tắt cho chúng, làm kerning bật lại thay vì kế thừa từ html.
+{
+    const pham = [];
+    const RULE = /html,button,input,select,textarea\{text-rendering:optimizeSpeed;font-kerning:none;font-variant-ligatures:none;?\}/;
+    const css = fs.readFileSync(path.join(ROOT, "css", "style.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "").replace(/\s+/g, "");
+    if (!RULE.test(css)) pham.push("css/style.css thiếu rule dựng chữ nhanh");
+    let soTrang = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        const crit = (s.match(/<style>[\s\S]*?<\/style>/) || [""])[0];
+        if (!/Fallback/.test(crit)) continue;          // chỉ trang có critical CSS phông lót
+        soTrang++;
+        if (!RULE.test(crit)) pham.push(rel(f) + " critical CSS thiếu rule dựng chữ nhanh");
+    }
+    add("Dựng chữ nhanh (tắt kerning/ligature) khớp style.css ↔ critical CSS", pham.length === 0 && soTrang > 0,
+        pham.length ? pham.slice(0, 4).join(" | ")
+                    : "style.css + " + soTrang + " trang có critical CSS đều khai cùng rule");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
