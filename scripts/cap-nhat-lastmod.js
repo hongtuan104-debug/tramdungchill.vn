@@ -117,6 +117,13 @@ function chuHienThi(html) {
     // phải chuyện người đọc đọc gì — sửa đường dẫn ảnh/logo mà bị tính là "bài
     // vừa cập nhật" thì 143 trang bị đóng dấu oan. Phần CHỮ trong schema (mô tả,
     // tên món, con số) vẫn giữ nguyên trong phép so.
+    // ⚠️ Bỏ CẢ CẶP khoá–URL (kèm dấu phẩy), không chỉ giá trị — sửa 13/09/2026.
+    // Bản cũ thay URL bằng "" nhưng giữ tên khoá, nên THÊM một thuộc tính link
+    // ("@id"/"url" tác giả trỏ tac-gia/) để lại `"@id": "", "url": ""` trong phép
+    // so → 18 bài bị đóng dấu "Cập nhật 13/09/2026" dù không đổi một chữ nào.
+    // Nhánh 1 bắt cặp có phẩy phía sau, nhánh 2 bắt cặp đứng cuối object.
+    // Phép kiểm R13c trong seo-geo-verify.js chạy lại đúng hàm này trên mẫu.
+    .replace(/"[^"]+"\s*:\s*"https?:\/\/[^"]*"\s*,|,\s*"[^"]+"\s*:\s*"https?:\/\/[^"]*"/g, '')
     .replace(/"https?:\/\/[^"]*"/g, '""');
 
   const s = goc

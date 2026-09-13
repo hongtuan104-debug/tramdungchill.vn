@@ -1212,6 +1212,38 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         ngayXau.length ? ngayXau.slice(0, 5).join(" · ") : soTrang + " trang, không trang nào khai ngày ở tương lai hay sửa-trước-khi-đăng");
 }
 
+// ── R13c. Dấu vân lastmod không được đếm thay đổi CHỈ-LÀ-LINK trong schema ──
+// 13/09/2026: thêm "@id"/"url" tác giả vào BlogPosting → cap-nhat-lastmod.js đóng
+// dấu "Cập nhật 13/09/2026" cho 18 bài không đổi một chữ nào, vì dấu vân chỉ xoá
+// GIÁ TRỊ URL mà giữ tên khoá. Phép này chạy ĐÚNG hàm chuHienThi của con bot trên
+// mẫu: thêm thuộc tính link (giữa hay cuối object) thì dấu vân phải đứng yên, đổi
+// chữ thì phải đổi — để lần sau không ai "sửa" hàm đó mà đẻ lại ngày sửa giả.
+{
+    const src = fs.readFileSync(path.join(ROOT, "scripts/cap-nhat-lastmod.js"), "utf8");
+    const dau = src.indexOf("function chuHienThi");
+    const cuoi = src.indexOf("function dauVan");
+    let ok = false;
+    let chiTiet = "không tách được hàm chuHienThi khỏi scripts/cap-nhat-lastmod.js";
+    if (dau !== -1 && cuoi > dau) {
+        const chuHienThi = new Function(src.slice(dau, cuoi) + ";return chuHienThi;")();
+        const mau = (truoc, sau, chu) =>
+            '<html><head><title>T</title><script type="application/ld+json">' +
+            '{"@type":"BlogPosting","author":{"@type":"Person",' + truoc + '"name":"A"' + sau + "}}" +
+            "</script></head><body><p>" + chu + "</p></body></html>";
+        const goc = chuHienThi(mau("", "", "Chữ bài"));
+        const linkGiua = chuHienThi(mau('"@id":"https://tramdungchill.vn/tac-gia/a.html#person",', "", "Chữ bài"));
+        const linkCuoi = chuHienThi(mau("", ',"url":"https://tramdungchill.vn/tac-gia/a.html"', "Chữ bài"));
+        const doiChu = chuHienThi(mau("", "", "Chữ bài mới"));
+        ok = goc === linkGiua && goc === linkCuoi && goc !== doiChu;
+        chiTiet = ok
+            ? "thêm thuộc tính link (giữa/cuối) không đổi dấu vân · đổi chữ thì có đổi"
+            : goc !== doiChu
+                ? "thêm @id/url vào schema làm đổi dấu vân → bot sẽ đóng dấu ngày sửa oan"
+                : "đổi chữ mà dấu vân đứng yên → bot sẽ bỏ sót bài sửa thật";
+    }
+    add("Dấu vân lastmod bỏ qua thay đổi chỉ-là-link trong schema", ok, chiTiet);
+}
+
 // ── R13b. Ngày sửa phải khớp ở CẢ BA chỗ: nguồn ↔ trang ↔ sitemap ────────
 // Bối cảnh 30–31/07/2026: `scripts/cap-nhat-lastmod.js` đóng ngày mới vào trang
 // HTML + sitemap, nhưng KHÔNG ghi `data/blog-seo.js` — mà đó mới là chỗ
