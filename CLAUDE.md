@@ -317,6 +317,33 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      trúc duy nhất là "Trường trùng lặp FAQPage" (06/04/2026) — đúng thời bug #12 còn chèn
      schema bằng JS, nay mỗi trang 1 FAQPage và Google đã gỡ luôn báo cáo FAQ.
 
+16. **Nội dung phải khớp nguồn nó dẫn, khớp chính nó, và khớp ảnh** (checklist #23 E-E-A-T, rà 13/09/2026).
+   - 11 bài index ghi "đường sắt **răng cưa** Đà Lạt – Trại Mát", 2 bài gắn link Wikipedia làm
+     nguồn. Wikipedia (vi + en) đặt các đoạn răng cưa ở quãng vượt đèo từ Sông Pha lên cao
+     nguyên — tuyến gốc, đã ngừng khai thác. Đoạn 7 km còn chạy **không** phải răng cưa.
+     Câu nói "tàu còn chạy" thì dẫn trang `Ga_Đà_Lạt`, không dẫn trang tuyến gốc.
+   - 17 bài giới thiệu quán số 113 "cũng ngắm được tàu" ngay cạnh câu "quán **duy nhất** ngắm
+     trọn 3 view" — tự phủ nhận chính mình. Đã gỡ mọi tuyên bố độc quyền (tiêu đề bài
+     `nuong-bbq-ngam-xe-lua` đổi theo). Muốn nhấn thì dùng "hiếm có", "đặc biệt".
+   - **Alt ảnh đại diện tả chủ đề bài chứ không tả ảnh**: khay gà sống nhúng lẩu ghi "bò sườn gà
+     nướng than hoa", ảnh bàn tiệc sinh nhật về đêm ghi "BBQ giữa rừng thông". Đã sửa 19 alt
+     (17 trong `blog-data.js`, 2 override trong `blog-seo.js`). **Viết alt phải mở ảnh ra xem** —
+     không máy canh nào bắt được lỗi này.
+   - Toa tàu sát lan can trong `view-xe-lua-11b` / `view-xe-lua-20` (toa xám biển RAIL ROAD, ban
+     đêm viền đèn xanh) **là tàu Đà Lạt – Trại Mát thật** — sếp Tuấn xác nhận 13/09/2026. Đừng
+     nhầm với khu check-in đoàn tàu riêng của quán.
+   - **Xóm Lèo (113 Huỳnh Tấn Phát) là quán cùng chủ.** 17 bài từng giới thiệu nó như quán hàng
+     xóm để khách "so thử" mà không nói quan hệ. Sếp chốt 13/09/2026: mọi link sang xomleo.vn kèm
+     chữ "quán cùng chủ". Chỉ nói trong câu chữ — **KHÔNG** khai alternateName/sameAs (hai hồ sơ
+     Maps riêng, xem `docs/digital-pr-outreach.md`).
+   - Tác giả **Nguyễn Duy là đồng chủ** (sếp xác nhận 13/09/2026) → vai trò trong `blog-seo.js` là
+     "Đồng chủ Tiệm Nướng Trạm Dừng Chill". Thư báo chí ký Nguyễn Hồng Tuấn, chủ quán, cũng đúng.
+   - `dip/san-tau-da-lat.html` bỏ "Tips chuyên gia" + "thành công 100%" (chính trang ghi "không
+     phải ai đến cũng thấy tàu"), thêm cảnh báo không bước xuống đường ray. Bài gia đình thêm
+     một gạch đầu dòng về đường sắt cạnh lan can.
+   → Máy canh: **R8k** (răng cưa) + **R8l** (tự xưng độc quyền, quét cả alt/title/meta) +
+   **R8m** (link Xóm Lèo thiếu chữ "cùng chủ") trong `seo-geo-verify.js`.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

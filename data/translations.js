@@ -26,7 +26,7 @@ var TRANSLATIONS = {
 
     // Experience
     'exp.tag': 'Trải nghiệm độc đáo',
-    'exp.title': 'Ba khoảnh khắc Đà Lạt<br><em>chỉ có ở Trạm Dừng Chill</em>',
+    'exp.title': 'Ba khoảnh khắc Đà Lạt<br><em>trong một buổi ở Trạm Dừng Chill</em>',
     'exp.1.title': 'Chiều Vàng Thung Lũng',
     'exp.1.desc': 'Khoảnh khắc "magic hour" khi cả thung lũng nhà lồng nhuộm trong sắc vàng cam. Vừa thưởng thức BBQ thơm phức, vừa ngắm Đà Lạt chuyển mình từ ngày sang chiều — không gì lãng mạn bằng.',
     'exp.1.tag1': 'View 180°',
@@ -35,7 +35,7 @@ var TRANSLATIONS = {
     'exp.2.title': 'Khoảnh Khắc Săn Tàu',
     'exp.2.desc': 'Bất chợt một tiếng còi vang vọng cả thung lũng — đoàn tàu cổ kính lướt qua dưới chân quán. Khoảnh khắc "săn tàu" đã khiến hơn 13 triệu người rung động trên TikTok. Hôm nay, đến lượt bạn.',
     'exp.2.tag1': 'Săn tàu',
-    'exp.2.tag2': 'Trải nghiệm độc nhất',
+    'exp.2.tag2': 'Trải nghiệm hiếm có',
     'exp.2.tag3': 'Viral 13M+',
     'exp.3.title': 'Nhà Lồng Lên Đèn',
     'exp.3.desc': 'Khi mặt trời tắt nắng, hàng ngàn nhà lồng đồng loạt bật đèn — biến cả thung lũng Đà Lạt thành dải sao lấp lánh giữa lòng phố núi. Một bữa BBQ. Một ly trà nóng. Một view không thể quên.',
@@ -48,7 +48,7 @@ var TRANSLATIONS = {
 
     // Perks - 6 unique services
     'perks.tag': 'Đặc quyền dành cho bạn',
-    'perks.title': '6 điều tử tế<br><em>chỉ có ở Trạm Dừng Chill</em>',
+    'perks.title': '6 điều tử tế<br><em>ở Trạm Dừng Chill</em>',
     'perks.sub': 'Vì khách của Trạm xứng đáng được chăm sóc tận tâm',
     'perks.viral1': 'Viral 251K views',
     'perks.viral2': 'Viral 118K views',
@@ -351,7 +351,7 @@ var TRANSLATIONS = {
 
     // Experience
     'exp.tag': 'Unique experiences',
-    'exp.title': 'Three Da Lat moments<br><em>only at Tram Dung Chill</em>',
+    'exp.title': 'Three Da Lat moments<br><em>in one evening at Tram Dung Chill</em>',
     'exp.1.title': 'Golden Hour Valley',
     'exp.1.desc': 'The magic hour — when the entire greenhouse valley turns to gold. Savor sizzling BBQ while watching Da Lat shift from day to dusk. Pure romance, served daily.',
     'exp.1.tag1': '180° View',
@@ -360,7 +360,7 @@ var TRANSLATIONS = {
     'exp.2.title': 'The Train Hunt',
     'exp.2.desc': 'A whistle echoes across the valley — a vintage train glides beneath the restaurant. The "train hunt" moment that moved over 13 million people on TikTok. Today, it is your turn.',
     'exp.2.tag1': 'Train hunt',
-    'exp.2.tag2': 'One-of-a-kind',
+    'exp.2.tag2': 'A rare experience',
     'exp.2.tag3': 'Viral 13M+',
     'exp.3.title': 'When Greenhouses Glow',
     'exp.3.desc': 'As the sun sets, thousands of greenhouses light up in unison — turning the valley into a sea of stars in the heart of the mountains. One BBQ. One warm tea. One unforgettable view.',
@@ -373,7 +373,7 @@ var TRANSLATIONS = {
 
     // Perks - 6 unique services
     'perks.tag': 'Special perks for you',
-    'perks.title': '6 thoughtful touches<br><em>only at Tram Dung Chill</em>',
+    'perks.title': '6 thoughtful touches<br><em>at Tram Dung Chill</em>',
     'perks.sub': 'Because our guests deserve genuine care',
     'perks.viral1': 'Viral 251K views',
     'perks.viral2': 'Viral 118K views',

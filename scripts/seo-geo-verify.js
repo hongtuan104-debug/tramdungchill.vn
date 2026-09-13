@@ -695,8 +695,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // Link mang rel="nofollow" KHÔNG tính là citation và không bị whitelist chặn:
 // nofollow tự nó đã tuyên bố "dẫn để bạn đọc tham khảo, không bảo chứng", nên
 // nó không mang ý nghĩa trích nguồn mà check này đang canh. Thực tế đang dùng:
-// các bài nhắc quán hàng xóm Xóm Lèo (113 Huỳnh Tấn Phát) đều để nofollow —
-// có link cho khách bấm, nhưng không truyền tín hiệu xếp hạng cho đối thủ.
+// các bài nhắc Xóm Lèo (113 Huỳnh Tấn Phát — quán cùng chủ, hồ sơ Maps riêng) đều để
+// nofollow: có link cho khách bấm, không phải trích nguồn. Xem thêm R8m.
 {
     const ALLOWED = /^https:\/\/(vi|en)\.wikipedia\.org\//;
     const dir = path.join(ROOT, "blog");
@@ -1524,6 +1524,81 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             ? trang.length + " trang khai sai (" + trang.slice(0, 3).join(", ") + ") · "
               + pham.length + " câu — quán gọi món lẻ, xem menu.html"
             : "trang đang cho Google đọc · không câu nào khai quán bán combo");
+}
+
+// ── R8k. Không gọi tuyến Đà Lạt – Trại Mát là "đường sắt răng cưa" ────────
+// Rà E-E-A-T 13/09/2026 (checklist #209): 11 bài đang index ghi "đường sắt răng
+// cưa Đà Lạt – Trại Mát", hai bài còn gắn link Wikipedia làm nguồn. Chính trang
+// Wikipedia đó (và bản tiếng Anh) đặt các đoạn răng cưa ở quãng vượt đèo từ Sông
+// Pha lên cao nguyên — tuyến gốc, đã ngừng khai thác. Đoạn 7 km Đà Lạt – Trại Mát
+// còn chạy tàu KHÔNG phải đường răng cưa. Dẫn nguồn mà nguồn không nói điều đó
+// còn hại hơn không dẫn: người đọc bấm vào kiểm là mất lòng tin cả bài.
+// Câu kể lịch sử tuyến gốc ("từng có", "không phải đường răng cưa") thì hợp lệ.
+{
+    const NGUON = [...files, "data/translations.js", "llms.txt", "data/blog-seo.js", "data/blog-data.js"]
+        .map((f) => path.resolve(ROOT, f)).filter((f) => fs.existsSync(f));
+    const pham = [];
+    for (const f of NGUON) {
+        const chu = fs.readFileSync(f, "utf8").replace(/<!--[\s\S]*?-->/g, " ").replace(/<[^>]+>/g, " ");
+        for (const cau of chu.split(/(?<=[.!?])\s+|\\n/)) {
+            if (!/răng cưa|rack rail|cog rail/i.test(cau)) continue;
+            if (/không phải|từng có|đã ngừng|tháo dỡ|not a rack|once had|formerly/i.test(cau)) continue;
+            pham.push(rel(f) + " → " + cau.trim().replace(/\s+/g, " ").slice(0, 90));
+        }
+    }
+    add("Không gọi tuyến Đà Lạt – Trại Mát là đường sắt răng cưa", pham.length === 0,
+        pham.length ? pham.length + " câu: " + pham.slice(0, 2).join(" | ")
+                    : "răng cưa là của tuyến gốc qua đèo, đoạn 7 km còn chạy thì không");
+}
+
+// ── R8l. Không tự xưng "quán duy nhất" / "chỉ có ở Trạm Dừng Chill" ──────
+// Rà E-E-A-T 13/09/2026 (checklist #208): 17 bài index giới thiệu quán số 113 kế
+// bên "cũng nhìn xuống thung lũng và ngắm được tàu" — có bài viết câu đó NGAY SAU
+// câu "quán nướng duy nhất ngắm trọn 3 view". Tuyên bố độc quyền mà chính trang
+// tự phủ nhận là nội dung thiếu tin cậy. "Hiếm có", "đặc biệt" thì được; cái bị
+// chặn là khẳng định không nơi nào khác có. Quét cả alt/title/meta content.
+{
+    const TU_XUNG = /(quán|nhà hàng|tiệm|nơi|điểm|trải nghiệm|view)[^.!?]{0,40}(duy nhất|độc nhất)|chỉ có (ở|tại) (Trạm|quán)|only at Tram|one-of-a-kind|the only (bbq|restaurant|place|spot)/i;
+    const pham = [];
+    for (const f of [...files, path.join(ROOT, "data/translations.js"), path.join(ROOT, "llms.txt")]) {
+        const tu = rel(f);
+        let s = fs.readFileSync(f, "utf8");
+        if (tu.startsWith("components/")) continue;
+        if (/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(s)) continue;
+        const thuocTinh = [...s.matchAll(/\s(?:alt|content|title)="([^"]*)"/g)].map((m) => m[1] + ".").join(" ");
+        s = s.replace(/<!--[\s\S]*?-->/g, " ")
+             .replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/gi, " ")
+             .replace(/<style[\s\S]*?<\/style>/gi, " ")
+             .replace(/<[^>]+>/g, " ") + " " + thuocTinh;
+        for (const cau of s.split(/(?<=[.!?])\s+/)) {
+            if (TU_XUNG.test(cau)) pham.push(tu + " → " + cau.trim().replace(/\s+/g, " ").slice(0, 90));
+        }
+    }
+    add("Không tự xưng quán duy nhất / chỉ có ở Trạm Dừng Chill", pham.length === 0,
+        pham.length ? pham.length + " câu: " + pham.slice(0, 2).join(" | ")
+                    : "trang đang index không câu nào khẳng định độc quyền");
+}
+
+// ── R8m. Nhắc Xóm Lèo thì phải nói rõ là quán cùng chủ ──────────────────
+// Rà E-E-A-T 13/09/2026 (checklist #208): 17 bài giới thiệu Xóm Lèo (113 Huỳnh
+// Tấn Phát) như quán hàng xóm để khách "tham khảo thêm / so thử", không nói đó là
+// quán thứ hai của chính chủ — người đọc biết ra sẽ thấy bị dắt. Sếp Tuấn chốt
+// 13/09/2026: GHI RÕ cùng chủ, chỉ trong câu chữ. KHÔNG khai alternateName/sameAs
+// (hai hồ sơ Maps riêng, xem docs/digital-pr-outreach.md).
+// Câu khách viết "ăn nhiều quán ở Xóm Lèo" là ĐỊA DANH, không có link → không xét.
+{
+    const pham = [];
+    for (const f of files) {
+        const tu = rel(f);
+        if (tu.startsWith("components/")) continue;
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(/<a\s[^>]*href="https?:\/\/(?:www\.)?xomleo\.vn[^"]*"[^>]*>[\s\S]*?<\/a>([^.<]{0,80})/gi)) {
+            if (!/cùng chủ/i.test(m[1])) pham.push(tu + " → " + m[0].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").slice(0, 70));
+        }
+    }
+    add("Nhắc Xóm Lèo thì nói rõ quán cùng chủ", pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 2).join(" | ")
+                    : "mọi link sang xomleo.vn đều kèm chữ \"cùng chủ\"");
 }
 
 // ── In kết quả ───────────────────────────────────────────────────────────
