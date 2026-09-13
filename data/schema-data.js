@@ -27,7 +27,9 @@ const SCHEMA_DATA = {
             postalCode: '66000',
             country: 'VN'
         },
-        geo: { latitude: 11.9542, longitude: 108.4946 },
+        // Toạ độ ghim Google Maps (maps.app.goo.gl/LYKSGggSms2nwTWq7 → !3d…!4d…),
+        // lấy 13/09/2026. Google cần ≥ 5 chữ số thập phân; bản cũ 11.9542 chỉ có 4.
+        geo: { latitude: 11.9542027, longitude: 108.4946325 },
         cuisine: ['Vietnamese BBQ', 'Korean BBQ', 'Hotpot', 'Grilled Seafood'],
         hours: { open: '15:00', close: '23:00' },
         priceRange: '₫95.000 - ₫300.000',

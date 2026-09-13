@@ -290,6 +290,29 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      `url` = chính nó trong khi canonical trỏ bài khác chỉ tổ mâu thuẫn.
    → Máy canh R7c mục (f) quét cả thư mục `blog/`, bỏ qua bài noindex.
 
+15. **Kiểm schema có HAI công cụ, đừng coi là một** (checklist #23, rà 13/09/2026).
+   Schema Markup Validator báo **0 lỗi · 0 cảnh báo cho cả 27 URL live** mà vẫn sót
+   2 thứ Google cần: `geo` chỉ 4 chữ số thập phân (Google đòi ≥ 5) và 3 VideoObject
+   thiếu `duration`. Nó chỉ soi cú pháp schema.org, không biết tài liệu Google.
+   → **Trước commit:** luật **R7e** trong `seo-geo-verify.js` đối chiếu tài liệu Google
+   (bản 08/09/2026) + chặn microdata/data-vocabulary quay lại.
+   → **Sau deploy:** `node scripts/kiem-schema-live.js` (thêm `--all` = cả sitemap) chạy
+   validator trên 1 URL/mẫu trang và so số khối JSON-LD sau render với file tĩnh.
+   Rich Results Test không có API → đổi template thì dán tay URL đại diện.
+   - Toạ độ `11.9542027, 108.4946325` lấy từ ghim trong link Maps của quán — đừng làm tròn.
+   - `duration` đo từ hộp `mvhd` của mp4 (16s/16s/20s) — thay video thì đo lại. Khối
+     `VIDEO_JSONLD` là **sửa tay**: chú thích cũ nhắc `scripts/sync-video-schema.js`
+     nhưng file đó chưa từng có trong git.
+   - **Google đã bỏ hẳn FAQ rich result từ 07/05/2026** (Rich Results Test cũng thôi
+     nhận). Vẫn giữ FAQPage vì Google cho để lại và Bing/bot AI còn đọc — RRT không
+     thấy FAQ là bình thường, đừng "sửa".
+   - ⚠️ **aggregateRating 4,8/7.060 + 4 review là số của Google Maps.** Google ghi
+     *"Don't aggregate reviews or ratings from other websites"*, và trang tự khai về
+     chính quán thì không được hiện sao. **Sếp Tuấn chốt GIỮ NGUYÊN (13/09/2026)** —
+     đừng hỏi lại, trừ khi Search Console báo Manual Action "spammy structured
+     markup": khi đó gỡ phần này là việc đầu tiên.
+   - Mục 201/202 (báo cáo Rich result, Manual Actions) chỉ xem được trong Search Console.
+
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
 xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom

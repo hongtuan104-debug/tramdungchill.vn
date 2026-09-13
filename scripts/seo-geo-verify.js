@@ -440,6 +440,131 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         bad.length ? bad.slice(0, 6).join(" | ") : "toàn site: 111 Huỳnh Tấn Phát, Phường Xuân Trường");
 }
 
+// ── R7e. Đủ thuộc tính Google cần cho từng loại schema (checklist #23) ──
+// Schema Markup Validator chỉ soi cú pháp schema.org: rà 13/09/2026 nó báo
+// 0 lỗi · 0 cảnh báo cho cả 27 URL, trong khi tài liệu Google (bản 08/09/2026)
+// vẫn chỉ ra 2 chỗ thiếu thật — geo chỉ 4 chữ số thập phân (Google cần ≥ 5) và
+// VideoObject không có duration. Nên luật này đọc theo TÀI LIỆU GOOGLE, không
+// theo validator. Chỉ xét trang index được (Google không đọc schema trang
+// noindex); riêng (a) quét mọi trang.
+// FAQPage: Google bỏ hẳn FAQ rich result từ 07/05/2026 (được phép để markup),
+// nên chỉ kiểm tối thiểu — việc khớp chữ hiển thị đã có R7.
+{
+    const bad = [];
+    const dem = {};
+    let soTrang = 0;
+    const ISO = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
+    const soLe = (x) => (String(x).split(".")[1] || "").length;
+    const coChu = (x) => typeof x === "string" && x.trim().length > 0;
+    const videoDaGap = new Map(); // name/description -> @id: Google cần mỗi video một tên, một mô tả riêng
+
+    for (const f of files) {
+        const p = rel(f);
+        const s = fs.readFileSync(f, "utf8");
+
+        // (a) mục 196/197: không còn data-vocabulary, không microdata/RDFa — site chỉ khai JSON-LD
+        if (/data-vocabulary\.org/i.test(s)) bad.push(p + ": còn markup data-vocabulary.org");
+        if (/\s(itemscope|itemtype=|itemprop=|vocab=|typeof=)/i.test(s)) bad.push(p + ": có microdata/RDFa — site chỉ khai JSON-LD");
+
+        if (/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(s)) continue;
+        if (/application\/ld\+json/.test(s)) soTrang++; // components/ + file xác minh GSC không phải trang
+
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            let j;
+            try { j = JSON.parse(m[1]); } catch (e) { continue; } // R6 đã báo
+            const loai = [].concat(j["@type"] || []);
+            const t = loai.join(",");
+            dem[loai[0]] = (dem[loai[0]] || 0) + 1;
+
+            // (b) LocalBusiness: bắt buộc name + address; geo ≥ 5 chữ số thập phân
+            if (loai.some((x) => /Restaurant|LocalBusiness/.test(x))) {
+                const a = j.address || {};
+                if (!coChu(j.name) || !coChu(a.streetAddress) || !coChu(a.addressLocality) || !coChu(a.addressCountry)) {
+                    bad.push(p + ": " + t + " thiếu name/address (Google bắt buộc)");
+                }
+                const g = j.geo;
+                if (!g) bad.push(p + ": " + t + " thiếu geo");
+                else if (soLe(g.latitude) < 5 || soLe(g.longitude) < 5) {
+                    bad.push(p + ": geo " + g.latitude + ", " + g.longitude + " — Google cần ≥ 5 chữ số thập phân");
+                }
+                if (coChu(j.priceRange) && j.priceRange.length >= 100) bad.push(p + ": priceRange dài ≥ 100 ký tự");
+                for (const k of ["telephone", "url", "menu", "servesCuisine", "openingHoursSpecification"]) {
+                    if (!j[k]) bad.push(p + ": " + t + " thiếu " + k);
+                }
+            }
+
+            // (c) VideoObject: bắt buộc name/thumbnailUrl/uploadDate; khuyến nghị duration, contentUrl|embedUrl
+            if (t === "VideoObject") {
+                for (const k of ["name", "thumbnailUrl", "uploadDate", "description"]) {
+                    if (!coChu(j[k])) bad.push(p + ": VideoObject thiếu " + k);
+                }
+                if (coChu(j.uploadDate) && !ISO.test(j.uploadDate)) bad.push(p + ": VideoObject uploadDate không theo ISO 8601");
+                if (!/^PT(?=\d)(\d+H)?(\d+M)?(\d+(\.\d+)?S)?$/.test(j.duration || "")) {
+                    bad.push(p + ": VideoObject \"" + j.name + "\" thiếu/sai duration (ISO 8601, vd PT16S)");
+                }
+                if (!j.contentUrl && !j.embedUrl) bad.push(p + ": VideoObject thiếu cả contentUrl lẫn embedUrl");
+                for (const k of [j.name, j.description]) {
+                    if (videoDaGap.has(k) && videoDaGap.get(k) !== j["@id"]) bad.push(p + ": 2 video trùng name/description \"" + k + "\"");
+                    videoDaGap.set(k, j["@id"]);
+                }
+            }
+
+            // (d) Article/BlogPosting: headline, image, 2 ngày ISO, author.name
+            if (/^(Article|BlogPosting|NewsArticle)$/.test(t)) {
+                for (const k of ["headline", "image", "datePublished", "dateModified"]) {
+                    if (!j[k]) bad.push(p + ": " + t + " thiếu " + k);
+                }
+                for (const k of ["datePublished", "dateModified"]) {
+                    if (coChu(j[k]) && !ISO.test(j[k])) bad.push(p + ": " + t + " " + k + " không theo ISO 8601");
+                }
+                if (Date.parse(j.dateModified) < Date.parse(j.datePublished)) bad.push(p + ": dateModified trước datePublished");
+                const tacGia = [].concat(j.author || []);
+                if (!tacGia.length || tacGia.some((x) => !coChu(x.name))) bad.push(p + ": " + t + " thiếu author.name");
+            }
+
+            // (e) BreadcrumbList: position chạy 1..n, có name, có item (trừ chặng cuối)
+            if (t === "BreadcrumbList") {
+                const li = j.itemListElement || [];
+                if (!li.length) bad.push(p + ": BreadcrumbList rỗng");
+                li.forEach((x, i) => {
+                    if (Number(x.position) !== i + 1) bad.push(p + ": breadcrumb chặng " + (i + 1) + " có position=" + x.position);
+                    if (!coChu(x.name)) bad.push(p + ": breadcrumb chặng " + (i + 1) + " thiếu name");
+                    if (i < li.length - 1 && !x.item) bad.push(p + ": breadcrumb chặng " + (i + 1) + " thiếu item");
+                });
+            }
+
+            // (f) FAQPage tối thiểu
+            if (t === "FAQPage" && [].concat(j.mainEntity || []).some((q) => !coChu(q.name) || !coChu((q.acceptedAnswer || {}).text))) {
+                bad.push(p + ": FAQPage có câu thiếu name hoặc acceptedAnswer.text");
+            }
+
+            // (g) AggregateRating / Review ở mọi cấp lồng
+            (function di(o) {
+                if (Array.isArray(o)) return o.forEach(di);
+                if (!o || typeof o !== "object") return;
+                const ty = [].concat(o["@type"] || []).join(",");
+                if (ty === "AggregateRating") {
+                    const v = Number(o.ratingValue), best = Number(o.bestRating || 5), worst = Number(o.worstRating || 1);
+                    if (!(v >= worst && v <= best)) bad.push(p + ": AggregateRating " + o.ratingValue + " nằm ngoài thang " + worst + "–" + best);
+                    if (!(Number(o.reviewCount) > 0 || Number(o.ratingCount) > 0)) bad.push(p + ": AggregateRating thiếu reviewCount/ratingCount");
+                }
+                if (ty === "Review") {
+                    const ten = (o.author || {}).name;
+                    if (!coChu(ten) || ten.length >= 100) bad.push(p + ": Review thiếu author.name hợp lệ");
+                    if (!o.reviewRating || o.reviewRating.ratingValue === undefined) bad.push(p + ": Review thiếu reviewRating.ratingValue");
+                }
+                Object.values(o).forEach(di);
+            })(j);
+        }
+    }
+
+    add("Schema đủ thuộc tính Google cần (LocalBusiness/Video/Article/Breadcrumb/Rating)",
+        bad.length === 0,
+        bad.length ? bad.slice(0, 4).join(" | ") + (bad.length > 4 ? " … +" + (bad.length - 4) + " lỗi nữa" : "")
+                   : soTrang + " trang index · " + Object.entries(dem).map(([k, v]) => k + " " + v).join(", ")
+                     + " · 0 microdata/data-vocabulary");
+}
+
 // ── R8. Bộ câu hỏi query fan-out phải có text đọc được trên trang chủ ────
 {
     const s = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
