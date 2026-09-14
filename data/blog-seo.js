@@ -15,7 +15,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Ăn nướng ở Trạm Dừng Chill giá bao nhiêu một người?",
-          "a": "Giá khoảng 95.000đ–300.000đ/người, đã gồm VAT. Quán có hơn 70 món gồm BBQ nướng tại bàn, lẩu, hải sản và đồ uống. Xem thực đơn đầy đủ tại ../menu.html."
+          "a": "Giá khoảng 95.000đ–300.000đ/người, đã gồm VAT. Quán có hơn 70 món gồm BBQ nướng tại bàn, lẩu, hải sản và đồ uống. Xem <a href=\"../menu.html\">thực đơn đầy đủ</a>."
         },
         {
           "q": "Mấy giờ đến quán để vừa ngắm tàu lửa vừa đón hoàng hôn?",
@@ -23,7 +23,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Có cần đặt bàn trước không, đặt bằng cách nào?",
-          "a": "Nên đặt trước, nhất là cuối tuần và khung 17:30–19:00 thường kín khách. Bạn đặt qua form trên website (../index.html#booking), quán xác nhận lại qua Zalo trong khoảng 15 phút (trong giờ mở cửa), hoặc gọi 0989.765.070."
+          "a": "Nên đặt trước, nhất là cuối tuần và khung 17:30–19:00 thường kín khách. Bạn đặt qua <a href=\"../index.html#booking\">form đặt bàn trên website</a>, quán xác nhận lại qua Zalo trong khoảng 15 phút (trong giờ mở cửa), hoặc gọi 0989.765.070."
         },
         {
           "q": "Quán có chỗ đỗ xe ô tô không?",
@@ -35,7 +35,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Trạm Dừng Chill có nhận đặt tiệc sinh nhật không?",
-          "a": "Có, quán tặng kèm setup trang trí bàn tiệc sinh nhật và kỷ niệm miễn phí. Xem chi tiết tại ../dip/sinh-nhat.html và đặt bàn trước để quán chuẩn bị."
+          "a": "Có, quán tặng kèm setup trang trí bàn tiệc sinh nhật và kỷ niệm miễn phí. Xem chi tiết ở <a href=\"../dip/sinh-nhat.html\">trang tổ chức sinh nhật</a> và đặt bàn trước để quán chuẩn bị."
         }
       ],
       "author": {
@@ -57,7 +57,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Mấy giờ thì thấy tàu lửa chạy ngang Trạm Dừng Chill?",
-          "a": "Tàu chạy ngang quán trong khung 16:30 – 21:25. Xem thêm tại trang săn tàu Đà Lạt (../dip/san-tau-da-lat.html)."
+          "a": "Tàu chạy ngang quán trong khung 16:30 – 21:25. Xem thêm ở <a href=\"../dip/san-tau-da-lat.html\">trang săn tàu Đà Lạt</a>."
         },
         {
           "q": "Nên đến Trạm Dừng Chill lúc mấy giờ để đón trọn cảnh đẹp?",
@@ -65,15 +65,15 @@ const BLOG_SEO = {
         },
         {
           "q": "Quán mở cửa giờ nào và giá khoảng bao nhiêu?",
-          "a": "Quán mở 15:00–23:00 mỗi ngày, mức giá phổ biến 95.000đ–300.000đ/người với hơn 70 món. Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối 209K. Xem thực đơn tại ../menu.html."
+          "a": "Quán mở 15:00–23:00 mỗi ngày, mức giá phổ biến 95.000đ–300.000đ/người với hơn 70 món. Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối 209K. Xem <a href=\"../menu.html\">thực đơn</a>."
         },
         {
           "q": "Làm sao đặt bàn view tàu lửa ở Trạm Dừng Chill?",
-          "a": "Đặt qua form trên website (../index.html#booking) hoặc gọi/Zalo 0989.765.070, nhớ ghi chú 'muốn view tàu lửa' vì bàn sát đường tàu có giới hạn. Quán xác nhận lại qua Zalo trong khoảng 15 phút (trong giờ mở cửa)."
+          "a": "Đặt qua <a href=\"../index.html#booking\">form đặt bàn trên website</a> hoặc gọi/Zalo 0989.765.070, nhớ ghi chú 'muốn view tàu lửa' vì bàn sát đường tàu có giới hạn. Quán xác nhận lại qua Zalo trong khoảng 15 phút (trong giờ mở cửa)."
         },
         {
           "q": "Trạm Dừng Chill có nhận tổ chức sinh nhật không?",
-          "a": "Có. Quán trang trí bàn sinh nhật, kỷ niệm miễn phí; vì phải chuẩn bị trước nên quán nhận cọc 200.000đ khi chốt lịch và hoàn lại sau khi ăn xong (đặt bàn ăn bình thường không cần cọc). Xem chi tiết tại ../dip/sinh-nhat.html và đặt trước để được chọn bàn view đẹp."
+          "a": "Có. Quán trang trí bàn sinh nhật, kỷ niệm miễn phí; vì phải chuẩn bị trước nên quán nhận cọc 200.000đ khi chốt lịch và hoàn lại sau khi ăn xong (đặt bàn ăn bình thường không cần cọc). Xem chi tiết ở <a href=\"../dip/sinh-nhat.html\">trang tổ chức sinh nhật</a> và đặt trước để được chọn bàn view đẹp."
         },
         {
           "q": "Quán có chỗ đỗ ô tô không?",
@@ -99,11 +99,11 @@ const BLOG_SEO = {
         },
         {
           "q": "Ngắm biển sao nhà lồng ở đâu đẹp nhất?",
-          "a": "Đẹp nhất là từ điểm cao nhìn thẳng xuống thung lũng. Trạm Dừng Chill (111 Huỳnh Tấn Phát, Phường Xuân Trường) có view 180° ra thung lũng nhà lồng, vừa nướng BBQ vừa ngắm. Có thể đặt bàn view tại ../index.html#booking."
+          "a": "Đẹp nhất là từ điểm cao nhìn thẳng xuống thung lũng. Trạm Dừng Chill (111 Huỳnh Tấn Phát, Phường Xuân Trường) có view 180° ra thung lũng nhà lồng, vừa nướng BBQ vừa ngắm. Có thể <a href=\"../index.html#booking\">đặt bàn view trên website</a>."
         },
         {
           "q": "Tàu lửa cổ chạy qua quán lúc mấy giờ?",
-          "a": "Tàu tuyến Đà Lạt – Trại Mát chạy ngang quán trong khung 16:30 – 21:25. Xem thêm tại ../dip/san-tau-da-lat.html."
+          "a": "Tàu tuyến Đà Lạt – Trại Mát chạy ngang quán trong khung 16:30 – 21:25. Xem thêm ở <a href=\"../dip/san-tau-da-lat.html\">trang săn tàu Đà Lạt</a>."
         },
         {
           "q": "Mùa nào ngắm view nhà lồng Đà Lạt đẹp nhất?",
@@ -115,7 +115,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Đặt bàn view đẹp ở Trạm Dừng Chill thế nào?",
-          "a": "Đặt qua form trên website (../index.html#booking), quán xác nhận lại qua Zalo trong khoảng 15 phút (trong giờ mở cửa). Nên tránh khung 17:30–19:00 vì quán thường kín; chọn sớm hơn hoặc từ 19:30. Zalo: 0989.765.070."
+          "a": "Đặt qua <a href=\"../index.html#booking\">form đặt bàn trên website</a>, quán xác nhận lại qua Zalo trong khoảng 15 phút (trong giờ mở cửa). Nên tránh khung 17:30–19:00 vì quán thường kín; chọn sớm hơn hoặc từ 19:30. Zalo: 0989.765.070."
         },
         {
           "q": "Quán có chỗ đỗ ô tô không?",
@@ -141,7 +141,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Setup sinh nhật ở Trạm Dừng Chill có mất phí không?",
-          "a": "Không. Phần trang trí được tặng kèm hoàn toàn miễn phí, không yêu cầu mức chi tiêu tối thiểu. Bạn chỉ trả tiền món gọi, mức chi thường 95.000đ–300.000đ/người. Vì quán phải chuẩn bị trang trí trước nên có nhận cọc 200.000đ khi bạn chốt lịch, và hoàn lại cho bạn sau khi ăn xong — còn đặt bàn ăn bình thường thì không cần cọc. Xem thực đơn tại ../menu.html."
+          "a": "Không. Phần trang trí được tặng kèm hoàn toàn miễn phí, không yêu cầu mức chi tiêu tối thiểu. Bạn chỉ trả tiền món gọi, mức chi thường 95.000đ–300.000đ/người. Vì quán phải chuẩn bị trang trí trước nên có nhận cọc 200.000đ khi bạn chốt lịch, và hoàn lại cho bạn sau khi ăn xong — còn đặt bàn ăn bình thường thì không cần cọc. Xem <a href=\"../menu.html\">thực đơn</a>."
         },
         {
           "q": "Tổ chức tiệc sinh nhật cho bao nhiêu người thì được?",
@@ -153,7 +153,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Đặt tiệc ở Trạm Dừng Chill bằng cách nào?",
-          "a": "Điền form đặt bàn trên website (../index.html#booking) hoặc nhắn Zalo 0989.765.070, cho biết số người, ngày giờ và dịp. Nhân viên sẽ xác nhận qua Zalo trong khoảng 15 phút (trong giờ mở cửa)."
+          "a": "Điền <a href=\"../index.html#booking\">form đặt bàn trên website</a> hoặc nhắn Zalo 0989.765.070, cho biết số người, ngày giờ và dịp. Nhân viên sẽ xác nhận qua Zalo trong khoảng 15 phút (trong giờ mở cửa)."
         },
         {
           "q": "Khung giờ nào đẹp nhất để thổi nến và ngắm view?",
@@ -304,7 +304,7 @@ const BLOG_SEO = {
       "faq": [
         {
           "q": "Món nướng ngon nhất ở Trạm Dừng Chill là món gì?",
-          "a": "Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối (209K) — bò tảng dày nướng than hoa phủ phô mai và sốt trứng muối. Ngoài ra Ba Chỉ Bò Cuộn Kim Châm (137K) và các món hải sản, cá tầm cũng rất được ưa chuộng. Xem thêm tại thực đơn (../menu.html)."
+          "a": "Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối (209K) — bò tảng dày nướng than hoa phủ phô mai và sốt trứng muối. Ngoài ra Ba Chỉ Bò Cuộn Kim Châm (137K) và các món hải sản, cá tầm cũng rất được ưa chuộng. Xem thêm trong <a href=\"../menu.html\">thực đơn</a>."
         },
         {
           "q": "Trạm Dừng Chill có những món hải sản nướng nào?",
@@ -316,7 +316,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Nên đến mấy giờ để vừa ăn nướng vừa ngắm tàu lửa?",
-          "a": "Có mặt khoảng 16:00 là kịp tàu từ lúc bắt đầu chạy qua quán (16:30), rồi ngồi lại ngắm hoàng hôn. Tàu chạy qua quán trong khung 16:30 – 21:25. Chi tiết giờ tàu xem trang săn tàu Đà Lạt (../dip/san-tau-da-lat.html)."
+          "a": "Có mặt khoảng 16:00 là kịp tàu từ lúc bắt đầu chạy qua quán (16:30), rồi ngồi lại ngắm hoàng hôn. Tàu chạy qua quán trong khung 16:30 – 21:25. Xem thêm ở <a href=\"../dip/san-tau-da-lat.html\">trang săn tàu Đà Lạt</a>."
         },
         {
           "q": "Quán có nướng than hoa hay bếp điện?",
@@ -324,7 +324,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Đặt bàn ăn nướng ở Trạm Dừng Chill như thế nào?",
-          "a": "Bạn điền form đặt bàn trên website (../index.html#booking), quán xác nhận qua Zalo trong khoảng 15 phút (trong giờ mở cửa). Cuối tuần nên đặt trước ít nhất 1–2 ngày, ghi rõ khung giờ và số người; riêng dãy lan can ngoài trời sát đường ray thì cuối tuần và mùa cao điểm thường kín trước 2–4 tuần."
+          "a": "Bạn điền <a href=\"../index.html#booking\">form đặt bàn trên website</a>, quán xác nhận qua Zalo trong khoảng 15 phút (trong giờ mở cửa). Cuối tuần nên đặt trước ít nhất 1–2 ngày, ghi rõ khung giờ và số người; riêng dãy lan can ngoài trời sát đường ray thì cuối tuần và mùa cao điểm thường kín trước 2–4 tuần."
         },
         {
           "q": "Quán có chỗ đỗ ô tô không?",
@@ -353,11 +353,11 @@ const BLOG_SEO = {
         },
         {
           "q": "Mấy giờ tàu lửa cổ chạy qua Trạm Dừng Chill?",
-          "a": "Tàu chạy ngang quán trong khung 16:30 – 21:25. Chi tiết xem bài săn tàu Đà Lạt (../dip/san-tau-da-lat.html)."
+          "a": "Tàu chạy ngang quán trong khung 16:30 – 21:25. Xem thêm ở <a href=\"../dip/san-tau-da-lat.html\">trang săn tàu Đà Lạt</a>."
         },
         {
           "q": "Nên đến Trạm Dừng Chill lúc mấy giờ để có chỗ đẹp?",
-          "a": "Có mặt khoảng 16:00 để đón tàu từ lúc bắt đầu chạy qua quán (16:30) rồi ngồi lại ngắm hoàng hôn. Lưu ý khung 17:30–19:00 quán thường kín khách và không nhận đặt bàn mới, nên đến sớm hơn hoặc chọn từ 19:30, và đặt bàn trước qua website (../index.html#booking)."
+          "a": "Có mặt khoảng 16:00 để đón tàu từ lúc bắt đầu chạy qua quán (16:30) rồi ngồi lại ngắm hoàng hôn. Lưu ý khung 17:30–19:00 quán thường kín khách và không nhận đặt bàn mới, nên đến sớm hơn hoặc chọn từ 19:30, và <a href=\"../index.html#booking\">đặt bàn trước qua website</a>."
         },
         {
           "q": "Đi Đà Lạt mấy ngày là hợp lý?",
@@ -365,7 +365,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Trạm Dừng Chill có món gì nổi bật và giá bao nhiêu?",
-          "a": "Quán có hơn 70 món, giá 95.000–300.000đ/người. Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối 209K; best seller có Ba Chỉ Bò Cuộn Kim Châm 137K, Cá Tầm Lúc Lắc 165K. Xem đầy đủ ở thực đơn (../menu.html)."
+          "a": "Quán có hơn 70 món, giá 95.000–300.000đ/người. Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối 209K; best seller có Ba Chỉ Bò Cuộn Kim Châm 137K, Cá Tầm Lúc Lắc 165K. Xem đầy đủ ở <a href=\"../menu.html\">thực đơn</a>."
         },
         {
           "q": "Quán có chỗ đỗ ô tô không?",
@@ -399,7 +399,7 @@ const BLOG_SEO = {
         },
         {
           "q": "Đến Trạm Dừng Chill giờ nào để vừa ngắm hoàng hôn vừa thấy tàu lửa?",
-          "a": "Có mặt khoảng 16:00 để đón tàu từ lúc bắt đầu chạy qua quán (16:30), rồi ngồi lại ngắm hoàng hôn. Lịch tàu chi tiết xem tại trang ../dip/san-tau-da-lat.html."
+          "a": "Có mặt khoảng 16:00 để đón tàu từ lúc bắt đầu chạy qua quán (16:30), rồi ngồi lại ngắm hoàng hôn. Xem thêm ở <a href=\"../dip/san-tau-da-lat.html\">trang săn tàu Đà Lạt</a>."
         },
         {
           "q": "Đi Đà Lạt nên mặc gì khi ăn nướng ngoài trời buổi tối?",
@@ -429,7 +429,7 @@ const BLOG_SEO = {
       "faq": [
         {
           "q": "How much does BBQ cost at Tram Dung Chill in Da Lat?",
-          "a": "Around 95,000–300,000 VND per person (roughly US$4–12; exchange rates change). Prices include VAT; see the full list on the menu page (../menu.html)."
+          "a": "Around 95,000–300,000 VND per person (roughly US$4–12; exchange rates change). Prices include VAT; see the full list on the <a href=\"../menu.html\">menu page</a>."
         },
         {
           "q": "Is it easy to order and book as a foreign visitor?",
@@ -437,11 +437,11 @@ const BLOG_SEO = {
         },
         {
           "q": "How do I book a table at Tram Dung Chill?",
-          "a": "Use the online booking form (../index.html#booking) or message Zalo 0989.765.070. Confirmation comes within about 15 minutes during opening hours. For weekends, book a day or two ahead and ask for a sunset or train view."
+          "a": "Use the <a href=\"../index.html#booking\">online booking form</a> or message Zalo 0989.765.070. Confirmation comes within about 15 minutes during opening hours. For weekends, book a day or two ahead and ask for a sunset or train view."
         },
         {
           "q": "What time should I arrive to see the train and sunset?",
-          "a": "Arrive around 4:00 PM. The train passes between 4:30 PM and 9:25 PM and the sunset starts around 4:30 PM, then the greenhouse 'sea of stars' after about 6:30 PM. See the train guide (../dip/san-tau-da-lat.html)."
+          "a": "Arrive around 4:00 PM. The train passes between 4:30 PM and 9:25 PM and the sunset starts around 4:30 PM, then the greenhouse 'sea of stars' after about 6:30 PM. See the <a href=\"../dip/san-tau-da-lat.html\">train-spotting guide</a>."
         },
         {
           "q": "Where is it and how do I get there?",
@@ -472,11 +472,11 @@ const BLOG_SEO = {
       "faq": [
         {
           "q": "What time does the train pass Tram Dung Chill?",
-          "a": "Trains pass below the restaurant between 16:30 and 21:25. See our train-spotting guide at /dip/san-tau-da-lat.html."
+          "a": "Trains pass below the restaurant between 16:30 and 21:25. See our <a href=\"../dip/san-tau-da-lat.html\">train-spotting guide</a>."
         },
         {
           "q": "Do I need a reservation for a train-view table?",
-          "a": "Yes, we recommend it. The valley-view and train-view seats fill quickly, especially on weekends, and the 17:30–19:00 window is usually fully booked. Reserve through the form on our website (index.html#booking) and we'll confirm on Zalo within about 15 minutes during opening hours."
+          "a": "Yes, we recommend it. The valley-view and train-view seats fill quickly, especially on weekends, and the 17:30–19:00 window is usually fully booked. Reserve through the <a href=\"../index.html#booking\">booking form on our website</a> and we'll confirm on Zalo within about 15 minutes during opening hours."
         },
         {
           "q": "What is the best time to arrive for the view?",
@@ -488,11 +488,11 @@ const BLOG_SEO = {
         },
         {
           "q": "How much does a meal cost?",
-          "a": "Expect 95,000–300,000đ per person. We have over 70 dishes of tabletop BBQ, seafood and hot pot. Our signature Beef Steak Slab with Cheese and Salted Egg is 209,000đ. Prices include VAT and may vary by season; see the full menu at /menu.html."
+          "a": "Expect 95,000–300,000đ per person. We have over 70 dishes of tabletop BBQ, seafood and hot pot. Our signature Beef Steak Slab with Cheese and Salted Egg is 209,000đ. Prices include VAT and may vary by season; see the <a href=\"../menu.html\">full menu</a>."
         },
         {
           "q": "Is Tram Dung Chill good for a birthday or anniversary?",
-          "a": "Yes. We set up birthday and anniversary tables free of charge (a 200,000 VND deposit is refunded after your meal), paired with the train-and-sunset view. See ideas at /dip/sinh-nhat.html or book directly via the form on our website."
+          "a": "Yes. We set up birthday and anniversary tables free of charge (a 200,000 VND deposit is refunded after your meal), paired with the train-and-sunset view. See ideas on our <a href=\"../dip/sinh-nhat.html\">birthday page</a> or book directly via the <a href=\"../index.html#booking\">form on our website</a>."
         },
         {
           "q": "Is there parking at Tram Dung Chill?",
@@ -664,7 +664,7 @@ const BLOG_SEO = {
         { "q": "Tự chạy xe máy ban đêm ở Đà Lạt có an toàn không?", "a": "Được, nếu đi chậm và tỉnh táo. Trở ngại lớn nhất là sương mù dày về khuya ở các cung đường ven đồi làm giảm tầm nhìn, cộng với đường dốc và nhiều đoạn một chiều. Nếu đã uống bia rượu thì gọi taxi hoặc xe công nghệ, đừng tự chạy." },
         { "q": "Ăn khuya và đi chơi đêm ở Đà Lạt tốn khoảng bao nhiêu?", "a": "Món ăn vặt vỉa hè và chợ đêm thuộc dạng bình dân, nhưng mỗi hàng một kiểu và giá đổi theo mùa - cứ hỏi trước khi gọi. Nếu ăn tối no bụng tại Trạm Dừng Chill thì mức chi thường là 95.000đ - 300.000đ mỗi người, đã gồm VAT." },
         { "q": "Đi hai người thì nên chọn hoạt động nào cho buổi tối?", "a": "Công thức dễ chịu nhất là ăn tối ở chỗ có view thung lũng lên đèn, sau đó về trung tâm đi bộ một vòng hồ Xuân Hương rồi ngồi cà phê nghe nhạc mộc. Nếu là dịp sinh nhật hay kỷ niệm, Trạm Dừng Chill có setup miễn phí (cọc 200.000đ, hoàn lại sau khi ăn) - nhớ báo trước khi đặt bàn để quán chuẩn bị." },
-        { "q": "Có cần đặt bàn trước khi đi ăn tối ở Đà Lạt không?", "a": "Cuối tuần và mùa cao điểm thì nên, vì các quán có view hay đông vào giờ ăn tối. Với Trạm Dừng Chill, bạn đặt qua form trên website (../index.html#booking) hoặc gọi 0989.765.070, ghi chú rõ số người và giờ đến. Nếu là dịp sinh nhật hay kỷ niệm, báo luôn lúc đặt để quán chuẩn bị setup miễn phí." }
+        { "q": "Có cần đặt bàn trước khi đi ăn tối ở Đà Lạt không?", "a": "Cuối tuần và mùa cao điểm thì nên, vì các quán có view hay đông vào giờ ăn tối. Với Trạm Dừng Chill, bạn đặt qua <a href=\"../index.html#booking\">form đặt bàn trên website</a> hoặc gọi 0989.765.070, ghi chú rõ số người và giờ đến. Nếu là dịp sinh nhật hay kỷ niệm, báo luôn lúc đặt để quán chuẩn bị setup miễn phí." }
       ],
       "author": {"name":"Nguyễn Duy","role":"Đồng chủ Tiệm Nướng Trạm Dừng Chill"},
       "dateModified": "2026-09-14",

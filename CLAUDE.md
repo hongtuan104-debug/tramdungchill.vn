@@ -601,6 +601,40 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      520ms, FCP 672ms), chờ `load` cũng không được (Lighthouse: load 273ms, FCP 2.393ms). Kiểm bằng `kiem-iframe-hoan.js`.
      ⚠️ **Nhúng iframe bên thứ ba (YouTube, Maps, TikTok…) gần màn đầu thì làm kiểu này** — `loading="lazy"` một mình không đủ.
 
+30. **Điều hướng & UX — checklist #18 mục 144–153** (rà 14/09/2026, đo bằng Chrome 412px + máy canh). Đạt sẵn, đừng làm lại:
+   nav 7 mục đều là `<a href>` thật; trang đang đứng có `active` + `aria-current` (đậm + gạch chân, không chỉ màu); breadcrumb
+   ở mọi trang con; blog có tìm kiếm + lọc + khối "không tìm thấy" + nút xoá lọc + trạng thái lọc trong URL (sửa 08/09); 404 có lối về.
+   Đã sửa:
+   - **Nhãn "Thực đơn"**: nav tĩnh, noscript nav, breadcrumb + schema trang menu, 141 bài và 404 đều ghi "Thực đơn", riêng
+     `translations.js` ghi `nav.menu: 'Menu'` → JS đổi chữ ngay sau khi tải (bug #0), footer sinh từ bản dịch cũng lệch.
+     Nay vi = "Thực đơn", en giữ "Menu".
+   - **27 đường dẫn trần trong FAQ blog** (`data/blog-seo.js`): "Xem thực đơn tại ../menu.html", "form trên website
+     (../index.html#booking)" hiện nguyên tên file mà bấm không được → link có nhãn. `faqSchemaBlock()` nay bỏ thẻ HTML khỏi
+     `acceptedAnswer.text` (giống FAQPage trang chủ).
+   - **Menu mobile 404 mất 2 mục đầu**: `.navbar` có `backdrop-filter` nên thành khung chứa của phần tử `fixed` bên trong →
+     `.nav-links{inset:0}` chỉ cao 72px, "Trang chủ" + "Thực đơn" bị đẩy lên trên mép màn hình. Nay khai `width:100vw;height:100dvh`
+     như `.nav-menu` ở style.css.
+     ⚠️ **Lớp phủ `position:fixed` nằm trong khối có `backdrop-filter` / `transform` / `filter` phải khai kích thước theo viewport** —
+     `inset:0` bám theo khối cha đó chứ không theo màn hình.
+   - ESC đóng menu mobile + trả tiêu điểm về nút ở 141 bài blog và 404 (trang chính có từ 08/09); 404 thêm `aria-expanded`.
+   - Ô tìm kiếm blog **không dấu, tách chữ, có bản viết liền**: "sinh nhat", "đà lạt sinh nhật", "dalat" đều khớp.
+     `type="search"` + `enterkeyhint`; tắt JS thì giấu ô tìm + nút lọc.
+   - "Đọc tiếp →" ×18 có `aria-label` kèm tên bài · icon điện thoại nav 2 trang dịp đổi emoji → SVG cho giống 2 trang kia ·
+     `review-qr.html` có link về trang chủ (ẩn khi in) · link dự phòng của QR bỏ "Bấm vào đây" · FAQ trang chủ bọc link thực đơn.
+   - ⚠️ **Đừng viết escape u-hex của dấu kết hợp (0300–036F) trong `js/` `css/` `components/`.** `cat-phong.js` giải mã escape
+     vào bộ ký tự cần giữ → cả 8 phông +4,3 KB (đã dính lúc viết hàm bỏ dấu). `boDau()` trong blog-renderer cố ý so mã số.
+     Phông subset hiện **113,1 KB** (số 109,0 KB ở mục Phông bên dưới là số cũ).
+   - ⚠️ **Dấu vân lastmod (`chuHienThi` trong cap-nhat-lastmod.js) nay bỏ qua `<nav class="navbar|dip-nav">`, `<footer class="footer">`
+     và thẻ `<a>`.** Trước đó đổi một nhãn footer là bot đóng dấu "Cập nhật" + báo IndexNow cho cả 27 trang sitemap.
+     **Đổi hàm đó thì phải tính lại `data/dau-van-noi-dung.json` đối xứng trên bản HEAD** (lưu hàm-mới(HEAD), chỉ khi dấu vân
+     đang lưu = hàm-cũ(HEAD)) — không thì lần push sau cả site bị đóng dấu. Đợt này bot chỉ còn đánh dấu 9 bài đổi chữ FAQ thật,
+     và 9 bài đó vốn đã mang ngày 14/09.
+   - Chưa sửa, chờ sếp: mở lightbox ảnh / phóng to menu lật rồi bấm Back là **rời trang** chứ không đóng lớp phủ (không đẩy
+     history) · "Đường đi" vẫn chỉ ở footer (cố ý, xem mục Nav) · `review-qr.html` còn dòng "View Đẹp Nhất Đà Lạt" (thuộc việc
+     chờ sếp về chữ "nhất").
+   → Máy canh: **R18** (đường dẫn trần · nhãn nav khớp bản dịch · ESC ở 3 biến thể menu · escape dấu kết hợp) + **R13e**
+   (dấu vân bỏ qua nav/footer + bọc link).
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

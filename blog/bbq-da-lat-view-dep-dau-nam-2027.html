@@ -201,7 +201,7 @@
                     <ul>
                         <li><a href="../index.html">Trang chủ</a></li>
                         <li><a href="../index.html#experience">Trải nghiệm</a></li>
-                        <li><a href="../menu.html">Menu</a></li>
+                        <li><a href="../menu.html">Thực đơn</a></li>
                         <li><a href="../index.html#gallery">Không gian</a></li>
                         <li><a href="../blog.html">Blog</a></li>
                         <li><a href="../index.html#booking">Đặt bàn</a></li>
@@ -283,6 +283,17 @@
                 navMenu.classList.remove("open");
                 navToggle.classList.remove("active");
                 navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+        // ESC đóng menu rồi trả tiêu điểm về nút — trang chính (js/navbar.js) đã làm
+        // từ 08/09/2026, 141 bài blog thì chưa: khách dùng bàn phím mở menu mobile
+        // xong phải Tab vòng lại đúng nút hamburger mới thoát ra được.
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && navMenu.classList.contains("open")) {
+                navMenu.classList.remove("open");
+                navToggle.classList.remove("active");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.focus();
             }
         });
     }

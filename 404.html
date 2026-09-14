@@ -99,9 +99,13 @@
 
         /* Mobile */
         @media(max-width:768px){
-            .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,13,10,0.98);flex-direction:column;justify-content:center;gap:32px;font-size:1.2rem}
+            /* .navbar có backdrop-filter nên nó thành khung chứa của phần tử fixed bên trong:
+               inset 0 chỉ phủ đúng 72px của thanh nav, "Trang chủ" + "Thực đơn" bị đẩy lên
+               khỏi màn hình (đo Chrome 412px, 14/09/2026). Khai bề rộng/cao theo viewport như
+               .nav-menu trong style.css; nút toggle nổi trên lớp phủ để còn đóng được. */
+            .nav-links{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;z-index:1;background:rgba(15,13,10,0.98);flex-direction:column;justify-content:center;gap:32px;font-size:1.2rem}
             .nav-links.active{display:flex}
-            .nav-toggle{display:flex}
+            .nav-toggle{display:flex;position:relative;z-index:2}
             .error-buttons{flex-direction:column;align-items:center}
             .btn{width:100%;max-width:260px;justify-content:center}
         }
@@ -229,7 +233,7 @@
                     <ul>
                         <li><a href="index.html">Trang chủ</a></li>
                         <li><a href="index.html#experience">Trải nghiệm</a></li>
-                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="menu.html">Thực đơn</a></li>
                         <li><a href="index.html#gallery">Không gian</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="index.html#booking">Đặt bàn</a></li>
@@ -264,9 +268,21 @@
 
     <!-- Navbar scroll + toggle -->
     <script>
-        document.getElementById("navToggle").addEventListener("click", function() {
-            document.getElementById("navLinks").classList.toggle("active");
-        });
+        (function () {
+            var nut = document.getElementById("navToggle");
+            var menu = document.getElementById("navLinks");
+            function datMenu(mo) {
+                menu.classList.toggle("active", mo);
+                nut.setAttribute("aria-expanded", mo ? "true" : "false");
+            }
+            nut.setAttribute("aria-controls", "navLinks");
+            nut.setAttribute("aria-expanded", "false");
+            nut.addEventListener("click", function () { datMenu(!menu.classList.contains("active")); });
+            // ESC đóng menu rồi trả tiêu điểm về nút — giống js/navbar.js của trang chính.
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape" && menu.classList.contains("active")) { datMenu(false); nut.focus(); }
+            });
+        })();
     </script>
 
     <script defer src="js/fab-contact.js?v=c852569d"></script>

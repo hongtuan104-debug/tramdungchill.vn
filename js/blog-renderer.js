@@ -99,6 +99,10 @@ function buildBlogCard(article) {
     readMore.href = 'blog/' + article.id + '.html';
     readMore.className = 'blog-read-more';
     readMore.textContent = t('blog.readmore', 'Đọc tiếp →');
+    // 18 link "Đọc tiếp →" y hệt nhau: trình đọc màn hình liệt kê link thì khách nghe
+    // 18 lần "Đọc tiếp" mà không biết bài nào. aria-label mở đầu bằng đúng chữ hiển thị
+    // (người điều khiển bằng giọng nói vẫn gọi được) rồi nối tên bài.
+    readMore.setAttribute('aria-label', readMore.textContent.replace(/\s*→\s*$/, '') + ': ' + article.title);
     contentDiv.appendChild(readMore);
 
     card.appendChild(contentDiv);
@@ -252,10 +256,43 @@ function khoiPhucTuURL() {
     apDungLoc(false);
 }
 
+/* So khớp KHÔNG DẤU. Trước 14/09/2026 ô tìm kiếm so nguyên văn chữ thường:
+   khách gõ "sinh nhat" hay "lau ga" (gõ không dấu trên điện thoại rất phổ biến)
+   thì không khớp "Sinh nhật" / "Lẩu gà", ra khối "không tìm thấy" dù có bài đúng.
+   NFD tách mỗi chữ có dấu thành chữ gốc + các dấu kết hợp (mã 768–879), bỏ đám
+   dấu đó là xong; đ/Đ là chữ riêng chứ không phải d + dấu nên phải thay tay.
+   ⚠️ So bằng MÃ SỐ, cố ý không viết dải dấu trong regex bằng escape u-hex:
+   cat-phong.js giải mã escape trong js/ vào bộ ký tự cần giữ, kéo dấu kết hợp
+   và bảng đặt dấu vào cả 8 phông (+4,3 KB — đã dính khi viết bản đầu). */
+function boDau(s) {
+    let ra = '';
+    for (const ch of String(s).normalize('NFD')) {
+        const ma = ch.charCodeAt(0);
+        if (ma < 768 || ma > 879) ra += ch;
+    }
+    return ra.replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
+}
+
+// Chữ để tìm của một card: bỏ dấu một lần rồi nhớ, gõ mỗi phím khỏi xử lý lại cả lưới.
+function chuTimKiem(card, catGoc) {
+    if (card._chuTim === undefined) {
+        const h2 = card.querySelector('h2');
+        const p = card.querySelector('p');
+        const coCach = boDau((h2 ? h2.textContent : '') + ' ' +
+                             (p ? p.textContent : '') + ' ' + catGoc);
+        // Nối thêm bản viết liền: khách gõ "dalat" vẫn khớp "Đà Lạt". Dấu | chặn một
+        // từ khoá khớp vắt qua chỗ nối hai bản.
+        card._chuTim = coCach + '|' + coCach.replace(/\s+/g, '');
+    }
+    return card._chuTim;
+}
+
 function apDungLoc(coHieuUng) {
     const cards = document.querySelectorAll('.blog-card');
-    const tuKhoa = LOC_HIEN_TAI.tuKhoa;
     const danhMuc = LOC_HIEN_TAI.danhMuc;
+    // Tách thành từng chữ, chữ nào cũng phải có mặt nhưng không cần đúng thứ tự:
+    // "đà lạt sinh nhật" vẫn ra bài "Tổ chức sinh nhật ở Đà Lạt".
+    const cacChu = boDau(LOC_HIEN_TAI.tuKhoa).split(/\s+/).filter(Boolean);
     let soHien = 0;
 
     cards.forEach(function(card) {
@@ -263,18 +300,13 @@ function apDungLoc(coHieuUng) {
         const catGoc = elCat ? elCat.textContent.trim() : '';
 
         // Danh mục so khớp nguyên văn (đúng như data-category của nút),
-        // còn từ khoá thì so chữ thường cho khách gõ thoải mái.
+        // còn từ khoá thì so không dấu, chữ thường cho khách gõ thoải mái.
         const hopDanhMuc = danhMuc === 'all' || catGoc === danhMuc;
 
         let hopTuKhoa = true;
-        if (tuKhoa) {
-            const h2 = card.querySelector('h2');
-            const p = card.querySelector('p');
-            const title = h2 ? h2.textContent.toLowerCase() : '';
-            const excerpt = p ? p.textContent.toLowerCase() : '';
-            hopTuKhoa = title.indexOf(tuKhoa) !== -1 ||
-                        excerpt.indexOf(tuKhoa) !== -1 ||
-                        catGoc.toLowerCase().indexOf(tuKhoa) !== -1;
+        if (cacChu.length) {
+            const chu = chuTimKiem(card, catGoc);
+            hopTuKhoa = cacChu.every(function(c) { return chu.indexOf(c) !== -1; });
         }
 
         const hien = hopDanhMuc && hopTuKhoa;
@@ -370,6 +402,12 @@ function initBlogSearch() {
         LOC_HIEN_TAI.tuKhoa = this.value.toLowerCase().trim();
         apDungLoc(false);
         henGhiURL();
+    });
+
+    // Ô tìm kiếm khai enterkeyhint="search" nên bàn phím điện thoại hiện nút "Tìm".
+    // Kết quả đã lọc theo từng phím, bấm Tìm chỉ cần cụp bàn phím cho khách thấy danh sách.
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') this.blur();
     });
 
     // Back/Forward giữa các trạng thái lọc, và cả lúc trang trở lại từ bfcache.

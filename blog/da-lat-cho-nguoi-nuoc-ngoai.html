@@ -124,7 +124,7 @@
             "name": "How much does BBQ cost at Tram Dung Chill in Da Lat?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Around 95,000–300,000 VND per person (roughly US$4–12; exchange rates change). Prices include VAT; see the full list on the menu page (../menu.html)."
+                "text": "Around 95,000–300,000 VND per person (roughly US$4–12; exchange rates change). Prices include VAT; see the full list on the menu page."
             }
         },
         {
@@ -140,7 +140,7 @@
             "name": "How do I book a table at Tram Dung Chill?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Use the online booking form (../index.html#booking) or message Zalo 0989.765.070. Confirmation comes within about 15 minutes during opening hours. For weekends, book a day or two ahead and ask for a sunset or train view."
+                "text": "Use the online booking form or message Zalo 0989.765.070. Confirmation comes within about 15 minutes during opening hours. For weekends, book a day or two ahead and ask for a sunset or train view."
             }
         },
         {
@@ -148,7 +148,7 @@
             "name": "What time should I arrive to see the train and sunset?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Arrive around 4:00 PM. The train passes between 4:30 PM and 9:25 PM and the sunset starts around 4:30 PM, then the greenhouse 'sea of stars' after about 6:30 PM. See the train guide (../dip/san-tau-da-lat.html)."
+                "text": "Arrive around 4:00 PM. The train passes between 4:30 PM and 9:25 PM and the sunset starts around 4:30 PM, then the greenhouse 'sea of stars' after about 6:30 PM. See the train-spotting guide."
             }
         },
         {
@@ -293,10 +293,10 @@
 <p>Booking is quick: fill in the <a href="../index.html#booking">online booking form</a> or send a message on Zalo to 0989.765.070. You'll get a confirmation within about 15 minutes during opening hours. For a celebration, the <a href="../dip/sinh-nhat.html">birthday setup page</a> and the <a href="../dip/cau-hon-hen-ho.html">date-night guide</a> are worth a look.</p>
 <p>Come hungry, come a little early, and let the evening unfold — the sunset, the train whistle, the smell of beef on the grill, and then the valley lighting up like a galaxy. That mix of scenery and food is hard to find anywhere else in Vietnam. Reserve your table, grab a window over the valley, and we'll keep the grill hot for you.</p>
 <section class="blog-faq"><h2 id="frequently-asked-questions">Frequently asked questions</h2>
-<div class="blog-faq-item"><h3>How much does BBQ cost at Tram Dung Chill in Da Lat?</h3><p>Around 95,000–300,000 VND per person (roughly US$4–12; exchange rates change). Prices include VAT; see the full list on the menu page (../menu.html).</p></div>
+<div class="blog-faq-item"><h3>How much does BBQ cost at Tram Dung Chill in Da Lat?</h3><p>Around 95,000–300,000 VND per person (roughly US$4–12; exchange rates change). Prices include VAT; see the full list on the <a href="../menu.html">menu page</a>.</p></div>
 <div class="blog-faq-item"><h3>Is it easy to order and book as a foreign visitor?</h3><p>Yes. The menu has photos, prices and English dish names, and staff speak basic English. Payment is cash or bank transfer. You can book via the online form or Zalo (Vietnam's main messaging app) at 0989.765.070 and get a confirmation within about 15 minutes during opening hours.</p></div>
-<div class="blog-faq-item"><h3>How do I book a table at Tram Dung Chill?</h3><p>Use the online booking form (../index.html#booking) or message Zalo 0989.765.070. Confirmation comes within about 15 minutes during opening hours. For weekends, book a day or two ahead and ask for a sunset or train view.</p></div>
-<div class="blog-faq-item"><h3>What time should I arrive to see the train and sunset?</h3><p>Arrive around 4:00 PM. The train passes between 4:30 PM and 9:25 PM and the sunset starts around 4:30 PM, then the greenhouse 'sea of stars' after about 6:30 PM. See the train guide (../dip/san-tau-da-lat.html).</p></div>
+<div class="blog-faq-item"><h3>How do I book a table at Tram Dung Chill?</h3><p>Use the <a href="../index.html#booking">online booking form</a> or message Zalo 0989.765.070. Confirmation comes within about 15 minutes during opening hours. For weekends, book a day or two ahead and ask for a sunset or train view.</p></div>
+<div class="blog-faq-item"><h3>What time should I arrive to see the train and sunset?</h3><p>Arrive around 4:00 PM. The train passes between 4:30 PM and 9:25 PM and the sunset starts around 4:30 PM, then the greenhouse 'sea of stars' after about 6:30 PM. See the <a href="../dip/san-tau-da-lat.html">train-spotting guide</a>.</p></div>
 <div class="blog-faq-item"><h3>Where is it and how do I get there?</h3><p>It's at 111 Huynh Tan Phat, Xuan Truong Ward, about 7 km from central Da Lat (roughly a 20-minute drive towards Trai Mat). Grab and local taxis both work well.</p></div>
 <div class="blog-faq-item"><h3>What dish should I order first?</h3><p>The signature Cheese & Salted-Egg-Yolk Beef Tower (209,000 VND) is the most photographed. Beef & enoki rolls (137,000 VND) are an easy, fun first grill.</p></div>
 <div class="blog-faq-item"><h3>Is there parking at Tram Dung Chill?</h3><p>Yes — free parking for both motorbikes and cars right at the restaurant. At weekend peak hours you may need to park about 100–200m further away. We open at 15:00, so arriving early makes parking easier; Grab and taxis can drive right up to the door.</p></div>
@@ -433,6 +433,17 @@
                 navMenu.classList.remove("open");
                 navToggle.classList.remove("active");
                 navToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+        // ESC đóng menu rồi trả tiêu điểm về nút — trang chính (js/navbar.js) đã làm
+        // từ 08/09/2026, 141 bài blog thì chưa: khách dùng bàn phím mở menu mobile
+        // xong phải Tab vòng lại đúng nút hamburger mới thoát ra được.
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && navMenu.classList.contains("open")) {
+                navMenu.classList.remove("open");
+                navToggle.classList.remove("active");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.focus();
             }
         });
     }

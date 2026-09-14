@@ -107,7 +107,16 @@ function chuHienThi(html) {
     // là 25 bài cũ đổi khối đó; tính vào dấu vân thì cả 25 bài bị đóng dấu "vừa
     // cập nhật" trong khi chữ nghĩa không đổi một dòng.
     .replace(/<nav class="blog-post-nav[\s\S]*?<\/nav>/gi, ' ')
-    .replace(/<section class="blog-related">[\s\S]*?<\/section>/gi, ' ');
+    .replace(/<section class="blog-related">[\s\S]*?<\/section>/gi, ' ')
+    // Khung chung toàn site (thanh nav + footer) cũng là điều hướng, không phải nội
+    // dung của trang. Thêm 14/09/2026: đổi một nhãn "Menu" → "Thực đơn" ở footer
+    // (checklist #18) là cả 27 trang sitemap bị đóng dấu "vừa cập nhật" cùng lúc.
+    .replace(/<nav class="(navbar|dip-nav)[^"]*"[\s\S]*?<\/nav>/gi, ' ')
+    .replace(/<footer class="footer"[\s\S]*?<\/footer>/gi, ' ')
+    // Bọc chữ sẵn có vào link (đường dẫn trần → <a>) không đổi chữ khách đọc. Gỡ
+    // thẻ <a> KHÔNG để lại dấu cách, kẻo "menu.html</a>." thành "menu.html ." và bị
+    // tính là sửa chữ. R13e trong seo-geo-verify.js chạy lại hàm này trên mẫu.
+    .replace(/<\/?a(\s[^>]*)?>/gi, '');
 
   const schema = (goc.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi) || [])
     .map((k) => k.replace(/<script[^>]*>|<\/script>/gi, ''))

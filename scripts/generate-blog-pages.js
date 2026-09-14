@@ -230,7 +230,9 @@ function faqSchemaBlock(article) {
             return {
                 "@type": "Question",
                 "name": f.q,
-                "acceptedAnswer": { "@type": "Answer", "text": f.a }
+                // Bỏ thẻ HTML: câu trả lời hiển thị có link (<a> tới thực đơn, form đặt
+                // bàn…) nhưng schema chỉ cần chữ — khớp cách index.html khai FAQPage.
+                "acceptedAnswer": { "@type": "Answer", "text": f.a.replace(/<[^>]+>/g, "") }
             };
         })
     }, null, 4);

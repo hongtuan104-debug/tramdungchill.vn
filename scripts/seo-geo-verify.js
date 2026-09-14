@@ -1257,6 +1257,100 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     add("Dấu vân lastmod bỏ qua thay đổi chỉ-là-link trong schema", ok, chiTiet);
 }
 
+// ── R13e. Dấu vân lastmod bỏ qua khung nav/footer và việc bọc chữ vào link ──
+// 14/09/2026 (checklist #18): đổi nhãn "Menu" → "Thực đơn" ở footer suýt đóng dấu
+// "Cập nhật" cho cả 27 trang sitemap; đổi đường dẫn trần "../menu.html" thành link
+// cũng thế. Chạy ĐÚNG hàm chuHienThi của bot trên mẫu, như R13c.
+{
+    const src = fs.readFileSync(path.join(ROOT, "scripts/cap-nhat-lastmod.js"), "utf8");
+    const dau = src.indexOf("function chuHienThi");
+    const cuoi = src.indexOf("function dauVan");
+    let ok = false;
+    let chiTiet = "không tách được hàm chuHienThi khỏi scripts/cap-nhat-lastmod.js";
+    if (dau !== -1 && cuoi > dau) {
+        const chuHienThi = new Function(src.slice(dau, cuoi) + ";return chuHienThi;")();
+        const mau = (nhan, than) =>
+            '<html><head><title>T</title></head><body>' +
+            '<nav class="navbar scrolled" id="navbar"><a href="menu.html">' + nhan + '</a></nav>' +
+            '<p>' + than + '</p>' +
+            '<footer class="footer"><a href="menu.html">' + nhan + '</a></footer></body></html>';
+        const goc = chuHienThi(mau("Menu", "Xem thực đơn tại đây."));
+        const doiNhan = chuHienThi(mau("Thực đơn", "Xem thực đơn tại đây."));
+        const bocLink = chuHienThi(mau("Menu", 'Xem <a href="menu.html">thực đơn</a> tại đây.'));
+        const doiChu = chuHienThi(mau("Menu", "Xem thực đơn ở đây."));
+        ok = goc === doiNhan && goc === bocLink && goc !== doiChu;
+        chiTiet = ok
+            ? "đổi nhãn nav/footer · bọc chữ vào link: dấu vân đứng yên · đổi chữ thì có đổi"
+            : goc === doiChu ? "đổi chữ mà dấu vân đứng yên → bot bỏ sót trang sửa thật"
+            : goc !== doiNhan ? "đổi nhãn nav/footer làm đổi dấu vân → cả site bị đóng dấu ngày sửa oan"
+            : "bọc chữ vào link làm đổi dấu vân → trang bị đóng dấu ngày sửa oan";
+    }
+    add("Dấu vân lastmod bỏ qua khung nav/footer + bọc link", ok, chiTiet);
+}
+
+// ── R18. Điều hướng (checklist #18, 14/09/2026) ─────────────────────────
+// (a) Không in đường dẫn file trần thành chữ: FAQ blog từng ghi "Xem thực đơn tại
+//     ../menu.html" — khách đọc thấy tên file mà bấm không được (27 chỗ).
+// (b) Nhãn mục thực đơn trên nav khớp bản dịch cùng ngôn ngữ trang: HTML tĩnh ghi
+//     "Thực đơn" mà translations.js ghi "Menu" thì JS đổi chữ ngay sau khi tải, footer lệch.
+// (c) Mọi biến thể menu mobile (navbar.js, bài blog, 404) đóng được bằng ESC.
+// (d) Không escape u-hex trỏ vào dấu kết hợp trong js/ css/ components/: cat-phong.js
+//     giải mã escape vào bộ ký tự, kéo bảng đặt dấu vào 8 phông (+4,3 KB).
+{
+    const bad = [];
+    let T = null;
+    try {
+        // eslint-disable-next-line no-eval
+        T = eval(fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8") + "; TRANSLATIONS");
+    } catch (e) { /* R9 đã báo */ }
+
+    const trang = ["index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html", "tac-gia/nguyen-duy.html"]
+        .concat(fs.readdirSync(path.join(ROOT, "dip")).filter((f) => f.endsWith(".html")).map((f) => "dip/" + f))
+        .concat(fs.readdirSync(path.join(ROOT, "blog")).filter((f) => f.endsWith(".html")).map((f) => "blog/" + f));
+    const RE_TRAN = /(\.\.\/|\s\/|\()(dip\/[a-z-]+\.html|menu\.html|blog\.html|index\.html#booking|duong-di\/)/;
+    let soNav = 0;
+    for (const p of trang) {
+        const html = fs.readFileSync(path.join(ROOT, p), "utf8");
+        const than = (html.split(/<body[^>]*>/)[1] || "")
+            .replace(/<script[\s\S]*?<\/script>/g, " ")
+            .replace(/<style[\s\S]*?<\/style>/g, " ")
+            .replace(/<!--[\s\S]*?-->/g, " ");
+        const tran = than.replace(/<[^>]+>/g, " ").match(RE_TRAN);
+        if (tran) bad.push(p + ": in trần \"" + tran[0].trim() + "\"");
+
+        const nav = (than.match(/<nav class="navbar[\s\S]*?<\/nav>/) || [""])[0];
+        const lang = (html.match(/<html[^>]*lang="([a-z]+)/) || [])[1] || "vi";
+        if (nav && T && T[lang]) {
+            soNav++;
+            const muc = nav.match(/<a [^>]*href="(\.\.\/)?menu\.html"[^>]*>([^<]*)<\/a>/);
+            if (!muc) bad.push(p + ": nav thiếu mục thực đơn");
+            else if (muc[2].trim() !== T[lang]["nav.menu"]) {
+                bad.push(p + ": nav ghi \"" + muc[2].trim() + "\" ≠ bản dịch " + lang + " \"" + T[lang]["nav.menu"] + "\"");
+            }
+        }
+    }
+
+    for (const [f, id] of [["js/navbar.js", "navMenu"], ["templates/blog-post.html", "navMenu"], ["404.html", "navLinks"]]) {
+        const s = fs.readFileSync(path.join(ROOT, f), "utf8");
+        if (!/key === ["']Escape["']/.test(s) || s.indexOf(id) === -1) bad.push(f + ": menu mobile không đóng được bằng ESC");
+    }
+
+    const BS = String.fromCharCode(92);
+    const RE_DAU = new RegExp(BS + BS + "u(03[0-6][0-9a-fA-F])|" + BS + BS + "u" + BS + "{0*(3[0-6][0-9a-fA-F])" + BS + "}");
+    for (const d of ["js", "css", "components"]) {
+        for (const f of fs.readdirSync(path.join(ROOT, d))) {
+            const full = path.join(ROOT, d, f);
+            if (!fs.statSync(full).isFile()) continue;
+            if (RE_DAU.test(fs.readFileSync(full, "utf8"))) bad.push(d + "/" + f + ": có escape dấu kết hợp (cat-phong kéo vào phông)");
+        }
+    }
+
+    add("Điều hướng: không in đường dẫn trần · nhãn nav khớp bản dịch · menu mobile đóng bằng ESC · không escape dấu kết hợp",
+        bad.length === 0,
+        bad.length ? bad.slice(0, 5).join(" | ")
+            : trang.length + " trang không in đường dẫn trần · " + soNav + " nav khớp bản dịch · 3 biến thể menu đóng bằng ESC");
+}
+
 // ── R13d. hreflang: MỘT nguồn (sitemap), đúng ngôn ngữ, cụm hai chiều ─────
 // 13/09/2026: 2 bài tiếng Anh khai hreflang="en" trong HTML nhưng sitemap khai "vi"
 // cho CHÍNH URL đó (generator ghi cứng) — hai cách khai đá nhau đúng ở 2 trang duy

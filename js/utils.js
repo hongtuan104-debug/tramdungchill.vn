@@ -326,7 +326,7 @@ function veQR(container) {
         a.target = '_blank';
         a.rel = 'noopener';
         Object.assign(a.style, { color: '#C8572A', fontWeight: '600', textDecoration: 'underline' });
-        a.textContent = 'Bấm vào đây để đánh giá';
+        a.textContent = 'mở Google Maps để đánh giá';
         fallbackDiv.appendChild(p);
         fallbackDiv.appendChild(a);
         container.appendChild(fallbackDiv);

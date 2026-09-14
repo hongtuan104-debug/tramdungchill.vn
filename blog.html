@@ -241,6 +241,12 @@
     .blog-search-input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,168,83,0.15); }
     .blog-search-input::placeholder { color:var(--smoke); }
     .blog-search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:20px; height:20px; color:var(--smoke); pointer-events:none; }
+    /* type="search": Safari tự vẽ ô bo tròn kiểu hệ thống, bỏ đi để giữ viên thuốc như cũ.
+       Chrome vẫn giữ nút × xoá chữ — đúng thứ ô tìm kiếm cần. */
+    .blog-search-input { -webkit-appearance:none; appearance:none; }
+    /* Tắt JS thì ô tìm kiếm + nút danh mục không làm gì (danh sách link tĩnh bên dưới
+       đã hiện đủ bài) — giấu đi cho khỏi thành ô bấm mãi không phản hồi. */
+    @media (scripting: none) { .blog-search, .blog-filters { display:none; } }
     /* Khối "không tìm thấy" — js/blog-renderer.js chèn vào ngay sau .blog-grid.
        Ẩn/hiện bằng thuộc tính [hidden], không phải style.display. */
     .blog-empty { text-align:center; padding:48px 20px; }
@@ -256,7 +262,7 @@
         <div class="container">
             <div class="blog-search">
                 <label for="blogSearch" class="sr-only">Tìm kiếm bài viết</label>
-                <input type="text" id="blogSearch" placeholder="Tìm kiếm bài viết..." class="blog-search-input" aria-label="Tìm kiếm bài viết">
+                <input type="search" id="blogSearch" placeholder="Tìm kiếm bài viết..." class="blog-search-input" aria-label="Tìm kiếm bài viết" enterkeyhint="search" autocomplete="off">
                 <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
             <div class="blog-filters" id="blogFilters"></div>
@@ -323,7 +329,7 @@
                     <ul>
                         <li><a href="index.html" data-home-href="#home" data-i18n="nav.home">Trang chủ</a></li>
                         <li><a href="index.html#experience" data-home-href="#experience" data-i18n="nav.experience">Trải nghiệm</a></li>
-                        <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+                        <li><a href="menu.html" data-i18n="nav.menu">Thực đơn</a></li>
                         <li><a href="index.html#gallery" data-home-href="#gallery" data-i18n="nav.gallery">Không gian</a></li>
                         <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                         <li><a href="index.html#booking" data-home-href="#booking" data-i18n="nav.booking">Đặt bàn</a></li>
@@ -358,12 +364,12 @@
 
     <!-- Data Files -->
     <script defer src="data/site-config.js?v=1d1a31a8"></script>
-    <script defer src="data/translations.js?v=c85af57e"></script>
+    <script defer src="data/translations.js?v=bcf851c6"></script>
     <script defer src="data/blog-data-light.js?v=4d92dc76"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=3cec01aa"></script>
-    <script defer src="dist/blog.min.js?v=2483b0f1"></script>
+    <script defer src="dist/common.min.js?v=4f58b40f"></script>
+    <script defer src="dist/blog.min.js?v=990a6dd8"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>

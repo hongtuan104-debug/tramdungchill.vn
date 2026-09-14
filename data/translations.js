@@ -10,7 +10,10 @@ var TRANSLATIONS = {
     // Nav
     'nav.home': 'Trang chủ',
     'nav.experience': 'Trải nghiệm',
-    'nav.menu': 'Menu',
+    // "Thực đơn" chứ không "Menu": HTML tĩnh của nav, noscript nav, breadcrumb +
+    // schema trang menu, 141 bài blog và 404 đều gọi "Thực đơn". Trước 14/09/2026
+    // riêng dòng này ghi "Menu" nên JS đổi chữ ngay sau khi tải và footer cũng lệch.
+    'nav.menu': 'Thực đơn',
     'nav.gallery': 'Không gian',
     'nav.review': 'Đánh giá',
     'nav.blog': 'Blog',
@@ -280,7 +283,7 @@ var TRANSLATIONS = {
     'faq.q10': 'Nên gọi món gì ở Trạm Dừng Chill?',
     'faq.a10': 'Món signature là bò nướng tảng phô mai trứng muối — bò Kobe 209.000đ hoặc bò Okachi 229.000đ — best-seller được khách nhắc nhiều. Ngoài ra hải sản nướng (tôm nướng muối ớt, mực ướp sa tế, bạch tuộc nướng, cá tầm nướng) và 3 nồi lẩu (gà lá é, hải sản, cá tầm) cũng rất được ưa chuộng. <a href="blog/mon-nuong-ngon-nhat-da-lat.html">Xem danh sách món nên gọi →</a>',
     'faq.q11': 'Có menu tiếng Anh không?',
-    'faq.a11': 'Có. Menu được dịch sang tiếng Anh để phục vụ khách nước ngoài, nhân viên giao tiếp được tiếng Anh cơ bản. Xem menu online tại tramdungchill.vn/menu.html. <a href="blog/da-lat-cho-nguoi-nuoc-ngoai.html">Hướng dẫn dành cho khách nước ngoài →</a>',
+    'faq.a11': 'Có. Menu được dịch sang tiếng Anh để phục vụ khách nước ngoài, nhân viên giao tiếp được tiếng Anh cơ bản. Xem <a href="menu.html">menu online tại tramdungchill.vn/menu.html</a>. <a href="blog/da-lat-cho-nguoi-nuoc-ngoai.html">Hướng dẫn dành cho khách nước ngoài →</a>',
     'faq.q12': 'Có được mang thú cưng theo không?',
     'faq.a12': 'Khu ngoài trời cho phép mang theo thú cưng nhỏ như chó, mèo. Quán chỉ đề nghị giữ dây dắt và dọn vệ sinh giúp.',
     'faq.q13': 'Quán nhận thanh toán thế nào?',
@@ -604,7 +607,7 @@ var TRANSLATIONS = {
     'faq.q10': 'What should I order at Tram Dung Chill?',
     'faq.a10': 'Our signature is the beef slab with salted egg cheese — Kobe beef 209,000₫ or Okachi beef 229,000₫ — a best-seller guests often mention. Grilled seafood (chili-salt shrimp, satay squid, grilled octopus, grilled sturgeon) and our three hotpots (chicken with é leaves, seafood, sturgeon) are also very popular. <a href="blog/mon-nuong-ngon-nhat-da-lat.html">See what to order →</a>',
     'faq.q11': 'Is there an English menu?',
-    'faq.a11': 'Yes. The menu is translated into English for international guests, and our staff speak basic English. View the menu online at tramdungchill.vn/menu.html. <a href="blog/da-lat-cho-nguoi-nuoc-ngoai.html">A guide for international guests →</a>',
+    'faq.a11': 'Yes. The menu is translated into English for international guests, and our staff speak basic English. View the <a href="menu.html">menu online at tramdungchill.vn/menu.html</a>. <a href="blog/da-lat-cho-nguoi-nuoc-ngoai.html">A guide for international guests →</a>',
     'faq.q12': 'Can I bring my pet?',
     'faq.a12': 'Small pets such as dogs and cats are welcome in the outdoor area. We only ask that you keep them on a leash and clean up after them.',
     'faq.q13': 'What payment methods do you accept?',
