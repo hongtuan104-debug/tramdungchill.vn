@@ -82,6 +82,20 @@ if (!fs.existsSync(cssPath)) {
 // Van tay tinh RIENG cho tung bundle CSS. Dung chung mot ma thi sua
 // dip-landing.css ma style.css khong doi se ra van tay y het — khach cu
 // nap lai dung ban cu, dung kieu loi da tung giu anh menu cu truoc 07/08/2026.
+// ── 0. vân tay phông trong dist/*.css — làm TRƯỚC khi băm CSS (14/09/2026, CLAUDE.md bug #27).
+// url() phông đổi ?v= là nội dung CSS đổi theo, nên phải gắn xong rồi mới tính vân tay CSS.
+// Cùng hàm ganVanTayPhong với bước 4 (HTML) và generate-blog-pages.js → preload và CSS luôn
+// ra cùng một URL, trình duyệt không tải phông hai lần.
+const { ganVanTayPhong } = require("./van-tay");
+const THU_MUC_PHONG = path.join(ROOT, "assets", "fonts");
+for (const f of fs.readdirSync(path.join(ROOT, "dist"))) {
+    if (!f.endsWith(".css")) continue;
+    const p = path.join(ROOT, "dist", f);
+    const cu = fs.readFileSync(p, "utf8");
+    const moi = ganVanTayPhong(cu, THU_MUC_PHONG);
+    if (moi !== cu) fs.writeFileSync(p, moi, "utf8");
+}
+
 const VERS = {};
 for (const f of fs.readdirSync(path.join(ROOT, "dist"))) {
     if (!f.endsWith(".css")) continue;
@@ -141,6 +155,9 @@ for (const f of allHtml(ROOT)) {
         addedVerJs++;
         return dau + duongDan + "?v=" + v + dongCuoi;
     });
+
+    // ── 4. vân tay phông: thẻ <link rel="preload" as="font"> + @font-face inline (review-qr)
+    s = ganVanTayPhong(s, THU_MUC_PHONG);
 
     if (s !== before) {
         fs.writeFileSync(f, s, "utf8");

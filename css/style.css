@@ -1842,14 +1842,22 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .blog-hero::before {
+    /* Cùng lỗi + cùng cách sửa với .menu-hero::before (14/09/2026, CLAUDE.md bug #28): lớp phủ bằng
+       đúng khung (inset 0) để phông về làm hero đổi cỡ không kéo khối 200% "dời chỗ" thành layout shift. */
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(ellipse at 30% 50%, rgba(212, 168, 83, 0.06) 0%, transparent 60%);
+    inset: 0;
+    background: radial-gradient(ellipse 198% 141% at 10% 50%, rgba(212, 168, 83, 0.06) 0%, transparent 60%);
     pointer-events: none;
+}
+
+/* Giữ chỗ cho lưới bài khi JS chưa vẽ (14/09/2026, CLAUDE.md bug #28). .blog-grid và #blogFilters là div
+   RỖNG, js/blog-renderer.js đổ 18 card vào sau lần vẽ đầu → khối .blog-cta đang nằm ngay dưới ô tìm kiếm
+   (trong tầm nhìn) bị đẩy xuống ~12.000px: Lighthouse mobile CLS 0,103. Máy chậm không thấy vì JS chạy
+   kịp trước lần vẽ đầu — Lighthouse/PageSpeed thì thấy. Giữ sẵn 120vh là CTA nằm ngoài màn hình từ đầu.
+   Chỉ khi có JS (`scripting: enabled`): tắt JS thì lưới rỗng mãi, giữ chỗ là thành khoảng trắng to. */
+@media (scripting: enabled) {
+    .blog-grid:empty { min-height: 120vh; }
 }
 
 .blog-hero .section-tag {
@@ -2373,13 +2381,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .menu-hero::before {
+    /* 14/09/2026 (CLAUDE.md bug #28): lớp phủ bằng đúng khung hero (inset 0) thay vì khối 200% đặt
+       top/left -50%. top:-50% tính theo CHIỀU CAO hero — phông Inter/Playfair về làm hero cao/thấp vài px
+       là cả khối khổng lồ này "dời chỗ": Chrome tính layout shift 0,30 trên toàn khung hero (đo CDP site thật,
+       4G chậm). Gradient quy đổi cho y như cũ: tâm cũ 30%/50% của khối 200% lệch -50% = 10%/50% khung hero;
+       bán kính farthest-corner cũ = 198% chiều ngang × 141% chiều cao. */
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(ellipse at 30% 50%, rgba(212, 168, 83, 0.06) 0%, transparent 60%);
+    inset: 0;
+    background: radial-gradient(ellipse 198% 141% at 10% 50%, rgba(212, 168, 83, 0.06) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -2606,13 +2616,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .menu-cta::before {
+    /* Cùng lỗi với .menu-hero::before (14/09/2026, CLAUDE.md bug #28). Quy đổi: khối cũ rộng 100%, cao
+       200%, lệch top -50% / right -30% → tâm ở 80%/50% khung; bán kính farthest-corner = 70,7% × 141,4%. */
     content: '';
     position: absolute;
-    top: -50%;
-    right: -30%;
-    width: 100%;
-    height: 200%;
-    background: radial-gradient(ellipse, rgba(212, 168, 83, 0.08) 0%, transparent 60%);
+    inset: 0;
+    background: radial-gradient(ellipse 70.7% 141.4% at 80% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 60%);
     pointer-events: none;
 }
 

@@ -507,6 +507,37 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    scrollY/offsetTop/scrollHeight**, kể cả trong requestIdleCallback — dùng sự kiện, IntersectionObserver, ResizeObserver.
    Cùng đợt: `detectCurrentPage()` không biết `/tac-gia/` nên trang tác giả chạy `initScrollUI` của trang chủ và cuộn về
    đầu là nav mất nền đặc → `scroll-ui.js` không bao giờ gỡ `scrolled` khỏi nav đã mang sẵn class đó trong HTML.
+27. **Phông tự chứa mang vân tay `?v=`** (14/09/2026) — điều kiện bắt buộc trước khi cho trình duyệt giữ bộ nhớ đệm dài
+   (Google đòi ≥ 30 ngày cho font/ảnh/script/style; GitHub Pages ép 10 phút, muốn đổi phải đặt Cloudflare phía trước).
+   `cat-phong.js` viết lại 8 file phông mỗi khi bộ ký tự site đổi mà tên file giữ nguyên → không vân tay thì khách cũ
+   giữ bản thiếu glyph. Hàm dùng chung `ganVanTayPhong()` trong `scripts/van-tay.js`, gọi ở 3 nơi:
+   `toi-uu-tai-trang.js` (bước 0: `dist/*.css` TRƯỚC khi băm CSS · bước 4: thẻ preload + @font-face inline của mọi
+   trang tĩnh) · `generate-blog-pages.js` (preload trong 141 bài) · `bundle-js.js` chạy lại toi-uu + cap-nhat-sw SAU
+   `cat-phong.js` (phông vừa đổi thì vân tay CSS/sw.js phải đổi theo).
+   ⚠️ Preload và `url()` trong CSS **phải cùng `?v=`** — lệch là trình duyệt coi hai URL khác nhau, tải phông hai lần.
+   Máy canh **R8t** (602 chỗ gọi). `css/style.css` gốc KHÔNG mang `?v=` (chỉ bản `dist/`); template bài cũng không.
+28. **Trang con tải CSS nền mà critical CSS chỉ có phông lót + nav → cả trang xếp lại lúc CSS về** (14/09/2026).
+   Lighthouse mobile rà 8 loại trang: blog.html CLS 0,931, menu 0,564, đường đi 0,262 — trang chủ không dính vì critical
+   CSS đầy đủ. CDP 4G chậm trên site thật: cú lớn nhất đúng lúc CSS áp (logo 175×77 → 136×36, menu mobile đang hiện bị
+   ẩn, hero bị đẩy ~100px). → **menu / blog / đường đi / tác giả nay nạp `style.min.css` ĐỒNG BỘ** như trang dịp và bài
+   blog (vốn ≤ 0,03); gỡ luôn khối `chan-transition` ở 4 trang đó (thiếu `onload` gắn `tdc-css` thì transition tắt vĩnh
+   viễn). R8o giờ chỉ còn canh trang chủ. **Trang mới: CSS đồng bộ, trừ khi viết critical CSS đầy đủ như trang chủ.**
+   Cùng đợt, 3 lỗi dời chỗ khi ĐỔI PHÔNG (không liên quan CSS nền):
+   - `.menu-hero::before`, `.blog-hero::before`, `.menu-cta::before` là lớp phủ 200% đặt `top/left: -50%` — `top` % tính theo
+     chiều cao khối cha, phông về làm hero cao/thấp vài px là cả lớp khổng lồ "dời chỗ": CLS 0,30 riêng menu. Nay `inset: 0`
+     + quy đổi tâm/bán kính gradient cho y hệt. ⚠️ **Lớp phủ trang trí dùng `inset: 0`, đừng định vị âm theo %.**
+   - Đường đi: tiêu đề "Đến Quán Trạm Dừng Chill" lúc 1 dòng lúc 2 dòng vì Playfair Latin và Playfair tiếng Việt về lệch giờ
+     (chữ trộn phông hẹp đi) → 2 cú 0,023 ngược chiều. ≤ 520px ép 2 dòng bằng `.dong-h1{display:block}`.
+   - Bài blog: script thanh tiến độ đọc gọi `measure()` (offsetTop) ngay lúc dựng trang = 419ms "buộc chỉnh lại luồng"
+     → đo ở lần cuộn đầu (xem #26).
+   - Trang dịp: `site-config.js` + `booking.js` thêm `defer` (script inline chỉ dùng SITE_CONFIG lúc gửi form).
+   - blog.html: `.blog-grid` + `#blogFilters` là div RỖNG, `blog-renderer.js` đổ 18 card vào SAU lần vẽ đầu → `.blog-cta`
+     đang trong tầm nhìn bị đẩy ~12.000px (Lighthouse 0,103; CDP không thấy vì JS kịp chạy trước lần vẽ đầu). Nay
+     `@media (scripting: enabled){.blog-grid:empty{min-height:120vh}}` — chỉ khi có JS, tắt JS thì không thành khoảng trắng.
+     ⚠️ **Nội dung do JS vẽ sau lần vẽ đầu phải có chỗ giữ sẵn**, không thì phần tử bên dưới trong tầm nhìn bị đẩy.
+   Sau sửa, CDP 4G chậm: blog 0,0004 · menu / đường đi / tác giả / bài blog / trang dịp đều 0. Lighthouse cục bộ từng ra
+   menu 0,193 một lượt nhưng 2 lượt ghi trace sau đó + 4 lượt CDP đều 0, không có sự kiện LayoutShift → không sửa mò.
+   Còn lại KHÔNG tính điểm, chưa làm: ảnh card blog + bìa menu thiếu cỡ ~650px (điện thoại 1,75× phải tải 800/1000w).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

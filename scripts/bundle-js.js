@@ -322,4 +322,16 @@ try {
     console.error("  Buoc nay loi (khong chan build): " + e.message);
 }
 
+// Cắt phông xong thì file phông có thể đã đổi nội dung (bộ ký tự site đổi) → vân tay phông
+// trong dist/*.css + thẻ preload phải tính lại, kéo theo vân tay CSS và precache sw.js
+// (14/09/2026, CLAUDE.md bug #27). Chạy lại được nhiều lần: không đổi gì thì không ghi gì.
+console.log("");
+console.log("Gan lai van tay phong + CSS sau khi cat phong...");
+try {
+    require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "toi-uu-tai-trang.js")), { stdio: "pipe" });
+    require("./cap-nhat-sw").chay();
+} catch (e) {
+    console.error("  Buoc nay loi (khong chan build): " + e.message);
+}
+
 console.log("\nAll done!");

@@ -1802,6 +1802,40 @@ const CAU_AEO = (() => {
                     : so15 + " câu hứa 15 phút đều ghi giờ mở cửa · " + soNgay + " chỗ ghi ngày đọc số đều khớp " + d);
 }
 
+// ── R8t. Phông tự chứa mang vân tay ?v= khớp file thật, ở MỌI chỗ gọi ──────
+// 14/09/2026 (CLAUDE.md bug #27): chuẩn bị cho bộ nhớ đệm dài (Google đòi >= 30 ngày).
+// cat-phong.js viết lại phông mà tên file không đổi → thiếu vân tay thì khách cũ giữ bản
+// phông thiếu glyph. Preload và url() trong CSS phải CÙNG ?v=, lệch là tải phông hai lần.
+// Template bài blog cố ý không mang ?v= (generate-blog-pages.js gắn lúc sinh bài) nên bỏ qua.
+{
+    const pham = [];
+    let tong = 0;
+    const PHONG = path.join(ROOT, "assets", "fonts");
+    const bam = {};
+    const md5 = (ten) => {
+        if (!(ten in bam)) {
+            try { bam[ten] = require("crypto").createHash("md5").update(fs.readFileSync(path.join(PHONG, ten))).digest("hex").slice(0, 8); }
+            catch (e) { bam[ten] = null; }
+        }
+        return bam[ten];
+    };
+    const nguon = files.filter((f) => !/^templates\//.test(rel(f)));
+    const distDir = path.join(ROOT, "dist");
+    if (fs.existsSync(distDir)) for (const f of fs.readdirSync(distDir)) if (f.endsWith(".css")) nguon.push(path.join(distDir, f));
+    for (const f of nguon) {
+        const s = fs.readFileSync(f, "utf8");
+        for (const m of s.matchAll(/assets\/fonts\/([A-Za-z0-9._-]+\.woff2)(\?v=([a-f0-9]+))?/g)) {
+            tong++;
+            const dung = md5(m[1]);
+            if (!dung) continue;                       // file thiếu: R14 lo
+            if (m[3] !== dung) pham.push(rel(f) + ": " + m[1] + (m[3] ? " ?v=" + m[3] + " ≠ " + dung : " thiếu ?v="));
+        }
+    }
+    add("Phông mang vân tay ?v= khớp file thật (preload + CSS)", pham.length === 0 && tong > 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 3).join(" | ")
+                    : tong + " chỗ gọi phông đều đúng vân tay");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

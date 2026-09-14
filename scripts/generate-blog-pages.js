@@ -759,6 +759,11 @@ try {
                 return dict[key];
             });
 
+            // Vân tay phông cho thẻ preload trong template (14/09/2026, CLAUDE.md bug #27) —
+            // toi-uu-tai-trang.js bỏ qua thư mục blog/ nên chỗ này tự gắn, cùng hàm dùng
+            // chung để khớp đúng ?v= trong dist/style.min.css (lệch là tải phông hai lần).
+            html = require("./van-tay").ganVanTayPhong(html, path.join(ROOT, "assets", "fonts"));
+
             const outPath = path.join(BLOG_DIR, article.id + ".html");
             fs.writeFileSync(outPath, html, "utf8");
             generated++;

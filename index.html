@@ -106,16 +106,16 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="dist/style.min.css?v=211671e5" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=211671e5"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=a6908852" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=a6908852"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
          Chỉ preload Dancing Script (31 KB): Inter 58 KB sẽ giành băng thông
          với ảnh hero (phần tử LCP), mà Inter đã có phông lót khớp số đo. -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
 
     <!-- Schema.org: generated dynamically by js/schema-generator.js -->
 

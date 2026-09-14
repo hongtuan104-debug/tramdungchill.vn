@@ -12,6 +12,7 @@
  */
 "use strict";
 const fs = require("fs");
+const path = require("path");
 const crypto = require("crypto");
 
 const nho = new Map();
@@ -43,4 +44,24 @@ function regexScriptJS() {
         "gi");
 }
 
-module.exports = { bamFile, regexScriptJS, THU_MUC_JS };
+/**
+ * Vân tay cho phông tự chứa (14/09/2026, CLAUDE.md bug #27).
+ * Mọi chỗ gọi assets/fonts/<ten>.woff2 — url() trong dist/*.css, thẻ preload trong HTML,
+ * @font-face inline (review-qr.html), template bài blog — PHẢI mang CÙNG một ?v=: lệch
+ * là trình duyệt coi preload và CSS là hai URL khác nhau, tải phông hai lần.
+ * Băm theo file thật trong thư mục phông nên chỉ cần tên file, không phụ thuộc
+ * đường dẫn tương đối của trang ("../assets/fonts/x" hay "assets/fonts/x" ra cùng mã).
+ * Vì sao cần: muốn trình duyệt giữ phông lâu (bộ nhớ đệm >= 30 ngày) thì URL phải đổi
+ * khi nội dung đổi — mà cat-phong.js viết lại phông mỗi khi bộ ký tự site đổi, tên
+ * file vẫn y nguyên. Không vân tay thì khách cũ giữ bản phông thiếu glyph mới.
+ * @param {string} text  nội dung HTML/CSS
+ * @param {string} thuMucPhong  đường dẫn tuyệt đối tới assets/fonts
+ */
+function ganVanTayPhong(text, thuMucPhong) {
+    return text.replace(/((?:\.\.\/)*\/?assets\/fonts\/([A-Za-z0-9._-]+\.woff2))(\?v=[a-f0-9]+)?/g, (m, duong, ten) => {
+        const v = bamFile(path.join(thuMucPhong, ten));
+        return v ? duong + "?v=" + v : m;   // file chưa có — để nguyên, đừng làm hỏng link
+    });
+}
+
+module.exports = { bamFile, regexScriptJS, THU_MUC_JS, ganVanTayPhong };
