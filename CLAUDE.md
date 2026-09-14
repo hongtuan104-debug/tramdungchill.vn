@@ -440,6 +440,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    cho chúng, kerning bật lại thay vì kế thừa từ `html`.
    - **Phông tĩnh đủ mọi độ đậm — ĐÃ ĐO, LOẠI**: TBT −43% nhưng trang dùng đủ 5 độ đậm Inter + 4 Playfair nên tải
      21 file/210 KB thay vì 8 file/115 KB → FCP +450ms, LCP +530ms. Chi tiết memory `tbt-mobile-layout-phong-bien-thien`.
+   - **Khai `@font-face` Inter/Playfair ngay trong HTML (để phông tải từ lúc vẽ đầu, mong gộp 2 lần tính bố cục)
+     — ĐÃ ĐO 14/09/2026, LOẠI**: phông bắt đầu tải lúc 230ms thay vì 1.094ms nhưng không gộp được, TBT 1.270 →
+     1.961ms, FCP +150ms, LCP +380ms. Đừng chuyển @font-face vào critical CSS.
    - Đo A/B khi PageSpeed API hết lượt (429, hạn mức ngày reset ~15h giờ VN): Lighthouse trong
      `npm-cache/_npx/5390d7d89c0de19d` + bản sao `git worktree` của commit cũ phục vụ ở cổng khác, chạy xen kẽ
      3 lượt, so trung vị. Điểm tuyệt đối trên máy này thấp hơn PageSpeed nhiều — chỉ dùng để so trước/sau.
