@@ -26,6 +26,19 @@ if (!Number.isFinite(TARGET) || TARGET < 100) {
     process.exit(1);
 }
 
+// Tham số thứ 2 (tuỳ chọn): ngày đọc số trên Google Maps, dạng YYYY-MM-DD.
+// Từ 14/09/2026 các câu nêu số đánh giá kèm "(số đọc ngày dd/mm/yyyy)" /
+// "(as of D Mon YYYY)" (checklist #25 mục 217). Đổi số mà không đổi ngày là
+// câu tự mâu thuẫn — seo-geo-verify.js R8s bắt ngày lệch data/facts.json.
+const NGAY = process.argv[3];
+if (NGAY && !/^\d{4}-\d{2}-\d{2}$/.test(NGAY)) {
+    console.error("Ngày không hợp lệ (cần YYYY-MM-DD): " + NGAY);
+    process.exit(1);
+}
+const THANG_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const ngayVN = NGAY ? NGAY.split("-").reverse().join("/") : null;
+const ngayEN = NGAY ? (+NGAY.slice(8)) + " " + THANG_EN[+NGAY.slice(5, 7) - 1] + " " + NGAY.slice(0, 4) : null;
+
 // 6500 → "6.500" (kiểu VN) và "6,500" (kiểu EN)
 const vn = TARGET.toLocaleString("vi-VN");
 const en = TARGET.toLocaleString("en-US");
@@ -82,13 +95,22 @@ for (const f of allFiles(ROOT)) {
         (m, key) => { hits++; return key + '"' + TARGET + '"'; }
     );
 
+    // 4. Ngày đọc số đi kèm (chỉ khi truyền tham số ngày)
+    if (NGAY) {
+        s = s.replace(/số đọc ngày \d{2}\/\d{2}\/\d{4}/g, () => { hits++; return "số đọc ngày " + ngayVN; });
+        s = s.replace(/as of \d{1,2} [A-Z][a-z]{2} \d{4}/g, () => { hits++; return "as of " + ngayEN; });
+    }
+
     if (s !== before) {
         fs.writeFileSync(f, s, "utf8");
         filesChanged++;
     }
 }
 
-console.log("Chuẩn hoá số đánh giá về " + vn + " (schema: " + TARGET + ")");
+console.log("Chuẩn hoá số đánh giá về " + vn + " (schema: " + TARGET + ")" + (NGAY ? " · ngày đọc số " + ngayVN : ""));
 console.log("  " + hits + " chỗ sửa trong " + filesChanged + " file.");
+console.log(NGAY
+    ? "\n⚠ Nhớ sửa data/facts.json: soDanhGiaGoogle = " + TARGET + ", ngayDocSoDanhGia = " + NGAY
+    : "\n⚠ CHƯA đổi ngày đọc số — các câu \"(số đọc ngày …)\" vẫn giữ ngày cũ. Chạy lại kèm ngày: node scripts/normalize-review-count.js " + TARGET + " YYYY-MM-DD");
 console.log("\n⚠ Nhớ đối chiếu với số thật trên Google Business Profile.");
 console.log("  Số trên website phải khớp GBP — chạy lại script với số đúng nếu lệch.");

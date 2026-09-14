@@ -698,7 +698,9 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // các bài nhắc Xóm Lèo (113 Huỳnh Tấn Phát — quán cùng chủ, hồ sơ Maps riêng) đều để
 // nofollow: có link cho khách bấm, không phải trích nguồn. Xem thêm R8m.
 {
-    const ALLOWED = /^https:\/\/(vi|en)\.wikipedia\.org\//;
+    // 14/09/2026: thêm 2 báo chính thống — bài "Đà Lạt mùa nào đẹp" trích nguyên văn VnExpress (24/9/2022)
+    // và Tuổi Trẻ (7/11/2023) về mùa dã quỳ; trước đó ghi tên báo mà không có link để người đọc kiểm.
+    const ALLOWED = /^https:\/\/((vi|en)\.wikipedia\.org|vnexpress\.net|tuoitre\.vn)\//;
     const dir = path.join(ROOT, "blog");
     const indexed = fs.readdirSync(dir).filter((f) => f.endsWith(".html")).filter((f) => {
         const m = fs.readFileSync(path.join(dir, f), "utf8").match(/name="robots" content="([^"]+)"/);
@@ -1541,7 +1543,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     for (const f of NGUON) {
         const chu = fs.readFileSync(f, "utf8").replace(/<!--[\s\S]*?-->/g, " ").replace(/<[^>]+>/g, " ");
         for (const cau of chu.split(/(?<=[.!?])\s+|\\n/)) {
-            if (!/răng cưa|rack rail|cog rail/i.test(cau)) continue;
+            // "cog (rack) railway" lọt mẫu cũ suốt tới 14/09/2026 (bài EN train-view) → bắt cả dạng có ngoặc
+            if (!/răng cưa|rack[ -]?rail|cog[ -]?rail|cog \(rack\)|rack \(cog\)/i.test(cau)) continue;
             if (/không phải|từng có|đã ngừng|tháo dỡ|not a rack|once had|formerly/i.test(cau)) continue;
             pham.push(rel(f) + " → " + cau.trim().replace(/\s+/g, " ").slice(0, 90));
         }
@@ -1705,6 +1708,93 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     add("Dựng chữ nhanh (tắt kerning/ligature) khớp style.css ↔ critical CSS", pham.length === 0 && soTrang > 0,
         pham.length ? pham.slice(0, 4).join(" | ")
                     : "style.css + " + soTrang + " trang có critical CSS đều khai cùng rule");
+}
+
+// ── R8r. Nội dung AEO: không tự mâu thuẫn với dữ kiện chuẩn (checklist #25, 14/09/2026) ──
+// Rà Content AEO (mục 214–223) thấy cùng một dữ kiện được ghi nhiều kiểu trái nhau giữa trang chủ,
+// trang dịp, llms.txt và blog. AI trích đoạn nào thì trả lời khách theo đoạn đó:
+//  - Tết: facts.json + 4 trang dịp + llms.txt ghi "giữ nguyên giá kể cả Tết", 5 bài blog ghi phụ thu
+//    10% Mùng 2–8 Âm lịch. Sếp Tuấn chốt 14/09/2026: CÓ phụ thu 10% Mùng 2–8 (menu-data.js đúng).
+//  - Hoàng hôn: "hoàng hôn từ 15:00", "quán khác mở 16–17h nên bỏ lỡ hoàng hôn". Tính theo toạ độ
+//    quán (thuật toán NOAA): mặt trời lặn 17:18 (giữa tháng 11) → 18:15 (tháng 7). 15:00 là giờ MỞ CỬA.
+//  - Lịch tàu: "cứ khoảng một tiếng một chuyến" ngay trên bảng chỉ có 2 chuyến chiều; llms.txt ghi
+//    14:30/15:30/16:30/17:30; bài EN ghi 2:30–5:30 PM; 30 bài noindex ghi tàu "khoảng 18h". Nguồn giờ
+//    tàu của site là dip/san-tau-da-lat.html: hằng ngày ~16:30·17:15; T6–CN thêm ~18:35·19:20;
+//    ~20:40·21:25 không cố định.
+//  - "7.060 lượt đánh giá 5 sao" (thật là điểm TB 4,8); "13 triệu người" (thật là lượt xem);
+//    "rated by 7,060 guests" (lượt đánh giá ≠ số khách); "50+ món signature" khi menu có 44 món ăn.
+//  - "Mang theo nước cho tiết kiệm" — menu in ghi rõ không nhận đồ ăn/thức uống mang từ ngoài vào.
+// Mẫu viết theo đúng các câu SAI đã gặp. Câu đúng có chung từ khoá ("không phụ thu Valentine hay đêm
+// 24/12. Riêng Tết Nguyên đán, từ Mùng 2…") phải lọt qua — đừng nới mẫu thành bắt cả chữ "Tết".
+const CAU_AEO = (() => {
+    const NGUON = [...files, ...["data/translations.js", "llms.txt", "data/blog-seo.js", "data/blog-data.js"]
+        .map((f) => path.join(ROOT, f))];
+    const out = [];
+    for (const f of NGUON) {
+        let s = fs.readFileSync(f, "utf8");
+        if (f.endsWith(".js")) s = s.replace(/\/\*[\s\S]*?\*\//g, " ").replace(/^\s*\/\/.*$/gm, " ");
+        s = s.replace(/<!--[\s\S]*?-->/g, " ")
+             .replace(/<script(?![^>]*ld\+json)[\s\S]*?<\/script>/gi, " ")
+             .replace(/<style[\s\S]*?<\/style>/gi, " ")
+             .replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ");
+        for (const cau of s.split(/(?<=[.!?])\s+|\\n|\n/)) {
+            const c = cau.replace(/\s+/g, " ").trim();
+            if (c) out.push({ tu: rel(f), c });
+        }
+    }
+    return out;
+})();
+{
+    const SAI = [
+        ["Tết giữ nguyên giá", (c) => /\bTết\b|\bTet\b/.test(c) && /giữ nguyên|không phụ thu|không tăng giá|no (?:holiday )?surcharge|same price/i.test(c) && !/Mùng 2|2nd[–-]8th|10%/i.test(c)],
+        ["phụ thu Tết thiếu điều kiện Mùng 2–8", (c) => /phụ thu[^.]{0,25}10%|10% surcharge/i.test(c) && !/Mùng 2|2nd[–-]8th/i.test(c)],
+        ["hoàng hôn lúc 15h", (c) => /hoàng hôn[^.]{0,15}\b(?:từ|lúc|bắt đầu)\s*(?:~|khoảng )?15(?::00|h)(?![0-9])|sunset (?:from|at) (?:~|around )?(?:3(?::00)? ?PM|15:00)|15:00[^.]{0,12}bắt đầu hoàng hôn|From ~?15:00 \| Golden sunset/i.test(c)],
+        // "mẹo xếp giờ để khỏi bỏ lỡ hoàng hôn" là lời khuyên bình thường — chỉ bắt khi đem quán khác ra so
+        ["so giờ mở cửa với quán khác", (c) => /sớm nhất khu|earliest on Huynh/i.test(c)
+                                             || (/bỏ lỡ (?:khung )?hoàng hôn|miss the (?:best )?golden hour/i.test(c) && /quán cùng khu|quán khác|nearby restaurants|mở 16/i.test(c))],
+        ["lịch tàu sai", (c) => /cứ khoảng một tiếng lại có một chuyến|one train (?:passes )?(?:by )?every hour|14:30, 15:30, 16:30, 17:30|2:30 PM · 3:30 PM|(?:4:30 and 5:30|16:30 and 17:30) departures|đón tàu đầu|first train rolls in/i.test(c)
+                                || (/tàu|train/i.test(c) && /(?:khoảng|tầm|chừng|~)\s?18h(?![0-9h])|~?17:30\s*[–-]\s*18:30/.test(c))],
+        ["số đánh giá / lượt xem bị đọc sai nghĩa", (c) => /đánh giá\s*5 sao trên Google|reviews\s*5 stars on Google|by over [0-9.,]+ guests|từ hơn [0-9.,]+ khách\b|13 triệu người|13 million people/i.test(c)],
+        ["số món / món signature khai sai", (c) => /\b50\+?\s*Món signature|\b50\+?\s*Signature dishes|(?:khoảng|~)\s?81 món|around 73 (?:items|dishes)/i.test(c)],
+        ["khuyên mang đồ ăn/uống từ ngoài vào", (c) => /mang theo nước|mang đồ (?:ăn|uống)|bring (?:your own|outside) (?:drinks|food)/i.test(c) && /tiết kiệm|quán|Trạm|restaurant/i.test(c) && !/không nhận|không được mang|not allowed/i.test(c)],
+    ];
+    const pham = [];
+    for (const { tu, c } of CAU_AEO) for (const [ten, f] of SAI) if (f(c)) pham.push(ten + ": " + tu + " → " + c.slice(0, 80));
+    add("Nội dung AEO không tự mâu thuẫn dữ kiện chuẩn (Tết · hoàng hôn · lịch tàu · cách ghi số)", pham.length === 0,
+        pham.length ? pham.length + " câu: " + pham.slice(0, 3).join(" | ")
+                    : CAU_AEO.length + " câu (mọi trang + bản dịch + llms.txt + dữ liệu blog) · 8 kiểu câu sai đã gặp đều sạch");
+}
+
+// ── R8s. Câu khẳng định phải kèm điều kiện + ngày đọc số (checklist #25 mục 217, 221, 222) ──
+// (a) "Xác nhận qua Zalo trong 15 phút" ở 32 chỗ không kèm điều kiện, đặt bàn lúc 1h sáng cũng hứa
+//     15 phút. Sếp chốt 14/09/2026: chỉ trong giờ mở cửa 15:00–23:00. Nhãn ngắn (< 45 ký tự, vd thanh
+//     "Setup miễn phí • Phản hồi 15 phút") được miễn vì không đủ chỗ — câu đầy đủ thì phải có.
+// (b) Số đánh giá kèm "(số đọc ngày dd/mm/yyyy)" / "(as of D Mon YYYY)" phải trùng
+//     facts.json ngayDocSoDanhGia. Đổi số bằng normalize-review-count.js <số> <YYYY-MM-DD> để đổi luôn ngày.
+{
+    const facts = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "facts.json"), "utf8"));
+    const d = facts.ngayDocSoDanhGia || "";
+    const THANG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const vn = d.split("-").reverse().join("/");
+    const en = d ? (+d.slice(8)) + " " + THANG[+d.slice(5, 7) - 1] + " " + d.slice(0, 4) : "";
+    const pham = [];
+    let so15 = 0, soNgay = 0;
+    for (const { tu, c } of CAU_AEO) {
+        // Dòng translations.js mang theo tên khoá ('sticky.sub': '…') — bỏ đi rồi mới đếm độ dài nhãn
+        const chu = c.replace(/^'[\w.]+':\s*'/, "").replace(/',?$/, "");
+        if (/15 phút|15 minutes/i.test(chu) && /xác nhận|phản hồi|confirm|liên hệ|báo giá/i.test(chu) && chu.length >= 45) {
+            so15++;
+            if (!/giờ mở cửa|opening hours/i.test(c)) pham.push("15 phút thiếu điều kiện: " + tu + " → " + c.slice(0, 70));
+        }
+        for (const m of c.matchAll(/số đọc ngày (\d{2}\/\d{2}\/\d{4})|as of (\d{1,2} [A-Z][a-z]{2} \d{4})/g)) {
+            soNgay++;
+            if ((m[1] && m[1] !== vn) || (m[2] && m[2] !== en)) pham.push("ngày đọc số lệch facts.json (" + d + "): " + tu + " → " + m[0]);
+        }
+    }
+    if (!d) pham.push("data/facts.json thiếu ngayDocSoDanhGia");
+    add("Câu khẳng định kèm điều kiện (xác nhận 15 phút · ngày đọc số đánh giá)", pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 3).join(" | ")
+                    : so15 + " câu hứa 15 phút đều ghi giờ mở cửa · " + soNgay + " chỗ ghi ngày đọc số đều khớp " + d);
 }
 
 // ── In kết quả ───────────────────────────────────────────────────────────

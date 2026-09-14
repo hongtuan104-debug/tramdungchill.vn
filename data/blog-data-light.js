@@ -33,7 +33,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "A guest at a railing-side BBQ table at Tram Dung Chill, the Da Lat–Trai Mat train right below and the greenhouse valley beyond",
     "badge": "",
     "featured": false,
-    "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8 stars by over 7,060 guests.",
+    "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8/5 on Google Maps from 7,060 reviews.",
     "tags": []
   },
   {
@@ -57,7 +57,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Khay gà, đậu hũ, khoai tây chuẩn bị nhúng lẩu, cạnh đĩa salad và miếng thịt nướng rưới sốt ở Trạm Dừng Chill",
     "badge": "",
     "featured": false,
-    "excerpt": "Món nướng ngon nhất Đà Lạt gọi tên Bò Tảng Nướng Phô Mai Trứng Muối ở Trạm Dừng Chill — vừa nướng vừa ngắm tàu lửa cổ chạy ngang, 4.8 sao Google.",
+    "excerpt": "Tìm món nướng ngon ở Đà Lạt? Món signature của Trạm Dừng Chill là Bò Kobe Nướng Tảng Phô Mai Trứng Muối (209K) — vừa nướng vừa ngắm tàu lửa cổ chạy ngang, 4.8 sao Google.",
     "tags": []
   },
   {
@@ -86,14 +86,14 @@ const BLOG_ARTICLES = [
   },
   {
     "id": "lau-nuong-da-lat-mua-lanh",
-    "title": "Lẩu Nướng Đà Lạt Mùa Lạnh — Combo Ấm Bụng, View Sương Mù & Xe Lửa",
+    "title": "Lẩu Nướng Đà Lạt Mùa Lạnh — Tự Ghép Món Ấm Bụng, View Sương Mù & Xe Lửa",
     "category": "Ẩm thực Đà Lạt",
     "date": "2026-04-15",
     "image": "assets/images/blog/view-hoang-hon-1-v2.webp",
     "imageAlt": "Một đôi khách ngồi bàn gỗ ngoài trời ở Trạm Dừng Chill trong nắng chiều, trên bàn có hoa và bảng phấn, phía sau là thung lũng",
     "badge": "",
     "featured": false,
-    "excerpt": "Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù & xe lửa, hơn 7.060 đánh giá 4.8 sao.",
+    "excerpt": "Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù & xe lửa, 4.8/5 sao với 7.060 lượt đánh giá Google.",
     "tags": []
   },
   {
@@ -165,7 +165,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Một vị khách nâng ly bên bàn tiệc có nến, hoa và bóng bay ở lan can Trạm Dừng Chill, thung lũng nhà lồng lên đèn phía sau",
     "badge": "",
     "featured": false,
-    "excerpt": "Tìm địa điểm team building Đà Lạt cho nhóm đông? Tiệm Nướng Trạm Dừng Chill có bàn lớn, view xe lửa + hoàng hôn + biển sao, giá 95K–300K/người.",
+    "excerpt": "Tìm địa điểm team building Đà Lạt cho nhóm đông? Tiệm Nướng Trạm Dừng Chill kê được nhiều bàn liền nhau, view xe lửa + hoàng hôn + biển sao, giá 95K–300K/người.",
     "tags": []
   },
   {
@@ -189,7 +189,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Khách ngồi các dãy bàn nướng dưới dây đèn bóng tròn ở Trạm Dừng Chill buổi tối, mái nhà lồng sáng đèn phía sau",
     "badge": "",
     "featured": false,
-    "excerpt": "Tìm quán hẹn hò lãng mạn Đà Lạt cho buổi date night? Trạm Dừng Chill: bàn riêng view thung lũng, 3 khoảnh khắc hoàng hôn — tàu lửa — biển sao, setup miễn phí.",
+    "excerpt": "Tìm quán hẹn hò lãng mạn Đà Lạt cho buổi date night? Trạm Dừng Chill: bàn ngoài trời view thung lũng, 3 khoảnh khắc hoàng hôn — tàu lửa — biển sao, setup miễn phí.",
     "tags": []
   },
   {
@@ -213,7 +213,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Nồi lẩu cạnh khay gà, đậu hũ, khoai tây và bún đặt trên bàn ở Trạm Dừng Chill",
     "badge": "",
     "featured": false,
-    "excerpt": "Ăn nướng Đà Lạt thường 95.000đ–300.000đ/người. Tại Trạm Dừng Chill có bảng giá ~81 món minh bạch, view xe lửa + hoàng hôn, giá đã gồm VAT.",
+    "excerpt": "Ăn nướng ở Trạm Dừng Chill (Đà Lạt) thường hết 95.000đ–300.000đ/người, đã gồm VAT: bảng giá hơn 70 món minh bạch, kèm view xe lửa và hoàng hôn.",
     "tags": []
   }
 ];

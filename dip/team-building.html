@@ -277,7 +277,7 @@ fbq('track','ViewContent',{content_name:'Team building',content_category:'landin
             <p class="dip-pricing-note">Tùy theo set menu và quy mô đoàn</p>
             <p class="dip-pricing-detail">Liên hệ Trạm để được tư vấn chi tiết: set menu phù hợp ngân sách, sắp xếp bàn, trang trí, sân khấu, văn nghệ. Trạm luôn sẵn sàng hỗ trợ tổ chức tiệc thành công.</p>
             <ul class="dip-pricing-list">
-                <li><strong>Không phụ thu dịp lễ</strong> — tiệc tất niên cuối năm, đêm 24/12 hay Tết, giá vẫn giữ nguyên như ngày thường.</li>
+                <li><strong>Không phụ thu tiệc tất niên hay đêm 24/12</strong> — giá giữ nguyên như ngày thường. Riêng Tết Nguyên đán, từ Mùng 2 đến Mùng 8 Âm lịch quán phụ thu 10%.</li>
                 <li><strong>Bàn view không phụ thu</strong> — khu ngắm hoàng hôn và nhà lồng đèn cùng một giá với mọi khu khác.</li>
                 <li><strong>Đoàn trên 10 người có cọc</strong> — nhân viên báo mức cụ thể khi xác nhận đặt tiệc.</li>
                 <li><strong>Bãi đỗ miễn phí</strong> cho ô tô con và xe máy.</li>
@@ -328,7 +328,7 @@ fbq('track','ViewContent',{content_name:'Team building',content_category:'landin
             <div class="dip-form-header">
                 <span class="section-tag">Yêu cầu báo giá</span>
                 <h2 class="section-title">Tổ chức tiệc công ty<br><em>chuyên nghiệp tại Đà Lạt</em></h2>
-                <p>Trạm sẽ liên hệ tư vấn báo giá chi tiết trong 15 phút</p>
+                <p>Trạm sẽ liên hệ tư vấn báo giá chi tiết trong 15 phút (trong giờ mở cửa 15:00–23:00)</p>
             </div>
             <form id="bookingForm" class="booking-form">
                 <div class="form-row">
@@ -383,7 +383,7 @@ fbq('track','ViewContent',{content_name:'Team building',content_category:'landin
                     <span class="btn-text">🎉 Yêu Cầu Báo Giá Ngay</span>
                     <span class="btn-loading" style="display:none">Đang gửi...</span>
                 </button>
-                <p class="form-hint">Tư vấn miễn phí · Báo giá chi tiết qua Zalo trong 15 phút</p>
+                <p class="form-hint">Tư vấn miễn phí · Báo giá chi tiết qua Zalo trong 15 phút (giờ mở cửa)</p>
             </form>
         </div>
     </div>
@@ -521,7 +521,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
         if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'Team building',content_category:'landing_dip',num_guests:data.guests});
         var zaloMsg = '🎉 ĐẶT TIỆC CÔNG TY\n\nTên: ' + data.name + '\nSĐT: ' + data.phone + '\nCông ty: ' + (data.company || 'Không có') + '\nLoại: ' + data.occasion + '\nNgày: ' + data.date + '\nSố khách: ' + data.guests + '\nGhi chú: ' + (data.note || 'Không có');
         window.open('https://zalo.me/0989765070?text=' + encodeURIComponent(zaloMsg), '_blank');
-        alert('Yêu cầu báo giá thành công! Trạm sẽ liên hệ qua Zalo trong 15 phút 🎉');
+        alert('Yêu cầu báo giá thành công! Trạm sẽ liên hệ qua Zalo trong 15 phút (trong giờ mở cửa) 🎉');
         this.reset();
     } catch (err) {
         alert('Có lỗi xảy ra. Vui lòng gọi 0989.765.070!');

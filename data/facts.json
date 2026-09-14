@@ -12,6 +12,7 @@
 
   "soDanhGiaGoogle": 7060,
   "diemDanhGiaGoogle": "4.8",
+  "ngayDocSoDanhGia": "2026-09-04",
 
   "giaMin": 95000,
   "giaMax": 300000,
@@ -68,7 +69,9 @@
     "loiVaoXeLan": true,
     "_canhBaoXeLan": "SUA 12/08/2026 — ban truoc ghi false la SAI. Hoi thang chu quan 12/08 (co doc san 4 o tiep can dang bat tren Google Maps): 'Nguoi di xe lan di vao quan binh thuong ma. Mat bang co khong doc a.' => quan CO vao duoc, ho so Maps dang khai DUNG, DA SOI VA KHONG TAT. Ban 29/07 ghi 'co bac them/doc kho' la ghi nham. LUU Y: rieng o 'nha ve sinh cho xe lan' chu quan CHUA xac nhan lan nao - dung tick o do o form ben thu ba cho toi khi hoi duoc. Chot chan R8g trong seo-geo-verify.js VAN GIU (chua dang len web) vi hai phien tung ghi hai dieu nguoc nhau.",
     "cocDatBan": "Dat ban an binh thuong KHONG can coc. Trang tri sinh nhat/tiec: trang tri MIEN PHI, coc 200.000d va HOAN LAI sau khi an xong. Doan tren 10 nguoi co coc, nhan vien bao muc khi xac nhan.",
-    "giaDipLe": "KHONG phu thu dip le. Gia giu nguyen ca dem 24/12, Valentine, Tet. Ban view cung khong phu thu.",
-    "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song + gia dip le); coc xac nhan 30/07/2026"
+    "giaDipLe": "KHONG phu thu dem 24/12, Valentine va cac dip le khac - gia giu nguyen. RIENG Tet Nguyen dan: tu Mung 2 den Mung 8 Am lich phu thu 10%. Ban view khong phu thu.",
+    "_suaGiaDipLe": "SUA 14/09/2026 - ban 31/07 ghi 'gia giu nguyen ca Tet' la SAI. Sep Tuan chot 14/09: Tet CO phu thu 10% tu Mung 2 den Mung 8 Am lich (khop MENU_NOTES.holiday trong menu-data.js). Truoc do 4 trang dip + llms.txt khai Tet giu nguyen gia, con 5 bai blog index khai phu thu 10% - hai ben nguoc nhau. Menu in 26 trang KHONG in dong phu thu nao, dung lay menu in lam bang chung.",
+    "xacNhanDatBan": "Xac nhan qua Zalo trong 15 phut CHI TRONG GIO MO CUA 15:00-23:00; dat ngoai gio thi quan xac nhan khi mo cua (sep chot 14/09/2026). Cau '15 phut' tren web phai kem dieu kien nay o cho du cho (FAQ, form).",
+    "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song); gia dip le sua 14/09/2026; coc xac nhan 30/07/2026"
   }
 }
