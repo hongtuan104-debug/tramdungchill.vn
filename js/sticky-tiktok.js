@@ -54,23 +54,13 @@
             requestAnimationFrame(function () { handleScroll(); ticking = false; });
         }, { passive: true });
 
-        /* Lần gọi ĐẦU TIÊN — hoãn tới lúc trang rảnh.
-
-           Bản cũ gọi ngay tại đây, tức ngay sau DOMContentLoaded khi bố cục còn
-           bẩn, nên chỉ riêng việc đọc window.pageYOffset đã bắt trình duyệt tính
-           lại bố cục toàn trang. PageSpeed 01/09/2026 đổ 248ms "buộc chỉnh lại
-           luồng" vào đúng dòng đó — sau khi js/fab-contact.js được hoãn thì nó
-           trở thành thằng gánh lần tính đầu tiên.
-
-           Không mất gì: .sticky-book-bar mặc định đã ẩn (transform:translateY(100%)),
-           chỉ .visible mới kéo lên. Khách cuộn sớm hơn thì bộ nghe 'scroll' ở trên
-           đã lo. Hoãn chỉ để trang được vẽ xong trước. */
-        var doLanDau = function () {
-            var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
-            khiRanh(handleScroll, { timeout: 2000 });
-        };
-        if (document.readyState === 'complete') doLanDau();
-        else window.addEventListener('load', doLanDau, { once: true });
+        /* KHÔNG còn lần gọi đầu lúc tải trang (14/09/2026, CLAUDE.md bug #26).
+           .sticky-book-bar mặc định đã ẩn (transform:translateY(100%)) nên ở đầu trang
+           chẳng có gì phải tính. Tải lại giữa trang / mở bằng link #neo thì trình duyệt
+           khôi phục vị trí cuộn và bắn sự kiện 'scroll' → bộ nghe ở trên tự lo.
+           Lịch sử: 01/09/2026 gọi thẳng sau DOMContentLoaded = 248ms ép bố cục; hoãn
+           xuống requestIdleCallback vẫn còn 4–9ms vì idle rơi đúng lúc CSS async/phông
+           vừa làm bẩn bố cục (trace 4G chậm chấm bằng trace_engine của Lighthouse). */
     }
 
     // === TIKTOK GALLERY: Lazy load + autoplay on view ===

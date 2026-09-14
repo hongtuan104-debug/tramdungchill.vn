@@ -127,18 +127,10 @@ function initScrollProgress() {
         }
     }, { passive: true });
 
-    /* Lần gọi ĐẦU TIÊN — hoãn tới lúc trang rảnh, cùng lý do với
-       js/fab-contact.js và js/sticky-tiktok.js: đọc scrollHeight/clientHeight/
-       scrollY lúc bố cục còn bẩn là bắt trình duyệt tính lại cả trang ngay giữa
-       lúc đang dựng. Ba chỗ này thay nhau gánh lần tính đầu — hoãn chỗ này thì
-       chỗ kia lãnh, nên phải hoãn cả ba.
-
-       Ở đỉnh trang progress = 0, mà .scroll-progress vốn đã khai width:0% trong
-       CSS, nên lần gọi đầu chẳng đổi gì cả. */
-    var doLanDau = function () {
-        var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
-        khiRanh(updateProgress, { timeout: 2000 });
-    };
-    if (document.readyState === 'complete') doLanDau();
-    else window.addEventListener('load', doLanDau, { once: true });
+    /* KHÔNG còn lần gọi đầu lúc tải trang (14/09/2026, CLAUDE.md bug #26).
+       Ở đỉnh trang progress = 0, mà .scroll-progress vốn đã khai width:0% trong CSS,
+       nên lần gọi đầu chẳng đổi gì — chỉ tốn một phép đọc scrollHeight/clientHeight.
+       Hoãn xuống requestIdleCallback vẫn ép bố cục 7–8ms vì idle rơi đúng lúc CSS
+       async/phông vừa làm bẩn bố cục (trace 4G chậm, trace_engine của Lighthouse).
+       Tải lại giữa trang / mở bằng #neo: trình duyệt bắn 'scroll' → bộ nghe trên lo. */
 }

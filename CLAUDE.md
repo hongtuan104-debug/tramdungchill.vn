@@ -492,6 +492,22 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    liệu / câu mơ hồ / heading · `hoang-hon.js` giờ mặt trời lặn. ⚠️ `data/blog-seo.js` là object JS (khoá ngoài không ngoặc
    kép) — đừng `JSON.parse`; đọc bằng `vm`, thay chuỗi thì mã hoá `JSON.stringify(s).slice(1,-1)` là khớp từng byte.
 
+26. **"Buộc chỉnh lại luồng" chỉ lộ khi mạng chậm — và KHÔNG được đo bố cục lúc tải trang** (14/09/2026). PageSpeed báo
+   "[chưa được phân bổ] 58ms" trong khi Lighthouse cục bộ báo ĐẠT: trên localhost CSS/phông về tức thì nên không bao giờ
+   trùng lúc JS đọc số đo. Ghi trace có bóp 4G chậm (`do-trace.js` với `LUU=`) rồi chấm bằng CHÍNH trace_engine của
+   Lighthouse (`plans/cong-cu-do-hieu-nang/cham-reflow.mjs`) thì ra 30–43ms, đủ tên: `checkScroll` (fab-contact, đo
+   scrollHeight "trang ngắn") 13–25ms · `updateProgress` (i18n, scrollHeight) 7–8ms · `handleScroll` (sticky, pageYOffset)
+   4–9ms · `onScroll` (scroll-ui) 1–2ms. Cả bốn là "lần gọi đầu lúc tải" đã từng hoãn xuống requestIdleCallback /
+   rAF+setTimeout — **hoãn không đủ**: idle vẫn rơi đúng lúc CSS async hoặc phông vừa làm bẩn bố cục.
+   → Bỏ hẳn lần gọi đầu ở cả bốn. Ở đầu trang trạng thái mặc định đã đúng (FAB/nút lên đầu/thanh đặt bàn ẩn, tiến độ 0%,
+   link "Trang chủ" có sẵn `active` trong HTML). Tải lại giữa trang hay mở bằng `#neo` thì trình duyệt khôi phục vị trí và
+   **bắn sự kiện `scroll`** → bộ nghe tự cập nhật (đã kiểm `do-trang-thai.js`: 5 trang × đầu trang / cuộn / tải lại / #neo).
+   "Trang ngắn" của FAB lấy từ `ResizeObserver(document.body)` — kích thước có sẵn sau bước bố cục, không ép gì.
+   Sau sửa: 3 trace 4G chậm đều **0 lần**. ⚠️ **Đừng thêm lại "cập nhật trạng thái lúc tải" bằng cách đọc
+   scrollY/offsetTop/scrollHeight**, kể cả trong requestIdleCallback — dùng sự kiện, IntersectionObserver, ResizeObserver.
+   Cùng đợt: `detectCurrentPage()` không biết `/tac-gia/` nên trang tác giả chạy `initScrollUI` của trang chủ và cuộn về
+   đầu là nav mất nền đặc → `scroll-ui.js` không bao giờ gỡ `scrolled` khỏi nav đã mang sẵn class đó trong HTML.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

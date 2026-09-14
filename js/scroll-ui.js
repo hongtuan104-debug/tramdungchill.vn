@@ -73,13 +73,20 @@ function initScrollUI() {
         return out;
     });
 
+    /* Nav đã mang sẵn "scrolled" trong HTML (generate-nav.js nướng cho mọi trang con)
+       thì luôn nền đặc — không được gỡ khi khách cuộn về đầu trang. Sửa 14/09/2026:
+       detectCurrentPage() không biết /tac-gia/ nên trả 'index', app.js chạy
+       initScrollUI trên trang tác giả và cuộn ngược lên đầu là nav mất nền. Chỉ
+       nav trong suốt của trang chủ mới được bật/tắt theo vị trí cuộn. */
+    const navLuonDac = !!(navbar && navbar.classList.contains('scrolled'));
+
     function onScroll() {
         const scrollY = window.scrollY;
 
         // ĐỌC hết trước, GHI hết sau — xen kẽ mới là thứ đẻ ra reflow.
         const items = layout.get();
 
-        if (navbar) navbar.classList.toggle('scrolled', scrollY > 60);
+        if (navbar && !navLuonDac) navbar.classList.toggle('scrolled', scrollY > 60);
         if (fab) fab.classList.toggle('visible', scrollY > 400);
         if (backToTop) backToTop.classList.toggle('visible', scrollY > 800);
 
@@ -104,12 +111,12 @@ function initScrollUI() {
         });
     }
 
-    /* Lần gọi đầu hoãn qua khung hình đầu tiên (13/09/2026). Gọi thẳng ở đây là
-       đọc offsetTop lúc DOMContentLoaded — bố cục đang dang dở nên trình duyệt phải
-       tính lại bố cục tại chỗ: PageSpeed ghi "buộc chỉnh lại luồng" đúng dòng
-       offsetTop trong common.min.js. Sau khi khung hình vẽ xong thì bố cục đã sạch,
-       đọc không tốn gì. Khách không thấy khác: nav chỉ đổi màu khi đã cuộn quá 60px. */
-    requestAnimationFrame(function () { setTimeout(onScroll, 0); });
+    /* KHÔNG gọi onScroll() lúc tải trang (14/09/2026, CLAUDE.md bug #26).
+       13/09 đã hoãn nó qua một khung hình, nhưng trace 4G chậm vẫn bắt được 1–2ms ép
+       bố cục (CSS async/phông về làm bẩn bố cục ngay trước lúc hẹn giờ chạy). Mà ở
+       đầu trang nó chẳng đổi gì: navbar chưa "scrolled", FAB/nút lên đầu đang ẩn, và
+       link "Trang chủ" đã mang sẵn class active trong HTML (generate-nav.js nướng).
+       Tải lại giữa trang / mở bằng #neo: trình duyệt bắn 'scroll' → bộ nghe trên lo. */
 
     // Lazy load Google Maps iframe when scrolled into view
     const mapEmbed = document.getElementById('mapEmbed');

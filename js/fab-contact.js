@@ -128,19 +128,30 @@
             }
         });
 
-        /* "Trang có ngắn không" — đo một lần thay vì mỗi khung hình cuộn.
-           document.body.scrollHeight buộc tính lại bố cục, mà ngay dòng dưới lại
-           ghi class nên khung sau đọc là tính lại thật. Trang ngắn hay dài thì
-           trong lúc cuộn không đổi. */
-        const shortPage = cachedLayout(function () {
-            return document.body.scrollHeight <= window.innerHeight + 400;
-        });
+        /* "Trang có ngắn không" — lấy từ ResizeObserver, KHÔNG đọc scrollHeight (14/09/2026).
+           Bản trước đo document.body.scrollHeight trong một requestIdleCallback lúc
+           tải xong. Idle callback chạy được cả khi bố cục đang bẩn (CSS async vừa
+           về, phông vừa đổi), nên phép đọc đó ép trình duyệt tính lại cả trang tại
+           chỗ: trace có bóp mạng 4G chậm chấm bằng trace_engine của Lighthouse ra
+           13–25ms "buộc chỉnh lại luồng" riêng dòng này. ResizeObserver đưa sẵn
+           chiều cao body SAU bước tính bố cục của khung hình, không ép gì cả. */
+        let trangNgan = false;
 
-        // Show after scrolling 200px (or immediately on short pages)
+        // Hiện khi đã cuộn quá 200px, hoặc ngay từ đầu nếu trang ngắn
         function checkScroll() {
-            // scrollY > 200 xét trước: cuộn rồi thì khỏi cần đo gì cả
-            const show = window.scrollY > 200 || shortPage.get();
+            const show = trangNgan || window.scrollY > 200;
             fabEl.classList.toggle('visible', show);
+        }
+
+        if (typeof ResizeObserver === 'function') {
+            new ResizeObserver(function (entries) {
+                const e = entries[0];
+                const cao = e.borderBoxSize && e.borderBoxSize[0] ? e.borderBoxSize[0].blockSize : e.contentRect.height;
+                const ngan = cao <= window.innerHeight + 400;
+                if (ngan === trangNgan) return;   // trang dài từ đầu: không đọc gì thêm
+                trangNgan = ngan;
+                checkScroll();                    // bố cục vừa tính xong nên đọc scrollY ở đây không ép
+            }).observe(document.body);
         }
 
         /* Khối đặt bàn đang trong tầm nhìn thì rút FAB đi.
@@ -174,24 +185,14 @@
             }
         }, { passive: true });
 
-        /* Lần đo ĐẦU TIÊN — hoãn tới lúc trang rảnh.
-
-           Bản cũ gọi checkScroll() ngay tại đây, tức ngay sau khi vừa
-           appendChild cả cây FAB vào body. Layout đang bẩn, mà checkScroll đọc
-           window.scrollY + document.body.scrollHeight nên trình duyệt buộc phải
-           tính lại bố cục TOÀN TRANG (884 phần tử) ngay giữa lúc dựng trang.
-           PageSpeed 01/09/2026 đổ 200ms "buộc chỉnh lại luồng" vào đúng dòng đó
-           — nguồn lớn nhất của cả trang.
-
-           Nút FAB chỉ hiện sau khi cuộn 200px (hoặc ngay nếu trang ngắn), nên
-           chẳng có lý do gì phải tính trong lúc trang đang vẽ. Khách cuộn sớm
-           hơn thì bộ nghe 'scroll' bên trên đã lo rồi. */
-        var doLanDau = function () {
-            var khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
-            khiRanh(checkScroll, { timeout: 2000 });
-        };
-        if (document.readyState === 'complete') doLanDau();
-        else window.addEventListener('load', doLanDau, { once: true });
+        /* KHÔNG còn lần đo đầu lúc tải trang (14/09/2026, CLAUDE.md bug #26).
+           Ở đầu trang FAB vốn ẩn (CSS mặc định) — đúng rồi, khỏi đo. Trang ngắn thì
+           ResizeObserver ở trên tự bật. Khách tải lại giữa trang hay mở bằng link
+           #neo thì trình duyệt khôi phục vị trí cuộn và BẮN sự kiện 'scroll', bộ
+           nghe bên trên tự cập nhật (đã kiểm bằng do-trang-thai.js).
+           Lịch sử: 01/09/2026 gọi thẳng lúc dựng trang = 200ms ép bố cục; sau đó
+           hoãn xuống requestIdleCallback nhưng idle vẫn có thể rơi đúng lúc bố cục
+           bẩn, nên bỏ hẳn. */
     }
 
     if (document.readyState === 'loading') {
