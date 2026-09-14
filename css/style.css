@@ -2416,6 +2416,21 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     color: var(--gold);
 }
 
+/* Ép chỗ xuống dòng của h1 hero ở màn hẹp (14/09/2026, CLAUDE.md bug #29) — menu, blog, 4 trang dịp.
+   Phông lót (Georgia co giãn) và Playfair thật lệch nhau vài % bề rộng tuỳ chuỗi, nên trong một dải bề rộng
+   hẹp h1 xuống hàng khác nhau → phông về là cả hero nhảy (menu ở 412px: CLS 0,19). <br class="ngat-h1 ngat-h1-N">
+   chỉ hiện khi màn ≤ N px; N = chỗ cả hai phông cùng vừa một dòng + ~3%, đo bằng
+   plans/cong-cu-do-hieu-nang/do-dong-h1.js. Đổi chữ h1 hay cỡ chữ hero thì đo lại N.
+   Dùng <br> chứ KHÔNG dùng span display:block: h1 trang dịp tô chữ gradient bằng background-clip:text trên <em>,
+   chen khối block vào trong inline là chữ mất nền → trong suốt. Mọi trang có h1 này đều nạp CSS đồng bộ. */
+.ngat-h1 { display: none; }
+@media (max-width: 556px) { .ngat-h1-556 { display: inline; } }
+@media (max-width: 436px) { .ngat-h1-436 { display: inline; } }
+@media (max-width: 434px) { .ngat-h1-434 { display: inline; } }
+@media (max-width: 432px) { .ngat-h1-432 { display: inline; } }
+@media (max-width: 386px) { .ngat-h1-386 { display: inline; } }
+@media (max-width: 344px) { .ngat-h1-344 { display: inline; } }
+
 .menu-hero-desc {
     font-family: var(--font-body);
     font-size: 1.1rem;
@@ -5239,6 +5254,24 @@ body.sticky-bar-active .fab-contact {
     font-size: 0.82rem;
     color: var(--smoke);
     text-align: center;
+}
+
+/* Trước khi JS dựng sách (14/09/2026, CLAUDE.md bug #29): lưới 26 trang chỉ cần hiện ra MỘT lần tính bố cục
+   là mọi ảnh loading="lazy" lọt vào tầm tải trước (tới ~2.500px khi mạng chậm) bị tải luôn — đo được 3–15 trang
+   menu (0,4–1,9 MB) giành băng thông với ảnh bìa, phần tử LCP. Chỉ ẩn khi trình duyệt chạy JS: không JS thì lưới
+   là cách đọc menu duy nhất. Ảnh bìa loading="eager" nên vẫn tải sớm dù nằm trong khối display:none.
+   min-height giữ chỗ xấp xỉ sách + thanh điều khiển để phần bên dưới không bị kéo lên rồi đẩy xuống. Số đo bằng
+   plans/cong-cu-do-hieu-nang/do-rong-sach.js (lệch ≤ ~40px ở 10 cỡ máy): sách cao = rộng ÷ tỉ lệ trang; thanh
+   điều khiển + khe ~92px khi sách đôi, ~129px khi sách đơn (thanh xuống 2 hàng). Sách tối đa 1040px/470px. */
+@media (scripting: enabled) {
+    .flipbook:not(.is-ready) { margin-top: 34px; min-height: min(calc(72vh + 92px), calc(65.2vw + 58px), 820px); }
+    .flipbook:not(.is-ready) .flipbook-pages { display: none; }
+}
+@media (scripting: enabled) and (max-width: 899px) {
+    .flipbook:not(.is-ready) { min-height: min(calc(72vh + 129px), calc(141.6vw + 56px), 795px); }
+}
+@media (scripting: enabled) and (max-width: 480px) {
+    .flipbook:not(.is-ready) { min-height: min(calc(66vh + 129px), calc(141.6vw + 56px)); }
 }
 
 /* Chế độ sách */

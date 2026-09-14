@@ -32,15 +32,23 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="../dist/style.min.css?v=a6908852">
+    <link rel="stylesheet" href="../dist/style.min.css?v=a360a20e">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
-         Chỉ preload Dancing Script (31 KB): Inter 58 KB sẽ giành băng thông
-         với ảnh hero (phần tử LCP), mà Inter đã có phông lót khớp số đo. -->
+         Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
+         Trang này không có ảnh hero → preload thêm phông màn đầu, xem khối dưới (bug #29). -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
+    <!-- Preload phông màn đầu (14/09/2026, CLAUDE.md bug #29): trang nạp CSS đồng bộ mà không preload thì phông chỉ được
+         phát hiện SAU khi CSS về → đổi phông sau lần vẽ đầu → chữ xuống dòng lệch (CLS). Menu A/B: CLS 0,104 → 0. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2?v=1598c370">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2?v=e529d476">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-latin.woff2?v=d172a6cf">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-vietnamese.woff2?v=3d726fc3">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-italic-latin.woff2?v=c8f44b07">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-italic-vietnamese.woff2?v=b91660e8">
 
     <!-- Page-specific styles -->
     <style>
@@ -385,18 +393,27 @@
                     <div class="section-label">🎥 Video hướng dẫn đường đi</div>
                     <div class="video-short">
                         <iframe
-                            src="https://www.youtube.com/embed/KaivEzo606E?rel=0&playsinline=1"
+                            data-src="https://www.youtube.com/embed/KaivEzo606E?rel=0&playsinline=1"
                             title="Đường đi đến Tiệm Nướng Trạm Dừng Chill"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             loading="lazy" allowfullscreen></iframe>
+                        <noscript><iframe
+                            src="https://www.youtube.com/embed/KaivEzo606E?rel=0&playsinline=1"
+                            title="Đường đi đến Tiệm Nướng Trạm Dừng Chill"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            loading="lazy" allowfullscreen></iframe></noscript>
                     </div>
 
                     <div class="section-label">🗺️ Bản đồ vị trí quán</div>
                     <div class="map-wrap">
                         <iframe
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Tiệm+Nướng+Trạm+Dừng+Chill,+111+Huỳnh+Tấn+Phát,+Đà+Lạt&zoom=17&language=vi"
+                            data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Tiệm+Nướng+Trạm+Dừng+Chill,+111+Huỳnh+Tấn+Phát,+Đà+Lạt&zoom=17&language=vi"
                             title="Bản đồ Tiệm Nướng Trạm Dừng Chill"
                             loading="lazy" allowfullscreen></iframe>
+                        <noscript><iframe
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Tiệm+Nướng+Trạm+Dừng+Chill,+111+Huỳnh+Tấn+Phát,+Đà+Lạt&zoom=17&language=vi"
+                            title="Bản đồ Tiệm Nướng Trạm Dừng Chill"
+                            loading="lazy" allowfullscreen></iframe></noscript>
                     </div>
 
                     <div class="cta-stack">
@@ -411,6 +428,35 @@
                 </div>
             </div>
         </section>
+    <script>
+    /* Hoãn iframe YouTube + Google Maps (14/09/2026, CLAUDE.md bug #29). loading="lazy" không đủ: hai khung nằm ngay dưới hero,
+       trong tầm Chrome tải trước (1.250–2.500px) nên vẫn tải lúc mở trang — ~700 KB script YouTube/Maps có lượt chen vào
+       TRƯỚC lần vẽ đầu, Lighthouse cộng cả vào mô phỏng 4G: FCP 1,7s lượt này 6,8s lượt khác.
+       Chờ first-contentful-paint rồi mới quan sát: IntersectionObserver một mình vẫn gọi lại trước FCP (desktop 1350px: request
+       iframe 520ms, FCP 672ms), chờ 'load' cũng không được (Lighthouse: load 273ms, FCP 2.393ms). Trình duyệt không có paint
+       timing thì bật sau load + 3s. Tắt JS: bản noscript ngay dưới mỗi khung. */
+    (function () {
+        var khung = document.querySelectorAll('iframe[data-src]');
+        if (!khung.length) return;
+        function gan(f) { if (!f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src')); }
+        var daBat = false;
+        function batDau() {
+            if (daBat) return;
+            daBat = true;
+            if (!('IntersectionObserver' in window)) { for (var i = 0; i < khung.length; i++) gan(khung[i]); return; }
+            var io = new IntersectionObserver(function (ds) {
+                ds.forEach(function (d) { if (d.isIntersecting) { gan(d.target); io.unobserve(d.target); } });
+            }, { rootMargin: '300px 0px' });
+            for (var j = 0; j < khung.length; j++) io.observe(khung[j]);
+        }
+        try {
+            new PerformanceObserver(function (ds, o) {
+                if (ds.getEntriesByName('first-contentful-paint').length) { o.disconnect(); setTimeout(batDau, 0); }
+            }).observe({ type: 'paint', buffered: true });
+        } catch (e) {}
+        window.addEventListener('load', function () { setTimeout(batDau, 3000); });
+    })();
+    </script>
     <!-- FAQ: text đọc được, khớp 1:1 với FAQPage schema (sinh bởi scripts/sync-faq-schema.js) -->
     <section class="faq-section" id="faq">
         <div class="container">

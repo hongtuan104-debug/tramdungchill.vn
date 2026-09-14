@@ -13,7 +13,7 @@
  * "10.jpg" nằm trước "2.jpg" khi sắp chữ cái, đủ để hoán vị cả cuốn menu.
  *
  * Xuất ra assets/menu-pages/:
- *   <slug>-560.webp / -1000.webp / -1600.webp   (srcset cho từng trang)
+ *   <slug>-560.webp / -640.webp / -1000.webp / -1600.webp   (srcset cho từng trang — cỡ lấy từ MENU_PAGE_SIZES)
  *   <slug>-200.webp                              (ảnh nhỏ trong bảng mục lục)
  * và data/menu-pages-meta.json — kích thước THẬT của từng trang.
  *   Meta này để HTML ghi đúng width/height: đặt sai tỉ lệ là trang giật (CLS)
@@ -44,6 +44,10 @@ const META_FILE = path.join(ROOT, "data", "menu-pages-meta.json");
 const PAGES_DATA = path.join(ROOT, "data", "menu-pages.js");
 
 const QUALITY = 76;          // ảnh menu nền gỗ tối, nhiều nhiễu — 76 vẫn đọc rõ chữ
+// Cỡ nhỏ nén mạnh hơn (14/09/2026, CLAUDE.md bug #29): Lighthouse "cải thiện phân phối ảnh" báo "nén/AVIF" khi ảnh
+// tốn quá 1/6 byte mỗi điểm ảnh — ở 76, bản 560/640 tốn ~0,20 (ảnh nhỏ giữ chi tiết dày hơn), bìa 640 bị báo 18 KB.
+// 62 đưa bìa về 0,162; soi vùng chữ phóng 2× (tên món, giá) không thấy khác. 1000/1600 (retina, phóng to đọc chữ) giữ 76.
+const QUALITY_THEO_CO = { 560: 62, 640: 62 };
 const VALID_EXT = /\.(jpe?g|png|webp|tiff?)$/i;
 
 // ── Đọc danh sách trang từ data/menu-pages.js ───────────────
@@ -151,7 +155,7 @@ async function main() {
             const outPath = path.join(OUT_DIR, page.slug + "-" + w + ".webp");
             await sharp(srcPath, { limitInputPixels: false })
                 .resize({ width: w, withoutEnlargement: true })
-                .webp({ quality: w === thumb ? 62 : QUALITY, effort: 5 })
+                .webp({ quality: w === thumb ? 62 : (QUALITY_THEO_CO[w] || QUALITY), effort: 5 })
                 .toFile(outPath);
             written++;
         }

@@ -205,7 +205,11 @@ var MENU_PAGES = [
 /* Kích cỡ WebP xuất ra (px chiều rộng) — dùng chung cho script tối ưu ảnh và srcset.
    560: điện thoại · 1000: điện thoại retina + sách mở trên desktop · 1600: phóng to đọc chữ.
    200: ảnh nhỏ trong bảng mục lục (chỉ tải khi khách bấm "Mục lục"). */
-var MENU_PAGE_SIZES = [560, 1000, 1600];
+// 640 thêm 14/09/2026 (CLAUDE.md bug #29): điện thoại 412px × 1,75 hiện một trang sách rộng 360px CSS = 630px
+// thật — trước chỉ có 560/1000 nên ảnh bìa (phần tử LCP) phải tải bản 1000px 227 KB. Chọn 640 chứ không 720:
+// Lighthouse chỉ bỏ qua ảnh có srcset khi phần thừa dưới 12 KB, bản 720 ở cỡ đó vẫn thừa ~32 KB.
+// Đổi cỡ ở đây thì xem lại `sizes` trong scripts/generate-menu-flipbook.js.
+var MENU_PAGE_SIZES = [560, 640, 1000, 1600];
 var MENU_PAGE_THUMB = 200;
 
 /* Thư mục chứa ảnh đã tối ưu (đường dẫn tương đối từ gốc site) */

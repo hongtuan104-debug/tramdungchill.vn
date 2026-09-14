@@ -114,10 +114,16 @@
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
-         Chỉ preload Dancing Script (31 KB): Inter 58 KB sẽ giành băng thông
-         với ảnh hero (phần tử LCP), mà Inter đã có phông lót khớp số đo. -->
+         Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
+         Trang này không có ảnh hero → preload thêm phông màn đầu, xem khối dưới (bug #29). -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
+    <!-- Preload phông màn đầu (14/09/2026, CLAUDE.md bug #29): trang nạp CSS đồng bộ mà không preload thì phông chỉ được
+         phát hiện SAU khi CSS về → đổi phông sau lần vẽ đầu → chữ xuống dòng lệch (CLS). Menu A/B: CLS 0,104 → 0. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2?v=1598c370">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-vietnamese.woff2?v=e529d476">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-latin.woff2?v=d172a6cf">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-vietnamese.woff2?v=3d726fc3">
 
     <!-- Meta Pixel Code -->
     <script type="text/plain" data-tdc-lazy>

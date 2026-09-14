@@ -102,7 +102,13 @@ function buildFlipbookHtml(data, meta) {
             (g ? ' data-group-label="' + esc(g.label) + '" data-group-i18n="' + esc(g.i18n) + '"' : '') + '>');
         out.push('                    <img src="' + urlOf(biggest) + '"');
         out.push('                         srcset="' + srcset + '"');
-        out.push('                         sizes="(min-width: 900px) 46vw, 92vw"');
+        // sizes = bề rộng THẬT của một trang sách, đo 14/09/2026 bằng plans/cong-cu-do-hieu-nang/do-rong-sach.js
+        // (CLAUDE.md bug #29). Khai dư như "92vw" cũ là máy 412px tưởng cần 663px, chọn ảnh to hơn cỡ hiện.
+        //   ≥900px  sách đôi: mỗi trang ≤520px, ≤ nửa của 72vh×1,412 (=50,8vh)
+        //   522–899 sách đơn: ≤470px, ≤72vh×0,706 (=50,8vh)  ·  481–521: bề ngang còn lại, ≤50,8vh
+        //   ≤480    sách đơn: ≤66vh×0,706 (=46,6vh); lề = container 20px (14px khi ≤360) + khung sách 6px mỗi bên
+        // Đổi kích thước sách trong style.css (.flipbook-book, .container) thì đo lại rồi sửa chuỗi này.
+        out.push('                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"');
         out.push('                         width="' + m.w + '" height="' + m.h + '"');
         out.push('                         alt="' + esc(p.alt) + '"');
         out.push('                         loading="' + (eager ? "eager" : "lazy") + '" decoding="async"' +
@@ -192,7 +198,8 @@ function buildPreviewHtml(data, meta) {
         out.push('                    <a class="menu-preview-page" href="menu.html#menu-anh">');
         out.push('                        <img src="' + urlOf(mySizes[0]) + '"');
         out.push('                             srcset="' + srcset + '"');
-        out.push('                             sizes="(min-width: 900px) 22vw, 44vw"');
+        // Ô xem trước: ≤700px lưới 2 cột (tối đa 420px, khe 12px) · >700px 4 cột (tối đa 900px, khe 18px) — đo 14/09/2026.
+        out.push('                             sizes="(min-width: 701px) min(212px, calc(25vw - 26px)), min(204px, calc(50vw - 26px))"');
         out.push('                             width="' + m.w + '" height="' + m.h + '"');
         out.push('                             alt="' + esc(p.alt) + '"');
         out.push('                             loading="lazy" decoding="async">');

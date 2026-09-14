@@ -131,7 +131,8 @@ Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu c�
 - **Đổi/thêm ảnh:** copy ảnh gốc vào `assets/menu-pages/_goc/` (đặt tên `1.jpg`…`26.jpg`,
   số quyết định thứ tự trang), rồi:
   `node scripts/tao-anh-menu.js` → `node scripts/bundle-js.js`
-- Ảnh gốc **không commit** (đã gitignore) — chỉ bản WebP 560/1000/1600 + thumb 200 lên web
+- Ảnh gốc **không commit** (đã gitignore) — chỉ bản WebP 560/640/1000 (+1600 nếu ảnh gốc đủ rộng) + thumb 200 lên web.
+  640 thêm 14/09/2026 cho điện thoại 1,75× — đổi cỡ thì sửa cả `sizes` trong generator (bug #29)
 - HTML nằm giữa `<!-- MENU_FLIPBOOK:START --> … <!-- MENU_FLIPBOOK:END -->` trong menu.html,
   do `scripts/generate-menu-flipbook.js` ghi đè. **Sửa tay là mất ở lần build sau.**
 - Chưa đủ 26 ảnh thì generator để trống vùng marker — cố tình, tránh 26 lỗi 404
@@ -535,9 +536,70 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      đang trong tầm nhìn bị đẩy ~12.000px (Lighthouse 0,103; CDP không thấy vì JS kịp chạy trước lần vẽ đầu). Nay
      `@media (scripting: enabled){.blog-grid:empty{min-height:120vh}}` — chỉ khi có JS, tắt JS thì không thành khoảng trắng.
      ⚠️ **Nội dung do JS vẽ sau lần vẽ đầu phải có chỗ giữ sẵn**, không thì phần tử bên dưới trong tầm nhìn bị đẩy.
-   Sau sửa, CDP 4G chậm: blog 0,0004 · menu / đường đi / tác giả / bài blog / trang dịp đều 0. Lighthouse cục bộ từng ra
-   menu 0,193 một lượt nhưng 2 lượt ghi trace sau đó + 4 lượt CDP đều 0, không có sự kiện LayoutShift → không sửa mò.
-   Còn lại KHÔNG tính điểm, chưa làm: ảnh card blog + bìa menu thiếu cỡ ~650px (điện thoại 1,75× phải tải 800/1000w).
+   Sau sửa, CDP 4G chậm: blog 0,0004 · menu / đường đi / tác giả / bài blog / trang dịp đều 0. ~~Lighthouse cục bộ từng ra
+   menu 0,193 một lượt … không sửa mò~~ → **0,193 là lỗi THẬT, tìm ra ở #29** (h1 menu đổi số dòng khi phông về).
+   Còn lại KHÔNG tính điểm, chưa làm: ảnh card blog thiếu cỡ ~650px (điện thoại 1,75× phải tải 800w). Bìa menu: xong ở #29.
+29. **Trang menu: ảnh bìa đúng cỡ · lưới ảnh không tải trước JS · h1 hero không đổi số dòng khi phông về** (14/09/2026).
+   PageSpeed menu 93: LCP 3,0s là ảnh bìa bản 1000w 227 KB (hiện 630px), "buộc chỉnh lại luồng" `menu.min.js:425`, ảnh trang 2
+   tải sớm. Công cụ đo nằm ở `plans/cong-cu-do-hieu-nang/` (gitignore).
+   - **Buộc chỉnh lại luồng:** dòng 425 bản live là `img.height / img.width` lúc dựng mục lục — thuộc tính DOM đó là cỡ ĐANG
+     HIỂN THỊ, đọc là ép bố cục. Đổi sang đọc thuộc tính `width`/`height` trong HTML thì lần ép dời sang `syncLayout()` đọc
+     `window.innerWidth` (Lighthouse 35–429ms). Nay hỏi `matchMedia('(min-width: 900px)')` — không ép bố cục.
+     ⚠️ **Đừng đọc `innerWidth`/`innerHeight` lúc dựng giao diện**, dùng `matchMedia` (giống hero.js ở #20).
+   - **Cỡ ảnh:** thêm **640w** vào `MENU_PAGE_SIZES` + viết `sizes` theo bề rộng THẬT của trang sách (`do-rong-sach.js`, 10 cỡ
+     máy). Máy 412px × 1,75 hiện trang rộng 360px CSS = 630px thật → nay chọn 640w (bìa **92 KB** sau nén 62, trước 227 KB). Không lấy
+     720: Lighthouse chỉ bỏ qua ảnh có srcset khi phần thừa < 12 KB (`BYTE_SAVINGS_THRESHOLD_RESPONSIVE_BREAKPOINTS`), 720 ở cỡ
+     đó còn thừa ~32 KB. `sizes` cũ `92vw` khai dư 5% nên có 640 trình duyệt vẫn chọn bản to hơn. Chrome hiểu `min()` trong
+     `sizes`; trình duyệt không hiểu thì bỏ mục đó, rơi xuống mục sau (ảnh to hơn, không vỡ).
+     ⚠️ Đổi CSS kích thước sách (`.flipbook-book`, `.container`, khung `.flipbook-viewport`) → đo lại rồi sửa chuỗi `sizes` trong
+     `generate-menu-flipbook.js`. Ảnh xem trước ở trang chủ cũng viết lại `sizes` (lưới 2/4 cột).
+     Đúng cỡ rồi Lighthouse vẫn báo bìa "phí 18 KB" — lần này là mục **nén/AVIF**: báo khi ảnh tốn > 1/6 byte mỗi điểm ảnh
+     (`TARGET_BYTES_PER_PIXEL_AVIF`), mà ảnh nhỏ giữ chi tiết dày hơn nên bản 560/640 ở chất lượng 76 tốn ~0,20. Nay
+     `QUALITY_THEO_CO = { 560: 62, 640: 62 }` trong `tao-anh-menu.js` (bìa 0,162); soi vùng chữ phóng 2× không thấy khác.
+     1000/1600 giữ 76 (retina + phóng to đọc chữ).
+   - **Tải trước trang kế** lúc dựng sách hoãn tới `load` — trước đó ảnh trang 2 giành băng thông với ảnh bìa (phần tử LCP).
+   - **Lưới 26 ảnh hiện ra trước khi JS dựng sách:** CSS đồng bộ (#28) nên trình duyệt có thể tính bố cục cho lưới trước khi
+     `menu.min.js` (defer) chạy — một lần là đủ để mọi ảnh `loading="lazy"` trong tầm tải trước bị tải: Lighthouse bắt được
+     3–15 trang (0,4–1,9 MB) giành băng thông với bìa. Nay `@media (scripting: enabled)` ẩn lưới khi chưa `is-ready` + giữ chỗ
+     `min-height` xấp xỉ sách + thanh điều khiển (lệch ≤ ~40px ở 10 cỡ máy). Tắt JS thì lưới vẫn hiện; ảnh bìa `eager` vẫn tải
+     sớm dù nằm trong khối `display:none`. CDP 4G chậm, giữ menu.min.js thêm 2,5s: chỉ còn bìa + trang 2 (sau load).
+   - **h1 hero đổi số dòng khi phông về** — thủ phạm của lượt 0,193: "Menu Quán Nướng Đà Lạt" ở màn 410–420px bằng phông lót
+     (Georgia co giãn) vừa 1 dòng, bằng Playfair thật thì 2 → cả hero bị đẩy 42px. Chỉ lộ khi phông về SAU lần vẽ đầu (mạng
+     chậm), nên lượt PageSpeed phông về kịp đo 0. Rà bằng `so-dong-phong.js` (so chiều cao mọi phần tử chữ: chặn woff2 ↔ cho
+     tải, 8 trang × 11 cỡ) + `do-dong-h1.js` (quét 300–900px từng 2px ra đúng dải lệch). Lệch h1: menu 410–420 · blog.html
+     314–332 · dịp cầu hôn 360–374 · săn tàu 418 · sinh nhật 406–420 (trúng 412 của PageSpeed) · team building 534–542.
+     → `<br class="ngat-h1 ngat-h1-N">` chỉ hiện khi màn ≤ N px (N = chỗ cả hai phông vừa + ~3%, rule trong `style.css`).
+     Sau sửa: 6 trang khớp số dòng ở mọi bề rộng ≥ 320px.
+     ⚠️ **Dùng `<br>`, KHÔNG dùng span `display:block`** trong `<em>` trang dịp: `em` tô chữ gradient bằng `background-clip:text`,
+     chen khối block vào inline là chữ mất nền → trong suốt.
+     ⚠️ **Đổi chữ hay cỡ chữ h1 hero của 6 trang này → chạy `do-dong-h1.js` đo lại N.** Trang chủ không nằm trong đợt này
+     (h1 có cấu trúc riêng, mô hình không khớp — đã có `kiem-phong-lot.js` lo).
+   - **Đoạn văn dài xuống dòng lệch vài chữ khi Inter về — ngắt dòng không chữa được** (menu 320/375/412/430/600px, đường đi
+     390/480, dịp cầu hôn 375–430). Ô chữ giữ nguyên chiều cao nhưng chữ chạy lại bên trong vẫn tính là dời chỗ: sau khi sửa h1,
+     menu ở 412px vẫn **CLS 0,104** cả 2 lượt Lighthouse, thủ phạm duy nhất `p.menu-hero-desc` (đoạn "Quán mở ngoài trời…", link
+     trong đoạn nhảy dòng). Gốc: phông chỉ được phát hiện SAU khi CSS tải + tính bố cục, tức ngay trước lần vẽ đầu → gần như
+     luôn đổi phông sau khi đã vẽ, kể cả localhost.
+     → **Preload đủ phông màn đầu** (Inter + Playfair thẳng/nghiêng, cộng Dancing Script sẵn có = đủ 8 file 109 KB). Trang
+     vốn tải đủ 8 file này, preload chỉ cho tải SỚM chứ không thêm byte. A/B trên bản sao trang menu, Lighthouse 2 lượt/bản:
+     - gốc: CLS 0,104 / 0,104 · FCP 2.827 / 2.855 · LCP 4.477 / 4.355ms
+     - chỉ Inter: CLS 0 / 0 · FCP 2.978 / 2.555 · LCP 4.478 / 4.355ms
+     - đủ phông: CLS 0 / 0 · FCP 2.459 / 1.804 · LCP 4.290 / 4.285ms · "CSS chặn hiển thị" 490–740 → 150–200ms
+     CDP 4G chậm: gốc CLS 0,1044 · FCP 4.328 → đủ phông CLS 0 · FCP 3.336. LCP trang menu là CHỮ (hero cao ~1.100px ở 412px,
+     sách nằm dưới màn đầu) nên phông về sớm chỉ có lợi.
+     Áp cho **menu · blog.html · đường đi · 404** — LCP đều là chữ; file preload đúng những file trang dùng, đo bằng
+     `phong-dung-that.js` (404 không dùng Playfair nghiêng). **KHÔNG áp** cho tác giả / trang dịp / bài blog: LCP là ẢNH (preload
+     phông giành băng thông với ảnh như bug #5), CLS 4G chậm ở 412px vốn ≤ 0,0004, trang dịp + bài blog đã preload Inter từ trước.
+     ⚠️ Preload phải cùng `?v=` với `@font-face` trong CSS (R8t canh) — lệch là trình duyệt tải phông hai lần.
+   - **Lighthouse cục bộ có lượt báo bìa "phí 63–82 KB" dù ảnh đúng cỡ** — lỗi ĐO, không phải trang: trace thiếu
+     `metadata.hostDPR` thì `ImagePaintingHandler.finalize` của trace_engine bỏ bước quy đổi DPR, coi ảnh hiện 360×510 thay vì
+     630×892. Gặp ở cả bản gốc lẫn bản preload. PageSpeed của sếp vẫn quy đổi đúng (từng báo "hiển thị 630x892").
+   - **Đường đi: iframe YouTube + Google Maps chỉ gắn `src` khi khách cuộn gần.** Sau khi thêm preload, Lighthouse ra FCP 6,75s
+     lượt này, 1,69s lượt khác (bản gốc 4,8–5,0s cả 2 lượt): hai khung có `loading="lazy"` nhưng nằm ngay dưới hero, trong tầm
+     Chrome tải trước, nên ~700 KB script YouTube/Maps có lượt bắt đầu TRƯỚC lần vẽ đầu và Lighthouse cộng cả vào mô phỏng 4G.
+     Nay `data-src`, chờ mốc `first-contentful-paint` (PerformanceObserver) rồi mới IntersectionObserver (rootMargin 300px) gắn
+     `src`; tắt JS thì có bản `<noscript>`. ⚠️ IntersectionObserver MỘT MÌNH vẫn gọi lại trước FCP (desktop 1350px: request iframe
+     520ms, FCP 672ms), chờ `load` cũng không được (Lighthouse: load 273ms, FCP 2.393ms). Kiểm bằng `kiem-iframe-hoan.js`.
+     ⚠️ **Nhúng iframe bên thứ ba (YouTube, Maps, TikTok…) gần màn đầu thì làm kiểu này** — `loading="lazy"` một mình không đủ.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

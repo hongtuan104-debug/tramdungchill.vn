@@ -38,15 +38,23 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=a6908852">
+    <link rel="stylesheet" href="dist/style.min.css?v=a360a20e">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
-         Chỉ preload Dancing Script (31 KB): Inter 58 KB sẽ giành băng thông
-         với ảnh hero (phần tử LCP), mà Inter đã có phông lót khớp số đo. -->
+         Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
+         Trang menu không có ảnh hero → preload đủ phông màn đầu, xem khối dưới (bug #29). -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
+    <!-- Preload đủ phông hero (14/09/2026, CLAUDE.md bug #29): không preload thì phông chỉ được phát hiện SAU khi CSS về,
+         đổi phông sau lần vẽ đầu → đoạn văn Inter xuống dòng lệch vài chữ (Lighthouse CLS 0,104 ở 412px). A/B: CLS → 0, FCP nhanh hơn. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2?v=1598c370">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-vietnamese.woff2?v=e529d476">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-latin.woff2?v=d172a6cf">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-vietnamese.woff2?v=3d726fc3">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-latin.woff2?v=c8f44b07">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-vietnamese.woff2?v=b91660e8">
 
     <!-- Schema.org JSON-LD: Menu (MenuItem + giá) — SINH TỰ ĐỘNG từ data/menu-data.js bởi scripts/generate-menu.js. KHÔNG sửa tay phần giữa marker. -->
     <!-- MENU_JSONLD:START -->
@@ -1225,7 +1233,7 @@
     <section class="menu-hero">
         <div class="container">
             <span class="section-tag">Thực Đơn</span>
-            <h1 class="menu-hero-title">Menu Quán Nướng Đà Lạt<br><em>Trạm Dừng Chill</em></h1>
+            <h1 class="menu-hero-title">Menu Quán Nướng <br class="ngat-h1 ngat-h1-436">Đà Lạt<br><em>Trạm Dừng Chill</em></h1>
             <p class="menu-hero-desc">Tươi ngon mỗi ngày -- từ nướng BBQ, lẩu nóng đến hải sản tươi sống. Giá theo thực đơn cập nhật 18/08/2026, đã gồm VAT.</p>            <p class="menu-hero-desc" style="margin-top:14px;">Quán mở ngoài trời, không cửa kính. Bàn xếp thành từng dãy, nhiều dãy chạy dọc lan can nhìn xuống đường ray tàu cổ Đà Lạt – Trại Mát và thung lũng nhà lồng. Một buổi ở <a href="index.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">quán nướng Đà Lạt view đẹp</a> này có ba khoảnh khắc: nắng chiều vàng từ lúc mở cửa 15:00 rồi hoàng hôn từ khoảng 16:30, tàu cổ Đà Lạt – Trại Mát chạy ngang trong khung 16:30 – 21:25, và biển sao nhà lồng lên đèn từ khoảng 18:30.</p>
             <p class="menu-hero-note"><strong>Mức chi thường 95.000đ - 300.000đ/người</strong> (đã gồm VAT). Giá in trên từng trang menu bên dưới là <strong>giá từng món</strong>, không phải giá một người.</p>
             <div class="menu-hero-info">
@@ -1260,8 +1268,8 @@
             <div class="flipbook-pages">
                 <figure class="flip-page" data-page="1" data-group="bia-sach" data-group-label="Bìa" data-group-i18n="flip.group.cover">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-1000.webp?v=e0616436"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-560.webp?v=e14d1517 560w, assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-1000.webp?v=e0616436 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-560.webp?v=86fbd6c3 560w, assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-640.webp?v=a13605bf 640w, assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-1000.webp?v=e0616436 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1054" height="1492"
                          alt="Bìa menu Tiệm Nướng Trạm Dừng Chill — quán nướng Đà Lạt view hoàng hôn và tàu cổ, đường Huỳnh Tấn Phát, Xuân Trường, mở cửa 15h-23h"
                          loading="eager" decoding="async" fetchpriority="high">
@@ -1269,8 +1277,8 @@
                 </figure>
                 <figure class="flip-page" data-page="2" data-group="bestseller" data-group-label="Best Seller" data-group-i18n="flip.group.bestseller">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-1000.webp?v=6f861809"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-560.webp?v=acb7df73 560w, assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-1000.webp?v=6f861809 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-560.webp?v=2e758939 560w, assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-640.webp?v=7a57b2cc 640w, assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-1000.webp?v=6f861809 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Trang best seller menu quán nướng Đà Lạt: bò Kobe nướng tảng phô mai trứng muối, bò Okachi nướng tảng, ba chỉ bò nướng muối tiêu, vếu heo ướp sate"
                          loading="lazy" decoding="async">
@@ -1278,8 +1286,8 @@
                 </figure>
                 <figure class="flip-page" data-page="3" data-group="bestseller" data-group-label="Best Seller" data-group-i18n="flip.group.bestseller">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit-1000.webp?v=5de73aec"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit-560.webp?v=711dd791 560w, assets/menu-pages/menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit-1000.webp?v=5de73aec 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit-560.webp?v=572f446d 560w, assets/menu-pages/menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit-640.webp?v=5e2742f7 640w, assets/menu-pages/menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit-1000.webp?v=5de73aec 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Món best seller Trạm Dừng Chill: vếu heo ướp chao, ba chỉ bò cuộn nấm kim châm, ốc nhồi thịt, cá tầm lúc lắc"
                          loading="lazy" decoding="async">
@@ -1287,8 +1295,8 @@
                 </figure>
                 <figure class="flip-page" data-page="4" data-group="bestseller" data-group-label="Best Seller" data-group-i18n="flip.group.bestseller">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai-1000.webp?v=36e63a20"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai-560.webp?v=0fc077cb 560w, assets/menu-pages/menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai-1000.webp?v=36e63a20 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai-560.webp?v=cb1f306b 560w, assets/menu-pages/menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai-640.webp?v=1ac518ee 640w, assets/menu-pages/menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai-1000.webp?v=36e63a20 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Best seller quán nướng Đà Lạt: cá tầm rang muối, sườn cay Thái Lan, tôm chiên trứng muối"
                          loading="lazy" decoding="async">
@@ -1296,8 +1304,8 @@
                 </figure>
                 <figure class="flip-page" data-page="5" data-group="nuong" data-group-label="BBQ Nướng Tại Bàn" data-group-i18n="flip.group.bbq">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-1000.webp?v=402dbd3c"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-560.webp?v=a71da600 560w, assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-1000.webp?v=402dbd3c 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-560.webp?v=4c8fcc0c 560w, assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-640.webp?v=1de2b656 640w, assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-1000.webp?v=402dbd3c 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1054" height="1492"
                          alt="Thực đơn BBQ nướng tại bàn Đà Lạt: bò nướng cục, bò nướng xiên, ba chỉ heo nướng ngũ vị"
                          loading="lazy" decoding="async">
@@ -1305,8 +1313,8 @@
                 </figure>
                 <figure class="flip-page" data-page="6" data-group="nuong" data-group-label="BBQ Nướng Tại Bàn" data-group-i18n="flip.group.bbq">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-06-bbq-ba-chi-heo-han-quoc-suon-que-chan-ga-1000.webp?v=2ac0faaa"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-06-bbq-ba-chi-heo-han-quoc-suon-que-chan-ga-560.webp?v=3fcb7b1d 560w, assets/menu-pages/menu-quan-nuong-da-lat-06-bbq-ba-chi-heo-han-quoc-suon-que-chan-ga-1000.webp?v=2ac0faaa 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-06-bbq-ba-chi-heo-han-quoc-suon-que-chan-ga-560.webp?v=fc355bd3 560w, assets/menu-pages/menu-quan-nuong-da-lat-06-bbq-ba-chi-heo-han-quoc-suon-que-chan-ga-640.webp?v=ce401fce 640w, assets/menu-pages/menu-quan-nuong-da-lat-06-bbq-ba-chi-heo-han-quoc-suon-que-chan-ga-1000.webp?v=2ac0faaa 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu nướng tại bàn: ba chỉ heo Hàn Quốc, sườn que nướng, chân gà nướng muối ớt"
                          loading="lazy" decoding="async">
@@ -1314,8 +1322,8 @@
                 </figure>
                 <figure class="flip-page" data-page="7" data-group="nuong" data-group-label="BBQ Nướng Tại Bàn" data-group-i18n="flip.group.bbq">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-07-hai-san-nuong-ca-tam-tom-bach-tuoc-1000.webp?v=e1f1088d"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-07-hai-san-nuong-ca-tam-tom-bach-tuoc-560.webp?v=6fbcde27 560w, assets/menu-pages/menu-quan-nuong-da-lat-07-hai-san-nuong-ca-tam-tom-bach-tuoc-1000.webp?v=e1f1088d 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-07-hai-san-nuong-ca-tam-tom-bach-tuoc-560.webp?v=87a2d8b0 560w, assets/menu-pages/menu-quan-nuong-da-lat-07-hai-san-nuong-ca-tam-tom-bach-tuoc-640.webp?v=1683fb72 640w, assets/menu-pages/menu-quan-nuong-da-lat-07-hai-san-nuong-ca-tam-tom-bach-tuoc-1000.webp?v=e1f1088d 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Hải sản nướng tại quán nướng Đà Lạt: cá tầm nướng, tôm nướng muối ớt, bạch tuộc nướng"
                          loading="lazy" decoding="async">
@@ -1323,8 +1331,8 @@
                 </figure>
                 <figure class="flip-page" data-page="8" data-group="ankem" data-group-label="Món Ăn Kèm" data-group-i18n="flip.group.sides">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-08-mon-an-kem-cha-ram-tom-dat-khoai-lang-ken-1000.webp?v=f9fc88b9"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-08-mon-an-kem-cha-ram-tom-dat-khoai-lang-ken-560.webp?v=1d49ff89 560w, assets/menu-pages/menu-quan-nuong-da-lat-08-mon-an-kem-cha-ram-tom-dat-khoai-lang-ken-1000.webp?v=f9fc88b9 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-08-mon-an-kem-cha-ram-tom-dat-khoai-lang-ken-560.webp?v=6d5ee11a 560w, assets/menu-pages/menu-quan-nuong-da-lat-08-mon-an-kem-cha-ram-tom-dat-khoai-lang-ken-640.webp?v=2637c87e 640w, assets/menu-pages/menu-quan-nuong-da-lat-08-mon-an-kem-cha-ram-tom-dat-khoai-lang-ken-1000.webp?v=f9fc88b9 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Món ăn kèm: chả ram tôm đất, khoai tây chiên, khoai lang kén, salad trộn dầu giấm"
                          loading="lazy" decoding="async">
@@ -1332,8 +1340,8 @@
                 </figure>
                 <figure class="flip-page" data-page="9" data-group="com" data-group-label="No Cái Bụng" data-group-i18n="flip.group.mains">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-09-com-chien-cao-nguyen-mi-xao-hai-san-1000.webp?v=cc2e1a7f"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-09-com-chien-cao-nguyen-mi-xao-hai-san-560.webp?v=654ed129 560w, assets/menu-pages/menu-quan-nuong-da-lat-09-com-chien-cao-nguyen-mi-xao-hai-san-1000.webp?v=cc2e1a7f 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-09-com-chien-cao-nguyen-mi-xao-hai-san-560.webp?v=9504db43 560w, assets/menu-pages/menu-quan-nuong-da-lat-09-com-chien-cao-nguyen-mi-xao-hai-san-640.webp?v=df388ead 640w, assets/menu-pages/menu-quan-nuong-da-lat-09-com-chien-cao-nguyen-mi-xao-hai-san-1000.webp?v=cc2e1a7f 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Món no cái bụng: cơm chiên cao nguyên, cơm chiên hải sản, mì xào hải sản, mì xào bò"
                          loading="lazy" decoding="async">
@@ -1341,8 +1349,8 @@
                 </figure>
                 <figure class="flip-page" data-page="10" data-group="lau" data-group-label="Lẩu" data-group-i18n="flip.group.hotpot">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-1000.webp?v=563d0d3b"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-560.webp?v=987aa3a3 560w, assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-1000.webp?v=563d0d3b 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-560.webp?v=df0c36a1 560w, assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-640.webp?v=3f5642d5 640w, assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-1000.webp?v=563d0d3b 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu lẩu Đà Lạt: lẩu gà lá é, lẩu hải sản, lẩu cá tầm — nồi lẩu nóng cho nhóm đông"
                          loading="lazy" decoding="async">
@@ -1350,8 +1358,8 @@
                 </figure>
                 <figure class="flip-page" data-page="11" data-group="laurai" data-group-label="Món Lai Rai" data-group-i18n="flip.group.snacks">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-11-mon-lai-rai-dau-hu-non-bo-luc-lac-1000.webp?v=092cba73"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-11-mon-lai-rai-dau-hu-non-bo-luc-lac-560.webp?v=b15fd825 560w, assets/menu-pages/menu-quan-nuong-da-lat-11-mon-lai-rai-dau-hu-non-bo-luc-lac-1000.webp?v=092cba73 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-11-mon-lai-rai-dau-hu-non-bo-luc-lac-560.webp?v=3715e02b 560w, assets/menu-pages/menu-quan-nuong-da-lat-11-mon-lai-rai-dau-hu-non-bo-luc-lac-640.webp?v=119189d5 640w, assets/menu-pages/menu-quan-nuong-da-lat-11-mon-lai-rai-dau-hu-non-bo-luc-lac-1000.webp?v=092cba73 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1054" height="1492"
                          alt="Món lai rai nhâm nhi: đậu hũ non chiên chà bông, xúc xích Đức nướng, bò lúc lắc"
                          loading="lazy" decoding="async">
@@ -1359,8 +1367,8 @@
                 </figure>
                 <figure class="flip-page" data-page="12" data-group="laurai" data-group-label="Món Lai Rai" data-group-i18n="flip.group.snacks">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi-1000.webp?v=d77bffd8"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi-560.webp?v=2b79f0c0 560w, assets/menu-pages/menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi-1000.webp?v=d77bffd8 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi-560.webp?v=80b64be3 560w, assets/menu-pages/menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi-640.webp?v=4ca0efbb 640w, assets/menu-pages/menu-quan-nuong-da-lat-12-mon-lai-rai-sun-ga-chien-mam-vu-heo-chay-toi-1000.webp?v=d77bffd8 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1054" height="1492"
                          alt="Món lai rai: sụn gà chiên mắm, cánh gà chiên nước mắm, vếu heo cháy tỏi, ếch chiên nước mắm"
                          loading="lazy" decoding="async">
@@ -1368,8 +1376,8 @@
                 </figure>
                 <figure class="flip-page" data-page="13" data-group="tra" data-group-label="Trà Nóng &amp; Trà Lạnh" data-group-i18n="flip.group.tea">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc-1000.webp?v=d3b3fe4d"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc-560.webp?v=74393bba 560w, assets/menu-pages/menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc-1000.webp?v=d3b3fe4d 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc-560.webp?v=af3079d3 560w, assets/menu-pages/menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc-640.webp?v=215ecf72 640w, assets/menu-pages/menu-quan-nuong-da-lat-13-tra-nong-hoa-cuc-tao-do-thao-moc-1000.webp?v=d3b3fe4d 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Trà nóng Đà Lạt: trà hoa cúc táo đỏ, trà thảo mộc, trà gừng táo đỏ mật ong"
                          loading="lazy" decoding="async">
@@ -1377,8 +1385,8 @@
                 </figure>
                 <figure class="flip-page" data-page="14" data-group="tra" data-group-label="Trà Nóng &amp; Trà Lạnh" data-group-i18n="flip.group.tea">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-14-tra-chanh-nong-hat-chia-tra-lipton-1000.webp?v=607323b8"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-14-tra-chanh-nong-hat-chia-tra-lipton-560.webp?v=d912c2ab 560w, assets/menu-pages/menu-quan-nuong-da-lat-14-tra-chanh-nong-hat-chia-tra-lipton-1000.webp?v=607323b8 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-14-tra-chanh-nong-hat-chia-tra-lipton-560.webp?v=deac66ab 560w, assets/menu-pages/menu-quan-nuong-da-lat-14-tra-chanh-nong-hat-chia-tra-lipton-640.webp?v=f8d94c1e 640w, assets/menu-pages/menu-quan-nuong-da-lat-14-tra-chanh-nong-hat-chia-tra-lipton-1000.webp?v=607323b8 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Trà nóng: trà chanh nóng hạt chia, trà Lipton nóng"
                          loading="lazy" decoding="async">
@@ -1386,8 +1394,8 @@
                 </figure>
                 <figure class="flip-page" data-page="15" data-group="tra" data-group-label="Trà Nóng &amp; Trà Lạnh" data-group-i18n="flip.group.tea">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-15-tra-lanh-tra-vai-hat-chia-tra-dua-dao-1000.webp?v=9e71c321"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-15-tra-lanh-tra-vai-hat-chia-tra-dua-dao-560.webp?v=459db3fd 560w, assets/menu-pages/menu-quan-nuong-da-lat-15-tra-lanh-tra-vai-hat-chia-tra-dua-dao-1000.webp?v=9e71c321 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-15-tra-lanh-tra-vai-hat-chia-tra-dua-dao-560.webp?v=fd26bd74 560w, assets/menu-pages/menu-quan-nuong-da-lat-15-tra-lanh-tra-vai-hat-chia-tra-dua-dao-640.webp?v=09ce7199 640w, assets/menu-pages/menu-quan-nuong-da-lat-15-tra-lanh-tra-vai-hat-chia-tra-dua-dao-1000.webp?v=9e71c321 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Trà lạnh: trà vải hạt chia, trà dứa đào, trà trái cây nhiệt đới"
                          loading="lazy" decoding="async">
@@ -1395,8 +1403,8 @@
                 </figure>
                 <figure class="flip-page" data-page="16" data-group="tra" data-group-label="Trà Nóng &amp; Trà Lạnh" data-group-i18n="flip.group.tea">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-16-tra-dao-cam-sa-tra-tac-xi-muoi-tra-oi-hong-1000.webp?v=2d3348cf"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-16-tra-dao-cam-sa-tra-tac-xi-muoi-tra-oi-hong-560.webp?v=698e524a 560w, assets/menu-pages/menu-quan-nuong-da-lat-16-tra-dao-cam-sa-tra-tac-xi-muoi-tra-oi-hong-1000.webp?v=2d3348cf 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-16-tra-dao-cam-sa-tra-tac-xi-muoi-tra-oi-hong-560.webp?v=b702ad96 560w, assets/menu-pages/menu-quan-nuong-da-lat-16-tra-dao-cam-sa-tra-tac-xi-muoi-tra-oi-hong-640.webp?v=f327eede 640w, assets/menu-pages/menu-quan-nuong-da-lat-16-tra-dao-cam-sa-tra-tac-xi-muoi-tra-oi-hong-1000.webp?v=2d3348cf 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Trà lạnh: trà đào cam sả, trà tắc xí muội, trà ổi hồng"
                          loading="lazy" decoding="async">
@@ -1404,8 +1412,8 @@
                 </figure>
                 <figure class="flip-page" data-page="17" data-group="soda" data-group-label="Soda &amp; Nước Lon" data-group-i18n="flip.group.soda">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue-1000.webp?v=bf853d9c"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue-560.webp?v=0f71d611 560w, assets/menu-pages/menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue-1000.webp?v=bf853d9c 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue-560.webp?v=ca04ee0f 560w, assets/menu-pages/menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue-640.webp?v=74f90d9c 640w, assets/menu-pages/menu-quan-nuong-da-lat-17-soda-viet-quoc-soda-chanh-soda-blue-1000.webp?v=bf853d9c 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Soda tại quán nướng Đà Lạt: soda việt quất, soda chanh, soda blue"
                          loading="lazy" decoding="async">
@@ -1413,8 +1421,8 @@
                 </figure>
                 <figure class="flip-page" data-page="18" data-group="soda" data-group-label="Soda &amp; Nước Lon" data-group-i18n="flip.group.soda">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-18-soda-dau-tay-soda-dao-1000.webp?v=4df2ce28"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-18-soda-dau-tay-soda-dao-560.webp?v=3734629e 560w, assets/menu-pages/menu-quan-nuong-da-lat-18-soda-dau-tay-soda-dao-1000.webp?v=4df2ce28 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-18-soda-dau-tay-soda-dao-560.webp?v=9359ac2c 560w, assets/menu-pages/menu-quan-nuong-da-lat-18-soda-dau-tay-soda-dao-640.webp?v=cc8ffbdb 640w, assets/menu-pages/menu-quan-nuong-da-lat-18-soda-dau-tay-soda-dao-1000.webp?v=4df2ce28 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Soda: soda dâu tây, soda đào"
                          loading="lazy" decoding="async">
@@ -1422,8 +1430,8 @@
                 </figure>
                 <figure class="flip-page" data-page="19" data-group="soda" data-group-label="Soda &amp; Nước Lon" data-group-i18n="flip.group.soda">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-19-nuoc-lon-coca-cola-sprite-sting-1000.webp?v=7591b4f0"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-19-nuoc-lon-coca-cola-sprite-sting-560.webp?v=5bdb13bc 560w, assets/menu-pages/menu-quan-nuong-da-lat-19-nuoc-lon-coca-cola-sprite-sting-1000.webp?v=7591b4f0 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-19-nuoc-lon-coca-cola-sprite-sting-560.webp?v=ddfc950a 560w, assets/menu-pages/menu-quan-nuong-da-lat-19-nuoc-lon-coca-cola-sprite-sting-640.webp?v=0b1c78df 640w, assets/menu-pages/menu-quan-nuong-da-lat-19-nuoc-lon-coca-cola-sprite-sting-1000.webp?v=7591b4f0 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Nước lon: Coca Cola, Sprite, Sting"
                          loading="lazy" decoding="async">
@@ -1431,8 +1439,8 @@
                 </figure>
                 <figure class="flip-page" data-page="20" data-group="soda" data-group-label="Soda &amp; Nước Lon" data-group-i18n="flip.group.soda">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-20-nuoc-lon-strongbow-nuoc-suoi-1000.webp?v=efa06619"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-20-nuoc-lon-strongbow-nuoc-suoi-560.webp?v=4da6ee19 560w, assets/menu-pages/menu-quan-nuong-da-lat-20-nuoc-lon-strongbow-nuoc-suoi-1000.webp?v=efa06619 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-20-nuoc-lon-strongbow-nuoc-suoi-560.webp?v=5a2b0b9b 560w, assets/menu-pages/menu-quan-nuong-da-lat-20-nuoc-lon-strongbow-nuoc-suoi-640.webp?v=9b87e237 640w, assets/menu-pages/menu-quan-nuong-da-lat-20-nuoc-lon-strongbow-nuoc-suoi-1000.webp?v=efa06619 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Nước lon: Strongbow, nước suối"
                          loading="lazy" decoding="async">
@@ -1440,8 +1448,8 @@
                 </figure>
                 <figure class="flip-page" data-page="21" data-group="bia" data-group-label="Bia" data-group-i18n="flip.group.beer">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-21-bia-tiger-bac-tiger-nau-sai-gon-xanh-1000.webp?v=bc3d28c4"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-21-bia-tiger-bac-tiger-nau-sai-gon-xanh-560.webp?v=721c3d13 560w, assets/menu-pages/menu-quan-nuong-da-lat-21-bia-tiger-bac-tiger-nau-sai-gon-xanh-1000.webp?v=bc3d28c4 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-21-bia-tiger-bac-tiger-nau-sai-gon-xanh-560.webp?v=cbc71147 560w, assets/menu-pages/menu-quan-nuong-da-lat-21-bia-tiger-bac-tiger-nau-sai-gon-xanh-640.webp?v=5b4d288a 640w, assets/menu-pages/menu-quan-nuong-da-lat-21-bia-tiger-bac-tiger-nau-sai-gon-xanh-1000.webp?v=bc3d28c4 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu bia: Tiger bạc (Tiger Crystal), Tiger nâu, Sài Gòn xanh Special"
                          loading="lazy" decoding="async">
@@ -1449,8 +1457,8 @@
                 </figure>
                 <figure class="flip-page" data-page="22" data-group="bia" data-group-label="Bia" data-group-i18n="flip.group.beer">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-22-bia-sai-gon-chill-lager-heineken-lun-1000.webp?v=3c1a5fe7"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-22-bia-sai-gon-chill-lager-heineken-lun-560.webp?v=925f2b29 560w, assets/menu-pages/menu-quan-nuong-da-lat-22-bia-sai-gon-chill-lager-heineken-lun-1000.webp?v=3c1a5fe7 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-22-bia-sai-gon-chill-lager-heineken-lun-560.webp?v=1f76f224 560w, assets/menu-pages/menu-quan-nuong-da-lat-22-bia-sai-gon-chill-lager-heineken-lun-640.webp?v=910b9674 640w, assets/menu-pages/menu-quan-nuong-da-lat-22-bia-sai-gon-chill-lager-heineken-lun-1000.webp?v=3c1a5fe7 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu bia: Sài Gòn Chill, Sài Gòn Lager, Heineken lùn"
                          loading="lazy" decoding="async">
@@ -1458,8 +1466,8 @@
                 </figure>
                 <figure class="flip-page" data-page="23" data-group="ruou" data-group-label="Rượu" data-group-i18n="flip.group.wine">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-23-ruou-mo-huong-dao-ruou-mo-300ml-1000.webp?v=386ecb30"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-23-ruou-mo-huong-dao-ruou-mo-300ml-560.webp?v=84f55d1c 560w, assets/menu-pages/menu-quan-nuong-da-lat-23-ruou-mo-huong-dao-ruou-mo-300ml-1000.webp?v=386ecb30 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-23-ruou-mo-huong-dao-ruou-mo-300ml-560.webp?v=aaaf5348 560w, assets/menu-pages/menu-quan-nuong-da-lat-23-ruou-mo-huong-dao-ruou-mo-300ml-640.webp?v=2ac707f4 640w, assets/menu-pages/menu-quan-nuong-da-lat-23-ruou-mo-huong-dao-ruou-mo-300ml-1000.webp?v=386ecb30 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu rượu: rượu mơ hương đào 18%, rượu mơ 300ml 29%, rượu mơ 350ml"
                          loading="lazy" decoding="async">
@@ -1467,8 +1475,8 @@
                 </figure>
                 <figure class="flip-page" data-page="24" data-group="ruou" data-group-label="Rượu" data-group-i18n="flip.group.wine">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-24-ruou-mo-500ml-soju-mix-vi-vang-classic-1000.webp?v=ca3d20d1"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-24-ruou-mo-500ml-soju-mix-vi-vang-classic-560.webp?v=205c1f8f 560w, assets/menu-pages/menu-quan-nuong-da-lat-24-ruou-mo-500ml-soju-mix-vi-vang-classic-1000.webp?v=ca3d20d1 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-24-ruou-mo-500ml-soju-mix-vi-vang-classic-560.webp?v=10d8a3dc 560w, assets/menu-pages/menu-quan-nuong-da-lat-24-ruou-mo-500ml-soju-mix-vi-vang-classic-640.webp?v=6f2c64f3 640w, assets/menu-pages/menu-quan-nuong-da-lat-24-ruou-mo-500ml-soju-mix-vi-vang-classic-1000.webp?v=ca3d20d1 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu rượu: rượu mơ 500ml, soju mix vị 360ml, rượu vang Classic 750ml"
                          loading="lazy" decoding="async">
@@ -1476,8 +1484,8 @@
                 </figure>
                 <figure class="flip-page" data-page="25" data-group="ruou" data-group-label="Rượu" data-group-i18n="flip.group.wine">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-25-ruou-vang-export-ruou-tao-meo-mo-ume-1000.webp?v=8d992eda"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-25-ruou-vang-export-ruou-tao-meo-mo-ume-560.webp?v=ede6f991 560w, assets/menu-pages/menu-quan-nuong-da-lat-25-ruou-vang-export-ruou-tao-meo-mo-ume-1000.webp?v=8d992eda 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-25-ruou-vang-export-ruou-tao-meo-mo-ume-560.webp?v=f2f01803 560w, assets/menu-pages/menu-quan-nuong-da-lat-25-ruou-vang-export-ruou-tao-meo-mo-ume-640.webp?v=945117e1 640w, assets/menu-pages/menu-quan-nuong-da-lat-25-ruou-vang-export-ruou-tao-meo-mo-ume-1000.webp?v=8d992eda 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Menu rượu: rượu vang Export 750ml, rượu táo mèo 300ml, rượu mơ Ume Classic"
                          loading="lazy" decoding="async">
@@ -1485,8 +1493,8 @@
                 </figure>
                 <figure class="flip-page" data-page="26" data-group="lien-he" data-group-label="Liên hệ" data-group-i18n="flip.group.contact">
                     <img src="assets/menu-pages/menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google-1000.webp?v=867993f9"
-                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google-560.webp?v=c872d964 560w, assets/menu-pages/menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google-1000.webp?v=867993f9 1000w"
-                         sizes="(min-width: 900px) 46vw, 92vw"
+                         srcset="assets/menu-pages/menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google-560.webp?v=d97c9966 560w, assets/menu-pages/menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google-640.webp?v=877b4334 640w, assets/menu-pages/menu-quan-nuong-da-lat-26-dia-chi-gio-mo-cua-danh-gia-google-1000.webp?v=867993f9 1000w"
+                         sizes="(min-width: 900px) min(520px, 50.8vh, 43vw), (min-width: 522px) min(470px, 50.8vh), (min-width: 481px) min(calc(100vw - 52px), 50.8vh), (max-width: 360px) min(calc(100vw - 40px), 46.6vh), min(calc(100vw - 52px), 46.6vh)"
                          width="1055" height="1491"
                          alt="Trang cuối menu Trạm Dừng Chill: địa chỉ 111 Huỳnh Tấn Phát, Xuân Trường - Đà Lạt, hotline 0989 765 070, giờ mở cửa 15h-23h, mã QR đánh giá Google Maps"
                          loading="lazy" decoding="async">
@@ -1766,7 +1774,7 @@
 
     <!-- Bundled & Minified JS -->
     <script defer src="dist/common.min.js?v=3cec01aa"></script>
-    <script defer src="dist/menu.min.js?v=1116997f"></script>
+    <script defer src="dist/menu.min.js?v=9fa185d9"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>

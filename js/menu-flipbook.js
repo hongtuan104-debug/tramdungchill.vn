@@ -334,8 +334,20 @@ var MenuFlipbook = (function () {
             updateCounter();
             btnPrev.disabled = index === 0;
             btnNext.disabled = index === spreads.length - 1;
-            preload(index + 1);
-            preload(index - 1);
+            /* Tải trước trang kế — nhưng lần ĐẦU (lúc dựng sách) chờ tới 'load' (14/09/2026, CLAUDE.md bug #29).
+               Ảnh bìa là phần tử LCP của trang menu; gọi preload ngay lúc dựng là ảnh trang 2 (199 KB) giành
+               băng thông với ảnh bìa (227 KB) trên 4G chậm — PageSpeed mobile LCP 3,0s. Sau 'load' thì bìa đã
+               về; khách lật trang thì readyState đã 'complete' nên vẫn tải trước ngay như cũ. */
+            if (document.readyState === 'complete') {
+                preload(index + 1);
+                preload(index - 1);
+            } else if (!choTaiTruoc) {
+                choTaiTruoc = true;
+                window.addEventListener('load', function () {
+                    preload(index + 1);
+                    preload(index - 1);
+                }, { once: true });
+            }
             markIndexActive();
         }
 
@@ -347,6 +359,8 @@ var MenuFlipbook = (function () {
             counter.textContent = t('flip.page', 'Trang') + ' ' + label + ' / ' + total;
             live.textContent = counter.textContent;
         }
+
+        var choTaiTruoc = false;   // đã hẹn tải trước trang kế vào lúc 'load' chưa (xem chỗ gọi preload ở trên)
 
         function preload(i) {
             if (i < 0 || i >= spreads.length) return;
@@ -533,7 +547,12 @@ var MenuFlipbook = (function () {
                 thumb.decoding = 'async';
                 thumb.alt = '';
                 thumb.width = 200;
-                thumb.height = Math.round(200 * (img && img.height ? img.height / img.width : 1.42));
+                /* Tỉ lệ lấy từ THUỘC TÍNH width/height trong HTML (generator ghi cỡ thật), KHÔNG từ img.height /
+                   img.width — hai thuộc tính DOM đó là cỡ đang hiển thị, đọc là ép trình duyệt tính bố cục:
+                   PageSpeed 14/09/2026 ghi 62ms "buộc chỉnh lại luồng" đúng dòng này (CLAUDE.md bug #29). */
+                var rongAnh = img ? parseInt(img.getAttribute('width'), 10) : 0;
+                var caoAnh = img ? parseInt(img.getAttribute('height'), 10) : 0;
+                thumb.height = Math.round(200 * (rongAnh && caoAnh ? caoAnh / rongAnh : 1.42));
                 /* Bản 200w dành riêng cho mục lục — dùng lại ảnh cỡ lớn ở đây là tải thừa 26 lần.
                    Phải chừa vân tay ?v= ở cuối: khớp bằng /-\d+\.webp$/ thì URL có query
                    không khớp gì cả, mục lục lặng lẽ tải 26 ảnh cỡ lớn thay vì ảnh nhỏ. */
@@ -734,9 +753,15 @@ var MenuFlipbook = (function () {
             }
         }, { passive: true });
 
-        /* Đổi bố cục khi xoay máy hoặc kéo cửa sổ */
+        /* Đổi bố cục khi xoay máy hoặc kéo cửa sổ.
+           Hỏi bề rộng qua matchMedia, KHÔNG đọc window.innerWidth: trên điện thoại innerWidth bắt trình
+           duyệt tính bố cục ngay tại chỗ, mà lần gọi đầu nằm giữa lúc vừa chèn cả khung sách vào DOM →
+           Lighthouse báo "buộc chỉnh lại luồng" 35–429ms (14/09/2026, CLAUDE.md bug #29). Ngưỡng 900px khớp
+           @media (max-width: 899px) của sách trong style.css. */
+        var mqSachDoi = window.matchMedia ? window.matchMedia('(min-width: ' + DOUBLE_MIN_WIDTH + 'px)') : null;
+
         function syncLayout() {
-            var wantDouble = window.innerWidth >= DOUBLE_MIN_WIDTH;
+            var wantDouble = mqSachDoi ? mqSachDoi.matches : window.innerWidth >= DOUBLE_MIN_WIDTH;
             if (wantDouble === isDouble && spreads.length) return;
             /* Kết thúc cú lật đang dở TRƯỚC khi đổi cách chia trang — finishFlip
                nhớ chỉ số của bảng spread cũ, đổi bảng trước là nhảy sai trang. */
