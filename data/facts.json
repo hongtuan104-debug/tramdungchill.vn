@@ -71,6 +71,8 @@
     "cocDatBan": "Dat ban an binh thuong KHONG can coc. Trang tri sinh nhat/tiec: trang tri MIEN PHI, coc 200.000d va HOAN LAI sau khi an xong. Doan tren 10 nguoi co coc, nhan vien bao muc khi xac nhan.",
     "giaDipLe": "KHONG phu thu dem 24/12, Valentine va cac dip le khac - gia giu nguyen. RIENG Tet Nguyen dan: tu Mung 2 den Mung 8 Am lich phu thu 10%. Ban view khong phu thu.",
     "_suaGiaDipLe": "SUA 14/09/2026 - ban 31/07 ghi 'gia giu nguyen ca Tet' la SAI. Sep Tuan chot 14/09: Tet CO phu thu 10% tu Mung 2 den Mung 8 Am lich (khop MENU_NOTES.holiday trong menu-data.js). Truoc do 4 trang dip + llms.txt khai Tet giu nguyen gia, con 5 bai blog index khai phu thu 10% - hai ben nguoc nhau. Menu in 26 trang KHONG in dong phu thu nao, dung lay menu in lam bang chung.",
+    "khungGioTau": "Tau lua co chay qua quan trong khung 16:30-21:25. CHI ghi khung gio, KHONG ghi gio tung chuyen hay dieu kien theo ngay (sep Tuan chot 14/09/2026).",
+    "hoangHon": "Hoang hon tu khoang 16:30 (sep Tuan xac nhan 14/09/2026). So tu tinh theo toa do (mat troi lan 17:18-18:15) KHONG tru doi che nang phia tay - dung dung tren web.",
     "xacNhanDatBan": "Xac nhan qua Zalo trong 15 phut CHI TRONG GIO MO CUA 15:00-23:00; dat ngoai gio thi quan xac nhan khi mo cua (sep chot 14/09/2026). Cau '15 phut' tren web phai kem dieu kien nay o cho du cho (FAQ, form).",
     "_xacNhan": "Chu quan xac nhan 31/07/2026 (wifi + nhac song); gia dip le sua 14/09/2026; coc xac nhan 30/07/2026"
   }

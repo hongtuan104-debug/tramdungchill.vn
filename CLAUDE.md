@@ -21,7 +21,8 @@
 - **SĐT:** 0989.765.070
 - **Giờ mở cửa:** 15:00 - 23:00
 - **USP chính:** Hoàng hôn 15h, nhà lồng đèn 18h30, bò tảng phô mai trứng muối
-  (⚠️ "hoàng hôn 15h" là cách nói nội bộ — 15:00 là giờ mở cửa, mặt trời lặn thật 17:20–18:15. Viết web theo bug #25.)
+  (⚠️ "hoàng hôn 15h" là cách nói nội bộ — 15:00 là giờ mở cửa. Trên web viết: **hoàng hôn từ khoảng 16:30**,
+  **tàu chạy qua quán trong khung 16:30 – 21:25** (không ghi giờ từng chuyến) — sếp chốt 14/09/2026, xem bug #25.)
 - **Giá:** 95k - 300k/người (đã VAT). GBP hiển thị bucket "100-300N đ" — đây là
   khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
 - **Phụ thu:** Tết Nguyên đán Mùng 2–Mùng 8 Âm lịch **phụ thu 10%**; Valentine, đêm 24/12, bàn view **không** phụ thu (sếp chốt 14/09/2026).
@@ -456,15 +457,15 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      ghi 10% — **bên sai là facts.json**. Menu in 26 trang không in dòng phụ thu nào, đừng lấy nó làm bằng chứng.
    - **"Xác nhận qua Zalo trong 15 phút" chỉ trong giờ mở cửa 15:00–23:00** (sếp chốt 14/09); đặt ngoài giờ thì quán
      xác nhận khi mở cửa. Câu đầy đủ phải kèm điều kiện; nhãn ngắn dưới 45 ký tự (thanh sticky) được miễn.
-   - **15:00 là giờ MỞ CỬA, không phải hoàng hôn.** Mặt trời lặn tại toạ độ quán 17:18 (giữa T11) → 18:15 (T7), tính bằng
-     thuật toán NOAA → viết "nắng chiều vàng từ 15:00, mặt trời lặn khoảng 17:20–18:15 tùy tháng". Câu "quán cùng khu mở
-     16–17h nên bỏ lỡ hoàng hôn" sai hai lần (so sánh không nguồn + sai giờ lặn), đã gỡ khỏi FAQ, JSON-LD và llms.txt.
-     USP "hoàng hôn 15h" ở mục Thông tin doanh nghiệp là cách nói nội bộ, đừng chép nguyên lên web.
-   - **Giờ tàu chuẩn = `dip/san-tau-da-lat.html`**: hằng ngày ~16:30 · 17:15; T6–CN thêm ~18:35 · 19:20; ~20:40 · 21:25
-     không cố định (chỉ khi tàu đủ khách — viết "tàu đủ khách", đừng viết "khách đông" vì không rõ khách của ai). Tàu rời
-     ga Đà Lạt tới quán ~20–25 phút, rời ga Trại Mát tới quán chỉ vài phút. Đã sửa: "cứ khoảng một tiếng một chuyến",
-     llms.txt 14:30/15:30/16:30/17:30, bài EN 2:30–5:30 PM, bài nhà lồng "~17:30–18:30", 30 bài noindex "tàu khoảng 18h",
-     và lời khuyên "đến 16:00–17:00 để đón chuyến 16:30" (đến 17:00 là lỡ — nay ghi thêm "vẫn còn chuyến ~17:15").
+   - **15:00 là giờ MỞ CỬA, không phải hoàng hôn. Hoàng hôn từ khoảng 16:30** (sếp Tuấn xác nhận 14/09/2026). Lượt sửa đầu
+     em dùng giờ mặt trời lặn tự tính theo toạ độ (17:18–18:15, NOAA) — sếp sửa lại vì số đó không trừ đồi phía tây che nắng.
+     **Đừng đưa giờ lặn tự tính lên web.** Câu "quán cùng khu mở 16–17h nên bỏ lỡ hoàng hôn" (so sánh không nguồn) đã gỡ.
+   - **Tàu: CHỈ ghi khung "chạy qua quán trong khung 16:30 – 21:25"** (sếp chốt 14/09/2026). KHÔNG ghi giờ từng chuyến
+     (16:30·17:15·18:35·19:20·20:40·21:25), không ghi điều kiện T6–CN / "không cố định", không ghi bảng giờ rời ga DL1–DL14,
+     không ghi "tàu từ ga tới quán 20–25 phút". Trước đó mỗi nơi ghi một lịch khác: trang chủ "cứ một tiếng một chuyến",
+     llms.txt 14:30/15:30/16:30/17:30, bài EN 2:30–5:30 PM, bài nhà lồng "~17:30–18:30", 30 bài noindex "tàu khoảng 18h".
+     Trang săn tàu nay chỉ còn 3 mốc: tàu 16:30–21:25 · hoàng hôn từ ~16:30 · nhà lồng lên đèn từ ~18:30.
+     Widget tàu ở trang chủ giữ nguyên HTML (3 ô), chỉ đổi chữ trong translations.js.
    - Cách ghi số: "7.060 lượt đánh giá / 5 sao" → 4.8/5 · "13 triệu người" → lượt xem + link video · "rated by 7,060
      guests" → reviews · "Hơn 80 món" lẫn "hơn 70 món" → hơn 70 · mục Câu chuyện "10K+ / 50+ món signature / 100%" →
      "4.8/5 Google Maps · 70+ món trên menu · 15–23h" (sếp duyệt; "Năm thành lập 2022" CHƯA ai xác nhận). Bản EN trang
@@ -481,7 +482,8 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Bài EN train-view ghi "French-built **cog (rack) railway**" — lọt R8k vì regex cũ chỉ bắt "rack rail" liền nhau.
    - Setup miễn phí luôn đi kèm "cọc 200.000đ, hoàn lại sau khi ăn"; "nhân viên trông giúp bé" → "phụ để mắt tới bé, ba
      mẹ vẫn là người trông" (quán sát đường ray đang chạy tàu).
-   → Máy canh: **R8r** (8 kiểu câu sai đã gặp, quét mọi trang + bản dịch + llms.txt + dữ liệu blog) + **R8s** (câu hứa
+   → Máy canh: **R8r** (10 kiểu câu sai đã gặp, gồm cả giờ từng chuyến tàu và giờ lặn tự tính; quét mọi trang + bản dịch
+   + llms.txt + dữ liệu blog) + **R8s** (câu hứa
    15 phút phải có "giờ mở cửa"; ngày đọc số phải khớp facts.json). R8k vá thêm "cog (rack)".
    ⚠️ **Chưa sửa, chờ sếp** (chi tiết memory `aeo-ra-soat-2026-09`): set menu / xe limousine / sân khấu ở team-building;
    quy mô đoàn; số marketing chưa nguồn trong dip/; review "Trần Thị Hương" không truy được; tiêu đề tự xưng "nhất/best";

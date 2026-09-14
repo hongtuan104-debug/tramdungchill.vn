@@ -1754,6 +1754,11 @@ const CAU_AEO = (() => {
                                              || (/bỏ lỡ (?:khung )?hoàng hôn|miss the (?:best )?golden hour/i.test(c) && /quán cùng khu|quán khác|nearby restaurants|mở 16/i.test(c))],
         ["lịch tàu sai", (c) => /cứ khoảng một tiếng lại có một chuyến|one train (?:passes )?(?:by )?every hour|14:30, 15:30, 16:30, 17:30|2:30 PM · 3:30 PM|(?:4:30 and 5:30|16:30 and 17:30) departures|đón tàu đầu|first train rolls in/i.test(c)
                                 || (/tàu|train/i.test(c) && /(?:khoảng|tầm|chừng|~)\s?18h(?![0-9h])|~?17:30\s*[–-]\s*18:30/.test(c))],
+        // Sếp Tuấn chốt 14/09/2026 (sau lượt sửa đầu): CHỈ ghi khung tàu 16:30–21:25, bỏ giờ từng chuyến và điều kiện
+        // theo ngày; hoàng hôn từ khoảng 16:30 (số tự tính theo toạ độ 17:18–18:15 không trừ đồi che nắng → bỏ).
+        ["ghi giờ từng chuyến tàu (sếp chỉ cho ghi khung 16:30–21:25)", (c) => /tàu|train|chuyến|runs?\b|pass/i.test(c)
+                                && /\b(?:17:15|17h15|18:35|18h35|19:20|19h20|20:40|20h40|5:15 PM|6:35 PM|7:20 PM|8:40 PM)\b|\bDL\d{1,2}\b/.test(c)],
+        ["giờ mặt trời lặn tự tính (sếp chốt hoàng hôn từ khoảng 16:30)", (c) => /17[:h]20\s*[–-]\s*18[:h]15|5:20 PM \(November|sunset (?:falls )?around 17:20|mặt trời lặn khoảng 17/i.test(c)],
         ["số đánh giá / lượt xem bị đọc sai nghĩa", (c) => /đánh giá\s*5 sao trên Google|reviews\s*5 stars on Google|by over [0-9.,]+ guests|từ hơn [0-9.,]+ khách\b|13 triệu người|13 million people/i.test(c)],
         ["số món / món signature khai sai", (c) => /\b50\+?\s*Món signature|\b50\+?\s*Signature dishes|(?:khoảng|~)\s?81 món|around 73 (?:items|dishes)/i.test(c)],
         ["khuyên mang đồ ăn/uống từ ngoài vào", (c) => /mang theo nước|mang đồ (?:ăn|uống)|bring (?:your own|outside) (?:drinks|food)/i.test(c) && /tiết kiệm|quán|Trạm|restaurant/i.test(c) && !/không nhận|không được mang|not allowed/i.test(c)],
@@ -1762,7 +1767,7 @@ const CAU_AEO = (() => {
     for (const { tu, c } of CAU_AEO) for (const [ten, f] of SAI) if (f(c)) pham.push(ten + ": " + tu + " → " + c.slice(0, 80));
     add("Nội dung AEO không tự mâu thuẫn dữ kiện chuẩn (Tết · hoàng hôn · lịch tàu · cách ghi số)", pham.length === 0,
         pham.length ? pham.length + " câu: " + pham.slice(0, 3).join(" | ")
-                    : CAU_AEO.length + " câu (mọi trang + bản dịch + llms.txt + dữ liệu blog) · 8 kiểu câu sai đã gặp đều sạch");
+                    : CAU_AEO.length + " câu (mọi trang + bản dịch + llms.txt + dữ liệu blog) · " + SAI.length + " kiểu câu sai đã gặp đều sạch");
 }
 
 // ── R8s. Câu khẳng định phải kèm điều kiện + ngày đọc số (checklist #25 mục 217, 221, 222) ──
