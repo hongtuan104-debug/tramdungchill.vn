@@ -38,7 +38,8 @@
 
 ## 1. Bộ thông tin chuẩn (copy-paste khi điền form)
 
-Mọi con số dưới đây đã đối chiếu nguồn thật ngày 29/07/2026. **Đừng sửa số khi
+Mọi con số dưới đây đã đối chiếu nguồn thật ngày 29/07/2026, **cập nhật 14/09/2026**
+(số đánh giá, số món, lịch tàu, hoàng hôn, hình thức phục vụ). **Đừng sửa số khi
 gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 
 | Trường | Giá trị |
@@ -52,9 +53,10 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | Website | https://tramdungchill.vn |
 | Giờ mở cửa | 15:00 – 23:00, tất cả các ngày |
 | Mức giá | 95.000đ – 300.000đ / người (đã gồm VAT) |
-| Số món | hơn 70 món (menu thật: 73) |
-| Đánh giá Google | 4,8 sao · 6.889 lượt |
+| Số món | hơn 70 món (menu thật: 81) |
+| Đánh giá Google | 4,8 sao · 7.060 lượt (số đọc ngày 04/09/2026 — đọc lại trên Maps trước khi gửi) |
 | Loại hình | Nhà hàng món nướng · BBQ nướng tại bàn, lẩu, hải sản |
+| Hình thức phục vụ | **Chỉ ăn tại chỗ.** Không giao hàng, không bán trên ShopeeFood/GrabFood hay app giao đồ ăn nào (sếp Tuấn xác nhận 14/09/2026). Form có ô "Giao hàng" thì **không tick**; ô "Mang đi" chưa hỏi chủ quán ⇒ để trống. |
 | Cách trung tâm | ~7 km, ~20 phút xe theo hướng Trại Mát |
 | Đỗ xe | Bãi đỗ miễn phí cho ô tô con và xe máy |
 
@@ -71,7 +73,7 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 > Suýt tắt nhầm — tắt rồi thì người đi xe lăn lọc theo tiêu chí đó sẽ **không
 > còn thấy quán mình** trong kết quả.
 >
-> **Khi điền form bên thứ ba** (TripAdvisor, Foody, ShopeeFood): tick được ô
+> **Khi điền form bên thứ ba** (TripAdvisor, Foody, Bing Places): tick được ô
 > lối vào / chỗ ngồi / đỗ xe. Riêng ô **nhà vệ sinh cho xe lăn** thì chủ quán
 > chưa xác nhận lần nào ⇒ **bỏ trống cho tới khi hỏi được.**
 >
@@ -83,8 +85,8 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 
 > Tiệm Nướng Trạm Dừng Chill nằm trên đồi Huỳnh Tấn Phát, Đà Lạt — nơi tàu lửa
 > cổ Đà Lạt–Trại Mát chạy ngay dưới chân quán. Nướng BBQ tại bàn trong lúc ngắm
-> hoàng hôn thung lũng, rồi hàng ngàn nhà lồng lên đèn như biển sao. Mở 15:00,
-> sớm nhất khu vực.
+> hoàng hôn thung lũng, rồi hàng ngàn nhà lồng lên đèn như biển sao. Mở cửa
+> 15:00–23:00, phục vụ ăn tại chỗ.
 
 ### Mô tả dài (120 từ) — dùng cho hồ sơ directory
 
@@ -92,18 +94,21 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 > Phường Xuân Trường, Đà Lạt — cách trung tâm khoảng 7 km theo hướng Trại Mát.
 > Điểm đặc biệt: tuyến tàu du lịch cổ Đà Lạt–Trại Mát chạy ngay dưới chân quán,
 > nên thực khách vừa nướng vừa ngắm tàu và nghe còi tàu vọng qua thung lũng.
-> Quán mở từ 15:00 — sớm nhất khu vực — nên đón trọn khung hoàng hôn vàng, rồi
-> khoảng 18:30 hàng ngàn nhà lồng đồng loạt lên đèn. Menu hơn 70 món gồm BBQ,
+> Quán mở 15:00–23:00: hoàng hôn từ khoảng 16:30, tàu chạy qua quán trong khung
+> 16:30–21:25, rồi khoảng 18:30 hàng ngàn nhà lồng đồng loạt lên đèn. Menu hơn 70 món gồm BBQ,
 > lẩu và hải sản, mức chi 95.000–300.000đ/người đã gồm VAT. Bàn view không phụ
-> thu. Setup sinh nhật và kỷ niệm miễn phí. 4,8 sao với 6.889 đánh giá Google.
+> thu. Setup sinh nhật và kỷ niệm miễn phí (cọc 200.000đ, hoàn lại sau khi ăn).
+> Quán phục vụ ăn tại chỗ, không giao hàng. 4,8 sao với 7.060 đánh giá Google
+> (số đọc ngày 04/09/2026).
 
 ### Ba điểm khác biệt (khi họ hỏi "quán có gì đặc biệt")
 
-1. **Tàu lửa cổ chạy dưới chân quán** — tuyến Đà Lạt–Trại Mát, ngày thường 4
-   chuyến (14:30 · 15:30 · 16:30 · 17:30), cuối tuần thêm 18:30 và 19:30.
-2. **Ba khung cảnh trong một buổi tối** — hoàng hôn thung lũng từ 15:00, tàu
+1. **Tàu lửa cổ chạy dưới chân quán** — tuyến Đà Lạt–Trại Mát, tàu chạy qua
+   quán trong khung 16:30–21:25.
+2. **Ba khung cảnh trong một buổi tối** — hoàng hôn thung lũng từ khoảng 16:30, tàu
    chạy ngang, rồi biển sao nhà lồng từ 18:30.
-3. **Những thứ miễn phí thật** — setup sinh nhật/kỷ niệm, áo mưa khi trời mưa,
+3. **Những thứ miễn phí thật** — setup sinh nhật/kỷ niệm (cọc 200.000đ, hoàn lại
+   sau khi ăn), áo mưa khi trời mưa,
    mền và lò than khi lạnh, trà chờ, và **bàn view không phụ thu**.
 
 ---
@@ -117,8 +122,11 @@ gửi đi** — sai lệch giữa các nơi làm hỏng tính nhất quán NAP.
 | **TripAdvisor** | Quán **đã có trang sẵn** → cần "claim" để tự quản lý. Miễn phí. | https://www.tripadvisor.com.vn/Owners |
 | **PasGo** | Đăng ký đối tác. PasGo đang giữ vị trí #1 SERP cho "quán nướng Đà Lạt" — vào được đây là vào thẳng bài top. | Email `kd.pasgo@gmail.com` · Hotline 0934626005 · https://pasgo.vn/blog/cac-cach-thuc-hop-tac-voi-pasgo-5787 |
 | **Foody** | Tạo địa điểm: nút (+) góc phải trên → "Tạo địa điểm" | https://www.foody.vn |
-| **ShopeeFood** | Đăng ký quán mới, miễn phí với hàng ăn uống | Shopee Partner → "Đăng ký quán mới" |
 | **Bing Places** | Ít người làm ở VN. Đây là nguồn dữ liệu của Bing và Copilot. | https://www.bingplaces.com |
+
+> ⛔ **KHÔNG đăng ShopeeFood / GrabFood** — bản 29/07 từng khuyên đăng ShopeeFood, **sai**.
+> Quán chỉ phục vụ ăn tại chỗ, không giao hàng, không bán trên app giao đồ ăn
+> (sếp Tuấn xác nhận 14/09/2026). Đăng lên đó là khai sai hình thức phục vụ.
 
 **Trang TripAdvisor hiện tại của quán:**
 https://www.tripadvisor.com/Restaurant_Review-g293922-d32995088-Reviews-Ti_m_Nu_ng_Tr_m_D_ng_Chill-Da_Lat_Lam_Dong_Province.html
@@ -156,13 +164,13 @@ biên tập viên nhận ra ngay và bỏ qua.
 > Tôi muốn giới thiệu quán của mình như một lựa chọn có thể phù hợp để bổ sung,
 > vì có một điểm mà các quán trong bài chưa có: **tuyến tàu lửa cổ Đà Lạt–Trại
 > Mát chạy ngay dưới chân quán**. Khách vừa nướng BBQ tại bàn vừa ngắm tàu chạy
-> qua thung lũng — ngày thường có 4 chuyến, cuối tuần 6 chuyến.
+> qua thung lũng, trong khung 16:30–21:25.
 >
 > Vài thông tin để anh/chị tiện đối chiếu:
 > - Địa chỉ: 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt (cách trung tâm ~7km)
-> - Giờ mở cửa: 15:00–23:00 — sớm nhất khu vực nên đón được trọn hoàng hôn
+> - Giờ mở cửa: 15:00–23:00 · hoàng hôn từ khoảng 16:30 · phục vụ ăn tại chỗ
 > - Mức giá: 95.000–300.000đ/người, đã gồm VAT
-> - Đánh giá: 4,8 sao với 6.889 lượt trên Google
+> - Đánh giá: 4,8 sao với 7.060 lượt trên Google (số đọc ngày 04/09/2026)
 > - Website: https://tramdungchill.vn
 >
 > Nếu anh/chị cần ảnh chất lượng cao hoặc muốn ghé trải nghiệm thực tế, tôi sẵn
@@ -182,8 +190,8 @@ thiên vị vào nhóm spam, và trang nào nhận cũng chịu rủi ro cùng m
 
 > Chào anh/chị, mình là chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Bên mình có
 > điểm khá riêng là tàu lửa cổ Đà Lạt–Trại Mát chạy ngay dưới chân quán, khách
-> vừa nướng vừa ngắm tàu và hoàng hôn thung lũng. Quán 4,8 sao với 6.889 đánh
-> giá Google, mở 15:00–23:00, 95–300k/người.
+> vừa nướng vừa ngắm tàu và hoàng hôn thung lũng. Quán 4,8 sao với 7.060 đánh
+> giá Google (số đọc 04/09/2026), mở 15:00–23:00, ăn tại chỗ, 95–300k/người.
 > Nếu quý trang có kế hoạch cập nhật bài về quán nướng Đà Lạt, mình rất mong
 > được cân nhắc. Mình có sẵn ảnh chất lượng cao và có thể mời anh/chị ghé trải
 > nghiệm. Website: tramdungchill.vn — SĐT 0989.765.070. Cảm ơn anh/chị.
@@ -200,7 +208,7 @@ liên hệ sửa vì NAP không nhất quán làm yếu tín hiệu local.
 | mindtrip.ai | "gần 100 món" | hơn 70 món |
 | corner.inc | "Phường 11" | Phường Xuân Trường |
 
-Website đã sửa xong số món về đúng 73 (commit `f557526`), nên các trang crawl
+Website đã sửa xong số món (commit `f557526`; từ 04/08/2026 menu có 81 món, web ghi "hơn 70 món"), nên các trang crawl
 lại sau này sẽ tự đúng. Nhưng trang nhập tay thì phải yêu cầu sửa.
 
 ---
@@ -209,7 +217,7 @@ lại sau này sẽ tự đúng. Nhưng trang nhập tay thì phải yêu cầu 
 
 1. **Claim TripAdvisor** — trang đã tồn tại, đang không ai quản lý. Nhanh nhất.
 2. **Gửi PasGo** — họ giữ vị trí #1 SERP cho đúng từ khoá sếp quan tâm.
-3. **Tạo Foody + ShopeeFood + Bing Places** — nền móng directory.
+3. **Tạo Foody + Bing Places** — nền móng directory. (Không đăng ShopeeFood/GrabFood — quán chỉ ăn tại chỗ.)
 4. **Gửi Nhóm B** — mỗi tuần 2 nơi, viết riêng từng thư, đừng gửi loạt.
 5. **Sau 3–4 tuần** — tra lại "quán nướng Đà Lạt" xem đã được nhắc ở đâu chưa.
 
@@ -235,4 +243,5 @@ systems."* Đừng tin công cụ nào quảng cáo đo được thứ hạng tr
 
 *Soạn ngày 29/07/2026. Số liệu đối chiếu: GBP (ảnh chụp của sếp Tuấn),
 `data/menu-data.js`, SERP tra thật. Khi số đánh giá đổi, cập nhật cả file này
-lẫn website bằng `node scripts/normalize-review-count.js <số mới>`.*
+lẫn website bằng `node scripts/normalize-review-count.js <số mới> <YYYY-MM-DD>`.
+Cập nhật 14/09/2026: bỏ ShopeeFood (quán chỉ ăn tại chỗ); lịch tàu, hoàng hôn, số đánh giá theo bản sếp chốt (CLAUDE.md bug #25).*
