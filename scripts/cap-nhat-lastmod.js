@@ -132,6 +132,10 @@ function chuHienThi(html) {
     // so → 18 bài bị đóng dấu "Cập nhật 13/09/2026" dù không đổi một chữ nào.
     // Nhánh 1 bắt cặp có phẩy phía sau, nhánh 2 bắt cặp đứng cuối object.
     // Phép kiểm R13c trong seo-geo-verify.js chạy lại đúng hàm này trên mẫu.
+    // Mảng CHỈ gồm địa chỉ web cũng bỏ cả cặp (thêm 15/09/2026): ảnh bài khai 3 tỉ lệ 16:9/4:3/1:1 đổi
+    // "image": "url" (bỏ hẳn) thành "image": ["url","url","url"] — bản cũ để lại ["","",""] trong phép so
+    // nên 18 bài sẽ bị đóng dấu "Cập nhật" chỉ vì khai thêm ảnh cắt khung. Chạy TRƯỚC luật cặp đơn bên dưới.
+    .replace(/"[^"]+"\s*:\s*\[\s*"https?:\/\/[^"]*"(?:\s*,\s*"https?:\/\/[^"]*")*\s*\]\s*,|,\s*"[^"]+"\s*:\s*\[\s*"https?:\/\/[^"]*"(?:\s*,\s*"https?:\/\/[^"]*")*\s*\]/g, '')
     .replace(/"[^"]+"\s*:\s*"https?:\/\/[^"]*"\s*,|,\s*"[^"]+"\s*:\s*"https?:\/\/[^"]*"/g, '')
     .replace(/"https?:\/\/[^"]*"/g, '""');
 

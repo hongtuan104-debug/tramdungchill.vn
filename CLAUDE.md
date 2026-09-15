@@ -704,11 +704,26 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Tên file ảnh: 100% chữ thường nối gạch ngang. `gallery-N` / `tiktok-thumb-N` chung chung nhưng **cố ý không đổi tên** — đổi là mất lịch
      sử lập chỉ mục ảnh (GitHub Pages không redirect được) và kéo theo og:image / schema / precache.
    - EXIF/XMP của cả 728 ảnh đã bị xoá lúc nén → không lần được nguồn ảnh bằng máy.
-   Chưa sửa, chờ sếp (memory `checklist-09-11-meta-heading-anh`): giá menu với khách có JS chỉ nằm trong ảnh (mục 81) · quyền dùng ảnh có
-   mặt khách / người mẫu (mục 83) · gallery-2 (hero team building) có biển Xóm Lèo trên sân khấu · đối chiếu snippet Google thật hiển thị
-   (mục 63, cần Search Console) · crop 16:9 / 4:3 / 1:1 cho ảnh bài (Google khuyến nghị; ảnh bài dọc bị cắt khi hiện thumbnail).
+   Sếp chốt 15/09/2026: **giữ trang menu như hiện tại** — không thêm bảng giá dạng chữ cho khách có JS (mục 81), đừng đề xuất lại ·
+   **Trạm Dừng Chill và Xóm Lèo "là 1"** → ảnh gallery-2 có biển Xóm Lèo trên sân khấu dùng tiếp được · **cắt ảnh ngang: làm** (mục dưới).
+   - **Ảnh chia sẻ + ảnh bài nhiều tỉ lệ** (sếp duyệt 15/09): og:image của 5 trang là hero-sunset.jpg DỌC 1200×1802 (index/menu/blog còn khai
+     1200×630) và 4 bài index dùng ảnh dọc → Facebook/Zalo cắt giữa ảnh, còn lại mảng trời. Nay `scripts/tao-anh-chia-se.js` (chạy tay, cần
+     sharp) sinh `assets/images/chia-se/<tên>-og.jpg` 1200×630 cho cả 27 URL + `-16x9/-4x3/-1x1.webp` cho ảnh 18 bài index; BlogPosting.image
+     thành mảng 3 tỉ lệ (tài liệu Article của Google khuyến nghị). Đã duyệt bằng mắt cả 21 ảnh nguồn; 6 ảnh máy cắt hụt người / mất toa tàu
+     → khai `tam` trong bảng ANH. ⚠️ **Thêm bài index mới hay đổi ảnh đại diện → thêm vào bảng ANH, chạy script, MỞ ẢNH RA XEM** — R22 chặn
+     bài thiếu. Trang tĩnh khai og:image viết tay. og:image để JPG (bot mạng xã hội), ảnh schema để WebP.
+   - ⚠️ **Hàm dấu vân lastmod nay bỏ cả MẢNG chỉ gồm URL** (`"image": [...]`, `sameAs`): bản cũ để lại `["","",""]` trong phép so, đổi ảnh bài
+     sang mảng là 18 bài bị đóng dấu "Cập nhật" oan. Đã tính lại `dau-van-noi-dung.json` đối xứng trên HEAD (chỉ trang chủ đổi, 0 trang lệch);
+     R13c thêm mẫu mảng. Chạy thử bot sau khi build: 0 trang bị đóng dấu.
+   - **Vì sao ảnh mất EXIF** (sếp hỏi 15/09): bản đầu của 117 ảnh JPG vào repo ngày 23/03/2026 còn EXIF (Canon, iPhone 13/15 Pro/16 Pro Max,
+     Lightroom, Meitu; ảnh 3.000–6.240px). Cùng ngày commit `7d5698a4` "compress all images from 1.3GB to 57MB" thu nhỏ ảnh và xoá metadata —
+     sharp mặc định bỏ metadata, không script ảnh nào trong `scripts/` giữ lại. 192 JPG khác vào repo đã trống sẵn (ảnh tải từ Zalo/Facebook/
+     Canva). Bản gốc còn EXIF VẪN nằm trong lịch sử git (`16516cce`, `a5dff490`) — cần bằng chứng nguồn ảnh thì lấy bằng `git show`.
+   Chưa sửa, chờ sếp (memory `checklist-09-11-meta-heading-anh`): quyền dùng ảnh có mặt khách / người mẫu (mục 83) · đối chiếu snippet Google
+   thật hiển thị (mục 63, cần Search Console).
    → Máy canh **R19** (meta description) · **R20** (footer/thẻ bài liên quan không heading, không heading rỗng, id không trùng, mục lục đúng
-   đích) · **R21** (đủ alt, không src rỗng, hero dịp là `<img>`, ảnh LCP không lazy, srcset thẻ bài liên quan, quy ước tên file ảnh).
+   đích) · **R21** (đủ alt, không src rỗng, hero dịp là `<img>`, ảnh LCP không lazy, srcset thẻ bài liên quan, quy ước tên file ảnh) ·
+   **R22** (og:image mọi URL sitemap ngang ~1,91:1 khai đúng cỡ, twitter:image trùng og:image, bài index đủ 3 tỉ lệ, mỗi ảnh ≥ 50K điểm ảnh).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

@@ -1247,9 +1247,13 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         const linkGiua = chuHienThi(mau('"@id":"https://tramdungchill.vn/tac-gia/a.html#person",', "", "Chữ bài"));
         const linkCuoi = chuHienThi(mau("", ',"url":"https://tramdungchill.vn/tac-gia/a.html"', "Chữ bài"));
         const doiChu = chuHienThi(mau("", "", "Chữ bài mới"));
-        ok = goc === linkGiua && goc === linkCuoi && goc !== doiChu;
+        // 15/09/2026: ảnh bài đổi từ 1 URL sang mảng 3 tỉ lệ (16:9/4:3/1:1); mảng link ở cuối object (sameAs)
+        const anhMot = chuHienThi(mau('"image":"https://tramdungchill.vn/a.webp",', "", "Chữ bài"));
+        const anhMang = chuHienThi(mau('"image":["https://tramdungchill.vn/a-16x9.webp", "https://tramdungchill.vn/a-4x3.webp","https://tramdungchill.vn/a-1x1.webp"],', "", "Chữ bài"));
+        const mangCuoi = chuHienThi(mau("", ',"sameAs":["https://a.vn","https://b.vn"]', "Chữ bài"));
+        ok = goc === linkGiua && goc === linkCuoi && goc === anhMot && goc === anhMang && goc === mangCuoi && goc !== doiChu;
         chiTiet = ok
-            ? "thêm thuộc tính link (giữa/cuối) không đổi dấu vân · đổi chữ thì có đổi"
+            ? "thêm thuộc tính link (giữa/cuối, đơn hay mảng) không đổi dấu vân · đổi chữ thì có đổi"
             : goc !== doiChu
                 ? "thêm @id/url vào schema làm đổi dấu vân → bot sẽ đóng dấu ngày sửa oan"
                 : "đổi chữ mà dấu vân đứng yên → bot sẽ bỏ sót bài sửa thật";
@@ -2074,6 +2078,54 @@ const CAU_AEO = (() => {
     if (tenSai.length) pham.push("tên file ảnh sai quy ước: " + tenSai.slice(0, 4).join(", "));
     add("Ảnh: đủ alt · hero dịp là <img> · ảnh LCP không lazy · bài liên quan có srcset · tên file chuẩn", pham.length === 0,
         pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ") : soAnh + " thẻ img đạt");
+}
+
+// ── R22. Ảnh chia sẻ ngang + ảnh bài nhiều tỉ lệ (checklist #11 mục 82, 15/09/2026) ──
+// (a) og:image của mọi URL sitemap là ảnh NGANG ~1,91:1, file có thật, og:image:width/height khớp cỡ file,
+//     twitter:image (nếu có) trùng og:image. Trước đó 5 trang dùng hero-sunset.jpg DỌC 1200×1802 — Facebook/Zalo
+//     cắt giữa ảnh còn mảng trời — mà index/menu/blog còn khai 1200×630.
+// (b) BlogPosting của bài index khai image là mảng 3 tỉ lệ 16:9 · 4:3 · 1:1, mỗi ảnh ≥ 50.000 điểm ảnh (tài liệu
+//     Article của Google). Thêm bài index mới: đưa ảnh đại diện vào bảng ANH của scripts/tao-anh-chia-se.js.
+{
+    const { kichThuocAnh } = require("./kich-thuoc-anh.js");
+    const MIEN = "https://tramdungchill.vn/";
+    const pham = [];
+    const loc = [...fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    let soBai = 0;
+    for (const u of loc) {
+        let f = u.replace(MIEN, "");
+        if (f === "" || f.endsWith("/")) f += "index.html";
+        const s = fs.readFileSync(path.join(ROOT, f), "utf8");
+        const og = (s.match(/<meta property="og:image" content="([^"]+)"/) || [])[1];
+        if (!og || !og.startsWith(MIEN)) { pham.push(f + ": thiếu og:image"); continue; }
+        const kt = kichThuocAnh(path.join(ROOT, og.slice(MIEN.length)));
+        if (!kt) { pham.push(f + ": og:image không đọc được " + og.slice(MIEN.length)); continue; }
+        const r = kt.w / kt.h;
+        if (r < 1.85 || r > 1.95) pham.push(f + ": og:image tỉ lệ " + r.toFixed(2) + " (" + kt.w + "×" + kt.h + ") — cần ảnh ngang ~1,91:1");
+        const w = (s.match(/<meta property="og:image:width" content="(\d+)"/) || [])[1];
+        const h = (s.match(/<meta property="og:image:height" content="(\d+)"/) || [])[1];
+        if (Number(w) !== kt.w || Number(h) !== kt.h) pham.push(f + ": og:image:width/height " + w + "×" + h + " ≠ file " + kt.w + "×" + kt.h);
+        const tw = (s.match(/<meta name="twitter:image" content="([^"]+)"/) || [])[1];
+        if (tw && tw !== og) pham.push(f + ": twitter:image khác og:image");
+        if (!/^blog\//.test(f)) continue;
+        for (const m of s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+            let j;
+            try { j = JSON.parse(m[1]); } catch (e) { continue; }
+            if (j["@type"] !== "BlogPosting") continue;
+            soBai++;
+            const anh = [].concat(j.image || []);
+            const kts = anh.map((a) => kichThuocAnh(path.join(ROOT, String(a).replace(MIEN, ""))));
+            const can = [16 / 9, 4 / 3, 1];
+            if (anh.length !== 3 || kts.some((k, i) => !k || Math.abs(k.w / k.h - can[i]) > 0.02)) {
+                pham.push(f + ": BlogPosting.image chưa đủ 3 tỉ lệ 16:9 · 4:3 · 1:1");
+            } else if (kts.some((k) => k.w * k.h < 50000)) {
+                pham.push(f + ": BlogPosting.image có ảnh dưới 50.000 điểm ảnh");
+            }
+        }
+    }
+    add("Ảnh chia sẻ ngang 1,91:1 khai đúng cỡ · ảnh bài index đủ 3 tỉ lệ 16:9/4:3/1:1", pham.length === 0 && soBai > 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ")
+                    : loc.length + " URL sitemap · " + soBai + " bài index đủ 3 tỉ lệ");
 }
 
 // ── In kết quả ───────────────────────────────────────────────────────────

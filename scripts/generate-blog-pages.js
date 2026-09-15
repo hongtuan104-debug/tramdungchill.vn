@@ -83,6 +83,26 @@ function moTaTrang(article, excerptClean) {
 // 15/09/2026, checklist #11 mục 77). Trùng chuỗi với img.sizes trong js/blog-renderer.js — đổi lưới thì sửa cả hai.
 const SIZES_THE_BAI = "(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px";
 
+// Ảnh cắt khung ngang do scripts/tao-anh-chia-se.js sinh (15/09/2026, checklist #11 mục 82): og:image 1200×630 cho
+// Facebook/Zalo + 3 tỉ lệ 16:9 · 4:3 · 1:1 cho schema bài (khuyến nghị Article của Google). Ảnh chưa có trong bảng ANH
+// của script đó thì dùng ảnh gốc như cũ — R22 trong seo-geo-verify.js báo bài index nào còn thiếu.
+const { duongDanAnhCat } = require("./tao-anh-chia-se");
+const { kichThuocAnh } = require("./kich-thuoc-anh");
+function anhChiaSe(image) {
+    var coFile = function (p) { return fs.existsSync(path.join(ROOT, p)); };
+    var og = duongDanAnhCat(image, "og");
+    var baTiLe = ["16x9", "4x3", "1x1"].map(function (l) { return duongDanAnhCat(image, l); });
+    return {
+        og: coFile(og) ? og : null,
+        ogKichThuoc: coFile(og) ? kichThuocAnh(path.join(ROOT, og)) : null,
+        schema: baTiLe.every(coFile) ? baTiLe : null
+    };
+}
+function anhSchema(image) {
+    var ba = anhChiaSe(image).schema;
+    return ba ? ba.map(function (p) { return SITE_URL + "/" + p; }) : SITE_URL + "/" + image;
+}
+
 function formatDateVI(dateStr) {
     const p = dateStr.split("-");
     return p[2] + "/" + p[1] + "/" + p[0];
@@ -195,7 +215,7 @@ function blogPostingSchema(article, excerptClean) {
         "@id": SITE_URL + "/blog/" + article.id + ".html#article",
         "headline": article.title,
         "description": moTaTrang(article, excerptClean),
-        "image": SITE_URL + "/" + article.image,
+        "image": anhSchema(article.image),
         "datePublished": article.date,
         "dateModified": article._dateModified || article.date,
         "author": author,
@@ -730,6 +750,12 @@ try {
             const image400w = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp');
             const image800w = article.image.replace(/\.(jpg|webp)$/i, '-800w.webp');
 
+            const chiaSe = anhChiaSe(article.image);
+            const ogImage = chiaSe.og || article.image;
+            const ogKichThuoc = chiaSe.ogKichThuoc
+                ? '\n    <meta property="og:image:width" content="' + chiaSe.ogKichThuoc.w + '">\n    <meta property="og:image:height" content="' + chiaSe.ogKichThuoc.h + '">'
+                : "";
+
             let html = template
                 .replace(/{{TITLE_TAG}}/g, titleTag)
                 .replace(/{{TITLE_SHORT}}/g, titleShort)
@@ -742,6 +768,8 @@ try {
                 .replace(/{{IMAGE_ALT}}/g, imageAltEncoded)
                 .replace(/{{IMAGE_400W}}/g, image400w)
                 .replace(/{{IMAGE_800W}}/g, image800w)
+                .replace(/{{OG_IMAGE_KICH_THUOC}}/g, ogKichThuoc)
+                .replace(/{{OG_IMAGE}}/g, ogImage)
                 .replace(/{{IMAGE}}/g, article.image)
                 .replace(/{{META_DESCRIPTION}}/g, metaDesc)
                 .replace(/{{KEYWORDS}}/g, keywords)
