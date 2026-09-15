@@ -658,7 +658,15 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      - Kiểm cục bộ: `plans/cong-cu-do-hieu-nang/do-rum.js` (chặn domain pixel, bắt lệnh gtag qua dataLayer). ⚠️ Runtime binding
        của CDP KHÔNG kịp gửi lúc trang unload — số gửi khi rời trang phải ghi `localStorage` rồi đọc ở URL cùng origin (đã tưởng
        nhầm là lỗi code 15/09).
-   - TTFB đo từ máy làm việc 15/09: 0,26–0,31s khi kết nối sẵn, 0,51–0,63s lượt đầu (gồm DNS+TCP+TLS), Fastly SIN `HIT`.
+   - **CrUX thật 15/09** (cửa sổ 17/08–13/09): điện thoại LCP 1.897ms · **INP 264ms** · CLS 0,06 · TTFB 1.046ms → trượt INP;
+     máy tính LCP 870ms · INP 104ms · **CLS 0,12** · TTFB 336ms → trượt CLS. 27 URL sitemap đều KHÔNG có số riêng (chỉ có origin).
+   - ⚠️ **CLS desktop 0,12 là lỗi ĐÃ SỬA, đừng săn lại.** A/B bằng `plans/cong-cu-do-hieu-nang/do-cls-desktop.js` (1366×768, mạng
+     chậm, cuộn + rê chuột), bản `9d0470c9` trước đợt sửa ↔ bản hiện tại: menu 0,1999 ↔ 0 · blog 0,9327 ↔ 0 · đường đi 0,1754 ↔ 0 ·
+     trang chủ 0,0021 ↔ 0,0043. Chính là bug #28 (CSS async về → cả trang xếp lại), xảy ra cả trên máy tính. Số CrUX tự giảm khi
+     cửa sổ 28 ngày trượt qua 14/09. Trên máy tính cuộn và rê chuột KHÔNG tính là "input" → rule `:hover` đổi padding/gap và nav
+     co lại khi cuộn đều cộng vào CLS; đã đo: rê chuột 0 cú xô, nav co 0,0002 — không đáng sửa.
+   - TTFB đo từ máy làm việc 15/09: 0,26–0,31s khi kết nối sẵn, 0,51–0,63s lượt đầu (gồm DNS+TCP+TLS), Fastly SIN `HIT` — khác xa
+     p75 khách mobile 1.046ms; số chẩn đoán, không tính CWV.
    - Search Console: 0 mail về Core Web Vitals trong 120 ngày (rà Gmail 15/09). Báo cáo CWV trong GSC chỉ sếp xem được.
    → Máy canh **R8u**: bundle có web-vitals + send_to GA4 · vân tay trong lazy-tracking khớp file thật · không trang nào nạp thẳng.
 
