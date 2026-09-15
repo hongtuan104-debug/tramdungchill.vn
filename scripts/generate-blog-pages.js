@@ -70,6 +70,19 @@ function truncate(str, maxLen) {
     return str.slice(0, maxLen - 3).replace(/\s+\S*$/, "") + "...";
 }
 
+// Meta description + schema description của một bài. Bài có "metaDescription" trong
+// blog-seo.js thì dùng nguyên văn; không có thì cắt excerpt ở 160 ký tự.
+// Thêm 15/09/2026 (checklist #09): 7/18 bài index có excerpt dài hơn 160 nên mô tả
+// Google hiện bị cắt giữa câu kèm "..." — R19 trong seo-geo-verify.js chặn tái diễn.
+function moTaTrang(article, excerptClean) {
+    return article.metaDescription || truncate(excerptClean, 160);
+}
+
+// Bề rộng THẬT của ảnh thẻ bài (lưới .blog-grid 2 cột, gap 32px, trong .container 1200px): 560px trên
+// máy tính, 1 cột từ 768px trở xuống. Bản cũ khai "1200px" nên máy tính tải bản 1200w cho ô 560px (đo
+// 15/09/2026, checklist #11 mục 77). Trùng chuỗi với img.sizes trong js/blog-renderer.js — đổi lưới thì sửa cả hai.
+const SIZES_THE_BAI = "(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px";
+
 function formatDateVI(dateStr) {
     const p = dateStr.split("-");
     return p[2] + "/" + p[1] + "/" + p[0];
@@ -181,7 +194,7 @@ function blogPostingSchema(article, excerptClean) {
         "@type": "BlogPosting",
         "@id": SITE_URL + "/blog/" + article.id + ".html#article",
         "headline": article.title,
-        "description": truncate(excerptClean, 160),
+        "description": moTaTrang(article, excerptClean),
         "image": SITE_URL + "/" + article.image,
         "datePublished": article.date,
         "dateModified": article._dateModified || article.date,
@@ -205,7 +218,7 @@ function blogPostingSchema(article, excerptClean) {
                 "@id": article._canonical,
                 "url": article._canonical,
                 "name": article.title,
-                "description": truncate(excerptClean, 160),
+                "description": moTaTrang(article, excerptClean),
                 "inLanguage": article._lang || "vi",
                 "isPartOf": {
                     "@type": "WebSite",
@@ -380,16 +393,16 @@ function dienTrangTacGia(tg) {
         '\n    </script>\n    ';
 
     // Thẻ bài: đúng khuôn .blog-card mà js/blog-renderer.js dựng trên blog.html
-    var the = bai.map(function (a) {
+    var the = bai.map(function (a, i) {
         var anh = "../" + a.image;
         var coFile = function (duoi) { return fs.existsSync(path.join(ROOT, a.image.replace(/\.(jpg|webp)$/i, duoi))); };
         var srcset = coFile("-400w.webp") && coFile("-800w.webp")
             ? ' srcset="' + anh.replace(/\.(jpg|webp)$/i, "-400w.webp") + ' 400w, ' +
               anh.replace(/\.(jpg|webp)$/i, "-800w.webp") + ' 800w, ' + anh + ' 1200w"' +
-              ' sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px"'
+              ' sizes="' + SIZES_THE_BAI + '"'
             : "";
         return '                    <article class="blog-card"' + (a._lang === "en" ? ' lang="en"' : "") + '>\n' +
-            '                        <div class="blog-card-img"><img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.imageAlt || a.title) + '" loading="lazy"></div>\n' +
+            '                        <div class="blog-card-img"><img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.imageAlt || a.title) + '"' + (i === 0 ? ' fetchpriority="high"' : i === 1 ? '' : ' loading="lazy"') + '></div>\n' +
             '                        <div class="blog-card-content">\n' +
             '                            <div class="blog-meta"><time datetime="' + a.date + '">' + formatDateVI(a.date) + '</time><span class="blog-category">' + htmlEncode(a.category) + '</span></div>\n' +
             '                            <h2><a href="../blog/' + a.id + '.html">' + htmlEncode(a.title) + '</a></h2>\n' +
@@ -502,6 +515,7 @@ try {
             if (p.title) existing.title = p.title;
             if (p.seoTitle) existing.seoTitle = p.seoTitle;
             if (p.excerpt) existing.excerpt = p.excerpt;
+            if (p.metaDescription) existing.metaDescription = p.metaDescription;
             if (p.image) existing.image = p.image;
             if (p.imageAlt) existing.imageAlt = p.imageAlt;
             if (p.category) existing.category = p.category;
@@ -523,6 +537,7 @@ try {
                 badge: p.badge || "",
                 featured: !!p.featured,
                 excerpt: p.excerpt,
+                metaDescription: p.metaDescription,
                 body: p.body,
                 _faq: p.faq,
                 _author: p.author,
@@ -651,11 +666,24 @@ try {
         if (related.length === 0) return "";
 
         return related.map(function(a) {
+            // srcset + sizes theo bề rộng THẬT của ô: lưới 3 cột tối đa 1000px, gap 24px → 317px; ≤768px còn 1 cột.
+            // Bản cũ không srcset nên máy tính tải ảnh 1200px cho ô 317px (đo 15/09/2026, checklist #11 mục 77).
+            // Tiêu đề thẻ là <p>, không phải h3: thẻ không có nội dung bên dưới, 3 h3 liền nhau chỉ làm rối dàn bài
+            // (checklist #10 mục 70) — R20/R21 trong seo-geo-verify.js canh cả hai.
+            var anh = "../" + a.image;
+            var coBien = ["-400w.webp", "-800w.webp"].every(function (duoi) {
+                return fs.existsSync(path.join(ROOT, a.image.replace(/[.](jpg|webp)$/i, duoi)));
+            });
+            var srcset = coBien
+                ? ' srcset="' + anh.replace(/[.](jpg|webp)$/i, "-400w.webp") + ' 400w, ' +
+                  anh.replace(/[.](jpg|webp)$/i, "-800w.webp") + ' 800w, ' + anh + ' 1200w"' +
+                  ' sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px"'
+                : "";
             return '<a href="' + a.id + '.html" class="blog-related-card">' +
-                '<img src="../' + a.image + '" alt="' + htmlEncode(a.imageAlt || a.title) + '" loading="lazy">' +
+                '<img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.imageAlt || a.title) + '" loading="lazy">' +
                 '<div class="blog-related-info">' +
                 '<span class="blog-category">' + a.category + '</span>' +
-                '<h3>' + htmlEncode(a.title) + '</h3>' +
+                '<p class="blog-related-title">' + htmlEncode(a.title) + '</p>' +
                 '</div></a>';
         }).join("\n                ");
     }
@@ -666,7 +694,7 @@ try {
     for (const article of articles) {
         try {
             const excerptClean = stripHtml(article.excerpt || "");
-            const metaDesc = htmlEncode(truncate(excerptClean, 160));
+            const metaDesc = htmlEncode(moTaTrang(article, excerptClean));
             const titleEncoded = htmlEncode(article.title);
             // titleShort chỉ dùng cho breadcrumb (chỗ hẹp, cắt là hợp lý).
             const titleShort = truncate(article.title, 60);

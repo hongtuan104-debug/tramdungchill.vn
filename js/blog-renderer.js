@@ -47,7 +47,10 @@ function buildBlogCard(article) {
     img.srcset = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp') + ' 400w, ' +
                  article.image.replace(/\.(jpg|webp)$/i, '-800w.webp') + ' 800w, ' +
                  article.image + ' 1200w';
-    img.sizes = '(max-width:480px) 400px, (max-width:768px) 800px, 1200px';
+    // Bề rộng THẬT của ô ảnh (lưới 2 cột, gap 32px, .container 1200px): 560px trên máy tính.
+    // Bản cũ khai 1200px nên máy tính luôn tải bản 1200w cho ô 560px (đo 15/09/2026).
+    // Đổi lưới .blog-grid trong style.css thì sửa cả chuỗi này và SIZES_THE_BAI trong generate-blog-pages.js.
+    img.sizes = '(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px';
     img.alt = article.imageAlt || '';
     img.loading = 'lazy';
     imgDiv.appendChild(img);

@@ -83,6 +83,9 @@ do `scripts/generate-footer.js` sinh giữa mốc `<!-- FOOTER:START --> … <!-
 - ⚠️ `css/footer.css` và `css/responsive.css` KHÔNG trang nào nạp — bản chạy thật
   nằm trong `css/style.css`, đó mới là file được bundle ra `dist/style.min.css`
 - ⚠️ `css/variables.css` cũng là file chết — biến màu thật nằm trong `css/style.css`
+- ⚠️ **Nhãn footer là `<p class="footer-logo">` / `<p class="footer-title">`, KHÔNG phải h3/h4** (15/09/2026, bug #32). CSS
+  bám class, không bám tên thẻ. Đừng đổi lại thành heading: footer lặp trên mọi trang, heading trong đó nối đuôi dàn bài của
+  section cuối — R20 chặn. `404.html` có bản CSS inline riêng (`.footer-logo`, `.footer-title`) — đổi kiểu thì sửa cả hai.
 
 ## Nav — cũng sinh tự động, ĐỪNG sửa HTML tay
 Trước 31/08/2026, index/menu/blog/đường-đi chỉ có `<div id="nav-placeholder">` rỗng;
@@ -669,6 +672,43 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      p75 khách mobile 1.046ms; số chẩn đoán, không tính CWV.
    - Search Console: 0 mail về Core Web Vitals trong 120 ngày (rà Gmail 15/09). Báo cáo CWV trong GSC chỉ sếp xem được.
    → Máy canh **R8u**: bundle có web-vitals + send_to GA4 · vân tay trong lazy-tracking khớp file thật · không trang nào nạp thẳng.
+
+32. **Meta description · Heading · Ảnh — checklist #09/#10/#11 mục 54–83** (rà 15/09/2026: quét tĩnh 168 trang + quét bản ĐÃ CHẠY JS
+   bằng Chrome, 27 URL × điện thoại 412px / máy tính 1366px; công cụ để ở scratchpad, không vào repo).
+   Đạt sẵn, đừng làm lại: 27/27 URL có đúng 1 meta description, không trùng nhau, không trùng title · mỗi trang 1 H1, 0 nhảy cấp (cả bản
+   render), 0 heading rỗng, 0 heading bản ẩn/bản hiện trùng nhau, 0 id trùng, 0 neo mục lục hỏng · ảnh đang hiển thị đều là WebP (JPG chỉ
+   còn cho og:image / schema / noscript) · 0 URL ảnh lỗi hay redirect · ảnh trong schema đều có file, ≥ 50K điểm ảnh, Article.image = og:image.
+   Đã sửa:
+   - **Mô tả bị cắt giữa câu**: 7/18 bài index có excerpt > 160 ký tự, generator cắt kèm "..." → nay `metaDescription` trong
+     `data/blog-seo.js` (8 bài, thêm bài setup sinh nhật cho kèm cọc), hàm `moTaTrang()` dùng chung cho meta lẫn schema description.
+     ⚠️ **Bài index mới có excerpt > 160 ký tự thì PHẢI viết `metaDescription`** — R19 chặn. Trang tác giả 173 → 149 ký tự; blog.html bỏ
+     lặp "Đà Lạt" ×3 (sửa cả 2 node schema viết tay); trang sinh nhật / cầu hôn thêm điều kiện cọc (bug #25) ở meta lẫn schema.
+   - ⚠️ **Hàm dấu vân lastmod TÍNH meta description là nội dung** (cố ý, xem đầu `cap-nhat-lastmod.js`) → đổi mô tả là bot đóng dấu
+     "Cập nhật" cho trang đó. Đợt này 12 trang.
+   - **Heading ngoài dàn bài**: 4 nhãn footer (h3 + 3 h4) và tiêu đề 3 thẻ "Bài viết liên quan" (h3 không có nội dung bên dưới) → `<p>`
+     (xem mục Footer). So computed style trước/sau ở 6 trang × 2 khung: khớp từng thuộc tính, chỉ khác tên thẻ. h2 của section giữ nguyên.
+   - **Thẻ bài ở blog.html + trang tác giả cao theo ảnh gốc**: `.blog-card-img img{height:100%}` nằm trong khối cao tự do → ảnh dọc
+     1182×2560 thành thẻ cao 1.213px (máy tính) / 805px (điện thoại), heading hai thẻ cùng hàng lệch nhau hàng trăm px — thứ tự nhìn ngược
+     thứ tự DOM (mục 69). Nay `.blog-card:not(.blog-featured) .blog-card-img{aspect-ratio:3/2}`.
+   - **Ảnh hero 4 trang dịp là nền CSS** → Google Images không lập chỉ mục; 3/4 trang không có tấm `<img>` nào. Nay
+     `<img class="dip-hero-anh" fetchpriority="high">` phủ `object-fit:cover`, preload giữ nguyên CÙNG URL (vẫn 1 lần tải). Một cỡ 1200w là
+     cố ý: hero phủ theo chiều cao nên điện thoại cũng cần ≥ 1.200px thật (bug #23). ⚠️ Đừng quay về `style="background-image"` — R21 chặn.
+   - **Ảnh LCP**: trang tác giả lazy đúng ảnh LCP → 2 thẻ đầu không lazy, thẻ đầu `fetchpriority="high"`; hero 141 bài thêm
+     `fetchpriority="high"` (vốn là LCP, trước chỉ có `loading="eager"`).
+   - **srcset/sizes**: thẻ bài liên quan không srcset → máy tính tải 1200px cho ô 317px; thẻ bài blog.html/tác giả khai `sizes` 1200px cho
+     ô 560px. Nay `sizes` theo bề rộng đo bằng `do-co-anh.js`: `SIZES_THE_BAI` trong generator = `img.sizes` trong `js/blog-renderer.js`.
+     ⚠️ Đổi lưới `.blog-grid` / `.blog-related-grid` thì đo lại và sửa cả hai chỗ.
+   - **Alt tả chủ đề chứ không tả ảnh** (tái phạm bug #16, lần này ở trang chủ): gallery-2 là hai người đàn hát trên sân khấu mà alt ghi
+     "view nhà lồng", gallery-6 là tàu chạy qua dưới dãy bàn mà alt ghi "kỷ niệm… view triệu đô", gallery-4 alt "Câu chuyện Trạm Dừng Chill"
+     → viết lại 15 alt sau khi mở từng ảnh. Zoom menu lật tạo `<img>` không alt → gán `alt=""`; lightbox trang chủ bỏ `src=""` rỗng.
+   - Tên file ảnh: 100% chữ thường nối gạch ngang. `gallery-N` / `tiktok-thumb-N` chung chung nhưng **cố ý không đổi tên** — đổi là mất lịch
+     sử lập chỉ mục ảnh (GitHub Pages không redirect được) và kéo theo og:image / schema / precache.
+   - EXIF/XMP của cả 728 ảnh đã bị xoá lúc nén → không lần được nguồn ảnh bằng máy.
+   Chưa sửa, chờ sếp (memory `checklist-09-11-meta-heading-anh`): giá menu với khách có JS chỉ nằm trong ảnh (mục 81) · quyền dùng ảnh có
+   mặt khách / người mẫu (mục 83) · gallery-2 (hero team building) có biển Xóm Lèo trên sân khấu · đối chiếu snippet Google thật hiển thị
+   (mục 63, cần Search Console) · crop 16:9 / 4:3 / 1:1 cho ảnh bài (Google khuyến nghị; ảnh bài dọc bị cắt khi hiện thumbnail).
+   → Máy canh **R19** (meta description) · **R20** (footer/thẻ bài liên quan không heading, không heading rỗng, id không trùng, mục lục đúng
+   đích) · **R21** (đủ alt, không src rỗng, hero dịp là `<img>`, ảnh LCP không lazy, srcset thẻ bài liên quan, quy ước tên file ảnh).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

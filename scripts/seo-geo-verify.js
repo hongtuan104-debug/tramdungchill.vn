@@ -1966,6 +1966,116 @@ const CAU_AEO = (() => {
                     : "lazy-tracking chèn do-khach-that.min.js sau khi bật pixel · 0 trang nạp thẳng");
 }
 
+// ── R19. Meta description (checklist #09 mục 54–62, 15/09/2026) ─────────────
+// Mỗi URL trong sitemap: đúng 1 thẻ, 110–160 ký tự, không cắt cụt bằng "..."/"…" ở cuối, không trùng
+// nguyên title, không trùng mô tả URL khác. Bài blog lấy "metaDescription" trong blog-seo.js; thiếu thì
+// generator cắt excerpt ở 160 ký tự kèm "..." — đúng lỗi 7/18 bài index từng dính (Google hiện mô tả
+// đứt giữa câu). Viết bài index mới có excerpt > 160 ký tự thì PHẢI kèm metaDescription.
+{
+    const pham = [];
+    const loc = [...fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const giai = (s) => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+    const chuan = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+    const daGap = new Map();
+    for (const u of loc) {
+        let f = u.replace("https://tramdungchill.vn/", "");
+        if (f === "" || f.endsWith("/")) f += "index.html";
+        const s = fs.readFileSync(path.join(ROOT, f), "utf8").replace(/<!--[\s\S]*?-->/g, "");
+        const the = [...s.matchAll(/<meta\s+name="description"\s+content="([^"]*)"/gi)];
+        if (the.length !== 1) { pham.push(f + ": " + the.length + " thẻ description"); continue; }
+        const d = giai(the[0][1]).trim();
+        const n = [...d].length;
+        if (n < 110 || n > 160) pham.push(f + ": " + n + " ký tự");
+        if (/(\.\.\.|…)$/.test(d)) pham.push(f + ": mô tả bị cắt cụt");
+        const t = giai((s.match(/<title>([^<]*)<\/title>/) || ["", ""])[1]);
+        if (chuan(d) === chuan(t)) pham.push(f + ": mô tả trùng title");
+        const k = chuan(d);
+        if (daGap.has(k)) pham.push(f + ": trùng mô tả với " + daGap.get(k)); else daGap.set(k, f);
+    }
+    add("Meta description: đủ, 110–160 ký tự, không cắt cụt, không trùng title / trang khác", pham.length === 0,
+        pham.length ? pham.slice(0, 4).join(" | ") : loc.length + " URL sitemap đều đạt");
+}
+
+// ── R20. Heading ngoài dàn bài chính (checklist #10 mục 66, 70, 71, 73 — 15/09/2026) ──
+// (a) footer + khối "Bài viết liên quan" KHÔNG chứa h1–h6. Hai vùng này lặp trên mọi trang: trước đó
+//     4 nhãn footer là h3/h4 và 3 tiêu đề thẻ bài liên quan là h3 không có nội dung bên dưới — nối đuôi
+//     dàn bài của section cuối ("Liên hệ" thành mục con của "Đặt bàn"). Nay là <p>, kiểu chữ giữ nguyên.
+// (b) không heading rỗng (không chữ, không aria-label, không ảnh có alt).
+// (c) id không trùng trong một trang (bỏ vùng <noscript>); mục lục bài blog trỏ đúng id có thật.
+{
+    const pham = [];
+    let soTrang = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8").replace(/<!--[\s\S]*?-->/g, "");
+        const than = s.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<style\b[\s\S]*?<\/style>/gi, "");
+        soTrang++;
+        // Riêng khối bài liên quan: h2 "Bài viết liên quan" của section là đúng — chỉ cấm heading TRONG từng thẻ.
+        for (const m of than.matchAll(/<footer class="footer"[\s\S]*?<\/footer>|<a [^>]*class="blog-related-card"[\s\S]*?<\/a>/gi)) {
+            if (/<h[1-6][\s>]/i.test(m[0])) { pham.push(rel(f) + ": heading trong " + (m[0].startsWith("<footer") ? "footer" : "thẻ bài liên quan")); break; }
+        }
+        for (const m of than.matchAll(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/gi)) {
+            const chu = m[3].replace(/<[^>]+>/g, "").replace(/&nbsp;|\s/g, "");
+            if (!chu && !/aria-label="[^"]+"/.test(m[2]) && !/<img[^>]*alt="[^"]+"/.test(m[3])) pham.push(rel(f) + ": h" + m[1] + " rỗng");
+        }
+        const dem = {};
+        for (const m of than.replace(/<noscript\b[\s\S]*?<\/noscript>/gi, "").matchAll(/(?:^|[\s"'])id="([^"]+)"/g)) dem[m[1]] = (dem[m[1]] || 0) + 1;
+        const trung = Object.keys(dem).filter((k) => dem[k] > 1);
+        if (trung.length) pham.push(rel(f) + ": id trùng " + trung.slice(0, 3).join(","));
+        const coId = new Set([...s.matchAll(/(?:^|[\s"'])(?:id|name)="([^"]+)"/g)].map((m) => m[1]));
+        const toc = (than.match(/<nav[^>]*class="toc"[\s\S]*?<\/nav>/i) || [""])[0];
+        for (const m of toc.matchAll(/href="#([^"]+)"/g)) if (!coId.has(decodeURIComponent(m[1]))) pham.push(rel(f) + ": mục lục trỏ #" + m[1] + " không có");
+    }
+    add("Heading: footer/bài liên quan không dùng h1–h6 · không heading rỗng · id không trùng · mục lục đúng đích", pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ") : soTrang + " trang đạt");
+}
+
+// ── R21. Ảnh (checklist #11 mục 74–80, 15/09/2026) ──────────────────────────
+// (a) mọi <img> có thuộc tính alt (ảnh trang trí dùng alt=""), không có src="" rỗng;
+// (b) hero 4 trang dịp là <img fetchpriority="high"> thật — Google không lập chỉ mục ảnh nền CSS, trước
+//     đó 3/4 trang dịp không có tấm ảnh nào tìm được qua Google Images;
+// (c) ảnh LCP không lazy: hero bài blog mang fetchpriority="high"; 2 thẻ bài đầu trang tác giả không lazy
+//     (bản trước lazy đúng ảnh LCP);
+// (d) thẻ bài liên quan có srcset + sizes (bản trước tải ảnh 1200px cho ô 317px);
+// (e) tên file ảnh chữ thường nối gạch ngang — không chữ hoa, dấu cách, gạch dưới, IMG_/DSC_/screenshot.
+{
+    const pham = [];
+    let soAnh = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8").replace(/<!--[\s\S]*?-->/g, "");
+        for (const m of s.matchAll(/<img\b[^>]*>/gi)) {
+            soAnh++;
+            if (!/\salt=/.test(m[0])) pham.push(rel(f) + ": img thiếu alt " + m[0].slice(0, 60));
+            if (/\ssrc=""/.test(m[0])) pham.push(rel(f) + ": img src rỗng");
+        }
+        if (/^dip\//.test(rel(f))) {
+            if (/<section class="dip-hero"[^>]*background-image/i.test(s)) pham.push(rel(f) + ": hero dịp quay về nền CSS");
+            if (!/<section class="dip-hero"[^>]*>\s*<img class="dip-hero-anh"[^>]*fetchpriority="high"/.test(s)) pham.push(rel(f) + ": hero dịp thiếu <img fetchpriority=high>");
+        }
+        if (/^blog\//.test(rel(f))) {
+            for (const m of s.matchAll(/<a [^>]*class="blog-related-card"[^>]*>\s*<img\b[^>]*>/gi)) {
+                if (!/\ssrcset=/.test(m[0]) || !/\ssizes=/.test(m[0])) { pham.push(rel(f) + ": ảnh bài liên quan thiếu srcset/sizes"); break; }
+            }
+        }
+    }
+    const tpl = fs.readFileSync(path.join(ROOT, "templates", "blog-post.html"), "utf8");
+    if (!/<img src="\.\.\/\{\{IMAGE\}\}"[^>]*fetchpriority="high"/.test(tpl)) pham.push("templates/blog-post.html: ảnh hero bài (LCP) thiếu fetchpriority=high");
+    for (const t of fs.readdirSync(path.join(ROOT, "tac-gia")).filter((x) => x.endsWith(".html"))) {
+        const dau = [...fs.readFileSync(path.join(ROOT, "tac-gia", t), "utf8").matchAll(/<div class="blog-card-img"><img\b[^>]*>/g)].slice(0, 2);
+        if (dau.some((m) => /loading="lazy"/.test(m[0]))) pham.push("tac-gia/" + t + ": thẻ bài đầu (ảnh LCP) đang lazy");
+    }
+    const tenSai = [];
+    (function duyet(d) {
+        for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+            if (e.isDirectory()) { if (!/^(_goc|fonts)$/.test(e.name)) duyet(path.join(d, e.name)); }
+            else if (/\.(jpe?g|png|webp|avif|gif|svg)$/i.test(e.name)
+                && (!/^[a-z0-9]+(?:-[a-z0-9]+)*\.[a-z]+$/.test(e.name) || /^(img|dsc|dcim|screenshot|untitled)\d/i.test(e.name.replace(/-/g, "")))) tenSai.push(e.name);
+        }
+    })(path.join(ROOT, "assets"));
+    if (tenSai.length) pham.push("tên file ảnh sai quy ước: " + tenSai.slice(0, 4).join(", "));
+    add("Ảnh: đủ alt · hero dịp là <img> · ảnh LCP không lazy · bài liên quan có srcset · tên file chuẩn", pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ") : soAnh + " thẻ img đạt");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

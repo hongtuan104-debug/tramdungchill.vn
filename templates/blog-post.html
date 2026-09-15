@@ -83,7 +83,7 @@
 <nav class="navbar scrolled" id="navbar"><div class="nav-container"><a href="../index.html" class="nav-logo"><span class="logo-icon">&#9733;</span><div class="logo-text-wrapper"><span class="logo-sub">Tiệm Nướng</span><span class="logo-main">Trạm Dừng Chill</span></div></a><ul class="nav-menu" id="navMenu"><li><a href="../index.html" class="nav-link">{{T_HOME}}</a></li><li><a href="../menu.html" class="nav-link">{{T_MENU}}</a></li><li><a href="../blog.html" class="nav-link active" aria-current="page">{{T_BLOG}}</a></li><li><a href="../index.html#booking" class="nav-link nav-cta">{{T_BOOK}}</a></li></ul><div class="nav-right"><a href="tel:0989765070" class="nav-phone">0989.765.070</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
     <main id="main-content">
     <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">{{T_HOME}}</a> › <a href="../blog.html">{{T_BLOG}}</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time>{{UPDATED}} <span class="reading-time">{{READING_TIME}} {{T_READ}}</span>{{BYLINE}}</div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--text-muted);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
-    <div class="container" style="margin:24px auto 32px;"><img src="../{{IMAGE}}" srcset="../{{IMAGE_400W}} 400w, ../{{IMAGE_800W}} 800w, ../{{IMAGE}} 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="{{IMAGE_ALT}}" style="width:100%;max-height:500px;object-fit:cover;border-radius:20px;" loading="eager"></div>
+    <div class="container" style="margin:24px auto 32px;"><img src="../{{IMAGE}}" srcset="../{{IMAGE_400W}} 400w, ../{{IMAGE_800W}} 800w, ../{{IMAGE}} 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="{{IMAGE_ALT}}" style="width:100%;max-height:500px;object-fit:cover;border-radius:20px;" loading="eager" fetchpriority="high"></div>
     <article class="blog-post-body container" style="max-width:800px;margin:0 auto;padding:0 24px 60px;">{{BODY}}</article>
     <nav class="blog-post-nav container" style="max-width:800px;margin:0 auto 40px;padding:0 24px;display:flex;justify-content:space-between;align-items:stretch;gap:16px;">{{PREV_LINK}}{{NEXT_LINK}}</nav>
     <style>.blog-nav-prev,.blog-nav-next{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border:1px solid rgba(212,168,83,0.25);border-radius:12px;color:#3D3229;text-decoration:none;font-size:0.9rem;transition:all .3s;max-width:48%;flex:1}.blog-nav-prev:hover,.blog-nav-next:hover{border-color:#D4A853;background:rgba(212,168,83,0.06)}.blog-nav-prev .nav-label,.blog-nav-next .nav-label{font-size:0.78rem;color:#7D7160;text-transform:uppercase;letter-spacing:0.5px}.blog-nav-prev .nav-title,.blog-nav-next .nav-title{font-family:'Playfair Display',Georgia,serif;font-size:0.95rem;font-weight:600;color:#2C2420;line-height:1.4}.blog-nav-next{text-align:right;margin-left:auto}@media(max-width:600px){.blog-post-nav{flex-direction:column}.blog-nav-prev,.blog-nav-next{max-width:100%}}
@@ -94,7 +94,7 @@
     .blog-related-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.1); }
     .blog-related-card img { width:100%; height:180px; object-fit:cover; }
     .blog-related-info { padding:16px; }
-    .blog-related-info h3 { font-size:1rem; margin-top:8px; line-height:1.4; }
+    .blog-related-title { font-size:1rem; font-weight:700; margin-top:8px; line-height:1.4; }
     @media(max-width:768px) { .blog-related-grid { grid-template-columns:1fr; } }
     .blog-faq { max-width:800px; margin:32px auto 8px; }
     .blog-faq > h2 { font-family:var(--font-display); font-size:1.5rem; color:var(--night); margin-bottom:16px; }
@@ -120,7 +120,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <h3 class="footer-logo">Trạm Dừng Chill</h3>
+                    <p class="footer-logo">Trạm Dừng Chill</p>
                     <p>{{I18N:footer.desc}}</p>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/tiemnuongtramdungchill" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <div class="footer-nav">
-                    <h4>{{I18N:footer.link.title}}</h4>
+                    <p class="footer-title">{{I18N:footer.link.title}}</p>
                     <ul>
                         <li><a href="../index.html">{{I18N:nav.home}}</a></li>
                         <li><a href="../index.html#experience">{{I18N:nav.experience}}</a></li>
@@ -140,7 +140,7 @@
                     </ul>
                 </div>
                 <div class="footer-nav">
-                    <h4>{{I18N:footer.occasion.title}}</h4>
+                    <p class="footer-title">{{I18N:footer.occasion.title}}</p>
                     <ul>
                         <li><a href="../dip/san-tau-da-lat.html">{{I18N:footer.occasion.train}}</a></li>
                         <li><a href="../dip/sinh-nhat.html">{{I18N:footer.occasion.birthday}}</a></li>
@@ -150,7 +150,7 @@
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>{{I18N:footer.contact.title}}</h4>
+                    <p class="footer-title">{{I18N:footer.contact.title}}</p>
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
                         <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>

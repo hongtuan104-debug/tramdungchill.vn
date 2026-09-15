@@ -1718,14 +1718,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     margin-bottom: 48px;
 }
 
+/* Nhãn footer là <p class="footer-logo|footer-title">, không phải h3/h4 (15/09/2026, checklist #10
+   mục 71) — nên phải tự khai độ đậm mà thẻ heading từng cho sẵn, và .footer-brand p không được đè lên. */
 .footer-logo {
     font-family: var(--font-accent);
     font-size: 1.8rem;
+    font-weight: 700;
     color: var(--gold);
     margin-bottom: 12px;
 }
 
-.footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-brand p:not(.footer-logo) { font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
 
 .footer-social { display: flex; gap: 10px; }
 
@@ -1747,7 +1750,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     transform: translateY(-3px);
 }
 
-.footer-nav h4, .footer-contact h4 {
+.footer-title {
     color: var(--white);
     font-size: 0.95rem;
     font-weight: 600;
@@ -1932,6 +1935,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .blog-card.blog-featured .blog-card-img {
     min-height: 400px;
 }
+
+/* Ô ảnh thẻ bài tỉ lệ cố định 3:2 (15/09/2026). Trước đó img height:100% trong khối cao tự do = cao theo
+   ảnh gốc: ảnh dọc 1182×2560 thành thẻ cao 1.213px trên máy tính, 805px trên điện thoại, và heading hai
+   thẻ cùng hàng lệch nhau hàng trăm px — thứ tự nhìn ngược thứ tự DOM (checklist #10 mục 69).
+   Thẻ nổi bật (.blog-featured) giữ nguyên: ảnh lấp chiều cao cột bên cạnh. */
+.blog-card:not(.blog-featured) .blog-card-img { aspect-ratio: 3 / 2; }
 
 /* Card Image */
 .blog-card-img {

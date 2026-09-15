@@ -130,6 +130,7 @@ const BLOG_SEO = {
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {
+      "metaDescription": "Trạm Dừng Chill (Đà Lạt) tặng trang trí bàn sinh nhật: hoa, nến, bảng chúc mừng; cọc 200.000đ, hoàn lại sau khi ăn. Xem gồm gì, chi phí tiệc và 4 bước đặt.",
       "seoTitle": "Setup Sinh Nhật Miễn Phí Đà Lạt — Quán Nào Tặng Trang Trí?",
       "title": "Setup Sinh Nhật Miễn Phí Đà Lạt — Quán Nào Tặng Trang Trí Bàn Tiệc?",
       "excerpt": "Tìm quán setup sinh nhật miễn phí ở Đà Lạt? Trạm Dừng Chill tặng trang trí bàn tiệc (hoa, nến, bảng chúc mừng) — view xe lửa, hoàng hôn, biển sao nhà lồng.",
@@ -172,6 +173,7 @@ const BLOG_SEO = {
       "lang": "vi"
     },
     "hen-ho-da-lat": {
+      "metaDescription": "Gợi ý hẹn hò ở Đà Lạt: bàn nướng ngoài trời nhìn thung lũng, hoàng hôn từ khoảng 16:30, tàu cổ chạy qua rồi nhà lồng lên đèn. Kèm lịch trình và cách đặt bàn.",
       "seoTitle": "Quán Hẹn Hò Lãng Mạn Đà Lạt — BBQ Ngắm Tàu & Biển Sao",
       "title": "Quán Hẹn Hò Lãng Mạn Đà Lạt — Date Night Nướng BBQ Ngắm Tàu Lửa & Biển Sao Nhà Lồng",
       "excerpt": "Tìm quán hẹn hò lãng mạn Đà Lạt cho buổi date night? Trạm Dừng Chill: bàn ngoài trời view thung lũng, 3 khoảnh khắc hoàng hôn — tàu lửa — biển sao, setup miễn phí.",
@@ -297,6 +299,7 @@ const BLOG_SEO = {
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
+      "metaDescription": "Nên gọi món nướng gì ở Trạm Dừng Chill? Bò Kobe Nướng Tảng Phô Mai Trứng Muối (209K), hải sản, cá tầm, heo gà sườn nướng tại bàn, kèm gợi ý gọi món theo nhóm.",
       "seoTitle": "Món Nướng Ngon Nhất Đà Lạt — Bò Tảng Phô Mai & Hải Sản",
       "title": "Món Nướng Ngon Nhất Đà Lạt — Bò Tảng Phô Mai, Hải Sản & BBQ Tại Trạm Dừng Chill",
       "excerpt": "Tìm món nướng ngon ở Đà Lạt? Món signature của Trạm Dừng Chill là Bò Kobe Nướng Tảng Phô Mai Trứng Muối (209K) — vừa nướng vừa ngắm tàu lửa cổ chạy ngang, 4.8 sao Google.",
@@ -465,6 +468,7 @@ const BLOG_SEO = {
       "category": "English"
     },
     "da-lat-restaurant-train-view-en": {
+      "metaDescription": "A Da Lat restaurant with a train view: BBQ above the Da Lat–Trai Mat railway, when the train passes, three moments not to miss, what to order and how to book.",
       "seoTitle": "Da Lat Restaurant with a Train View — BBQ by the Railway",
       "title": "Da Lat Restaurant with a Train View: Dine While the Vintage Train Rolls By",
       "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8/5 on Google Maps from 7,060 reviews.",
@@ -555,6 +559,7 @@ const BLOG_SEO = {
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {
+      "metaDescription": "Đi ăn nướng Đà Lạt cùng con nhỏ: không gian ngoài trời rộng, mái che khi mưa, nhân viên phụ để mắt tới bé. Kèm món gợi ý cho trẻ, giờ nên đến và chi phí.",
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
@@ -600,6 +605,7 @@ const BLOG_SEO = {
       ]
     },
     "dac-san-da-lat-mua-ve": {
+      "metaDescription": "10 đặc sản Đà Lạt nên mua làm quà: mứt, hồng treo gió, dâu tây, cà phê Cầu Đất, trà atisô… kèm cách chọn không bị hớ, nơi mua và cách giữ quà dọc đường.",
       "seoTitle": "Đặc Sản Đà Lạt Mua Về Làm Quà — 10 Món Và Cách Chọn",
       "title": "Đặc Sản Đà Lạt Mua Về Làm Quà: 10 Món Nên Mua Và Cách Chọn Không Bị Hớ",
       "excerpt": "Đi Đà Lạt về nên mua gì? 10 đặc sản Đà Lạt mua về làm quà — mứt, hồng treo gió, dâu tây, cà phê Cầu Đất, trà atisô — kèm cách chọn và cách giữ quà không hỏng dọc đường.",
@@ -618,6 +624,7 @@ const BLOG_SEO = {
       "lang": "vi"
     },
     "cam-trai-da-lat": {
+      "metaDescription": "Cắm trại Đà Lạt ở đâu, mang gì? 5 khu vực quanh hồ Tuyền Lâm, Langbiang, suối Vàng, Cầu Đất, Trại Mát, kèm danh sách đồ cần mang và lịch trình một đêm mẫu.",
       "seoTitle": "Cắm Trại Đà Lạt 2026 — 5 Khu Camping Đẹp Và Kinh Nghiệm",
       "title": "Cắm Trại Đà Lạt 2026 — 5 Khu Vực Camping Đẹp Và Kinh Nghiệm Đi Thực Tế",
       "excerpt": "Cắm trại Đà Lạt nên đi mùa nào, cắm ở đâu? 5 khu vực đẹp quanh hồ Tuyền Lâm, Langbiang, suối Vàng, Cầu Đất và Trại Mát, kèm đồ cần mang và kinh nghiệm giữ ấm đêm lạnh.",
@@ -654,6 +661,7 @@ const BLOG_SEO = {
       "lang": "vi"
     },
     "da-lat-ve-dem-di-dau": {
+      "metaDescription": "8 hoạt động ở Đà Lạt về đêm sau 20h: nướng BBQ ngắm nhà lồng lên đèn, dạo hồ Xuân Hương, chợ đêm, ăn khuya vỉa hè, săn mây rạng sáng, kèm lưu ý để đi cho trọn.",
       "title": "Đà Lạt Về Đêm Đi Đâu? 8 Hoạt Động Đáng Thử Sau 20h",
       "excerpt": "Đà Lạt về đêm đi đâu sau 20h? 8 gợi ý thật từ dân địa phương: nướng BBQ ngắm biển sao nhà lồng, dạo hồ Xuân Hương, chợ đêm, ăn khuya vỉa hè và săn mây rạng sáng.",
       "body": "<p>Đà Lạt về đêm sau 20h không \"tắt đèn đi ngủ\" như nhiều người vẫn nghĩ, chỉ là nhịp sống chậm lại và dồn vào vài chỗ nhất định. Sau 20h bạn vẫn còn nguyên một bữa nướng ngắm thung lũng lên đèn, một vòng hồ Xuân Hương, chợ đêm Đà Lạt, quán cà phê nhạc mộc, hàng ăn khuya vỉa hè, cung đường ngắm đèn ngoài trung tâm và cả lựa chọn về sớm để rạng sáng săn mây. Dưới đây là 8 hoạt động đáng làm, kèm giờ giấc thực tế.</p>\n\n<h2>Đêm Đà Lạt khác ban ngày ở chỗ nào?</h2>\n\n<p>Nằm ở độ cao khoảng 1.500m so với mực nước biển, <a href=\"https://vi.wikipedia.org/wiki/%C4%90%C3%A0_L%E1%BA%A1t\" target=\"_blank\" rel=\"noopener\">thành phố Đà Lạt</a> hạ nhiệt rất nhanh khi mặt trời khuất núi — đó là lý do mọi hoạt động buổi tối ở đây đều xoay quanh chữ \"ấm\": ấm bụng, ấm tay, ấm chỗ ngồi. Càng về tối sương càng dày ở các cung đường ngoài trung tâm, đèn thung lũng bật lên, còn khu trung tâm đông vui kiểu chợ búa.</p>\n\n<p>Một điều nữa khách hay vỡ mộng: Đà Lạt ít chỗ mở khuya, giờ đóng cửa mỗi nơi mỗi khác nên tốt nhất là hỏi trước chỗ mình định tới. Mẹo quan trọng nhất vì thế là <strong>xếp việc quan trọng nhất lên đầu buổi tối, đừng để quá muộn mới bắt đầu</strong>.</p>\n\n<h2>8 hoạt động ở Đà Lạt về đêm sau 20h</h2>\n\n<h3>1. Nướng BBQ và ngắm \"biển sao nhà lồng\" từ trên cao</h3>\n\n<p>Nếu chỉ chọn một hoạt động cho buổi tối Đà Lạt, tôi (Nguyễn Duy, đồng chủ Trạm Dừng Chill) chọn ăn nướng ngắm thung lũng nhà lồng lên đèn. Từ 18h30 trở đi, cả vùng nhà lồng (nhà kính trồng hoa) dưới thung lũng lên đèn, nhìn từ trên cao đúng như một biển sao trải dài. Đèn là của nhà vườn nên mỗi đêm dày thưa một khác, nhưng không chớp nhoáng như hoàng hôn. <strong>Tiệm Nướng Trạm Dừng Chill</strong> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường nằm đúng thế đất nhìn thẳng xuống thung lũng, mở tới 23:00 nên sau 20h vào vẫn kịp bữa nướng — đi muộn hay đi đông thì gọi trước 0989.765.070 để quán xếp bàn. Món signature là Bò Kobe Nướng Tảng Phô Mai Trứng Muối 209K; trời lạnh thì thêm nồi Lẩu Gà Lá É 300K là cả bàn ấm người. Quán còn có nghệ sĩ thổi saxophone (nên hỏi giờ biểu diễn khi đặt bàn), WiFi miễn phí và cho mang thú cưng nhỏ ở khu ngoài trời, giữ dây dắt. Buổi tối quanh khu này còn <a href=\"https://www.xomleo.vn/\" target=\"_blank\" rel=\"nofollow noopener\">Tiệm Nướng &amp; Chill Xóm Lèo</a> (quán cùng chủ với Trạm Dừng Chill) ở số 113, cũng nhìn ra thung lũng nhà lồng.</p>\n\n<h3>2. Đi bộ một vòng hồ Xuân Hương</h3>\n\n<p>Đây là hoạt động miễn phí và \"Đà Lạt\" nhất. Đường vòng quanh hồ bằng phẳng và có đèn, nhưng đi hết một vòng khá mất giờ nên cứ tính dư thời gian. Ban đêm mặt hồ phản chiếu đèn đường thành vệt dài, gió lạnh mà dễ chịu. Nhớ mang giày đế bám vì mặt đường hay ẩm sương.</p>\n\n<h3>3. Lượn chợ đêm Đà Lạt</h3>\n\n<p>Chợ đêm Đà Lạt họp ngay khu chợ Đà Lạt, đông nhất vào đầu buổi tối rồi thưa dần tùy thời tiết và mùa — mỗi hàng dọn một giờ khác nhau nên đừng để quá muộn. Ở đây có đồ ăn vặt, đồ len, nông sản và mứt làm quà. Giá thuộc dạng bình dân nhưng mỗi hàng một kiểu và đổi theo mùa, cứ hỏi trước khi gọi. Cuối tuần rất đông, đi nhóm thì hẹn trước một điểm tập trung.</p>\n\n<h3>4. Ngồi cà phê nghe nhạc mộc</h3>\n\n<p>Đà Lạt có nhiều quán cà phê nhỏ mở buổi tối: đèn vàng, ghế gỗ, một cây guitar và người hát — chỗ hợp để ngồi tiếp sau bữa ăn. Các quán cà phê này thường có nhạc vào buổi tối và hay kín chỗ cuối tuần, nên hỏi trước giờ diễn rồi tới sớm.</p>\n\n<h3>5. Ăn khuya kiểu Đà Lạt</h3>\n\n<p>Bánh tráng nướng, bánh căn, sữa đậu nành nóng — bộ ba ăn khuya kinh điển của phố núi. Cái thú là ăn ngoài trời, tay cầm ly sữa nóng bốc hơi trong cái lạnh. Xe và quán vỉa hè dọn ra từ chiều tối, bán tới khi hết khách chứ không có giờ đóng cố định. Đây là món ăn chơi, đừng nhịn bữa tối để chờ.</p>\n\n<h3>6. Chạy xe cung đường ngoài trung tâm ngắm đèn thung lũng</h3>\n\n<p>Hướng Trại Mát và các cung đường ven đồi là chỗ dễ thấy toàn cảnh thung lũng sáng đèn. Dừng ở một đoạn rộng, tắt máy là thấy cả vùng nhà lồng lấp lánh phía dưới. Lưu ý thật: đường dốc, càng khuya sương càng dày và tầm nhìn giảm rõ rệt, nên đi chậm, bật đèn và tuyệt đối không phóng nhanh.</p>\n\n<h3>7. Chụp ảnh khu trung tâm và ga Đà Lạt lên đèn</h3>\n\n<p>Ga Đà Lạt với kiến trúc mái nhọn đặc trưng lên đèn buổi tối rất ăn ảnh, bên trong không hoạt động khuya nên mọi người chủ yếu chụp từ phía ngoài. Khu trung tâm quanh chợ Đà Lạt cũng vậy: đèn đường, dốc, sương và người qua lại tạo ra thứ ánh sáng ban ngày không có.</p>\n\n<h3>8. Về sớm để rạng sáng đi săn mây</h3>\n\n<p>Nghe ngược đời trong bài về ban đêm, nhưng nếu bạn ở Đà Lạt ít ngày thì đây là lựa chọn khôn ngoan. Muốn săn mây hướng Cầu Đất hay các đồi cao, bạn phải rời chỗ ngủ khi trời còn tối mịt, canh theo giờ mặt trời mọc từng mùa. Vậy nên đêm trước hãy kết thúc sớm, chuẩn bị áo ấm, găng tay và xem dự báo — trời quang mới có mây đẹp.</p>\n\n<h2>Gợi ý một tối trọn vẹn ở Đà Lạt</h2>\n\n<ul>\n<li><strong>16h15:</strong> có mặt ở Trạm Dừng Chill để kịp <a href=\"../dip/san-tau-da-lat.html\">chuyến tàu lửa cổ tuyến Đà Lạt - Trại Mát</a> chạy dưới chân quán từ 16:30, cùng lúc hoàng hôn buông xuống thung lũng.</li>\n<li><strong>18h30 - 20h30:</strong> nướng BBQ đúng lúc nhà lồng lên đèn; quán có nghệ sĩ thổi saxophone, giờ biểu diễn không cố định.</li>\n<li><strong>21h00:</strong> về trung tâm, ghé chợ đêm mua đồ len và nếm món ăn vặt.</li>\n<li><strong>21h45:</strong> đi bộ quanh hồ Xuân Hương cho tiêu cơm, không cần đủ một vòng.</li>\n<li><strong>22h30:</strong> ly sữa đậu nành nóng rồi về nghỉ.</li>\n</ul>\n\n<h2>Vài lưu ý để đêm Đà Lạt không hụt hẫng</h2>\n\n<ul>\n<li><strong>Mặc ấm hơn bạn nghĩ.</strong> Nhiệt độ ban đêm rơi nhanh, đặc biệt tháng lạnh. Áo khoác gió chống ẩm tốt hơn áo dày.</li>\n<li><strong>Đặt bàn trước nếu ăn tối cuối tuần.</strong> Nếu đi đông người thì nên đặt bàn trước.</li>\n<li><strong>Đừng dồn quá nhiều điểm.</strong> Đường Đà Lạt nhiều dốc và một chiều, di chuyển lâu hơn bản đồ báo.</li>\n<li><strong>Mang theo cả tiền mặt.</strong> Hàng vỉa hè quen tiền mặt, còn Trạm Dừng Chill thì chuyển khoản và quét QR đều được.</li>\n</ul>\n\n<p>Tóm lại, câu hỏi \"Đà Lạt về đêm đi đâu\" nên đổi thành \"đêm nay mình muốn ấm kiểu nào\" — ấm bụng bên bếp than, ấm chân khi đi bộ quanh hồ, hay ấm tay bằng ly sữa nóng giữa chợ đêm. Nếu bạn chọn mở màn bằng bữa nướng nhìn xuống biển sao nhà lồng, hãy giữ chỗ trước cho chắc: <a href=\"../index.html#booking\">đặt bàn tại đây</a> hoặc gọi 0989.765.070, và ngó qua <a href=\"../menu.html\">thực đơn</a> hơn 70 món ăn, món uống để chọn sẵn. Mức chi tại Trạm Dừng Chill thường 95.000đ - 300.000đ mỗi người, đã gồm VAT. Hẹn gặp bạn ở 111 Huỳnh Tấn Phát khi thung lũng vừa lên đèn. Quán cách trung tâm Đà Lạt khoảng 7 km, chạy xe chừng 20 phút theo hướng Trại Mát, có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán.</p>",

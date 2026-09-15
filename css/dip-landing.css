@@ -68,6 +68,17 @@ body.dip-landing {
     padding: 80px 24px;
     color: var(--white);
 }
+/* Ảnh hero là <img> thật, không còn là nền CSS (15/09/2026, checklist #11 mục 78): Google không
+   lập chỉ mục ảnh nền CSS, nên trước đó 3/4 trang dịp không có tấm ảnh nào tìm được qua Google Images.
+   Phủ kín khung y như background-size:cover cũ; .dip-hero-overlay nằm SAU trong DOM nên vẫn đè lên. */
+.dip-hero-anh {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 .dip-hero-overlay {
     position: absolute;
     inset: 0;

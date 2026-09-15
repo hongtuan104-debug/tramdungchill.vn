@@ -617,6 +617,7 @@ var MenuFlipbook = (function () {
         var zoomImg = new Image();
         zoomImg.className = 'flipbook-zoom-img';
         zoomImg.decoding = 'async';
+        zoomImg.alt = '';   /* có alt ngay từ đầu; alt thật của trang gán lúc mở (checklist #11 mục 74) */
         var zoomClose = el('button', 'flipbook-zoom-close', icon(ICONS.close));
         zoomClose.type = 'button';
         var zoomPrev = el('button', 'flipbook-zoom-nav flipbook-zoom-nav--prev', icon(ICONS.prev));
