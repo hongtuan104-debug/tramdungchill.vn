@@ -72,6 +72,7 @@ tiem-nuong-tram-dung-chill/
 - **Meta Pixel:** `1281459450582041` ✅ TẤT CẢ 151 trang
   - Events: `PageView`, `ViewContent` (menu/dip/blog), `Lead` (form đặt bàn), `Contact` (click Phone/Zalo/FB)
   - **Conversions API (CAPI):** chưa cài, đợi đủ traffic
+- **RUM Core Web Vitals** (15/09/2026): sự kiện GA4 `LCP` `INP` `CLS` `TTFB` đo trên máy khách thật, nạp SAU pixel — xem bug #31
 
 ## Footer — sinh tự động, ĐỪNG sửa HTML tay
 Footer nằm trong 8 file (component + template bài + 404 + 4 trang dịp), tất cả
@@ -634,6 +635,32 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      chờ sếp về chữ "nhất").
    → Máy canh: **R18** (đường dẫn trần · nhãn nav khớp bản dịch · ESC ở 3 biến thể menu · escape dấu kết hợp) + **R13e**
    (dấu vân bỏ qua nav/footer + bọc link).
+
+31. **Core Web Vitals — checklist #13 mục 94–103** (rà 15/09/2026). Kết luận CWV **chỉ** lấy từ Field Data p75 (CrUX / Search
+   Console), điện thoại và máy tính chấm riêng, đạt khi CẢ BA LCP·INP·CLS đều Tốt; điểm Lighthouse/PageSpeed lab chỉ để chẩn đoán.
+   CrUX là cửa sổ 28 ngày — bản sửa cần ~4 tuần mới hiện đủ.
+   - **`node scripts/kiem-crux.js`** (`--all` cả sitemap · `--lich-su` xu hướng các kỳ): làm đúng các luật trên, in ngày cửa sổ,
+     số thô lưu `plans/crux/`. Cần `CRUX_API_KEY=` trong `.env` (gitignore) — PageSpeed API ẩn danh dùng hạn mức chung nên gần
+     như luôn 429. ⚠️ **Repo công khai: đừng dán key vào file nào khác.** Trang ít khách không có số riêng (CrUX trả 404).
+   - **RUM** (mục 103): `js/do-khach-that.js` + `js/vendor/web-vitals.attribution.iife.js` (6.2.2, Apache-2.0, chép nguyên từ npm)
+     → `dist/do-khach-that.min.js`. Gửi sự kiện GA4 `LCP` `INP` `CLS` `TTFB` kèm `metric_rating`, `nhom_trang`, `debug_*` (phần tử,
+     script dài nhất của cú chạm, trạng thái tải, các chặng con). Mỗi chỉ số MỘT sự kiện/lượt xem → đếm theo `metric_rating` ra
+     % lượt đạt Tốt; đổi lại INP có thể thấp hơn CrUX chút (cú chạm sau khi khách quay lại tab không tính).
+     - `lazy-tracking.js` chèn nó **SAU khi bật pixel**. ⚠️ **Đừng gắn `<script src>` của nó vào HTML** — chạy lúc tải trang là đè
+       lên LCP/TBT (bug #19–#24). Thư viện dùng PerformanceObserver buffered nên nạp muộn vẫn đủ số.
+     - Tên + vân tay do `bundle-js.js` điền vào chỗ giữ chỗ `'__DO_KHACH_THAT__'` trong `dist/lazy-tracking.min.js`; bundle này
+       phải sinh TRƯỚC lazy-tracking. Thư viện **không** qua `minify()` (regex bỏ `//` cắt hỏng code đã nén).
+     - ⚠️ Giữ `send_to: 'G-2VFBZDY6CD'` — thiếu là gtag gửi cả sang Google Ads AW-18038463990.
+     - Thư viện ngoài để trong `js/vendor/`: `cat-phong.js` chỉ quét `js/*.js` cấp một nên không phình phông.
+     - Đổi bản web-vitals: `npm pack web-vitals`, chép `dist/web-vitals.attribution.iife.js` + LICENSE, đối chiếu lại tên trường
+       attribution trong README (các bản lớn từng đổi tên).
+     - GA4 chỉ cắt báo cáo theo tham số đã đăng ký ở Quản trị → Định nghĩa tuỳ chỉnh, và chỉ tính từ lúc đăng ký.
+     - Kiểm cục bộ: `plans/cong-cu-do-hieu-nang/do-rum.js` (chặn domain pixel, bắt lệnh gtag qua dataLayer). ⚠️ Runtime binding
+       của CDP KHÔNG kịp gửi lúc trang unload — số gửi khi rời trang phải ghi `localStorage` rồi đọc ở URL cùng origin (đã tưởng
+       nhầm là lỗi code 15/09).
+   - TTFB đo từ máy làm việc 15/09: 0,26–0,31s khi kết nối sẵn, 0,51–0,63s lượt đầu (gồm DNS+TCP+TLS), Fastly SIN `HIT`.
+   - Search Console: 0 mail về Core Web Vitals trong 120 ngày (rà Gmail 15/09). Báo cáo CWV trong GSC chỉ sếp xem được.
+   → Máy canh **R8u**: bundle có web-vitals + send_to GA4 · vân tay trong lazy-tracking khớp file thật · không trang nào nạp thẳng.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

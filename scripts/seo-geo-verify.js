@@ -1930,6 +1930,42 @@ const CAU_AEO = (() => {
                     : tong + " chỗ gọi phông đều đúng vân tay");
 }
 
+// ── R8u. Đo khách thật (RUM): chỉ nạp SAU pixel, vân tay khớp, chỉ gửi GA4 ────
+// 15/09/2026 (checklist #13 mục 103, js/do-khach-that.js). Ba cách hỏng lặng lẽ:
+//  (a) chỗ giữ chỗ trong lazy-tracking.min.js không được bundle-js điền → không đo gì cả,
+//      hoặc vân tay lệch file thật → service worker (cache-first) giữ bản cũ mãi;
+//  (b) ai đó "cho gọn" gắn thẳng <script src=do-khach-that> vào trang → chạy lúc tải,
+//      đè lên LCP/TBT mà cả đợt 13–14/09 mới kéo xuống;
+//  (c) bỏ send_to → mỗi lượt xem bắn 4 sự kiện sang cả Google Ads AW-18038463990.
+{
+    const pham = [];
+    const distRum = path.join(ROOT, "dist", "do-khach-that.min.js");
+    const distLazy = path.join(ROOT, "dist", "lazy-tracking.min.js");
+    if (!fs.existsSync(distRum)) {
+        pham.push("thiếu dist/do-khach-that.min.js — chạy node scripts/bundle-js.js");
+    } else {
+        const s = fs.readFileSync(distRum, "utf8");
+        if (!/var webVitals=/.test(s)) pham.push("bundle không có thư viện web-vitals");
+        if (!/send_to:\s*'G-2VFBZDY6CD'/.test(s)) pham.push("sự kiện không khoá send_to vào GA4");
+        for (const ham of ["onLCP", "onINP", "onCLS"]) {
+            if (!new RegExp("wv\\." + ham + "\\(gui\\)").test(s)) pham.push("không gọi " + ham);
+        }
+        const dung = require("crypto").createHash("md5").update(fs.readFileSync(distRum)).digest("hex").slice(0, 8);
+        const lazy = fs.existsSync(distLazy) ? fs.readFileSync(distLazy, "utf8") : "";
+        const m = lazy.match(/'do-khach-that\.min\.js\?v=([a-f0-9]{8})'/);
+        if (!m) pham.push("dist/lazy-tracking.min.js không nạp do-khach-that (chỗ giữ chỗ chưa được điền)");
+        else if (m[1] !== dung) pham.push("lazy-tracking gọi ?v=" + m[1] + " ≠ vân tay thật " + dung);
+    }
+    for (const f of files.concat(path.join(ROOT, "templates", "blog-post.html"))) {
+        if (fs.existsSync(f) && /<script[^>]*do-khach-that/.test(fs.readFileSync(f, "utf8"))) {
+            pham.push(rel(f) + " nạp do-khach-that ngay lúc tải trang");
+        }
+    }
+    add("Đo khách thật (RUM) nạp sau pixel, vân tay khớp, chỉ gửi GA4", pham.length === 0,
+        pham.length ? pham.slice(0, 3).join(" | ")
+                    : "lazy-tracking chèn do-khach-that.min.js sau khi bật pixel · 0 trang nạp thẳng");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

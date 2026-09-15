@@ -100,14 +100,37 @@
         var ds = layHangDoi();
         if (!soLe) {
             for (var i = 0; i < ds.length; i++) bat(ds[i]);
+            khiRanh(napDoKhachThat, { timeout: 2000 });
             return;
         }
         var j = 0;
         (function ke() {
-            if (j >= ds.length) return;
+            if (j >= ds.length) { napDoKhachThat(); return; }
             bat(ds[j++]);
             khiRanh(ke, { timeout: 500 });
         })();
+    }
+
+    /* ── Thêm 15/09/2026: đo Core Web Vitals của khách thật (checklist #13 mục 103) ──
+       Nạp dist/do-khach-that.min.js SAU khi pixel đã bật, vì hai lẽ:
+       - nó gửi số qua gtag nên phải chờ khối cấu hình GA4 chạy xong;
+       - nạp muộn thì PageSpeed không bao giờ thấy nó (Lighthouse không tương tác,
+         còn load + 6s nằm ngoài cửa sổ đo — bug #20). Đừng chuyển nó lên lúc tải trang.
+       Đường tương tác cũng hoãn qua một khe rảnh: không có lý do gì chèn thẻ ngay
+       trong trình xử lý cú chạm (INP).
+       Tên file + vân tay do bundle-js.js điền vào chỗ giữ chỗ bên dưới. Chạy thẳng file
+       nguồn chưa build thì chuỗi còn nguyên dấu gạch dưới và bước này tự bỏ qua. */
+    var DO_KHACH_THAT = '__DO_KHACH_THAT__';
+    var goc = document.currentScript && document.currentScript.src;
+
+    function napDoKhachThat() {
+        if (DO_KHACH_THAT.charAt(0) === '_' || !goc || !/lazy-tracking\.min\.js/.test(goc)) return;
+        // Thư viện dùng cú pháp mới (class field, Array.at): trình duyệt cũ bỏ qua luôn
+        if (!window.PerformanceObserver || ![].at) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = goc.replace(/lazy-tracking\.min\.js(\?.*)?$/, DO_KHACH_THAT);
+        document.head.appendChild(s);
     }
 
     /* Khách rời trang: không còn gì để bảo vệ nữa, bắn hết một lượt */

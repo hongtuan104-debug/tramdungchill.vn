@@ -8,6 +8,8 @@
  *   dist/index.min.js   — index page specific (hero, gallery, booking)
  *   dist/blog.min.js    — blog page specific (blog-renderer)
  *   dist/menu.min.js    — menu page specific (menu-flipbook)
+ *   dist/lazy-tracking.min.js — hoãn pixel (mọi trang)
+ *   dist/do-khach-that.min.js — đo Core Web Vitals khách thật, lazy-tracking nạp sau pixel
  */
 
 "use strict";
@@ -128,7 +130,31 @@ outputs.push(bundle(COMMON_FILES, "common.min.js"));
 outputs.push(bundle(INDEX_FILES, "index.min.js"));
 outputs.push(bundle(BLOG_FILES, "blog.min.js"));
 outputs.push(bundle(MENU_FILES, "menu.min.js"));
+/* Đo Core Web Vitals của khách thật (15/09/2026, checklist #13 mục 103 — xem js/do-khach-that.js).
+   Thư viện web-vitals đã nén sẵn nên ghép NGUYÊN VĂN, không cho qua minify(): bộ nén tự viết ở trên
+   bỏ "// ..." bằng regex, gặp code đã nén có chuỗi/regex chứa "//" là cắt hỏng mà không báo.
+   Phải sinh TRƯỚC lazy-tracking.min.js: file đó mang tên + vân tay của bundle này. */
+const RUM_THU_VIEN = "js/vendor/web-vitals.attribution.iife.js";
+const RUM_FILES = ["js/do-khach-that.js"];
+{
+    const thuVien = fs.readFileSync(path.join(ROOT, RUM_THU_VIEN), "utf8").replace(/^\/\/# sourceMappingURL=.*$/gm, "").trim();
+    const baoCao = RUM_FILES.map((f) => fs.readFileSync(path.join(ROOT, f), "utf8")).join("\n");
+    const ra = path.join(DIST, "do-khach-that.min.js");
+    fs.writeFileSync(ra, thuVien + "\n" + minify(baoCao), "utf8");
+    console.log("  do-khach-that.min.js  " + (fs.statSync(ra).size / 1024).toFixed(1) + " KB  (web-vitals nguyên văn + bộ gửi GA4)");
+    outputs.push(ra);
+}
 outputs.push(bundle(TRACKING_FILES, "lazy-tracking.min.js"));
+{
+    const lazyPath = path.join(DIST, "lazy-tracking.min.js");
+    const s = fs.readFileSync(lazyPath, "utf8");
+    const v = require("./van-tay").bamFile(path.join(DIST, "do-khach-that.min.js"));
+    if (!s.includes("'__DO_KHACH_THAT__'") || !v) {
+        console.error("  FAIL  lazy-tracking.min.js: không thấy chỗ giữ chỗ '__DO_KHACH_THAT__' để gắn file đo khách thật");
+        process.exit(1);
+    }
+    fs.writeFileSync(lazyPath, s.replace("'__DO_KHACH_THAT__'", "'do-khach-that.min.js?v=" + v + "'"), "utf8");
+}
 
 // ── Syntax-check each bundle ─────────────────────────────────
 
