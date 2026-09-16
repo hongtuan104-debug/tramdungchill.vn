@@ -2128,6 +2128,63 @@ const CAU_AEO = (() => {
                     : loc.length + " URL sitemap · " + soBai + " bài index đủ 3 tỉ lệ");
 }
 
+// ── R23. Đường cho máy AI tìm thấy site + bộ đo độ hiển thị (checklist #26) ──
+// (a) Chìa khoá IndexNow: đúng MỘT file ở gốc, tên file = nội dung bên trong, và robots.txt
+//     không chặn nó. Sai một trong ba là IndexNow trả 403 — im lặng, chỉ lộ ở log workflow.
+// (b) robots.txt vẫn mở cho bot của Bing và các máy trả lời AI. Chặn nhầm một dòng ở đây là
+//     mất đường vào của ChatGPT Search / Copilot / Perplexity mà không trang nào báo lỗi.
+// (c) Bộ câu hỏi benchmark (mục 237): sửa câu chữ thì PHẢI tăng phienBan + cập nhật bamCauHoi,
+//     không thì số đo tháng này gộp nhầm với tháng trước mà không ai biết. urlKyVong phải là
+//     URL có thật trong sitemap — trỏ vào trang không index được thì kỳ vọng đó vô nghĩa.
+{
+    const pham = [];
+
+    const khoa = fs.readdirSync(ROOT).filter((f) => /^[0-9a-f]{8,128}\.txt$/i.test(f));
+    if (khoa.length !== 1) {
+        pham.push("gốc repo có " + khoa.length + " file chìa khoá IndexNow, phải đúng 1");
+    } else if (khoa[0].replace(/\.txt$/i, "") !== fs.readFileSync(path.join(ROOT, khoa[0]), "utf8").trim()) {
+        pham.push(khoa[0] + ": tên file khác nội dung bên trong");
+    }
+
+    const robots = fs.readFileSync(path.join(ROOT, "robots.txt"), "utf8");
+    if (khoa.length === 1 && new RegExp("^\\s*Disallow:\\s*/" + khoa[0].replace(".", "\\."), "mi").test(robots)) {
+        pham.push("robots.txt chặn chính file chìa khoá IndexNow");
+    }
+    for (const bot of ["Bingbot", "GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Google-Extended"]) {
+        // Soi MỌI khối mang tên bot, không chỉ khối đầu: thêm một khối "Disallow: /" ở cuối file
+        // là chuyện dễ xảy ra nhất, mà khối Allow ở trên vẫn khớp nên find() sẽ bỏ lọt.
+        const khoi = robots.split(/^User-agent:/mi).filter((k) => new RegExp("^\\s*" + bot + "\\s*$", "mi").test(k.split("\n")[0]));
+        if (khoi.length === 0) pham.push("robots.txt không còn khối cho " + bot);
+        else if (khoi.some((k) => /^\s*Disallow:\s*\/\s*$/mi.test(k))) pham.push("robots.txt chặn sạch " + bot);
+    }
+    // Khối "User-agent: *" áp cho mọi bot chưa có khối riêng — chặn ở đây là chặn tất.
+    const khoiSao = robots.split(/^User-agent:/mi).filter((k) => /^\s*\*\s*$/m.test(k.split("\n")[0]));
+    if (khoiSao.some((k) => /^\s*Disallow:\s*\/\s*$/mi.test(k))) pham.push("robots.txt chặn sạch mọi bot ở khối User-agent: *");
+
+    const tepBo = path.join(ROOT, "docs", "do-hien-thi-ai", "cau-hoi-benchmark.json");
+    const bo = JSON.parse(fs.readFileSync(tepBo, "utf8"));
+    const bam = require("crypto").createHash("md5").update(JSON.stringify(bo.cauHoi)).digest("hex");
+    if (bam !== bo.bamCauHoi) {
+        pham.push("cau-hoi-benchmark.json: câu hỏi đã đổi (bam đúng là " + bam + ") — tăng phienBan rồi cập nhật bamCauHoi");
+    }
+    const trongSitemapR23 = new Set([...fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8")
+        .matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+    const daThay = new Set();
+    for (const c of bo.cauHoi) {
+        if (daThay.has(c.ma)) pham.push("bộ câu hỏi trùng mã " + c.ma);
+        daThay.add(c.ma);
+        if (!c.cau || !c.loai || !c.intent || !c.ngonNgu) pham.push(c.ma + ": thiếu cau/loai/intent/ngonNgu");
+        for (const u of c.urlKyVong || []) {
+            if (!trongSitemapR23.has(u)) pham.push(c.ma + ": urlKyVong không có trong sitemap — " + u);
+        }
+    }
+
+    add("Đường cho AI tìm thấy site (chìa khoá IndexNow · robots.txt) · bộ câu hỏi đo hiển thị khoá đúng phiên bản",
+        pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ")
+                    : "chìa khoá IndexNow khớp · 6 bot Bing/AI đều được vào · bộ câu hỏi " + bo.phienBan + " (" + bo.cauHoi.length + " câu) khớp bam");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

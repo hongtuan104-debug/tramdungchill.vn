@@ -1,0 +1,224 @@
+{
+  "phienBan": "v1",
+  "ngayChot": "2026-09-16",
+  "bamCauHoi": "1fc948720748c865666c925e5046c41f",
+  "ghiChu": "Checklist #26 mục 237. Bộ câu hỏi GIỮ NGUYÊN giữa các lần đo — sửa/thêm câu thì tăng phienBan (v2, v3…) và đo lại từ đầu, KHÔNG so số v1 với v2. Luật R23 trong seo-geo-verify.js chặn việc sửa câu mà quên tăng phienBan.",
+  "cauHoi": [
+    {
+      "ma": "th-01",
+      "loai": "thuong-hieu",
+      "intent": "navigational",
+      "ngonNgu": "vi",
+      "cau": "Tiệm Nướng Trạm Dừng Chill Đà Lạt ở đâu, mở cửa mấy giờ?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/",
+        "https://tramdungchill.vn/duong-di/"
+      ]
+    },
+    {
+      "ma": "th-02",
+      "loai": "thuong-hieu",
+      "intent": "commercial",
+      "ngonNgu": "vi",
+      "cau": "Ăn ở Trạm Dừng Chill Đà Lạt hết bao nhiêu tiền một người?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/",
+        "https://tramdungchill.vn/menu.html",
+        "https://tramdungchill.vn/blog/an-nuong-da-lat-bao-nhieu-tien.html"
+      ]
+    },
+    {
+      "ma": "th-03",
+      "loai": "thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Quán Trạm Dừng Chill Đà Lạt có gì đặc biệt?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "th-04",
+      "loai": "thuong-hieu",
+      "intent": "transactional",
+      "ngonNgu": "vi",
+      "cau": "Đặt bàn quán Trạm Dừng Chill Đà Lạt bằng cách nào?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "th-05",
+      "loai": "thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "en",
+      "cau": "What is Tram Dung Chill BBQ in Da Lat and what makes it different?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/",
+        "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html"
+      ]
+    },
+    {
+      "ma": "kb-01",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Quán nướng nào ở Đà Lạt ngồi ăn ngắm được tàu hoả chạy qua?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html",
+        "https://tramdungchill.vn/dip/san-tau-da-lat.html",
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "kb-02",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Ăn tối ngắm hoàng hôn ở Đà Lạt nên đi quán nào?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/",
+        "https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html"
+      ]
+    },
+    {
+      "ma": "kb-03",
+      "loai": "khong-thuong-hieu",
+      "intent": "commercial",
+      "ngonNgu": "vi",
+      "cau": "Đi ăn nướng ở Đà Lạt nhóm 4 người hết khoảng bao nhiêu tiền?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/an-nuong-da-lat-bao-nhieu-tien.html"
+      ]
+    },
+    {
+      "ma": "kb-04",
+      "loai": "khong-thuong-hieu",
+      "intent": "local",
+      "ngonNgu": "vi",
+      "cau": "Quán ăn ngon gần Trại Mát Đà Lạt",
+      "urlKyVong": [
+        "https://tramdungchill.vn/",
+        "https://tramdungchill.vn/duong-di/"
+      ]
+    },
+    {
+      "ma": "kb-05",
+      "loai": "khong-thuong-hieu",
+      "intent": "transactional",
+      "ngonNgu": "vi",
+      "cau": "Quán nướng Đà Lạt nào đặt bàn trước được cho tối nay?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "kb-06",
+      "loai": "khong-thuong-hieu",
+      "intent": "commercial",
+      "ngonNgu": "vi",
+      "cau": "Quán nướng Đà Lạt nào trang trí sinh nhật miễn phí?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/dip/sinh-nhat.html",
+        "https://tramdungchill.vn/blog/setup-sinh-nhat-mien-phi-da-lat.html"
+      ]
+    },
+    {
+      "ma": "kb-07",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Chỗ nào ở Đà Lạt hợp để cầu hôn bạn gái?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/dip/cau-hon-hen-ho.html",
+        "https://tramdungchill.vn/blog/hen-ho-da-lat.html"
+      ]
+    },
+    {
+      "ma": "kb-08",
+      "loai": "khong-thuong-hieu",
+      "intent": "commercial",
+      "ngonNgu": "vi",
+      "cau": "Đặt chỗ ăn cho đoàn team building ở Đà Lạt chỗ nào rộng?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/dip/team-building.html",
+        "https://tramdungchill.vn/blog/team-building-da-lat.html"
+      ]
+    },
+    {
+      "ma": "kb-09",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Trời lạnh ở Đà Lạt nên ăn lẩu nướng ở đâu?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/lau-nuong-da-lat-mua-lanh.html",
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "kb-10",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Đi Đà Lạt tháng mấy đẹp nhất trong năm?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/da-lat-mua-nao-dep-nhat.html"
+      ]
+    },
+    {
+      "ma": "kb-11",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Lịch trình Đà Lạt 3 ngày 2 đêm nên đi những đâu?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/lich-trinh-da-lat-3-ngay-2-dem.html"
+      ]
+    },
+    {
+      "ma": "kb-12",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Đà Lạt buổi tối đi đâu chơi, ăn gì?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html",
+        "https://tramdungchill.vn/blog/an-vat-da-lat-buoi-toi.html"
+      ]
+    },
+    {
+      "ma": "kb-13",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "vi",
+      "cau": "Quán nướng Đà Lạt nào có view nhà lồng lên đèn buổi tối?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/quan-nuong-da-lat-view-nha-long.html",
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "kb-14",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "en",
+      "cau": "Where can I eat BBQ in Da Lat with a view of the old train line?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html",
+        "https://tramdungchill.vn/"
+      ]
+    },
+    {
+      "ma": "kb-15",
+      "loai": "khong-thuong-hieu",
+      "intent": "informational",
+      "ngonNgu": "en",
+      "cau": "Good outdoor restaurant in Da Lat for foreign tourists?",
+      "urlKyVong": [
+        "https://tramdungchill.vn/blog/da-lat-cho-nguoi-nuoc-ngoai.html",
+        "https://tramdungchill.vn/"
+      ]
+    }
+  ]
+}

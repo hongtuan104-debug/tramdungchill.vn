@@ -1,0 +1,37 @@
+{
+  "_doc": "MẪU — chép file này thành <YYYY-MM-DD>-<nen-tang>.json rồi điền. File tên MAU.json bị script bỏ qua, không tính vào số liệu.",
+  "dot": "2026-09-16",
+  "nguoiDo": "Nguyễn Hồng Tuấn",
+  "boCauHoi": "v1",
+  "dieuKienChung": {
+    "nenTang": "ChatGPT",
+    "model": "GPT-5.2",
+    "cheDo": "Search",
+    "ngonNgu": "vi",
+    "thiTruong": "VN",
+    "trangThaiTaiKhoan": "da-dang-nhap",
+    "_chon": "nenTang: ChatGPT | Perplexity | Copilot | Google-AI-Overviews | Google-AI-Mode | Gemini · trangThaiTaiKhoan: da-dang-nhap | an-danh"
+  },
+  "lanDo": [
+    {
+      "maCauHoi": "kb-01",
+      "thoiDiem": "2026-09-16T20:15:00+07:00",
+      "trangThai": "cited",
+      "_trangThai": "missing = không nhắc, không dẫn · mentioned = có nhắc tên quán nhưng không dẫn nguồn · cited = có dẫn URL thuộc tramdungchill.vn · replaced = không dẫn mình, dẫn nguồn/đối thủ khác cho đúng câu hỏi này",
+      "nhacTen": true,
+      "nguonDuocDan": [
+        {
+          "url": "https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html",
+          "tuyenBo": "Quán nằm sát tuyến đường sắt Đà Lạt – Trại Mát",
+          "daMoKiemTuyenBo": true,
+          "_daMoKiemTuyenBo": "true CHỈ khi đã tự mở URL và đọc thấy trang thật sự nói điều đó (mục 240). Script kiểm được status/redirect/canonical, KHÔNG kiểm hộ được chỗ này."
+        }
+      ],
+      "nguonThayThe": [
+        { "url": "https://www.example.com/bai-viet", "ten": "Tên trang/đối thủ", "tuyenBo": "Tuyên bố mà nguồn này được dẫn để đỡ" }
+      ],
+      "trichDoan": "Dán nguyên văn đoạn trả lời có nhắc/dẫn quán.",
+      "anhChup": "anh/2026-09-16-kb-01-chatgpt.png"
+    }
+  ]
+}

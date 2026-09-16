@@ -725,6 +725,32 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    đích) · **R21** (đủ alt, không src rỗng, hero dịp là `<img>`, ảnh LCP không lazy, srcset thẻ bài liên quan, quy ước tên file ảnh) ·
    **R22** (og:image mọi URL sitemap ngang ~1,91:1 khai đúng cỡ, twitter:image trùng og:image, bài index đủ 3 tỉ lệ, mỗi ảnh ≥ 50K điểm ảnh).
 
+33. **Độ hiển thị trên AI Search — checklist #26 mục 234–243** (dựng bộ đo 16/09/2026). Quy trình + công cụ nằm ở
+   `docs/do-hien-thi-ai/` (robots.txt chặn `/docs/` nên không lên Google, nhưng VẪN trong git — khác `plans/`).
+   - **KHÔNG có API nào hỏi hộ được ChatGPT Search / AI Overviews / Copilot** đúng thứ khách thấy: kết quả đổi theo tài khoản,
+     phiên, vị trí, đổi cả giữa hai lần hỏi liền nhau. Nên phần hỏi là **làm tay**, `scripts/do-hien-thi-ai.js` chỉ lo phần máy
+     làm được. ⚠️ **Đừng bịa số citation** — chưa đo thì script in "chưa có lần đo nào", để nguyên vậy.
+   - **Bộ câu hỏi `cau-hoi-benchmark.json`**: 20 câu (5 thương hiệu + 15 không), 5 intent, 15 vi + 5 en, mỗi câu kèm `urlKyVong`.
+     Sửa câu chữ → **tăng `phienBan` + cập nhật `bamCauHoi`**, rồi đo lại từ đầu; gộp số v1 với v2 là số vô nghĩa (mục 237).
+   - **Bốn trạng thái, đừng gộp thành một điểm "độ hiển thị"** (mục 239): `missing` · `mentioned` (nhắc tên, không dẫn URL) ·
+     `cited` (có URL của mình VÀ link còn sống) · `replaced` (AI chọn nguồn khác — phải ghi rõ ai). `mentioned` mà không `cited`
+     là tín hiệu riêng: AI biết quán nhưng lấy tin từ chỗ khác, tin sai thì mình không sửa được.
+   - **URL hỏng thì KHÔNG tính là owned citation**: `--kiem-url` soi status / chuỗi redirect / canonical / noindex, URL nào hỏng
+     bị loại khỏi owned-source share. Phần "trang có thật sự đỡ được tuyên bố đó không" máy **không** kiểm hộ được — người đo tự
+     mở ra đọc rồi đánh `daMoKiemTuyenBo: true`, script bắt thiếu cờ này (mục 240).
+   - Mỗi lần đo phải đủ `nenTang`/`model`/`ngonNgu`/`thiTruong`/`trangThaiTaiKhoan`/`thoiDiem` + `trichDoan` hoặc `anhChup`
+     (mục 238, 241). Đo mốc chính ở chế độ **ẩn danh** — tài khoản đã đăng nhập có cá nhân hoá, số đẹp giả. Nhịp: **hàng tháng**.
+   - **IndexNow (mục 235) vốn đã đạt**: `bao-indexnow.js` chỉ gửi URL thật sự đổi nội dung, chặn URL ngoài miền, thử lại 3 lần,
+     thoát khác 0 khi hỏng. ⚠️ Mã 200/202 chỉ là "đã nhận URL", KHÔNG phải đã crawl/đã index. Chưa gửi URL **bị xoá** — gỡ hẳn
+     trang nào thì gửi tay `node scripts/bao-indexnow.js <url>`.
+   - **Chờ sếp (cần đăng nhập, máy này không vào được)**: mục 234 xác minh Bing Webmaster Tools + gửi sitemap · mục 236 báo cáo
+     Generative AI trong Search Console. Rà 16/09/2026: site **không** có dấu xác minh Bing nào (không `BingSiteAuth.xml`,
+     không thẻ `msvalidate.01`, domain **0 bản ghi TXT**) — nhưng nếu sếp từng Import từ GSC thì hợp lệ mà không để dấu gì
+     trên site, phải mở Bing Webmaster Tools mới biết.
+   → Máy canh **R23**: chìa khoá IndexNow đúng 1 file + tên khớp nội dung + robots.txt không chặn nó · robots.txt còn mở cho
+   Bingbot/GPTBot/OAI-SearchBot/ClaudeBot/PerplexityBot/Google-Extended (soi **mọi** khối trùng tên bot, không chỉ khối đầu) ·
+   bộ câu hỏi khớp `bamCauHoi`, mã không trùng, `urlKyVong` có thật trong sitemap.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
