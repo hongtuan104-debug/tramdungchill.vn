@@ -62,11 +62,26 @@ function buildSourceTag(src) {
  *
  * Why: pixel Meta/TikTok cần "Contact" event để biết quảng cáo ra khách.
  * Trước đây chỉ fire GA4 → FB/TikTok Ads Manager không thấy conversion → optimize sai.
+ *
+ * ⚠️ Bộ nghe này nằm ở cấp document nên nó bắt MỌI thẻ <a> trỏ tel:/zalo.me —
+ * kể cả những nút đã có bộ đếm riêng gắn thẳng vào chúng. Đo trên production
+ * 17/09/2026: một cú bấm nút Zalo trên FAB đẻ ra 2 × Contact cho cả Meta lẫn
+ * TikTok (xem CLAUDE.md #35), tức tín hiệu tối ưu quảng cáo phồng gấp đôi ở
+ * đúng các nút mạnh nhất. Bản cũ đã loại trừ .fab-contact cho RIÊNG link
+ * Facebook — biết bệnh mà chỉ vá một chỗ.
+ * → Nay loại trừ ở một nơi duy nhất, trước khi phân loại: link nào đã có bộ
+ *   đếm riêng thì bộ nghe chung không đụng vào.
  */
+
+/* Nút có bộ đếm riêng — thêm nút mới có trackEvent riêng thì khai luôn vào đây */
+var CO_BO_DEM_RIENG = '.fab-contact, #zaloQuickBook';
+
 function initContactTracking() {
     document.addEventListener('click', function(e) {
         const link = e.target.closest('a[href]');
         if (!link) return;
+        // Đã có bộ đếm riêng gắn thẳng vào nút → để nó bắn, tránh đếm hai lần
+        if (link.closest(CO_BO_DEM_RIENG)) return;
 
         const href = link.getAttribute('href') || '';
         let action = '';
@@ -74,7 +89,7 @@ function initContactTracking() {
 
         if (href.startsWith('tel:')) { action = 'click_phone'; category = 'phone'; }
         else if (href.indexOf('zalo.me') !== -1) { action = 'click_zalo'; category = 'zalo'; }
-        else if (href.indexOf('facebook.com') !== -1 && link.closest('.fab-contact') === null) { action = 'click_facebook'; category = 'facebook'; }
+        else if (href.indexOf('facebook.com') !== -1) { action = 'click_facebook'; category = 'facebook'; }
         else if (href.indexOf('maps.app.goo.gl') !== -1 || href.indexOf('google.com/maps') !== -1) { action = 'click_directions'; category = 'maps'; }
         else return;
 

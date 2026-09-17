@@ -2185,6 +2185,217 @@ const CAU_AEO = (() => {
                     : "chìa khoá IndexNow khớp · 6 bot Bing/AI đều được vào · bộ câu hỏi " + bo.phienBan + " (" + bo.cauHoi.length + " câu) khớp bam");
 }
 
+// ── R24. Thẻ "Bài viết liên quan" — điều hướng theo bậc ý định (16/09/2026) ──
+// Bản cũ chọn thẻ theo "cùng chuyên mục, bài mới nhất trước". Đo trên 141 file HTML
+// production: bài mới nhất toàn site hứng 113/423 thẻ, bài chủ lực được 9, và 30 thẻ
+// trỏ sang bài khác ngôn ngữ. Không có luật nào kêu vì mọi thẻ đều là link hợp lệ.
+// (a) Mọi đích phải nằm trong DICH VÀ đang index THẬT lúc chạy. Cố ý đọc lại
+//     data/blog-seo.js chứ không suy từ bảng: nằm trong DICH không chứng minh được
+//     là còn index — cho một bài thành noindex mà quên xoá dòng trong DICH thì hàng
+//     chục trang bơm link vào trang noindex, build vẫn im.
+// (b) Không thẻ nào tự trỏ chính nó, không trùng trong cùng một trang.
+// (c) Không rò ngôn ngữ: khách đọc bản tiếng Anh bấm vào mà rơi trúng trang tiếng Việt
+//     là cú bấm hỏng.
+// (d) Không đích nào hứng quá 15% tổng số thẻ. CỐ Ý là ngưỡng thô chứ không chép lại
+//     công thức trần trong generator — chép công thức là đẻ ra chỗ thứ hai phải giữ
+//     đồng bộ tay, đúng loại lỗi repo này đã dính nhiều lần. Ngưỡng này bắt được
+//     hồi quy về kiểu cũ (113/423 = 27%) mà không cần biết trần chính xác là bao nhiêu.
+// (e) data-so trên lưới phải khớp số thẻ thật — lệch là CSS canh lưới sai.
+// (f) ≥ 90% trang có ít nhất một thẻ dẫn LÊN bậc cao hơn. Đây mới là mục đích của lần
+//     sửa này; thiếu mục (f) thì ai đó đổi bảng bậc làm tỉ lệ rơi về mức cũ (46%) mà
+//     không máy canh nào kêu. Ngưỡng 90% dung thứ cụm tiếng Anh (3 trang) + bài bậc A.
+{
+    const pham = [];
+    let tongThe = 0, trangCoLen = 0, trangTong = 0;
+    const demDich = {};
+
+    try {
+        // vm ở file này được require trong block khác (khối kiểm menu), không thấy từ đây.
+        const vm = require("vm");
+        const DLN = require(path.join(ROOT, "data", "dln-map.js"));
+        const hopSeo = {};
+        vm.runInNewContext(
+            fs.readFileSync(path.join(ROOT, "data/blog-seo.js"), "utf8") + "\n;this.BLOG_SEO = BLOG_SEO;",
+            hopSeo
+        );
+        const noidx = (hopSeo.BLOG_SEO || {}).noindex || {};
+        const RANK = DLN.BAC_RANK;
+
+        // Bậc của bài NGUỒN: là bài đích thì lấy bậc chuẩn, không thì kế thừa bài nó
+        // gộp vào (canonical), cuối cùng mới tới bảng chuyên mục. Giống hệt generator.
+        const hopData = {};
+        vm.runInNewContext(
+            fs.readFileSync(path.join(ROOT, "data/blog-data.js"), "utf8") + "\n;this.BLOG_ARTICLES = BLOG_ARTICLES;",
+            hopData
+        );
+        const catTheoId = {};
+        (hopData.BLOG_ARTICLES || []).forEach((a) => { catTheoId[a.id] = a.category; });
+        const truCotR24 = (hopSeo.BLOG_SEO || {}).pillars || {};
+        Object.keys(truCotR24).forEach((p) => {
+            if (truCotR24[p].category) catTheoId[p] = truCotR24[p].category;
+            else if (!catTheoId[p]) catTheoId[p] = "Blog";
+        });
+
+        const bacNguon = (id) => {
+            if (DLN.DICH[id]) return DLN.DICH[id].bac;
+            const t = noidx[id];
+            const goc = t && t !== "/" && t !== id ? DLN.DICH[t] : null;
+            if (goc) return goc.bac;
+            return DLN.BAC_DANH_MUC[catTheoId[id]] || "O";
+        };
+        // Ngôn ngữ đích đọc thẳng từ bảng (khoá `lang`), không suy từ tên file.
+        const nnDich = (id) => (DLN.DICH[id] && DLN.DICH[id].lang === "en" ? "en" : "vi");
+
+        // Đích ngoài blog tra theo href (../menu.html, ../index.html#booking).
+        const theoHref = {};
+        Object.keys(DLN.DICH_NGOAI || {}).forEach((k) => { theoHref[DLN.DICH_NGOAI[k].href] = k; });
+        // Trả về { ma, bac, ngoai } hoặc null nếu href không phải đích hợp lệ.
+        const traDich = (href) => {
+            if (theoHref[href]) {
+                const n = DLN.DICH_NGOAI[theoHref[href]];
+                // lang null = phục vụ cả hai cụm, miễn phép kiểm ngôn ngữ.
+                // Khai lang thì vẫn phải khớp — trang nhiều chữ không được trộn cụm.
+                return { ma: theoHref[href], bac: n.bac, ngoai: true, lang: n.lang == null ? null : n.lang };
+            }
+            const m = /^([a-z0-9-]+)\.html$/.exec(href);
+            if (m && DLN.DICH[m[1]]) return { ma: m[1], bac: DLN.DICH[m[1]].bac, ngoai: false };
+            return null;
+        };
+
+        for (const f of fs.readdirSync(path.join(ROOT, "blog")).filter((x) => x.endsWith(".html"))) {
+            const id = f.replace(/\.html$/, "");
+            const html = fs.readFileSync(path.join(ROOT, "blog", f), "utf8");
+            const the = [...html.matchAll(/<a href="([^"]+)" class="blog-related-card"/g)].map((m) => m[1]);
+            if (!the.length) continue;
+            trangTong++;
+            tongThe += the.length;
+
+            const khaiSo = (html.match(/class="blog-related-grid" data-so="(\d+)"/) || [])[1];
+            if (String(the.length) !== khaiSo) pham.push(f + ": data-so=" + khaiSo + " nhưng có " + the.length + " thẻ");
+            if (new Set(the).size !== the.length) pham.push(f + ": có thẻ trùng nhau");
+            if (the.includes(id + ".html")) pham.push(f + ": thẻ tự trỏ chính nó");
+
+            const nnNguon = /<html[^>]*\slang="en"/.test(html) ? "en" : "vi";
+            const rs = RANK[bacNguon(id)];
+            let coLen = false;
+            for (const href of the) {
+                const d = traDich(href);
+                if (!d) { pham.push(f + ": thẻ trỏ " + href + " — không phải đích khai trong data/dln-map.js"); continue; }
+                demDich[d.ma] = (demDich[d.ma] || 0) + 1;
+                if (!d.ngoai) {
+                    if (Object.prototype.hasOwnProperty.call(noidx, d.ma)) pham.push(f + ": thẻ trỏ " + d.ma + " — bài đó đang NOINDEX");
+                    if (nnDich(d.ma) !== nnNguon) pham.push(f + ": thẻ " + d.ma + " khác ngôn ngữ với trang (" + nnNguon + ")");
+                } else if (d.lang !== null && d.lang !== nnNguon) {
+                    pham.push(f + ": thẻ ngoài blog " + d.ma + " khai lang=" + d.lang + " nhưng trang là " + nnNguon);
+                }
+                if (RANK[d.bac] > rs) coLen = true;
+            }
+            if (coLen) trangCoLen++;
+        }
+
+        const tran15 = tongThe * 0.15;
+        Object.keys(demDich).forEach((d) => {
+            if (demDich[d] > tran15) {
+                pham.push(d + " hứng " + demDich[d] + "/" + tongThe + " thẻ (" +
+                    (demDich[d] / tongThe * 100).toFixed(1) + "%) — quá 15%, link nội bộ đang dồn cục");
+            }
+        });
+
+        const tiLeLen = trangTong ? trangCoLen / trangTong : 0;
+        if (tiLeLen < 0.90) {
+            pham.push("chỉ " + trangCoLen + "/" + trangTong + " trang (" + (tiLeLen * 100).toFixed(1) +
+                "%) có thẻ dẫn lên bậc cao hơn — dưới ngưỡng 90%, thẻ đang dẫn khách đi ngang");
+        }
+    } catch (e) {
+        pham.push("không chạy được phép kiểm — " + e.message);
+    }
+
+    const soDich = Object.keys(demDich).length;
+    const max = soDich ? Math.max(...Object.values(demDich)) : 0;
+    add("Thẻ Bài viết liên quan: đúng ngôn ngữ · không dồn cục · dẫn lên bậc ý định cao hơn",
+        pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ")
+                    : tongThe + " thẻ / " + trangTong + " trang · " + soDich + " đích · nhiều nhất " +
+                      max + " thẻ (" + (max / tongThe * 100).toFixed(1) + "%) · " +
+                      trangCoLen + "/" + trangTong + " trang có thẻ dẫn lên bậc cao hơn");
+}
+
+// ── R25. Đo lường: mỗi cú bấm đếm MỘT lần · chuyển đổi chỉ đếm khi đơn lưu được ──
+// 17/09/2026 (checklist #28 GTM — site không dùng GTM nhưng các luật 257–259 vẫn đúng
+// cho cài trực tiếp; CLAUDE.md #35). Bốn cách hỏng, cả bốn đều lặng lẽ vì không lỗi nào
+// hiện ra trên trang, chỉ số trong Ads Manager sai:
+//  (a) initContactTracking bắt click ở cấp document cho MỌI <a> tel:/zalo.me. Nút nào đã
+//      có bộ đếm riêng mà không được loại trừ là đếm hai lần — đo trên production 17/09:
+//      1 cú bấm nút Zalo trên FAB = 2 × Contact cho cả Meta lẫn TikTok, tức tín hiệu tối
+//      ưu quảng cáo phồng gấp đôi ở đúng các nút mạnh nhất.
+//  (b) mode:'no-cors' khi gửi đơn: promise resolve kể cả khi máy chủ trả 500 hoặc
+//      deployment đã chết ⇒ không cách nào biết đơn có tới. Đây là thứ cho phép (c).
+//  (c) bắn conversion ngoài nhánh điều kiện ⇒ đơn rớt mà Google Ads vẫn đếm.
+//  (d) trang dịp vừa nạp js/booking.js vừa có handler submit inline ⇒ HAI bộ xử lý trên
+//      cùng #bookingForm: đơn gửi 2 lần, conversion đếm 2 lần (dip/sinh-nhat 17/09).
+{
+    const pham = [];
+    const utils = fs.readFileSync(path.join(ROOT, "js", "utils.js"), "utf8");
+
+    // (a) bộ nghe chung phải loại trừ nút đã có bộ đếm riêng
+    const mDs = utils.match(/CO_BO_DEM_RIENG\s*=\s*'([^']+)'/);
+    if (!mDs) pham.push("js/utils.js không còn danh sách CO_BO_DEM_RIENG");
+    else if (!/if \(link\.closest\(CO_BO_DEM_RIENG\)\) return;/.test(utils)) {
+        pham.push("initContactTracking không còn bỏ qua nút có bộ đếm riêng → đếm hai lần");
+    }
+    const dsLoaiTru = mDs ? mDs[1] : "";
+
+    // mọi nút có bộ đếm riêng (bắn Contact ngoài utils.js) phải nằm trong danh sách đó
+    const nguonCoBoDem = [
+        ["js/fab-contact.js", /className\s*=\s*'(fab-contact)'/],
+        ["index.html", /getElementById\('(zaloQuickBook)'\)[\s\S]{0,900}?fbq\('track', 'Contact'/]
+    ];
+    for (const [f, re] of nguonCoBoDem) {
+        const p = path.join(ROOT, f);
+        if (!fs.existsSync(p)) continue;
+        const m = fs.readFileSync(p, "utf8").match(re);
+        if (m && dsLoaiTru.indexOf(m[1]) === -1) {
+            pham.push(f + " bắn Contact riêng cho \"" + m[1] + "\" nhưng nó không có trong CO_BO_DEM_RIENG");
+        }
+    }
+
+    /* Bỏ chú thích TRƯỚC khi quét — chính chú thích giải thích "đừng dùng no-cors" cũng
+       chứa chuỗi đó, quét thô là luật tự báo phạm chính lời dặn của mình (bài học bug #10). */
+    const boChuThich = (s) => s.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:'"\w])\/\/[^\n]*/g, "$1");
+
+    // (b) + (c) + (d) trên mọi trang có form đặt bàn
+    const coForm = [path.join(ROOT, "js", "booking.js")]
+        .concat(fs.readdirSync(path.join(ROOT, "dip")).filter(f => f.endsWith(".html")).map(f => path.join(ROOT, "dip", f)));
+    for (const p of coForm) {
+        const s = boChuThich(fs.readFileSync(p, "utf8"));
+        const ten = rel(p);
+
+        if (/mode:\s*['"]no-cors['"]/.test(s)) {
+            pham.push(ten + " còn gửi đơn bằng mode:'no-cors' — không đọc được máy chủ trả gì");
+        }
+
+        // conversion phải nằm trong nhánh điều kiện, không ở thẳng thân hàm xử lý
+        const viTri = s.indexOf("conversion_event_submit_lead_form");
+        if (viTri !== -1) {
+            const truoc = s.slice(Math.max(0, viTri - 600), viTri);
+            if (!/if \((luuOk|daLuuDuoc)\) \{/.test(truoc)) {
+                pham.push(ten + ": conversion không nằm trong nhánh if(luuOk)/if(daLuuDuoc) — bắn cả khi đơn rớt");
+            }
+        }
+
+        // (d) chỉ áp cho trang dịp: nạp booking.js + handler inline = hai bộ xử lý
+        if (/[\\/]dip[\\/]/.test(p) && /<script[^>]+js\/booking\.js/.test(s) &&
+            /getElementById\('bookingForm'\)\.addEventListener\('submit'/.test(s)) {
+            pham.push(ten + " vừa nạp js/booking.js vừa có handler submit inline → đơn gửi 2 lần, conversion đếm 2 lần");
+        }
+    }
+
+    add("Đo lường: một cú bấm đếm một lần · chuyển đổi chỉ đếm khi đơn lưu được",
+        pham.length === 0,
+        pham.length ? pham.slice(0, 3).join(" | ")
+                    : "bộ nghe chung bỏ qua " + dsLoaiTru + " · 0 chỗ dùng no-cors · conversion đều trong nhánh điều kiện");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

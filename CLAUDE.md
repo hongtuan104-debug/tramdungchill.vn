@@ -67,8 +67,9 @@ tiem-nuong-tram-dung-chill/
 ```
 
 ## Tracking đã cài (cập nhật 2026-04-08)
-- **Google Analytics 4:** `G-2VFBZDY6CD` (toàn site) + `G-5G3K0RN39C` (4 dip pages)
-- **Google Ads:** `AW-18038463990` (chỉ index)
+- **Google Analytics 4:** `G-2VFBZDY6CD` (toàn site). ~~`G-5G3K0RN39C` (4 dip pages)~~ — rà 17/09/2026:
+  **0 file** còn nhắc ID này, property phụ đã thôi dùng; 4 trang dịp nay đo chung một property.
+- **Google Ads:** `AW-18038463990` — thực tế nằm ở **index + menu + blog** (không phải "chỉ index")
 - **Meta Pixel:** `1281459450582041` ✅ TẤT CẢ 151 trang
   - Events: `PageView`, `ViewContent` (menu/dip/blog), `Lead` (form đặt bàn), `Contact` (click Phone/Zalo/FB)
   - **Conversions API (CAPI):** chưa cài, đợi đủ traffic
@@ -823,6 +824,58 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    ⚠️ **Còn lại, chưa làm:** hai bài bậc O ít được trỏ nhất (`dac-san-da-lat-mua-ve`, `an-vat-da-lat-buoi-toi`) còn 3 link mỗi
    bài; cố ý **không** đặt "sàn" vì ép sàn là buộc phải chèn thẻ lạc đề. Hai bài EN vẫn chỉ 2 thẻ — đó là giới hạn DỮ LIỆU
    (site chỉ có 2 bài EN index), muốn 3 thẻ thì phải viết thêm bài tiếng Anh, không phải sửa bảng.
+
+35. **Một cú bấm đếm hai lần · chuyển đổi bắn cả khi đơn rớt** (checklist #28 GTM, rà 17/09/2026).
+   Site **KHÔNG dùng GTM** (0 chuỗi `GTM-` trong repo) nên 10 mục của checklist #28 phần lớn không áp
+   dụng — nhưng luật 257 (trigger theo trạng thái thành công thật), 258 (hợp đồng dữ liệu) và 259 (PII)
+   vẫn đúng cho cài gtag trực tiếp, và rà theo chúng thì ra 4 lỗi. 🟢 Đo trên production bằng Chrome
+   (chặn bundle pixel, đọc hàng đợi `dataLayer`/`fbq.queue`/`ttq`), sửa xong đo lại trên bản local với
+   webhook giả lập bằng CDP — công cụ để ở scratchpad, không vào repo.
+   - **Bắn đôi ở 3 nút.** `initContactTracking()` trong `js/utils.js` bắt click ở cấp **document** cho
+     MỌI `<a>` trỏ `tel:`/`zalo.me`. Ba nút mạnh nhất lại có bộ đếm riêng gắn thẳng vào chúng
+     (`js/fab-contact.js` × 2, `#zaloQuickBook` trong index.html) → mỗi cú bấm đẻ ra **2 × Contact cho
+     Meta và TikTok**, tức tín hiệu tối ưu quảng cáo phồng gấp đôi ở đúng chỗ ra khách. Bản cũ **đã**
+     loại trừ `.fab-contact` cho RIÊNG link Facebook — biết bệnh mà chỉ vá một chỗ.
+     → Nay loại trừ ở MỘT nơi, trước khi phân loại: `if (link.closest(CO_BO_DEM_RIENG)) return;`.
+     ⚠️ **Thêm nút mới có `trackEvent` riêng thì phải khai selector vào `CO_BO_DEM_RIENG`** (js/utils.js),
+     không thì nó lại đếm hai lần. R25 chặn.
+     ⚠️ Nút "Đặt nhanh qua Zalo" đổi tên sự kiện GA4 `contact` → **`click_zalo`** (vị trí nằm ở
+     `event_label`): bộ nghe chung không còn bắn hộ nó nữa, giữ tên cũ là nó rơi khỏi báo cáo click_zalo.
+   - **`mode:'no-cors'` là thứ làm mình mù.** Với no-cors trình duyệt trả "opaque response": promise
+     resolve **kể cả khi máy chủ trả 500 hoặc deployment đã chết**, `res.ok` luôn false, `status` luôn 0.
+     Nên `try/catch` quanh nó chỉ bắt được lỗi MẠNG, và conversion Google Ads + Meta Lead vẫn bắn dù đơn
+     rớt sạch — đúng kịch bản bug #4 (deployment sai quyền) từng gây ra, chỉ khác là lần đó số vẫn đẹp.
+     🟢 Đo 17/09/2026: webhook Apps Script **có CORS thật** (GET → `type: "cors"`, đọc được thân JSON), và
+     `Content-Type: text/plain` là "simple request" nên không sinh preflight → **bỏ `no-cors` đi là đọc
+     được mã trả về, không phải đổi gì phía Apps Script**. ⚠️ Đừng thêm `no-cors` lại "cho chắc".
+   - **Chuyển đổi chỉ bắn khi đơn lưu được.** `js/booking.js` tách hai cờ: `appOk` (app đặt bàn) và
+     `sheetOk` (Apps Script). ⚠️ **Hai câu hỏi khác nhau, đừng gộp một cờ**: `webhookOk = appOk && sheetOk`
+     quyết định có cảnh báo khách (chỉ cần Apps Script hỏng là nhân viên không nhận Telegram/Zalo, dù đơn
+     đã nằm trong app); `daLuuDuoc = appOk || sheetOk` quyết định có đếm chuyển đổi. 4 trang dịp dùng
+     `luuOk` = `res.ok`, và **mở Zalo trong MỌI trường hợp** — webhook hỏng thì tin nhắn Zalo là đường
+     duy nhất còn lại để đơn tới quán (bản cũ gặp lỗi chỉ báo "gọi điện" rồi bỏ đó).
+   - **`dip/sinh-nhat.html` xử lý form HAI LẦN.** Nó là trang dịp duy nhất nạp `js/booking.js`, mà file đó
+     tự gắn handler submit vào `#bookingForm` — chú thích "Override booking form behavior" là **nhầm**:
+     không thay thế gì cả, chỉ thêm bộ xử lý thứ hai. 🟢 Đo: mỗi đơn POST **2 lần** sang Apps Script +
+     2 × conversion + 2 × Meta Lead. Đã gỡ thẻ script (sếp chốt 17/09) — 3 trang dịp kia vốn không nạp.
+     Đánh đổi: mất bước kiểm SĐT 10 số của booking.js, ngang bằng 3 trang dịp kia.
+   - 🟢 **PII sạch, không phải sửa** (mục 259): pixel chỉ nhận `num_guests`/`source`/`content_category`.
+     Tên + SĐT chỉ đi tới webhook của quán và tin nhắn Zalo, không vào payload đo lường nào.
+   - ⚠️ **Kịch bản "đơn rớt" vẫn hiện modal "Đặt bàn thành công"** ở trang chủ (hành vi có sẵn, chưa sửa —
+     chờ sếp): khách đọc lời chúc mừng rồi bỏ đi, không nhắn Zalo. Chỉ có một toast lỗi kèm theo.
+   - **Consent (mục 260) chưa có gì**: không cookie banner, không Consent Mode, chưa có trang chính sách.
+     Nháp nằm ở `docs/nhap-chinh-sach-du-lieu.md` (soạn 13/09), chờ sếp duyệt. Clarity đang quay màn hình
+     khách gồm cả lúc gõ form mà code không khai `data-clarity-mask` nào — mức che phụ thuộc hoàn toàn
+     cấu hình trong dashboard Clarity, chỉ sếp mở xem được.
+   - **Có nên chuyển sang GTM? KHÔNG** (em khuyến nghị, sếp chưa bác): điểm PageSpeed mobile 98 đang dựa
+     vào việc pixel không chạy lúc tải (bug #9/#20/#24); nhét container GTM ~90 KB chạy sớm là phá đúng
+     cơ chế đó. GTM đáng giá khi nhiều người sửa tag mà không được đụng code — ở đây git đã lo phần
+     version/rollback tốt hơn, và GTM **không** chữa được lỗi bắn đôi (lỗi nằm ở hai bộ listener).
+   → Máy canh **R25**: bộ nghe chung phải còn loại trừ `CO_BO_DEM_RIENG` · mọi nút có bộ đếm riêng phải
+   nằm trong danh sách đó · 0 chỗ gửi đơn bằng `no-cors` · `conversion_event_submit_lead_form` phải nằm
+   trong nhánh `if (luuOk)`/`if (daLuuDuoc)` · trang dịp không được vừa nạp booking.js vừa có handler
+   submit inline. ⚠️ Luật **bỏ chú thích trước khi quét** — chính lời dặn "đừng dùng no-cors" cũng chứa
+   chuỗi đó, quét thô là luật tự báo phạm lời dặn của mình (bài học bug #10).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

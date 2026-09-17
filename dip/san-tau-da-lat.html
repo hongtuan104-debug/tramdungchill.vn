@@ -207,7 +207,7 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
 }
 </script>
 <!-- FAQ_JSONLD:END -->
-<script defer src="../dist/lazy-tracking.min.js?v=3202c0ed"></script>
+<script defer src="../dist/lazy-tracking.min.js?v=a0bc349f"></script>
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://analytics.tiktok.com">
     <link rel="dns-prefetch" href="https://www.clarity.ms">
@@ -646,7 +646,7 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
 
 <script defer src="../data/site-config.js?v=1d1a31a8"></script>
 <!-- Common bundle: bật đo lường click Gọi/Zalo (Contact) + FAB liên hệ nổi -->
-<script defer src="../dist/common.min.js?v=4f58b40f"></script>
+<script defer src="../dist/common.min.js?v=6b7c7c9a"></script>
 <script>
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -663,21 +663,37 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     data.campaign = 'san-tau';
     data.timestamp = new Date().toISOString();
 
+    /* Chỉ đếm chuyển đổi khi Apps Script THẬT SỰ nhận đơn (sửa 17/09/2026, CLAUDE.md #35).
+       Bản cũ dùng mode:'no-cors' — trình duyệt trả "opaque response" nên promise resolve kể cả
+       khi máy chủ trả 500 hoặc deployment đã chết; catch không bao giờ chạy, và conversion
+       Google Ads + Meta Lead vẫn bắn dù đơn rớt. Deployment này có CORS thật (đo 17/09/2026)
+       và text/plain là simple request (không preflight) → bỏ no-cors đi là đọc được mã trả về,
+       không phải đổi gì phía Apps Script. */
+    var luuOk = false;
     try {
-        await fetch(SITE_CONFIG.webhookUrl, {
+        var res = await fetch(SITE_CONFIG.webhookUrl, {
             method: 'POST',
-            mode: 'no-cors',
             headers: {'Content-Type': 'text/plain'},
             body: JSON.stringify(data)
         });
+        luuOk = res.ok;
+        if (!luuOk) console.warn('Apps Script trả mã lỗi:', res.status);
+    } catch (err) {
+        console.warn('Webhook lỗi:', err);
+    }
+    if (luuOk) {
         if (typeof gtag === 'function') gtag('event', 'conversion_event_submit_lead_form', {});
         if (typeof fbq === 'function') fbq('track', 'Lead', {content_name:'San tau Da Lat',content_category:'landing_dip',num_guests:data.guests});
-        var zaloMsg = '🚂 ĐẶT BÀN SĂN TÀU\n\nTên: ' + data.name + '\nSĐT: ' + data.phone + '\nNgày: ' + data.date + '\nGiờ: ' + data.time + '\nSố khách: ' + data.guests + '\nGhi chú: ' + (data.note || 'Không có');
-        window.open('https://zalo.me/0989765070?text=' + encodeURIComponent(zaloMsg), '_blank');
+    }
+    var zaloMsg = '🚂 ĐẶT BÀN SĂN TÀU\n\nTên: ' + data.name + '\nSĐT: ' + data.phone + '\nNgày: ' + data.date + '\nGiờ: ' + data.time + '\nSố khách: ' + data.guests + '\nGhi chú: ' + (data.note || 'Không có');
+    /* Mở Zalo trong MỌI trường hợp: webhook hỏng thì tin nhắn Zalo là đường duy nhất còn lại
+       để đơn tới quán — bản cũ gặp lỗi là chỉ báo "gọi điện" rồi bỏ đó. */
+    window.open('https://zalo.me/0989765070?text=' + encodeURIComponent(zaloMsg), '_blank');
+    if (luuOk) {
         alert('Đã gửi thông tin thành công! Trạm sẽ liên hệ qua Zalo trong 15 phút (trong giờ mở cửa) 🚂');
         this.reset();
-    } catch (err) {
-        alert('Có lỗi xảy ra. Vui lòng gọi 0989.765.070!');
+    } else {
+        alert('Chưa lưu được đơn — Trạm vừa mở Zalo sẵn, bạn bấm gửi tin nhắn giúp Trạm nhé. Hoặc gọi 0989.765.070.');
     }
     btnText.style.display = 'inline';
     btnLoading.style.display = 'none';

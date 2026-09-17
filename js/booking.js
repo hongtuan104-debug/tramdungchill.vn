@@ -219,8 +219,15 @@ function initBookingForm() {
         // Ads click-IDs để CAPI match với người click ads (boost match quality)
         const clickIds = getAdsClickIds();
 
-        // === TDC Booking App — auto-create booking (FIRST để đảm bảo event_id từ client được dùng) ===
-        let webhookOk = true;
+        /* ── Hai đường đưa đơn tới quán, theo dõi RIÊNG (sửa 17/09/2026, CLAUDE.md #35) ──
+           appOk   = đơn đã vào app đặt bàn (biết chắc, đọc được mã trả về)
+           sheetOk = Apps Script đã nhận (Sheet + Telegram + Zalo nhóm)
+           Chuyển đổi chỉ được bắn khi CÓ ÍT NHẤT MỘT đường thành công — trước đây
+           bắn vô điều kiện, nên lúc cả hai webhook chết thì khách đọc "lưu đặt bàn
+           tạm lỗi" mà Google Ads vẫn đếm xong một chuyển đổi. Đúng loại lỗi bug #4
+           từng gây ra: deployment Apps Script sai quyền, đơn rớt sạch, số vẫn đẹp. */
+        let appOk = false;
+        let sheetOk = false;
         try {
             const appRes = await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
                 method: 'POST',
@@ -251,22 +258,26 @@ function initBookingForm() {
             // fetch KHÔNG ném lỗi khi máy chủ trả 4xx/5xx — phải tự kiểm mã trả về,
             // không thì đơn rớt mà khách vẫn thấy màn hình cảm ơn (lỗi rơi âm thầm).
             // Đơn TRÙNG được máy chủ trả 200 kèm deduped:true ⇒ không báo động oan.
-            if (!appRes.ok) {
-                console.warn('App webhook trả mã lỗi:', appRes.status);
-                webhookOk = false;
-            }
+            if (appRes.ok) appOk = true;
+            else console.warn('App webhook trả mã lỗi:', appRes.status);
         } catch (e) {
             console.warn('App webhook skip:', e);
-            webhookOk = false;
         }
 
         // Send data via webhook (Google Apps Script → Google Sheet) — AFTER để dedup 5min catch sendToApp
         const webhookUrl = SITE_CONFIG.webhookUrl;
         if (webhookUrl) {
             try {
-                await fetch(webhookUrl, {
+                /* ⚠️ KHÔNG dùng mode:'no-cors' (bản cũ dùng). Với no-cors trình duyệt trả
+                   "opaque response": promise resolve kể cả khi máy chủ trả 500 hay URL
+                   deployment đã chết, res.ok luôn false, status luôn 0 — tức mình MÙ,
+                   không cách nào biết đơn có tới hay không.
+                   Deployment này trả CORS thật (đo 17/09/2026: GET → type "cors",
+                   Access-Control-Allow-Origin có, đọc được thân JSON), và Content-Type
+                   text/plain là "simple request" nên không sinh preflight → bỏ no-cors đi
+                   là đọc được kết quả thật mà không phải đổi gì phía Apps Script. */
+                const sheetRes = await fetch(webhookUrl, {
                     method: 'POST',
-                    mode: 'no-cors',
                     headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify({
                         name: data.name,
@@ -283,53 +294,66 @@ function initBookingForm() {
                         timestamp: new Date().toISOString()
                     })
                 });
+                if (sheetRes.ok) sheetOk = true;
+                else console.warn('Apps Script trả mã lỗi:', sheetRes.status);
             } catch (err) {
                 console.warn('Webhook failed:', err);
-                webhookOk = false;
             }
         }
 
         // Telegram notification is handled by Google Apps Script webhook
 
+        /* Hai câu hỏi KHÁC NHAU, đừng gộp làm một cờ:
+           - webhookOk (mọi đường đều thông) quyết định có cảnh báo khách hay không.
+             Chỉ cần Apps Script hỏng là nhân viên KHÔNG nhận Telegram/Zalo, dù đơn
+             đã nằm trong app — khách vẫn phải được nhắc nhắn Zalo cho chắc.
+           - daLuuDuoc (ít nhất một đường thông) quyết định có đếm chuyển đổi hay
+             không: đơn đã vào được hệ thống thì đó là lead thật. */
+        const webhookOk = appOk && sheetOk;
+        const daLuuDuoc = appOk || sheetOk;
+
         // ============================================
         // CONVERSION TRACKING — All platforms
-        // Fire after successful form submission
+        // CHỈ bắn khi đơn thật sự vào được hệ thống (17/09/2026).
+        // Cả hai đường chết ⇒ khách được nhắc nhắn Zalo, và KHÔNG có chuyển đổi nào
+        // được đếm — số trong Google Ads / Meta / TikTok khớp với đơn có thật.
         // ============================================
+        if (daLuuDuoc) {
+            // 1. Google Ads conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion_event_submit_lead_form', {});
+            }
 
-        // 1. Google Ads conversion
-        if (typeof gtag === 'function') {
-            gtag('event', 'conversion_event_submit_lead_form', {});
-        }
+            // 2. GA4 — generate_lead event (for GA4 reporting + conversion)
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    currency: 'VND',
+                    value: 0,
+                    event_category: 'booking',
+                    event_label: trafficSource.source,
+                    guests: data.guests,
+                    occasion: data.occasion || ''
+                });
+            }
 
-        // 2. GA4 — generate_lead event (for GA4 reporting + conversion)
-        if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {
-                currency: 'VND',
-                value: 0,
-                event_category: 'booking',
-                event_label: trafficSource.source,
-                guests: data.guests,
-                occasion: data.occasion || ''
-            });
-        }
+            // 3. Meta/Facebook Pixel — Lead event (eventID match với server CAPI)
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Booking Form',
+                    content_category: 'restaurant_reservation',
+                    num_guests: data.guests,
+                    source: trafficSource.source
+                }, { eventID: eventId });
+            }
 
-        // 3. Meta/Facebook Pixel — Lead event (eventID match với server CAPI)
-        if (typeof fbq === 'function') {
-            fbq('track', 'Lead', {
-                content_name: 'Booking Form',
-                content_category: 'restaurant_reservation',
-                num_guests: data.guests,
-                source: trafficSource.source
-            }, { eventID: eventId });
-        }
-
-        // 4. TikTok Pixel — CompleteRegistration event (event_id match với server Events API)
-        if (typeof ttq !== 'undefined') {
-            ttq.track('CompleteRegistration', {
-                content_name: 'Booking Form',
-                content_type: 'restaurant_reservation',
-                quantity: parseInt(data.guests) || 1
-            }, { event_id: eventId });
+            // 4. TikTok Pixel — CompleteRegistration event (event_id match với server Events API)
+            if (typeof ttq !== 'undefined') {
+                ttq.track('CompleteRegistration', {
+                    content_name: 'Booking Form',
+                    content_type: 'restaurant_reservation',
+                    quantity: parseInt(data.guests) || 1
+                }, { event_id: eventId });
+            }
         }
 
         // Open Zalo with pre-filled message
