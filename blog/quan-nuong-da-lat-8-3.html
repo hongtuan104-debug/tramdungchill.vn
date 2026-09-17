@@ -129,7 +129,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD',{content_group:'blog',content_id:'quan-nuong-da-lat-8-3'});</script>
-<script defer src="../dist/lazy-tracking.min.js?v=3202c0ed"></script>
+<script defer src="../dist/lazy-tracking.min.js?v=a0bc349f"></script>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
@@ -179,6 +179,10 @@
     .blog-related { padding:48px 0; background:var(--linen); }
     .blog-related h2 { text-align:center; font-family:var(--font-display); margin-bottom:32px; }
     .blog-related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
+    /* Cụm tiếng Anh chỉ có 2 bài index nên trang EN không đủ 3 thẻ cùng ngôn ngữ.
+       Không có 2 rule này thì 1 thẻ bị kéo giãn hết 1000px. Số thẻ do generator điền. */
+    .blog-related-grid[data-so="1"] { grid-template-columns:minmax(0,340px); justify-content:center; }
+    .blog-related-grid[data-so="2"] { grid-template-columns:repeat(2,minmax(0,340px)); justify-content:center; }
     .blog-related-card { background:white; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; transition:transform 0.3s, box-shadow 0.3s; }
     .blog-related-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.1); }
     .blog-related-card img { width:100%; height:180px; object-fit:cover; }
@@ -195,11 +199,11 @@
     </style>
     <section class="blog-related">
         <div class="container">
-            <h2>Bài viết liên quan</h2>
-            <div class="blog-related-grid">
-                <a href="an-vat-da-lat-buoi-toi.html" class="blog-related-card"><img width="1182" height="2560" src="../assets/images/blog/view-nha-long-3-v4.webp" srcset="../assets/images/blog/view-nha-long-3-v4-400w.webp 400w, ../assets/images/blog/view-nha-long-3-v4-800w.webp 800w, ../assets/images/blog/view-nha-long-3-v4.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khách giơ điện thoại chụp đoàn tàu Đà Lạt – Trại Mát sáng đèn ngay bên dưới Trạm Dừng Chill buổi tối, nhà lồng lấp lánh phía xa" loading="lazy"><div class="blog-related-info"><span class="blog-category">Ẩm thực Đà Lạt</span><p class="blog-related-title">Ăn Vặt Đà Lạt Buổi Tối — 15 Món Chợ Đêm Nên Thử Và Cách Đi Cho Trọn Tối</p></div></a>
-                <a href="tip-chon-cho-ngoi-quan-nuong.html" class="blog-related-card"><img width="1200" height="1600" src="../assets/images/blog/view-xe-lua-20.webp" srcset="../assets/images/blog/view-xe-lua-20-400w.webp 400w, ../assets/images/blog/view-xe-lua-20-800w.webp 800w, ../assets/images/blog/view-xe-lua-20.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khách ngồi dãy bàn nướng sát lan can ở Trạm Dừng Chill buổi tối, đoàn tàu Đà Lạt – Trại Mát sáng đèn ngay bên dưới" loading="lazy"><div class="blog-related-info"><span class="blog-category">Mẹo & Kinh nghiệm</span><p class="blog-related-title">Chọn Chỗ Ngồi Quán Nướng Đà Lạt: Quán Có Mấy Dãy Bàn, Dãy Nào Ngắm Được Xe Lửa?</p></div></a>
-                <a href="da-lat-restaurant-train-view-en.html" class="blog-related-card"><img width="900" height="1200" src="../assets/images/blog/view-xe-lua-11b.webp" srcset="../assets/images/blog/view-xe-lua-11b-400w.webp 400w, ../assets/images/blog/view-xe-lua-11b-800w.webp 800w, ../assets/images/blog/view-xe-lua-11b.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="A guest at a railing-side BBQ table at Tram Dung Chill, the Da Lat–Trai Mat train right below and the greenhouse valley beyond" loading="lazy"><div class="blog-related-info"><span class="blog-category">English</span><p class="blog-related-title">Da Lat Restaurant with a Train View: Dine While the Vintage Train Rolls By</p></div></a>
+            <h2>Gợi ý cho bạn</h2>
+            <div class="blog-related-grid" data-so="3">
+                <a href="hen-ho-da-lat.html" class="blog-related-card"><img width="1200" height="900" src="../assets/images/blog/view-nha-long-4.webp" srcset="../assets/images/blog/view-nha-long-4-400w.webp 400w, ../assets/images/blog/view-nha-long-4-800w.webp 800w, ../assets/images/blog/view-nha-long-4.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khách ngồi các dãy bàn nướng dưới dây đèn bóng tròn ở Trạm Dừng Chill buổi tối, mái nhà lồng sáng đèn phía sau" loading="lazy"><div class="blog-related-info"><span class="blog-category">Hẹn hò &amp; Sinh nhật</span><p class="blog-related-title">Quán Hẹn Hò Lãng Mạn Đà Lạt — Date Night Nướng BBQ Ngắm Tàu Lửa &amp; Biển Sao Nhà Lồng</p></div></a>
+                <a href="quan-nuong-da-lat-view-nha-long.html" class="blog-related-card"><img width="1200" height="800" src="../assets/images/blog/view-nha-long-1-v4.webp" srcset="../assets/images/blog/view-nha-long-1-v4-400w.webp 400w, ../assets/images/blog/view-nha-long-1-v4-800w.webp 800w, ../assets/images/blog/view-nha-long-1-v4.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Bàn tiệc có nến, hoa và bóng bay bên lan can Trạm Dừng Chill, thung lũng nhà lồng sáng đèn phía sau về đêm" loading="lazy"><div class="blog-related-info"><span class="blog-category">View đẹp Đà Lạt</span><p class="blog-related-title">Quán Nướng Đà Lạt View Nhà Lồng — Ngắm &quot;Biển Sao&quot; Thung Lũng Lung Linh Về Đêm</p></div></a>
+                <a href="nuong-bbq-ngam-xe-lua.html" class="blog-related-card"><img width="900" height="1200" src="../assets/images/blog/view-xe-lua-11b.webp" srcset="../assets/images/blog/view-xe-lua-11b-400w.webp 400w, ../assets/images/blog/view-xe-lua-11b-800w.webp 800w, ../assets/images/blog/view-xe-lua-11b.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khách ngồi bàn nướng sát lan can Trạm Dừng Chill, tàu Đà Lạt – Trại Mát ngay bên dưới, xa hơn là thung lũng nhà kính" loading="lazy"><div class="blog-related-info"><span class="blog-category">Trải nghiệm</span><p class="blog-related-title">Nướng BBQ Ngắm Tàu Lửa Đà Lạt — Tàu Cổ Chạy Ngay Dưới Chân Quán</p></div></a>
             </div>
         </div>
     </section>

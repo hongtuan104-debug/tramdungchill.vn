@@ -129,7 +129,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD',{content_group:'blog',content_id:'du-lich-da-lat-tu-sai-gon'});</script>
-<script defer src="../dist/lazy-tracking.min.js?v=3202c0ed"></script>
+<script defer src="../dist/lazy-tracking.min.js?v=a0bc349f"></script>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
@@ -179,6 +179,10 @@
     .blog-related { padding:48px 0; background:var(--linen); }
     .blog-related h2 { text-align:center; font-family:var(--font-display); margin-bottom:32px; }
     .blog-related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
+    /* Cụm tiếng Anh chỉ có 2 bài index nên trang EN không đủ 3 thẻ cùng ngôn ngữ.
+       Không có 2 rule này thì 1 thẻ bị kéo giãn hết 1000px. Số thẻ do generator điền. */
+    .blog-related-grid[data-so="1"] { grid-template-columns:minmax(0,340px); justify-content:center; }
+    .blog-related-grid[data-so="2"] { grid-template-columns:repeat(2,minmax(0,340px)); justify-content:center; }
     .blog-related-card { background:white; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; transition:transform 0.3s, box-shadow 0.3s; }
     .blog-related-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.1); }
     .blog-related-card img { width:100%; height:180px; object-fit:cover; }
@@ -195,11 +199,11 @@
     </style>
     <section class="blog-related">
         <div class="container">
-            <h2>Bài viết liên quan</h2>
-            <div class="blog-related-grid">
-                <a href="da-lat-ve-dem-di-dau.html" class="blog-related-card"><img width="1200" height="900" src="../assets/images/blog/view-nha-long-4-v3.webp" srcset="../assets/images/blog/view-nha-long-4-v3-400w.webp 400w, ../assets/images/blog/view-nha-long-4-v3-800w.webp 800w, ../assets/images/blog/view-nha-long-4-v3.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Các dãy bàn nướng đông khách dưới dây đèn ở Trạm Dừng Chill buổi tối, mái nhà lồng dưới thung lũng sáng đèn" loading="lazy"><div class="blog-related-info"><span class="blog-category">Du lịch Đà Lạt</span><p class="blog-related-title">Đà Lạt Về Đêm Đi Đâu? 8 Hoạt Động Đáng Thử Sau 20h</p></div></a>
+            <h2>Gợi ý cho bạn</h2>
+            <div class="blog-related-grid" data-so="3">
                 <a href="lich-trinh-da-lat-3-ngay-2-dem.html" class="blog-related-card"><img width="1200" height="1200" src="../assets/images/blog/mon-nuong-1.webp" srcset="../assets/images/blog/mon-nuong-1-400w.webp 400w, ../assets/images/blog/mon-nuong-1-800w.webp 800w, ../assets/images/blog/mon-nuong-1.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Nồi lẩu đang sôi, khay thịt và rau trên bàn ở Trạm Dừng Chill, cạnh bảng phấn viết tay" loading="lazy"><div class="blog-related-info"><span class="blog-category">Du lịch Đà Lạt</span><p class="blog-related-title">Lịch Trình Du Lịch Đà Lạt 3 Ngày 2 Đêm — Trọn Vẹn Từ A Đến Z</p></div></a>
-                <a href="cam-trai-da-lat.html" class="blog-related-card"><img width="1200" height="800" src="../assets/images/blog/view-nha-long-1-v2.webp" srcset="../assets/images/blog/view-nha-long-1-v2-400w.webp 400w, ../assets/images/blog/view-nha-long-1-v2-800w.webp 800w, ../assets/images/blog/view-nha-long-1-v2.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Bàn tiệc bày nến, hoa, bóng bay bên lan can Trạm Dừng Chill về đêm, nhà lồng dưới thung lũng sáng đèn" loading="lazy"><div class="blog-related-info"><span class="blog-category">Du lịch Đà Lạt</span><p class="blog-related-title">Cắm Trại Đà Lạt 2026 — 5 Khu Vực Camping Đẹp Và Kinh Nghiệm Đi Thực Tế</p></div></a>
+                <a href="lau-nuong-da-lat-mua-lanh.html" class="blog-related-card"><img width="1200" height="800" src="../assets/images/blog/view-hoang-hon-1-v2.webp" srcset="../assets/images/blog/view-hoang-hon-1-v2-400w.webp 400w, ../assets/images/blog/view-hoang-hon-1-v2-800w.webp 800w, ../assets/images/blog/view-hoang-hon-1-v2.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Một đôi khách ngồi bàn gỗ ngoài trời ở Trạm Dừng Chill trong nắng chiều, trên bàn có hoa và bảng phấn, phía sau là thung lũng" loading="lazy"><div class="blog-related-info"><span class="blog-category">Ẩm thực Đà Lạt</span><p class="blog-related-title">Lẩu Nướng Đà Lạt Mùa Lạnh — Tự Ghép Món Ấm Bụng, View Sương Mù &amp; Xe Lửa</p></div></a>
+                <a href="da-lat-ve-dem-di-dau.html" class="blog-related-card"><img width="1200" height="900" src="../assets/images/blog/view-nha-long-4-v3.webp" srcset="../assets/images/blog/view-nha-long-4-v3-400w.webp 400w, ../assets/images/blog/view-nha-long-4-v3-800w.webp 800w, ../assets/images/blog/view-nha-long-4-v3.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Các dãy bàn nướng đông khách dưới dây đèn ở Trạm Dừng Chill buổi tối, mái nhà lồng dưới thung lũng sáng đèn" loading="lazy"><div class="blog-related-info"><span class="blog-category">Du lịch Đà Lạt</span><p class="blog-related-title">Đà Lạt Về Đêm Đi Đâu? 8 Hoạt Động Đáng Thử Sau 20h</p></div></a>
             </div>
         </div>
     </section>

@@ -129,7 +129,7 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD',{content_group:'blog',content_id:'an-nuong-da-lat-mua-xuan-2027'});</script>
-<script defer src="../dist/lazy-tracking.min.js?v=3202c0ed"></script>
+<script defer src="../dist/lazy-tracking.min.js?v=a0bc349f"></script>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
@@ -160,6 +160,10 @@
     .blog-related { padding:48px 0; background:var(--linen); }
     .blog-related h2 { text-align:center; font-family:var(--font-display); margin-bottom:32px; }
     .blog-related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1000px; margin:0 auto; }
+    /* Cụm tiếng Anh chỉ có 2 bài index nên trang EN không đủ 3 thẻ cùng ngôn ngữ.
+       Không có 2 rule này thì 1 thẻ bị kéo giãn hết 1000px. Số thẻ do generator điền. */
+    .blog-related-grid[data-so="1"] { grid-template-columns:minmax(0,340px); justify-content:center; }
+    .blog-related-grid[data-so="2"] { grid-template-columns:repeat(2,minmax(0,340px)); justify-content:center; }
     .blog-related-card { background:white; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; transition:transform 0.3s, box-shadow 0.3s; }
     .blog-related-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.1); }
     .blog-related-card img { width:100%; height:180px; object-fit:cover; }
@@ -176,11 +180,11 @@
     </style>
     <section class="blog-related">
         <div class="container">
-            <h2>Bài viết liên quan</h2>
-            <div class="blog-related-grid">
-                <a href="an-vat-da-lat-buoi-toi.html" class="blog-related-card"><img width="1182" height="2560" src="../assets/images/blog/view-nha-long-3-v4.webp" srcset="../assets/images/blog/view-nha-long-3-v4-400w.webp 400w, ../assets/images/blog/view-nha-long-3-v4-800w.webp 800w, ../assets/images/blog/view-nha-long-3-v4.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khách giơ điện thoại chụp đoàn tàu Đà Lạt – Trại Mát sáng đèn ngay bên dưới Trạm Dừng Chill buổi tối, nhà lồng lấp lánh phía xa" loading="lazy"><div class="blog-related-info"><span class="blog-category">Ẩm thực Đà Lạt</span><p class="blog-related-title">Ăn Vặt Đà Lạt Buổi Tối — 15 Món Chợ Đêm Nên Thử Và Cách Đi Cho Trọn Tối</p></div></a>
-                <a href="mon-nuong-ngon-nhat-da-lat.html" class="blog-related-card"><img width="1200" height="900" src="../assets/images/blog/mon-nuong-4-v3.webp" srcset="../assets/images/blog/mon-nuong-4-v3-400w.webp 400w, ../assets/images/blog/mon-nuong-4-v3-800w.webp 800w, ../assets/images/blog/mon-nuong-4-v3.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khay gà, đậu hũ, khoai tây chuẩn bị nhúng lẩu, cạnh đĩa salad và miếng thịt nướng rưới sốt ở Trạm Dừng Chill" loading="lazy"><div class="blog-related-info"><span class="blog-category">Ẩm thực Đà Lạt</span><p class="blog-related-title">Món Nướng Ngon Nhất Đà Lạt — Bò Tảng Phô Mai, Hải Sản &amp; BBQ Tại Trạm Dừng Chill</p></div></a>
+            <h2>Gợi ý cho bạn</h2>
+            <div class="blog-related-grid" data-so="3">
                 <a href="lau-nuong-da-lat-mua-lanh.html" class="blog-related-card"><img width="1200" height="800" src="../assets/images/blog/view-hoang-hon-1-v2.webp" srcset="../assets/images/blog/view-hoang-hon-1-v2-400w.webp 400w, ../assets/images/blog/view-hoang-hon-1-v2-800w.webp 800w, ../assets/images/blog/view-hoang-hon-1-v2.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Một đôi khách ngồi bàn gỗ ngoài trời ở Trạm Dừng Chill trong nắng chiều, trên bàn có hoa và bảng phấn, phía sau là thung lũng" loading="lazy"><div class="blog-related-info"><span class="blog-category">Ẩm thực Đà Lạt</span><p class="blog-related-title">Lẩu Nướng Đà Lạt Mùa Lạnh — Tự Ghép Món Ấm Bụng, View Sương Mù &amp; Xe Lửa</p></div></a>
+                <a href="nuong-bbq-ngam-xe-lua.html" class="blog-related-card"><img width="900" height="1200" src="../assets/images/blog/view-xe-lua-11b.webp" srcset="../assets/images/blog/view-xe-lua-11b-400w.webp 400w, ../assets/images/blog/view-xe-lua-11b-800w.webp 800w, ../assets/images/blog/view-xe-lua-11b.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khách ngồi bàn nướng sát lan can Trạm Dừng Chill, tàu Đà Lạt – Trại Mát ngay bên dưới, xa hơn là thung lũng nhà kính" loading="lazy"><div class="blog-related-info"><span class="blog-category">Trải nghiệm</span><p class="blog-related-title">Nướng BBQ Ngắm Tàu Lửa Đà Lạt — Tàu Cổ Chạy Ngay Dưới Chân Quán</p></div></a>
+                <a href="mon-nuong-ngon-nhat-da-lat.html" class="blog-related-card"><img width="1200" height="900" src="../assets/images/blog/mon-nuong-4-v3.webp" srcset="../assets/images/blog/mon-nuong-4-v3-400w.webp 400w, ../assets/images/blog/mon-nuong-4-v3-800w.webp 800w, ../assets/images/blog/mon-nuong-4-v3.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px" alt="Khay gà, đậu hũ, khoai tây chuẩn bị nhúng lẩu, cạnh đĩa salad và miếng thịt nướng rưới sốt ở Trạm Dừng Chill" loading="lazy"><div class="blog-related-info"><span class="blog-category">Ẩm thực Đà Lạt</span><p class="blog-related-title">Món Nướng Ngon Nhất Đà Lạt — Bò Tảng Phô Mai, Hải Sản &amp; BBQ Tại Trạm Dừng Chill</p></div></a>
             </div>
         </div>
     </section>

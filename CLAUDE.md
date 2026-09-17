@@ -751,6 +751,79 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    Bingbot/GPTBot/OAI-SearchBot/ClaudeBot/PerplexityBot/Google-Extended (soi **mọi** khối trùng tên bot, không chỉ khối đầu) ·
    bộ câu hỏi khớp `bamCauHoi`, mã không trùng, `urlKyVong` có thật trong sitemap.
 
+34. **Thẻ "Bài viết liên quan" chọn theo NGÀY ĐĂNG → 113/423 link dồn vào một bài, 30 thẻ rò ngôn ngữ** (16/09/2026).
+   Hàm `buildRelatedPosts` cũ lấy "cùng chuyên mục, bài mới nhất trước". `an-vat-da-lat-buoi-toi` (30/07/2026) là bài mới
+   nhất TOÀN SITE nên thắng ở cả hai đường: đứng đầu chuyên mục đông nhất (33 bài noindex "Ẩm thực Đà Lạt") **và** là bài
+   lấp chỗ cho 13 bài thuộc "Mùa lễ hội" + "Check-in & Sống ảo" (hai chuyên mục KHÔNG có bài index nào). Kết quả đếm thật
+   trên 141 file HTML: nó hứng **113/423 thẻ**, bài chủ lực `nuong-bbq-ngam-xe-lua` được **9**, `quan-nuong-da-lat-view-nha-long`
+   được **3** → bài ăn vặt chợ đêm (nói về hàng quán khác, không nói về quán mình) thành hố link nội bộ lớn nhất site.
+   Hàm cũng không lọc ngôn ngữ nên bài tiếng Việt trỏ sang bài tiếng Anh và ngược lại (30 thẻ).
+   → Nay `data/dln-map.js` khai **bậc ý định** (thang O→C→P→R→A: tìm hiểu → chọn → tin → giá → đặt bàn) + chủ đề cho 18 bài
+   đích; `chonBaiLienQuan()` chấm 0,65 chủ đề + 0,35 khoảng cách bậc, gán 3 vòng với **TRẦN CỨNG** (1,35 × phần công bằng,
+   tính RIÊNG theo cụm ngôn ngữ). Không dùng hạn ngạch mềm/λ liên tục — đã cân nhắc và loại: trần một mình đủ kéo 113 → 42
+   mà bỏ được toàn bộ độ nhạy tham số.
+   Đo A/B cùng thước đo (bản cũ lấy từ git HEAD): link nhiều nhất **113 → 42** · thẻ đẩy khách LÊN bậc **107 (25,3%) → 208
+   (49,8%)** · trang có ≥1 thẻ bậc cao hơn **65/141 → 134/141** · rò ngôn ngữ **30 → 0** · tự trỏ 0 · trùng 0 ·
+   3 lần build ra hash y hệt · 0/141 bài đổi dấu vân nội dung (không bị đóng dấu "Cập nhật" oan).
+   - ⚠️ **Hai trọng số 0,65/0,35 là chỗ NHẠY — đã đo, đừng vặn mò.** Đổi sang 0,60/0,40 làm **45/141 trang (31,9%)**
+     đổi thẻ · 0,70/0,30 làm **27/141 (19,1%)** · 0,50/0,50 làm **105/141 (74,5%)**. Con số này đo ĐỘ RUNG chứ không đo
+     chất lượng: các bảo đảm thật (không dồn cục, không rò ngôn ngữ, ≥90% trang có thẻ dẫn lên) do **R24** canh và vẫn
+     đứng ở mọi mức trên. Nghĩa là trọng số là núm tinh chỉnh, không phải chỗ giữ cam kết — nhưng vặn một nhát là
+     ~1/3 site vào `git diff`, nên vặn thì phải chạy lại R24 + đọc lại vài trang mẫu bằng mắt.
+   - ⚠️ **`chonBaiLienQuan()` PHẢI chạy MỘT LẦN trước vòng ghi file.** Bộ đếm trần là trạng thái toàn cục; tính lại trong
+     từng lần gọi thì trần không bao giờ chạm, kết quả khác hẳn mà KHÔNG chậm đi — tức sai lặng lẽ, không đồng hồ nào bắt.
+   - ⚠️ **Hồ sơ bài nguồn theo thứ tự: `GHI_DE` → `DICH` → kế thừa canonical → bảng chuyên mục.** 95/123 bài noindex đã khai
+     canonical sang một bài index trong `blog-seo.js` — đó là NGƯỜI biên tập tuyên bố "bài này nói cùng chuyện với bài kia",
+     dùng nó thì chỉ còn 28 bài phải đoán (113/141 = 80% hồ sơ do người khai). Kế thừa là **HỢP**, không thay thế: bài
+     Valentine gộp về `hen-ho-da-lat` vẫn phải giữ chủ đề `tiec` của chính nó.
+   - ⚠️ **"Ẩm thực Đà Lạt" KHÔNG mặc định chủ đề `an-vat`.** Đã mở 28 bài dùng bảng chuyên mục ra đọc: 28/28 đều là bài CHỌN
+     QUÁN NƯỚNG ("Quán Nhậu Đà Lạt", "Quán Nướng Mở Khuya", "Top 7 Quán Nướng View Đẹp"…). Gán `an-vat` cho chúng là đẩy
+     thẳng về bài ăn vặt chợ đêm — đúng cái bệnh bản sửa này đang chữa.
+   - ⚠️ **Luật từ khoá phải đủ hẹp — không máy canh nào bắt được lỗi này.** Bỏ dấu xong "Đánh **Giá Cao**" thành `danh gia cao`,
+     chứa đúng chuỗi `gia ca` → bài về SỐ SAO bị gắn chủ đề giá rồi đẩy khách sang bảng giá (đã dính, vá bằng `gia ca(?!o)`).
+     Chạy **`node scripts/kiem-dln-map.js --sai-lech`** để đọc bảng "bài | chủ đề được gán | chuỗi khớp" bằng mắt.
+     Sửa một bài lệch thì khai vào `GHI_DE`, **đừng sửa bảng chuyên mục** — một dòng đó kéo theo hàng chục trang.
+   - Cụm tiếng Anh chỉ có 2 bài index nên 2 trang EN còn 1 thẻ, 1 trang còn 2. `templates/blog-post.html` có rule
+     `[data-so="1"]` / `[data-so="2"]` để lưới 3 cột không kéo giãn 1 thẻ hết 1000px.
+     ⚠️ Thuộc tính `data-so` gắn vào `<div class="blog-related-grid">`, **TUYỆT ĐỐI không thêm gì vào
+     `<section class="blog-related">`** — `cap-nhat-lastmod.js` dòng ~110 khớp chuỗi đó CHÍNH XÁC để loại khối này khỏi dấu
+     vân; regex trượt là 141 bài bị đóng dấu "Cập nhật" + bắn IndexNow oan.
+   - Thêm/bớt một bài blog làm ~30–40 file `blog/*.html` đổi khối thẻ (trần là trạng thái toàn cục) — **bình thường, cứ
+     commit kèm**, giống ghi chú về 4 file `.woff2` ở mục Phông. Dấu vân đã loại khối này nên không trang nào bị đóng dấu.
+   - `generate-blog-pages.js` nay **throw khi có bài lỗi** thay vì chỉ in ra. Lỗ này có từ trước: vòng ghi file bắt lỗi theo
+     từng bài rồi chỉ `console.error`, build vẫn trả về 0 → file HTML **CŨ** của bài hỏng nằm nguyên trên đĩa, `git status`
+     trông sạch ở đúng bài đó, và bản cũ lên thẳng production.
+   → Máy canh **R24**: đích phải còn index THẬT (đọc lại `blog-seo.js`, **không suy** từ việc "có trong bảng") · không tự trỏ ·
+   không trùng trong trang · không rò ngôn ngữ (đọc khoá `lang` trong bảng, không đoán theo tên file) · không đích nào quá
+   **15%** tổng thẻ — cố ý là ngưỡng THÔ chứ không chép lại công thức trần, chép là đẻ thêm chỗ phải giữ đồng bộ tay ·
+   `data-so` khớp số thẻ · **≥ 90% trang có thẻ dẫn lên bậc cao hơn** (thiếu mục này thì ai đó đổi bảng bậc làm tỉ lệ rơi về
+   mức cũ 46% mà không ai kêu).
+   - **Đích NGOÀI blog** (`DICH_NGOAI` trong dln-map.js), 2 trang:
+     · `menu.html` — bậc R, **`lang: null`** nên phục vụ cả cụm Việt lẫn Anh (26 trang ẢNH, trung tính ngôn ngữ).
+       Nhận **42/421 thẻ**. Nhờ nó 2 trang EN từ 1 thẻ lên 2 thẻ.
+     · `duong-di/` — bậc A, **`lang: "vi"`** vì trang toàn chữ tiếng Việt (h1, hướng dẫn, FAQ). Nhận **4 thẻ**.
+     ⚠️ Trang nhiều CHỮ phải khai đúng `lang`; chỉ trang gần như thuần ảnh mới để `null`. Đẩy khách đọc tiếng Anh
+     vào trang tiếng Việt chỉ để đủ 3 thẻ là tối ưu con số, không tối ưu người đọc.
+     Vì khối giờ có cả trang lẫn bài, tiêu đề đổi thành **"Gợi ý cho bạn" / "You might also like"** (`ui()` trong generator) —
+     chữ đó nằm trong vùng bị gỡ khỏi dấu vân nên đổi được, đã kiểm.
+   - ⚠️ **Mã chủ đề `di-lai` TÁCH khỏi `dat-ban` — đừng gộp lại.** Bản đầu nhét `duong di|do xe` chung vào `dat-ban`,
+     nên bài "Quán Nướng Có Chỗ Đỗ Xe" / "Gần Trung Tâm" / "Gần Hồ Tuyền Lâm" chấm y hệt bài về đặt bàn, mà chúng đều
+     mang thêm `nuong` nên `tip-chon-cho-ngoi-quan-nuong` luôn thắng. Kết quả: `duong-di/` chỉ được 3 thẻ và rơi vào 3 bài
+     KHÔNG nói về đường đi (nhóm 10 người, team building, hoàng hôn). Tách mã xong nó về đúng 3 bài nói về vị trí/đỗ xe.
+     **Thẻ đặt sai chỗ còn tệ hơn không có thẻ** — thêm đích mới thì phải mở ra xem nó rơi vào đâu, đừng chỉ đếm số.
+   - ⚠️ **ĐỪNG thêm thẻ "Đặt bàn" trỏ `index.html#booking`** — đã thử rồi BỎ. `templates/blog-post.html` dòng ~119 đã có sẵn
+     khối CTA nền đen nút vàng "Đặt bàn ngay →" nằm NGAY DƯỚI khối gợi ý, cùng màn hình. Thêm thẻ là nhân đôi cùng lời mời mà
+     vẫn chiếm một suất: đo thật nó ăn 17 suất, kéo `team-building-da-lat` (bài index) từ 20 xuống **5** link.
+     Khối gợi ý để dẫn tới trang CHƯA có lối vào rõ ràng — `menu.html` đúng loại đó, form đặt bàn thì không.
+   - **GA4 cho cú bấm thẻ**: sự kiện `bam_the_goi_y` trong `js/lazy-tracking.js` (cuối file), kèm `link_url`, `link_text`,
+     `o_thu` (1 = ô trái), `tu_trang`, `transport_type: 'beacon'`. Bắt ở giai đoạn **capture** và gọi `batPixel(false)` trước —
+     chạm/rê chuột thường đã bật đủ 5 pixel (bug #9) nhưng khách dùng BÀN PHÍM thì chưa sự kiện nào nổ.
+     ⚠️ Giữ `send_to: 'G-2VFBZDY6CD'`, thiếu là gtag gửi cả sang Google Ads. ⚠️ Không đọc thuộc tính bố cục trong handler.
+     Phải đăng ký `o_thu`/`link_url` ở GA4 → Quản trị → Định nghĩa tuỳ chỉnh mới cắt báo cáo được, và chỉ tính từ lúc đăng ký.
+   ⚠️ **Còn lại, chưa làm:** hai bài bậc O ít được trỏ nhất (`dac-san-da-lat-mua-ve`, `an-vat-da-lat-buoi-toi`) còn 3 link mỗi
+   bài; cố ý **không** đặt "sàn" vì ép sàn là buộc phải chèn thẻ lạc đề. Hai bài EN vẫn chỉ 2 thẻ — đó là giới hạn DỮ LIỆU
+   (site chỉ có 2 bài EN index), muốn 3 thẻ thì phải viết thêm bài tiếng Anh, không phải sửa bảng.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

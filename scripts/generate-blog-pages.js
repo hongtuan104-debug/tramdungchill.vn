@@ -9,6 +9,8 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+// Bảng bậc ý định + chủ đề để chọn "Bài viết liên quan" — xem chú thích đầu file đó.
+const DLN = require("../data/dln-map.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const DATA_FILE = path.join(ROOT, "data", "blog-data.js");
@@ -297,7 +299,7 @@ var DIEM_VI = String(FACTS.diemDanhGiaGoogle).replace(".", ",");
 var UI = {
     vi: {
         home: "Trang chủ", menu: "Thực đơn", blog: "Blog", book: "Đặt bàn",
-        read: "phút đọc", related: "Bài viết liên quan", faq: "Câu hỏi thường gặp",
+        read: "phút đọc", related: "Gợi ý cho bạn", faq: "Câu hỏi thường gặp",
         ctaTitle: "Đặt Bàn Trạm Dừng Chill",
         ctaSub: "Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt",
         ctaBtn: "Đặt bàn ngay →",
@@ -309,7 +311,7 @@ var UI = {
     },
     en: {
         home: "Home", menu: "Menu", blog: "Blog", book: "Book a table",
-        read: "min read", related: "Related articles", faq: "Frequently asked questions",
+        read: "min read", related: "You might also like", faq: "Frequently asked questions",
         ctaTitle: "Book a table at Trạm Dừng Chill",
         ctaSub: "Grilled BBQ with sunset and vintage train views — only in Da Lat",
         ctaBtn: "Book now →",
@@ -595,6 +597,11 @@ try {
                 : target === "/"
                     ? SITE_URL + "/"
                     : SITE_URL + "/blog/" + target + ".html";
+            // Id TRẦN của bài mà bài này gộp vào (null nếu trỏ trang chủ hay chính nó).
+            // chonBaiLienQuan() kế thừa bậc + chủ đề từ bài đó — 95/123 bài noindex có
+            // giá trị này, tức 95 hồ sơ do NGƯỜI biên tập khai chứ không phải máy đoán.
+            // ⚠️ Đừng đọc a._canonical thay cho nó: đó là URL đầy đủ, không phải id.
+            a._canonId = (target && target !== "/" && target !== a.id) ? target : null;
         } else {
             a._indexable = true;
             a._canonical = SITE_URL + "/blog/" + a.id + ".html";
@@ -665,24 +672,226 @@ try {
         return '<a href="' + nav.next.id + '.html" class="blog-nav-next"><span class="nav-label">' + ui(article).next + ' \u2192</span><span class="nav-title">' + htmlEncode(nav.next.title) + '</span></a>';
     }
 
-    // Build related posts for each article
+    // ── Chọn "Bài viết liên quan" theo bậc ý định (xem data/dln-map.js) ──────────
+    // Bản cũ: "cùng chuyên mục, bài mới nhất trước". Vì bài mới nhất toàn site cũng là
+    // bài lấp chỗ cho mọi chuyên mục thiếu bài index nên nó hứng 113/423 thẻ, còn bài
+    // chủ lực chỉ 9 — thuần thiên vị ngày đăng. Bản này chấm điểm theo CHỦ ĐỀ + BẬC rồi
+    // gán theo 3 vòng với TRẦN CỨNG mỗi đích.
+    //
+    // ⚠️ Phải chạy MỘT LẦN cho cả 141 bài TRƯỚC vòng ghi file: bộ đếm trần là trạng thái
+    //    toàn cục. Tính lại trong từng lần gọi buildRelatedPosts thì trần không bao giờ
+    //    chạm, kết quả khác hẳn mà không hề chậm đi — tức sai lặng lẽ.
+    const KE_HOACH = chonBaiLienQuan(articles);
+
+    function chonBaiLienQuan(tatCa) {
+        const HE_SO_TRAN = 1.35;   // trần = 1.35 × phần công bằng. Xem ghi chú độ nhạy cuối hàm.
+        const W_LIEN_QUAN = 0.65;  // trọng số chủ đề
+        const W_BAC = 0.35;        // trọng số bậc ý định
+        const RANK = DLN.BAC_RANK;
+
+        // ── Chặn TRƯỚC khi ghi bất kỳ file nào (cùng kiểu với cái throw ngày tương lai).
+        // Vòng ghi file bắt lỗi theo từng bài và không thoát khác 0, nên lỗi phát hiện
+        // trong đó sẽ để lại file HTML CŨ trên đĩa mà build vẫn báo thành công.
+        const theoId = {};
+        tatCa.forEach(a => { theoId[a.id] = a; });
+        for (const id of Object.keys(DLN.DICH)) {
+            if (!theoId[id]) {
+                throw new Error("data/dln-map.js khai bài đích \"" + id + "\" nhưng không có bài nào mang id đó. Đổi tên/xoá bài thì sửa cả bảng DICH.");
+            }
+            if (theoId[id]._indexable === false) {
+                throw new Error("data/dln-map.js khai bài đích \"" + id + "\" nhưng bài đó đang noindex trong data/blog-seo.js. Thẻ liên quan không được trỏ sang trang noindex — xoá nó khỏi DICH.");
+            }
+        }
+        for (const a of tatCa) {
+            if (!DLN.TAG_DANH_MUC[a.category] || !DLN.BAC_DANH_MUC[a.category]) {
+                throw new Error("Chuyên mục \"" + a.category + "\" (bài " + a.id + ") chưa khai trong TAG_DANH_MUC/BAC_DANH_MUC của data/dln-map.js. Thiếu là bài đó chấm 0 với mọi đích rồi nhận thẻ theo thứ tự viết trong bảng — sai lặng lẽ.");
+            }
+        }
+
+        const nn = a => (a._lang === "en" ? "en" : "vi");
+
+        // Gộp hai loại đích vào MỘT bảng để chấm điểm chung. Đích ngoài blog
+        // (menu, đặt bàn) có lang = null → phục vụ cả cụm Việt lẫn cụm Anh.
+        const MOI_DICH = {};
+        Object.keys(DLN.DICH).forEach(id => {
+            MOI_DICH[id] = { bac: DLN.DICH[id].bac, tag: DLN.DICH[id].tag,
+                trongSo: DLN.DICH[id].trongSo, lang: DLN.DICH[id].lang || "vi", ngoai: false };
+        });
+        Object.keys(DLN.DICH_NGOAI).forEach(id => {
+            const n = DLN.DICH_NGOAI[id];
+            if (MOI_DICH[id]) throw new Error("data/dln-map.js: id \"" + id + "\" có ở cả DICH lẫn DICH_NGOAI.");
+            if (!fs.existsSync(path.join(ROOT, n.anh))) {
+                throw new Error("data/dln-map.js: đích ngoài blog \"" + id + "\" trỏ ảnh không có thật — " + n.anh);
+            }
+            // Thiếu bản 400/800 là thẻ không có srcset → luật R21 chặn. Bắt ở đây cho sớm.
+            for (const duoi of ["-400w.webp", "-800w.webp"]) {
+                if (!fs.existsSync(path.join(ROOT, n.anh.replace(/[.](jpg|webp)$/i, duoi)))) {
+                    throw new Error("data/dln-map.js: ảnh của \"" + id + "\" thiếu bản " + duoi + " — thẻ sẽ không có srcset, R21 chặn.");
+                }
+            }
+            // lang: null = phục vụ cả hai cụm (menu.html là 26 trang ảnh).
+            // Trang nhiều CHỮ thì phải khai đúng ngôn ngữ của nó (duong-di = "vi").
+            MOI_DICH[id] = { bac: n.bac, tag: n.tag, trongSo: n.trongSo,
+                lang: n.lang === undefined ? null : n.lang, ngoai: true };
+        });
+
+        // ── Hồ sơ bài nguồn: ghi đè tay > là bài đích > kế thừa canonical > bảng chuyên mục
+        function hoSo(a) {
+            if (DLN.GHI_DE[a.id]) return { bac: DLN.GHI_DE[a.id].bac, tag: new Set(DLN.GHI_DE[a.id].tag) };
+            if (DLN.DICH[a.id]) return { bac: DLN.DICH[a.id].bac, tag: new Set(DLN.DICH[a.id].tag) };
+
+            const tag = new Set(DLN.TAG_DANH_MUC[a.category]);
+            let bac = DLN.BAC_DANH_MUC[a.category];
+            // Kế thừa từ bài mà nó gộp vào — HỢP chứ không thay: bài "Valentine" gộp về
+            // hen-ho-da-lat vẫn phải giữ chủ đề "tiec" của chính nó.
+            const goc = a._canonId && DLN.DICH[a._canonId];
+            if (goc) {
+                bac = goc.bac;
+                goc.tag.forEach(t => tag.add(t));
+            }
+            const ten = DLN.boDau(a.title || "");
+            DLN.TU_KHOA.forEach(([mau, ma]) => { if (mau.test(ten)) tag.add(ma); });
+            // Cứu hộ: tiêu đề quá ngắn thì hồ sơ gần như rỗng và mọi cặp chấm bằng nhau.
+            // Chỉ quét tóm tắt khi thiếu — quét cho mọi bài thì tóm tắt nào cũng có
+            // "nướng/view" nên chủ đề dính hết vào nhau.
+            if (tag.size < 2) {
+                const tt = DLN.boDau(stripHtml(a.excerpt || ""));
+                DLN.TU_KHOA.forEach(([mau, ma]) => { if (mau.test(tt)) tag.add(ma); });
+            }
+            return { bac: bac, tag: tag };
+        }
+
+        // Điểm bậc: thưởng cho bước đi LÊN, phạt bước lùi. Bài đã ở R/A thì không còn
+        // bậc trên — giữ khách trong nhóm P/R/A thay vì đẩy ngược về bài du lịch chung.
+        function diemBac(rs, rd) {
+            if (rs >= 3) return rd >= 2 ? 0.85 : rd === 1 ? 0.50 : 0.15;
+            const d = rd - rs;
+            if (d === 1) return 1.00;
+            if (d === 2) return 0.85;
+            if (d === 3) return 0.65;
+            if (d === 4) return 0.50;
+            if (d === 0) return 0.40;
+            return 0.15;
+        }
+
+        function cos(A, B) {
+            if (!A.size || !B.size) return 0;   // tập rỗng → 0, đừng để 0/0 thành NaN
+            let chung = 0;
+            A.forEach(t => { if (B.has(t)) chung++; });
+            return chung / Math.sqrt(A.size * B.size);
+        }
+
+        const hs = {};
+        tatCa.forEach(a => { hs[a.id] = hoSo(a); });
+
+        // ── Trần cứng, tính RIÊNG theo cụm ngôn ngữ.
+        // Tính chung hai cụm thì 2 bài tiếng Anh được chia phần của cả site trong khi
+        // cụm đó chỉ có 4 khe — trần thành vô nghĩa và mọi ngưỡng "sàn" báo động giả.
+        // Đích ngoài blog (lang = null) nằm trong CẢ HAI cụm.
+        const dichTheoNN = { vi: [], en: [] };
+        Object.keys(MOI_DICH).forEach(id => {
+            const L = MOI_DICH[id].lang;
+            if (L === null) { dichTheoNN.vi.push(id); dichTheoNN.en.push(id); }
+            else dichTheoNN[L].push(id);
+        });
+        ["vi", "en"].forEach(c => dichTheoNN[c].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0)));
+
+        // Phần công bằng CỘNG DỒN qua các cụm: đích phục vụ cả hai cụm thì được cộng
+        // phần của cả hai. Tính chung một rổ thì 2 bài tiếng Anh được chia phần của cả
+        // site trong khi cụm đó chỉ có vài khe — trần thành vô nghĩa.
+        const phanCongBang = {};
+        Object.keys(MOI_DICH).forEach(id => { phanCongBang[id] = 0; });
+        ["vi", "en"].forEach(cum => {
+            const dich = dichTheoNN[cum];
+            if (!dich.length) return;
+            const nguon = tatCa.filter(a => nn(a) === cum);
+            // Khe thật: mỗi nguồn hiện tối đa 3 thẻ, nhưng không quá số đích dùng được trừ chính nó.
+            let khe = 0;
+            nguon.forEach(a => { khe += Math.min(3, dich.filter(d => d !== a.id).length); });
+            const tong = dich.reduce((s, id) => s + MOI_DICH[id].trongSo, 0);
+            dich.forEach(id => { phanCongBang[id] += khe * MOI_DICH[id].trongSo / tong; });
+        });
+        const tran = {};
+        Object.keys(MOI_DICH).forEach(id => {
+            tran[id] = Math.max(1, Math.ceil(phanCongBang[id] * HE_SO_TRAN));
+        });
+
+        // ── Gán theo 3 vòng. Vòng 1 ai cũng lấy lựa chọn tốt nhất còn chỗ; vòng sau
+        // những đích đã đầy tự nhường lại cho đích khác.
+        const dung = {};
+        Object.keys(MOI_DICH).forEach(id => { dung[id] = 0; });
+        const ketQua = {};
+        // Duyệt theo id tăng dần, so bằng MÃ KÝ TỰ — localeCompare phụ thuộc ICU của
+        // từng bản Node nên cùng code trên hai máy có thể ra thứ tự khác, phá tính tất định.
+        const nguonSort = tatCa.slice().sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+        nguonSort.forEach(a => { ketQua[a.id] = []; });
+        let tranDay = 0;
+
+        for (let vong = 0; vong < 3; vong++) {
+            for (const a of nguonSort) {
+                if (ketQua[a.id].length > vong) continue;
+                const daChon = new Set(ketQua[a.id].map(x => x.id));
+                const ungVien = dichTheoNN[nn(a)].filter(id => id !== a.id && !daChon.has(id));
+                if (!ungVien.length) continue;
+
+                const chamDiem = ungVien.map(id => {
+                    const d = MOI_DICH[id];
+                    const lq = Math.min(1,
+                        0.75 * cos(hs[a.id].tag, new Set(d.tag)) +
+                        // Đích ngoài blog không có chuyên mục nên không ăn điểm này — đúng:
+                        // nó ăn điểm ở trục BẬC (menu = R, đặt bàn = A, cao hơn mọi bài blog trừ hai bài).
+                        0.25 * (!d.ngoai && theoId[id].category === a.category ? 1 : 0) +
+                        // Thẻ trỏ đúng bài mà nguồn gộp vào: dòng link nội bộ chảy cùng
+                        // hướng với canonical đã khai, thay vì cãi nhau với nó.
+                        0.30 * (a._canonId === id ? 1 : 0));
+                    return { id: id, diem: W_LIEN_QUAN * lq + W_BAC * diemBac(RANK[hs[a.id].bac], RANK[d.bac]), lq: lq };
+                });
+                // Phá hoà: điểm giảm → đích đang ít link hơn → id tăng. Thiếu khoá "dùng"
+                // thì khi hoà điểm, bài đầu bảng chữ cái luôn thắng — đúng loại thiên lệch
+                // đã góp phần đẻ ra cục 113 link.
+                const xep = (ds) => ds.sort((x, y) =>
+                    y.diem - x.diem || dung[x.id] - dung[y.id] || (x.id < y.id ? -1 : x.id > y.id ? 1 : 0));
+
+                let con = chamDiem.filter(c => dung[c.id] < tran[c.id]);
+                if (!con.length) { con = chamDiem; tranDay++; }   // thà tràn trần còn hơn hụt thẻ
+                xep(con);
+                const chon = con[0];
+                ketQua[a.id].push({ id: chon.id, diem: chon.diem });
+                dung[chon.id]++;
+            }
+        }
+
+        // Ô đầu trong lưới 3 cột được nhìn và bấm nhiều nhất — xếp thẻ mạnh nhất lên trước.
+        // Thứ tự gán ở trên là sản phẩm phụ của trạng thái trần từng vòng, không phải của độ khớp.
+        // Trả về MÔ TẢ thống nhất cho cả hai loại đích, để hàm dựng HTML không phải
+        // biết thẻ này là bài blog hay trang menu/đặt bàn.
+        const moTa = (id, nguon) => {
+            if (MOI_DICH[id].ngoai) {
+                const n = DLN.DICH_NGOAI[id];
+                const chu = n[nn(nguon)] || n.vi;
+                return { href: n.href, anh: n.anh, alt: chu.alt, nhan: chu.nhan, tieuDe: chu.tieuDe };
+            }
+            const b = theoId[id];
+            return { href: id + ".html", anh: b.image, alt: b.imageAlt || b.title, nhan: b.category, tieuDe: b.title };
+        };
+
+        const ra = {};
+        let soNgoai = 0;
+        nguonSort.forEach(a => {
+            ra[a.id] = ketQua[a.id]
+                .sort((x, y) => y.diem - x.diem || (x.id < y.id ? -1 : x.id > y.id ? 1 : 0))
+                .map(x => { if (MOI_DICH[x.id].ngoai) soNgoai++; return moTa(x.id, a); });
+        });
+
+        const tongThe = Object.keys(ra).reduce((s, id) => s + ra[id].length, 0);
+        console.log("Gợi ý cho bạn: " + tongThe + " thẻ cho " + Object.keys(ra).length +
+            " bài (" + soNgoai + " thẻ trỏ menu/đặt bàn)" +
+            (tranDay ? " · " + tranDay + " lượt phải tràn trần" : ""));
+        return ra;
+    }
+
     function buildRelatedPosts(currentArticle) {
-        const publishedOthers = articles
-            .filter(a => a.id !== currentArticle.id && a.date <= TODAY && a._indexable !== false)
-            .sort((a, b) => b.date.localeCompare(a.date));
-
-        // Same category first
-        const sameCategory = publishedOthers.filter(a => a.category === currentArticle.category);
-        const otherCategory = publishedOthers.filter(a => a.category !== currentArticle.category);
-
-        const related = [];
-        for (let i = 0; i < sameCategory.length && related.length < 3; i++) {
-            related.push(sameCategory[i]);
-        }
-        for (let i = 0; i < otherCategory.length && related.length < 3; i++) {
-            related.push(otherCategory[i]);
-        }
-
+        const related = KE_HOACH[currentArticle.id] || [];
         if (related.length === 0) return "";
 
         return related.map(function(a) {
@@ -690,20 +899,20 @@ try {
             // Bản cũ không srcset nên máy tính tải ảnh 1200px cho ô 317px (đo 15/09/2026, checklist #11 mục 77).
             // Tiêu đề thẻ là <p>, không phải h3: thẻ không có nội dung bên dưới, 3 h3 liền nhau chỉ làm rối dàn bài
             // (checklist #10 mục 70) — R20/R21 trong seo-geo-verify.js canh cả hai.
-            var anh = "../" + a.image;
+            var anh = "../" + a.anh;
             var coBien = ["-400w.webp", "-800w.webp"].every(function (duoi) {
-                return fs.existsSync(path.join(ROOT, a.image.replace(/[.](jpg|webp)$/i, duoi)));
+                return fs.existsSync(path.join(ROOT, a.anh.replace(/[.](jpg|webp)$/i, duoi)));
             });
             var srcset = coBien
                 ? ' srcset="' + anh.replace(/[.](jpg|webp)$/i, "-400w.webp") + ' 400w, ' +
                   anh.replace(/[.](jpg|webp)$/i, "-800w.webp") + ' 800w, ' + anh + ' 1200w"' +
                   ' sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1048px) calc(33.3vw - 32px), 317px"'
                 : "";
-            return '<a href="' + a.id + '.html" class="blog-related-card">' +
-                '<img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.imageAlt || a.title) + '" loading="lazy">' +
+            return '<a href="' + a.href + '" class="blog-related-card">' +
+                '<img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.alt) + '" loading="lazy">' +
                 '<div class="blog-related-info">' +
-                '<span class="blog-category">' + a.category + '</span>' +
-                '<p class="blog-related-title">' + htmlEncode(a.title) + '</p>' +
+                '<span class="blog-category">' + htmlEncode(a.nhan) + '</span>' +
+                '<p class="blog-related-title">' + htmlEncode(a.tieuDe) + '</p>' +
                 '</div></a>';
         }).join("\n                ");
     }
@@ -805,6 +1014,7 @@ try {
                 .replace(/{{NEXT_LINK}}/g, buildNextLink(navMap[article.id], article))
                 .replace(/{{PREV_TITLE}}/g, navMap[article.id] && navMap[article.id].prev ? htmlEncode(navMap[article.id].prev.title) : "")
                 .replace(/{{NEXT_TITLE}}/g, navMap[article.id] && navMap[article.id].next ? htmlEncode(navMap[article.id].next.title) : "")
+                .replace(/{{RELATED_COUNT}}/g, String((KE_HOACH[article.id] || []).length))
                 .replace(/{{RELATED_POSTS}}/g, buildRelatedPosts(article));
 
             // {{I18N:khoá}} — chữ dùng chung với website (footer). Thiếu khoá thì
@@ -832,7 +1042,12 @@ try {
     }
 
     console.log("Generated " + generated + " blog pages in blog/");
-    if (errors > 0) console.error(errors + " errors encountered");
+    // Lỗi ở một bài = file HTML CŨ của bài đó nằm nguyên trên đĩa. Trước 16/09/2026 chỗ
+    // này chỉ in ra rồi build vẫn trả về 0, nên `git status` trông sạch ở đúng những bài
+    // hỏng và bản cũ lên thẳng production. Dừng hẳn để không ai push nhầm.
+    if (errors > 0) {
+        throw new Error(errors + " bài lỗi khi dựng — file HTML cũ của chúng còn nguyên trên đĩa, ĐỪNG push. Xem log phía trên.");
+    }
 
     // Trang tác giả: điền SAU khi dựng bài (dùng chung _indexable/_lang), TRƯỚC
     // chen-kich-thuoc-anh + toi-uu-tai-trang ở cuối để ảnh và vân tay được lo luôn.
