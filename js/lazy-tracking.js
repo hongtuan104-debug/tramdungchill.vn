@@ -163,4 +163,36 @@
     setTimeout(henSoLe, 10000);
 
     window.addEventListener('pagehide', batHet, { once: true });
+
+    /* ── Sự kiện GA4 cho cú bấm thẻ "Gợi ý cho bạn" (16/09/2026) ──────────────
+       Khối thẻ cuối bài nay chọn đích theo bậc ý định (CLAUDE.md #34). Không có sự
+       kiện này thì vài tháng nữa vẫn không biết khách có bấm không, ô nào được bấm,
+       và thẻ trỏ menu/đặt bàn có ăn hơn thẻ trỏ bài blog hay không — tức không kết
+       luận được bản sửa đó đáng hay không.
+
+       - Bắt ở giai đoạn CAPTURE: thẻ là <a> điều hướng, bắt muộn có thể lỡ.
+       - Gọi batPixel(false) trước: chạm/rê chuột thường đã bật đủ 5 pixel đồng bộ
+         (bug #9), nhưng khách dùng BÀN PHÍM (Tab + Enter) thì chưa sự kiện nào nổ.
+         Bật đồng bộ ở đây, tuyệt đối không so le — trang sắp rời, so le là mất sự kiện.
+       - transport_type 'beacon': trình duyệt gửi tiếp cả khi trang đã chuyển.
+       - send_to phải khai rõ GA4, thiếu là gtag gửi cả sang Google Ads (CLAUDE.md #31).
+       - KHÔNG đọc thuộc tính bố cục (offsetTop, getBoundingClientRect) trong đây:
+         đang ở giữa một cú tương tác, đọc là ép tính lại bố cục → INP xấu (bug #26). */
+    document.addEventListener('click', function (e) {
+        var the = e.target && e.target.closest ? e.target.closest('a.blog-related-card') : null;
+        if (!the) return;
+        batPixel(false);
+        if (typeof gtag !== 'function') return;
+        var luoi = the.parentNode;
+        var oThu = luoi ? Array.prototype.indexOf.call(luoi.children, the) + 1 : 0;
+        var ten = the.querySelector('.blog-related-title');
+        gtag('event', 'bam_the_goi_y', {
+            send_to: 'G-2VFBZDY6CD',
+            link_url: the.getAttribute('href') || '',
+            link_text: ten ? ten.textContent.slice(0, 100) : '',
+            o_thu: oThu,                                  // 1 = ô trái, ô được nhìn nhiều nhất
+            tu_trang: location.pathname,
+            transport_type: 'beacon'
+        });
+    }, { capture: true });
 })();
