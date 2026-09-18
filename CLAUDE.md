@@ -877,6 +877,46 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    submit inline. ⚠️ Luật **bỏ chú thích trước khi quét** — chính lời dặn "đừng dùng no-cors" cũng chứa
    chuỗi đó, quét thô là luật tự báo phạm lời dặn của mình (bài học bug #10).
 
+36. **Search Console: property chỉ bao một nửa site · sitemap sạch nhưng 15 trang chưa được lập chỉ mục**
+   (checklist #29, rà 18/09/2026). Chín trong mười mục của checklist này **chỉ xem được khi đăng nhập GSC** —
+   máy này không vào được, nên quy trình + số đo để ở **`docs/search-console.md`** (robots chặn `/docs/` nhưng
+   file VẪN trong git). Phần máy làm được đã đo và đã canh:
+   - 🟢 **27/27 URL sitemap gọi thật đều 200, 0 chuyển hướng, 0 `X-Robots-Tag`, canonical tự trỏ, 0 noindex**
+     (mục 266 đạt). URL lạ trả 404 thật, không soft-404. `www` → 301 → không-www.
+   - 🟢 **`http://tramdungchill.vn/` trả 200, KHÔNG 301 sang https.** Property là URL-prefix
+     `https://tramdungchill.vn/` (xác minh 22/03/2026 bằng file `googlef9138a5a20ad2da4.html`) nên bản http
+     nằm NGOÀI mọi báo cáo. Sửa = tick **Enforce HTTPS** trong GitHub Pages → Settings → Pages. **Máy này
+     không bấm hộ được**: không có `gh` CLI, không có token, MCP github không có tool cho Pages API.
+   - 🟢 **Miền 0 bản ghi TXT** (tra qua dns.google 18/09) → **chưa có Domain property**; Domain property chỉ
+     xác minh bằng DNS nên đây là kết luận chắc, không phải suy đoán. DNS ở iNET (`ns1/ns2/ns3.inet.vn`).
+   - 🟢 **Thư GSC 09/09/2026: Google đang xác thực bản sửa "Đã phát hiện – hiện chưa được lập chỉ mục",
+     ảnh hưởng 15 trang trong sitemap.** Tới 18/09 chưa có thư kết quả. Sitemap đã sạch về kỹ thuật nên
+     nguyên nhân KHÔNG nằm ở sitemap — gửi lại sitemap không chữa được gì. Đếm link nội bộ: 18 bài blog
+     index nhận 5–9 link từ trang cũng đang index, **11 bài không có link nào từ thân trang chủ**.
+   - 🟢 Rà hộp thư 365 ngày: **0 thư thao tác thủ công, 0 thư cảnh báo bảo mật** (mục 273). Thư 17/08 báo
+     "nguyên nhân mới: Bị loại trừ bởi thẻ 'noindex'" là 123 bài noindex có chủ đích — mục 267 nói rõ loại
+     này KHÔNG phải lỗi cần đưa về 0. Hiệu suất: T5 388 → T6 777 → T7 800 → T8 793 lượt nhấp (đứng yên).
+   - ⚠️ **1.960 link nội bộ trỏ `index.html` trong khi canonical + sitemap khai trang chủ là `/`.** Hai URL
+     cùng nội dung, mọi link nội bộ trỏ bản KHÔNG chuẩn. Canonical vẫn hợp nhất được nên chưa thấy hại,
+     nhưng đây đúng là thứ mục 268 bảo đi soi (Google-selected canonical). Sửa = đổi link sang `/` ở
+     `components/nav.html` + `layout-loader.js` + `generate-nav.js` + `generate-footer.js` +
+     `templates/blog-post.html` + `data/blog-data.js` (475 chỗ) + các trang tĩnh → **156 file đổi, CHỜ SẾP**.
+     Dấu vân lastmod đã bỏ thẻ `<a>` + nav + footer nên đổi href sẽ KHÔNG đóng dấu "Cập nhật" oan.
+   - ⚠️ **Luật đọc sitemap phải chịu được sitemap hỏng.** R19 (meta description) và R22 (og:image) đọc thẳng
+     `readFileSync` theo URL sitemap → khai một URL kiểu thư mục thiếu dấu `/` là ném **EISDIR**, cả bộ 60
+     luật tắt ngang, không in nổi dòng nào. Đã chèn lớp chắn `existsSync + isFile → continue` cho cả hai, và
+     **R26 đặt SỚM (ngay sau khối R12+R13)** để URL hỏng được báo trước khi luật khác tin vào nó.
+   → Máy canh **R26** trong `seo-geo-verify.js`: file xác minh `google*.html` đúng 1 cái, nội dung khớp tên,
+   robots.txt không chặn nó · mọi `<loc>` là https đúng miền (không www), không tham số/neo, không trùng, có
+   file thật, canonical tự trỏ, không noindex, không phải URL thư mục thiếu `/` · robots.txt khai đúng 1 dòng
+   Sitemap · 0 link nội bộ tự đẻ 301 (trỏ http/www của chính mình, hay thư mục thiếu `/`).
+   → Sau deploy: **`node scripts/kiem-sitemap-live.js`** (`--nhanh` = chỉ xem header) gọi thật 27 URL + 3 bản
+   khác của trang chủ + file xác minh + sitemap/robots. Header `X-Robots-Tag` và cú 301 chỉ lộ ở đây, đọc
+   file trong repo không bao giờ thấy. ⚠️ Chạy SAU khi Pages deploy xong, không thì báo nhầm bản cũ.
+   ⚠️ **Chờ sếp** (chi tiết trong `docs/search-console.md`): bật Enforce HTTPS · thêm Domain property (bản ghi
+   TXT ở iNET) · thêm chủ sở hữu thứ 2 · gửi em danh sách 15 URL "đã phát hiện – chưa lập chỉ mục" · quyết
+   việc đổi 1.960 link nội bộ sang `/`.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

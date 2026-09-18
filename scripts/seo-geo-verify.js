@@ -1225,6 +1225,119 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         ngayXau.length ? ngayXau.slice(0, 5).join(" · ") : soTrang + " trang, không trang nào khai ngày ở tương lai hay sửa-trước-khi-đăng");
 }
 
+// ── R26. Search Console: dấu xác minh + sitemap gửi đi phải sạch (checklist #29) ──
+// Checklist #29 hầu hết nằm TRONG Search Console (phải đăng nhập mới xem được) —
+// nhưng ba thứ quyết định báo cáo đó có đúng hay không lại nằm ngay trong repo, và
+// hỏng thì không màn hình nào ở đây kêu:
+// (a) Dấu xác minh quyền sở hữu. Property đang xác minh bằng FILE HTML ở gốc
+//     (google…html, xác minh 22/03/2026). Google kiểm lại file đó định kỳ: xoá
+//     nhầm một lần dọn thư mục là mất property — mất luôn báo cáo, quyền gửi
+//     sitemap và quyền nhận thư cảnh báo. File phải còn, nội dung phải khớp tên
+//     file, và robots.txt không được chặn nó (Google phải tải được).
+// (b) Mục 266: sitemap chỉ được chứa URL canonical, trả 200, không noindex,
+//     KHÔNG redirect. Trên GitHub Pages "https://…/duong-di" (thiếu dấu gạch
+//     chéo cuối) trả 301 sang bản có gạch chéo — khai kiểu đó là mỗi lần Google
+//     đọc sitemap lại ăn một cú chuyển hướng. R13 đã canh chiều "trang nào được
+//     khai"; ở đây canh HÌNH DẠNG từng URL và canonical của trang có tự trỏ về
+//     đúng URL đã khai không (khai một đằng canonical một nẻo là Google chọn
+//     trang chính khác với trang mình khai — đúng mục 268).
+// (c) Link nội bộ không được tự đẻ chuyển hướng: trỏ http:// hay www. của chính
+//     miền mình, hay trỏ thư mục mà quên dấu gạch chéo. Mỗi cú 301 là một lượt
+//     crawl phí — site này chỉ được ~0,9 lượt khám phá/ngày.
+{
+    const pham = [];
+
+    // (a) dấu xác minh quyền sở hữu
+    const dauXacMinh = fs.readdirSync(ROOT).filter((f) => /^google[0-9a-z]+\.html$/i.test(f));
+    if (dauXacMinh.length !== 1) {
+        pham.push("gốc repo có " + dauXacMinh.length + " file xác minh Search Console, phải đúng 1");
+    } else {
+        const noiDung = fs.readFileSync(path.join(ROOT, dauXacMinh[0]), "utf8").trim();
+        if (noiDung !== "google-site-verification: " + dauXacMinh[0]) {
+            pham.push(dauXacMinh[0] + ": nội dung không phải 'google-site-verification: " + dauXacMinh[0] + "'");
+        }
+    }
+
+    const robotsTxt = fs.readFileSync(path.join(ROOT, "robots.txt"), "utf8");
+    if (dauXacMinh.length === 1 &&
+        new RegExp("^\s*Disallow:\s*/" + dauXacMinh[0].replace(".", "\."), "mi").test(robotsTxt)) {
+        pham.push("robots.txt chặn chính file xác minh Search Console");
+    }
+
+    // (c1) robots.txt phải khai đúng một sitemap, đúng URL thật
+    const dongSitemap = (robotsTxt.match(/^\s*Sitemap:\s*(\S+)/gmi) || [])
+        .map((d) => d.replace(/^\s*Sitemap:\s*/i, "").trim());
+    if (dongSitemap.length !== 1) {
+        pham.push("robots.txt khai " + dongSitemap.length + " dòng Sitemap, phải đúng 1");
+    } else if (dongSitemap[0] !== "https://tramdungchill.vn/sitemap.xml") {
+        pham.push("robots.txt khai sitemap sai địa chỉ: " + dongSitemap[0]);
+    }
+    if (/^\s*Disallow:\s*\/sitemap\.xml/mi.test(robotsTxt)) pham.push("robots.txt chặn chính sitemap.xml");
+
+    // (b) hình dạng + tình trạng từng URL trong sitemap
+    const smText = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+    const locs = [...smText.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const daGap = new Set();
+    for (const u of locs) {
+        if (daGap.has(u)) { pham.push("sitemap khai trùng URL: " + u); continue; }
+        daGap.add(u);
+        if (!u.startsWith("https://tramdungchill.vn/")) {
+            pham.push("URL sai giao thức/tên miền (phải https + không www): " + u);
+            continue;
+        }
+        if (/[?#]/.test(u)) { pham.push("URL mang tham số hoặc neo: " + u); continue; }
+
+        const duoi = u.replace("https://tramdungchill.vn/", "");
+        // thư mục mà quên dấu gạch chéo cuối → GitHub Pages trả 301
+        if (duoi && !duoi.endsWith("/") && fs.existsSync(path.join(ROOT, duoi)) &&
+            fs.statSync(path.join(ROOT, duoi)).isDirectory()) {
+            pham.push("URL thư mục thiếu dấu / cuối, sẽ bị 301: " + u);
+            continue;
+        }
+        const tep = path.join(ROOT, duoi === "" || duoi.endsWith("/") ? duoi + "index.html" : duoi);
+        if (!fs.existsSync(tep)) { pham.push("URL không có file thật: " + u); continue; }
+
+        const s = fs.readFileSync(tep, "utf8");
+        const can = (s.match(/<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) || [])[1];
+        if (!can) pham.push("trang không khai canonical: " + u);
+        else if (can !== u) pham.push("canonical lệch URL khai trong sitemap: " + u + " ≠ " + can);
+        if (/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(s)) {
+            pham.push("trang noindex mà vẫn nằm trong sitemap: " + u);
+        }
+    }
+    if (locs.length > 50000) pham.push("sitemap vượt 50.000 URL — phải tách file");
+
+    // (c2) link nội bộ tự đẻ chuyển hướng
+    let tuChuyenHuong = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        const than = (s.match(/<body[^>]*>([\s\S]*)<\/body>/i) || ["", ""])[1];
+        for (const m of than.matchAll(/href="([^"]+)"/g)) {
+            const h = m[1];
+            if (/^http:\/\/tramdungchill\.vn/i.test(h) || /^https?:\/\/www\.tramdungchill\.vn/i.test(h)) {
+                tuChuyenHuong++;
+                pham.push(rel(f) + ": link tự trỏ bản http/www của chính miền → 301 (" + h + ")");
+                continue;
+            }
+            if (/^(https?:|mailto:|tel:|#|javascript:)/i.test(h)) continue;
+            const goc = h.split("#")[0].split("?")[0];
+            if (!goc || goc.endsWith("/")) continue;
+            const dich = path.resolve(path.dirname(f), goc);
+            if (fs.existsSync(dich) && fs.statSync(dich).isDirectory()) {
+                tuChuyenHuong++;
+                pham.push(rel(f) + ": link tới thư mục thiếu dấu / cuối → 301 (" + h + ")");
+            }
+        }
+    }
+
+    add("Dấu xác minh Search Console còn nguyên · sitemap gửi đi chỉ có URL canonical, không redirect",
+        pham.length === 0,
+        pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ")
+                    : (dauXacMinh[0] || "?") + " khớp · " + locs.length +
+                      " URL sitemap đều https, có file, canonical tự trỏ, không noindex · " +
+                      tuChuyenHuong + " link nội bộ tự đẻ 301");
+}
+
 // ── R13c. Dấu vân lastmod không được đếm thay đổi CHỈ-LÀ-LINK trong schema ──
 // 13/09/2026: thêm "@id"/"url" tác giả vào BlogPosting → cap-nhat-lastmod.js đóng
 // dấu "Cập nhật 13/09/2026" cho 18 bài không đổi một chữ nào, vì dấu vân chỉ xoá
@@ -1984,6 +2097,9 @@ const CAU_AEO = (() => {
     for (const u of loc) {
         let f = u.replace("https://tramdungchill.vn/", "");
         if (f === "" || f.endsWith("/")) f += "index.html";
+        // URL sitemap hỏng hình dạng (trỏ thư mục / không có file) đã do R26 báo — ở đây
+        // bỏ qua để luật còn in được kết quả, thay vì ném EISDIR làm tắt cả bộ kiểm.
+        if (!fs.existsSync(path.join(ROOT, f)) || !fs.statSync(path.join(ROOT, f)).isFile()) continue;
         const s = fs.readFileSync(path.join(ROOT, f), "utf8").replace(/<!--[\s\S]*?-->/g, "");
         const the = [...s.matchAll(/<meta\s+name="description"\s+content="([^"]*)"/gi)];
         if (the.length !== 1) { pham.push(f + ": " + the.length + " thẻ description"); continue; }
@@ -2095,6 +2211,9 @@ const CAU_AEO = (() => {
     for (const u of loc) {
         let f = u.replace(MIEN, "");
         if (f === "" || f.endsWith("/")) f += "index.html";
+        // URL sitemap hỏng hình dạng (trỏ thư mục / không có file) đã do R26 báo — ở đây
+        // bỏ qua để luật còn in được kết quả, thay vì ném EISDIR làm tắt cả bộ kiểm.
+        if (!fs.existsSync(path.join(ROOT, f)) || !fs.statSync(path.join(ROOT, f)).isFile()) continue;
         const s = fs.readFileSync(path.join(ROOT, f), "utf8");
         const og = (s.match(/<meta property="og:image" content="([^"]+)"/) || [])[1];
         if (!og || !og.startsWith(MIEN)) { pham.push(f + ": thiếu og:image"); continue; }
