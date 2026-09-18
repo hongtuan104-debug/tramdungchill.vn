@@ -1244,6 +1244,12 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // (c) Link nội bộ không được tự đẻ chuyển hướng: trỏ http:// hay www. của chính
 //     miền mình, hay trỏ thư mục mà quên dấu gạch chéo. Mỗi cú 301 là một lượt
 //     crawl phí — site này chỉ được ~0,9 lượt khám phá/ngày.
+// (d) Không link nội bộ nào được trỏ "index.html". Trang chủ có MỘT địa chỉ đúng là
+//     "/" — đó là thứ canonical và sitemap khai. Trước 18/09/2026 toàn site có 1.960
+//     link trỏ "index.html": hai URL cùng nội dung, mà mọi link nội bộ lại trỏ bản
+//     KHÔNG phải bản mình khai, trong khi Google dùng chính link nội bộ làm một tín
+//     hiệu chọn canonical (mục 268). Luật này bắt cả "/duong-di/index.html" — thư mục
+//     thì link tới "duong-di/", đừng gọi thẳng tên file index.
 {
     const pham = [];
 
@@ -1321,6 +1327,11 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             }
             if (/^(https?:|mailto:|tel:|#|javascript:)/i.test(h)) continue;
             const goc = h.split("#")[0].split("?")[0];
+            // Trang chủ chỉ có một địa chỉ đúng: "/" — xem (d) ở đầu luật.
+            if (/(^|\/)index\.html$/.test(goc)) {
+                pham.push(rel(f) + ': link trỏ "' + goc + '" thay vì địa chỉ canonical (' + h + ')');
+                continue;
+            }
             if (!goc || goc.endsWith("/")) continue;
             const dich = path.resolve(path.dirname(f), goc);
             if (fs.existsSync(dich) && fs.statSync(dich).isDirectory()) {
@@ -1335,7 +1346,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         pham.length ? pham.length + " chỗ: " + pham.slice(0, 4).join(" | ")
                     : (dauXacMinh[0] || "?") + " khớp · " + locs.length +
                       " URL sitemap đều https, có file, canonical tự trỏ, không noindex · " +
-                      tuChuyenHuong + " link nội bộ tự đẻ 301");
+                      tuChuyenHuong + " link nội bộ tự đẻ 301 · 0 link trỏ index.html");
 }
 
 // ── R13c. Dấu vân lastmod không được đếm thay đổi CHỈ-LÀ-LINK trong schema ──

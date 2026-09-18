@@ -123,7 +123,10 @@ function fixAssetPaths(body) {
     });
     return body
         .replace(/src="assets\//g, 'src="../assets/')
-        .replace(/href="index\.html/g, 'href="../index.html')
+        // Trang chủ là "/" (đúng canonical + sitemap), KHÔNG phải "index.html": để hai
+        // URL cùng nội dung thì Google tự chọn lấy một, có thể chọn bản mình không khai.
+        // Giữ phép đổi này làm lưới đỡ cho nội dung cũ còn chép lối viết cũ trong blog-data.js.
+        .replace(/href="(?:\.\.\/)?index\.html/g, 'href="/')
         .replace(/href="menu\.html/g, 'href="../menu.html')
         .replace(/href="blog\.html/g, 'href="../blog.html');
 }
@@ -437,7 +440,7 @@ function dienTrangTacGia(tg) {
         '        <nav class="breadcrumb" aria-label="Breadcrumb">\n' +
         '            <div class="container">\n' +
         '                <ol>\n' +
-        '                    <li><a href="../index.html"><span>Trang chủ</span></a></li>\n' +
+        '                    <li><a href="/"><span>Trang chủ</span></a></li>\n' +
         '                    <li><a href="../blog.html"><span>Blog</span></a></li>\n' +
         '                    <li><span aria-current="page">' + htmlEncode(ten) + '</span></li>\n' +
         '                </ol>\n' +

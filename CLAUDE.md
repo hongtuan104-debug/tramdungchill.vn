@@ -896,12 +896,21 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - 🟢 Rà hộp thư 365 ngày: **0 thư thao tác thủ công, 0 thư cảnh báo bảo mật** (mục 273). Thư 17/08 báo
      "nguyên nhân mới: Bị loại trừ bởi thẻ 'noindex'" là 123 bài noindex có chủ đích — mục 267 nói rõ loại
      này KHÔNG phải lỗi cần đưa về 0. Hiệu suất: T5 388 → T6 777 → T7 800 → T8 793 lượt nhấp (đứng yên).
-   - ⚠️ **1.960 link nội bộ trỏ `index.html` trong khi canonical + sitemap khai trang chủ là `/`.** Hai URL
-     cùng nội dung, mọi link nội bộ trỏ bản KHÔNG chuẩn. Canonical vẫn hợp nhất được nên chưa thấy hại,
-     nhưng đây đúng là thứ mục 268 bảo đi soi (Google-selected canonical). Sửa = đổi link sang `/` ở
-     `components/nav.html` + `layout-loader.js` + `generate-nav.js` + `generate-footer.js` +
-     `templates/blog-post.html` + `data/blog-data.js` (475 chỗ) + các trang tĩnh → **156 file đổi, CHỜ SẾP**.
-     Dấu vân lastmod đã bỏ thẻ `<a>` + nav + footer nên đổi href sẽ KHÔNG đóng dấu "Cập nhật" oan.
+   - ✅ **ĐÃ SỬA 18/09/2026 (sếp duyệt): trang chủ chỉ còn MỘT địa chỉ `/`.** Trước đó 1.960 link nội bộ trỏ
+     `index.html` trong khi canonical + sitemap khai `/` — hai URL cùng nội dung, mà link nội bộ (một tín
+     hiệu Google dùng để chọn canonical) lại trỏ bản không phải bản mình khai. Đổi **2.496 link / 158 file**:
+     `components/nav.html` · 4 lời gọi `navItem()` trong `generate-footer.js` · `templates/blog-post.html` ·
+     `data/blog-data.js` (475) · `data/blog-seo.js` (34) · trang tĩnh + 141 bài (máy sinh lại).
+     - `fixLinksIn()` (layout-loader) và `buildNav()` (generate-nav.js) **vốn đã bỏ qua href bắt đầu bằng `/`**
+       nên không phải sửa. Chỗ PHẢI sửa là `navItem()` trong generate-footer.js: nó cộng `opts.prefix` vô điều
+       kiện → `../#booking`. Nay có lớp chắn `/^(\/|https?:|#|tel:|mailto:)/`.
+     - `fixAssetPaths()` trong `generate-blog-pages.js` đổi từ "thêm `../`" thành **chuẩn hoá về `/`** — lưới
+       đỡ cho nội dung cũ trong blog-data.js còn chép lối viết cũ.
+     - Đo sau khi sửa: 5.282 link nội bộ đều trỏ file có thật · 0 neo `#id` hỏng · **27/27 dấu vân nội dung
+       không đổi** (dấu vân bỏ thẻ `<a>` + nav + footer nên không trang nào bị đóng dấu "Cập nhật" oan) · 60/60 PASS.
+     - ⚠️ Trang chủ vẫn dùng neo (`#home`, `#booking`) qua `data-home-href` — ĐỪNG đổi thành `/#booking`, bấm
+       vào là tải lại cả trang. `sw.js` vẫn precache `/index.html` (đường dẫn file + mốc dự phòng offline
+       `caches.match('/index.html')`), đó KHÔNG phải link, để nguyên.
    - ⚠️ **Luật đọc sitemap phải chịu được sitemap hỏng.** R19 (meta description) và R22 (og:image) đọc thẳng
      `readFileSync` theo URL sitemap → khai một URL kiểu thư mục thiếu dấu `/` là ném **EISDIR**, cả bộ 60
      luật tắt ngang, không in nổi dòng nào. Đã chèn lớp chắn `existsSync + isFile → continue` cho cả hai, và

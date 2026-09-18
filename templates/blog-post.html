@@ -80,9 +80,9 @@
     <div class="reading-progress" id="readingProgress"></div>
     <style>.reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--gold), var(--sunset)); width:0%; z-index:9999; transition:width 0.1s linear; }</style>
     <a class="skip-link" href="#main-content" data-i18n="nav.skip" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Bỏ qua tới nội dung</a>
-<nav class="navbar scrolled" id="navbar"><div class="nav-container"><a href="../index.html" class="nav-logo"><span class="logo-icon">&#9733;</span><div class="logo-text-wrapper"><span class="logo-sub">Tiệm Nướng</span><span class="logo-main">Trạm Dừng Chill</span></div></a><ul class="nav-menu" id="navMenu"><li><a href="../index.html" class="nav-link">{{T_HOME}}</a></li><li><a href="../menu.html" class="nav-link">{{T_MENU}}</a></li><li><a href="../blog.html" class="nav-link active" aria-current="page">{{T_BLOG}}</a></li><li><a href="../index.html#booking" class="nav-link nav-cta">{{T_BOOK}}</a></li></ul><div class="nav-right"><a href="tel:0989765070" class="nav-phone">0989.765.070</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar scrolled" id="navbar"><div class="nav-container"><a href="/" class="nav-logo"><span class="logo-icon">&#9733;</span><div class="logo-text-wrapper"><span class="logo-sub">Tiệm Nướng</span><span class="logo-main">Trạm Dừng Chill</span></div></a><ul class="nav-menu" id="navMenu"><li><a href="/" class="nav-link">{{T_HOME}}</a></li><li><a href="../menu.html" class="nav-link">{{T_MENU}}</a></li><li><a href="../blog.html" class="nav-link active" aria-current="page">{{T_BLOG}}</a></li><li><a href="/#booking" class="nav-link nav-cta">{{T_BOOK}}</a></li></ul><div class="nav-right"><a href="tel:0989765070" class="nav-phone">0989.765.070</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
     <main id="main-content">
-    <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">{{T_HOME}}</a> › <a href="../blog.html">{{T_BLOG}}</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time>{{UPDATED}} <span class="reading-time">{{READING_TIME}} {{T_READ}}</span>{{BYLINE}}</div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--text-muted);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
+    <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">{{T_HOME}}</a> › <a href="../blog.html">{{T_BLOG}}</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time>{{UPDATED}} <span class="reading-time">{{READING_TIME}} {{T_READ}}</span>{{BYLINE}}</div><h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--night);margin-bottom:16px;">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--text-muted);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
     <div class="container" style="margin:24px auto 32px;"><img src="../{{IMAGE}}" srcset="../{{IMAGE_400W}} 400w, ../{{IMAGE_800W}} 800w, ../{{IMAGE}} 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 1200px" alt="{{IMAGE_ALT}}" style="width:100%;max-height:500px;object-fit:cover;border-radius:20px;" loading="eager" fetchpriority="high"></div>
     <article class="blog-post-body container" style="max-width:800px;margin:0 auto;padding:0 24px 60px;">{{BODY}}</article>
     <nav class="blog-post-nav container" style="max-width:800px;margin:0 auto 40px;padding:0 24px;display:flex;justify-content:space-between;align-items:stretch;gap:16px;">{{PREV_LINK}}{{NEXT_LINK}}</nav>
@@ -116,7 +116,7 @@
             </div>
         </div>
     </section>
-    <section style="background:#0F0D0A;padding:48px 24px;text-align:center;"><div class="container"><h2 style="font-family:var(--font-display);color:#D4A853;font-size:1.6rem;margin-bottom:12px;">{{T_CTA_TITLE}}</h2><p style="color:#8B7D6B;margin-bottom:24px;">{{T_CTA_SUB}}</p><a href="../index.html#booking" style="display:inline-block;background:#D4A853;color:#0F0D0A;padding:14px 36px;border-radius:50px;font-weight:600;">{{T_CTA_BTN}}</a><p style="margin-top:18px;margin-bottom:0;font-size:0.9rem;"><a href="../index.html#review" aria-label="{{T_CTA_TRUST_ARIA}}" style="color:#8B7D6B;text-decoration:underline;text-underline-offset:3px;">{{T_CTA_TRUST}}</a></p></div></section>
+    <section style="background:#0F0D0A;padding:48px 24px;text-align:center;"><div class="container"><h2 style="font-family:var(--font-display);color:#D4A853;font-size:1.6rem;margin-bottom:12px;">{{T_CTA_TITLE}}</h2><p style="color:#8B7D6B;margin-bottom:24px;">{{T_CTA_SUB}}</p><a href="/#booking" style="display:inline-block;background:#D4A853;color:#0F0D0A;padding:14px 36px;border-radius:50px;font-weight:600;">{{T_CTA_BTN}}</a><p style="margin-top:18px;margin-bottom:0;font-size:0.9rem;"><a href="/#review" aria-label="{{T_CTA_TRUST_ARIA}}" style="color:#8B7D6B;text-decoration:underline;text-underline-offset:3px;">{{T_CTA_TRUST}}</a></p></div></section>
     </main>
 
     <!-- FOOTER:START — sinh bởi scripts/generate-footer.js, ĐỪNG sửa tay -->
@@ -135,12 +135,12 @@
                 <div class="footer-nav">
                     <p class="footer-title">{{I18N:footer.link.title}}</p>
                     <ul>
-                        <li><a href="../index.html">{{I18N:nav.home}}</a></li>
-                        <li><a href="../index.html#experience">{{I18N:nav.experience}}</a></li>
+                        <li><a href="/">{{I18N:nav.home}}</a></li>
+                        <li><a href="/#experience">{{I18N:nav.experience}}</a></li>
                         <li><a href="../menu.html">{{I18N:nav.menu}}</a></li>
-                        <li><a href="../index.html#gallery">{{I18N:nav.gallery}}</a></li>
+                        <li><a href="/#gallery">{{I18N:nav.gallery}}</a></li>
                         <li><a href="../blog.html">{{I18N:nav.blog}}</a></li>
-                        <li><a href="../index.html#booking">{{I18N:nav.booking}}</a></li>
+                        <li><a href="/#booking">{{I18N:nav.booking}}</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">

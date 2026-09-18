@@ -100,13 +100,20 @@ Mỗi lần đổi template thì soi 1 URL đại diện mỗi loại trang (tra
 1 bài blog, 1 trang dịp, đường đi, trang tác giả). Nhìn 3 dòng: **Canonical do người dùng
 khai** ↔ **Canonical do Google chọn** (phải trùng), và lần crawl gần nhất.
 
-⚠️ Đã biết một chỗ lệch tín hiệu: toàn site có **1.960 link nội bộ trỏ `index.html`**
+✅ **Đã sửa 18/09/2026:** trước đó toàn site có **1.960 link nội bộ trỏ `index.html`**
 (nav, footer, breadcrumb, CTA trong bài) trong khi canonical + sitemap khai trang chủ là
-`https://tramdungchill.vn/`. Hai URL cùng nội dung, và mọi link nội bộ đang trỏ vào bản
-**không** phải bản chuẩn. Hiện chưa gây hại thấy được (canonical vẫn hợp nhất về `/`),
-nhưng nếu URL Inspection cho trang chủ báo Google chọn canonical là `/index.html` thì đó
-đúng là nguyên nhân — sửa bằng cách đổi link nội bộ sang `/`. Việc này em chưa làm vì
-nó động vào 156 file, chờ sếp gật.
+`https://tramdungchill.vn/` — hai URL cùng nội dung, mà mọi link nội bộ lại trỏ bản
+**không** phải bản mình khai. Google dùng chính link nội bộ làm một tín hiệu chọn
+canonical, nên đây là đúng thứ mục 268 bảo đi soi.
+
+Nay **2.496 link trên 158 file** đã đổi sang `/` và `/#booking`; 0 link nào còn trỏ
+`index.html`. Kiểm sau khi sửa: 5.282 link nội bộ đều trỏ file có thật, 0 neo `#id`
+hỏng, 27/27 dấu vân nội dung không đổi (nên không trang nào bị đóng dấu "Cập nhật" oan),
+60/60 luật PASS. Luật **R26 mục (d)** chặn kiểu link cũ quay lại.
+
+Lần tới soi URL Inspection cho trang chủ: **Canonical do Google chọn** phải là
+`https://tramdungchill.vn/`. Nếu vẫn thấy `/index.html` thì chờ Google crawl lại —
+nó đọc link mới rồi mới đổi.
 
 ### 2.4 Mục 269–271 — đọc Hiệu suất
 

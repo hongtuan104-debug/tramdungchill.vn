@@ -71,7 +71,11 @@ function i18nAttr(key, mode) {
 function navItem(href, key, opts) {
     const homeHash = (opts.mode === "i18n" && opts.homeHash) ?
         ' data-home-href="' + opts.homeHash + '"' : "";
-    return '                    <li><a href="' + opts.prefix + href + '"' + homeHash +
+    // Link trang chủ viết tuyệt đối ("/" · "/#booking") nên KHÔNG cộng tiền tố thư
+    // mục — cộng vào thành "../#booking" là hỏng. Xem generate-nav.js: bản nav cũng
+    // bỏ qua href bắt đầu bằng "/" đúng như fixLinksIn() làm lúc chạy.
+    const duong = /^(\/|https?:|#|tel:|mailto:)/.test(href) ? href : opts.prefix + href;
+    return '                    <li><a href="' + duong + '"' + homeHash +
         i18nAttr(key, opts.mode) + ">" + txt(key, opts.mode) + "</a></li>";
 }
 
@@ -104,12 +108,12 @@ function buildFooter(opts) {
         '            <div class="footer-nav">',
         '                <p class="footer-title"' + i18nAttr("footer.link.title", mode) + ">" + txt("footer.link.title", mode) + "</p>",
         "                <ul>",
-        navItem("index.html", "nav.home", { prefix: prefix, mode: mode, homeHash: "#home" }),
-        navItem("index.html#experience", "nav.experience", { prefix: prefix, mode: mode, homeHash: "#experience" }),
+        navItem("/", "nav.home", { prefix: prefix, mode: mode, homeHash: "#home" }),
+        navItem("/#experience", "nav.experience", { prefix: prefix, mode: mode, homeHash: "#experience" }),
         navItem("menu.html", "nav.menu", { prefix: prefix, mode: mode }),
-        navItem("index.html#gallery", "nav.gallery", { prefix: prefix, mode: mode, homeHash: "#gallery" }),
+        navItem("/#gallery", "nav.gallery", { prefix: prefix, mode: mode, homeHash: "#gallery" }),
         navItem("blog.html", "nav.blog", { prefix: prefix, mode: mode }),
-        navItem("index.html#booking", "nav.booking", { prefix: prefix, mode: mode, homeHash: "#booking" }),
+        navItem("/#booking", "nav.booking", { prefix: prefix, mode: mode, homeHash: "#booking" }),
         "                </ul>",
         "            </div>",
         '            <div class="footer-nav">',
