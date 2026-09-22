@@ -175,7 +175,7 @@ fbq('track','ViewContent',{content_name:'Cau hon hen ho',content_category:'landi
 }
 </script>
 <!-- FAQ_JSONLD:END -->
-<script defer src="../dist/lazy-tracking.min.js?v=a0bc349f"></script>
+<script defer src="../dist/lazy-tracking.min.js?v=953df734"></script>
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://analytics.tiktok.com">
     <link rel="dns-prefetch" href="https://www.clarity.ms">
@@ -373,7 +373,7 @@ fbq('track','ViewContent',{content_name:'Cau hon hen ho',content_category:'landi
                 <h2 class="section-title">Sẵn sàng cho<br><em>khoảnh khắc đặc biệt?</em></h2>
                 <p>Điền form bên dưới — Trạm xác nhận và giữ bí mật tuyệt đối</p>
             </div>
-            <form id="bookingForm" class="booking-form">
+            <form id="bookingForm" class="booking-form" data-clarity-mask="True">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="dip-name">Tên của bạn *</label>
@@ -570,7 +570,16 @@ document.getElementById('bookingForm').addEventListener('submit', async function
             headers: {'Content-Type': 'text/plain'},
             body: JSON.stringify(data)
         });
+        /* res.ok CHƯA đủ (19/09/2026, checklist #30 mục 279): Apps Script không đặt được mã HTTP,
+           doPost bắt lỗi rồi trả {"status":"error"} vẫn là 200. Đo bằng Chrome, webhook giả lập:
+           trang này vẫn đếm chuyển đổi khi Apps Script báo lỗi. Chỉ coi là hỏng khi thân trả lời
+           nói rõ là lỗi — thân lạ thì vẫn tin res.ok, kẻo đổi định dạng là tắt sạch chuyển đổi. */
         luuOk = res.ok;
+        if (luuOk) {
+            var kq = null;
+            try { kq = await res.json(); } catch (e2) {}
+            if (kq && kq.status === 'error') { luuOk = false; console.warn('Apps Script báo lỗi:', kq.message || ''); }
+        }
         if (!luuOk) console.warn('Apps Script trả mã lỗi:', res.status);
     } catch (err) {
         console.warn('Webhook lỗi:', err);

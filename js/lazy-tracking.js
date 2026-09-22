@@ -43,6 +43,47 @@
    Muốn quay lại cách cũ: bỏ type="text/plain" data-tdc-lazy trong HTML là xong,
    không cần gỡ file này. */
 (function () {
+    /* ── Không bật pixel ở máy làm việc / máy nội bộ (checklist #30 mục 276, 19/09/2026) ──
+       - Máy làm việc (localhost, 127.x, mạng LAN, file://): trước đây mở bản cục bộ là GA4,
+         Meta, TikTok, Clarity nhận PageView như khách thật — các công cụ đo trong plans/
+         từng chạy trang cục bộ với pixel thật.
+       - Máy nội bộ: chủ quán / nhân viên mở https://tramdungchill.vn/?noi_bo=1 MỘT lần trên
+         máy mình → từ đó máy đó không bật pixel nữa (lưu localStorage); ?noi_bo=0 để bỏ.
+         Lọc "lưu lượng nội bộ" của GA4 đi theo IP, vô dụng với điện thoại 4G đổi IP liên
+         tục; Meta/TikTok không có bộ lọc nào — nên phải chặn ngay tại máy. Đơn đặt THỬ từ
+         máy đã đánh dấu cũng không bị đếm là chuyển đổi (mục 279: loại đơn test).
+       Công cụ đo cần pixel thật trên bản cục bộ: thêm ?pixel_thu=1 VÀ tự chặn các hit gửi
+       đi (xem scripts/kiem-do-luong-live.js), không thì số thử lọt vào tài khoản thật. */
+    var thamSoGoc = location.search;
+    var laNoiBo = false;
+    try {
+        if (/[?&]noi_bo=1(&|$)/.test(thamSoGoc)) localStorage.setItem('tdc_noi_bo', '1');
+        else if (/[?&]noi_bo=0(&|$)/.test(thamSoGoc)) localStorage.removeItem('tdc_noi_bo');
+        laNoiBo = localStorage.getItem('tdc_noi_bo') === '1';
+    } catch (e) {}
+    var laMayLamViec = location.protocol === 'file:' || /\.local$/.test(location.hostname) ||
+        /^(localhost|127\.|0\.0\.0\.0|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|\[::1\])/.test(location.hostname);
+    if ((laNoiBo || laMayLamViec) && !/[?&]pixel_thu=1(&|$)/.test(thamSoGoc)) return;
+
+    /* ── Gỡ dữ liệu cá nhân khỏi URL TRƯỚC khi pixel đọc địa chỉ trang (mục 277/282) ──
+       Form đặt bàn không khai method. JS đặt bàn không chạy (bundle rớt mạng, trình duyệt
+       cũ…) thì trình duyệt tự gửi form kiểu GET: trang tải lại với ?name=…&phone=… trên URL.
+       Đo 19/09/2026 bằng Chrome, chặn mọi hit gửi đi: GA4, Google Ads, Meta, TikTok đều nhận
+       NGUYÊN VĂN tên + SĐT trong địa chỉ trang — GA4 chỉ tự che email, không che số điện thoại.
+       Chỉ gỡ các trường chứa dữ liệu người. date/time/guests cố ý để lại: không phải dữ liệu
+       cá nhân, và trong báo cáo trang GA4 chúng là dấu hiệu "JS đặt bàn đã hỏng ở đây". */
+    try {
+        var ts = new URLSearchParams(thamSoGoc);
+        var coGo = false;
+        ['name', 'phone', 'note', 'email'].forEach(function (k) {
+            if (ts.has(k)) { ts.delete(k); coGo = true; }
+        });
+        if (coGo) {
+            var conLai = ts.toString();
+            history.replaceState(history.state, '', location.pathname + (conLai ? '?' + conLai : '') + location.hash);
+        }
+    } catch (e) {}
+
     var HOAN_SAU_LOAD = 6000;   // ms, chốt chặn tính từ sự kiện 'load' (13/09/2026: 2500 → 6000)
     var daChay = false;
     var hangDoi = null;

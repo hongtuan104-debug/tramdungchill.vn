@@ -70,9 +70,12 @@ tiem-nuong-tram-dung-chill/
 - **Google Analytics 4:** `G-2VFBZDY6CD` (toàn site). ~~`G-5G3K0RN39C` (4 dip pages)~~ — rà 17/09/2026:
   **0 file** còn nhắc ID này, property phụ đã thôi dùng; 4 trang dịp nay đo chung một property.
 - **Google Ads:** `AW-18038463990` — thực tế nằm ở **index + menu + blog** (không phải "chỉ index")
-- **Meta Pixel:** `1281459450582041` ✅ TẤT CẢ 151 trang
+- **Meta Pixel:** `1281459450582041` ✅ mọi trang khách xem — **trừ `review-qr.html`** (trang in QR nội bộ, gỡ 19/09/2026)
   - Events: `PageView`, `ViewContent` (menu/dip/blog), `Lead` (form đặt bàn), `Contact` (click Phone/Zalo/FB)
   - **Conversions API (CAPI):** chưa cài, đợi đủ traffic
+  - Traffic Permissions đang bật (domain lạ nhận `blockReason: traffic_permissions`) — đo 19/09/2026
+- **Sổ đo lường (hợp đồng sự kiện, phạm vi, luật đếm lead, việc chờ sếp):** `docs/do-luong.md` — xem bug #37
+- **Máy nội bộ:** mở `https://tramdungchill.vn/?noi_bo=1` một lần trên máy chủ quán / nhân viên → máy đó không bật pixel nữa
 - **RUM Core Web Vitals** (15/09/2026): sự kiện GA4 `LCP` `INP` `CLS` `TTFB` đo trên máy khách thật, nạp SAU pixel — xem bug #31
 
 ## Footer — sinh tự động, ĐỪNG sửa HTML tay
@@ -925,6 +928,71 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    ⚠️ **Chờ sếp** (chi tiết trong `docs/search-console.md`): bật Enforce HTTPS · thêm Domain property (bản ghi
    TXT ở iNET) · thêm chủ sở hữu thứ 2 · gửi em danh sách 15 URL "đã phát hiện – chưa lập chỉ mục" · quyết
    việc đổi 1.960 link nội bộ sang `/`.
+
+37. **Apps Script lỗi mà chuyển đổi vẫn đếm · URL mang SĐT tới 4 nền tảng · pixel chạy ở máy nội bộ** (checklist #30
+   "Công cụ theo dõi khác", rà 19/09/2026). Quy trình + hợp đồng sự kiện + việc chờ sếp: **`docs/do-luong.md`**.
+   🟢 Đo bằng Chrome trên production, CHẶN mọi hit gửi đi (Chrome không phân giải được tên miền nào ngoài site,
+   script pixel do Node tải hộ, webhook giả lập) — không đơn nào tới quán, không số nào vào tài khoản quảng cáo.
+   Công cụ đó nay là **`scripts/kiem-do-luong-live.js`** (`--cuc-bo` chấm bản trên máy trước khi push, `--nhanh`).
+   - **Đạt sẵn, đừng làm lại:** mỗi cú bấm gọi/Zalo = đúng 1 Contact trên Meta + TikTok (bản sửa #35 đứng vững) ·
+     Lead Meta và CompleteRegistration TikTok cùng `event_id` · bấm gọi/Zalo KHÔNG là chuyển đổi Google Ads ·
+     trang dịp không khai `AW-` nhưng chuyển đổi vẫn tới Ads qua liên kết GA4 (một hit `/measurement/conversion`,
+     trang chủ cũng chỉ một — không đếm đôi) · 359 link tel đều 0989765070, schema `+84989765070`, không số động ·
+     0 link nội bộ gắn UTM · Meta tắt Automatic Advanced Matching, bật Traffic Permissions.
+   - **Apps Script luôn trả HTTP 200.** ContentService không đặt được mã HTTP; doPost bắt lỗi rồi trả
+     `{"status":"error"}` vẫn là 200. Bản sửa #35 chỉ xét `res.ok` → giả lập "app 500 + Apps Script báo lỗi" thì
+     cả 4 nền tảng vẫn đếm 1 chuyển đổi (production trượt đúng mục này). Nay `booking.js` + 4 trang dịp đọc thân
+     trả lời, chỉ coi là hỏng khi thân NÓI RÕ `status === 'error'` — thân lạ thì vẫn tin `res.ok`, kẻo Apps Script
+     đổi định dạng là tắt sạch chuyển đổi. Bản đang chạy trả `{"status":"ok",…}` cho GET (đã gọi thử).
+     App trả `deduped: true` (khách gửi lại trong 5 phút) → không đếm lần hai: `if (daLuuDuoc && !donTrung)`.
+   - **URL mang `?name=&phone=`** (form không khai `method`; JS đặt bàn không chạy thì trình duyệt tự gửi GET) →
+     🟢 GA4, Google Ads, Meta, TikTok nhận NGUYÊN VĂN tên + SĐT trong địa chỉ trang; GA4 chỉ tự che email.
+     `lazy-tracking.js` nay gỡ `name/phone/note/email` bằng `history.replaceState` TRƯỚC khi bật pixel;
+     `date/time/guests` cố ý để lại làm dấu hiệu "JS đặt bàn hỏng ở trang này" trong báo cáo GA4.
+   - **Pixel ở máy làm việc / máy nội bộ:** `lazy-tracking.js` không bật gì trên localhost / 127.x / LAN / file://
+     (công cụ đo cần pixel thật: `?pixel_thu=1` và tự chặn hit — `plans/cong-cu-do-hieu-nang/do-inp-loaf.js` cũ chạy
+     pixel thật ở máy này, cần thêm tham số đó). Máy chủ quán / nhân viên: mở `/?noi_bo=1` một lần (lưu
+     localStorage `tdc_noi_bo`), `?noi_bo=0` để bỏ — lọc IP của GA4 vô dụng với 4G, Meta/TikTok không có lọc.
+   - **`review-qr.html` gỡ hết pixel**: trang in QR cho nhân viên, mã QR trỏ thẳng trang viết đánh giá Google →
+     mọi lượt xem là người trong quán, làm bẩn khán giả remarketing. Gỡ luôn 3 thẻ dns-prefetch (toi-uu-tai-trang
+     chỉ chèn khi trang có script pixel nên không tự quay lại).
+   - Form đặt bàn (trang chủ + 4 trang dịp) thêm `data-clarity-mask="True"` — che trong bản quay Clarity bất kể
+     dashboard. **UTM: sếp chốt 20/09/2026 KHÔNG đụng gì** (mục 282 vốn đạt: quy ước + công cụ tạo link đã lo phần
+     chữ thường, 0 link nội bộ gắn UTM) — bản chuẩn hoá chữ thường trong `getTrafficSource` đã gỡ, đừng thêm lại.
+   - ⚠️ **Đo Meta bằng Chrome headless:** cấu hình Meta có luật chặn bot chứa `HeadlessChrome/` → phải đặt UA thường;
+     và phải trả ảnh GIF cho `/tr` — trả 204 rỗng là Meta tự gửi lại bằng đường dự phòng, trông y như đếm đôi (đã
+     suýt báo nhầm). Xin cấu hình với `domain=127.0.0.1` thì Meta trả `prohibitedPixels` → công cụ đổi domain khi tải hộ.
+   - ⚠️ Chú thích mới trong `js/` từng kéo chữ "RÕ" (Õ, U+00D5 — site chưa dùng) vào phông subset → 4 file phông +
+     `style.min.css` đổi vân tay, mọi khách quay lại tải lại ~200 KB chỉ vì một chú thích. Đã viết thường. Trước khi
+     commit, `git status` mà thấy `.woff2` đổi thì dò ký tự mới bằng cách so với HEAD.
+   - 🟡 Chưa sửa, ghi nhận: khách từng vào bằng quảng cáo rồi 30 ngày sau quay lại từ Google vẫn bị ghi nguồn cũ
+     (`tdc_source_last` đứng trước referrer trong `getTrafficSource`) — đổi là đổi mô hình quy nguồn, chờ sếp.
+   → Máy canh **R27**: chặn máy nội bộ + gỡ PII nằm TRƯỚC `batPixel` (nguồn lẫn dist) · mọi nơi gửi Apps Script
+   đọc `status === 'error'` · không `data.name/phone/note`, `cleanPhone` trong fbq/ttq/gtag · booking.js loại đơn
+   trùng · `review-qr.html` + `dev/*.html` sạch pixel · mọi `#bookingForm` có `data-clarity-mask`. Đã bẻ thử 6 kiểu, bắt đủ 6.
+   ⚠️ **Chờ sếp** (chi tiết `docs/do-luong.md` mục 8): `?noi_bo=1` trên máy nội bộ · Events Manager Meta/TikTok
+   (Business Asset, Test Events, CAPI có chạy phía app không, TikTok `advertiserID: "0"`) · quyết Advanced Matching
+   TikTok + "thu thập dữ liệu người dùng tự động" của Google tag (đang BẬT) · che tham số trong GA4 · cảnh báo khi
+   chuyển đổi = 0 · Masking + chặn IP trong Clarity · đối soát hằng tuần · duyệt chính sách dữ liệu / banner đồng ý ·
+   Clarity cho trang đường đi.
+   Sếp duyệt push 22/09/2026 (sau khi đọc bảng ảnh hưởng: chuyển đổi có thể giảm nhẹ vì thôi đếm đơn rớt/đơn trùng
+   → ghi chú ngày này trong Google Ads + GA4 để khỏi đọc nhầm là quảng cáo kém).
+
+38. **Bộ ảnh Canon "Viết Báo" — tên file, và tàu thật khác toa check-in** (22/09/2026, commit `02f77ab3`, `d8077a36`).
+   Sếp gửi 24 ảnh qua Drive; dùng cho 2 thẻ + 2 ô gallery trang chủ, hero 3 trang dịp, ảnh đại diện 6 bài blog.
+   - **Tên file: tả đúng thứ trong ảnh + có `da-lat`** (sếp dặn, cho SEO) — một lần mỗi tên, ghép cụm khách hay tìm
+     (`quan-nuong-da-lat-…`, `tau-lua-da-lat-…`, `cap-doi-bien-cau-hon-da-lat`), không ghi điều ảnh không chứng minh
+     được (tàu "đang chạy", cổng "vào"). Không để tên máy ảnh (`3M0A…`, `IMG_…`).
+   - Ảnh mới đặt **tên mới**, không chép đè `gallery-N`: service worker giữ `/assets/images/` kiểu cache-first, đè cùng
+     tên là khách cũ còn thấy ảnh cũ. `gallery-N` vẫn cố ý giữ tên (lịch sử lập chỉ mục ảnh, xem #32).
+   - ⚠️ **Toa cửa sổ BO TRÒN khung đỏ nâu (mái trắng) là khu check-in đoàn tàu riêng của quán**, không phải tàu
+     Đà Lạt – Trại Mát (sếp xác nhận 22/09/2026) — đã từng đặt nhầm dưới thẻ "Khoảnh Khắc Săn Tàu", gỡ ở `d8077a36`.
+     Tàu thật: toa cửa sổ **vuông** viền vàng, chữ "DALAT PLATEAU RAIL ROAD" + "VNR". Toa bo tròn viền LED trắng ban
+     đêm (ảnh quán về đêm, nhóm bạn) chưa hỏi → alt chỉ ghi "toa tàu sáng đèn". **Ảnh nào không thấy chữ VNR thì
+     đừng gắn tên tuyến và đừng dùng cho nội dung "săn tàu" / "view xe lửa".**
+   - Quy trình: xuất 1200px từ ảnh gốc Drive → thêm tên vào `scripts/tao-anh-webp.js` (trang chủ/dịp) hoặc tạo bộ
+     `.webp` + `-400w` + `-800w` trong `assets/images/blog/` → bảng `ANH` của `tao-anh-chia-se.js` → **mở ảnh cắt ra
+     xem** (3 khung máy tự cắt mất chữ đèn / bảng tên, phải khai `tam`).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

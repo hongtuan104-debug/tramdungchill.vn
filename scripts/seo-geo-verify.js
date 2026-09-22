@@ -2508,7 +2508,7 @@ const CAU_AEO = (() => {
         const viTri = s.indexOf("conversion_event_submit_lead_form");
         if (viTri !== -1) {
             const truoc = s.slice(Math.max(0, viTri - 600), viTri);
-            if (!/if \((luuOk|daLuuDuoc)\) \{/.test(truoc)) {
+            if (!/if \((luuOk|daLuuDuoc)\b[^)]*\) \{/.test(truoc)) {
                 pham.push(ten + ": conversion không nằm trong nhánh if(luuOk)/if(daLuuDuoc) — bắn cả khi đơn rớt");
             }
         }
@@ -2524,6 +2524,74 @@ const CAU_AEO = (() => {
         pham.length === 0,
         pham.length ? pham.slice(0, 3).join(" | ")
                     : "bộ nghe chung bỏ qua " + dsLoaiTru + " · 0 chỗ dùng no-cors · conversion đều trong nhánh điều kiện");
+}
+
+// ── R27. Công cụ theo dõi: đúng phạm vi · không rò dữ liệu người · lead phải là đơn THẬT ──
+// 19/09/2026 (checklist #30 mục 276–279; CLAUDE.md #37). Đo bằng Chrome trên production,
+// chặn mọi hit gửi đi (scripts/kiem-do-luong-live.js). Năm cách hỏng, đều lặng lẽ:
+//  (a) pixel bật ở máy làm việc / máy nội bộ → PageView giả trong GA4, Meta, TikTok, Clarity.
+//  (b) URL mang ?name=&phone= (form rơi về gửi GET khi JS hỏng) → 4 nền tảng nhận nguyên văn.
+//  (c) tin res.ok của Apps Script: ContentService luôn trả 200, lỗi nằm trong thân
+//      {"status":"error"} → chuyển đổi đếm cả khi đơn rớt. Tương tự đơn trùng (deduped).
+//  (d) trang nội bộ (in QR, công cụ UTM) gắn pixel → khán giả remarketing lẫn nhân viên.
+//  (e) form chứa tên + SĐT không che trong bản quay Clarity → phụ thuộc hoàn toàn vào
+//      một công tắc trên dashboard, ai đổi sang "Relaxed" là lộ.
+{
+    const pham = [];
+    const boCT = (s) => s.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:'"\w])\/\/[^\n]*/g, "$1");
+
+    // (a) + (b) trong nguồn VÀ trong bản dist trang thật nạp
+    const lt = boCT(fs.readFileSync(path.join(ROOT, "js", "lazy-tracking.js"), "utf8"));
+    const ltMin = fs.existsSync(path.join(ROOT, "dist", "lazy-tracking.min.js"))
+        ? fs.readFileSync(path.join(ROOT, "dist", "lazy-tracking.min.js"), "utf8") : "";
+    for (const [ten, s] of [["js/lazy-tracking.js", lt], ["dist/lazy-tracking.min.js", ltMin]]) {
+        if (!/tdc_noi_bo/.test(s) || !/localhost\|127/.test(s)) pham.push(ten + " không còn chặn pixel ở máy nội bộ / máy làm việc");
+        if (!/\['name',\s*'phone'/.test(s) || !/history\.replaceState/.test(s)) pham.push(ten + " không còn gỡ name/phone khỏi URL trước khi bật pixel");
+    }
+    // Chặn phải chạy TRƯỚC mọi thứ khác: return sớm nằm trước hàm bật pixel
+    const iChan = lt.search(/pixel_thu=1/), iBat = lt.indexOf("function batPixel");
+    if (iChan === -1 || iBat === -1 || iChan > iBat) pham.push("js/lazy-tracking.js: bước chặn máy nội bộ phải nằm TRƯỚC batPixel");
+
+    // (c) mọi nơi gửi đơn tới Apps Script phải đọc thân trả lời
+    const coForm = [path.join(ROOT, "js", "booking.js")]
+        .concat(fs.readdirSync(path.join(ROOT, "dip")).filter(f => f.endsWith(".html")).map(f => path.join(ROOT, "dip", f)));
+    for (const p of coForm) {
+        const s = boCT(fs.readFileSync(p, "utf8"));
+        if (!/webhookUrl/.test(s)) continue;
+        if (!/status === 'error'/.test(s)) pham.push(rel(p) + " tin res.ok của Apps Script — lỗi trong thân {\"status\":\"error\"} vẫn đếm chuyển đổi");
+        // dữ liệu người không được đi vào payload đo lường
+        const reSk = /(fbq\('track'|ttq\.track\(|gtag\('event')[\s\S]{0,400}?\)\s*;/g;
+        let m;
+        while ((m = reSk.exec(s))) {
+            if (/data\.(name|phone|note)\b|cleanPhone/.test(m[0])) pham.push(rel(p) + " đưa tên/SĐT/ghi chú vào sự kiện đo lường");
+        }
+    }
+    const bk = boCT(fs.readFileSync(path.join(ROOT, "js", "booking.js"), "utf8"));
+    if (!/if \(daLuuDuoc && !donTrung\) \{/.test(bk)) pham.push("js/booking.js: đơn trùng (deduped) vẫn đếm chuyển đổi");
+
+    // (d) trang nội bộ không gắn công cụ theo dõi
+    const noiBo = ["review-qr.html"].concat(fs.existsSync(path.join(ROOT, "dev"))
+        ? fs.readdirSync(path.join(ROOT, "dev")).filter(f => f.endsWith(".html")).map(f => "dev/" + f) : []);
+    for (const f of noiBo) {
+        const s = fs.readFileSync(path.join(ROOT, f), "utf8");
+        if (/data-tdc-lazy|fbq\(|ttq\.load|clarity\.ms|googletagmanager\.com\/gtag/.test(s)) pham.push(f + " là trang nội bộ nhưng gắn pixel/GA4/Clarity");
+    }
+
+    // (e) mọi form đặt bàn che trong bản quay Clarity
+    let soForm = 0;
+    for (const f of ["index.html"].concat(fs.readdirSync(path.join(ROOT, "dip")).filter(x => x.endsWith(".html")).map(x => "dip/" + x))) {
+        const s = fs.readFileSync(path.join(ROOT, f), "utf8");
+        for (const the of s.match(/<form\b[^>]*id="bookingForm"[^>]*>/g) || []) {
+            soForm++;
+            if (!/data-clarity-mask="True"/.test(the)) pham.push(f + ": form đặt bàn thiếu data-clarity-mask=\"True\"");
+        }
+    }
+
+    add("Công cụ theo dõi: đúng phạm vi · không rò dữ liệu người · lead là đơn thật",
+        pham.length === 0,
+        pham.length ? pham.slice(0, 3).join(" | ")
+                    : "chặn máy nội bộ + gỡ PII khỏi URL · đọc thân Apps Script ở " + coForm.length + " nơi · "
+                      + noiBo.length + " trang nội bộ sạch pixel · " + soForm + " form che trong Clarity");
 }
 
 // ── In kết quả ───────────────────────────────────────────────────────────

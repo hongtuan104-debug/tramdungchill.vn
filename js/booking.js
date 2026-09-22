@@ -228,6 +228,7 @@ function initBookingForm() {
            từng gây ra: deployment Apps Script sai quyền, đơn rớt sạch, số vẫn đẹp. */
         let appOk = false;
         let sheetOk = false;
+        let donTrung = false;
         try {
             const appRes = await fetch('https://app.tramdungchill.vn/api/webhook/booking', {
                 method: 'POST',
@@ -258,7 +259,13 @@ function initBookingForm() {
             // fetch KHÔNG ném lỗi khi máy chủ trả 4xx/5xx — phải tự kiểm mã trả về,
             // không thì đơn rớt mà khách vẫn thấy màn hình cảm ơn (lỗi rơi âm thầm).
             // Đơn TRÙNG được máy chủ trả 200 kèm deduped:true ⇒ không báo động oan.
-            if (appRes.ok) appOk = true;
+            if (appRes.ok) {
+                appOk = true;
+                /* deduped:true = cùng khách gửi lại trong 5 phút. Đơn không mất (bản đầu đã
+                   nằm trong app) nhưng cũng KHÔNG phải lead mới: đo 19/09/2026 (Chrome, webhook
+                   giả lập) cả 4 nền tảng vẫn đếm chuyển đổi lần hai — checklist #30 mục 279. */
+                try { const kq = await appRes.json(); donTrung = !!(kq && kq.deduped); } catch (e) {}
+            }
             else console.warn('App webhook trả mã lỗi:', appRes.status);
         } catch (e) {
             console.warn('App webhook skip:', e);
@@ -294,7 +301,20 @@ function initBookingForm() {
                         timestamp: new Date().toISOString()
                     })
                 });
-                if (sheetRes.ok) sheetOk = true;
+                /* ⚠️ res.ok CHƯA đủ với Apps Script (sửa 19/09/2026, checklist #30 mục 279):
+                   ContentService không đặt được mã HTTP, nên doPost bắt lỗi rồi trả
+                   {"status":"error"} vẫn là 200 (xem doPost trong docs/google-apps-script.js;
+                   bản đang chạy trả đúng quy ước {"status":...} đó cho GET). Đo 19/09/2026 bằng
+                   Chrome, webhook giả lập: app 500 + Apps Script {"status":"error"} → cả 4 nền
+                   tảng vẫn đếm chuyển đổi. Chỉ coi là hỏng khi thân trả lời nói rõ là lỗi; thân
+                   lạ hay không đọc được thì vẫn tin res.ok, để một lần đổi định dạng phía Apps
+                   Script không tắt sạch chuyển đổi. */
+                if (sheetRes.ok) {
+                    let kq = null;
+                    try { kq = await sheetRes.json(); } catch (e) {}
+                    if (kq && kq.status === 'error') console.warn('Apps Script báo lỗi:', kq.message || '');
+                    else sheetOk = true;
+                }
                 else console.warn('Apps Script trả mã lỗi:', sheetRes.status);
             } catch (err) {
                 console.warn('Webhook failed:', err);
@@ -317,8 +337,9 @@ function initBookingForm() {
         // CHỈ bắn khi đơn thật sự vào được hệ thống (17/09/2026).
         // Cả hai đường chết ⇒ khách được nhắc nhắn Zalo, và KHÔNG có chuyển đổi nào
         // được đếm — số trong Google Ads / Meta / TikTok khớp với đơn có thật.
+        // Đơn trùng (app báo deduped) cũng không đếm lại (19/09/2026).
         // ============================================
-        if (daLuuDuoc) {
+        if (daLuuDuoc && !donTrung) {
             // 1. Google Ads conversion
             if (typeof gtag === 'function') {
                 gtag('event', 'conversion_event_submit_lead_form', {});
