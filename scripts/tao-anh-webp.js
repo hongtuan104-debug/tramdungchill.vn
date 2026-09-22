@@ -40,18 +40,19 @@ try {
 const ROOT = path.resolve(__dirname, "..");
 const DIR = path.join(ROOT, "assets", "images");
 
-// 22/09/2026: thêm 6 ảnh bộ chụp Canon "Viết Báo" (sếp Tuấn gửi qua Drive). Ảnh mới đặt TÊN MỚI chứ
+// 22/09/2026: thêm 5 ảnh bộ chụp Canon "Viết Báo" (sếp Tuấn gửi qua Drive). Ảnh mới đặt TÊN MỚI chứ
 // không đè lên gallery-N: service worker giữ /assets/images/ kiểu cache-first, đè cùng tên là khách cũ
 // còn thấy ảnh cũ; và gallery-N vẫn là hero của trang sinh nhật / ảnh chia sẻ của bài noindex.
 const ANH = [
     "gallery-1", "gallery-2", "gallery-3", "gallery-4", "gallery-5", "gallery-6",
     // Quy ước tên (sếp Tuấn dặn 22/09/2026): tả đúng thứ trong ảnh + có "da-lat" để hợp SEO, mỗi tên
     // một lần, không nhồi. Không ghi điều ảnh không chứng minh được (vd. tàu "đang chạy", cổng "vào").
-    "cap-doi-an-lau-canh-tau-lua-da-lat",   // thẻ "Khoảnh Khắc Săn Tàu" trang chủ
     "tau-lua-da-lat-sang-den-ve-dem",       // thẻ "Nhà Lồng Lên Đèn" trang chủ
     "cong-tron-hoang-hon-da-lat",           // ô gallery "Hoàng hôn"
     "quan-nuong-da-lat-dong-khach-ve-dem",  // ô gallery "Quán về đêm" + hero dip/team-building
-    "tau-lua-da-lat-duoi-lan-can-quan",     // ô gallery "View xe lửa" + hero dip/san-tau-da-lat
+    "tau-lua-da-lat-duoi-lan-can-quan",     // thẻ "Khoảnh Khắc Săn Tàu" trang chủ + hero dip/san-tau-da-lat
+    // (3M0A4382 cặp đôi bên toa cửa sổ bo tròn: toa CHECK-IN của quán, không phải tàu Đà Lạt – Trại Mát —
+    //  sếp xác nhận 22/09/2026 → không dùng cho nội dung "săn tàu"/"view xe lửa".)
     "cap-doi-bien-cau-hon-da-lat",          // hero dip/cau-hon-hen-ho
 ];
 const CO = [480, 800, 1200];
