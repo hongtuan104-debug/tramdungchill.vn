@@ -42,13 +42,14 @@ const ANH = [
     // Trang tĩnh — og:image viết tay trong HTML
     { goc: "assets/images/hero-sunset.jpg", khung: "og" },          // index · menu · blog · đường đi · tác giả
     { goc: "assets/images/gallery-2.jpg", khung: "og" },            // dip/team-building
-    { goc: "assets/images/gallery-3.jpg", khung: "og" },            // dip/sinh-nhat
-    { goc: "assets/images/gallery-4.jpg", khung: "og" },            // dip/cau-hon-hen-ho
+    { goc: "assets/images/gallery-3.jpg", khung: "og" },            // (cũ) dip/sinh-nhat tới 23/09/2026 — ảnh có nến
+    { goc: "assets/images/gallery-4.jpg", khung: "og" },            // (cũ) dip/cau-hon-hen-ho tới 22/09/2026
     { goc: "assets/images/blog/view-xe-lua-1.jpg", khung: "og" },   // (cũ) dip/san-tau-da-lat — giữ vì bài noindex dùng chung ảnh
     // 22/09/2026 — bộ ảnh Canon "Viết Báo": hero + ảnh chia sẻ mới của 3 trang dịp
     { goc: "assets/images/cap-doi-bien-cau-hon-da-lat.jpg", khung: "og", tam: { og: [0.5, 0] } },        // dip/cau-hon-hen-ho — giữ dòng chữ vàng trên vách
     { goc: "assets/images/quan-nuong-da-lat-dong-khach-ve-dem.jpg", khung: "og", tam: { og: [0.5, 0] } },         // dip/team-building — máy tự cắt mất chữ đèn
     { goc: "assets/images/tau-lua-da-lat-duoi-lan-can-quan.jpg", khung: "og" },    // dip/san-tau-da-lat
+    { goc: "assets/images/ban-tiec-trang-tri-hoang-hon-da-lat.jpg", khung: "og", tam: { og: [0.5, 0] } },  // dip/sinh-nhat (23/09/2026) — máy tự cắt mất trời hoàng hôn
     // Ảnh đại diện 18 bài đang index (nuong-bbq-ngam-xe-lua và bản tiếng Anh dùng chung view-xe-lua-11b)
     // Tâm cắt khai tay dưới đây đều đã duyệt bằng mắt 15/09/2026 — bản máy tự chọn cắt hụt người / mất toa tàu.
     { goc: "assets/images/blog/view-xe-lua-11b.webp", khung: "bai", tam: { og: [0.5, 0.62], "16x9": [0.5, 0.62] } },   // toa tàu + bảng + bàn ăn

@@ -1004,8 +1004,11 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      hàng cuối căn giữa (`css/dip-landing.css`). Bỏ luôn câu "tặng 1 bông hồng cho mỗi khách nữ" (bài 8/3).
    - "hoa tươi" → "hoa trang trí"; "nến" gỡ khỏi mọi câu tả setup. Giữ nguyên: thổi nến bánh kem, lễ hội hoa, hoa khô làm
      quà, "than hoa tươi", lời khuyên khi chọn quán khác.
-   - ⚠️ **Ảnh `gallery-3` (hero trang sinh nhật + gallery trang chủ) và `gallery-4` CÓ nến thật trong ảnh** (chân nến 3 cây;
-     1 cây nến sau bình hoa) → alt vẫn ghi "nến" vì alt phải tả đúng ảnh (bug #16). Đổi ảnh hay giữ là việc chờ sếp.
+   - **Ảnh `gallery-3` / `gallery-4` CÓ nến thật trong ảnh** (chân nến 3 cây; 1 cây nến sau bình hoa) → sếp bảo thay (23/09):
+     `gallery-3` ← `ban-tiec-trang-tri-hoang-hon-da-lat` (IMG_0246 bộ "Viết Báo", cắt bỏ khách thật ở mép phải; hero + og
+     trang sinh nhật + ô gallery, nhãn ô đổi "Tiệc sinh nhật" → "Bàn tiệc trang trí" vì ảnh không phải cảnh sinh nhật) ·
+     `gallery-4` ← `cap-doi-ngam-hoang-hon-nha-long-da-lat` (IMG_5378; mục Câu chuyện + ô "Hẹn hò"). File `gallery-3/4` cũ
+     vẫn để trên đĩa (không trang nào gọi) — xoá là 404 với Google Images. **Chọn ảnh setup mới: mở ra soi nến trước.**
    → Máy canh: mẫu thứ 11 trong **R8r** (câu có setup/trang trí/bàn tiệc mà nhắc hoa tươi / nến / hoa hồng / candle / rose).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động

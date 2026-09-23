@@ -54,6 +54,9 @@ const ANH = [
     // (3M0A4382 cặp đôi bên toa cửa sổ bo tròn: toa CHECK-IN của quán, không phải tàu Đà Lạt – Trại Mát —
     //  sếp xác nhận 22/09/2026 → không dùng cho nội dung "săn tàu"/"view xe lửa".)
     "cap-doi-bien-cau-hon-da-lat",          // hero dip/cau-hon-hen-ho
+    // 23/09/2026: thay gallery-3 / gallery-4 — trong ảnh có nến, mà quán không làm nến ở setup nào (sếp chốt).
+    "ban-tiec-trang-tri-hoang-hon-da-lat",  // hero dip/sinh-nhat + ô gallery "Bàn tiệc trang trí" (IMG_0246, cắt bỏ khách ở mép phải)
+    "cap-doi-ngam-hoang-hon-nha-long-da-lat", // ảnh mục Câu chuyện + ô gallery "Hẹn hò" trang chủ (IMG_5378)
 ];
 const CO = [480, 800, 1200];
 const QUALITY = 72;
