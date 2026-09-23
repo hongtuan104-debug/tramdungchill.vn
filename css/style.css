@@ -5064,6 +5064,20 @@ body.sticky-bar-active .fab-contact {
     margin: 18px 0;
 }
 
+/* Ảnh minh hoạ lấy từ Wikimedia Commons cho mục nói về nơi khác ngoài quán
+   (chợ đêm, đặc sản, hồ, thác...). Giấy phép CC BY / CC BY-SA buộc ghi tác giả
+   + giấy phép ngay cạnh ảnh, nên mỗi ảnh đi kèm figcaption. Ảnh của quán thì
+   không bọc khung này. */
+.blog-post-body .anh-nguon { margin: 18px 0 24px; }
+.blog-post-body .anh-nguon img { display: block; width: 100%; margin: 0; }
+.blog-post-body .anh-nguon figcaption {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+.blog-post-body .anh-nguon figcaption a { color: inherit; }
+
 /* ── Bảng giá món / khung giờ tàu ── */
 .blog-post-body .table-scroll {
     overflow-x: auto;

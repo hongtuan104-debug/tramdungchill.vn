@@ -1043,6 +1043,34 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      khách dễ nhầm) · IMG_5385 nền đầy khách thật lộ mặt. Ảnh có khách thật đang dùng (3M0A4655, 3M0A6094, IMG_2298) vẫn chờ
      sếp về quyền ảnh (mục 83) — nay mỗi ảnh xuất hiện ~27 lần trong blog.
 
+42. **Ảnh minh hoạ lấy từ Wikimedia Commons cho mục nói về nơi KHÁC ngoài quán** (sếp bảo "tìm ảnh trên mạng", 23/09/2026).
+   30 khung / 28 ảnh trong 10 bài index: đặc sản mua về (6) · ăn vặt buổi tối (4) · về đêm đi đâu (4) · cắm trại (4) ·
+   lịch trình 3N2Đ (4) · mùa nào đẹp (3) · nướng ngắm xe lửa (2) · view nhà lồng (1) · 2 bài tiếng Anh (1+1).
+   - ⚠️ **Thân bài của 19 bài trong `pillars` (`data/blog-seo.js`) GHI ĐÈ thân bài cùng id trong `data/blog-data.js`** —
+     gồm cả 17 bài đang index. Sửa `body` trong blog-data.js cho các bài đó là sửa bản chết, build không đổi gì (đã dính: chèn
+     27 ảnh vào blog-data.js rồi mới phát hiện, hoàn tác). Trước đợt này thân pillar có **0 ảnh chèn**; "236 ảnh chèn" ở #41
+     nằm trong bản chết + bài noindex. Tra nhanh: `pillars[id].body` có thì sửa ở blog-seo.js (đọc `vm`, thay chuỗi đã mã hoá
+     `JSON.stringify(s).slice(1,-1)` — xem #25).
+   - **Chỉ dùng ảnh giấy phép tự do** (CC BY, CC BY-SA, phạm vi công cộng — không NC/ND), tải về tự chứa, cắt 3:2, WebP
+     1200/800/400 (ảnh gốc hẹp hơn 1200 thì giữ nguyên cỡ, không phóng — dã quỳ 1000w). Mỗi ảnh nằm trong
+     `<figure class="anh-nguon">` + figcaption "Ảnh: <tác giả>, <giấy phép>, qua Wikimedia Commons (đã cắt khung)", link
+     `rel="nofollow"` (ghi công, không phải trích nguồn — R8d bỏ qua nofollow). CSS `.anh-nguon` ở `style.css`.
+   - **Ảnh ngoài KHÔNG dùng để tả quán**, không làm ảnh đại diện / og:image (ảnh chia sẻ không mang được chú thích). Mục nói về
+     chính quán thì dùng ảnh thật của quán (bộ "Viết Báo"). 7 bài index còn lại (hẹn hò, setup sinh nhật, bao nhiêu tiền, lẩu,
+     món nướng, team building, gia đình) toàn nói về quán nên chưa chèn gì — thân pillar của chúng vẫn 0 ảnh chèn.
+   - Viết alt/chú thích theo thứ THẤY trong ảnh, không gắn địa danh ảnh không chứng minh được: ảnh bánh căn không rõ nơi chụp →
+     tên `banh-can-do-khuon-dat-nung` (không "da-lat"); cây cà phê → "gần Đà Lạt", không ghi Cầu Đất/Arabica. Loại ảnh lấy
+     người lạ làm chủ thể (giấy phép CC lo bản quyền, không lo quyền hình ảnh cá nhân) và ảnh có watermark to.
+   - `fixAssetPaths()` (generate-blog-pages.js) nay đổi cả `srcset` — trước chỉ đổi `src="assets/`, các bản 400w/800w trỏ
+     `blog/assets/…` hỏng.
+   - Sổ nguồn: **`data/anh-nguon-ngoai.json`** (tác giả, giấy phép, trang gốc). Thêm ảnh ngoài mới = thêm dòng vào sổ.
+     Máy canh **R28**: ảnh trong sổ chỉ được hiện trong khung anh-nguon có đủ link trang gốc + tên tác giả + link giấy phép;
+     khung anh-nguon chỉ chứa ảnh trong sổ; không làm og:image. Đã bẻ thử 3 kiểu, bắt đủ.
+   - Công cụ tìm + soi ảnh (gitignore): `plans/cong-cu-anh-commons/` — `soi.js` dựng bảng xem trước theo chuyên mục/từ khoá
+     Commons, `tai-goc.js` tải bản lớn + giấy phép, `cat-khung.js` cắt/xuất, `chen-anh-pillar.js` chèn vào blog-seo.js.
+     ⚠️ Bảng xem trước từng lưu đè ảnh cùng tiền tố tên (khoá cache cắt 60 ký tự hex) — nay dùng md5 cả tên; **luôn soi lại
+     bản cắt cuối trước khi dùng**, đừng tin bảng xem trước.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

@@ -123,6 +123,11 @@ function fixAssetPaths(body) {
     });
     return body
         .replace(/src="assets\//g, 'src="../assets/')
+        // srcset chứa nhiều đường dẫn cách nhau bằng dấu phẩy — phép trên chỉ bắt
+        // đường đầu tiên (và chỉ khi là src=), các bản 400w/800w sẽ trỏ blog/assets/… hỏng.
+        .replace(/srcset="[^"]*"/g, function (m) {
+            return m.replace(/(srcset="|,\s*)assets\//g, "$1../assets/");
+        })
         // Trang chủ là "/" (đúng canonical + sitemap), KHÔNG phải "index.html": để hai
         // URL cùng nội dung thì Google tự chọn lấy một, có thể chọn bản mình không khai.
         // Giữ phép đổi này làm lưới đỡ cho nội dung cũ còn chép lối viết cũ trong blog-data.js.

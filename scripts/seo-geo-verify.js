@@ -2603,6 +2603,69 @@ const CAU_AEO = (() => {
                       + noiBo.length + " trang nội bộ sạch pixel · " + soForm + " form che trong Clarity");
 }
 
+// ── R28. Ảnh lấy từ Wikimedia Commons phải ghi công đúng chỗ hiện ──────────
+// 23/09/2026 (CLAUDE.md #42). 28 ảnh CC BY / CC BY-SA / phạm vi công cộng cho các mục nói về
+// nơi khác ngoài quán (chợ, hồ, đồi chè...). Giấy phép CC buộc ghi tác giả + giấy phép NGAY CHỖ
+// DÙNG — chép ảnh sang bài khác mà bỏ chú thích là vi phạm giấy phép, không lỗi nào hiện ra.
+//  (a) sổ data/anh-nguon-ngoai.json khớp file thật (đủ bản 400w/800w);
+//  (b) ảnh trong sổ chỉ được hiện trong <figure class="anh-nguon"> có figcaption trỏ đúng trang
+//      gốc trên Commons và ghi tên tác giả (+ link giấy phép nếu không phải phạm vi công cộng);
+//  (c) khung anh-nguon chỉ chứa ảnh có trong sổ — ảnh của quán không đội lốt "ảnh nguồn ngoài".
+{
+    const pham = [];
+    const so = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "anh-nguon-ngoai.json"), "utf8")).anh;
+    const theoTen = new Map(so.map((a) => [a.ten, a]));
+    for (const a of so) {
+        for (const duoi of [".webp", "-800w.webp", "-400w.webp"]) {
+            if (!fs.existsSync(path.join(ROOT, "assets", "images", "blog", a.ten + duoi))) pham.push("thiếu file " + a.ten + duoi);
+        }
+    }
+    // tên gốc của ảnh từ một URL: bỏ thư mục, ?v=, đuôi -400w/-800w và .webp
+    const tenGoc = (u) => u.split("?")[0].split("/").pop().replace(/(-400w|-800w)?\.webp$/i, "");
+    const urlTrongThe = (the) => {
+        const out = [];
+        for (const m of the.matchAll(/\s(?:src|srcset|data-src|data-srcset)="([^"]+)"/g))
+            for (const phan of m[1].split(",")) out.push(phan.trim().split(/\s+/)[0]);
+        return out;
+    };
+    const trang = [];
+    (function gom(dir) {
+        for (const f of fs.readdirSync(dir)) {
+            if ([".git", "node_modules", "dist", "plans", "docs"].includes(f)) continue;
+            const fp = path.join(dir, f);
+            if (fs.statSync(fp).isDirectory()) gom(fp); else if (f.endsWith(".html")) trang.push(fp);
+        }
+    })(ROOT);
+    let soKhung = 0;
+    for (const fp of trang) {
+        const html = fs.readFileSync(fp, "utf8");
+        const rel = path.relative(ROOT, fp).replace(/\\/g, "/");
+        for (const k of html.matchAll(/<figure class="anh-nguon">([\s\S]*?)<\/figure>/g)) {
+            soKhung++;
+            const img = (k[1].match(/<img\b[^>]*>/) || [""])[0];
+            const cap = (k[1].match(/<figcaption>([\s\S]*?)<\/figcaption>/) || ["", ""])[1];
+            const ten = urlTrongThe(img).map(tenGoc)[0];
+            const a = theoTen.get(ten);
+            if (!a) { pham.push(rel + ": khung anh-nguon chứa ảnh ngoài sổ (" + ten + ")"); continue; }
+            if (!cap.includes('href="' + a.trangGoc + '"')) pham.push(rel + ": " + ten + " thiếu link trang gốc Commons");
+            if (!cap.includes(a.tacGia.replace(/&/g, "&amp;"))) pham.push(rel + ": " + ten + " thiếu tên tác giả " + a.tacGia);
+            if (a.linkGiayPhep && !cap.includes('href="' + a.linkGiayPhep + '"')) pham.push(rel + ": " + ten + " thiếu link giấy phép " + a.giayPhep);
+        }
+        // ngoài khung: không được có ảnh nào trong sổ
+        const ngoai = html.replace(/<figure class="anh-nguon">[\s\S]*?<\/figure>/g, "");
+        for (const m of ngoai.matchAll(/<(?:img|source)\b[^>]*>/g)) {
+            for (const u of urlTrongThe(m[0])) if (theoTen.has(tenGoc(u))) pham.push(rel + ": " + tenGoc(u) + " hiện ngoài khung ghi công");
+        }
+        for (const m of ngoai.matchAll(/<meta\s[^>]*content="([^"]+\.webp)"/g)) {
+            if (theoTen.has(tenGoc(m[1]))) pham.push(rel + ": " + tenGoc(m[1]) + " dùng làm ảnh chia sẻ — og:image không mang được chú thích");
+        }
+    }
+    add("Ảnh Wikimedia Commons: ghi tác giả + giấy phép ngay chỗ hiện, không lọt ra ngoài khung",
+        pham.length === 0,
+        pham.length ? pham.slice(0, 3).join(" | ")
+                    : so.length + " ảnh trong sổ · " + soKhung + " khung anh-nguon đều trỏ đúng trang gốc + tác giả + giấy phép");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
