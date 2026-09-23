@@ -1,5 +1,5 @@
 {
-  "_ghiChu": "Ảnh lấy từ Wikimedia Commons cho bài blog (23/09/2026, CLAUDE.md #42). Mỗi ảnh chỉ được hiện trong <figure class=\"anh-nguon\"> có figcaption ghi tác giả + giấy phép + link trang gốc — luật R28 trong seo-geo-verify.js canh. Thêm ảnh ngoài mới thì thêm một dòng vào đây.",
+  "_ghiChu": "Ảnh lấy từ Wikimedia Commons cho bài blog (23/09/2026, CLAUDE.md #42). Mỗi ảnh chỉ được hiện trong <figure class=\"anh-nguon\"> có figcaption ghi tác giả + giấy phép + link trang gốc — luật R28 trong seo-geo-verify.js canh. Ảnh giữ NGUYÊN khung gốc (chỉ thu nhỏ + đổi WebP) nên chú thích không phải ghi \"đã chỉnh sửa\" — CC 4.0 buộc khai nếu cắt; R28 so tỉ lệ với rongGoc/caoGoc. Thêm ảnh ngoài mới thì thêm một dòng vào đây.",
   "anh": [
     {
       "ten": "atiso-ban-o-cho-da-lat",
@@ -7,6 +7,8 @@
       "tacGia": "Hungda",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 4320,
+      "caoGoc": 3240,
       "ngayLay": "2026-09-23"
     },
     {
@@ -15,6 +17,8 @@
       "tacGia": "VinhNguyen.1257",
       "giayPhep": "CC BY-SA 4.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rongGoc": 5312,
+      "caoGoc": 2988,
       "ngayLay": "2026-09-23"
     },
     {
@@ -23,6 +27,8 @@
       "tacGia": "Anh Khoa",
       "giayPhep": "CC BY-SA 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rongGoc": 2048,
+      "caoGoc": 1205,
       "ngayLay": "2026-09-23"
     },
     {
@@ -31,6 +37,8 @@
       "tacGia": "Anh Khoa",
       "giayPhep": "CC BY-SA 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rongGoc": 2048,
+      "caoGoc": 1233,
       "ngayLay": "2026-09-23"
     },
     {
@@ -39,6 +47,8 @@
       "tacGia": "RG72",
       "giayPhep": "CC BY-SA 4.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rongGoc": 3264,
+      "caoGoc": 2448,
       "ngayLay": "2026-09-23"
     },
     {
@@ -47,6 +57,8 @@
       "tacGia": "RG72",
       "giayPhep": "CC BY-SA 4.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "rongGoc": 3072,
+      "caoGoc": 2304,
       "ngayLay": "2026-09-23"
     },
     {
@@ -55,6 +67,8 @@
       "tacGia": "ayustety",
       "giayPhep": "CC BY-SA 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rongGoc": 3456,
+      "caoGoc": 2592,
       "ngayLay": "2026-09-23"
     },
     {
@@ -63,6 +77,8 @@
       "tacGia": "Roy Kim",
       "giayPhep": "CC BY 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/2.0/",
+      "rongGoc": 1818,
+      "caoGoc": 1228,
       "ngayLay": "2026-09-23"
     },
     {
@@ -71,6 +87,8 @@
       "tacGia": "The Erica Chang",
       "giayPhep": "CC BY 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/3.0/",
+      "rongGoc": 2048,
+      "caoGoc": 1536,
       "ngayLay": "2026-09-23"
     },
     {
@@ -79,6 +97,8 @@
       "tacGia": "The Erica Chang",
       "giayPhep": "CC BY 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/3.0/",
+      "rongGoc": 2048,
+      "caoGoc": 1536,
       "ngayLay": "2026-09-23"
     },
     {
@@ -87,6 +107,8 @@
       "tacGia": "Hmoong",
       "giayPhep": "CC BY 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/2.0/",
+      "rongGoc": 1818,
+      "caoGoc": 1195,
       "ngayLay": "2026-09-23"
     },
     {
@@ -95,6 +117,8 @@
       "tacGia": "calflier001",
       "giayPhep": "CC BY-SA 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rongGoc": 3162,
+      "caoGoc": 2379,
       "ngayLay": "2026-09-23"
     },
     {
@@ -103,6 +127,8 @@
       "tacGia": "Lam Tr Th",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 5472,
+      "caoGoc": 3648,
       "ngayLay": "2026-09-23"
     },
     {
@@ -111,6 +137,8 @@
       "tacGia": "P. Hughes",
       "giayPhep": "CC BY 4.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/4.0/",
+      "rongGoc": 4288,
+      "caoGoc": 2848,
       "ngayLay": "2026-09-23"
     },
     {
@@ -119,6 +147,8 @@
       "tacGia": "Diane Selwyn",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 2993,
+      "caoGoc": 2304,
       "ngayLay": "2026-09-23"
     },
     {
@@ -127,6 +157,8 @@
       "tacGia": "Bùi Thụy Đào Nguyên",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 1000,
+      "caoGoc": 750,
       "ngayLay": "2026-09-23"
     },
     {
@@ -135,6 +167,8 @@
       "tacGia": "Khánh Hmoong",
       "giayPhep": "CC BY 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/2.0/",
+      "rongGoc": 3944,
+      "caoGoc": 2645,
       "ngayLay": "2026-09-23"
     },
     {
@@ -143,6 +177,8 @@
       "tacGia": "Bem photography",
       "giayPhep": "CC BY 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/2.0/",
+      "rongGoc": 4288,
+      "caoGoc": 2848,
       "ngayLay": "2026-09-23"
     },
     {
@@ -151,6 +187,8 @@
       "tacGia": "Bem photography",
       "giayPhep": "CC BY 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/2.0/",
+      "rongGoc": 4288,
+      "caoGoc": 2848,
       "ngayLay": "2026-09-23"
     },
     {
@@ -159,6 +197,8 @@
       "tacGia": "calflier001",
       "giayPhep": "CC BY-SA 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rongGoc": 3640,
+      "caoGoc": 2034,
       "ngayLay": "2026-09-23"
     },
     {
@@ -167,6 +207,8 @@
       "tacGia": "Hungda",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 4320,
+      "caoGoc": 3240,
       "ngayLay": "2026-09-23"
     },
     {
@@ -175,6 +217,8 @@
       "tacGia": "Ed Yourdon",
       "giayPhep": "CC BY-SA 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "rongGoc": 2272,
+      "caoGoc": 1704,
       "ngayLay": "2026-09-23"
     },
     {
@@ -183,6 +227,8 @@
       "tacGia": "Diane Selwyn",
       "giayPhep": "Public domain",
       "linkGiayPhep": "",
+      "rongGoc": 3072,
+      "caoGoc": 2304,
       "ngayLay": "2026-09-23"
     },
     {
@@ -191,6 +237,8 @@
       "tacGia": "Schwede66",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 5472,
+      "caoGoc": 3648,
       "ngayLay": "2026-09-23"
     },
     {
@@ -199,6 +247,8 @@
       "tacGia": "Bem photography",
       "giayPhep": "CC BY 2.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by/2.0/",
+      "rongGoc": 4288,
+      "caoGoc": 2848,
       "ngayLay": "2026-09-23"
     },
     {
@@ -207,6 +257,8 @@
       "tacGia": "Nguyễn Tấn Phát",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 3072,
+      "caoGoc": 2304,
       "ngayLay": "2026-09-23"
     },
     {
@@ -215,6 +267,8 @@
       "tacGia": "Diane Selwyn",
       "giayPhep": "Public domain",
       "linkGiayPhep": "",
+      "rongGoc": 3072,
+      "caoGoc": 1668,
       "ngayLay": "2026-09-23"
     },
     {
@@ -223,6 +277,8 @@
       "tacGia": "DHN",
       "giayPhep": "CC BY-SA 3.0",
       "linkGiayPhep": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "rongGoc": 3264,
+      "caoGoc": 2448,
       "ngayLay": "2026-09-23"
     }
   ]

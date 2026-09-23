@@ -2610,14 +2610,23 @@ const CAU_AEO = (() => {
 //  (a) sổ data/anh-nguon-ngoai.json khớp file thật (đủ bản 400w/800w);
 //  (b) ảnh trong sổ chỉ được hiện trong <figure class="anh-nguon"> có figcaption trỏ đúng trang
 //      gốc trên Commons và ghi tên tác giả (+ link giấy phép nếu không phải phạm vi công cộng);
-//  (c) khung anh-nguon chỉ chứa ảnh có trong sổ — ảnh của quán không đội lốt "ảnh nguồn ngoài".
+//  (c) khung anh-nguon chỉ chứa ảnh có trong sổ — ảnh của quán không đội lốt "ảnh nguồn ngoài";
+//  (d) ảnh giữ NGUYÊN khung gốc (tỉ lệ khớp rongGoc/caoGoc). Sếp bỏ chữ "đã cắt khung" 23/09/2026;
+//      CC BY / BY-SA 4.0 buộc khai khi chỉnh sửa ảnh, còn thu nhỏ + đổi định dạng thì không tính là
+//      chỉnh sửa. Cắt lại ảnh mà không khai là vi phạm giấy phép — mục này chặn.
 {
     const pham = [];
+    const { kichThuocAnh } = require("./kich-thuoc-anh.js");
     const so = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "anh-nguon-ngoai.json"), "utf8")).anh;
     const theoTen = new Map(so.map((a) => [a.ten, a]));
     for (const a of so) {
         for (const duoi of [".webp", "-800w.webp", "-400w.webp"]) {
-            if (!fs.existsSync(path.join(ROOT, "assets", "images", "blog", a.ten + duoi))) pham.push("thiếu file " + a.ten + duoi);
+            const fp = path.join(ROOT, "assets", "images", "blog", a.ten + duoi);
+            if (!fs.existsSync(fp)) { pham.push("thiếu file " + a.ten + duoi); continue; }
+            const kt = kichThuocAnh(fp);
+            if (!kt || !a.rongGoc || !a.caoGoc) { pham.push(a.ten + duoi + ": không đo được tỉ lệ để so khung gốc"); continue; }
+            // lệch tối đa 1 điểm ảnh do làm tròn khi thu nhỏ
+            if (Math.abs(kt.h - kt.w * a.caoGoc / a.rongGoc) > 1.01) pham.push(a.ten + duoi + ": đã bị cắt khỏi khung gốc " + a.rongGoc + "×" + a.caoGoc + " (" + kt.w + "×" + kt.h + ")");
         }
     }
     // tên gốc của ảnh từ một URL: bỏ thư mục, ?v=, đuôi -400w/-800w và .webp
@@ -2663,7 +2672,7 @@ const CAU_AEO = (() => {
     add("Ảnh Wikimedia Commons: ghi tác giả + giấy phép ngay chỗ hiện, không lọt ra ngoài khung",
         pham.length === 0,
         pham.length ? pham.slice(0, 3).join(" | ")
-                    : so.length + " ảnh trong sổ · " + soKhung + " khung anh-nguon đều trỏ đúng trang gốc + tác giả + giấy phép");
+                    : so.length + " ảnh trong sổ · " + soKhung + " khung anh-nguon đều trỏ đúng trang gốc + tác giả + giấy phép · ảnh giữ nguyên khung gốc");
 }
 
 // ── In kết quả ───────────────────────────────────────────────────────────

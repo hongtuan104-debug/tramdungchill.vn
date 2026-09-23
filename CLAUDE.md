@@ -1051,10 +1051,14 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      27 ảnh vào blog-data.js rồi mới phát hiện, hoàn tác). Trước đợt này thân pillar có **0 ảnh chèn**; "236 ảnh chèn" ở #41
      nằm trong bản chết + bài noindex. Tra nhanh: `pillars[id].body` có thì sửa ở blog-seo.js (đọc `vm`, thay chuỗi đã mã hoá
      `JSON.stringify(s).slice(1,-1)` — xem #25).
-   - **Chỉ dùng ảnh giấy phép tự do** (CC BY, CC BY-SA, phạm vi công cộng — không NC/ND), tải về tự chứa, cắt 3:2, WebP
-     1200/800/400 (ảnh gốc hẹp hơn 1200 thì giữ nguyên cỡ, không phóng — dã quỳ 1000w). Mỗi ảnh nằm trong
-     `<figure class="anh-nguon">` + figcaption "Ảnh: <tác giả>, <giấy phép>, qua Wikimedia Commons (đã cắt khung)", link
-     `rel="nofollow"` (ghi công, không phải trích nguồn — R8d bỏ qua nofollow). CSS `.anh-nguon` ở `style.css`.
+   - **Chỉ dùng ảnh giấy phép tự do** (CC BY, CC BY-SA, phạm vi công cộng — không NC/ND), tải về tự chứa, WebP 1200/800/400
+     (ảnh gốc hẹp hơn 1200 thì giữ nguyên cỡ, không phóng — dã quỳ 1000w). Mỗi ảnh nằm trong `<figure class="anh-nguon">`
+     + figcaption "Ảnh: <tác giả>, <giấy phép>, qua Wikimedia Commons.", link `rel="nofollow"` (ghi công, không phải trích
+     nguồn — R8d bỏ qua nofollow). CSS `.anh-nguon` ở `style.css`.
+   - ⚠️ **KHÔNG cắt ảnh — giữ nguyên khung gốc** (sếp bỏ chữ "đã cắt khung" 23/09/2026). CC BY / BY-SA **4.0** buộc khai
+     "đã chỉnh sửa" nếu cắt; thu nhỏ + đổi định dạng thì giấy phép cho phép (mục 2(a)(4)), không phải khai. Vì vậy ảnh mang
+     đủ tỉ lệ gốc (4:3, 3:2, 16:9…). Sổ ghi `rongGoc`/`caoGoc`, R28 mục (d) chặn ảnh bị cắt. Muốn cắt thì phải ghi lại
+     "đã chỉnh sửa" trong chú thích.
    - **Ảnh ngoài KHÔNG dùng để tả quán**, không làm ảnh đại diện / og:image (ảnh chia sẻ không mang được chú thích). Mục nói về
      chính quán thì dùng ảnh thật của quán (bộ "Viết Báo"). 7 bài index còn lại (hẹn hò, setup sinh nhật, bao nhiêu tiền, lẩu,
      món nướng, team building, gia đình) toàn nói về quán nên chưa chèn gì — thân pillar của chúng vẫn 0 ảnh chèn.
@@ -1067,7 +1071,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      Máy canh **R28**: ảnh trong sổ chỉ được hiện trong khung anh-nguon có đủ link trang gốc + tên tác giả + link giấy phép;
      khung anh-nguon chỉ chứa ảnh trong sổ; không làm og:image. Đã bẻ thử 3 kiểu, bắt đủ.
    - Công cụ tìm + soi ảnh (gitignore): `plans/cong-cu-anh-commons/` — `soi.js` dựng bảng xem trước theo chuyên mục/từ khoá
-     Commons, `tai-goc.js` tải bản lớn + giấy phép, `cat-khung.js` cắt/xuất, `chen-anh-pillar.js` chèn vào blog-seo.js.
+     Commons, `tai-goc.js` tải bản lớn + giấy phép, `xuat-nguyen.js` xuất giữ nguyên khung (`cat-khung.js` bản cũ có cắt — đừng dùng cho ảnh CC), `chen-anh-pillar.js` chèn vào blog-seo.js.
      ⚠️ Bảng xem trước từng lưu đè ảnh cùng tiền tố tên (khoá cache cắt 60 ký tự hex) — nay dùng md5 cả tên; **luôn soi lại
      bản cắt cuối trước khi dùng**, đừng tin bảng xem trước.
 
