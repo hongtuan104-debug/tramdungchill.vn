@@ -169,7 +169,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-17",
+      "dateModified": "2026-09-23",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -563,7 +563,7 @@ const BLOG_SEO = {
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
-      "dateModified": "2026-09-17",
+      "dateModified": "2026-09-23",
       "author": {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
@@ -657,7 +657,7 @@ const BLOG_SEO = {
         { "q": "Đi ăn vặt chợ đêm Đà Lạt cần chuẩn bị gì?", "a": "Mang áo khoác vì tối phố núi xuống nhiệt nhanh, ngồi ghế nhựa ngoài trời một lúc là lạnh tay. Nên thủ thêm khăn giấy, ít tiền mặt lẻ và đi giày dễ đi bộ vì khu này nhiều dốc. Đi nhóm thì gọi ít phần rồi chia nhau để nếm được nhiều hàng." }
       ],
       "author": {"name":"Nguyễn Duy","role":"Đồng chủ Tiệm Nướng Trạm Dừng Chill"},
-      "dateModified": "2026-09-17",
+      "dateModified": "2026-09-23",
       "lang": "vi"
     },
     "da-lat-ve-dem-di-dau": {
@@ -717,7 +717,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-17",
+      "dateModified": "2026-09-23",
       "lang": "vi",
       "category": "Mẹo & Kinh nghiệm",
       "image": "assets/images/blog/view-xe-lua-20.webp",
