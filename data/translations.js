@@ -70,7 +70,6 @@ var TRANSLATIONS = {
     'perks.cta': 'Đặt Bàn Trải Nghiệm Ngay',
 
     // Chọn chỗ ngồi theo view
-    'seat.tag': 'Chọn chỗ ngồi',
     'seat.title': 'Bạn muốn ngắm view nào?<br><em>Mỗi view có một dãy bàn riêng</em>',
     'seat.sub': 'Trạm Dừng Chill là tiệm nướng ngoài trời, bàn xếp theo dãy. Bàn trong cùng một dãy đều ngắm chung một view — không cần giành bàn đầu dãy.',
     'seat.1.title': 'Muốn tàu chạy ngay dưới chân',
@@ -395,7 +394,6 @@ var TRANSLATIONS = {
     'perks.cta': 'Book Your Experience',
 
     // Pick your seat by view
-    'seat.tag': 'Pick your seat',
     'seat.title': 'Which view do you want?<br><em>Each view has its own row of tables</em>',
     'seat.sub': 'Tram Dung Chill is an open-air grill house and the tables are arranged in rows. Every table in the same row shares the same view — no need to fight for the first table.',
     'seat.1.title': 'You want the train right below you',
