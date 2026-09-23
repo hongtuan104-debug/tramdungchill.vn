@@ -194,6 +194,12 @@ body.dip-landing {
     max-width: 1100px;
     margin: 0 auto;
 }
+/* 4 thẻ: 2×2 trên máy tính, không để thẻ thứ 4 lẻ một hàng. Đặt TRƯỚC khối
+   @media bên dưới để rule 1 cột ở ≤600px vẫn thắng. */
+.dip-features-4 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 820px;
+}
 .dip-feature {
     background: var(--white);
     border: 1px solid var(--border);
