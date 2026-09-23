@@ -5076,7 +5076,11 @@ body.sticky-bar-active .fab-contact {
     line-height: 1.5;
     color: var(--text-muted);
 }
-.blog-post-body .anh-nguon figcaption a { color: inherit; }
+/* Link tên tác giả / giấy phép: không gạch chân cho chú thích gọn (sếp chốt 23/09/2026),
+   rê chuột hay Tab tới thì hiện gạch chân để vẫn nhận ra là link. */
+.blog-post-body .anh-nguon figcaption a { color: inherit; text-decoration: none; }
+.blog-post-body .anh-nguon figcaption a:hover,
+.blog-post-body .anh-nguon figcaption a:focus-visible { text-decoration: underline; }
 
 /* ── Bảng giá món / khung giờ tàu ── */
 .blog-post-body .table-scroll {
