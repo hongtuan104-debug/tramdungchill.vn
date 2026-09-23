@@ -1075,6 +1075,19 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      ⚠️ Bảng xem trước từng lưu đè ảnh cùng tiền tố tên (khoá cache cắt 60 ký tự hex) — nay dùng md5 cả tên; **luôn soi lại
      bản cắt cuối trước khi dùng**, đừng tin bảng xem trước.
 
+43. **Link KHÔNG gạch chân trên toàn site** (sếp chốt 23/09/2026). Gạch chân chỉ hiện khi rê chuột / Tab tới
+   (`:hover`, `:focus-visible`). Bỏ gạch chân thì màu là thứ duy nhất tách link khỏi chữ → WCAG 1.4.1 đòi link giữa câu
+   ≥ 3:1 so với chữ quanh nó, không thì phải có dấu hiệu khác:
+   - Thân bài blog: màu link `#886B22` (3,02:1 so với `--charcoal`, ≥ 4,5:1 trên mọi nền trong bài) — `--gold-on-light`
+     chỉ đạt 2,89:1. Chi tiết trong chú thích `.blog-post-body a` ở style.css.
+   - Link giữa câu mà màu sát chữ (đầu trang Thực đơn, 2 link trang Săn tàu, tên tác giả ở byline bài blog, hàng link dịp
+     trên trang chủ) dùng **chữ đậm 600** làm dấu hiệu. Link đứng riêng (có mũi tên →, nút) thì không cần.
+   - Rà bằng Chrome (CDP) 12 trang chính + 25 bài blog, cả khung 412 lẫn 1366: 0 link gạch chân. Công cụ ở scratchpad
+     phiên (không vào repo) — chép lại từ `plans/cong-cu-do-hieu-nang/do-eval.js` nếu cần: quét `getComputedStyle(a)`
+     `textDecorationLine` của link + thẻ cha, và viền CHỈ ở dưới (nút có viền bao quanh không tính).
+   → Máy canh **R29**: CSS nạp thật (`dist/style.min.css`, `dist/dip-landing.min.css`), khối `<style>` và `style=""` của
+   mọi trang + mẫu bài không được có `text-decoration: underline` ngoài `:hover`/`:focus`.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

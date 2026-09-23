@@ -2675,6 +2675,47 @@ const CAU_AEO = (() => {
                     : so.length + " ảnh trong sổ · " + soKhung + " khung anh-nguon đều trỏ đúng trang gốc + tác giả + giấy phép · ảnh giữ nguyên khung gốc");
 }
 
+// ── R29. Link không gạch chân cố định (sếp chốt 23/09/2026, toàn site) ─────────
+// Gạch chân chỉ được bật khi rê chuột / Tab tới (:hover, :focus-visible). Link giữa câu mà màu
+// sát chữ xung quanh (< 3:1) phải có dấu hiệu khác — chữ đậm — WCAG 1.4.1; mục này không đo
+// màu hộ được, chỉ chặn gạch chân quay lại. Quét: CSS thật sự được nạp (dist/style.min.css,
+// dist/dip-landing.min.css), khối <style> và thuộc tính style="" trong mọi trang + mẫu bài.
+{
+    const pham = [];
+    const coGach = (d) => /text-decoration(-line)?\s*:[^;}]*underline/i.test(d);
+    const xetCss = (ten, css) => {
+        css = css.replace(/\/\*[\s\S]*?\*\//g, "");
+        for (const m of css.matchAll(/([^{}@]+)\{([^{}]*)\}/g)) {
+            if (!coGach(m[2])) continue;
+            for (const sel of m[1].split(",")) {
+                if (!/:hover|:focus/.test(sel)) pham.push(ten + ": " + sel.trim().slice(0, 60));
+            }
+        }
+    };
+    for (const f of ["style.min.css", "dip-landing.min.css"]) {
+        const fp = path.join(ROOT, "dist", f);
+        if (fs.existsSync(fp)) xetCss("dist/" + f, fs.readFileSync(fp, "utf8"));
+    }
+    const trang = [];
+    (function gom(dir) {
+        for (const f of fs.readdirSync(dir)) {
+            if ([".git", "node_modules", "dist", "plans", "docs"].includes(f)) continue;
+            const fp = path.join(dir, f);
+            if (fs.statSync(fp).isDirectory()) gom(fp); else if (f.endsWith(".html")) trang.push(fp);
+        }
+    })(ROOT);
+    for (const fp of trang) {
+        const html = fs.readFileSync(fp, "utf8");
+        const rel = path.relative(ROOT, fp).replace(/\\/g, "/");
+        for (const m of html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)) xetCss(rel, m[1]);
+        for (const m of html.matchAll(/<a\b[^>]*\sstyle="([^"]*)"/g)) if (coGach(m[1])) pham.push(rel + ": <a style> có gạch chân");
+    }
+    add("Link không gạch chân cố định (chỉ hiện khi rê chuột / Tab)",
+        pham.length === 0,
+        pham.length ? pham.slice(0, 4).join(" | ")
+                    : "CSS nạp thật + " + trang.length + " trang: gạch chân link chỉ nằm trong :hover / :focus-visible");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
