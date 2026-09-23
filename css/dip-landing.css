@@ -200,6 +200,16 @@ body.dip-landing {
     grid-template-columns: repeat(2, 1fr);
     max-width: 820px;
 }
+/* 5 thẻ: lưới 3 cột sẽ dồn hàng cuối sang trái → dùng flex để 2 thẻ cuối
+   căn giữa. Bề rộng thẻ = (100% - khoảng cách) / số cột, khoảng cách khớp gap. */
+.dip-features-5 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dip-features-5 > .dip-feature {
+    flex: 0 1 calc((100% - 48px) / 3);
+}
 .dip-feature {
     background: var(--white);
     border: 1px solid var(--border);
@@ -445,6 +455,7 @@ body.dip-landing {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
+    .dip-features-5 > .dip-feature { flex-basis: calc((100% - 16px) / 2); }
     .dip-steps {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -457,6 +468,7 @@ body.dip-landing {
     .dip-section { padding: 60px 0; }
     .dip-hero { min-height: 70vh; padding: 60px 20px; }
     .dip-features { grid-template-columns: 1fr; }
+    .dip-features-5 > .dip-feature { flex-basis: 100%; }
     .booking-form .form-row { grid-template-columns: 1fr; }
     .dip-form-wrapper { padding: 32px 24px; }
     .dip-pricing-big { font-size: 3.5rem; }

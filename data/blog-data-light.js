@@ -69,7 +69,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Khách bày món trên bàn nướng sát lan can Trạm Dừng Chill, đoàn tàu xanh và thung lũng nhà kính phía dưới",
     "badge": "",
     "featured": false,
-    "excerpt": "Tìm quán setup sinh nhật miễn phí ở Đà Lạt? Trạm Dừng Chill tặng trang trí bàn tiệc (hoa, nến, bảng chúc mừng) — view xe lửa, hoàng hôn, biển sao nhà lồng.",
+    "excerpt": "Tìm quán setup sinh nhật miễn phí ở Đà Lạt? Trạm Dừng Chill tặng trang trí bàn tiệc (hoa, bảng chúc mừng) — view xe lửa, hoàng hôn, biển sao nhà lồng.",
     "tags": []
   },
   {

@@ -27,6 +27,9 @@
   khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
 - **Phụ thu:** Tết Nguyên đán Mùng 2–Mùng 8 Âm lịch **phụ thu 10%**; Valentine, đêm 24/12, bàn view **không** phụ thu (sếp chốt 14/09/2026).
 - **Xác nhận đặt bàn qua Zalo trong 15 phút:** chỉ trong giờ mở cửa 15:00–23:00 (sếp chốt 14/09/2026).
+- **Setup miễn phí (sinh nhật / kỷ niệm / cầu hôn):** bảng chúc mừng / bảng "Marry Me?" + **hoa trang trí — là hoa NHỰA**,
+  đừng viết "hoa tươi", đừng hứa bó hoa hồng. **KHÔNG có nến ở setup nào** (sếp chốt 23/09/2026). "Thổi nến" trên bánh kem
+  của khách thì vẫn viết được. Luật R8r chặn câu setup nhắc hoa tươi / nến / hoa hồng — xem bug #39.
 - **Menu:** 81 món trong `data/menu-data.js` (44 món ăn + 37 đồ uống) → viết "hơn 70 món".
   Đồng bộ theo menu in 26 trang ngày 04/08/2026 — sếp Tuấn xác nhận **bản in là chuẩn**.
   Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
@@ -993,6 +996,17 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Quy trình: xuất 1200px từ ảnh gốc Drive → thêm tên vào `scripts/tao-anh-webp.js` (trang chủ/dịp) hoặc tạo bộ
      `.webp` + `-400w` + `-800w` trong `assets/images/blog/` → bảng `ANH` của `tao-anh-chia-se.js` → **mở ảnh cắt ra
      xem** (3 khung máy tự cắt mất chữ đèn / bảng tên, phải khai `tam`).
+
+39. **Setup hứa "hoa tươi, nến" trong khi hoa là hoa nhựa, không có nến** (23/09/2026, commit `bd4c08c9` + commit sau nó).
+   Trang cầu hôn có thẻ "Hoa hồng đỏ — bó hoa hồng tươi" + "Hàng nến lung linh"; trang sinh nhật có thẻ "Nến lung linh";
+   ~70 câu ở trang chủ (cả bản dịch EN), llms.txt, 31 bài blog ghi "hoa tươi, nến và bảng chúc mừng".
+   - Đã gỡ 3 thẻ; lưới 4 thẻ (cầu hôn) dùng `.dip-features-4` = 2×2, lưới 5 thẻ (sinh nhật) dùng `.dip-features-5` = flex,
+     hàng cuối căn giữa (`css/dip-landing.css`). Bỏ luôn câu "tặng 1 bông hồng cho mỗi khách nữ" (bài 8/3).
+   - "hoa tươi" → "hoa trang trí"; "nến" gỡ khỏi mọi câu tả setup. Giữ nguyên: thổi nến bánh kem, lễ hội hoa, hoa khô làm
+     quà, "than hoa tươi", lời khuyên khi chọn quán khác.
+   - ⚠️ **Ảnh `gallery-3` (hero trang sinh nhật + gallery trang chủ) và `gallery-4` CÓ nến thật trong ảnh** (chân nến 3 cây;
+     1 cây nến sau bình hoa) → alt vẫn ghi "nến" vì alt phải tả đúng ảnh (bug #16). Đổi ảnh hay giữ là việc chờ sếp.
+   → Máy canh: mẫu thứ 11 trong **R8r** (câu có setup/trang trí/bàn tiệc mà nhắc hoa tươi / nến / hoa hồng / candle / rose).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

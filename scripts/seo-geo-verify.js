@@ -1984,6 +1984,15 @@ const CAU_AEO = (() => {
         ["số đánh giá / lượt xem bị đọc sai nghĩa", (c) => /đánh giá\s*5 sao trên Google|reviews\s*5 stars on Google|by over [0-9.,]+ guests|từ hơn [0-9.,]+ khách\b|13 triệu người|13 million people/i.test(c)],
         ["số món / món signature khai sai", (c) => /\b50\+?\s*Món signature|\b50\+?\s*Signature dishes|(?:khoảng|~)\s?81 món|around 73 (?:items|dishes)/i.test(c)],
         ["khuyên mang đồ ăn/uống từ ngoài vào", (c) => /mang theo nước|mang đồ (?:ăn|uống)|bring (?:your own|outside) (?:drinks|food)/i.test(c) && /tiết kiệm|quán|Trạm|restaurant/i.test(c) && !/không nhận|không được mang|not allowed/i.test(c)],
+        // Sếp Tuấn chốt 23/09/2026: hoa của quán là hoa NHỰA, và không setup nào (cầu hôn / sinh nhật / kỷ niệm)
+        // có nến. Trước đó ~70 câu hứa "hoa tươi, nến", trang cầu hôn còn hứa "bó hoa hồng tươi" + "hàng nến".
+        // "Thổi nến" là nến trên bánh kem của khách → bỏ ra trước khi soi. Câu về hoa ngoài quán (lễ hội hoa,
+        // hoa khô làm quà, "than hoa tươi") không có chữ setup/trang trí nên tự lọt qua.
+        ["setup hứa hoa tươi / nến / hoa hồng (hoa là hoa nhựa, không có nến)", (c) => {
+            const k = c.replace(/thổi nến|blow(?:ing)? out (?:the )?candles/gi, "");
+            return /setup|trang trí|bàn tiệc|decorat/i.test(k)
+                && /hoa tươi|fresh flowers?|\bnến\b|candles?|hoa hồng|bông hồng|\broses?\b/i.test(k);
+        }],
     ];
     const pham = [];
     for (const { tu, c } of CAU_AEO) for (const [ten, f] of SAI) if (f(c)) pham.push(ten + ": " + tu + " → " + c.slice(0, 80));

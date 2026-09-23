@@ -67,7 +67,7 @@ const SCHEMA_DATA = {
         },
         {
             question: 'Quán có setup sinh nhật không?',
-            answer: 'Có! Trạm Dừng Chill setup tiệc sinh nhật và kỷ niệm MIỄN PHÍ với hoa, nến, bảng chúc mừng. Liên hệ đặt trước qua Zalo.'
+            answer: 'Có! Trạm Dừng Chill setup tiệc sinh nhật và kỷ niệm MIỄN PHÍ với hoa, bảng chúc mừng. Liên hệ đặt trước qua Zalo.'
         },
         {
             question: 'Giá nướng BBQ tại Trạm Dừng Chill bao nhiêu?',

@@ -117,9 +117,9 @@ const BLOG_ARTICLES = [
         imageAlt: "Tổ chức sinh nhật Đà Lạt - setup tiệc nướng BBQ lãng mạn",
         badge: "",
         featured: false,
-        excerpt: "Đà Lạt là nơi hoàn hảo để tổ chức <strong>sinh nhật lãng mạn</strong>. Từ tiệc nướng ngoài trời view hoàng hôn đến setup hoa nến bên nhà lồng — đây là 5 ý tưởng hay nhất.",
+        excerpt: "Đà Lạt là nơi hoàn hảo để tổ chức <strong>sinh nhật lãng mạn</strong>. Từ tiệc nướng ngoài trời view hoàng hôn đến setup hoa, bảng chúc mừng bên nhà lồng — đây là 5 ý tưởng hay nhất.",
         body: `<h2>1. Nướng BBQ ngắm hoàng hôn (Trạm Dừng Chill)</h2>
-                            <p>Setup bàn tiệc với hoa, nến, bảng chúc mừng <strong>MIỄN PHÍ</strong>. View hoàng hôn + nhà lồng lên đèn = backdrop sinh nhật triệu like. <a href="/#booking">Đặt tiệc sinh nhật ngay →</a></p>
+                            <p>Setup bàn tiệc với hoa, bảng chúc mừng <strong>MIỄN PHÍ</strong>. View hoàng hôn + nhà lồng lên đèn = backdrop sinh nhật triệu like. <a href="/#booking">Đặt tiệc sinh nhật ngay →</a></p>
 
                             <h3>2. Picnic bên hồ Tuyền Lâm</h3>
                             <p>Thuê thuyền kayak, setup bàn picnic bên bờ hồ. Phù hợp cho nhóm nhỏ 4-6 người, không khí trong lành.</p>
@@ -203,7 +203,7 @@ const BLOG_ARTICLES = [
                             <p><strong>19:00+:</strong> Nhà lồng đồng loạt lên đèn, tạo nên biển sao lung linh giữa đêm. Đây là khoảnh khắc lãng mạn nhất trong ngày.</p>
 
                             <h2>Mẹo đặt bàn cho buổi hẹn hò</h2>
-                            <p>Cuối tuần và dịp lễ quán thường đông, vì vậy hãy <strong>đặt bàn trước ít nhất 1 ngày</strong> để được chọn vị trí đẹp nhất. Nếu muốn bất ngờ nửa kia, bạn có thể nhờ quán setup thêm nến và hoa tại bàn — dịch vụ này hoàn toàn miễn phí khi đặt bàn trước. Liên hệ hotline <a href="tel:0989765070">0989.765.070</a> để được tư vấn.</p>
+                            <p>Cuối tuần và dịp lễ quán thường đông, vì vậy hãy <strong>đặt bàn trước ít nhất 1 ngày</strong> để được chọn vị trí đẹp nhất. Nếu muốn bất ngờ nửa kia, bạn có thể nhờ quán setup thêm hoa và bảng chữ tại bàn — dịch vụ này hoàn toàn miễn phí khi đặt bàn trước. Liên hệ hotline <a href="tel:0989765070">0989.765.070</a> để được tư vấn.</p>
 
                             <p>👉 <a href="/#booking"><strong>Đặt bàn hẹn hò ngay</strong></a></p>`
     },
@@ -482,7 +482,7 @@ const BLOG_ARTICLES = [
 
 <h2>Mấy điều nên nhớ khi ăn tối ở Đà Lạt</h2>
 <p>Mang thêm áo khoác, kể cả mùa hè — chênh lệch ngày và đêm ở đây rất rõ. Đi xe máy buổi tối thì thêm găng tay, gió lạnh buốt tay lái. Nếu đi nhóm đông, gọi trước cho nơi định đến để họ sắp bàn, đỡ phải đứng chờ.</p>
-<p>Riêng <a href="/">Trạm Dừng Chill</a>: quán nhận đặt bàn qua form trên web, nhưng <strong>không nhận giữ riêng bàn view</strong> — vị trí tuỳ tình hình hôm đó. Ai đi sinh nhật hay kỷ niệm thì nhắn trước, quán setup hoa tươi, nến và bảng chúc mừng miễn phí. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, đón thú cưng, nhận chuyển khoản và QR.</p>
+<p>Riêng <a href="/">Trạm Dừng Chill</a>: quán nhận đặt bàn qua form trên web, nhưng <strong>không nhận giữ riêng bàn view</strong> — vị trí tuỳ tình hình hôm đó. Ai đi sinh nhật hay kỷ niệm thì nhắn trước, quán setup hoa trang trí và bảng chúc mừng miễn phí. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, đón thú cưng, nhận chuyển khoản và QR.</p>
 
 <h2>Kết luận</h2>
 <p>Bữa tối ở Đà Lạt hay nhất là khi có thứ để ngắm trong lúc ăn. Nếu muốn cả ba — hoàng hôn, tàu lửa, biển sao nhà lồng — trong cùng một bữa, thì đi sớm về hướng Xuân Trường. <a href="/#booking">Đặt bàn ngay</a> và cố gắng có mặt trước 16h30.</p>`
@@ -1242,7 +1242,7 @@ const BLOG_ARTICLES = [
 <h3>Trạm Dừng Chill — ngoài trời, cảnh đổi từ chiều tới tối</h3>
 <p><a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00-23:00. Quán là không gian ngoài trời nhìn ra thung lũng nhà lồng: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, tới 18h30 thì biển sao nhà lồng lên đèn. Ba mốc giờ này chỉ là tham khảo, tuỳ hôm trời và tuỳ lịch tàu — nhưng ngồi từ chiều tới tối thì cả nhóm xem được gần như trọn cả ba lớp cảnh mà không phải di chuyển đi đâu.</p>
 <p>Menu hơn 70 món tính cả đồ uống, <strong>gọi món lẻ, không buffet và không có combo cố định</strong>. Với nhóm đông thì cách này lại tiện: gọi từng đợt, ăn hết đợt này gọi tiếp đợt sau, đỡ thừa đồ và ai kén ăn vẫn gọi được món riêng. Món signature là bò tảng nướng phô mai trứng muối 209K. Có ba nồi lẩu cho nhóm muốn thêm nước nóng giữa trời lạnh: gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi phổ biến 95.000đ-300.000đ/người, đã gồm VAT. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR nên chia tiền nhóm cũng nhanh gọn. Trên Google quán đang 4,8 sao với 7.060 lượt đánh giá.</p>
-<p><strong>Lưu ý khi đi nhóm:</strong> báo trước số người để quán còn xếp bàn. Quán không nhận giữ bàn view, nên muốn chỗ nhìn thoáng thì cứ đến sớm một chút. Nhóm nào có sinh nhật hay kỷ niệm thì nói trước, quán setup hoa tươi, nến và bảng chúc mừng miễn phí.</p>
+<p><strong>Lưu ý khi đi nhóm:</strong> báo trước số người để quán còn xếp bàn. Quán không nhận giữ bàn view, nên muốn chỗ nhìn thoáng thì cứ đến sớm một chút. Nhóm nào có sinh nhật hay kỷ niệm thì nói trước, quán setup hoa trang trí và bảng chúc mừng miễn phí.</p>
 <img src="assets/images/blog/khong-gian-dem-4.webp" alt="Quán Nướng Đà Lạt Cho Nhóm Bạn - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p>👉 <a href="/#booking"><strong>Đặt bàn cho nhóm ngay</strong></a></p>
 
@@ -1390,8 +1390,8 @@ const BLOG_ARTICLES = [
                             <p>Đà Lạt có khí hậu mát mẻ quanh năm, phong cảnh đẹp như châu Âu — lý tưởng cho <strong>tiệc ngoài trời Đà Lạt</strong>. Không nóng bức như Sài Gòn, không ẩm ướt như Hà Nội, bạn có thể tổ chức tiệc outdoor thoải mái từ chiều đến tối mà khách không khó chịu.</p>
 
                             <h2>Các loại tiệc phổ biến ở Đà Lạt</h2>
-                            <p><strong>Tiệc sinh nhật:</strong> Setup bàn hoa nến, bánh kem, bảng chúc mừng. Phù hợp 10-30 người.<br>
-                            <strong>Tiệc kỷ niệm couple:</strong> Dinner riêng tư 2 người, setup lãng mạn với nến và hoa hồng.<br>
+                            <p><strong>Tiệc sinh nhật:</strong> Setup bàn hoa, bánh kem, bảng chúc mừng. Phù hợp 10-30 người.<br>
+                            <strong>Tiệc kỷ niệm couple:</strong> Dinner riêng tư 2 người, setup lãng mạn với hoa trang trí.<br>
                             <strong>Tiệc công ty / team building:</strong> Nhóm 20-50 người, nướng BBQ + mini game.<br>
                             <strong>Tiệc gia đình:</strong> Họp mặt gia đình, tiệc mừng thọ, kỷ niệm ngày cưới.</p>
 
@@ -1411,7 +1411,7 @@ const BLOG_ARTICLES = [
 
 
                             <p>✓ View hoàng hôn + xe lửa + biển sao nhà lồng — backdrop tiệc triệu đô<br>
-                            ✓ Setup sinh nhật & kỷ niệm <strong>MIỄN PHÍ</strong> (hoa, nến, bảng chúc mừng)<br>
+                            ✓ Setup sinh nhật & kỷ niệm <strong>MIỄN PHÍ</strong> (hoa, bảng chúc mừng)<br>
                             ✓ Nhận tiệc nhóm 10-50 người, có menu riêng cho đoàn<br>
                             ✓ Đặt bàn online, xác nhận qua Zalo trong 15 phút (trong giờ mở cửa)</p>
 <img src="assets/images/blog/mon-nuong-1.webp" alt="Đặt Tiệc Đà Lạt - món nướng BBQ thơm ngon Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -1453,7 +1453,7 @@ const BLOG_ARTICLES = [
 <h3>Kiểu 1: Khu bàn ngoài trời tách nhau — riêng mà vẫn có cảnh</h3>
 <p><a href="/">Trạm Dừng Chill</a> thuộc kiểu này. Quán <strong>không có phòng kín</strong>, mà là không gian ngoài trời với các bàn đặt cách nhau, hướng ra thung lũng nhà lồng. Đổi lại phần "kín", bạn được phần cảnh: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — các mốc giờ đều là tham khảo.</p>
 <p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00-23:00. Menu hơn 70 món kể cả đồ uống, gọi món lẻ, không buffet và không combo cố định; món signature là bò tảng nướng phô mai trứng muối 209K, có ba nồi lẩu gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 95.000đ-300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.060 lượt đánh giá.</p>
-<p><strong>Điểm cần biết trước:</strong> vì là không gian mở nên quán không nhận giữ bàn view, ai đến trước ngồi trước. Nếu bạn đang tính chuyện bất ngờ, quán có setup sinh nhật/kỷ niệm miễn phí gồm hoa tươi, nến và bảng chúc mừng — nhắn trước để chuẩn bị. Quán cũng có nhạc sống với nghệ sĩ thổi saxophone, WiFi mạnh, bãi đỗ miễn phí cho xe máy và ô tô con, đón cả thú cưng.</p>
+<p><strong>Điểm cần biết trước:</strong> vì là không gian mở nên quán không nhận giữ bàn view, ai đến trước ngồi trước. Nếu bạn đang tính chuyện bất ngờ, quán có setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí và bảng chúc mừng — nhắn trước để chuẩn bị. Quán cũng có nhạc sống với nghệ sĩ thổi saxophone, WiFi mạnh, bãi đỗ miễn phí cho xe máy và ô tô con, đón cả thú cưng.</p>
 <img src="assets/images/blog/view-xe-lua-1.webp" alt="Quán Nướng Đà Lạt Có Phòng Riêng - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p>👉 <a href="/#booking"><strong>Nhắn trước khi tới</strong></a></p>
 
@@ -1870,10 +1870,10 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Tìm quán <strong>setup sinh nhật miễn phí ở Đà Lạt</strong>? Không phải quán nào cũng tặng trang trí! Đây là danh sách những quán có dịch vụ setup sinh nhật free cho bạn.",
         body: `<h2>Vì sao nên tổ chức sinh nhật ở Đà Lạt?</h2>
-                            <p>Đà Lạt với khí hậu mát mẻ, cảnh đẹp lãng mạn là địa điểm lý tưởng để tổ chức <strong>sinh nhật đáng nhớ</strong>. Thay vì tiệc sinh nhật trong nhà ồn ào, hãy tưởng tượng tiệc nướng ngoài trời với nến, hoa và view hoàng hôn — romantic hết nấc!</p>
+                            <p>Đà Lạt với khí hậu mát mẻ, cảnh đẹp lãng mạn là địa điểm lý tưởng để tổ chức <strong>sinh nhật đáng nhớ</strong>. Thay vì tiệc sinh nhật trong nhà ồn ào, hãy tưởng tượng tiệc nướng ngoài trời với hoa, bảng chúc mừng và view hoàng hôn — romantic hết nấc!</p>
 
                             <h2>Trạm Dừng Chill — Setup sinh nhật MIỄN PHÍ</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> là một trong số ít quán ở Đà Lạt <strong>tặng setup sinh nhật hoàn toàn miễn phí</strong>. Bao gồm: bảng chúc mừng, bóng bay, nến, trang trí bàn tiệc. Bạn chỉ cần đặt bàn trước và thông báo — quán lo hết phần trang trí.</p>
+                            <p><a href="/">Trạm Dừng Chill</a> là một trong số ít quán ở Đà Lạt <strong>tặng setup sinh nhật hoàn toàn miễn phí</strong>. Bao gồm: bảng chúc mừng, bóng bay, trang trí bàn tiệc. Bạn chỉ cần đặt bàn trước và thông báo — quán lo hết phần trang trí.</p>
 <img src="assets/images/blog/khong-gian-dem-13.webp" alt="Setup Sinh Nhật Miễn Phí Đà Lạt - không gian quán nướng về đêm Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -1920,7 +1920,7 @@ const BLOG_ARTICLES = [
         body: `<h2>Trạm Dừng Chill — bàn cho hai người, hoàng hôn và nhà lồng</h2>
 <p><a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km về hướng Trại Mát, mở cửa 15:00–23:00. Điểm hợp với hai người nhất ở đây không phải cái view, mà là chuyện quán <strong>gọi món lẻ</strong> — không buffet, không combo cố định. Hai người không bị ép mua suất cho bốn người rồi ăn không hết, cứ gọi vừa bụng là dừng.</p>
 <p>Nếu đi từ chiều, một buổi tối có thể bắt được ba mốc cảnh nối nhau: tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi biển sao nhà lồng lên đèn từ khoảng 18h30. Các mốc này chỉ để tham khảo, còn phụ thuộc thời tiết — Đà Lạt sương xuống là mất hoàng hôn như chơi. Có những buổi quán có nghệ sĩ thổi saxophone chơi nhạc sống, nhưng không theo lịch cố định nên đừng đi chỉ vì mục đó.</p>
-<p>Đi vì kỷ niệm hay sinh nhật thì báo lúc đặt bàn: quán setup hoa tươi, nến và bảng chúc mừng miễn phí, chỉ cần nói trước để còn kịp chuẩn bị. Giá chung 95.000đ–300.000đ/người đã gồm VAT, hơn 70 món trong <a href="menu.html">thực đơn</a>.</p>
+<p>Đi vì kỷ niệm hay sinh nhật thì báo lúc đặt bàn: quán setup hoa trang trí và bảng chúc mừng miễn phí, chỉ cần nói trước để còn kịp chuẩn bị. Giá chung 95.000đ–300.000đ/người đã gồm VAT, hơn 70 món trong <a href="menu.html">thực đơn</a>.</p>
 <p>👉 <a href="/#booking">Đặt bàn cho 2 người</a></p>
 <img src="assets/images/blog/view-xe-lua-5.webp" alt="Quán Nướng Đà Lạt Cho 2 Người - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -2092,7 +2092,7 @@ const BLOG_ARTICLES = [
 
 <h2>Ăn gì khi ngồi nghe nhạc lâu</h2>
 <p>Ngồi nghe nhạc thì bữa ăn nên kéo dài chứ không nên gọn. Kinh nghiệm là gọi rải ra làm hai đợt: đợt đầu vài món nướng ăn ngay, đợt sau thêm một nồi lẩu cho ấm bụng lúc trời lạnh xuống. Ở <a href="/">Trạm Dừng Chill</a> có hơn 70 món gọi lẻ (không buffet, không combo cố định), giá 95.000đ–300.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K; lẩu có ba loại — gà lá é 300K, hải sản 320K, cá tầm 320K. Danh sách đầy đủ ở <a href="menu.html">trang menu</a>.</p>
-<p>Nếu đi kỷ niệm hay sinh nhật thì báo trước, quán setup hoa tươi, nến và bảng chúc mừng miễn phí — nhắn lúc đặt bàn là được.</p>
+<p>Nếu đi kỷ niệm hay sinh nhật thì báo trước, quán setup hoa trang trí và bảng chúc mừng miễn phí — nhắn lúc đặt bàn là được.</p>
 
 <h2>Kết luận</h2>
 <p>Muốn <strong>nướng BBQ kèm nhạc sống</strong> ở Đà Lạt, việc đầu tiên là xác định mình muốn nhạc làm nền hay muốn nhạc làm chính. Muốn nghe nhạc mà vẫn nói chuyện được, vẫn có view để ngắm, thì kiểu ngoài trời nhạc cụ đơn như ở <a href="/">Trạm Dừng Chill</a> là hợp lý. Nhớ gọi hỏi trước về nhạc, và <a href="/#booking">đặt bàn</a> để quán sắp chỗ chủ động — lưu ý quán không giữ riêng bàn view.</p>`
@@ -3891,7 +3891,7 @@ const BLOG_ARTICLES = [
 <img src="assets/images/blog/view-xe-lua-3.webp" alt="Quán Nướng Đà Lạt Tháng 9 - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Về chuyện đặt bàn</h2>
-<p>Với <a href="/">Trạm Dừng Chill</a>, bạn nên <a href="/#booking">đặt bàn trước</a> để quán chủ động chuẩn bị, nhất là khi đi nhóm đông. Cần nói rõ: quán <strong>không nhận giữ riêng bàn view</strong> — vị trí tuỳ tình hình thực tế hôm đó, nên nếu quan trọng chuyện chỗ ngồi thì cách chắc chắn nhất vẫn là đến sớm. Có setup sinh nhật, kỷ niệm miễn phí (hoa tươi, nến, bảng chúc mừng) nếu bạn báo trước lúc đặt.</p>
+<p>Với <a href="/">Trạm Dừng Chill</a>, bạn nên <a href="/#booking">đặt bàn trước</a> để quán chủ động chuẩn bị, nhất là khi đi nhóm đông. Cần nói rõ: quán <strong>không nhận giữ riêng bàn view</strong> — vị trí tuỳ tình hình thực tế hôm đó, nên nếu quan trọng chuyện chỗ ngồi thì cách chắc chắn nhất vẫn là đến sớm. Có setup sinh nhật, kỷ niệm miễn phí (hoa trang trí, bảng chúc mừng) nếu bạn báo trước lúc đặt.</p>
 
 <h2>Gọi món và giữ ấm</h2>
 <p>Tối tháng 9 xuống còn khoảng 16–18°C, mang áo khoác mỏng là đủ. Bếp than vừa để nướng vừa để sưởi, ngồi gần bếp thì ấm cả buổi. Gọi món nên chia hai đợt: đợt đầu vài món nướng ăn ngay, đợt sau thêm một nồi lẩu khi trời bắt đầu lạnh. Ở Trạm Dừng Chill có ba nồi lẩu — gà lá é 300K, hải sản 320K, cá tầm 320K — và món signature Bò Tảng Nướng Phô Mai Trứng Muối 209K. Toàn bộ hơn 70 món xem ở <a href="menu.html">trang menu</a>.</p>
@@ -3957,7 +3957,7 @@ const BLOG_ARTICLES = [
 <p>Không phải ngẫu nhiên Đà Lạt được gọi là "thành phố tình yêu". Khí hậu se lạnh, sương buông sớm và những chỗ ngồi nhìn ra thung lũng tạo nên không gian hợp cho các dịp <strong>kỷ niệm ngày cưới</strong>. Nướng BBQ dưới hoàng hôn phố núi là cách kỷ niệm mộc mạc mà nhiều cặp đôi đang chọn thay cho nhà hàng máy lạnh: hai vợ chồng tự trở miếng thịt, nói chuyện chậm, không có ai bưng bê ngắt quãng.</p>
 
 <h2>Trạm Dừng Chill — setup bàn kỷ niệm miễn phí</h2>
-<p>Ở <a href="/">Trạm Dừng Chill</a>, nếu anh chị báo trước là đi kỷ niệm, tụi em <strong>setup bàn miễn phí</strong>: hoa tươi, nến và bảng chúc mừng. Không tính thêm đồng nào, chỉ cần nhắn lúc đặt bàn để bên em kịp chuẩn bị. Trong buổi tối còn ba khoảnh khắc nối nhau — đoàn tàu cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, nhà lồng lên đèn từ 18h30 (giờ tham khảo, tuỳ mùa). Có hôm còn có nghệ sĩ thổi saxophone, nhưng cái này không theo lịch cố định nên em không hứa trước.</p>
+<p>Ở <a href="/">Trạm Dừng Chill</a>, nếu anh chị báo trước là đi kỷ niệm, tụi em <strong>setup bàn miễn phí</strong>: hoa trang trí và bảng chúc mừng. Không tính thêm đồng nào, chỉ cần nhắn lúc đặt bàn để bên em kịp chuẩn bị. Trong buổi tối còn ba khoảnh khắc nối nhau — đoàn tàu cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, nhà lồng lên đèn từ 18h30 (giờ tham khảo, tuỳ mùa). Có hôm còn có nghệ sĩ thổi saxophone, nhưng cái này không theo lịch cố định nên em không hứa trước.</p>
 <p>Nói rõ mấy giới hạn để anh chị khỏi vỡ kế hoạch: quán <strong>không nhận tiệc cưới</strong>, không có buffet hay combo cố định (gọi món lẻ), và <strong>không giữ riêng bàn view</strong> cho ai — đặt sớm thì tụi em sắp xếp thuận hơn, nhưng không dám hứa chắc vị trí. Địa chỉ 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00, có bãi đỗ miễn phí cho xe máy và ô tô con. <a href="/#booking">Đặt bàn kỷ niệm →</a></p>
 
 <h2>Các kiểu chỗ ngồi lãng mạn ở Đà Lạt — chọn kiểu nào?</h2>
@@ -3973,7 +3973,7 @@ const BLOG_ARTICLES = [
 
 <h2>Cần hỏi quán những gì trước khi chốt</h2>
 <ul>
-<li><strong>Có nhận setup hoa nến không, tính phí bao nhiêu?</strong> Nơi có nơi không, nơi tính thêm — hỏi trước cho khỏi hụt hẫng.</li>
+<li><strong>Có nhận setup trang trí bàn không, tính phí bao nhiêu?</strong> Nơi có nơi không, nơi tính thêm — hỏi trước cho khỏi hụt hẫng.</li>
 <li><strong>Có được mang bánh kem vào không?</strong> Câu này hay bị quên nhất.</li>
 <li><strong>Trời mưa thì phương án gì?</strong> Đặt ngoài trời mà không có kế hoạch B là rủi ro lớn nhất ở Đà Lạt.</li>
 <li><strong>Bàn có riêng tư không</strong>, hay kê sát bàn khác.</li>
@@ -3983,7 +3983,7 @@ const BLOG_ARTICLES = [
 
 <h2>Gợi ý gọi món cho hai người</h2>
 <p>Vì bên em gọi lẻ chứ không có set cố định, anh chị tự ghép được. Một cách ghép quen thuộc cho hai người: <strong>bò tảng nướng phô mai trứng muối 209K</strong> làm món chính, thêm <strong>chả ram tôm đất 95K</strong> hoặc <strong>chân gà nướng muối ớt 105K</strong> nhấm nháp, một đĩa <strong>salad trộn dầu giấm 95K</strong> cho đỡ ngán, và nếu muốn nâng ly thì có vang chai 750ml 190K–210K. Trời lạnh thì đổi hướng: một nồi <strong>lẩu gà lá é 300K</strong> ngồi ăn từ từ cũng vừa đủ hai người. Mặt bằng chung khoảng 95.000đ–300.000đ/người đã gồm VAT, còn gọi thêm rượu thì cộng riêng. Cả thực đơn hơn 70 món, xem trước ở <a href="menu.html">trang menu</a>.</p>
-<p>Đặt trước vài ngày để bên em kịp chuẩn bị hoa và nến. Tại <a href="/">Trạm Dừng Chill</a>, anh chị chỉ cần báo là kỷ niệm ngày cưới — phần setup hoa tươi, nến, bảng chúc mừng là <strong>miễn phí</strong>. <a href="/#booking"><strong>Đặt bàn ngay</strong></a> để tụi em sắp xếp chỗ ngồi phù hợp nhất có thể trong hôm đó.</p>`
+<p>Đặt trước vài ngày để bên em kịp chuẩn bị hoa và bảng chúc mừng. Tại <a href="/">Trạm Dừng Chill</a>, anh chị chỉ cần báo là kỷ niệm ngày cưới — phần setup hoa trang trí, bảng chúc mừng là <strong>miễn phí</strong>. <a href="/#booking"><strong>Đặt bàn ngay</strong></a> để tụi em sắp xếp chỗ ngồi phù hợp nhất có thể trong hôm đó.</p>`
     },
     {
         id: "an-vat-da-lat-buoi-toi",
@@ -4073,7 +4073,7 @@ const BLOG_ARTICLES = [
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km. Không gian rộng và thoáng, có bãi đỗ miễn phí cho cả xe máy lẫn ô tô con nên không phải gửi xe xa rồi bế con đi bộ. Quán mở cửa 15:00 đến 23:00.</p>
 <p>Thứ trẻ con thích nhất ở đây thường không phải đồ ăn mà là cái nhìn thấy: đoàn tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi biển sao nhà lồng lên đèn từ 18h30. Đây đều là mốc tham khảo, tàu có thể sớm muộn đôi chút, nhưng khúc tàu chạy qua gần như lần nào cũng làm các bé đứng bật dậy.</p>
 <p>Menu hơn 70 món gọi lẻ, không buffet và không combo cố định — với gia đình có trẻ nhỏ thì đây là điểm tiện, vì bạn gọi đúng thứ bé ăn được mà không phải trả tiền cho cả một set. Vài món không cay để gọi cho bé: Cơm Chiên Cao Nguyên 140K, Mì Xào Bò 135K, Khoai Tây Chiên 70K, Khoai Lang Kén 70K, Xúc Xích Đức Nướng 20K. Người lớn thì gọi Bò Tảng Nướng Phô Mai Trứng Muối 209K hoặc một nồi lẩu gà lá é 300K cho ấm. Xem <a href="menu.html">menu đầy đủ</a> trước khi đi để đỡ mất thời gian ở quán. <a href="/#booking">Đặt bàn gia đình →</a></p>
-<p>Quán đón thú cưng, WiFi khỏe, nhận chuyển khoản và QR, và có setup sinh nhật hoặc kỷ niệm miễn phí gồm hoa tươi, nến, bảng chúc mừng — tiện nếu chuyến đi trùng sinh nhật bé. Nói thẳng phần quán không có, để bạn khỏi kỳ vọng nhầm: không có khu vui chơi riêng cho trẻ, không có món chay, không buffet và không nhận giữ riêng bàn view.</p>
+<p>Quán đón thú cưng, WiFi khỏe, nhận chuyển khoản và QR, và có setup sinh nhật hoặc kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng — tiện nếu chuyến đi trùng sinh nhật bé. Nói thẳng phần quán không có, để bạn khỏi kỳ vọng nhầm: không có khu vui chơi riêng cho trẻ, không có món chay, không buffet và không nhận giữ riêng bàn view.</p>
 
 <h2>Mẹo đi ăn nướng với trẻ nhỏ ở Đà Lạt</h2>
 <p><strong>Gọi trước và hỏi cụ thể.</strong> Ba câu đáng hỏi nhất: có ghế cao cho bé không, bếp âm hay bếp nổi, và có bàn nào xa lối bưng đồ không. Nhắn tin fanpage cũng được, nhưng gọi điện chắc hơn.</p>
@@ -4132,7 +4132,7 @@ const BLOG_ARTICLES = [
 <li><strong>Giá:</strong> khoảng 95.000đ đến 300.000đ một người, đã gồm VAT.</li>
 <li><strong>View:</strong> tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo.</li>
 <li><strong>Đồ ăn:</strong> hơn 70 món tính cả đồ uống, gọi món lẻ, không buffet và không combo cố định. Món ký tên là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Có ba nồi lẩu: gà lá é 300K, hải sản 320K, cá tầm 320K. Xem <a href="menu.html">menu đầy đủ</a>.</li>
-<li><strong>Dịch vụ:</strong> setup sinh nhật và kỷ niệm miễn phí gồm hoa tươi, nến, bảng chúc mừng; nhạc sống với nghệ sĩ thổi saxophone; WiFi mạnh; nhận chuyển khoản và QR.</li>
+<li><strong>Dịch vụ:</strong> setup sinh nhật và kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng; nhạc sống với nghệ sĩ thổi saxophone; WiFi mạnh; nhận chuyển khoản và QR.</li>
 <li><strong>Không gian và đi lại:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km; bãi đỗ miễn phí cho xe máy và ô tô con; đón thú cưng. Mở cửa 15:00 đến 23:00.</li>
 <li><strong>Đánh giá bên thứ ba:</strong> 4,8 sao với 7.060 lượt đánh giá trên Google — con số này bạn tự kiểm được, không cần tin lời chúng tôi.</li>
 </ul>
@@ -4189,7 +4189,7 @@ const BLOG_ARTICLES = [
 
 <h2>Đặt bàn ở Trạm Dừng Chill</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00–23:00. Bạn đặt qua <a href="/#booking">form đặt bàn trên trang chủ</a> hoặc gọi <strong>0989.765.070</strong>.</p>
-<p>Vài thứ nên biết trước để khỏi hiểu nhầm khi gọi điện: quán <strong>gọi món lẻ</strong> với hơn 70 món trong <a href="menu.html">thực đơn</a>, không có buffet và không có combo cố định; giá 95.000đ–300.000đ/người đã gồm VAT; nhận chuyển khoản và quét QR. Bãi đỗ miễn phí cho xe máy và ô tô con, đón thú cưng, WiFi mạnh. Nếu đi vì sinh nhật hay kỷ niệm, báo ngay lúc đặt bàn — quán setup hoa tươi, nến và bảng chúc mừng miễn phí, nhưng cần thời gian chuẩn bị chứ không làm được lúc bạn vừa bước vào.</p>
+<p>Vài thứ nên biết trước để khỏi hiểu nhầm khi gọi điện: quán <strong>gọi món lẻ</strong> với hơn 70 món trong <a href="menu.html">thực đơn</a>, không có buffet và không có combo cố định; giá 95.000đ–300.000đ/người đã gồm VAT; nhận chuyển khoản và quét QR. Bãi đỗ miễn phí cho xe máy và ô tô con, đón thú cưng, WiFi mạnh. Nếu đi vì sinh nhật hay kỷ niệm, báo ngay lúc đặt bàn — quán setup hoa trang trí và bảng chúc mừng miễn phí, nhưng cần thời gian chuẩn bị chứ không làm được lúc bạn vừa bước vào.</p>
 <p>Ba mốc để canh giờ, đều chỉ là tham khảo: tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ khoảng 18h30.</p>
 
 <h2>Kết luận</h2>
@@ -4460,7 +4460,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill trong đêm cuối tháng 10</h2>
 <p><a href="/">Trạm Dừng Chill</a> là quán ngoài trời ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00. Tối xuống, nhà lồng lên đèn từ khoảng 18h30 (giờ tham khảo), sương từ thung lũng dâng lên — không cần trang trí gì thì cũng đã đúng tông của đêm này.</p>
-<p>Em nói rõ để anh chị khỏi trông đợi nhầm: quán <strong>không có menu Halloween riêng và không có chương trình giảm giá cho khách hoá trang</strong>. Cái bên em làm được là setup bàn miễn phí cho sinh nhật và kỷ niệm (hoa tươi, nến, bảng chúc mừng) — nhóm nào có ai sinh nhật đúng dịp thì báo trước, tụi em chuẩn bị. Đồ ăn gọi lẻ, không buffet: bò tảng nướng phô mai trứng muối 209K, hoặc một nồi lẩu cho ấm bụng (gà lá é 300K, hải sản 320K, cá tầm 320K). Khoảng 95.000đ–300.000đ/người đã gồm VAT, hơn 70 món xem ở <a href="menu.html">trang menu</a>. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, nhận chuyển khoản/QR, đón cả thú cưng. <a href="/#booking">Đặt bàn →</a></p>
+<p>Em nói rõ để anh chị khỏi trông đợi nhầm: quán <strong>không có menu Halloween riêng và không có chương trình giảm giá cho khách hoá trang</strong>. Cái bên em làm được là setup bàn miễn phí cho sinh nhật và kỷ niệm (hoa trang trí, bảng chúc mừng) — nhóm nào có ai sinh nhật đúng dịp thì báo trước, tụi em chuẩn bị. Đồ ăn gọi lẻ, không buffet: bò tảng nướng phô mai trứng muối 209K, hoặc một nồi lẩu cho ấm bụng (gà lá é 300K, hải sản 320K, cá tầm 320K). Khoảng 95.000đ–300.000đ/người đã gồm VAT, hơn 70 món xem ở <a href="menu.html">trang menu</a>. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, nhận chuyển khoản/QR, đón cả thú cưng. <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/khong-gian-dem-1.webp" alt="Halloween Đà Lạt - không gian đêm lung linh" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Hoá trang ở xứ lạnh — vài lưu ý rất thật</h2>
@@ -4564,7 +4564,7 @@ const BLOG_ARTICLES = [
 <h2>Nếu bạn muốn chill hơn là hát: nhạc sống thay karaoke</h2>
 <p>Không phải nhóm nào cũng hợp karaoke. Nhiều nhóm muốn nghe được tiếng nhau nói, muốn chụp được ảnh, muốn về mà không khản giọng. <a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường đi theo hướng đó: <strong>nhạc sống với nghệ sĩ thổi saxophone</strong> thay cho dàn karaoke, bàn nướng ngoài trời, mở cửa 15:00-23:00.</p>
 <p>Quán gọi món lẻ, không buffet và không combo cố định, <a href="menu.html">hơn 70 món</a> trong menu để nhóm tự ghép theo khẩu vị. Mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; nhóm đông thì thêm một nồi lẩu cho ấm — gà lá é 300K, hải sản 320K hoặc cá tầm 320K.</p>
-<p>Quán cách trung tâm khoảng 7 km, có bãi đỗ miễn phí cho xe máy và ô tô con nên nhóm đi nhiều xe vẫn thoải mái. Nếu nhóm đang mừng sinh nhật hay kỷ niệm, quán có setup miễn phí gồm hoa tươi, nến và bảng chúc mừng — báo trước lúc đặt bàn là được. <a href="/#booking">Đặt bàn →</a></p>
+<p>Quán cách trung tâm khoảng 7 km, có bãi đỗ miễn phí cho xe máy và ô tô con nên nhóm đi nhiều xe vẫn thoải mái. Nếu nhóm đang mừng sinh nhật hay kỷ niệm, quán có setup miễn phí gồm hoa trang trí và bảng chúc mừng — báo trước lúc đặt bàn là được. <a href="/#booking">Đặt bàn →</a></p>
 
 <h2>Vài lưu ý cho nhóm đi hát ở Đà Lạt</h2>
 <p>Đà Lạt lạnh về đêm, nhất là khu ngoại ô — mang theo áo khoác kể cả khi ban ngày nắng đẹp. Nhóm có người uống bia thì tính trước phương án về: đặt xe hoặc để một người không uống cầm lái. Và nếu định ngồi tới sát giờ đóng cửa, hỏi giờ đóng cửa ngay lúc đặt bàn, đừng đoán — mỗi quán một khác.</p>
@@ -4682,7 +4682,7 @@ const BLOG_ARTICLES = [
 
                             <h2>Nướng BBQ đêm Noel tại Trạm Dừng Chill</h2>
                             <p><a href="/">Trạm Dừng Chill</a> là quán nướng <strong>ngoài trời</strong> ở Trại Mát, cách trung tâm khoảng 7 km. Đêm tháng 12 trên này lạnh thật, nên quán có <strong>mền và lò than mang tận bàn</strong> — cứ báo nhân viên. Khoảng 18h30 hàng nghìn nhà lồng dưới thung lũng đồng loạt lên đèn, dân ở đây gọi là "biển sao nhà lồng"; ngồi nướng giữa trời lạnh mà nhìn xuống đúng lúc đó là cảnh đáng đi. Quán còn có nhạc sống saxophone và WiFi miễn phí phủ toàn quán.</p>
-                            <p>Quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bạn trả đúng cho món mình gọi, mức chi 95.000đ–300.000đ một người đã gồm VAT. Muốn ăn mừng dịp gì thì quán trang trí bàn tiệc <strong>miễn phí</strong> (bảng chúc mừng, nến, hoa tươi); phần trang trí có nhận cọc 200.000đ khi chốt lịch và <strong>hoàn lại sau khi ăn xong</strong>, còn đặt bàn ăn bình thường thì không cần cọc. <a href="/#booking">Đặt bàn đêm Noel →</a></p>
+                            <p>Quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bạn trả đúng cho món mình gọi, mức chi 95.000đ–300.000đ một người đã gồm VAT. Muốn ăn mừng dịp gì thì quán trang trí bàn tiệc <strong>miễn phí</strong> (bảng chúc mừng, hoa trang trí); phần trang trí có nhận cọc 200.000đ khi chốt lịch và <strong>hoàn lại sau khi ăn xong</strong>, còn đặt bàn ăn bình thường thì không cần cọc. <a href="/#booking">Đặt bàn đêm Noel →</a></p>
 <img src="assets/images/blog/khong-gian-ngay-1.webp" alt="Giáng Sinh Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4785,7 +4785,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill — thông tin để bạn tự đối chiếu</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, cách trung tâm khoảng 7 km, mở cửa 15:00 - 23:00. Quán là không gian ngoài trời nhìn ra thung lũng nhà lồng: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo, tuỳ thời tiết và lịch tàu.</p>
-<p>Menu hơn 70 món tính cả đồ uống, gọi món lẻ, không buffet và không combo cố định. Món signature là bò tảng nướng phô mai trứng muối 209K; phần lẩu có gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 95.000đ - 300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.060 lượt đánh giá. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR, đón thú cưng, có nhạc sống với nghệ sĩ thổi saxophone, và setup sinh nhật/kỷ niệm miễn phí gồm hoa tươi, nến, bảng chúc mừng nếu báo trước.</p>
+<p>Menu hơn 70 món tính cả đồ uống, gọi món lẻ, không buffet và không combo cố định. Món signature là bò tảng nướng phô mai trứng muối 209K; phần lẩu có gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 95.000đ - 300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.060 lượt đánh giá. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR, đón thú cưng, có nhạc sống với nghệ sĩ thổi saxophone, và setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng nếu báo trước.</p>
 <p>Những thứ quán <strong>không</strong> có, nói luôn để bạn khỏi mất công: không buffet, không món chay, không nhận tiệc cưới, không giữ bàn view. <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/view-xe-lua-3.webp" alt="Quán Nướng Đà Lạt - view xe lửa Đà Lạt" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -4883,7 +4883,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill soi theo bốn tiêu chí trên</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00-23:00. Quán là không gian ngoài trời hướng ra thung lũng nhà lồng, có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Menu hơn 70 món kể cả đồ uống, <strong>gọi món lẻ, không buffet, không combo cố định</strong> nên gọi bao nhiêu trả bấy nhiêu, không bị ép suất. Mức chi 95.000đ-300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.060 lượt đánh giá.</p>
-<p>Điểm cộng riêng cho chuyến đi cùng ba mẹ là có cái để ngắm chứ không chỉ ngồi ăn: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo. Quán có nhạc sống với nghệ sĩ thổi saxophone. Nếu là dịp mừng thọ hay kỷ niệm ngày cưới của ba mẹ, quán setup hoa tươi, nến và bảng chúc mừng miễn phí, chỉ cần báo trước.</p>
+<p>Điểm cộng riêng cho chuyến đi cùng ba mẹ là có cái để ngắm chứ không chỉ ngồi ăn: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo. Quán có nhạc sống với nghệ sĩ thổi saxophone. Nếu là dịp mừng thọ hay kỷ niệm ngày cưới của ba mẹ, quán setup hoa trang trí và bảng chúc mừng miễn phí, chỉ cần báo trước.</p>
 <p>Cần nói thẳng vài điểm để bạn cân nhắc: quán là không gian mở nên tối sẽ lạnh, và quán <strong>không nhận giữ bàn view</strong> — muốn chỗ nhìn thoáng thì đến sớm. Quán cũng không có món chay, nếu ba mẹ ăn chay thì nên tính phương án khác.</p>
 <p><a href="/#booking">Đặt bàn cho gia đình →</a></p>
 
@@ -5061,12 +5061,12 @@ const BLOG_ARTICLES = [
         imageAlt: "Valentine Đà Lạt - dinner nướng BBQ lãng mạn cho cặp đôi",
         badge: "",
         featured: false,
-        excerpt: "Valentine 14/2 tại Đà Lạt — thành phố tình yêu! Nướng BBQ lãng mạn bên người thương với <strong>view hoàng hôn + nến + hoa</strong>. Setup miễn phí cho couple!",
+        excerpt: "Valentine 14/2 tại Đà Lạt — thành phố tình yêu! Nướng BBQ lãng mạn bên người thương với <strong>view hoàng hôn + hoa + bảng tên</strong>. Setup miễn phí cho couple!",
         body: `<h2>Valentine tại thành phố tình yêu</h2>
-                            <p><strong>Valentine Đà Lạt 2027</strong> — còn gì lãng mạn hơn! Thành phố sương mù se lạnh, hoa hồng nở rộ, và bữa nướng BBQ dưới hoàng hôn bên người thương. Nhiều quán nướng Đà Lạt có chương trình Valentine đặc biệt — setup bàn hoa nến, menu couple, quà tặng bất ngờ.</p>
+                            <p><strong>Valentine Đà Lạt 2027</strong> — còn gì lãng mạn hơn! Thành phố sương mù se lạnh, hoa hồng nở rộ, và bữa nướng BBQ dưới hoàng hôn bên người thương. Nhiều quán nướng Đà Lạt có chương trình Valentine đặc biệt — setup bàn hoa, menu couple, quà tặng bất ngờ.</p>
 
                             <h2>Valentine tại Trạm Dừng Chill</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> setup Valentine đặc biệt: <strong>bàn 2 người view hoàng hôn</strong>, hoa hồng, nến, bảng tên — tất cả MIỄN PHÍ! Menu Valentine gồm: bò Mỹ nướng + tôm nướng + salad dâu tây + rượu vang Đà Lạt. View hoàng hôn → xe lửa → biển sao nhà lồng = backdrop Valentine triệu đô! <a href="/#booking"><strong>Đặt bàn Valentine →</strong></a></p>
+                            <p><a href="/">Trạm Dừng Chill</a> setup Valentine đặc biệt: <strong>bàn 2 người view hoàng hôn</strong>, hoa trang trí, bảng tên — tất cả MIỄN PHÍ! Menu Valentine gồm: bò Mỹ nướng + tôm nướng + salad dâu tây + rượu vang Đà Lạt. View hoàng hôn → xe lửa → biển sao nhà lồng = backdrop Valentine triệu đô! <a href="/#booking"><strong>Đặt bàn Valentine →</strong></a></p>
 <img src="assets/images/blog/khong-gian-ngay-2.webp" alt="Valentine Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5087,7 +5087,7 @@ const BLOG_ARTICLES = [
 
                             
                                                         <h2>Lưu ý đặt bàn Valentine</h2>
-                            <p>Valentine là ngày cực kỳ đông tại mọi nhà hàng Đà Lạt — <strong>đặt trước ít nhất 1 tuần</strong>. Bàn view hoàng hôn cho couple hết rất nhanh. Báo trước yêu cầu setup đặc biệt (hoa, nến, surprise) để nhà hàng chuẩn bị.</p>
+                            <p>Valentine là ngày cực kỳ đông tại mọi nhà hàng Đà Lạt — <strong>đặt trước ít nhất 1 tuần</strong>. Bàn view hoàng hôn cho couple hết rất nhanh. Báo trước yêu cầu setup đặc biệt (hoa, bảng chữ, surprise) để nhà hàng chuẩn bị.</p>
 <img src="assets/images/blog/view-hoang-hon-33.webp" alt="Valentine Đà Lạt - hoàng hôn Đà Lạt tuyệt đẹp" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5250,10 +5250,10 @@ const BLOG_ARTICLES = [
         featured: false,
         excerpt: "Ngày 8/3 tại Đà Lạt — tặng bạn gái/vợ bữa nướng BBQ lãng mạn! <strong>Quán nướng Đà Lạt 8/3 2027</strong> có setup bàn hoa, tặng quà cho phái đẹp.",
         body: `<h2>8/3 — Ngày đặc biệt cho phái đẹp</h2>
-                            <p><strong>Ngày Quốc tế Phụ nữ 8/3</strong> là dịp để các anh thể hiện tình cảm. Tại Đà Lạt — thành phố hoa, ngày 8/3 càng ý nghĩa hơn khi khắp nơi ngập hoa hồng, hoa cúc, hoa ly. Tặng bạn gái/vợ bữa nướng BBQ view hoàng hôn + hoa + nến = 100 điểm lãng mạn!</p>
+                            <p><strong>Ngày Quốc tế Phụ nữ 8/3</strong> là dịp để các anh thể hiện tình cảm. Tại Đà Lạt — thành phố hoa, ngày 8/3 càng ý nghĩa hơn khi khắp nơi ngập hoa hồng, hoa cúc, hoa ly. Tặng bạn gái/vợ bữa nướng BBQ view hoàng hôn + hoa = 100 điểm lãng mạn!</p>
 
                             <h2>Chương trình 8/3 tại Trạm Dừng Chill</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> có chương trình <strong>8/3 đặc biệt</strong>: Setup bàn hoa hồng + nến + bảng chúc mừng MIỄN PHÍ. Tặng 1 bông hồng cho mỗi khách nữ. Menu couple từ 400K/2 người gồm bò nướng + tôm + salad + nước ép. <a href="/#booking"><strong>Đặt bàn 8/3 ngay →</strong></a></p>
+                            <p><a href="/">Trạm Dừng Chill</a> có chương trình <strong>8/3 đặc biệt</strong>: Setup bàn hoa trang trí + bảng chúc mừng MIỄN PHÍ. Menu couple từ 400K/2 người gồm bò nướng + tôm + salad + nước ép. <a href="/#booking"><strong>Đặt bàn 8/3 ngay →</strong></a></p>
 <img src="assets/images/blog/khong-gian-ngay-2.webp" alt="8/3 Đà Lạt - không gian ban ngày thoáng mát" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5369,7 +5369,7 @@ const BLOG_ARTICLES = [
 <h2>Trạm Dừng Chill — "sang" mà không cần set cố định</h2>
 <p><a href="/">Trạm Dừng Chill</a> không tự nhận là nhà hàng fine dining, nhưng nếu bạn cần một bữa tươm tất cho dịp đặc biệt mà không muốn trả giá phân khúc cao nhất, cách của quán là: gọi món lẻ, tự xếp lấy một bữa đúng ý. Quán không có buffet, không có combo cố định, giá thực tế rơi vào khoảng 95.000đ đến 300.000đ một người và đã gồm VAT.</p>
 <p>Muốn bữa nhìn "nặng ký" thì gọi Bò Tảng Nướng Phô Mai Trứng Muối 209K làm món chính, thêm Tôm Nướng Muối Ớt 150K, một nồi lẩu cá tầm 320K cho ấm, kèm chai Rượu Vang Classic 750ml 190K. Xem trước <a href="menu.html">menu đầy đủ</a> để tính tiền từ nhà. <a href="/#booking">Đặt bàn →</a></p>
-<p>Phần khiến bữa ăn ở đây khác biệt lại nằm ở thứ không tính tiền được: tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo. Quán có nhạc sống với nghệ sĩ thổi saxophone, có setup sinh nhật và kỷ niệm miễn phí gồm hoa tươi, nến và bảng chúc mừng. Trên Google, quán đang ở mức 4,8 sao với 7.060 lượt đánh giá.</p>
+<p>Phần khiến bữa ăn ở đây khác biệt lại nằm ở thứ không tính tiền được: tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo. Quán có nhạc sống với nghệ sĩ thổi saxophone, có setup sinh nhật và kỷ niệm miễn phí gồm hoa trang trí và bảng chúc mừng. Trên Google, quán đang ở mức 4,8 sao với 7.060 lượt đánh giá.</p>
 <p>Nói luôn phần quán không có, để bạn khỏi đặt nhầm chỗ: không nhận tiệc cưới, không có món chay, không buffet, không có ưu đãi theo nhóm và không nhận giữ riêng bàn view.</p>
 
 <h2>Khi nào nên chọn quán premium?</h2>
@@ -5467,7 +5467,7 @@ const BLOG_ARTICLES = [
 <h2>Trạm Dừng Chill trong lịch trình tháng 3</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở cửa 15:00-23:00. Quán thuộc nhóm ngoại ô có view: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, nhà lồng đèn lên đèn từ 18h30 — các mốc này chỉ để tham khảo, còn tùy thời tiết và lịch chạy tàu hôm đó.</p>
 <p>Menu <a href="menu.html">hơn 70 món</a>, gọi món lẻ, không buffet và không combo cố định. Mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; tháng 3 đêm vẫn lạnh nên nhiều nhóm gọi thêm lẩu — gà lá é 300K, hải sản 320K, cá tầm 320K. Quán hiện có 4,8 sao với 7.060 lượt đánh giá trên Google.</p>
-<p>Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, đón thú cưng, và setup sinh nhật/kỷ niệm miễn phí gồm hoa tươi, nến, bảng chúc mừng nếu bạn báo trước lúc đặt bàn. Buổi tối có nhạc sống với nghệ sĩ thổi saxophone. <a href="/#booking">Đặt bàn →</a></p>
+<p>Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, đón thú cưng, và setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng nếu bạn báo trước lúc đặt bàn. Buổi tối có nhạc sống với nghệ sĩ thổi saxophone. <a href="/#booking">Đặt bàn →</a></p>
 
 <h2>Mấy thứ nhỏ nhưng dễ quên khi đi Đà Lạt tháng 3</h2>
 <p>Nắng tháng 3 ở độ cao 1.500m gắt hơn cảm giác — kem chống nắng và mũ là cần, kể cả khi trời mát. Chênh lệch ngày đêm lớn nên mặc nhiều lớp mỏng thay vì một áo dày, cởi ra mặc vào cho tiện. Đặt phòng sớm nếu đi cuối tuần. Và nếu lịch cho phép, đi giữa tuần: cùng một quán, cùng một view, nhưng dễ thở hơn nhiều.</p>
@@ -5911,7 +5911,7 @@ const BLOG_ARTICLES = [
 <li><strong>Mức chi:</strong> 95.000đ-300.000đ mỗi người, đã gồm VAT.</li>
 <li><strong>Menu:</strong> hơn 70 món tính cả đồ uống, gọi lẻ, không buffet, không combo cố định. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Ba nồi lẩu gồm gà lá é 300K, hải sản 320K và cá tầm 320K. Xem trước tại <a href="menu.html">menu</a>.</li>
 <li><strong>Đánh giá:</strong> 4,8 sao với 7.060 lượt trên Google.</li>
-<li><strong>Có:</strong> setup sinh nhật và kỷ niệm miễn phí gồm hoa tươi, nến, bảng chúc mừng; nhạc sống với nghệ sĩ thổi saxophone; WiFi mạnh; đón thú cưng; nhận chuyển khoản và QR; bãi đỗ miễn phí cho xe máy và ô tô con.</li>
+<li><strong>Có:</strong> setup sinh nhật và kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng; nhạc sống với nghệ sĩ thổi saxophone; WiFi mạnh; đón thú cưng; nhận chuyển khoản và QR; bãi đỗ miễn phí cho xe máy và ô tô con.</li>
 <li><strong>Không có:</strong> tiệc cưới, món chay, buffet, ưu đãi theo nhóm.</li>
 </ul>
 <p>Về tầm nhìn thì có ba mốc tham khảo: đoàn tàu cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30. <a href="/#booking">Đặt bàn tại đây</a>.</p>
@@ -5942,10 +5942,10 @@ const BLOG_ARTICLES = [
                             <p>Thay vì ngồi nhà hàng kín mít, các cặp đôi năm nay chuộng trải nghiệm <strong>nướng BBQ ngoài trời</strong> giữa không khí se lạnh Đà Lạt. Vừa tự tay nướng đồ ăn cho nhau, vừa ngắm cảnh đẹp — chính là cách hẹn hò "chất" nhất Valentine 2027.</p>
 
                             <h2>Tiêu chí chọn quán nướng Valentine</h2>
-                            <p>Một buổi dinner BBQ Valentine hoàn hảo cần: view đẹp (hoàng hôn hoặc ánh đèn đêm), không gian riêng tư cho couple, setup bàn lãng mạn với hoa và nến, đồ ăn ngon đa dạng, và quan trọng nhất — giá hợp lý không "chặt chém" dịp lễ.</p>
+                            <p>Một buổi dinner BBQ Valentine hoàn hảo cần: view đẹp (hoàng hôn hoặc ánh đèn đêm), không gian riêng tư cho couple, setup bàn lãng mạn với hoa và bảng chữ, đồ ăn ngon đa dạng, và quan trọng nhất — giá hợp lý không "chặt chém" dịp lễ.</p>
 
                             <h2>Trạm Dừng Chill — Lựa chọn đáng cân nhắc cho Valentine</h2>
-                            <p>Nằm tại 111 Huỳnh Tấn Phát, Phường Xuân Trường, <a href="/">Trạm Dừng Chill</a> sở hữu view hoàng hôn thung lũng và biển đèn nhà lồng — backdrop Valentine không đâu bằng. Quán <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các cặp đôi đặt trước, không phụ thu dịp lễ.</p>
+                            <p>Nằm tại 111 Huỳnh Tấn Phát, Phường Xuân Trường, <a href="/">Trạm Dừng Chill</a> sở hữu view hoàng hôn thung lũng và biển đèn nhà lồng — backdrop Valentine không đâu bằng. Quán <strong>setup bàn hoa + bảng chữ MIỄN PHÍ</strong> cho các cặp đôi đặt trước, không phụ thu dịp lễ.</p>
 <img src="assets/images/blog/setup-hen-ho-14.webp" alt="Quán nướng Đà Lạt Valentine 2027 - setup hẹn hò lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Gợi ý set menu Valentine cho 2 người</h2>
@@ -6017,12 +6017,12 @@ const BLOG_ARTICLES = [
         imageAlt: "Quán nướng Đà Lạt cho cặp đôi lãng mạn 2027",
         badge: "",
         featured: false,
-        excerpt: "Đang tìm <strong>quán nướng Đà Lạt cho cặp đôi</strong> lãng mạn? Từ view hoàng hôn, bàn riêng tư đến setup hoa nến — đây là gợi ý date night BBQ không thể bỏ qua.",
+        excerpt: "Đang tìm <strong>quán nướng Đà Lạt cho cặp đôi</strong> lãng mạn? Từ view hoàng hôn, bàn riêng tư đến setup hoa và bảng chữ — đây là gợi ý date night BBQ không thể bỏ qua.",
         body: `<h2>Vì sao nướng BBQ là date night hoàn hảo?</h2>
                             <p>Hẹn hò kiểu nướng BBQ đang là trend hot 2027: hai người cùng nướng đồ ăn, trò chuyện tự nhiên quanh bếp than, không gian thoải mái hơn nhà hàng sang trọng. Đà Lạt với tiết trời se lạnh càng thêm lãng mạn — đúng kiểu "chill mà chất".</p>
 
                             <h2>Tiêu chí quán nướng lý tưởng cho couple</h2>
-                            <p><strong>View đẹp:</strong> Hoàng hôn, đèn đêm — backdrop hoàn hảo cho ảnh couple. <strong>Riêng tư:</strong> Bàn cách biệt, không quá ồn ào. <strong>Setup lãng mạn:</strong> Hoa, nến, bảng chúc mừng. <strong>Giá hợp lý:</strong> Không phụ thu dịp lễ, không phụ thu bàn view.</p>
+                            <p><strong>View đẹp:</strong> Hoàng hôn, đèn đêm — backdrop hoàn hảo cho ảnh couple. <strong>Riêng tư:</strong> Bàn cách biệt, không quá ồn ào. <strong>Setup lãng mạn:</strong> Hoa, bảng chúc mừng. <strong>Giá hợp lý:</strong> Không phụ thu dịp lễ, không phụ thu bàn view.</p>
 
                             <h2>Trạm Dừng Chill — Date night view triệu đô</h2>
                             <p><a href="/">Trạm Dừng Chill</a> tại 111 Huỳnh Tấn Phát, Phường Xuân Trường là lựa chọn hàng đầu cho couple. Quán có bàn riêng view hoàng hôn, <strong>setup hẹn hò miễn phí</strong> khi đặt trước. Buổi tối, hàng ngàn đèn nhà lồng lên sáng tạo không gian cực kỳ lãng mạn.</p>
@@ -6196,15 +6196,15 @@ const BLOG_ARTICLES = [
         imageAlt: "Quán nướng Đà Lạt 8/3 Women's Day 2027 - dinner BBQ lãng mạn",
         badge: "",
         featured: false,
-        excerpt: "Ngày 8/3 sắp đến — thay vì hoa và socola, hãy tặng nàng trải nghiệm <strong>dinner BBQ lãng mạn Đà Lạt</strong>. Setup bàn hoa nến, view hoàng hôn, nướng BBQ giữa trời se lạnh.",
+        excerpt: "Ngày 8/3 sắp đến — thay vì hoa và socola, hãy tặng nàng trải nghiệm <strong>dinner BBQ lãng mạn Đà Lạt</strong>. Setup bàn hoa, bảng chữ, view hoàng hôn, nướng BBQ giữa trời se lạnh.",
         body: `<h2>8/3 tại Đà Lạt — Ý tưởng quà tặng đặc biệt</h2>
                             <p>Thay vì những món quà thông thường, hãy tặng nàng một trải nghiệm đáng nhớ: chuyến đi Đà Lạt mini 1-2 ngày, kết hợp dinner BBQ lãng mạn ngắm hoàng hôn. Đảm bảo cô ấy sẽ nhớ mãi ngày 8/3 năm nay.</p>
 
                             <h2>Lên kế hoạch dinner 8/3 hoàn hảo</h2>
-                            <p><strong>Bước 1:</strong> Đặt bàn trước 5-7 ngày (8/3 luôn cháy chỗ). <strong>Bước 2:</strong> Yêu cầu setup bàn lãng mạn — hoa, nến, bảng chúc mừng. <strong>Bước 3:</strong> Chọn combo nướng phù hợp. <strong>Bước 4:</strong> Chuẩn bị quà nhỏ bất ngờ tại bàn.</p>
+                            <p><strong>Bước 1:</strong> Đặt bàn trước 5-7 ngày (8/3 luôn cháy chỗ). <strong>Bước 2:</strong> Yêu cầu setup bàn lãng mạn — hoa, bảng chúc mừng. <strong>Bước 3:</strong> Chọn combo nướng phù hợp. <strong>Bước 4:</strong> Chuẩn bị quà nhỏ bất ngờ tại bàn.</p>
 
                             <h2>Trạm Dừng Chill — Setup 8/3 MIỄN PHÍ</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> có chương trình đặc biệt dịp 8/3: <strong>setup bàn hoa nến MIỄN PHÍ</strong> cho các bạn nam muốn tặng nửa kia dinner BBQ lãng mạn. Chỉ cần đặt bàn trước và thông báo dịp 8/3, quán sẽ chuẩn bị tất cả.</p>
+                            <p><a href="/">Trạm Dừng Chill</a> có chương trình đặc biệt dịp 8/3: <strong>setup bàn hoa + bảng chữ MIỄN PHÍ</strong> cho các bạn nam muốn tặng nửa kia dinner BBQ lãng mạn. Chỉ cần đặt bàn trước và thông báo dịp 8/3, quán sẽ chuẩn bị tất cả.</p>
 <img src="assets/images/blog/setup-hen-ho-12.webp" alt="Quán nướng Đà Lạt 8/3 - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Menu gợi ý cho dinner 8/3</h2>
@@ -6227,10 +6227,10 @@ const BLOG_ARTICLES = [
                             <p>Xu hướng 2027: tặng trải nghiệm thay vì vật chất. Một buổi dinner nướng BBQ lãng mạn tại Đà Lạt sẽ tạo kỷ niệm đáng nhớ hơn bất kỳ món quà nào. Cô ấy sẽ nhớ mãi cảm giác nướng thịt cùng bạn giữa đêm phố núi se lạnh.</p>
 
                             <h2>Kịch bản buổi tối 8/3 hoàn hảo</h2>
-                            <p><strong>16:00:</strong> Đến quán, bí mật nhờ nhân viên setup bàn hoa nến. <strong>17:00:</strong> Dẫn cô ấy đến — surprise! <strong>17:30:</strong> Cùng nướng BBQ ngắm hoàng hôn. <strong>18:30:</strong> Tặng quà nhỏ khi đèn nhà lồng lên sáng. <strong>20:00:</strong> Kết thúc bằng tráng miệng ngọt ngào.</p>
+                            <p><strong>16:00:</strong> Đến quán, bí mật nhờ nhân viên setup bàn hoa và bảng chữ. <strong>17:00:</strong> Dẫn cô ấy đến — surprise! <strong>17:30:</strong> Cùng nướng BBQ ngắm hoàng hôn. <strong>18:30:</strong> Tặng quà nhỏ khi đèn nhà lồng lên sáng. <strong>20:00:</strong> Kết thúc bằng tráng miệng ngọt ngào.</p>
 
                             <h2>Setup tại Trạm Dừng Chill — Không tốn thêm đồng nào</h2>
-                            <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn chỉ cần đặt bàn và nói "setup 8/3" — quán sẽ trang trí bàn với hoa, nến, bảng chúc mừng <strong>hoàn toàn miễn phí</strong>. View hoàng hôn thung lũng + xe lửa cổ chạy ngang = backdrop ảnh couple triệu like.</p>
+                            <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn chỉ cần đặt bàn và nói "setup 8/3" — quán sẽ trang trí bàn với hoa, bảng chúc mừng <strong>hoàn toàn miễn phí</strong>. View hoàng hôn thung lũng + xe lửa cổ chạy ngang = backdrop ảnh couple triệu like.</p>
 <img src="assets/images/blog/setup-hen-ho-18.webp" alt="Tặng quà 8/3 dinner BBQ - setup lãng mạn Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Quà 8/3 kèm theo ý nghĩa</h2>
@@ -6406,15 +6406,15 @@ const BLOG_ARTICLES = [
         imageAlt: "Quán nướng Đà Lạt setup tiệc miễn phí - sinh nhật kỷ niệm",
         badge: "",
         featured: false,
-        excerpt: "Muốn tổ chức tiệc sinh nhật, kỷ niệm tại Đà Lạt mà không tốn phí setup? Đây là <strong>quán nướng Đà Lạt setup tiệc miễn phí</strong> — hoa, nến, bảng chúc mừng sẵn sàng.",
+        excerpt: "Muốn tổ chức tiệc sinh nhật, kỷ niệm tại Đà Lạt mà không tốn phí setup? Đây là <strong>quán nướng Đà Lạt setup tiệc miễn phí</strong> — hoa, bảng chúc mừng sẵn sàng.",
         body: `<h2>Setup tiệc tại quán nướng — Xu hướng 2027</h2>
                             <p>Thay vì thuê nhà hàng đắt đỏ hoặc tự setup phức tạp, ngày càng nhiều người chọn quán nướng có <strong>dịch vụ setup tiệc miễn phí</strong>. Vừa tiết kiệm chi phí, vừa có không gian ngoài trời thoáng mát, đồ ăn ngon — tiệc vừa vui vừa "chất".</p>
 
                             <h2>Các dịp phù hợp để tổ chức tiệc nướng</h2>
-                            <p><strong>Sinh nhật:</strong> Setup bàn hoa, nến, bảng Happy Birthday. <strong>Kỷ niệm ngày yêu:</strong> Bàn couple lãng mạn với hoa hồng, đèn led. <strong>Họp nhóm bạn:</strong> Bàn lớn, banner chúc mừng. <strong>Tiệc công ty nhỏ:</strong> Khu vực riêng cho nhóm 10-20 người.</p>
+                            <p><strong>Sinh nhật:</strong> Setup bàn hoa, bảng Happy Birthday. <strong>Kỷ niệm ngày yêu:</strong> Bàn couple lãng mạn với hoa trang trí, đèn led. <strong>Họp nhóm bạn:</strong> Bàn lớn, banner chúc mừng. <strong>Tiệc công ty nhỏ:</strong> Khu vực riêng cho nhóm 10-20 người.</p>
 
                             <h2>Trạm Dừng Chill — Setup MIỄN PHÍ mọi dịp</h2>
-                            <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn chỉ cần gọi đặt bàn và nói "setup sinh nhật" hoặc "setup kỷ niệm" — quán sẽ trang trí bàn với hoa, nến, bảng chúc mừng <strong>hoàn toàn miễn phí</strong>. Không phụ thu, không yêu cầu minimum spending.</p>
+                            <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn chỉ cần gọi đặt bàn và nói "setup sinh nhật" hoặc "setup kỷ niệm" — quán sẽ trang trí bàn với hoa, bảng chúc mừng <strong>hoàn toàn miễn phí</strong>. Không phụ thu, không yêu cầu minimum spending.</p>
 <img src="assets/images/blog/setup-sinh-nhat-4.webp" alt="Quán nướng Đà Lạt setup tiệc miễn phí - sinh nhật Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Quy trình đặt tiệc đơn giản</h2>
