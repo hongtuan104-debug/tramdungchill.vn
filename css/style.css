@@ -5050,12 +5050,18 @@ body.sticky-bar-active .fab-contact {
 
 .blog-post-body strong { color: var(--wood); font-weight: 600; }
 
+/* Link trong bài KHÔNG gạch chân (sếp chốt 23/09/2026) — lúc đó màu là thứ duy nhất tách link
+   khỏi chữ, nên WCAG 1.4.1 đòi link ≥ 3:1 so với chữ thân bài. --gold-on-light chỉ đạt 2,89:1
+   so với --charcoal; #886B22 (cùng sắc, sáng hơn một nấc) đạt 3,02:1, và vẫn ≥ 4,5:1 trên mọi
+   nền trong bài: cream 4,77 · khối trích dẫn 4,55 · FAQ 4,64 · bảng 4,86. Đổi màu chữ hay nền bài
+   thì tính lại cả hai ngưỡng. Rê chuột / Tab tới thì hiện gạch chân. */
 .blog-post-body a {
-    color: var(--gold-on-light);
-    text-decoration: underline;
+    color: #886B22;
+    text-decoration: none;
     text-underline-offset: 2px;
 }
-.blog-post-body a:hover { color: var(--sunset-deep); }
+.blog-post-body a:hover,
+.blog-post-body a:focus-visible { color: var(--sunset-deep); text-decoration: underline; }
 
 .blog-post-body img {
     max-width: 100%;
@@ -5076,11 +5082,9 @@ body.sticky-bar-active .fab-contact {
     line-height: 1.5;
     color: var(--text-muted);
 }
-/* Link tên tác giả / giấy phép: không gạch chân cho chú thích gọn (sếp chốt 23/09/2026),
-   rê chuột hay Tab tới thì hiện gạch chân để vẫn nhận ra là link. */
-.blog-post-body .anh-nguon figcaption a { color: inherit; text-decoration: none; }
-.blog-post-body .anh-nguon figcaption a:hover,
-.blog-post-body .anh-nguon figcaption a:focus-visible { text-decoration: underline; }
+/* Link tên tác giả / giấy phép giữ màu chữ chú thích cho gọn; gạch chân khi rê chuột
+   đã có từ rule .blog-post-body a:hover ở trên. */
+.blog-post-body .anh-nguon figcaption a { color: inherit; }
 
 /* ── Bảng giá món / khung giờ tàu ── */
 .blog-post-body .table-scroll {
