@@ -14,9 +14,9 @@ const SCHEMA_DATA = {
         alternateName: ['Tram Dung Chill BBQ'],
         description: 'Quán nướng BBQ view đẹp nhất Đà Lạt - Ngắm xe lửa, hoàng hôn và nhà lồng lên đèn lung linh. Đặc biệt: setup sinh nhật, kỷ niệm miễn phí.',
         images: [
-            'https://tramdungchill.vn/assets/images/hero-sunset.jpg',
-            'https://tramdungchill.vn/assets/images/hero-night.jpg',
-            'https://tramdungchill.vn/assets/images/hero-couple.jpg'
+            'https://tramdungchill.vn/assets/images/co-gai-ngam-hoang-hon-nha-long-da-lat.jpg',
+            'https://tramdungchill.vn/assets/images/quan-nuong-da-lat-dong-khach-ve-dem.jpg',
+            'https://tramdungchill.vn/assets/images/cap-doi-ngam-hoang-hon-nha-long-da-lat.jpg'
         ],
         url: 'https://tramdungchill.vn',
         telephone: '+84989765070',

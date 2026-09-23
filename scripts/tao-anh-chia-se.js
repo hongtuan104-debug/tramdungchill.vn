@@ -39,45 +39,28 @@ const RA = path.join(ROOT, "assets", "images", "chia-se");
 // tam: [x, y] = điểm giữ ở giữa khung cắt, tính theo tỉ lệ 0–1 trên ảnh gốc. Dùng chung cho mọi tỉ lệ,
 // hoặc khai riêng: tam: { og: [x, y], "1x1": [x, y] }. Không khai = sharp tự chọn.
 const ANH = [
-    // Trang tĩnh — og:image viết tay trong HTML
-    { goc: "assets/images/hero-sunset.jpg", khung: "og" },          // index · menu · blog · đường đi · tác giả
-    { goc: "assets/images/gallery-2.jpg", khung: "og" },            // dip/team-building
-    { goc: "assets/images/gallery-3.jpg", khung: "og" },            // (cũ) dip/sinh-nhat tới 23/09/2026 — ảnh có nến
-    { goc: "assets/images/gallery-4.jpg", khung: "og" },            // (cũ) dip/cau-hon-hen-ho tới 22/09/2026
-    { goc: "assets/images/blog/view-xe-lua-1.jpg", khung: "og" },   // (cũ) dip/san-tau-da-lat — giữ vì bài noindex dùng chung ảnh
-    // 22/09/2026 — bộ ảnh Canon "Viết Báo": hero + ảnh chia sẻ mới của 3 trang dịp
-    { goc: "assets/images/cap-doi-bien-cau-hon-da-lat.jpg", khung: "og", tam: { og: [0.5, 0] } },        // dip/cau-hon-hen-ho — giữ dòng chữ vàng trên vách
-    { goc: "assets/images/quan-nuong-da-lat-dong-khach-ve-dem.jpg", khung: "og", tam: { og: [0.5, 0] } },         // dip/team-building — máy tự cắt mất chữ đèn
-    { goc: "assets/images/tau-lua-da-lat-duoi-lan-can-quan.jpg", khung: "og" },    // dip/san-tau-da-lat
-    { goc: "assets/images/ban-tiec-trang-tri-hoang-hon-da-lat.jpg", khung: "og", tam: { og: [0.5, 0] } },  // dip/sinh-nhat (23/09/2026) — máy tự cắt mất trời hoàng hôn
-    // Ảnh đại diện 18 bài đang index (nuong-bbq-ngam-xe-lua và bản tiếng Anh dùng chung view-xe-lua-11b)
-    // Tâm cắt khai tay dưới đây đều đã duyệt bằng mắt 15/09/2026 — bản máy tự chọn cắt hụt người / mất toa tàu.
-    { goc: "assets/images/blog/view-xe-lua-11b.webp", khung: "bai", tam: { og: [0.5, 0.62], "16x9": [0.5, 0.62] } },   // toa tàu + bảng + bàn ăn
-    { goc: "assets/images/blog/view-nha-long-4.webp", khung: "bai" },
-    { goc: "assets/images/blog/mon-nuong-4.webp", khung: "bai" },
-    { goc: "assets/images/blog/view-nha-long-1.webp", khung: "bai" },
-    { goc: "assets/images/blog/view-hoang-hon-21.webp", khung: "bai" },
-    { goc: "assets/images/blog/mon-nuong-2.webp", khung: "bai" },
-    { goc: "assets/images/blog/view-nha-long-1-v2.webp", khung: "bai", tam: { "1x1": [0.6, 0.5] } },                 // khung vuông giữ trọn người
-    { goc: "assets/images/blog/mon-nuong-1.webp", khung: "bai" },
-    { goc: "assets/images/blog/view-nha-long-1-v3.webp", khung: "bai", tam: { og: [0.5, 0], "16x9": [0.5, 0] } },    // không cắt đỉnh đầu
-    { goc: "assets/images/blog/view-hoang-hon-1-v2.webp", khung: "bai" },
-    { goc: "assets/images/blog/view-nha-long-1-v4.webp", khung: "bai", tam: { og: [0.5, 0], "16x9": [0.5, 0], "1x1": [0.62, 0.5] } },
-    { goc: "assets/images/blog/setup-sinh-nhat-3.webp", khung: "bai", tam: { "1x1": [0.6, 0.5] } },                 // khung vuông giữ trọn người
-    { goc: "assets/images/blog/mon-nuong-4-v3.webp", khung: "bai" },
-    { goc: "assets/images/blog/view-nha-long-4-v3.webp", khung: "bai" },
-    // Ảnh dọc 1182×2560: nửa trên là trời đen + bóng đèn, người và toa tàu sáng đèn nằm ở phần dưới
-    { goc: "assets/images/blog/view-nha-long-3-v4.webp", khung: "bai", tam: { og: [0.5, 0.74], "16x9": [0.5, 0.74], "4x3": [0.5, 0.78], "1x1": [0.5, 0.74] } },
-    { goc: "assets/images/blog/view-xe-lua-20.webp", khung: "bai" },
-    { goc: "assets/images/blog/mon-nuong-4-v7.webp", khung: "bai" },
-    // 22/09/2026 — 6 bài index đổi ảnh đại diện sang bộ ảnh Canon "Viết Báo" (trước đó 4 bài dùng chung
-    // tấm bàn tiệc bóng bay, dù bài nói về team building / cắm trại / khách nước ngoài / view nhà lồng)
-    { goc: "assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp", khung: "bai" },        // team-building-da-lat
-    { goc: "assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp", khung: "bai" },          // da-lat-mua-nao-dep-nhat
-    { goc: "assets/images/blog/hoang-hon-nha-long-da-lat.webp", khung: "bai" },     // cam-trai-da-lat
-    { goc: "assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp", khung: "bai", tam: { "1x1": [0.45, 0.5] } },  // da-lat-cho-nguoi-nuoc-ngoai — vuông: giữ người + cổng
-    { goc: "assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp", khung: "bai" },          // lau-nuong-da-lat-mua-lanh
-    { goc: "assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp", khung: "bai" },  // quan-nuong-da-lat-view-nha-long
+    // 23/09/2026 — sếp Tuấn bảo thay TOÀN BỘ ảnh cũ bằng bộ ảnh Canon "Viết Báo" (Drive, gửi 22/09). Bảng chỉ còn
+    // ảnh đang dùng, MỖI ẢNH MỘT DÒNG: tên ảnh cắt lấy theo tên file (duongDanAnhCat), hai dòng cùng tên là ghi đè nhau.
+    // khung "bai" = og + 16:9 + 4:3 + 1:1 (ảnh đại diện bài index) · khung "og" = chỉ 1200x630 (trang tĩnh).
+    // Ảnh cắt cũ (hero-sunset, gallery-N, view-*, mon-nuong-*…) vẫn để trên đĩa, không trang nào gọi nữa.
+    { goc: "assets/images/cap-doi-bien-cau-hon-da-lat.jpg", khung: "og", tam: { og: [0.5, 0] } },          // dip/cau-hon-hen-ho — giữ dòng chữ vàng trên vách
+    { goc: "assets/images/quan-nuong-da-lat-dong-khach-ve-dem.jpg", khung: "bai", tam: { og: [0.5, 0] } }, // dip/team-building + bài quan-an-gia-dinh-da-lat — máy tự cắt mất chữ đèn
+    { goc: "assets/images/tau-lua-da-lat-duoi-lan-can-quan.jpg", khung: "bai" },                         // dip/san-tau-da-lat + nuong-bbq-ngam-xe-lua (+ bản EN)
+    { goc: "assets/images/ban-tiec-trang-tri-hoang-hon-da-lat.jpg", khung: "bai", tam: { og: [0.5, 0] } }, // dip/sinh-nhat + setup-sinh-nhat-mien-phi-da-lat — giữ trời hoàng hôn
+    { goc: "assets/images/blog/hoang-hon-nha-long-da-lat.webp", khung: "bai" },                          // cam-trai-da-lat + og 5 trang tĩnh (index · menu · blog · đường đi · tác giả)
+    { goc: "assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp", khung: "bai" },                  // team-building-da-lat
+    { goc: "assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp", khung: "bai" },                      // da-lat-mua-nao-dep-nhat
+    { goc: "assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp", khung: "bai", tam: { "1x1": [0.45, 0.5] } }, // da-lat-cho-nguoi-nuoc-ngoai — vuông: giữ người + cổng
+    { goc: "assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp", khung: "bai" },                       // lau-nuong-da-lat-mua-lanh
+    { goc: "assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp", khung: "bai" },                // quan-nuong-da-lat-view-nha-long
+    { goc: "assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp", khung: "bai" },             // hen-ho-da-lat
+    { goc: "assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat.webp", khung: "bai" },            // dac-san-da-lat-mua-ve
+    { goc: "assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp", khung: "bai" },                 // lich-trinh-da-lat-3-ngay-2-dem
+    { goc: "assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp", khung: "bai", tam: { "1x1": [0.53, 0.5] } }, // mon-nuong-ngon-nhat-da-lat — vuông: giữ cả hai người
+    { goc: "assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp", khung: "bai" },                     // da-lat-ve-dem-di-dau
+    { goc: "assets/images/blog/cong-tron-hoang-hon-da-lat.webp", khung: "bai" },                         // an-vat-da-lat-buoi-toi
+    // Bản BLOG (ngang 1200x800), KHÔNG phải bản gốc cùng tên ở assets/images/ — bản đó là poster hero dọc 1200x1802
+    { goc: "assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp", khung: "bai", tam: { "1x1": [0.47, 0.5] } }, // an-nuong-da-lat-bao-nhieu-tien — vuông: giữ người + bảng chữ
 ];
 
 const KHUNG = {

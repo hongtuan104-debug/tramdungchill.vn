@@ -154,7 +154,7 @@ var TRANSLATIONS = {
     'gallery.2': 'Quán về đêm',
     'gallery.3': 'Bàn tiệc trang trí',
     'gallery.4': 'Hẹn hò',
-    'gallery.5': 'View xe lửa',
+    'gallery.5': 'View nhà lồng',
     'gallery.6': 'Kỷ niệm',
 
     // Review
@@ -478,7 +478,7 @@ var TRANSLATIONS = {
     'gallery.2': 'Night vibes',
     'gallery.3': 'Decorated table',
     'gallery.4': 'Date night',
-    'gallery.5': 'Train view',
+    'gallery.5': 'Greenhouse view',
     'gallery.6': 'Memories',
 
     // Review

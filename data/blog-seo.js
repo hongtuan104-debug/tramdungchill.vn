@@ -511,8 +511,8 @@ const BLOG_SEO = {
       "lang": "en",
       "category": "English",
       "date": "2026-06-16",
-      "image": "assets/images/blog/view-xe-lua-11b.webp",
-      "imageAlt": "A guest at a railing-side BBQ table at Tram Dung Chill, the Da Lat–Trai Mat train right below and the greenhouse valley beyond",
+      "image": "assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp",
+      "imageAlt": "A grey Dalat Plateau Rail Road carriage on the tracks right below the restaurant's wooden railing, a railway crossing sign, greenhouses and a pink house behind",
       "badge": "",
       "featured": false
     },
@@ -720,8 +720,8 @@ const BLOG_SEO = {
       "dateModified": "2026-09-23",
       "lang": "vi",
       "category": "Mẹo & Kinh nghiệm",
-      "image": "assets/images/blog/view-xe-lua-20.webp",
-      "imageAlt": "Khách ngồi dãy bàn nướng sát lan can ở Trạm Dừng Chill buổi tối, đoàn tàu Đà Lạt – Trại Mát sáng đèn ngay bên dưới"
+      "image": "assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp",
+      "imageAlt": "Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng"
     }
   },
   noindex: {

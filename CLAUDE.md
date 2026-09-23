@@ -1023,6 +1023,26 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    ⚠️ Mục "Chọn chỗ ngồi" trên trang chủ (3 thẻ dãy bàn) và câu về dãy G / "kín chỗ trước 2–4 tuần" trong vài bài khác
    **vẫn đang hiện** — sếp chỉ bảo ẩn bài.
 
+41. **Thay TOÀN BỘ ảnh chụp cũ bằng bộ "Viết Báo"** (sếp Tuấn 23/09/2026: "thay tất cả ảnh cũ… thay toàn bộ").
+   Quét mọi trang web thật + dist: **0 ảnh chụp cũ còn được gọi**. Cố ý GIỮ: `tiktok-thumb-*` (poster của video TikTok thật,
+   thay là ảnh chờ không khớp video), `hero-video.mp4`, trang menu in (`menu-pages/`), favicon. File ảnh cũ để nguyên trên
+   đĩa (xoá là 404 với Google Images), không trang nào gọi.
+   - **Blog:** 136 ảnh đại diện + 236 ảnh chèn trong 141 bài (`data/blog-data.js`, 2 ghi đè trong `blog-seo.js`). Máy chia
+     theo chủ đề tên file cũ (view-xe-lua → CHỈ 2 ảnh tàu thật · mon/ban-nuong → ảnh bàn lẩu nướng · view-nha-long có chữ
+     "đêm/lên đèn" → ảnh đêm…), mỗi bài không lặp ảnh, bài tiếng Anh alt tiếng Anh. 11 bài index chọn ảnh đại diện bằng tay.
+     Ảnh dùng trong blog nằm ở `assets/images/blog/<tên>.webp` + `-800w` + `-400w` (1200x800).
+   - **Trang chủ:** poster hero (= LCP điện thoại) `co-gai-ngam-hoang-hon-nha-long-da-lat` dọc 1200x1802 / webp 1000x1502 —
+     ⚠️ bản CÙNG TÊN trong `blog/` là bản NGANG, ảnh cắt chia sẻ phải lấy bản blog. Thẻ "Chiều Vàng Thung Lũng" + ảnh chia sẻ
+     5 trang tĩnh ← `hoang-hon-nha-long-da-lat` · ô gallery 5 ← cổng tròn ban ngày, nhãn "View xe lửa" → **"View nhà lồng"**
+     (2 ảnh tàu thật đã nằm ở thẻ trải nghiệm) · ô 6 "Kỷ niệm" ← cặp đôi vườn hoa · schema Restaurant.image · nền mờ khối đặt
+     bàn `nen-dat-ban-quan-nuong-da-lat` (css/style.css). Thẻ gợi ý trỏ Thực đơn / Đường đi (`DICH_NGOAI` trong dln-map.js).
+   - **Săn tàu:** mục "Ảnh thật tại quán" 4 ảnh → 2 (bộ mới chỉ có 2 ảnh tàu THẬT: 3M0A7471 ngày, 3M0A6094 đêm).
+   - `tao-anh-chia-se.js`: bảng ANH chỉ còn ảnh đang dùng, **mỗi ảnh MỘT dòng** (tên ảnh cắt theo tên file — hai dòng cùng tên
+     là ghi đè nhau). Khung vuông 2 ảnh phải khai tâm tay (máy cắt hụt người).
+   - **KHÔNG dùng 4 ảnh:** IMG_0902 / 5365 / 5381 treo biển "Tiệm Nướng & Chill Xóm Lèo" kèm SĐT 0764 527 336 (khác số quán —
+     khách dễ nhầm) · IMG_5385 nền đầy khách thật lộ mặt. Ảnh có khách thật đang dùng (3M0A4655, 3M0A6094, IMG_2298) vẫn chờ
+     sếp về quyền ảnh (mục 83) — nay mỗi ảnh xuất hiện ~27 lần trong blog.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

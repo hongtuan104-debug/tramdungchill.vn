@@ -1351,8 +1351,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .booking-bg-layer {
     position: absolute;
     inset: 0;
-    background: url('../assets/images/booking-bg.jpg') center/cover no-repeat;
-    background: url('../assets/images/booking-bg.webp') center/cover no-repeat;
+    background: url('../assets/images/nen-dat-ban-quan-nuong-da-lat.jpg') center/cover no-repeat;
+    background: url('../assets/images/nen-dat-ban-quan-nuong-da-lat.webp') center/cover no-repeat;
     opacity: 0.12;
     filter: blur(2px);
 }

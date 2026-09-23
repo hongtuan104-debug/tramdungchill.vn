@@ -11,7 +11,7 @@
    File nặng 3,6 MB — trên mobile 4G chậm nó đẩy LCP lên 8,9 giây (PageSpeed
    31/07/2026). Ẩn bằng CSS không cứu được vì trình duyệt vẫn tải hết rồi mới ẩn,
    nên trong HTML thẻ <source> để data-src và chỉ gắn src thật ở đây.
-   Mobile giữ poster hero-sunset.jpg (232 KB) — nhẹ hơn 15 lần, vẫn đúng khung hình. */
+   Mobile giữ poster ảnh dọc (bản .webp ~100 KB) — nhẹ hơn 15 lần, vẫn đúng khung hình. */
 function initHeroVideo() {
     const video = document.querySelector('.hero-video');
     if (!video) return;

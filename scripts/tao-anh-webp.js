@@ -57,6 +57,10 @@ const ANH = [
     // 23/09/2026: thay gallery-3 / gallery-4 — trong ảnh có nến, mà quán không làm nến ở setup nào (sếp chốt).
     "ban-tiec-trang-tri-hoang-hon-da-lat",  // hero dip/sinh-nhat + ô gallery "Bàn tiệc trang trí" (IMG_0246, cắt bỏ khách ở mép phải)
     "cap-doi-ngam-hoang-hon-nha-long-da-lat", // ảnh mục Câu chuyện + ô gallery "Hẹn hò" trang chủ (IMG_5378)
+    // 23/09/2026 chiều: thay NỐT ảnh cũ còn lại ở trang chủ (sếp: "thay toàn bộ"). gallery-1/5/6 không trang nào gọi nữa.
+    "hoang-hon-nha-long-da-lat",            // thẻ trải nghiệm "Chiều Vàng Thung Lũng" (IMG_2794)
+    "cong-tron-nha-long-ban-ngay-da-lat",   // ô gallery "View nhà lồng" (IMG_0916)
+    "cap-doi-vuon-hoa-tram-dung-chill-da-lat", // ô gallery "Kỷ niệm" 4:3 (IMG_0900)
 ];
 const CO = [480, 800, 1200];
 const QUALITY = 72;

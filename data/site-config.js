@@ -47,7 +47,7 @@ const SITE_CONFIG = {
 
     seo: {
         url: 'https://tramdungchill.vn',
-        ogImage: 'https://tramdungchill.vn/assets/images/hero-sunset.jpg',
+        ogImage: 'https://tramdungchill.vn/assets/images/chia-se/hoang-hon-nha-long-da-lat-og.jpg',
     },
 
     // Webhook dat ban - Dan URL Google Apps Script vao day

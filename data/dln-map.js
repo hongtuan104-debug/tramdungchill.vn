@@ -101,26 +101,26 @@ const DICH_NGOAI = {
   "menu": {
     href: "../menu.html",
     bac: "R", trongSo: 1.25, tag: ["chi-phi", "nuong"],
-    anh: "assets/images/blog/mon-nuong-18.webp",
+    anh: "assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp",
     vi: {
       nhan: "Thực đơn",
       tieuDe: "Thực Đơn Trạm Dừng Chill — Hơn 70 Món, Giá Đã Gồm VAT",
-      alt: "Vỉ nướng than hoa tại Trạm Dừng Chill: tôm, bắp, xúc xích và miếng thịt đang được gắp chấm sốt"
+      alt: "Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán"
     },
     en: {
       nhan: "Menu",
       tieuDe: "Tram Dung Chill Menu — Over 70 Dishes, VAT Included",
-      alt: "Charcoal grill at Tram Dung Chill with prawns, corn, sausage and a piece of meat being dipped in sauce"
+      alt: "A couple at a wooden table laid with hotpot, meat and seafood platters and salad at Tram Dung Chill, the restaurant's round-window check-in carriage behind them"
     }
   },
   "duong-di": {
     href: "../duong-di/",
     bac: "A", trongSo: 1.00, lang: "vi", tag: ["di-lai", "dat-ban"],
-    anh: "assets/images/blog/khong-gian-ngay-45.webp",
+    anh: "assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",
     vi: {
       nhan: "Đường đi",
       tieuDe: "Đường Đi Đến Trạm Dừng Chill — 111 Huỳnh Tấn Phát, Có Video Chỉ Đường",
-      alt: "Bàn gỗ ngoài trời tại Trạm Dừng Chill ban ngày: bảng nhỏ kết hoa đặt trên bàn, dây đèn treo và lan can nhìn xuống thung lũng nhà kính"
+      alt: "Khách tạo dáng ở cổng tre gắn biển Trạm Dừng Chill, bên trong là dãy bàn gỗ và cờ đỏ"
     }
     /* KHÔNG khai `en`: trang này toàn chữ tiếng Việt (h1, hướng dẫn, FAQ) nên `lang: "vi"` —
        khác `menu.html` vốn là 26 trang ẢNH nên để `lang: null` dùng được cho cả hai cụm.
