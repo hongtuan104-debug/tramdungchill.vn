@@ -1011,6 +1011,18 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      vẫn để trên đĩa (không trang nào gọi) — xoá là 404 với Google Images. **Chọn ảnh setup mới: mở ra soi nến trước.**
    → Máy canh: mẫu thứ 11 trong **R8r** (câu có setup/trang trí/bàn tiệc mà nhắc hoa tươi / nến / hoa hồng / candle / rose).
 
+40. **TẠM ẨN bài `tip-chon-cho-ngoi-quan-nuong`** ("Chỗ ngồi quán nướng Đà Lạt: dãy nào ngắm được xe lửa?") — sếp Tuấn
+   bảo 23/09/2026, chưa nói lý do / hạn. Cách ẩn là cơ chế sẵn có: khai `"tip-chon-cho-ngoi-quan-nuong": ""` trong
+   `noindex` của `data/blog-seo.js` → trang mang `noindex`, ra khỏi sitemap, trang Blog, danh sách tĩnh, trang tác giả,
+   thẻ "Gợi ý cho bạn". URL vẫn mở được nếu ai có link (GitHub Pages không trả 404 cho file còn tồn tại).
+   **Hiện lại = làm ngược 4 chỗ** (đều có ghi chú "TẠM ẨN 23/09/2026"): xoá dòng noindex · mở comment dòng của nó trong
+   `DICH` ở `data/dln-map.js` (generator throw nếu đích đang noindex nên phải gỡ khi ẩn) · chép lại thẻ `<p>` link
+   `data-i18n="seat.guide"` cuối mục `#chon-cho-ngoi` trang chủ (khoá dịch vẫn còn trong translations.js) · chép lại câu
+   "Muốn xem kỹ từng dãy trước khi nhắn, quán có bài riêng về <a…>cách chọn chỗ ngồi theo dãy</a>. Còn đặt bàn…" trong bài
+   `quan-an-gia-dinh-da-lat` (blog-seo.js). Lấy bản gốc bằng `git show <commit ẩn bài>^:<file>`.
+   ⚠️ Mục "Chọn chỗ ngồi" trên trang chủ (3 thẻ dãy bàn) và câu về dãy G / "kín chỗ trước 2–4 tuần" trong vài bài khác
+   **vẫn đang hiện** — sếp chỉ bảo ẩn bài.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

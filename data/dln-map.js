@@ -69,7 +69,9 @@ const DICH = {
   "an-nuong-da-lat-bao-nhieu-tien": { bac: "R", trongSo: 1.25, tag: ["chi-phi", "nuong"] },
 
   // ── Bậc A — sẵn sàng đặt bàn
-  "tip-chon-cho-ngoi-quan-nuong":   { bac: "A", trongSo: 1.25, tag: ["dat-ban", "nuong", "tau"] },
+  // TẠM ẨN 23/09/2026: bài đang noindex trong blog-seo.js (generator chặn đích noindex). Hiện lại bài thì mở dòng dưới.
+  // Bậc A vẫn còn qua DICH_NGOAI (duong-di/).
+  // "tip-chon-cho-ngoi-quan-nuong":   { bac: "A", trongSo: 1.25, tag: ["dat-ban", "nuong", "tau"] },
 
   // ── Bậc O — còn đang tìm hiểu Đà Lạt nói chung
   "da-lat-mua-nao-dep-nhat":        { bac: "O", trongSo: 0.70, tag: ["du-lich", "hoang-hon"] },
