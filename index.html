@@ -106,8 +106,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="dist/style.min.css?v=4ffdae8f" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=4ffdae8f"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=f591f8ee" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=f591f8ee"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1549,6 +1549,49 @@
         </div>
     </section>
 
+    <!-- Cẩm nang: link từ THÂN trang chủ tới 11 bài blog đang index mà trước 24/09/2026 chỉ có lối vào
+         ở nav/footer. Google chỉ ~1 lượt/ngày tìm trang mới trên site này, trang không có link từ thân
+         trang chủ thì rất chậm được lập chỉ mục (Search Console báo 15 trang "đã phát hiện – chưa lập chỉ mục").
+         Chỉ chữ, không ảnh: mục nằm dưới màn đầu, không được làm nặng trang chủ. Chữ link có bản dịch
+         trong translations.js (guides.*) — sửa chữ thì sửa cả 2 ngôn ngữ ở đó (bug #0). -->
+    <section class="guides-section" id="cam-nang">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-i18n="guides.tag">Cẩm nang</span>
+                <h2 class="section-title" data-i18n="guides.title">Đà Lạt qua góc nhìn<br><em>người làm quán</em></h2>
+                <p class="section-desc" data-i18n="guides.desc">Những bài quán viết cho khách hay hỏi: tối nay ăn gì, đi mùa nào, và ngồi đâu để ngắm tàu, nhà lồng.</p>
+            </div>
+            <div class="guides-grid">
+                <div class="guides-group">
+                    <h3 data-i18n="guides.g1">Ăn gì, chơi gì buổi tối</h3>
+                    <ul>
+                        <li><a href="blog/an-vat-da-lat-buoi-toi.html" data-i18n="guides.l1">Ăn vặt Đà Lạt buổi tối: 15 món chợ đêm nên thử</a></li>
+                        <li><a href="blog/da-lat-ve-dem-di-dau.html" data-i18n="guides.l2">Đà Lạt về đêm đi đâu: 8 hoạt động sau 20h</a></li>
+                        <li><a href="blog/lau-nuong-da-lat-mua-lanh.html" data-i18n="guides.l3">Lẩu nướng Đà Lạt mùa lạnh: ghép món ấm bụng</a></li>
+                        <li><a href="blog/dac-san-da-lat-mua-ve.html" data-i18n="guides.l4">Đặc sản Đà Lạt mua về làm quà: 10 món và cách chọn</a></li>
+                    </ul>
+                </div>
+                <div class="guides-group">
+                    <h3 data-i18n="guides.g2">Lên kế hoạch chuyến đi</h3>
+                    <ul>
+                        <li><a href="blog/lich-trinh-da-lat-3-ngay-2-dem.html" data-i18n="guides.l5">Lịch trình Đà Lạt 3 ngày 2 đêm</a></li>
+                        <li><a href="blog/da-lat-mua-nao-dep-nhat.html" data-i18n="guides.l6">Đà Lạt mùa nào đẹp: chọn thời điểm theo từng tháng</a></li>
+                        <li><a href="blog/cam-trai-da-lat.html" data-i18n="guides.l7">Cắm trại Đà Lạt: 5 khu vực và đồ cần mang</a></li>
+                    </ul>
+                </div>
+                <div class="guides-group">
+                    <h3 data-i18n="guides.g3">View khi ngồi ở quán</h3>
+                    <ul>
+                        <li><a href="blog/nuong-bbq-ngam-xe-lua.html" data-i18n="guides.l8">Nướng BBQ ngắm tàu lửa Đà Lạt – Trại Mát</a></li>
+                        <li><a href="blog/quan-nuong-da-lat-view-nha-long.html" data-i18n="guides.l9">Ngắm "biển sao" nhà lồng khi ăn nướng</a></li>
+                        <li><a href="blog/hen-ho-da-lat.html" data-i18n="guides.l10">Hẹn hò Đà Lạt: bữa tối ngắm tàu và nhà lồng</a></li>
+                        <li><a href="blog/da-lat-restaurant-train-view-en.html" data-i18n="guides.l11">Nhà hàng Đà Lạt view tàu lửa (bài tiếng Anh)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
@@ -1679,7 +1722,7 @@
     <!-- Data Files -->
     <script defer src="data/site-config.js?v=0aa35834"></script>
     <script defer src="data/menu-data.js?v=061e0cd3"></script>
-    <script defer src="data/translations.js?v=d7f59f6e"></script>
+    <script defer src="data/translations.js?v=00fb0b3f"></script>
 
     <!-- Bundled & Minified JS -->
     <script defer src="dist/common.min.js?v=6b7c7c9a"></script>

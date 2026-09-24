@@ -2716,6 +2716,26 @@ const CAU_AEO = (() => {
                     : "CSS nạp thật + " + trang.length + " trang: gạch chân link chỉ nằm trong :hover / :focus-visible");
 }
 
+// ── R30. Mọi bài blog đang index phải có link từ THÂN trang chủ (24/09/2026) ────
+// Google chỉ ~1 lượt/ngày tìm trang mới trên site này; bài chỉ có lối vào ở nav/footer thì rất
+// chậm được lập chỉ mục — Search Console báo 15 trang "đã phát hiện – chưa lập chỉ mục" lúc 11/17
+// bài index không có link nào từ thân trang chủ. Nay mục "Cẩm nang" (#cam-nang) gánh phần này.
+// Thêm bài index mới → thêm một dòng vào Cẩm nang (+ khoá guides.* cả 2 ngôn ngữ trong translations.js).
+{
+    const sm = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+    const bai = [...sm.matchAll(/<loc>https:\/\/tramdungchill\.vn\/blog\/([^<]+)\.html<\/loc>/g)].map((m) => m[1]);
+    const than = fs.readFileSync(path.join(ROOT, "index.html"), "utf8")
+        .replace(/<!--[\s\S]*?-->/g, "")
+        .replace(/<nav[\s\S]*?<\/nav>/g, "")
+        .replace(/<footer[\s\S]*?<\/footer>/g, "")
+        .replace(/<noscript[\s\S]*?<\/noscript>/g, "");
+    const thieu = bai.filter((b) => !new RegExp('href="(?:/)?blog/' + b.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + '\\.html"').test(than));
+    add("Mọi bài blog đang index có link từ thân trang chủ (không tính nav/footer)",
+        bai.length > 0 && thieu.length === 0,
+        thieu.length ? "thiếu " + thieu.length + ": " + thieu.slice(0, 4).join(", ") + " — thêm vào mục Cẩm nang"
+                     : bai.length + "/" + bai.length + " bài index trong sitemap đều có link từ thân trang chủ");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

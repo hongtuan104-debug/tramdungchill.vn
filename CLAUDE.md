@@ -1060,8 +1060,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      đủ tỉ lệ gốc (4:3, 3:2, 16:9…). Sổ ghi `rongGoc`/`caoGoc`, R28 mục (d) chặn ảnh bị cắt. Muốn cắt thì phải ghi lại
      "đã chỉnh sửa" trong chú thích.
    - **Ảnh ngoài KHÔNG dùng để tả quán**, không làm ảnh đại diện / og:image (ảnh chia sẻ không mang được chú thích). Mục nói về
-     chính quán thì dùng ảnh thật của quán (bộ "Viết Báo"). 7 bài index còn lại (hẹn hò, setup sinh nhật, bao nhiêu tiền, lẩu,
-     món nướng, team building, gia đình) toàn nói về quán nên chưa chèn gì — thân pillar của chúng vẫn 0 ảnh chèn.
+     chính quán thì dùng ảnh thật của quán (bộ "Viết Báo"). 7 bài index còn lại toàn nói về quán → đã chèn ảnh quán ở #44.
    - Viết alt/chú thích theo thứ THẤY trong ảnh, không gắn địa danh ảnh không chứng minh được: ảnh bánh căn không rõ nơi chụp →
      tên `banh-can-do-khuon-dat-nung` (không "da-lat"); cây cà phê → "gần Đà Lạt", không ghi Cầu Đất/Arabica. Loại ảnh lấy
      người lạ làm chủ thể (giấy phép CC lo bản quyền, không lo quyền hình ảnh cá nhân) và ảnh có watermark to.
@@ -1087,6 +1086,21 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      `textDecorationLine` của link + thẻ cha, và viền CHỈ ở dưới (nút có viền bao quanh không tính).
    → Máy canh **R29**: CSS nạp thật (`dist/style.min.css`, `dist/dip-landing.min.css`), khối `<style>` và `style=""` của
    mọi trang + mẫu bài không được có `text-decoration: underline` ngoài `:hover`/`:focus`.
+
+44. **Mục "Cẩm nang" trên trang chủ + ảnh quán cho 7 bài index** (24/09/2026, sếp duyệt "làm đi").
+   - **Vì sao**: 11/17 bài index không có link nào từ THÂN trang chủ (chỉ nav/footer); Google chỉ ~1 lượt/ngày tìm trang mới
+     (memory crawl budget) và Search Console báo 15 trang "đã phát hiện – chưa lập chỉ mục". Nay `<section id="cam-nang">`
+     (trước bản đồ) chia 3 nhóm, link cả 11 bài → **17/17**. Chỉ chữ, không ảnh (nằm dưới màn đầu, không làm nặng trang chủ);
+     CSS `.guides-*` trong style.css, không cần critical CSS. Chữ có `data-i18n="guides.*"` — **sửa chữ thì sửa cả 2 ngôn ngữ
+     trong translations.js** (bug #0); bản EN ghi "(in Vietnamese)" vì bài là tiếng Việt.
+     ⚠️ **Thêm bài index mới → thêm một dòng vào Cẩm nang** — máy canh **R30** chặn bài index trong sitemap thiếu link từ thân
+     trang chủ (không tính nav/footer/noscript/chú thích).
+   - **Ảnh quán cho 7 bài index chưa có ảnh trong bài** (hẹn hò, setup sinh nhật, bao nhiêu tiền, lẩu mùa lạnh, món nướng, team
+     building, gia đình): 14 ảnh bộ "Viết Báo", 2 ảnh/bài, chèn vào thân **pillar** trong blog-seo.js (xem #42), `<img>` thường có
+     srcset 400/800/1200 + sizes (không bọc `anh-nguon`). Alt lấy nguyên bản đã viết sau khi mở ảnh. Cố ý **không** dùng 3 ảnh có
+     khách thật lộ mặt đang chờ sếp về quyền ảnh (#41) và không lặp ảnh đầu bài. Kiểm Chrome 412px × 1,75: 14/14 ảnh tải được,
+     chọn bản 800w. Script `plans/cong-cu-anh-commons/chen-anh-quan.js` (có chặn ảnh trôi sang mục sau; mục kết thúc bằng
+     danh sách thì truyền `"</ul>"` — lần đầu cộng cứng 4 ký tự nên chèn vào giữa `</ul` và `>`, đã sửa).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

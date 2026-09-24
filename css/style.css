@@ -1615,6 +1615,56 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ============================================
    MAP SECTION
    ============================================ */
+/* Cẩm nang trên trang chủ (24/09/2026): 3 nhóm link sang 11 bài blog đang index — lối vào từ THÂN
+   trang chủ để Google tìm thấy bài. Chỉ chữ, không ảnh. Mỗi link đứng riêng một dòng, chữ đậm +
+   mũi tên nên không gạch chân (#43); rê chuột / Tab tới thì hiện gạch chân. --gold-on-light trên
+   nền trắng 5,26:1. Dòng cao ≥ 44px cho dễ chạm trên điện thoại. */
+.guides-section {
+    padding: 90px 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+}
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.guides-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px 10px;
+}
+.guides-group h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--night);
+    margin: 0 0 6px;
+}
+.guides-group ul { list-style: none; margin: 0; padding: 0; }
+.guides-group li + li { border-top: 1px solid var(--border); }
+.guides-group a {
+    display: block;
+    position: relative;
+    padding: 12px 24px 12px 0;
+    color: var(--gold-on-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    text-decoration: none;
+    text-underline-offset: 3px;
+}
+.guides-group a::after { content: "→"; position: absolute; right: 0; top: 12px; }
+.guides-group a:hover,
+.guides-group a:focus-visible { color: var(--ember); text-decoration: underline; }
+@media (max-width: 900px) {
+    .guides-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 768px) {
+    .guides-section { padding: 60px 0; }
+}
+
 .map-section {
     padding: 90px 0;
     background: var(--cream);
