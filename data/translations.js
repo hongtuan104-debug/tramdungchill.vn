@@ -22,10 +22,11 @@ var TRANSLATIONS = {
     // Hero
     'hero.seo': 'Quán Nướng Đà Lạt View Đẹp — ',
     'hero.subtitle': 'Tiệm Nướng',
-    'hero.description': 'Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ,<br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh',
+    'hero.description': 'Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ, <br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh',
     'hero.cta': 'Đặt Bàn Ngay',
     'hero.menu': 'Xem Menu',
     'hero.scroll': 'Cuộn xuống',
+    'hero.trust1': '<strong>4.8/5</strong> · <strong>7.060</strong> đánh giá Google',
 
     // Experience
     'exp.tag': 'Trải nghiệm độc đáo',
@@ -47,6 +48,7 @@ var TRANSLATIONS = {
     'exp.3.tag3': 'Đêm Đà Lạt',
     'exp.occasion.title': 'Sinh nhật & Kỷ niệm',
     'exp.occasion.desc': 'Setup bàn tiệc lãng mạn với hoa, bảng chúc mừng — biến khoảnh khắc của bạn thành kỷ niệm khắc sâu, chỉ có một lần trong đời.',
+    'exp.badge.daily': 'Mỗi ngày',
     'exp.occasion.cta': 'Đặt tiệc ngay',
 
     // Perks - 6 unique services
@@ -66,10 +68,11 @@ var TRANSLATIONS = {
     'perks.5.title': 'Setup tiệc miễn phí',
     'perks.5.desc': 'Sinh nhật, kỷ niệm, cầu hôn? Trạm setup hoa, bảng chúc mừng — không tính phí trang trí (cọc 200.000đ, hoàn lại sau khi ăn).',
     'perks.6.title': 'Bàn view không phụ thu',
-    'perks.6.desc': 'Bàn view xe lửa, hoàng hôn, nhà lồng — tất cả đều cùng giá. Không tính thêm 1 đồng.',
+    'perks.6.desc': 'Bàn view xe lửa, hoàng hôn, nhà lồng — tất cả đều cùng giá. Không tính thêm 1&nbsp;đồng.',
     'perks.cta': 'Đặt Bàn Trải Nghiệm Ngay',
 
     // Chọn chỗ ngồi theo view
+    'seat.tag': 'Chọn chỗ ngồi',
     'seat.title': 'Bạn muốn ngắm view nào?<br><em>Mỗi view có một dãy bàn riêng</em>',
     'seat.sub': 'Trạm Dừng Chill là tiệm nướng ngoài trời, bàn xếp theo dãy. Bàn trong cùng một dãy đều ngắm chung một view — không cần giành bàn đầu dãy.',
     'seat.1.title': 'Muốn tàu chạy ngay dưới chân',
@@ -96,6 +99,9 @@ var TRANSLATIONS = {
     'tiktok.title': 'Triệu lượt xem<br><em>trên TikTok</em>',
     'tiktok.sub': '80K+ followers · 1.5M lượt thích · Xem từ @tiemnuongtramdungchill',
     'tiktok.cta': 'Xem thêm trên TikTok',
+    'tiktok.cap1': 'Săn Tàu Đà Lạt',
+    'tiktok.cap2': 'Chuyến Tàu Đêm',
+    'tiktok.cap3': 'Lẩu Nóng Ngày Mưa',
 
     // Reviews (real testimonials)
     'reviews.tag': 'Khách nói gì',
@@ -120,7 +126,9 @@ var TRANSLATIONS = {
     // Menu flipbook (quyển menu ảnh lật từng trang — trang menu.html)
     'flip.tag': 'Quyển menu',
     'flip.title': 'Lật từng trang menu<br><em>như cầm quyển thật</em>',
-    'flip.hint': 'Bấm vào mép trang để lật, hoặc dùng phím ← →. Trên điện thoại thì vuốt ngang. Bấm vào trang để phóng to đọc rõ.',
+    // Hai bản theo loại máy (25/09/2026) — CSS .goi-y-pc / .goi-y-mb chọn bản hiện
+    'flip.hint.pc': 'Bấm vào mép trang hoặc dùng phím ← → để lật. Bấm vào trang để phóng to đọc rõ.',
+    'flip.hint.mb': 'Vuốt ngang hoặc chạm mũi tên hai bên để lật. Chạm vào trang để phóng to đọc rõ.',
     'flip.prev': 'Trang trước',
     'flip.next': 'Trang sau',
     'flip.page': 'Trang',
@@ -163,6 +171,7 @@ var TRANSLATIONS = {
     'review.desc': 'Mỗi đánh giá của bạn giúp Trạm Dừng Chill phục vụ tốt hơn. Quét QR hoặc bấm nút bên dưới để chia sẻ trải nghiệm của bạn!',
     'review.cta': 'Đánh giá trên Google Maps',
     'review.qr': 'Quét QR để đánh giá',
+    'review.source': 'Đánh giá Google',
 
     // Booking
     'booking.tag': 'Đặt bàn',
@@ -223,6 +232,9 @@ var TRANSLATIONS = {
     'booking.zalo.intro': 'Ngại điền form?',
     'booking.zalo.quick': 'Đặt nhanh qua Zalo',
     'booking.or': 'hoặc điền form bên dưới',
+    'modal.title': 'Đã gửi thông tin thành công!',
+    'modal.desc': 'Vui lòng <strong>nhấn Gửi trong Zalo</strong> để hoàn tất đặt bàn. Trong giờ mở cửa (15:00–23:00), chúng tôi xác nhận trong vòng 15 phút.',
+    'modal.close': 'Đóng',
     'booking.form.submit': 'Đặt bàn ngay',
     'booking.form.loading': 'Đang gửi...',
     'booking.form.hint': 'Miễn phí đặt bàn. Trong giờ mở cửa (15:00–23:00) quán xác nhận qua Zalo trong 15 phút.',
@@ -318,7 +330,7 @@ var TRANSLATIONS = {
     'footer.link.title': 'Liên kết',
     'footer.contact.title': 'Liên hệ',
     'footer.hours.title': 'Giờ mở cửa',
-    'footer.hours.value': '15:00 - 23:00 hàng ngày',
+    'footer.hours.value': '15:00 – 23:00 hàng ngày',
     'footer.copyright': '© 2026 Tiệm Nướng Trạm Dừng Chill. Đà Lạt, Việt Nam.',
     'footer.occasion.title': 'Dịp đặc biệt',
     'footer.occasion.train': 'Săn tàu Đà Lạt',
@@ -364,10 +376,11 @@ var TRANSLATIONS = {
     // Hero
     'hero.seo': 'Best BBQ Restaurant in Da Lat with a View — ',
     'hero.subtitle': 'BBQ Restaurant',
-    'hero.description': 'Pause in Da Lat — grill BBQ, hear vintage train whistles,<br>watch the sunset fade and the greenhouse valley glow',
+    'hero.description': 'Pause in Da Lat — grill BBQ, hear vintage train whistles, <br>watch the sunset fade and the greenhouse valley glow',
     'hero.cta': 'Book Now',
     'hero.menu': 'View Menu',
     'hero.scroll': 'Scroll down',
+    'hero.trust1': '<strong>4.8/5</strong> · <strong>7,060</strong> Google reviews',
 
     // Experience
     'exp.tag': 'Unique experiences',
@@ -389,6 +402,7 @@ var TRANSLATIONS = {
     'exp.3.tag3': 'Da Lat nights',
     'exp.occasion.title': 'Birthdays & Anniversaries',
     'exp.occasion.desc': 'Romantic setup with flowers and celebration signs — turn your moment into a memory carved deep, the kind that happens only once.',
+    'exp.badge.daily': 'Daily',
     'exp.occasion.cta': 'Book a celebration',
 
     // Perks - 6 unique services
@@ -412,6 +426,7 @@ var TRANSLATIONS = {
     'perks.cta': 'Book Your Experience',
 
     // Pick your seat by view
+    'seat.tag': 'Pick your seat',
     'seat.title': 'Which view do you want?<br><em>Each view has its own row of tables</em>',
     'seat.sub': 'Tram Dung Chill is an open-air grill house and the tables are arranged in rows. Every table in the same row shares the same view — no need to fight for the first table.',
     'seat.1.title': 'You want the train right below you',
@@ -438,6 +453,9 @@ var TRANSLATIONS = {
     'tiktok.title': 'Millions of views<br><em>on TikTok</em>',
     'tiktok.sub': '80K+ followers · 1.5M likes · Watch from @tiemnuongtramdungchill',
     'tiktok.cta': 'See more on TikTok',
+    'tiktok.cap1': 'Train Hunting in Da Lat',
+    'tiktok.cap2': 'The Night Train',
+    'tiktok.cap3': 'Hot Pot on a Rainy Day',
 
     // Reviews (real testimonials)
     'reviews.tag': 'What guests say',
@@ -462,7 +480,8 @@ var TRANSLATIONS = {
     // Menu flipbook (page-turning photo menu — menu.html)
     'flip.tag': 'The menu book',
     'flip.title': 'Flip through our menu<br><em>like the real book</em>',
-    'flip.hint': 'Click the page edge to turn, or use ← →. Swipe sideways on mobile. Tap a page to zoom in.',
+    'flip.hint.pc': 'Click the page edge or use the ← → keys to turn. Click a page to zoom in.',
+    'flip.hint.mb': 'Swipe sideways or tap the arrows on either side to turn. Tap a page to zoom in.',
     'flip.prev': 'Previous page',
     'flip.next': 'Next page',
     'flip.page': 'Page',
@@ -505,6 +524,7 @@ var TRANSLATIONS = {
     'review.desc': 'Your review helps Tram Dung Chill serve better. Scan the QR or tap the button below to share your experience!',
     'review.cta': 'Review on Google Maps',
     'review.qr': 'Scan QR to review',
+    'review.source': 'Google review',
 
     // Booking
     'booking.tag': 'Reservation',
@@ -562,9 +582,12 @@ var TRANSLATIONS = {
     'booking.form.note': 'Notes',
     'booking.form.note.ph': 'Special requests: sunset view, birthday setup...',
     'booking.form.urgency': '⚠️ Weekends usually full after 4pm — book early to pick the best view',
-    'booking.zalo.intro': 'Prefer not to fill the form?',
+    'booking.zalo.intro': 'Skip the form?',
     'booking.zalo.quick': 'Quick book on Zalo',
     'booking.or': 'or fill in the form below',
+    'modal.title': 'Booking details sent!',
+    'modal.desc': 'Please <strong>tap Send in Zalo</strong> to complete your booking. We confirm within 15 minutes during opening hours (15:00–23:00).',
+    'modal.close': 'Close',
     'booking.form.submit': 'Book now',
     'booking.form.loading': 'Sending...',
     'booking.form.hint': 'Free booking. During opening hours (15:00–23:00) we confirm via Zalo within 15 minutes.',
@@ -659,7 +682,7 @@ var TRANSLATIONS = {
     'footer.link.title': 'Links',
     'footer.contact.title': 'Contact',
     'footer.hours.title': 'Opening hours',
-    'footer.hours.value': '15:00 - 23:00 daily',
+    'footer.hours.value': '15:00 – 23:00 daily',
     'footer.copyright': '© 2026 Tram Dung Chill BBQ. Da Lat, Vietnam.',
     'footer.occasion.title': 'Special occasions',
     'footer.occasion.train': 'Da Lat train spotting',

@@ -1,0 +1,97 @@
+/* ============================================================================
+   wow-blog-ds - tach khoi css/style.css (25/09/2026) de trang khac khong phai tai + tinh.
+   Chi blog.html + tac-gia/*.html nap file nay (dist/wow-blog-ds.min.css), link DAT NGAY SAU style.min.css:
+   cung vi tri cascade nhu luc con nam cuoi style.css. Dung chung --tau, wTau, wBat, wT,
+   tdcDen trong style.css (lop wow-tong + A+C) - doi ten o do thi doi ca o day.
+   ============================================================================ */
+/* ============================================
+   LOP WOW - BLOG: trang danh sach (blog.html) + trang tac gia
+   Dat SAU lop wow tren (dung --tau, wTau, wBat). Ghi de .section-tag::before
+   cua A+C bang cung do dac hieu nen thu tu quyet dinh - dung doi cho.
+   Anh the dau (LCP cua blog.html tren dien thoai) chi nghieng tinh, khong
+   animation/opacity.
+   ============================================ */
+/* wow-blog-ds: blog.html + tac-gia. Sau wow-tong (dung --tau, wTau, wBat) */
+:root{--bd-day:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cpath d='M0 4Q103 60 206 4Q309 48 412 4' fill='none' stroke='%237A6040' stroke-width='1.2'/%3E%3Cpath d='M20.6 13.1v3.6M61.8 26.5v3.6M103 31v3.6M144.2 26.5v3.6M185.4 13.1v3.6M226.6 10.9v3.6M267.8 21.5v3.6M309 25v3.6M350.2 21.5v3.6M391.4 10.9v3.6' stroke='%232A2119' stroke-width='2.6'/%3E%3Cpath d='M20.6 19.2v1M61.8 32.6v1M103 37.1v1M144.2 32.6v1M185.4 19.2v1M226.6 17v1M267.8 27.6v1M309 31.1v1M350.2 27.6v1M391.4 17v1' stroke='%23A88A5A' stroke-width='4.8' stroke-linecap='round'/%3E%3C/svg%3E");
+--bd-den:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cfilter id='g' filterUnits='userSpaceOnUse' x='-9' y='-10' width='430' height='76'%3E%3CfeGaussianBlur stdDeviation='4.5'/%3E%3C/filter%3E%3Cpath id='a' d='M20.6 19.7h0M103 37.6h0M185.4 19.7h0M267.8 28.1h0M350.2 28.1h0M61.8 33.1h0M144.2 33.1h0M226.6 17.5h0M309 31.6h0M391.4 17.5h0' stroke-linecap='round'/%3E%3Cuse href='%23a' stroke='%23FFA947' stroke-width='21' filter='url(%23g)'/%3E%3Cuse href='%23a' stroke='%23FFE7B4' stroke-width='5'/%3E%3Cuse href='%23a' stroke='%23FFFCF0' stroke-width='2.3'/%3E%3C/svg%3E");
+--bd-den-le:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cfilter id='g' filterUnits='userSpaceOnUse' x='-9' y='-10' width='430' height='76'%3E%3CfeGaussianBlur stdDeviation='4.5'/%3E%3C/filter%3E%3Cpath id='a' d='M20.6 19.7h0M103 37.6h0M185.4 19.7h0M267.8 28.1h0M350.2 28.1h0' stroke-linecap='round'/%3E%3Cuse href='%23a' stroke='%23FFA947' stroke-width='21' filter='url(%23g)'/%3E%3Cuse href='%23a' stroke='%23FFE7B4' stroke-width='5'/%3E%3Cuse href='%23a' stroke='%23FFFCF0' stroke-width='2.3'/%3E%3C/svg%3E");
+--bd-den-chan:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cfilter id='g' filterUnits='userSpaceOnUse' x='-9' y='-10' width='430' height='76'%3E%3CfeGaussianBlur stdDeviation='4.5'/%3E%3C/filter%3E%3Cpath id='a' d='M61.8 33.1h0M144.2 33.1h0M226.6 17.5h0M309 31.6h0M391.4 17.5h0' stroke-linecap='round'/%3E%3Cuse href='%23a' stroke='%23FFA947' stroke-width='21' filter='url(%23g)'/%3E%3Cuse href='%23a' stroke='%23FFE7B4' stroke-width='5'/%3E%3Cuse href='%23a' stroke='%23FFFCF0' stroke-width='2.3'/%3E%3C/svg%3E");
+--bd-sao-a:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='72' stroke='%23FFF3DC' stroke-linecap='round'%3E%3Cpath d='M18 22h.1' stroke-width='1.8' stroke-opacity='.7'/%3E%3Cpath d='M84 52h.1' stroke-width='1.1' stroke-opacity='.4'/%3E%3C/svg%3E");
+--bd-sao-b:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='72' stroke='%23FFF3DC' stroke-linecap='round'%3E%3Cpath d='M60 12h.1' stroke-width='1.8' stroke-opacity='.7'/%3E%3Cpath d='M128 44h.1' stroke-width='1.8' stroke-opacity='.35'/%3E%3Cpath d='M22 62h.1' stroke-width='1.1' stroke-opacity='.3'/%3E%3C/svg%3E");
+--bd-sao:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='150' stroke='%23FFF3DC' stroke-linecap='round'%3E%3Cpath d='M18 22h.1M129 18h.1M214 36h.1M42 118h.1M176 83h.1' stroke-width='1.8'/%3E%3Cpath d='M71 64h.1M101 131h.1M158 47h.1M226 128h.1M8 76h.1M196 8h.1' stroke-width='1.1' stroke-opacity='.75'/%3E%3C/svg%3E")}
+/* Hero: nen gio xanh + chut sac hoang hon con vuong, day den, ray, sao; den bat; tau.
+   Trang thai cuoi hien NGAY tu lan ve dau (sua 25/09/2026 sau khi do): ban dau co lop phu hoang
+   hon opacity mo dan 7s + lop sao mo dan tu 2,6s -> Speed Index ~6s va lop sao (anh nen tren
+   pseudo) thanh ung vien LCP luc 5,3-5,8s tren dien thoai. Nay sac hoang hon (da nhan .16) va sao
+   la lop nen cua chinh hero: khong lop phu opacity, khong mask, khong fade. Sao chia 2 o anh nho
+   (120x72, 170x72) so le nhau: Chrome tinh co anh nen theo O ANH, o 240x150 cu (36.000px2) lon hon
+   h1 (~22.600px2 o 412px) nen tu thanh phan tu LCP - giu moi o duoi ~12.000px2. Chi con den bat (vung
+   nho) va tau chay (transform). Den le/chan la 2 anh rieng thay cho mask so le. Sac hoang hon dang
+   linear da tron san vao mau nen (1 lop thay 2); hai lop radial gioi han o dai day hero (background-size)
+   de khong phai to ca khoi. Lighthouse / may khong GPU ve lop nao cung ton, nen bot lop la bot thoi gian
+   lan ve dau. */
+:is(.blog-hero,.author-hero){--dh:64px;--gh:150px;--s:calc(var(--dh)*.5421);position:relative;overflow:hidden;isolation:isolate;padding:64px 0 96px;background:var(--bd-day) 0 0/calc(var(--s)*10) var(--dh) repeat-x,linear-gradient(90deg,#0000,#ECC27680 12% 88%,#0000) 0 calc(100% - 5px)/100% 1.3px no-repeat,repeating-linear-gradient(90deg,#ECC27638 0 7px,#0000 0 19px) 0 calc(100% - 2px)/100% 2px no-repeat,var(--bd-sao-a) 30px calc(var(--dh) - 12px)/120px 72px repeat-x,var(--bd-sao-b) 90px calc(var(--dh) - 12px)/170px 72px repeat-x,radial-gradient(60% 90px at 50% 100%,#FFAA6429,#0000 80%) 0 100%/100% 90px no-repeat,radial-gradient(70% var(--gh) at 62% 100%,#F08C5019,#C860560D 42%,#0000 72%) 0 100%/100% var(--gh) no-repeat,linear-gradient(#0F0D0A,#15132A 30%,#221A35 62%,#261C36 70%,#312237 86%,#422931)}
+.blog-hero .section-tag,.author-hero>.container{position:static}
+:is(.blog-hero,.author-hero)::before{content:none}
+:is(.blog-hero,.author-hero)>.container::before,:is(.blog-hero .section-tag,.author-tag)::before,:is(.blog-hero-desc,.author-meta)::after{content:"";position:absolute;z-index:-1;pointer-events:none}
+:is(.blog-hero,.author-hero)>.container::before,:is(.blog-hero .section-tag,.author-tag)::before{left:0;right:0;top:0;height:var(--dh);background:var(--bd-den-le) 0 0/calc(var(--s)*10) 100% repeat-x}
+:is(.blog-hero .section-tag,.author-tag)::before{width:auto;margin:0;background-image:var(--bd-den-chan)}
+:is(.blog-hero-desc,.author-meta)::after{left:100%;bottom:4px;width:518px;height:64px;background:var(--tau) 0 0/100% 100% no-repeat;transform:translateX(-46%)}
+.author-meta{color:var(--smoke-on-dark)}
+@media (max-width:768px){:is(.blog-hero,.author-hero){--dh:50px;--gh:104px;padding:54px 0 80px}:is(.blog-hero-desc,.author-meta)::after{width:421px;height:52px;transform:translateX(-36%)}}
+@media (max-width:480px){:is(.blog-hero,.author-hero){--dh:46px;padding:50px 0 70px}:is(.blog-hero-desc,.author-meta)::after{width:356px;height:44px}}
+/* Ban go. MOI lop gradient phai co background-size gioi han (o anh): khong co thi o anh = ca khoi
+   .blog-section cao ~11.000px, Chrome ve ca o do ngay lan ve dau -> FCP cham them ~270ms (do 25/09/2026,
+   khong GPU). O van go cao 386/579/772 = boi so 193px (1 tam van) nen cho noi o trung duong ron van.
+   Bong mep tren + dai nau 8px o day la 2 lop gradient gioi han, thay box-shadow inset (bong inset co
+   blur tren khoi cao 11.000px ton khi ve bang GPU/may khong GPU). */
+.blog-section,.author-posts{overflow-x:clip;background:linear-gradient(#140A044D,#140A0414 10px,#0000 20px) 0 0/100% 20px no-repeat,linear-gradient(#6E4C2C 0 0) 0 100%/100% 8px no-repeat,radial-gradient(85% 560px at 50% 0,#FFE3AA66,#0000 72%) 0 0/100% 560px no-repeat,repeating-linear-gradient(#0000 0 190px,#3C240E4D 0 191.5px,#FFECC833 0 192.5px,#0000 0 193px) 0 0/100% 193px,repeating-linear-gradient(178.8deg,#0000 0 5px,#5A361612 7px,#0000 9px 16px,#5A36161C 17.5px,#0000 19px 29px) 0 0/100% 386px,repeating-linear-gradient(181.3deg,#0000 0 10px,#FFF2D61A 12.5px,#0000 15px 41px) 0 0/100% 579px,repeating-linear-gradient(179.4deg,#0000 0 28px,#4A2A0E1A 32px,#0000 36px 71px) 0 0/100% 772px,#CFAC80}
+.blog-section{padding-top:56px}
+.author-posts{padding-bottom:48px}
+.author-cta{padding-top:40px}
+@media (max-width:768px){.blog-section{padding-top:40px}}
+/* The bai = anh in: giay nga, bang keo, nghieng so le */
+.blog-grid>.blog-card{--r:-.9deg;--k:.85;--gold-on-light:#74591B;--text-muted:#655848;overflow:visible;padding:10px 10px 0;border-radius:3px;background:linear-gradient(172deg,#FFFDF7,#F7F0E1);box-shadow:0 1px 2px #2812084D,0 16px 28px -14px #28120899;rotate:calc(var(--r)*var(--k))}
+.blog-grid>.blog-card:nth-child(2n){--r:1.1deg}
+.blog-grid>.blog-card:nth-child(4n+3){--r:.6deg}
+.blog-grid>.blog-card:nth-child(4n){--r:-.7deg}
+.blog-grid>.blog-card:nth-child(6n+5){--r:-1.3deg}
+.blog-grid>.blog-card::before{content:"";position:absolute;z-index:3;top:-11px;left:calc(50% - 44px);width:88px;height:24px;rotate:-2.5deg;pointer-events:none;background:linear-gradient(#FFF5,#0000 45%,#785A281A),#E9D6AACC;clip-path:polygon(0 0,100% 0,97% 30%,100% 60%,97% 100%,0 100%,3% 70%,0 40%)}
+.blog-grid>.blog-card:nth-child(3n+2)::before{top:2px;left:-16px;width:70px;rotate:-40deg}
+.blog-grid>.blog-card:nth-child(3n)::before{top:2px;left:calc(100% - 54px);width:70px;rotate:40deg}
+.blog-grid .blog-card-img{border-radius:2px}
+.blog-grid .blog-card-content{padding:22px 18px 16px}
+.blog-grid>.blog-card:focus-within{rotate:0deg}
+.blog-grid>.blog-card:has(h2 a:focus-visible){outline-color:#2C1F10}
+.blog-grid .blog-share{border-top:1.5px dashed var(--seam)}
+@media (hover:hover){.blog-grid>.blog-card:hover{rotate:0deg;z-index:2;box-shadow:0 2px 3px #28120833,0 26px 38px -16px #281208A6}}
+/* Chuyen muc = tem + dau buu dien */
+.blog-grid .blog-category{padding:4px 11px;border-radius:0;background:#F4E2BE;color:#4A3516;box-shadow:inset 0 0 0 3px #F4E2BE,inset 0 0 0 4px #9C7A4666;rotate:-1.5deg;--m:radial-gradient(2.2px,#0000 96%,#000) round -3px -3px/6px 6px,linear-gradient(#000 0 0) 50%/calc(100% - 6px) calc(100% - 6px) no-repeat;-webkit-mask:var(--m);mask:var(--m)}
+.blog-grid .blog-meta::after{content:"";flex:none;width:36px;height:24px;margin-left:-19px;opacity:.5;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 24' fill='none' stroke='%237A5A34' stroke-width='1.1'%3E%3Ccircle cx='12' cy='12' r='9.5'/%3E%3Cpath d='M22 7q3.5-2 7 0t7 0M22 12q3.5-2 7 0t7 0M22 17q3.5-2 7 0t7 0'/%3E%3C/svg%3E")}
+@media (max-width:768px){.blog-grid>.blog-card{--k:.6}.blog-grid .blog-card-content{padding:18px 12px 10px}}
+@media (max-width:480px){.blog-grid .blog-card-content{padding:16px 8px 8px}.author-posts .blog-card:nth-child(n+3){padding:10px}.author-posts .blog-card:nth-child(n+3) .blog-card-img{border-radius:2px}.blog-grid>.blog-card:nth-child(3n+2)::before{left:-10px}.blog-grid>.blog-card:nth-child(3n)::before{left:calc(100% - 60px)}.author-posts .blog-card:nth-child(n+3)::before{top:-8px;left:28px;width:52px;height:18px;rotate:-6deg}.author-posts .blog-card:nth-child(n+3) .blog-meta::after{display:none}}
+/* O tim + chip = cuong ve; chip dang chon = ve da bam lo */
+.blog-search .blog-search-input{--k:radial-gradient(circle 7px at 7px 50%,#0000 94%,#000) -7px 0/100% 100%;border:0;border-radius:3px;color:#3D2A14;background:linear-gradient(#B8924E 55%,#0000 0) 41px 6px/1.5px 6px repeat-y,var(--ve-giay);box-shadow:inset 0 0 0 1px var(--ve-vien);-webkit-mask:var(--k);mask:var(--k)}
+.blog-search .blog-search-input::placeholder{color:#6E5E48}
+.blog-search .blog-search-icon{color:#7A5C22}
+.blog-search .blog-search-input:focus{box-shadow:inset 0 0 0 1px var(--ve-vien),inset 0 0 0 3px #7A5A1E}
+.blog-filters .blog-filter-btn{--k:radial-gradient(circle 5px at 5px 50%,#0000 94%,#000) -5px 0/100% 100%;border:0;border-radius:3px;color:var(--ve-chu);background:var(--ve-giay);box-shadow:inset 0 0 0 1px var(--ve-vien);-webkit-mask:var(--k);mask:var(--k)}
+.blog-filters .blog-filter-btn:hover{color:var(--ve-chu);background:linear-gradient(#FBF1DC,#F3E4C3)}
+.blog-filters .blog-filter-btn.active{--l:radial-gradient(circle 3.4px at 12px 50%,#0000 92%,#000);color:#F0D48A;background:linear-gradient(#2E2620,#221B16);box-shadow:inset 0 0 0 1px #F0D48A6B;-webkit-mask:var(--k),var(--l);-webkit-mask-composite:source-in;mask:var(--k),var(--l);mask-composite:intersect}
+.blog-filters .blog-filter-btn:focus-visible{outline:2px solid var(--ve-chu);outline-offset:-6px}
+.blog-filters .blog-filter-btn.active:focus-visible{outline-color:#F0D48A}
+.blog-section .blog-empty{max-width:520px;margin:0 auto 32px;border-radius:3px;background:var(--giay);box-shadow:0 14px 26px -14px #28120899}
+/* CTA = dem nha long */
+.blog-section .blog-cta{--dh:46px;padding:66px 40px 128px;background:var(--bd-day) 0 0/calc(var(--dh)*5.421) var(--dh) repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='96'%3E%3Cpath d='M0 42C70 30 140 24 220 36S380 60 470 44S560 30 600 42V96H0Z' fill='%23191424'/%3E%3Cpath d='M0 66C90 56 180 60 270 68S440 76 530 64S585 60 600 66V96H0Z' fill='%23100C12'/%3E%3C/svg%3E") 0 100%/600px 96px repeat-x,var(--bd-sao) 0 28px/240px 150px,radial-gradient(60% 110px at 50% 100%,#FFAA502E,#0000 80%),linear-gradient(#141226,#1B1830 40%,#251D30 75%,#2E2129);box-shadow:inset 0 0 0 1px #F0D48A2E,0 22px 40px -20px #281406BF}
+.blog-section .blog-cta::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--bd-den) 0 0/calc(var(--dh)*5.421) var(--dh) repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='56' stroke-linecap='round'%3E%3Cpath d='M44 30h.1M157 17h.1M268 10h.1M184 12h.1M69 14h.1M114 22h.1M226 20h.1M12 24h.1' stroke='%23FFE3A8' stroke-opacity='.5' stroke-width='1.6'/%3E%3Cpath d='M3 34h.1M246 32h.1M67 44h.1M166 36h.1M214 46h.1M131 50h.1M291 42h.1M100 38h.1' stroke='%23FFD07A' stroke-opacity='.75' stroke-width='2.2'/%3E%3Cpath d='M16 48h.1M94 46h.1M183 51h.1M283 50h.1M193 38h.1M250 52h.1M40 52h.1M140 44h.1' stroke='%23FFC25E' stroke-width='2.8'/%3E%3C/svg%3E") 0 calc(100% - 8px)/300px 56px repeat-x}
+@media (max-width:768px){.blog-section .blog-cta{--dh:40px;padding:56px 20px 112px}}
+@media (prefers-reduced-motion:no-preference){
+:is(.blog-hero,.author-hero)>.container::before{animation:wBat 1.2s linear .3s both}
+:is(.blog-hero .section-tag,.author-tag)::before{animation:wBat 1.2s linear .8s both}
+:is(.blog-hero-desc,.author-meta)::after{animation:wTau 40s linear 1.6s infinite both}
+@media (max-width:768px){:is(.blog-hero-desc,.author-meta)::after{animation-duration:28s}}
+.blog-section .blog-cta::after{animation:tdcDen 4.4s ease-in-out -2.2s infinite alternate}
+/* Xoay nay + chip nhich len: chi khi khach khong bat giam chuyen dong (the bai co transition
+   transform/box-shadow goc trong style.css; giam chuyen dong thi rotate doi tuc thi). */
+.blog-grid>.blog-card{transition:transform .4s var(--ease),box-shadow .4s var(--ease),rotate .7s cubic-bezier(.2,.9,.3,1.2)}
+.blog-filters .blog-filter-btn:hover{translate:0 -2px}}

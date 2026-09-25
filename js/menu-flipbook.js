@@ -351,12 +351,23 @@ var MenuFlipbook = (function () {
             markIndexActive();
         }
 
+        /* Bộ đếm kèm tên nhóm món, vd "Lẩu · Trang 10 / 26" (25/09/2026). Số thứ tự ảnh lệch số
+           in trên menu giấy một trang, khách đọc bộ đếm rồi nhìn số in trên ảnh là tưởng lật nhầm;
+           tên nhóm cho biết mình đang ở đâu mà không phải đối chiếu số.
+           Mặt đôi lấy nhóm của trang phải (trang khách vừa lật tới). */
         function updateCounter() {
             var sp = spreads[index];
             var label = sp.left && sp.right
                 ? sp.left + '–' + sp.right
                 : String(sp.left || sp.right);
-            counter.textContent = t('flip.page', 'Trang') + ' ' + label + ' / ' + total;
+            var fig = figureOf(sp.right || sp.left);
+            var nhom = '';
+            if (fig) {
+                var nhan = fig.getAttribute('data-group-label') || '';
+                var khoa = fig.getAttribute('data-group-i18n');
+                nhom = khoa ? t(khoa, nhan) : nhan;
+            }
+            counter.textContent = (nhom ? nhom + ' · ' : '') + t('flip.page', 'Trang') + ' ' + label + ' / ' + total;
             live.textContent = counter.textContent;
         }
 

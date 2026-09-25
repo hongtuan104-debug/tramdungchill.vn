@@ -1016,21 +1016,33 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     if (!fs.existsSync(cssFile)) {
         add("Link CSS kèm vân tay khớp file thật", false, "chưa có dist/style.min.css");
     } else {
-        const want = require("crypto").createHash("md5")
-            .update(fs.readFileSync(cssFile)).digest("hex").slice(0, 8);
+        // Moi bundle dist/*.min.css, khong rieng style.min.css: tu 25/09/2026 lop wow cua blog
+        // nam o dist/wow-blog-ds.min.css + dist/wow-blog-bai.min.css, cung phai mang van tay dung.
+        const bamCss = {};
+        const vanTay = (ten) => {
+            if (!(ten in bamCss)) {
+                const p = path.join(ROOT, "dist", ten);
+                bamCss[ten] = fs.existsSync(p) ? require("crypto").createHash("md5")
+                    .update(fs.readFileSync(p)).digest("hex").slice(0, 8) : null;
+            }
+            return bamCss[ten];
+        };
+        const want = vanTay("style.min.css");
         const bad = [];
         let checked = 0;
         for (const f of files) {
             const s = fs.readFileSync(f, "utf8");
-            for (const m of s.matchAll(/href="(?:\.\.\/)?dist\/style\.min\.css(\?v=([^"]*))?"/g)) {
+            for (const m of s.matchAll(/href="(?:\.\.\/)?dist\/([a-z0-9.-]+\.min\.css)(\?v=([^"]*))?"/g)) {
                 checked++;
-                if (!m[2]) bad.push(rel(f) + ": thiếu ?v=");
-                else if (m[2] !== want) bad.push(rel(f) + ": ?v=" + m[2] + " ≠ " + want);
+                const w = vanTay(m[1]);
+                if (!w) bad.push(rel(f) + ": dist/" + m[1] + " không có file");
+                else if (!m[3]) bad.push(rel(f) + ": " + m[1] + " thiếu ?v=");
+                else if (m[3] !== w) bad.push(rel(f) + ": " + m[1] + " ?v=" + m[3] + " ≠ " + w);
             }
         }
         add("Link CSS kèm vân tay khớp file thật", bad.length === 0,
             bad.length ? [...new Set(bad)].slice(0, 3).join(" | ")
-                       : checked + " link CSS đều mang vân tay " + want);
+                       : checked + " link CSS đều mang vân tay khớp file (style.min.css " + want + ")");
     }
 }
 
@@ -2692,7 +2704,7 @@ const CAU_AEO = (() => {
             }
         }
     };
-    for (const f of ["style.min.css", "dip-landing.min.css"]) {
+    for (const f of ["style.min.css", "dip-landing.min.css", "wow-blog-ds.min.css", "wow-blog-bai.min.css"]) {
         const fp = path.join(ROOT, "dist", f);
         if (fs.existsSync(fp)) xetCss("dist/" + f, fs.readFileSync(fp, "utf8"));
     }

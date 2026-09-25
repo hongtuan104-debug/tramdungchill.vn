@@ -2,17 +2,30 @@
    DIP LANDING PAGES - Special occasion landings
    ============================================ */
 
+/* overflow-x: clip thay cho hidden của style.css (25/09/2026). html và body cùng khai
+   overflow-x: hidden thì body thành khung cuộn riêng (overflow-y tự thành auto) nhưng
+   không bao giờ cuộn, nên .dip-nav sticky bám vào body và trôi mất khi khách cuộn trang.
+   clip vẫn cắt phần tràn ngang mà không tạo khung cuộn. Safari cũ không hiểu clip thì
+   bỏ qua dòng này, giữ như trước. */
 body.dip-landing {
     margin: 0;
     background: var(--cream);
     color: var(--wood);
     font-family: var(--font-body);
+    overflow-x: clip;
+}
+/* Nav dính cao khoảng 84px (điện thoại khoảng 64px): nhảy tới #booking-form thì chừa đủ chỗ
+   để tiêu đề form không nằm dưới nav. */
+html {
+    scroll-padding-top: 96px;
 }
 
-/* Simple navbar */
+/* Simple navbar
+   Lề trái/phải bám theo .container (tối đa 1200px, lề 24px) để logo thẳng hàng với
+   breadcrumb bên dưới; trước đó nav bám mép màn hình, lệch 83px ở máy tính 1366px. */
 .dip-nav {
     background: var(--night);
-    padding: 16px 24px;
+    padding: 16px max(24px, calc((100% - 1200px) / 2 + 24px));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,7 +62,8 @@ body.dip-landing {
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    min-height: 48px;
+    transition: color 0.3s var(--ease), background-color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 .dip-nav-phone:hover {
     background: var(--gold);
@@ -103,12 +117,16 @@ body.dip-landing {
     margin-bottom: 24px;
     backdrop-filter: blur(10px);
 }
+/* Số kiểu đứng (lining-nums) cho mọi chữ Playfair có chữ số trên trang dịp: số mặc định
+   của Playfair là kiểu cổ, "95.000" đọc thành "95.ooo", "01 02 03" thành "o1 o2 o3".
+   Phông subset vẫn giữ tính năng lnum. */
 .dip-hero-content h1 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.4rem);
     line-height: 1.2;
     margin-bottom: 24px;
     color: var(--white);
+    font-variant-numeric: lining-nums;
 }
 .dip-hero-content h1 em {
     background: linear-gradient(135deg, var(--gold-light), var(--gold));
@@ -122,6 +140,7 @@ body.dip-landing {
     color: rgba(255,255,255,0.9);
     margin-bottom: 36px;
     line-height: 1.7;
+    text-wrap: pretty;
 }
 .dip-hero-cta {
     display: flex;
@@ -129,21 +148,6 @@ body.dip-landing {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 28px;
-}
-.btn-glass-light {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    text-decoration: none;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-.btn-glass-light:hover {
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.5);
 }
 .dip-trust {
     color: rgba(255,255,255,0.85);
@@ -156,10 +160,18 @@ body.dip-landing {
 .dip-trust strong {
     color: var(--gold-light);
 }
+/* Dòng tin cậy tách hai vế: trên điện thoại mỗi vế một dòng và ẩn dấu chấm giữa,
+   thay vì để dấu chấm treo cuối dòng hay một chữ rơi xuống dòng dưới. */
+@media (max-width: 480px) {
+    .dip-trust-sep { display: none; }
+    .dip-trust-a,
+    .dip-trust-b { display: block; }
+}
 
 /* Sections */
 .dip-section {
-    padding: 80px 0;
+    /* Cùng thang khoảng cách với trang chủ (mục B22, biến khai trong style.css) */
+    padding: var(--section-y) 0;
     background: var(--cream);
 }
 .dip-section-cream {
@@ -172,18 +184,54 @@ body.dip-landing {
 .dip-section-dark .section-title {
     color: var(--white);
 }
+/* pretty chứ không balance: balance xé cụm "săn / tàu" ra hai dòng. */
+.dip-landing .section-title {
+    text-wrap: pretty;
+    font-variant-numeric: lining-nums;
+}
 .dip-section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: var(--section-head-gap);
 }
 .dip-section-sub {
     color: var(--text-muted);
     font-size: 1rem;
     margin-top: 12px;
     font-style: italic;
+    text-wrap: pretty;
 }
 .dip-section-dark .dip-section-sub {
     color: rgba(255,255,255,0.7);
+}
+/* Đoạn giới thiệu dài (trang săn tàu, khoảng 10 dòng trên điện thoại): in nghiêng căn giữa
+   chừng đó dòng rất khó đọc, nên trên điện thoại chuyển chữ đứng, căn trái. */
+.dip-section-sub--dai {
+    max-width: 62ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 600px) {
+    .dip-section-sub--dai {
+        font-style: normal;
+        text-align: left;
+    }
+}
+/* Ghi chú an toàn đường ray (trang săn tàu, nằm trong khối nền tối): khung viền cam
+   để tách khỏi đoạn văn thường, chữ đứng. Câu chữ giữ nguyên (CLAUDE.md #16). */
+.dip-canh-bao {
+    max-width: 760px;
+    margin: 28px auto 0;
+    padding: 14px 18px;
+    border-left: 3px solid var(--sunset);
+    border-radius: 0 10px 10px 0;
+    background: rgba(232,129,79,0.12);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
+}
+.dip-canh-bao strong {
+    color: var(--gold-light);
 }
 
 /* Features grid */
@@ -213,10 +261,10 @@ body.dip-landing {
 .dip-feature {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     padding: 32px 24px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 .dip-feature:hover {
     transform: translateY(-4px);
@@ -227,11 +275,21 @@ body.dip-landing {
     font-size: 2.5rem;
     margin-bottom: 14px;
 }
+/* Icon vẽ bằng SVG (thẻ "Hoa trang trí" trang sinh nhật): cùng cỡ 40px với emoji bên cạnh. */
+.dip-feature-icon svg {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: var(--gold-on-light);
+    vertical-align: middle;
+}
 .dip-feature h3 {
     font-family: var(--font-display);
     font-size: 1.2rem;
     color: var(--night-soft);
     margin-bottom: 10px;
+    text-wrap: balance;
+    font-variant-numeric: lining-nums;
 }
 .dip-feature p {
     color: var(--text-muted);
@@ -256,12 +314,25 @@ body.dip-landing {
     font-size: 5rem;
     margin: 24px 0;
     line-height: 1;
+    font-variant-numeric: lining-nums;
 }
+/* nowrap: dải giá "95.000đ – 300.000đ" không được gãy sau dấu gạch. */
 .dip-pricing-big strong {
     background: linear-gradient(135deg, var(--gold-light), var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: nowrap;
+}
+/* Đơn vị "/người", "/khách" nhỏ hơn con số; điện thoại cho xuống dòng riêng. */
+.dip-per {
+    font-size: 0.45em;
+}
+@media (max-width: 480px) {
+    .dip-per {
+        display: block;
+        margin-top: 6px;
+    }
 }
 .dip-pricing-note {
     font-size: 1.2rem;
@@ -320,22 +391,24 @@ body.dip-landing {
     text-align: center;
     padding: 32px 24px;
     background: var(--white);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--border);
 }
+/* Số bước: --gold mờ 0,7 trên nền trắng chỉ khoảng 1,6:1, đổi sang --gold-on-light (5,26:1). */
 .dip-step-num {
     font-family: var(--font-display);
     font-size: 3rem;
-    color: var(--gold);
+    color: var(--gold-on-light);
     line-height: 1;
     margin-bottom: 16px;
-    opacity: 0.7;
+    font-variant-numeric: lining-nums;
 }
 .dip-step h3 {
     font-family: var(--font-display);
     font-size: 1.3rem;
     margin-bottom: 12px;
     color: var(--night-soft);
+    text-wrap: balance;
 }
 .dip-step p {
     color: var(--text-muted);
@@ -350,6 +423,51 @@ body.dip-landing {
     gap: 20px;
     max-width: 1100px;
     margin: 0 auto;
+}
+/* Thẻ đánh giá: hàng tên khách luôn nằm đáy thẻ để ba thẻ cùng hàng thẳng nhau (trước lệch 26px
+   vì lời khen dài ngắn khác nhau). Dấu ngoặc trang trí dùng ngoặc cong: ngoặc thẳng của
+   Playfair ở cỡ 5rem trông như hai vạch dọc. */
+.dip-reviews .review-card {
+    display: flex;
+    flex-direction: column;
+}
+.dip-reviews .review-author {
+    margin-top: auto;
+}
+.dip-reviews .review-card::before {
+    content: '\201C';
+}
+
+/* Ảnh thật tại quán (trang săn tàu) */
+.dip-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.dip-photo {
+    margin: 0;
+}
+.dip-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+}
+.dip-photo figcaption {
+    margin-top: 8px;
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+.dip-photos-note {
+    max-width: 720px;
+    margin: 22px auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
 /* Booking form */
@@ -372,20 +490,29 @@ body.dip-landing {
     margin: 12px 0;
 }
 .dip-form-header h2 em {
-    color: var(--gold-dark);
+    color: #8E6A1F;
+}
+/* Form nằm trong khối nền tối nhưng thẻ form nền trắng: .dip-section-dark .section-title
+   (chữ trắng) đè lên tiêu đề form, thành chữ trắng trên thẻ trắng. Bộ chọn 3 lớp để thắng
+   rule đó bất kể thứ tự nạp; KHÔNG sửa rule chữ trắng vì khối tối "Bí kíp" trang săn tàu cần nó.
+   Vế in nghiêng #8E6A1F: 4,96:1 trên nền trắng (--gold-dark cũ chỉ khoảng 2,5:1). */
+.dip-section-dark .dip-form-header .section-title {
+    color: var(--night-soft);
 }
 .dip-form-header p {
     color: var(--text-muted);
     font-size: 0.95rem;
 }
+/* Khoảng cách giữa các ô chỉ do margin của .form-group lo (32px, như trước), để ô đứng
+   riêng ngoài .form-row (Số khách ở trang sinh nhật, săn tàu) cách đều như ô trong hàng. */
 .booking-form .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: 0 16px;
+    margin-bottom: 0;
 }
 .booking-form .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 .booking-form label {
     display: block;
@@ -394,34 +521,26 @@ body.dip-landing {
     font-weight: 600;
     margin-bottom: 8px;
 }
-.booking-form input,
-.booking-form select,
-.booking-form textarea {
+/* Ô nhập dùng chung kiểu .form-group của style.css (25/09/2026): bo góc, viền focus
+   --gold-on-light đạt 3:1, cỡ chữ 16px trên điện thoại để iPhone không tự phóng to khi chạm.
+   Khối kiểu riêng cũ ở đây cùng độ đặc hiệu mà nạp sau nên đè mất cả hai thứ đó (15,2px,
+   viền focus --gold gần như vô hình). Chỉ giữ bề rộng: select có tuỳ chọn dài mà không
+   khai width thì kéo giãn cột lưới .form-row trên máy tính. */
+.booking-form .form-group input,
+.booking-form .form-group select,
+.booking-form .form-group textarea {
     width: 100%;
-    padding: 12px 16px;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-family: inherit;
-    background: var(--cream);
-    color: var(--wood);
-    transition: border 0.3s ease;
-}
-.booking-form input:focus,
-.booking-form select:focus,
-.booking-form textarea:focus {
-    outline: none;
-    border-color: var(--gold);
+    min-width: 0;
 }
 .booking-form input[readonly] {
     background: var(--linen);
     cursor: not-allowed;
 }
+/* Cỡ chữ + đệm lấy từ .btn-lg (style.css), ở đây chỉ còn phần kéo rộng */
 .btn-block {
     width: 100%;
-    margin-top: 16px;
-    padding: 16px 24px;
-    font-size: 1rem;
+    margin-top: 0;
+    justify-content: center;
 }
 .form-hint {
     text-align: center;
@@ -445,6 +564,48 @@ body.dip-landing {
     line-height: 1.4;
 }
 
+/* Khối "Có thể bạn quan tâm" cuối trang: trước là một đoạn chữ nối bằng dấu chấm giữa,
+   kiểu viết thẳng trong HTML, link #B8922E chỉ 2,6:1 và gãy dòng giữa cụm. Nay mỗi link
+   một viên riêng trong danh sách, không bao giờ gãy giữa chừng. Không dùng nowrap: viên
+   dài ở màn 360px sẽ tràn ngang. Không gạch chân (CLAUDE.md #43), hover đổi viền. */
+.dip-related {
+    background: #f7f2ea;
+    padding: 36px 20px;
+    text-align: center;
+}
+.dip-related h2 {
+    font-family: var(--font-display);
+    color: var(--charcoal);
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+}
+.dip-related-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.dip-related-list a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--gold-on-light);
+    font-weight: 600;
+    line-height: 1.4;
+}
+.dip-related-list a:hover,
+.dip-related-list a:focus-visible {
+    border-color: var(--gold);
+}
+
 /* Footer: trang dịp dùng footer chung (.footer trong css/style.css, sinh bởi
    scripts/generate-footer.js). Bộ .dip-footer cũ đã gỡ — nó chỉ có địa chỉ +
    một link về trang chủ, cắt đứt liên kết sang menu, blog và các trang dịp khác. */
@@ -465,7 +626,6 @@ body.dip-landing {
     }
 }
 @media (max-width: 600px) {
-    .dip-section { padding: 60px 0; }
     .dip-hero { min-height: 70vh; padding: 60px 20px; }
     .dip-features { grid-template-columns: 1fr; }
     .dip-features-5 > .dip-feature { flex-basis: 100%; }
@@ -476,6 +636,27 @@ body.dip-landing {
     .dip-pricing-big.dip-pricing-mid { font-size: 2.6rem; }
     .dip-pricing h2 { font-size: 1.4rem; }
     .dip-pricing-list li { font-size: 0.95rem; }
+    .dip-pricing-note { font-size: 1.05rem; }
+    /* Nav thấp lại (khoảng 64px) cho đỡ chiếm màn khi dính trên đầu; nút gọi vẫn cao 48px.
+       Lề 20px khớp .container ở màn này. */
+    .dip-nav { padding: 10px 20px; }
+    /* Hai nút hero xếp chồng cùng bề rộng (trước 282px và 191px, lệch nhau). */
+    .dip-hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dip-hero-cta .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}
+@media (max-width: 360px) {
+    .dip-pricing-big.dip-pricing-range { font-size: 1.7rem; }
+}
+/* Màn rộng từ 1440px: .container đổi lề sang 40px, nav đổi theo cho thẳng hàng. */
+@media (min-width: 1440px) {
+    .dip-nav { padding-left: max(40px, calc((100% - 1200px) / 2 + 40px)); padding-right: max(40px, calc((100% - 1200px) / 2 + 40px)); }
 }
 
 /* Breadcrumb — 12/09/2026
@@ -491,4 +672,28 @@ body.dip-landing {
 
 .dip-landing .breadcrumb ol {
     padding: 10px 0;
+}
+
+/* ==========================================================================
+   GIAO DIỆN A+C: phần riêng trang dịp (xem khối cuối css/style.css).
+   Đặt ở đây vì dip-landing.css nạp SAU style.css: rule cùng độ đặc hiệu bên kia thua.
+   ========================================================================== */
+/* Form = tam ve tau (lop wow): dai go dau ve + cuong ve ma vach la ::before/::after khai o
+   CUOI css/style.css. File nay nap SAU style.css va da khai padding/nen/bo goc cho
+   .dip-form-wrapper o tren (dong ~474, ~633) - cung do dac hieu nen no thang, than ve mat
+   padding trong khi dai dau + cuong ve van ve, de len chu cua form (loi 25/09/2026).
+   Vi vay phai ap lai o day, lay gia tri tu bien --ve-* ben style.css cho hai trang khop nhau.
+   Padding trai/phai van theo cac rule o tren. Giu rule nay o CUOI moi rule .dip-form-wrapper. */
+.dip-form-wrapper {
+    border-radius: 16px;
+    padding-top: var(--ve-pt);
+    padding-bottom: var(--ve-pb);
+    -webkit-mask: var(--ve-m);
+    mask: var(--ve-m);
+    background: var(--ve-nen);
+}
+/* Tiêu đề form tàng hình trên nền giấy: đã sửa ở rule .dip-section-dark .dip-form-header .section-title phía trên. */
+/* Máy cảm ứng: chạm xong không để thẻ nhấc lên mãi (mục B15) */
+@media (hover: none) {
+    .dip-feature:hover { transform: none; }
 }

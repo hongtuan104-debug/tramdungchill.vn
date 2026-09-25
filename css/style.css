@@ -245,6 +245,9 @@
        Giá trị đo trên cả ba nền sáng, lấy nền tối nhất (--linen) làm chuẩn. */
     --text-muted: #766A5A;     /* cream 5,00 · linen 4,55 · white 5,27 */
     --gold-on-light: #846821;  /* cream 4,99 · linen 4,54 · white 5,26 */
+    /* Chữ phụ trên nền TỐI của hero trang con / khối CTA: --smoke chỉ ~4,1:1 trên --charcoal
+       (cuối dải gradient), dưới ngưỡng 4,5:1 cho chữ thường. Bản này 6,36:1 trên charcoal. */
+    --smoke-on-dark: #B3A690;
 
     --radius: 12px;
     --radius-lg: 20px;
@@ -304,13 +307,20 @@ body {
     color: var(--wood);
     background: var(--cream);
     line-height: 1.6;
+    /* clip sau hidden (25/09/2026): html và body cùng hidden thì body thành khung cuộn riêng
+       không bao giờ cuộn, mọi phần tử sticky bám vào body và trôi mất (bảng FAQ trang chủ,
+       nav trang dịp). clip vẫn cắt phần tràn ngang mà không tạo khung cuộn; trình duyệt cũ
+       không hiểu clip thì giữ hidden như trước. Bản critical CSS của index.html khai y hệt. */
     overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 img { max-width: 100%; height: auto; display: block; }
-a { text-decoration: none; color: inherit; transition: all 0.3s var(--ease); }
+/* Chỉ chuyển màu/nền/viền/bóng/transform/opacity: transition all từng làm padding của link footer
+   trượt từng khung hình (tính lại bố cục). Kế hoạch giao diện mục B15. */
+a { text-decoration: none; color: inherit; transition: color 0.3s var(--ease), background-color 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease), opacity 0.3s var(--ease); }
 ul { list-style: none; }
 button { border: none; background: none; cursor: pointer; font-family: inherit; }
 
@@ -369,6 +379,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* Hai nút .btn-sm đều là CTA (đặt bàn ở khối trải nghiệm, chỉ đường Google Maps).
    padding 11px + chữ 0.88rem chỉ cho ra 44,5px — thiếu 3,5px so với mức 48 (#138). */
 .btn-sm { padding: 11px 22px; font-size: 0.88rem; min-height: 48px; }
+/* Nút lớn cho CTA cuối trang (cuối bài blog, cuối trang thực đơn, nút gửi form trang dịp).
+   Trước đây mỗi nơi tự khai padding 16px 36px riêng. Đặt sau .btn để thắng thứ tự. */
+.btn-lg { padding: 16px 36px; font-size: 1rem; }
 
 /* ============================================
    SECTION HEADERS
@@ -410,6 +423,25 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .section-title.light { color: var(--white); }
 .section-title.light em { color: var(--gold-light); }
+
+/* Ngắt dòng: không để một chữ mồ côi ở dòng cuối (rà 24/09/2026).
+   pretty cho đoạn văn và tiêu đề section; balance cho tiêu đề thẻ ngắn.
+   Tiêu đề có <br><em> thì balance thuần không sửa được (nó cân cả khối), nên
+   cho riêng phần <em> sau <br> một khối inline-block tự cân.
+   KHÔNG áp cho .hero-title / .hero-description và h1 có .ngat-h1: các dòng đó
+   đã được đo khớp phông lót (kiem-phong-lot.js, bug #29). */
+.section-title { text-wrap: pretty; }
+.section-title br + em { display: inline-block; text-wrap: balance; }
+.perk-card h3,
+.train-card-title h4,
+.train-card-title p,
+.footer-contact li { text-wrap: balance; }
+.occasions-content p,
+.perk-card p,
+.exp-card-content p,
+.guides-section a,
+.review-text,
+.faq-item > p { text-wrap: pretty; }
 
 .section-desc {
     font-size: 1.05rem;
@@ -496,6 +528,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     border-radius: var(--radius-full);
     transition: all 0.3s var(--ease);
     letter-spacing: 0.3px;
+    /* Lưới đỡ: nhãn hai chữ không bao giờ tự gãy dòng ở bản desktop; màn hẹp
+       hơn thì nav đã thu vào hamburger (mốc 1199px). */
+    white-space: nowrap;
 }
 
 /* Skip link — WCAG 2.4.1. Không có nó, khách dùng bàn phím phải Tab qua 7 mục
@@ -773,6 +808,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     letter-spacing: 1px;
     margin-bottom: 24px;
     backdrop-filter: blur(10px);
+    /* Hai dòng dài gần bằng nhau, không để một chữ mồ côi ở dòng dưới.
+       Sửa ở đây thì sửa cả bản trong critical CSS của index.html. */
+    text-wrap: balance;
 }
 
 .hero-title { margin-bottom: 20px; }
@@ -800,6 +838,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Nét Dancing Script tràn ra ngoài hộp chữ (chữ l cuối, dấu nặng, đuôi g);
+       phần tràn nằm ngoài vùng tô nền nên mất màu, trông như bị cắt. Nới vùng tô
+       bằng padding rồi trả lại đúng chỗ bằng margin âm: bố cục lệch 0px.
+       Sửa ở đây thì sửa cả bản trong critical CSS của index.html. */
+    padding: 0 .12em .14em;
+    margin: 0 -.12em -.14em;
 }
 
 .hero-divider {
@@ -992,6 +1036,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     line-height: 1;
     margin-bottom: 8px;
     opacity: 0.6;
+    font-variant-numeric: lining-nums;
 }
 
 .exp-card-content h3 {
@@ -1361,7 +1406,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
     gap: 60px;
     align-items: start;
 }
@@ -1412,7 +1457,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     flex: 1;
 }
 
-.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); }
+a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); }
 .contact-card svg { color: var(--gold); flex-shrink: 0; }
 .contact-card strong { display: block; font-size: 0.75rem; opacity: 0.6; font-weight: 500; }
 .contact-card span { font-size: 0.95rem; }
@@ -1455,12 +1500,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 14px;
     margin-bottom: 14px;
 }
 
-.form-group { display: flex; flex-direction: column; }
+.form-group { display: flex; flex-direction: column; min-width: 0; }
 .form-group.full-width { margin-bottom: 20px; }
 
 .form-group label {
@@ -1483,6 +1528,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     transition: all 0.3s var(--ease);
     background: var(--cream);
     outline: none;
+    /* Ô nhập không được rộng hơn cột (mục A07): trước chỉ khai ở màn hẹp 768px nên 769-1199px form tràn mép phải. */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 /* Chỉ báo focus của form đặt bàn. Bản cũ dùng border --gold (#D4A853) + quầng
@@ -1518,11 +1568,42 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
 }
 
+/* Bấm Gửi khi còn ô bắt buộc để trống: trình duyệt chặn form bằng bong bóng
+   mặc định, JS không kịp chạy nên không có aria-invalid. :user-invalid chỉ bật
+   SAU khi khách đã tương tác (không tô đỏ cả form lúc vừa mở trang). Trình duyệt
+   cũ không hiểu thì bỏ qua cả rule, không vỡ gì. Đừng thêm novalidate vào form
+   (bug #37: tắt JS thì form gửi GET). */
+.form-group input:user-invalid,
+.form-group select:user-invalid,
+.form-group textarea:user-invalid {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+.form-group input:user-invalid:focus,
+.form-group select:user-invalid:focus,
+.form-group textarea:user-invalid:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
 .form-hint {
     text-align: center;
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-top: 12px;
+}
+
+/* Ghi chú dưới một ô của form (ví dụ giờ tàu dưới ô "Giờ đến"), dùng chung trang chủ và trang
+   dịp. Trước là style viết thẳng trong HTML: #888 nghiêng (3,5:1) ở trang chủ, chữ trắng mờ trên
+   thẻ form trắng ở trang săn tàu (gần như vô hình). --text-muted đạt 5,27:1 trên nền trắng.
+   Không dùng lại .form-hint vì class đó căn giữa. */
+.form-note {
+    display: block;
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-style: normal;
 }
 
 .form-trust {
@@ -1813,14 +1894,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .footer-nav li { margin-bottom: 10px; }
 
+/* Nhích sang phải bằng transform (không tính lại bố cục), không trượt padding-left từng khung hình */
 .footer-nav a {
+    display: inline-block;
     font-size: 0.88rem;
-    transition: all 0.3s var(--ease);
+    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
 }
 
-.footer-nav a:hover {
-    color: var(--gold-light);
-    padding-left: 6px;
+.footer-nav a:hover { color: var(--gold-light); }
+@media (hover: hover) {
+    .footer-nav a:hover { transform: translateX(6px); }
 }
 
 .footer-contact li {
@@ -1920,9 +2003,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .blog-hero .section-tag {
     display: inline-block;
     font-family: var(--font-accent);
-    font-size: 1.1rem;
+    /* Dancing Script là chữ viết tay: .section-tag gốc in hoa + giãn chữ 3px làm nó thành
+       dãy chữ hoa rời rạc khó đọc (25/09/2026). Giữ chữ thường, không giãn, to hơn chút. */
+    font-size: 1.3rem;
+    text-transform: none;
     color: var(--gold);
-    letter-spacing: 2px;
+    letter-spacing: 0;
     margin-bottom: 16px;
 }
 
@@ -1943,10 +2029,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .blog-hero-desc {
     font-family: var(--font-body);
     font-size: 1.1rem;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
+    text-wrap: balance;
 }
 
 /* Blog Section */
@@ -1972,6 +2059,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
     display: flex;
     flex-direction: column;
+    /* Mốc cho lớp phủ bấm cả thẻ (xem .blog-card-content h2 a::after) */
+    position: relative;
 }
 
 .blog-card:hover {
@@ -2083,6 +2172,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     line-height: 1.4;
     margin-bottom: 12px;
     color: var(--night);
+    text-wrap: balance;
 }
 
 .blog-card.blog-featured .blog-card-content h2 {
@@ -2095,8 +2185,36 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     transition: color 0.3s var(--ease);
 }
 
+/* --gold-dark trên nền trắng chỉ 2,9:1; --gold-on-light 5,26:1 */
 .blog-card-content h2 a:hover {
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
+}
+
+/* Bấm được CẢ thẻ, không chỉ dòng tiêu đề (blog.html + trang tác giả). Thẻ có hiệu ứng nhấc lên
+   khi rê chuột nên khách tưởng bấm đâu cũng được, mà trước đây chỉ tiêu đề là link. Lớp phủ
+   trong suốt căng theo .blog-card (position: relative), nên HTML/JS và dấu vân nội dung giữ
+   nguyên. Nút chia sẻ + "Đọc tiếp" nằm TRÊN lớp phủ (z-index 2) để vẫn bấm đúng nút. */
+.blog-card-content h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.blog-share,
+.blog-read-more {
+    position: relative;
+    z-index: 2;
+}
+
+/* Tiêu điểm bàn phím: viền cả thẻ thay vì viền mỗi dòng tiêu đề. Chỉ khi trình duyệt hiểu :has(),
+   trình duyệt cũ giữ viền mặc định của link. */
+@supports selector(:has(a)) {
+    .blog-card:has(h2 a:focus-visible) {
+        outline: 2px solid var(--gold-on-light);
+        outline-offset: 3px;
+    }
+    .blog-card-content h2 a:focus-visible { outline: none; }
 }
 
 /* Card Excerpt */
@@ -2176,16 +2294,20 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 600;
-    color: var(--gold-dark);
+    /* --gold-dark trên nền trắng chỉ 2,9:1 → --gold-on-light 5,26:1 */
+    color: var(--gold-on-light);
     text-decoration: none;
     padding: 8px 0;
+    /* Vùng chạm tối thiểu 44px (trước 39px) */
+    min-height: 44px;
     transition: color 0.3s, gap 0.3s;
     cursor: pointer;
     margin-top: auto;
 }
 
+/* Rê chuột: --ember 6,05:1 trên trắng (--sunset chỉ 2,6:1, --sunset-deep 4,33:1) */
 .blog-read-more:hover {
-    color: var(--sunset);
+    color: var(--ember);
     gap: 10px;
 }
 
@@ -2229,6 +2351,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     cursor: pointer;
     transition: transform 0.3s var(--ease), box-shadow 0.3s;
     text-decoration: none;
+    position: relative;
+}
+
+/* Nút tròn 36px giữ nguyên cỡ nhìn, vùng chạm nới ra 44px bằng lớp trong suốt. Khoảng cách giữa
+   các nút là 10px nên vùng chạm hai nút cạnh nhau không chồng lên nhau. */
+.blog-share-btn::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
 }
 
 .blog-share-btn:hover {
@@ -2302,7 +2434,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .blog-cta p {
     font-family: var(--font-body);
     font-size: 1.05rem;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
     margin-bottom: 28px;
     position: relative;
 }
@@ -2327,7 +2459,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 @media (max-width: 768px) {
     .blog-hero {
-        padding: 130px 0 60px;
+        /* Breadcrumb đứng trước đã gánh padding-top:100px né .navbar fixed (bug #13);
+           120-140px cũ ở đây là cộng khoảng né hai lần, để lại dải trống trên điện thoại. */
+        padding: 36px 0 56px;
     }
 
     .blog-grid {
@@ -2362,7 +2496,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 @media (max-width: 480px) {
     .blog-hero {
-        padding: 120px 0 50px;
+        padding: 32px 0 48px;
     }
 
     .blog-hero-title {
@@ -2462,9 +2596,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .menu-hero .section-tag {
     display: inline-block;
     font-family: var(--font-accent);
-    font-size: 1.1rem;
+    /* Dancing Script là chữ viết tay: .section-tag gốc in hoa + giãn chữ 3px làm nó thành
+       dãy chữ hoa rời rạc khó đọc (25/09/2026). Giữ chữ thường, không giãn, to hơn chút. */
+    font-size: 1.3rem;
+    text-transform: none;
     color: var(--gold);
-    letter-spacing: 2px;
+    letter-spacing: 0;
     margin-bottom: 16px;
 }
 
@@ -2500,7 +2637,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .menu-hero-desc {
     font-family: var(--font-body);
     font-size: 1.1rem;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.7;
@@ -2517,7 +2654,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .menu-hero-info span {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -2717,7 +2854,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .menu-cta p {
     font-family: var(--font-body);
     font-size: 1.05rem;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
     margin-bottom: 32px;
     line-height: 1.7;
 }
@@ -2728,8 +2865,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     gap: 8px;
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1rem;
-    padding: 16px 36px;
     background: linear-gradient(135deg, var(--gold), var(--gold-dark));
     color: var(--night);
     border: none;
@@ -2750,7 +2885,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     margin-top: 20px;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
 }
 
 .menu-cta-phone a {
@@ -2773,7 +2908,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 @media (max-width: 768px) {
     .menu-hero {
-        padding: 140px 0 60px;
+        /* Breadcrumb đứng trước đã gánh padding-top:100px né .navbar fixed (bug #13);
+           120-140px cũ ở đây là cộng khoảng né hai lần, để lại dải trống trên điện thoại. */
+        padding: 36px 0 56px;
     }
 
     .menu-hero-info {
@@ -2813,6 +2950,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 @media (max-width: 480px) {
     .menu-hero-info {
         flex-direction: column;
+        align-items: center;   /* 3 dòng giờ / địa chỉ / SĐT căn giữa như cả khối hero, không dạt trái */
         gap: 10px;
     }
 
@@ -3070,6 +3208,20 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .lightbox-next { right: 20px; }
 .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.15); }
 
+/* Nhãn ảnh (lấy từ figcaption của ô gallery, đi theo ngôn ngữ đang chọn). */
+.lightbox-caption {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 160px);
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+    pointer-events: none;
+}
+
 .lightbox-counter {
     position: absolute;
     bottom: 24px;
@@ -3199,10 +3351,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         grid-template-columns: 1fr 1fr;
         gap: 32px 40px;
     }
-    .booking-wrapper {
-        grid-template-columns: 1fr 1.3fr;
-        gap: 32px;
-    }
 }
 
 /* Tablet & below */
@@ -3231,11 +3379,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ============================================
-   MOBILE — 768px and below
+   NAV THU GỌN — 1199px trở xuống
    ============================================ */
-@media (max-width: 768px) {
+/* Nav 7 mục + nút gọi + nút ngôn ngữ cần ~1150px mới nằm vừa một dòng. Trước
+   25/09/2026 mốc hamburger là 768px nên ở 769–1149px (iPad ngang, laptop nhỏ)
+   nav gãy hai dòng, logo gãy ba dòng, nút Đặt bàn vỡ hình. Mốc 1150 quá sát
+   (chỉ thừa 1px) nên lấy 1199. Hero và các section vẫn giữ mốc 768.
+   SỬA KHỐI NÀY THÌ PHẢI SỬA CẢ CRIT-NAV trong index.html (bug #10: bỏ chú thích
+   rồi mới đối chiếu). */
+@media (max-width: 1199px) {
 
-    /* === NAVIGATION === */
     .nav-toggle { display: flex; }
     .nav-phone span { display: none; }
     .nav-phone {
@@ -3360,6 +3513,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         position: fixed;
         width: 100%;
     }
+}
+
+/* ============================================
+   MOBILE — 768px and below
+   ============================================ */
+@media (max-width: 768px) {
 
     /* === HERO === */
     .hero {
@@ -3394,7 +3553,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         padding: 28px 24px;
         gap: 16px;
     }
-    .occasions-content .btn { margin-left: 0; width: 100%; max-width: 260px; }
+    .occasions-content .btn { margin-left: 0; width: 100%; max-width: 260px; justify-content: center; }
 
     /* === MENU TABS — horizontal scroll === */
     .menu-tabs {
@@ -3458,14 +3617,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     .form-group textarea { min-height: 100px; }
     .form-group.full-width .btn { width: 100%; }
 
-    /* Prevent long option/placeholder text from forcing form to overflow viewport */
+    /* Chữ dài trong option/placeholder: cắt bằng dấu ba chấm (bề rộng 100% đã khai ở rule gốc) */
     .form-group input,
     .form-group select,
     .form-group textarea {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
         text-overflow: ellipsis;
     }
 
@@ -3504,7 +3659,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     /* === FAB Contact === */
     .fab-contact { bottom: 16px; right: 16px; }
     .fab-main { width: 50px; height: 50px; }
-    .fab-option { padding: 8px 14px; font-size: 0.85rem; }
+    /* Vùng chạm 48px (25/09/2026): padding 8px cũ cho nút "Gọi ngay" / "Facebook" chỉ cao 38px */
+    .fab-option { padding: 10px 16px; min-height: 48px; font-size: 0.85rem; }
 
     /* === LIGHTBOX === */
     .lightbox-close {
@@ -3530,6 +3686,25 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         border-radius: var(--radius);
         margin: 12px 0;
     }
+}
+
+/* Footer điện thoại: một cột căn giữa cao ~1.150px (~1,4 màn hình), 16 dòng link
+   xếp chồng. Hai khối link đứng cạnh nhau thành hai cột, khối giới thiệu và khối
+   liên hệ vẫn trải hết bề ngang. Không dùng order: thứ tự nhìn phải khớp thứ tự
+   Tab (WCAG 2.4.3). 404.html có bản CSS inline riêng, sửa thì sửa cả hai. */
+@media (max-width: 600px) {
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 20px;
+        text-align: left;
+    }
+    .footer-brand,
+    .footer-contact {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+    .footer-social { justify-content: center; }
+    .footer-nav a { display: inline-block; padding: 6px 0; }
 }
 
 /* ============================================
@@ -3670,6 +3845,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+    html { scroll-behavior: auto; }
     .particle { display: none; }
     .fab-main { animation: none; }
     .mouse-wheel { animation: none; }
@@ -3930,6 +4106,7 @@ body.sticky-bar-active .fab-contact {
 .reviews-header .section-tag { margin-bottom: 14px; }
 .reviews-header .section-title {
     margin-bottom: 24px;
+    font-variant-numeric: lining-nums;
 }
 .reviews-rating {
     display: inline-flex;
@@ -4134,6 +4311,7 @@ body.sticky-bar-active .fab-contact {
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1;
+    font-variant-numeric: lining-nums;
 }
 .story-badge-text {
     display: block;
@@ -4176,6 +4354,7 @@ body.sticky-bar-active .fab-contact {
     color: var(--gold-on-light);
     line-height: 1;
     margin-bottom: 6px;
+    font-variant-numeric: lining-nums;
 }
 .story-stat span {
     font-size: 0.78rem;
@@ -4195,7 +4374,8 @@ body.sticky-bar-active .fab-contact {
 @media (max-width: 480px) {
     .story-stats { gap: 12px; }
     .story-stat strong { font-size: 1.4rem; }
-    .story-stat span { font-size: 0.75rem; }
+    /* Ba nhãn chia 3 cột hẹp (~95px): giảm giãn chữ + cân dòng để không còn chữ mồ côi. */
+    .story-stat span { display: block; font-size: 0.7rem; letter-spacing: 0.4px; text-wrap: balance; }
 }
 
 /* ============================================
@@ -4439,7 +4619,7 @@ body.sticky-bar-active .fab-contact {
     display: block;
     margin-top: 0;
     padding: 28px 26px 22px;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     color: var(--white);
     text-decoration: none;
     overflow: hidden;
@@ -4616,7 +4796,8 @@ body.sticky-bar-active .fab-contact {
     color: #f5e9c9;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    font-variant-numeric: tabular-nums;
+    /* lining: số kiểu cổ của Playfair làm "16:30 – 21:25" lệch lên xuống trong dòng */
+    font-variant-numeric: lining-nums tabular-nums;
 }
 .train-tier--summer .train-tier-times {
     color: #ffffff;
@@ -4679,7 +4860,7 @@ body.sticky-bar-active .fab-contact {
     position: relative;
     margin-top: 14px;
     padding: 26px 26px 22px;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     color: var(--white);
     overflow: hidden;
     isolation: isolate;
@@ -4927,7 +5108,7 @@ body.sticky-bar-active .fab-contact {
     content: "−";
 }
 .faq-item summary:focus-visible {
-    outline: 2px solid var(--gold);
+    outline: 2px solid var(--gold-on-light);
     outline-offset: -2px;
     border-radius: var(--radius);
 }
@@ -5045,11 +5226,60 @@ body.sticky-bar-active .fab-contact {
     color: var(--border);
 }
 
+/* Điện thoại: dòng meta xuống hàng nên dấu chấm ngăn cách đứng mồ côi đầu dòng, còn breadcrumb
+   (tên bài dài) chiếm 2 dòng → 5 dòng chữ nhỏ trước H1. Ẩn dấu chấm, breadcrumb 1 dòng, cắt bằng ba chấm.
+   Chỉ đổi CSS: chữ trong HTML giữ nguyên nên BreadcrumbList vẫn khớp từng chữ (bug #13) và
+   dấu vân nội dung không đổi. */
+@media (max-width: 480px) {
+    .reading-time::before { display: none; }
+    /* Dấu chấm giữa ngày đăng và "Cập nhật" là chữ trần do generator viết (không có thẻ riêng),
+       xuống dòng là nó treo cuối dòng. Cỡ chữ 0 cho riêng chữ trần trong dòng meta, các phần tử
+       con khai lại cỡ chữ (nhãn danh mục + byline vốn có cỡ riêng). */
+    .blog-post-meta { font-size: 0; }
+    .blog-post-meta > time,
+    .blog-post-meta > .blog-updated,
+    .blog-post-meta > .reading-time { font-size: 0.88rem; }
+    .blog-post-hero .breadcrumb {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* overflow:hidden cắt cạnh trên vòng focus: đệm 6px rồi kéo ngược, bố cục giữ nguyên */
+        padding-top: 6px;
+        margin-top: -6px;
+    }
+}
+
+/* Đầu bài (breadcrumb, meta, H1, sapo) cùng cột 800px với thân bài. Trước đây đầu bài nằm trong
+   .container 1200px còn thân bài 800px: máy tính lệch nhau 200px. */
+.blog-post-hero .container { max-width: 800px; }
+
+/* H1 bài: trước là style inline không khai line-height nên kế thừa 1,6 của body, tiêu đề 2–3
+   dòng rời rạc. Cỡ chữ giữ đúng clamp cũ. KHÔNG gắn animation (H1 có thể là LCP, bug #19). */
+.blog-post-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    color: var(--night);
+    margin-bottom: 16px;
+    text-wrap: balance;
+}
+
+/* Ảnh đầu bài cùng cột 800px */
+.blog-post-cover.container { max-width: 800px; }
+
 /* ── Thân bài: nơi người ta thật sự đọc ── */
 .blog-post-body {
     color: var(--charcoal);
     font-size: 1.05rem;
     line-height: 1.85;
+}
+
+/* Khung cột thân bài — trước là style inline "padding:0 24px 60px" đè padding ngang của
+   .container (20px trên điện thoại) nên thân bài lệch 4px so với đầu bài. Nay chỉ khai
+   padding-bottom, padding ngang ăn theo .container như mọi khối khác. */
+.blog-post-body.container {
+    max-width: 800px;
+    padding-bottom: 60px;
 }
 
 .blog-post-body > p { margin: 0 0 20px; }
@@ -5102,6 +5332,11 @@ body.sticky-bar-active .fab-contact {
     padding-left: 20px;
 }
 
+/* Reset toàn cục ul { list-style: none } (dòng ~314) xoá luôn dấu đầu dòng trong thân 141 bài:
+   danh sách thành các đoạn rời không dấu. Trả dấu chấm cho ul trong bài; ol (mục lục .toc)
+   vẫn giữ số thứ tự mặc định. */
+.blog-post-body ul { list-style: disc; }
+
 .blog-post-body li { margin-bottom: 9px; }
 .blog-post-body li::marker { color: var(--gold-on-light); }
 
@@ -5133,6 +5368,11 @@ body.sticky-bar-active .fab-contact {
    không bọc khung này. */
 .blog-post-body .anh-nguon { margin: 18px 0 24px; }
 .blog-post-body .anh-nguon img { display: block; width: 100%; margin: 0; }
+/* Máy tính: ảnh minh hoạ nơi khác (chợ đêm, đặc sản...) thu về 600px, canh giữa, để không to
+   ngang ảnh của chính quán. Giữ nguyên khung gốc, không cắt (giấy phép CC, bug #42). */
+@media (min-width: 900px) {
+    .blog-post-body .anh-nguon { max-width: 600px; margin-inline: auto; }
+}
 .blog-post-body .anh-nguon figcaption {
     margin-top: 6px;
     font-size: 0.8rem;
@@ -5189,6 +5429,50 @@ body.sticky-bar-active .fab-contact {
     .blog-post-body thead th,
     .blog-post-body td,
     .blog-post-body tbody th { padding: 10px 12px; }
+
+    /* Bảng 3–6 cột trên điện thoại: mỗi hàng thành một thẻ, mỗi ô một dòng kèm nhãn cột
+       (data-label do generate-blog-pages.js gắn, chỉ cho bảng có thead và không gộp ô).
+       Hàng tiêu đề ẩn kiểu sr-only chứ KHÔNG display:none, và bảng mang role table/row/cell,
+       để trình đọc màn hình vẫn đọc được như bảng. */
+    .blog-post-body table.bang-the thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+    .blog-post-body table.bang-the,
+    .blog-post-body table.bang-the tbody,
+    .blog-post-body table.bang-the tr,
+    .blog-post-body table.bang-the td { display: block; width: 100%; }
+    .blog-post-body table.bang-the { background: transparent; box-shadow: none; overflow: visible; }
+    .blog-post-body table.bang-the tbody tr {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-soft);
+        padding: 6px 0;
+        margin-bottom: 12px;
+    }
+    .blog-post-body table.bang-the tbody tr:nth-child(even) { background: var(--white); }
+    .blog-post-body table.bang-the td {
+        border-bottom: 1px solid var(--border);
+        padding: 8px 14px;
+    }
+    .blog-post-body table.bang-the td:last-child { border-bottom: none; }
+    /* Ô đầu mỗi hàng (khung giờ / tên món / tiêu chí) làm tiêu đề thẻ, không cần nhãn cột */
+    .blog-post-body table.bang-the td:first-child { font-weight: 600; color: var(--wood); }
+    .blog-post-body table.bang-the td[data-label]:not(:first-child)::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+    }
 }
 
 /* Breadcrumb trong trang bài viết.
@@ -5310,9 +5594,17 @@ body.sticky-bar-active .fab-contact {
     max-width: 620px;
     margin: 14px auto 0;
     text-align: center;
-    color: var(--smoke);
+    color: var(--smoke-on-dark);
     font-size: 0.95rem;
     line-height: 1.65;
+}
+
+/* Câu hướng dẫn tách bản máy tính / bản điện thoại (25/09/2026): câu chung cũ bảo khách
+   điện thoại "dùng phím" dù máy không có bàn phím. Màn hẹp hoặc máy cảm ứng thì hiện bản vuốt. */
+.goi-y-mb { display: none; }
+@media (max-width: 899px), (hover: none) and (pointer: coarse) {
+    .goi-y-pc { display: none; }
+    .goi-y-mb { display: inline; }
 }
 
 /* Chế độ lưới (không JS) */
@@ -5758,13 +6050,28 @@ body.sticky-bar-active .fab-contact {
 .flipbook.is-fullscreen .flipbook-book.is-single { width: min(100%, calc(84vh * 0.706)); }
 .flipbook.is-fullscreen .flipbook-index { max-height: 40vh; overflow-y: auto; }
 
+/* Sách đôi: thanh điều khiển + mục lục rộng ĐÚNG bằng quyển sách (25/09/2026). Trước đó
+   thanh cố định 1040px còn sách co theo chiều cao màn hình (72vh x 1,412), nên trên máy
+   tính 1366x768 thanh rộng 1040px nằm dưới quyển sách chỉ ~780px, lệch hẳn hai bên.
+   Công thức chép từ .flipbook-book; sửa bề rộng sách thì sửa cả ở đây. */
+@media (min-width: 900px) {
+    .flipbook-bar,
+    .flipbook-index { max-width: min(100%, 1040px, calc(72vh * 1.412)); }
+    .flipbook.is-fullscreen .flipbook-bar,
+    .flipbook.is-fullscreen .flipbook-index { max-width: min(100%, calc(84vh * 1.412)); }
+    /* Bộ đếm kèm tên nhóm có thể dài ("Trà Nóng & Trà Lạnh · Trang 14–15 / 26"): chiếm phần giữa
+       còn lại của thanh và cắt bằng dấu ba chấm, không đẩy các nút xuống dòng khi màn thấp. */
+    .flipbook-counter { flex: 1 1 0; min-width: 0; text-align: center; overflow: hidden; text-overflow: ellipsis; }
+}
+
 /* Màn hình nhỏ */
 @media (max-width: 899px) {
     .menu-flipbook-section { padding: 60px 0 50px; }
     .flipbook-viewport { padding: 0 6px; }
     .flipbook-arrow { width: 48px; height: 48px; }
     .flipbook-bar { border-radius: var(--radius-lg); justify-content: center; }
-    .flipbook-counter { order: -1; width: 100%; text-align: center; }
+    /* Bộ đếm nay kèm tên nhóm ("Trà Nóng & Trà Lạnh · Trang 14 / 26") nên cho xuống dòng ở màn hẹp */
+    .flipbook-counter { order: -1; width: 100%; text-align: center; white-space: normal; }
     .flipbook-index-grid { grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); }
 }
 
@@ -5812,8 +6119,10 @@ body.sticky-bar-active .fab-contact {
 
 .blog-post-body .toc li { margin: 6px 0; }
 
+/* Nền mục lục là --linen: --gold-dark chỉ 2,5:1, #886B22 của link thân bài 4,34:1;
+   --gold-on-light đạt 4,55:1. */
 .blog-post-body .toc a {
-    color: var(--gold-dark);
+    color: var(--gold-on-light);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color var(--ease);
@@ -5846,7 +6155,7 @@ body.sticky-bar-active .fab-contact {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 18px;
-    max-width: 900px;
+    max-width: 1152px;
     margin: 0 auto 30px;
 }
 
@@ -5871,7 +6180,7 @@ body.sticky-bar-active .fab-contact {
 }
 
 .menu-preview-page:focus-visible {
-    outline: 2px solid var(--gold);
+    outline: 2px solid var(--gold-on-light);
     outline-offset: 3px;
 }
 
@@ -5893,3 +6202,691 @@ body.sticky-bar-active .fab-contact {
     .menu-preview-page { transition: none; }
     .menu-preview-page:hover { transform: none; }
 }
+
+
+/* ==========================================================================
+   GIAO DIỆN "MỘT BUỔI Ở TRẠM" (bản A+C, sếp Tuấn chốt 09/2026)
+   A: nền trang chủ đổi dần theo giờ: chiều vàng, hoàng hôn, giờ xanh, đêm.
+   C: chi tiết ga tàu cổ, gỗ mộc: nhãn mục như vé tàu, nút đặt bàn như biển đồng,
+      nút phụ viền gỗ, thẻ trải nghiệm có khấc vé, form như tấm vé bấm lỗ,
+      đường ray ở vùng ngày, dây đèn ở vùng đêm, ảnh gallery như tem răng cưa.
+   Bản thử đã duyệt: plans/cong-cu-do-hieu-nang/inject-vibe-chot.css. Khối này chép
+   lại có chú thích, cộng các mục làm chung (id trong plans/ke-hoach-giao-dien.json).
+   Để ở CUỐI file cho thắng rule gốc cùng độ đặc hiệu.
+   - Rule riêng trang dịp thua dip-landing.css (nạp sau) nên nằm ở css/dip-landing.css.
+   - index.html còn bản critical CSS của .btn-golden (nút hero), .nav-cta, .navbar,
+     .hero-badge: đổi màu ở đây thì chép màu sang critical (không đổi kích thước).
+   - Chỉ dùng background / box-shadow / mask / opacity: không đổi kích thước phần tử
+     nào lúc tải, nên không sinh CLS. Hiệu ứng đèn nhấp nháy chỉ đổi opacity (ghép lớp).
+   ========================================================================== */
+
+/* --- Biến dùng chung ---
+   --ve-*: giấy vé tàu · --giay: giấy thẻ · --seam: đường răng xé vé
+   --dong: mặt biển đồng của nút đặt bàn · --i-*: icon vẽ bằng mask cho nhãn vé
+   --section-y / --section-head-gap: thang khoảng cách section (mục B22) */
+:root {
+    --ve-giay: linear-gradient(#F7E9CC, #EFDDB6);
+    --ve-chu: #553D12;
+    --ve-vien: #B8924E;
+    --giay: #FFFCF6;
+    --seam: #DCC39A;
+    --dong: linear-gradient(#F5DC9B, #E1B963 44%, #CB9D42 62%, #DDB566);
+    --dong-bong: inset 0 1px 0 rgba(255,250,230,.85), inset 0 -3px 4px rgba(110,78,18,.25), 0 6px 16px -6px rgba(70,46,10,.55);
+    --i-sao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6l-5.4 2.9 1.2-6-4.5-4.2 6.1-.7z'/%3E%3C/svg%3E");
+    --i-nang: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8'/%3E%3C/svg%3E");
+    --i-ta: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M3 17h18M6.5 17a5.5 5.5 0 0 1 11 0M12 5v2.5M5 9.5l1.7 1.5M19 9.5L17.3 11M8 21h8'/%3E%3C/svg%3E");
+    --i-trang: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 14.2A8.2 8.2 0 1 1 9.8 4a6.4 6.4 0 0 0 10.2 10.2z'/%3E%3C/svg%3E");
+    --i-den: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11.2 0h1.6v5h-1.6z'/%3E%3Crect x='9.4' y='4.6' width='5.2' height='3.8' rx='.8'/%3E%3Ccircle cx='12' cy='14.6' r='5.8'/%3E%3C/svg%3E");
+    --section-y: clamp(56px, 9vw, 104px);
+    --section-head-gap: clamp(32px, 5vw, 56px);
+}
+
+/* --- C1. Vé tàu: nhãn .section-tag (mọi trang), mốc giờ trên ảnh thẻ, huy hiệu Câu chuyện ---
+   Mask khoét hai nửa lỗ tròn ở hai đầu vé. Chữ #553D12 trên giấy đạt 7,6-8,5:1 (mục B01). */
+.section-tag,
+.exp-time-badge,
+.story-badge {
+    --k: radial-gradient(circle var(--r, 6px) at var(--r, 6px) 50%, #0000 94%, #000) calc(-1 * var(--r, 6px)) 0 / 100% 100%;
+    -webkit-mask: var(--k);
+    mask: var(--k);
+    border: 0;
+    border-radius: 3px;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+.section-tag {
+    --o: #0000 5.6px, var(--ve-vien) 0 6.8px, #0000 0;
+    --nen: radial-gradient(circle at 0 50%, var(--o)), radial-gradient(circle at 100% 50%, var(--o));
+    position: relative;
+    padding: 7px 22px 7px 40px;
+    background: var(--nen), var(--ve-giay);
+    color: var(--ve-chu);
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px var(--ve-vien);
+}
+/* Icon đầu vé (đổi theo giờ trong ngày qua biến --i-tag) + đường răng xé */
+.section-tag::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    background: currentColor;
+    --m: var(--i-tag, var(--i-sao)) 50% / contain no-repeat;
+    -webkit-mask: var(--m);
+    mask: var(--m);
+}
+.section-tag::after {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 4px;
+    bottom: 4px;
+    border-left: 1.5px dashed var(--ve-vien);
+}
+/* Vé tối cho nhãn nằm trên nền tối: #F0D48A trên #221B16 đạt 11,7:1 */
+.section-tag.light,
+.menu-flipbook-section .section-tag,
+.dip-section-dark .dip-section-header .section-tag,
+#home ~ :is(#tiktok, #review, #faq, #cam-nang) .section-tag {
+    background: var(--nen), linear-gradient(#2E2620, #221B16);
+    color: #F0D48A;
+    --ve-vien: rgba(240,212,138,.42);
+}
+/* Hero trang Blog / Thực đơn: nhãn là dòng chữ nhỏ, không làm vé */
+:is(.blog-hero, .menu-hero) .section-tag {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    -webkit-mask: none;
+    mask: none;
+}
+:is(.blog-hero, .menu-hero) .section-tag::before,
+:is(.blog-hero, .menu-hero) .section-tag::after { content: none; }
+/* Icon theo giờ: nắng (chiều) · tà dương (hoàng hôn) · trăng (giờ xanh) · đèn (đêm) */
+#home ~ :is(#experience, #chon-cho-ngoi, #perks) { --i-tag: var(--i-nang); }
+#home ~ :is(#story, #menu, #gallery) { --i-tag: var(--i-ta); }
+#home ~ :is(#tiktok, #review) { --i-tag: var(--i-trang); }
+#home ~ :is(#booking, #faq, #cam-nang) { --i-tag: var(--i-den); }
+.exp-time-badge {
+    --r: 4px;
+    padding: 7px 14px 7px 28px;
+    color: var(--ve-chu);
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(var(--ve-vien) 55%, #0000 0) 20px 0 / 1px 5px repeat-y,
+                radial-gradient(circle at 11px 50%, var(--ve-vien) 1.8px, #0000 2.3px),
+                #F3E2BE;
+}
+.story-badge {
+    --r: 7px;
+    padding: 14px 22px 14px 36px;
+    background: linear-gradient(rgba(212,168,83,.5) 55%, #0000 0) 24px 0 / 1px 6px repeat-y,
+                linear-gradient(#2A221C, #1C1612);
+    box-shadow: inset 0 0 0 1px rgba(212,168,83,.35);
+}
+
+/* --- C2. Biển đồng: CHỈ nút đặt bàn. Nút phụ thành viền gỗ (mục B02) --- */
+.btn-golden,
+.sticky-book-btn {
+    background: var(--dong);
+    border-color: #A7822C;
+    color: #0F0D0A;
+    box-shadow: var(--dong-bong);
+}
+.btn-golden:hover,
+.btn-golden:focus-visible,
+.sticky-book-btn:hover,
+.sticky-book-btn:focus-visible {
+    box-shadow: var(--dong-bong), 0 6px 26px rgba(212,168,83,.5);
+}
+.sticky-book-btn { box-shadow: 0 0 0 1px #A7822C, var(--dong-bong); }
+.menu-cta .btn-golden {
+    background: var(--dong);
+    box-shadow: inset 0 0 0 1.5px #A7822C, var(--dong-bong);
+}
+.nav-cta,
+.nav-cta.active { background: var(--dong) !important; }
+.nav-cta { box-shadow: inset 0 0 0 1px #A7822C, inset 0 1px 0 rgba(255,250,230,.8); }
+/* Rule hover gốc (.nav-cta:hover, .menu-cta .btn-golden:hover) đặc hiệu cao hơn nên phải khai
+   lại ở đây, không thì rê chuột là mất viền đồng, về quầng vàng cũ. */
+.nav-cta:is(:hover, :focus-visible) {
+    box-shadow: inset 0 0 0 1px #A7822C, inset 0 1px 0 rgba(255,250,230,.8), 0 6px 26px rgba(212,168,83,.5);
+}
+.menu-cta .btn-golden:is(:hover, :focus-visible) {
+    box-shadow: inset 0 0 0 1.5px #A7822C, var(--dong-bong), 0 6px 26px rgba(212,168,83,.5);
+}
+/* Nút phụ trên nền sáng (xem quyển menu, chỉ đường): viền gỗ, chữ #3F2C18 đạt trên 9:1 */
+.btn-golden.menu-preview-cta,
+.map-info-card .btn-golden {
+    justify-content: center;
+    background: none;
+    border-color: #8B6843;
+    color: #3F2C18;
+    box-shadow: inset 0 0 0 3px var(--giay), inset 0 0 0 4px rgba(139,104,67,.35);
+}
+.btn-golden.menu-preview-cta:is(:hover, :focus-visible),
+.map-info-card .btn-golden:is(:hover, :focus-visible) {
+    background: #F3E4C4;
+    box-shadow: none;
+}
+/* Nút phụ trên nền tối (xem đánh giá Google): viền vàng */
+.reviews-cta .btn-golden {
+    background: none;
+    border-color: rgba(212,168,83,.7);
+    color: #F0D48A;
+    box-shadow: none;
+}
+.reviews-cta .btn-golden:is(:hover, :focus-visible) {
+    background: rgba(212,168,83,.13);
+    box-shadow: none;
+}
+
+/* --- C3. Thẻ như vé: thẻ trải nghiệm có khấc hai bên đường xé, thẻ đặc quyền giấy --- */
+.exp-card {
+    background: var(--giay);
+    border-color: #E6D3B1;
+    overflow: visible;
+}
+.exp-card-img { border-radius: calc(var(--radius-xl) - 1px) calc(var(--radius-xl) - 1px) 0 0; }
+.exp-card-content {
+    position: relative;
+    border-top: 1.5px dashed var(--seam);
+}
+/* Hai khấc nửa tròn; màu khấc = màu nền section (--nen-ve) để trông như khoét thủng */
+.exp-card-content::before,
+.exp-card-content::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    width: 22px;
+    height: 22px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid #E6D3B1;
+    background: var(--nen-ve, var(--cream));
+}
+.exp-card-content::before { left: -12px; clip-path: inset(0 0 0 50%); }
+.exp-card-content::after { right: -12px; clip-path: inset(0 50% 0 0); }
+.exp-number { color: #9C7630; opacity: 1; }
+.exp-tag {
+    border: 1px dashed #D2B98B;
+    background: #FBF3E2;
+    color: var(--ember);
+}
+.perk-card,
+#home ~ #review .review-card {
+    background: var(--giay);
+    border-color: #E9D8BA;
+}
+.perk-featured { background: linear-gradient(145deg, var(--giay), #FFF3DD); }
+.perk-icon {
+    color: #3B2A12;
+    background: radial-gradient(circle at 34% 28%, #FBEBBF, #DDB462 52%, #AE8132);
+    box-shadow: inset 0 0 0 2px rgba(255,241,204,.6), inset 0 0 0 4px rgba(138,98,34,.24), 0 4px 10px rgba(122,80,20,.24);
+}
+.review-author { border-top: 1px dashed #D9C39A; }
+/* Băng rôn dịp đặc biệt: tấm gỗ đóng đinh */
+.occasions-banner {
+    border: 1px solid #6E5236;
+    background: radial-gradient(circle at 6px 6px, #D9B366 2px, #0000 2.8px) 8px 8px / calc(100% - 28px) calc(100% - 28px),
+                repeating-linear-gradient(179deg, rgba(255,230,190,.04) 0 1px, #0000 1px 7px),
+                repeating-linear-gradient(177deg, rgba(0,0,0,.11) 0 2px, #0000 2px 23px),
+                linear-gradient(100deg, #3E2E22, #2F231A 55%, #3B2B1F);
+}
+.occasions-content .btn { justify-content: center; }
+
+/* --- C4. Form đặt bàn như tấm vé: bấm lỗ 4 góc + hai đường răng xé.
+   Cố ý border-radius 0 (mask lo phần bo), đừng áp bo góc chung vào đây (mục B21).
+   Bản trang dịp (.dip-form-wrapper) nằm ở dip-landing.css. --- */
+.booking-form-wrapper {
+    --m: radial-gradient(circle 16px at 16px 16px, #0000 95%, #000) -16px -16px / 100% 100%;
+    -webkit-mask: var(--m);
+    mask: var(--m);
+    border-radius: 0;
+    background: linear-gradient(90deg, var(--seam) 55%, #0000 0) 0 11px / 10px 1px repeat-x,
+                linear-gradient(90deg, var(--seam) 55%, #0000 0) 0 calc(100% - 12px) / 10px 1px repeat-x,
+                var(--giay);
+}
+
+/* --- Thang khoảng cách section trang chủ (mục B22). Theo id để không đụng trang khác.
+   Đặt TRƯỚC khối nền A1 để padding-bottom riêng của #booking (dây đèn) còn thắng. --- */
+#home ~ :is(#experience, #chon-cho-ngoi, #perks, #story, #menu, #gallery, #tiktok, #review, #booking, #faq, #cam-nang) {
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y);
+}
+#home ~ section .section-header { margin-bottom: var(--section-head-gap); }
+/* Hai cặp section liền nền: #chon-cho-ngoi có đường ray ở top 24px nên giữ tối thiểu ~72px;
+   bản đồ nối liền Cẩm nang, không có ray nên hạ còn 48px */
+#home ~ #chon-cho-ngoi { padding-top: clamp(56px, 6vw, 72px); }
+#home ~ .map-section { padding: 48px 0 var(--section-y); }
+
+/* --- A1. Nền trang chủ: chiều vàng, hoàng hôn, giờ xanh, đêm ---
+   Vùng ngày đổi --text-muted / --gold-on-light đậm hơn để chữ phụ vẫn đạt 4,5:1 trên nền cam. */
+#home ~ :is(#experience, #chon-cho-ngoi, #perks, #story, #menu, #gallery) {
+    --text-muted: #655848;
+    --gold-on-light: #74591B;
+    position: relative;
+    border-bottom: 0;
+}
+#home ~ #experience { --nen-ve: #FCF5EA; background: #FCF5EA; }
+#home ~ #chon-cho-ngoi { background: linear-gradient(#FCF5EA, #FAEEDC); }
+#home ~ #perks { background: linear-gradient(#FAEEDC, #F8E6CE); }
+#home ~ #story { background: linear-gradient(#F8E6CE, #F6DEC3); }
+#home ~ #menu { background: linear-gradient(#F6DEC3, #F3D5B7); }
+#home ~ #menu::before,
+#home ~ #tiktok::before { content: none; }
+#home ~ #gallery { background: linear-gradient(#F3D5B7, #F0C7A8 28%, #DDA592 50%, #9A6C7A 69%, #4A3B5E 86%, #2A2340); }
+#home ~ :is(#story, #menu, #gallery) .section-title em { color: var(--ember); }
+#home ~ #tiktok { background: linear-gradient(#2A2340, #221C34); }
+#home ~ #review {
+    border-bottom: 0;
+    background: radial-gradient(60% 150px at 50% 100%, rgba(255,196,92,.06), #0000 80%),
+                linear-gradient(#221C34, #1D1828);
+}
+/* Khối đặt bàn: mép dưới là dải đèn nhà lồng xa xa (SVG chấm sáng lặp ngang) */
+#home ~ #booking {
+    padding-bottom: 124px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='56' stroke-linecap='round'%3E%3Cpath d='M86 24h.1M44 32h.1M7 32h.1M157 17h.1M268 10h.1M87 22h.1M184 11h.1M260 7h.1M69 13h.1M142 18h.1M114 22h.1M169 31h.1M160 26h.1' stroke='%23FFE3A8' stroke-opacity='.45' stroke-width='1.6'/%3E%3Cpath d='M3 34h.1M155 35h.1M246 32h.1M67 44h.1M166 36h.1M60 39h.1M214 46h.1M282 44h.1M238 34h.1M199 51h.1M203 37h.1M131 50h.1M128 47h.1M291 52h.1' stroke='%23FFD07A' stroke-opacity='.7' stroke-width='2.2'/%3E%3Cpath d='M16 48h.1M94 46h.1M183 51h.1M283 47h.1M18 47h.1M106 38h.1M165 50h.1M193 36h.1M170 49h.1' stroke='%23FFC25E' stroke-opacity='.95' stroke-width='2.8'/%3E%3C/svg%3E") 0 100% / 360px 67px repeat-x,
+                radial-gradient(70% 80px at 50% 100%, rgba(255,170,80,.16), #0000 80%) 50% 100% / 100% 90px no-repeat,
+                radial-gradient(60% 150px at 50% 0, rgba(255,196,92,.06), #0000 80%),
+                linear-gradient(#1D1828, #1A1519 45%, #17120F);
+}
+#home ~ #booking .booking-bg-layer {
+    --m: linear-gradient(#0000, #000 140px, #000 calc(100% - 200px), #0000);
+    -webkit-mask: var(--m);
+    mask: var(--m);
+}
+#home ~ #faq {
+    background: radial-gradient(70% 80px at 50% 0, rgba(255,170,80,.16), #0000 80%) 50% 0 / 100% 90px no-repeat,
+                linear-gradient(#17120F, #15110D);
+}
+#home ~ #cam-nang { border-bottom: 0; background: linear-gradient(#15110D, #130F0C); }
+#home ~ .map-section { background: linear-gradient(#130F0C, #0F0D0A); }
+/* Chữ trong các section đã sang nền tối */
+#home ~ :is(#review, #faq, #cam-nang) .section-title { color: var(--cream); }
+#home ~ :is(#review, #faq, #cam-nang) .section-title em { color: var(--gold-light); }
+#home ~ #cam-nang .section-desc,
+#home ~ #faq .faq-table caption,
+#home ~ #review .reviews-cta-sub { color: rgba(253,248,243,.76); }
+#home ~ #review .reviews-cta-sub a { color: var(--gold-light); }
+#home ~ #review .reviews-rating { background: #FBF4E6; border-color: #D9C29A; }
+#home ~ #faq :is(.faq-item, .faq-table) {
+    background: #211A14;
+    border: 1px solid rgba(212,168,83,.2);
+    box-shadow: none;
+}
+#home ~ #faq .faq-item[open] { border-color: rgba(212,168,83,.6); }
+#home ~ #faq :is(.faq-item summary h3, .faq-table th[scope=row]) { color: #F1E6D6; }
+#home ~ #faq .faq-table th[scope=row] { background: #2A2119; }
+#home ~ #faq :is(.faq-table th, .faq-table td) { border-color: rgba(240,212,138,.12); color: #DDD0BE; }
+#home ~ #faq .faq-item > p { color: #D7C9B6; }
+#home ~ #faq :is(.faq-item, .faq-table) a,
+#home ~ #faq .faq-item summary::after { color: var(--gold); }
+#home ~ #cam-nang .guides-group { background: #201913; border-color: rgba(212,168,83,.2); }
+#home ~ #cam-nang .guides-group h3 { color: #F3E8D8; }
+#home ~ #cam-nang .guides-group li + li { border-color: rgba(240,212,138,.11); }
+#home ~ #cam-nang .guides-group a { color: var(--gold); }
+#home ~ #cam-nang .guides-group :is(a:hover, a:focus-visible) { color: var(--gold-light); }
+#home ~ .map-section .map-wrapper { background: #FBF5EA; border-color: #6E5236; }
+
+/* --- C5. Đường ray: vạch phân cách ở vùng ngày, 3 chỗ. Cần padding-top section >= 48px. --- */
+#home ~ :is(#chon-cho-ngoi, #story, #gallery)::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 24px;
+    width: min(380px, 64%);
+    height: 12px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(#5A4432, #5A4432) 0 2.5px / 100% 1.6px no-repeat,
+                linear-gradient(#5A4432, #5A4432) 0 8px / 100% 1.6px no-repeat,
+                repeating-linear-gradient(90deg, rgba(156,122,86,.55) 0 4px, #0000 4px 20px);
+    --m: linear-gradient(90deg, #0000, #000 22%, #000 78%, #0000);
+    -webkit-mask: var(--m);
+    mask: var(--m);
+}
+
+/* --- C6. Gallery như tem răng cưa. Hai rule cuối lấp lỗ trống của lưới (mục A13). --- */
+#home ~ #gallery .gallery-item {
+    border: 6px solid #F4E9D6;
+    border-radius: 2px;
+    background: #F4E9D6;
+    --m: radial-gradient(2.4px, #0000 96%, #000) round -3.5px -3.5px / 7px 7px,
+         linear-gradient(#000 0 0) 50% / calc(100% - 7px) calc(100% - 7px) no-repeat;
+    -webkit-mask: var(--m);
+    mask: var(--m);
+}
+#home ~ #gallery .gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(60,40,20,.2);
+    pointer-events: none;
+}
+/* Mask cắt mọi thứ ngoài viền tem, kể cả outline: vòng focus bàn phím phải vẽ bên trong
+   (vòng vàng đậm sát viền giấy + vạch trắng trên ảnh), không thì Tab qua ảnh không thấy gì. */
+#home ~ #gallery .gallery-item:focus-visible { outline: 2px solid #fff; outline-offset: -12px; }
+#home ~ #gallery .gallery-item:focus-visible::after {
+    box-shadow: inset 0 0 0 1px rgba(60,40,20,.2), inset 0 0 0 4px var(--gold-on-light);
+}
+@media (min-width: 901px) {
+    #home ~ #gallery .gallery-item:nth-child(6) { grid-row: auto; grid-column: span 2; }
+}
+@media (min-width: 481px) and (max-width: 900px) {
+    #home ~ #gallery .gallery-item:nth-child(5) { grid-row: span 2; }
+}
+
+/* --- A2. Dây đèn: vùng đêm, 2 chỗ (mép trên khối đặt bàn + mép trên footer mọi trang).
+   Lớp ::after là quầng sáng, chỉ đổi opacity nên trình duyệt ghép lớp được. --- */
+.footer { position: relative; }
+#home ~ #booking::before,
+#home ~ #booking::after,
+.footer::before,
+.footer::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 40px;
+    z-index: 1;
+    pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='40'%3E%3Cpath d='M0 4Q100 32 200 4' fill='none' stroke='%23C9A96E' stroke-opacity='.55'/%3E%3Cg fill='%23FFE6AE'%3E%3Ccircle cx='25' cy='14' r='2.4'/%3E%3Ccircle cx='75' cy='21' r='2.4'/%3E%3Ccircle cx='125' cy='21' r='2.4'/%3E%3Ccircle cx='175' cy='14' r='2.4'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 200px 40px repeat-x;
+}
+#home ~ #booking::after,
+.footer::after {
+    --h: rgba(255,206,110,.5), #0000 10px;
+    background-image: radial-gradient(circle at 25px 14px, var(--h)), radial-gradient(circle at 75px 21px, var(--h)),
+                      radial-gradient(circle at 125px 21px, var(--h)), radial-gradient(circle at 175px 14px, var(--h));
+    animation: tdcDen 3.6s ease-in-out infinite alternate;
+}
+.footer::after { animation-delay: -1.8s; }
+@keyframes tdcDen {
+    from { opacity: .35; }
+    to { opacity: 1; }
+}
+.booking-wrapper,
+.footer .container { position: relative; z-index: 2; }
+
+/* --- Sửa kèm + tương phản (QA bản thử) --- */
+/* Thẻ Hotline / Mở cửa: xuống hàng thay vì bóp chữ thành 4 dòng (mục A14) */
+.booking-contact-cards { flex-wrap: wrap; }
+.contact-card :is(strong, span) { white-space: nowrap; }
+.faq-table caption { padding-left: 6px; }
+.story-badge-text { color: var(--gold); }
+.review-avatar { color: var(--night); }
+:is(.reviews-stars, .review-stars, .booking-mini-stars) { color: #9C7630; }
+/* Hai rule này có bản trong critical CSS của index.html (CRIT-NAV / hero): đổi thì chép sang */
+.navbar:not(.scrolled) { background: linear-gradient(rgba(15,13,10,.72), rgba(15,13,10,.4) 70%, #0000); }
+.hero-badge { background: rgba(15,13,10,.5); }
+
+/* --- CTA cuối bài blog (mục B12): thẻ tối bo góc đặt trên dải nền linen, tách khỏi footer.
+   Trước đây section viết style inline, nút vàng phẳng không hover/focus. Nay dùng nút chuẩn
+   .btn .btn-golden .btn-lg (biển đồng) trong templates/blog-post.html. --- */
+.blog-cta h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+    position: relative;
+}
+.blog-cta-cuoi {
+    background: var(--linen);
+    padding: 0 0 56px;
+}
+.blog-cta-cuoi .blog-cta {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+.blog-cta-cuoi .blog-cta p { font-size: 1rem; margin-bottom: 24px; }
+.blog-cta-cuoi .blog-cta .blog-cta-trust { margin: 18px 0 0; font-size: 0.9rem; }
+.blog-cta-trust a { color: var(--smoke-on-dark); }
+.blog-cta-trust a:is(:hover, :focus-visible) { color: var(--gold-light); }
+
+/* --- Khối đặt bàn trang chủ (mục A07, C01) ---
+   Điện thoại + tablet (<= 1024px, 1 cột): bấm "Đặt bàn" phải thấy form ngay dưới tiêu đề.
+   Bỏ khung .booking-info (display: contents), ẩn ba dòng cam kết (trùng 2/3 dòng .form-trust
+   trong form), hai thẻ Hotline / Mở cửa gọn thành MỘT hàng ngay trên form.
+   KHÔNG dùng order để đẩy form lên trước thẻ: thứ tự nhìn phải khớp thứ tự Tab và trình đọc
+   màn hình (WCAG 2.4.3, như footer mục C11). Không đổi HTML, máy tính giữ 2 cột.
+   Tablet trước đây chỉ về 1 cột mà không bỏ khung, nên form nằm dưới mép màn hình. */
+@media (max-width: 1024px) {
+    .booking-features { display: none; }
+    .booking-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+    }
+    .booking-info { display: contents; text-align: center; }
+    .booking-info > .section-tag { align-self: center; }
+    .booking-info > :is(.section-title, .booking-desc),
+    .booking-contact-cards,
+    .booking-form-wrapper { width: 100%; max-width: 720px; margin-inline: auto; }
+    .booking-desc { margin-bottom: 16px; }
+    .booking-contact-cards { flex-direction: row; flex-wrap: nowrap; gap: 12px; margin-bottom: 14px; }
+    .booking-contact-cards .contact-card { flex: 1 1 0; min-width: 0; justify-content: center; padding: 12px 16px; }
+}
+/* Điện thoại: icon nằm cạnh chữ (không chồng lên trên) cho thẻ thấp đi ~40px, form lên cao hơn.
+   Màn 360px trở xuống không đủ chỗ cho số hotline cạnh icon nên giữ kiểu chồng. */
+@media (min-width: 361px) and (max-width: 480px) {
+    .booking-contact-cards .contact-card { flex-direction: row; text-align: left; gap: 10px; padding: 10px 12px; }
+}
+@media (max-width: 360px) {
+    .booking-contact-cards .contact-card { padding: 12px 8px; }
+}
+
+/* --- Mục "Chọn chỗ ngồi" (mục B18): phụ đề gọn một khối, thẻ dãy bàn canh trái,
+   icon đầu tàu (viewBox 64x48) to hơn cho khỏi nhòe --- */
+#chon-cho-ngoi .perks-sub { max-width: 640px; margin: 14px auto 50px; font-style: normal; }
+#chon-cho-ngoi .perk-card { text-align: left; }
+#chon-cho-ngoi .perk-icon { margin: 0 0 14px; }
+.perk-icon svg[viewBox="0 0 64 48"] { width: 42px; height: 32px; }
+@media (max-width: 900px) {
+    #chon-cho-ngoi .perks-sub { margin-bottom: 32px; }
+}
+
+/* --- Thẻ trải nghiệm ở iPad dọc (mục B36): 2 cột, thẻ thứ ba nằm giữa --- */
+@media (min-width: 601px) and (max-width: 900px) {
+    .exp-timeline { grid-template-columns: 1fr 1fr; }
+    .exp-timeline > .exp-card:last-child { grid-column: 1 / -1; max-width: 560px; justify-self: center; }
+}
+
+/* --- Xem trước menu trang chủ (mục B37): dòng VAT sát nút, bỏ đường kẻ trôi --- */
+#menu .menu-note { margin-top: 20px; padding-top: 0; border-top: 0; }
+
+/* --- FAQ trang chủ trên máy tính (mục C20): bảng thông tin dính bên trái, câu hỏi bên phải --- */
+@media (min-width: 1025px) {
+    #home ~ #faq .container {
+        display: grid;
+        grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+        gap: 48px;
+        align-items: start;
+    }
+    #home ~ #faq .section-header { grid-column: 1 / -1; }
+    #home ~ #faq .faq-table-wrap { position: sticky; top: 96px; max-width: none; margin: 0; }
+    #home ~ #faq .faq-list { max-width: none; margin: 0; }
+}
+
+/* --- Vòng focus bàn phím chung (mục B14). Nền sáng dùng --gold-on-light (4,5:1 trở lên);
+   vùng tối dùng --gold-light. :where giữ độ đặc hiệu thấp để rule riêng của từng
+   thành phần (ô nhập form, flipbook) vẫn thắng. --- */
+:where(a, button, summary, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--gold-on-light);
+    outline-offset: 3px;
+}
+:where(.navbar, .dip-nav, .footer, .tiktok-gallery, .sticky-book-bar, .dip-hero, .menu-flipbook-section, .booking-info, .fab-contact,
+       #home ~ #tiktok, #home ~ #review, #home ~ #faq, #home ~ #cam-nang) :where(a, button, summary, select, [tabindex]):focus-visible {
+    outline-color: var(--gold-light);
+}
+/* Khung nền sáng nằm trong vùng tối: quay về màu cho nền sáng */
+:where(.review-card, .reviews-rating, .booking-form-wrapper, .map-wrapper) :where(a, button, summary, select, [tabindex]):focus-visible {
+    outline-color: var(--gold-on-light);
+}
+#home ~ #faq .faq-item summary:focus-visible { outline-color: var(--gold-light); }
+.btn-glass:focus-visible { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.5); }
+.nav-link:focus-visible { color: var(--white); background: rgba(255,255,255,.1); }
+
+/* --- Máy cảm ứng (mục B15): chạm xong hover dính lại làm thẻ/nút nhấc lên mãi.
+   Máy không có hover thì bỏ transform của trạng thái :hover; khi nhấn thì nút lún nhẹ. --- */
+@media (hover: none) {
+    .btn-golden:hover,
+    .btn-glass:hover,
+    .nav-cta:hover,
+    .sticky-book-btn:hover,
+    .booking-zalo-quick:hover,
+    .menu-cta .btn-golden:hover,
+    .exp-card:hover,
+    .exp-card:hover .exp-card-img img,
+    .perk-card:hover,
+    .perk-card:hover .perk-icon,
+    .review-card:hover,
+    .blog-card:hover,
+    .blog-card:hover .blog-card-img img,
+    .tiktok-item:hover,
+    .train-card:hover,
+    .menu-item:hover,
+    .menu-preview-page:hover,
+    .footer-social a:hover {
+        transform: none;
+    }
+}
+.btn:active,
+.sticky-book-btn:active,
+.fab-main:active,
+.nav-cta:active { transform: scale(.97); }
+
+/* --- Màn hẹp --- */
+@media (max-width: 768px) {
+    .section-tag { padding: 6px 18px 6px 38px; letter-spacing: 2.5px; }
+    .section-tag::before { left: 10px; }
+    .section-tag::after { left: 29px; }
+    #home ~ #booking { padding-bottom: 100px; background-size: 257px 48px, 100% 70px, auto, auto; }
+    #home ~ :is(#chon-cho-ngoi, #story, #gallery)::before { top: 16px; }
+    #home ~ #gallery .gallery-item { border-width: 5px; }
+    #home ~ .map-section { padding: 48px 0 60px; }
+    .map-section { padding: 48px 0 60px; }
+    .blog-cta-cuoi .blog-cta { padding: 40px 20px; }
+    .blog-cta h2 { font-size: 1.4rem; }
+}
+@media (max-width: 480px) {
+    #home ~ #booking { padding-bottom: 92px; }
+    /* Nhãn dài (trang dịp) gãy dòng thì chia đều hai dòng, không để một chữ đứng riêng */
+    .section-tag { letter-spacing: 1.5px; text-wrap: balance; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #home ~ #booking::after,
+    .footer::after { animation: none; opacity: .7; }
+}
+
+/* ============================================
+   LOP WOW (09/2026) - "mot buoi o Tram" chuyen dong
+   Dat SAU khoi A+C (dung tdcDen, --ve-*, --giay, --seam cua A+C).
+   Chi pseudo absolute/fixed + transform/opacity; moi chuyen dong nam
+   trong prefers-reduced-motion:no-preference. KHONG chep rule nao cua
+   lop nay vao critical CSS (CRIT-NAV / CRIT-MOBILE / CRIT-EXTRA): hinh
+   tau (--tau) khong duoc nam tren duong LCP, va hieu ung phai bat dau
+   khi style.min.css ve (sau lan ve dau).
+   Keyframe tien to w (wTau wNh wNhD wBat wRay wN wT wB wO wR) - khong
+   trung ten o tren. Doi padding #gallery/#review/#booking thi do lai
+   --wb/--wh. body:has(#home){overflow-x:clip} la BAT BUOC cho view():
+   overflow-x:hidden bien body thanh khung cuon, timeline dung yen.
+   ============================================ */
+/* wow-tong: 1 lop wow gop, dat SAU A+C. Chi transform/opacity; moi chuyen dong trong @media no-preference */
+:root{--tau:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-90 -24 680 84'%3E%3Cdefs%3E%3ClinearGradient id='b' x2='0' y2='1'%3E%3Cstop stop-color='%2334403c'/%3E%3Cstop offset='.45' stop-color='%231b2120'/%3E%3Cstop offset='1' stop-color='%230d0f0f'/%3E%3C/linearGradient%3E%3ClinearGradient id='w' x2='0' y2='1'%3E%3Cstop stop-color='%23FFF1CC'/%3E%3Cstop offset='1' stop-color='%23FFB24E'/%3E%3C/linearGradient%3E%3ClinearGradient id='h' x1='1' x2='0'%3E%3Cstop stop-color='%23FFE7B0' stop-opacity='.75'/%3E%3Cstop offset='1' stop-color='%23FFE7B0' stop-opacity='0'/%3E%3C/linearGradient%3E%3Cfilter id='f' x='-.3' y='-1' width='1.6' height='3'%3E%3CfeGaussianBlur stdDeviation='3.3'/%3E%3C/filter%3E%3Cfilter id='a' x='-.2' y='-.6' width='1.4' height='2.2'%3E%3CfeGaussianBlur stdDeviation='9'/%3E%3C/filter%3E%3Cg id='c'%3E%3Crect x='6' y='6' width='140' height='34' rx='12' fill='%23FF9D38' opacity='.3' filter='url(%23a)'/%3E%3Cpath d='M2 50V20Q2 13 10 12.5Q76 8.5 142 12.5Q150 13 150 20V50Z' fill='url(%23b)'/%3E%3Cpath d='M5 14.6Q76 9 147 14.6' fill='none' stroke='rgba(240,196,122,.75)'/%3E%3Cpath d='M13 19h126v15H13z' fill='%23FFA940' opacity='.6' filter='url(%23f)'/%3E%3Cpath d='M16 21h11v11h-11zm18 0h11v11h-11zm18 0h11v11h-11zm18 0h11v11h-11zm18 0h11v11h-11zm18 0h11v11h-11zm18 0h11v11h-11z' fill='url(%23w)' stroke='%23C99F4C' stroke-width='1.3'/%3E%3Cpath d='M16 25h11m7 0h11m7 0h11m7 0h11m7 0h11m7 0h11m7 0h11' stroke='%239A7432' stroke-width='.9'/%3E%3Cpath d='M4 39H148' stroke='rgba(201,159,76,.55)'/%3E%3Cpath d='M4 50h144v3H4zM11 51h28v5H11zm102 0h28v5h-28zm35-8h10v3h-10z' fill='%230d100f'/%3E%3Cpath d='M18 56.4h0m14 0h0m88 0h0m14 0h0' stroke='%230d100f' stroke-width='7.2' stroke-linecap='round'/%3E%3C/g%3E%3C/defs%3E%3Cpath d='M5 31L-86 14V58L5 36Z' fill='url(%23h)' filter='url(%23f)'/%3E%3Cpath d='M3 50V33Q3 28 9 28H31V14Q31 11 34 11H60Q63 11 63 14V21H89V17H95V21H110Q112 21 112 23V50Z' fill='url(%23b)'/%3E%3Cpath d='M6 34H110' stroke='rgba(0,0,0,.35)'/%3E%3Cpath d='M9 28.6H31M34 11.6H60M63 21.6H89M95 21.6H110' stroke='rgba(240,196,122,.75)'/%3E%3Cpath d='M36 16h9v8h-9zm13 0h9v8h-9z' fill='url(%23w)' opacity='.9'/%3E%3Cpath d='M4 41H112' stroke='rgba(201,159,76,.55)'/%3E%3Ccircle cx='6' cy='33' r='6' fill='%23FFE2A0' opacity='.8' filter='url(%23f)'/%3E%3Ccircle cx='5.5' cy='33' r='2.1' fill='%23FFF8E6'/%3E%3Cpath d='M2 50h114v3H2zM10 51h30v5H10zm66 0h30v5H76z' fill='%230d100f'/%3E%3Cpath d='M17 56.4h0m16 0h0m50 0h0m16 0h0' stroke='%230d100f' stroke-width='7.2' stroke-linecap='round'/%3E%3Cuse href='%23c' x='118'/%3E%3Cuse href='%23c' x='274'/%3E%3Cuse href='%23c' x='430'/%3E%3C/svg%3E")}
+.hero{--dt:73px;--dh:86px}
+.hero::before,.hero::after,.hero-overlay::before,.hero-overlay::after,.hero-particles::before{content:"";position:absolute;pointer-events:none}
+.hero::before{z-index:2;left:100%;bottom:4px;width:725px;height:90px;background:var(--tau) 0 0/100% 100% no-repeat;transform:translateX(-30%)}
+.hero::after{z-index:1;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,#0000,rgba(236,194,118,.55) 18% 82%,#0000) 0 2.8px/100% 1.3px no-repeat,repeating-linear-gradient(90deg,rgba(236,194,118,.22) 0 7px,#0000 0 19px) 0 5px/100% 2px no-repeat}
+.hero-overlay::before,.hero-overlay::after,.hero-particles::before{left:0;right:0;top:var(--dt);height:var(--dh);background:var(--i) 0 0/calc(var(--dh)*5.421) var(--dh) round no-repeat}
+.hero-overlay::before{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cpath d='M0 4Q103 60 206 4Q309 48 412 4' fill='none' stroke='%237A6040' stroke-width='1.2'/%3E%3Cpath d='M20.6 13.1v3.6M61.8 26.5v3.6M103 31v3.6M144.2 26.5v3.6M185.4 13.1v3.6M226.6 10.9v3.6M267.8 21.5v3.6M309 25v3.6M350.2 21.5v3.6M391.4 10.9v3.6' stroke='%232A2119' stroke-width='2.6'/%3E%3Cpath d='M20.6 19.2v1M61.8 32.6v1M103 37.1v1M144.2 32.6v1M185.4 19.2v1M226.6 17v1M267.8 27.6v1M309 31.1v1M350.2 27.6v1M391.4 17v1' stroke='%23A88A5A' stroke-width='4.8' stroke-linecap='round'/%3E%3C/svg%3E")}
+.hero-overlay::after{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cfilter id='g' filterUnits='userSpaceOnUse' x='-9' y='-10' width='430' height='76'%3E%3CfeGaussianBlur stdDeviation='4.5'/%3E%3C/filter%3E%3Cpath id='a' d='M20.6 19.7h0M103 37.6h0M185.4 19.7h0M267.8 28.1h0M350.2 28.1h0' stroke-linecap='round'/%3E%3Cuse href='%23a' stroke='%23FFA947' stroke-width='21' filter='url(%23g)'/%3E%3Cuse href='%23a' stroke='%23FFE7B4' stroke-width='5'/%3E%3Cuse href='%23a' stroke='%23FFFCF0' stroke-width='2.3'/%3E%3C/svg%3E")}
+.hero-particles::before{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -10 412 76' preserveAspectRatio='none'%3E%3Cfilter id='g' filterUnits='userSpaceOnUse' x='-9' y='-10' width='430' height='76'%3E%3CfeGaussianBlur stdDeviation='4.5'/%3E%3C/filter%3E%3Cpath id='a' d='M61.8 33.1h0M144.2 33.1h0M226.6 17.5h0M309 31.6h0M391.4 17.5h0' stroke-linecap='round'/%3E%3Cuse href='%23a' stroke='%23FFA947' stroke-width='21' filter='url(%23g)'/%3E%3Cuse href='%23a' stroke='%23FFE7B4' stroke-width='5'/%3E%3Cuse href='%23a' stroke='%23FFFCF0' stroke-width='2.3'/%3E%3C/svg%3E")}
+@media (max-width:768px) and (max-height:779px){.hero{--dt:57px}}
+@media (max-width:768px) and (max-height:720px){.hero-overlay::before,.hero-overlay::after,.hero-particles::before{display:none}}
+@media (min-width:769px){.hero{--dt:66px;--dh:92px}.hero::before{width:900px;height:111px;transform:translateX(-42%)}}
+@media (min-width:769px) and (max-height:760px){.hero{--dt:62px;--dh:73px}}
+.scroll-progress{--vet:linear-gradient(#0000 5px,#ECC46E1A 7.7px,#C9A24E 0 8.7px,#ECC46E1A 0 10.1px,#E8C672 0 11.3px,#0000 0);height:12px;pointer-events:none;box-shadow:none;background:var(--vet)}
+#gallery::after,#gallery>.container::before,#gallery>.container::after,#review::before,#review>.container::after,#booking>.container::before,#booking>.container::after,#home~#tiktok::before,#tiktok::after,#tiktok>.container::before,#tiktok>.container::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none;mask:var(--q)}
+#gallery,#review{--n:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='229' height='88'%3E%3Cfilter id='b'%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3C/filter%3E%3Cpath id='p' d='M185 14h.1M22 60h.1M175 16h.1M147 62h.1M188 53h.1M37 43h.1M120 16h.1M180 61h.1M154 21h.1'/%3E%3Cg stroke-linecap='round'%3E%3Cuse href='%23p' stroke='%23FF9E48' stroke-width='7' stroke-opacity='.55' filter='url(%23b)'/%3E%3Cuse href='%23p' stroke='%23FFE7B8' stroke-width='2.2'/%3E%3C/g%3E%3C/svg%3E")}
+#gallery{--wb:-50px;--wh:98px}#review{position:relative;--wb:-30px;--wh:88px}
+#gallery::after,#gallery>.container::before,#gallery>.container::after,#review::before,#review>.container::after{bottom:var(--wb);height:var(--wh)}
+#gallery::after,#gallery>.container::before,#gallery>.container::after{--q:linear-gradient(#000 64%,#0000 94%)}
+#gallery>.container::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='98'%3E%3Cpath d='M0 36C70 22 128 15 196 24S330 42 404 27S548 11 640 36V98H0Z' fill='%233A2A4A'/%3E%3C/svg%3E") 0 0/auto 100%,linear-gradient(#0000 10%,#E8887042 36%,#D678801F 52%,#0000 66%)}
+#gallery::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='98'%3E%3Cpath d='M0 98V64q8 -6 16 0h3q8.5 -8 17 0h3q7 -10 14 0h3l8 -4 8 4q7 -10 14 0q7.5 -10 15 0h3l8.5 -4 8.5 4H130V98Z' fill='%2319132C'/%3E%3C/svg%3E") 40px 0/auto 100%,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='98'%3E%3Cpath d='M0 98V50l10 1l3-11 3 12h4l3-7 3 6h4l2-6 2 5l5 -1l2-8 2 7l2 -1l2-14 2 13h2l2-6 2 5h2l3-12 3 11h1l3-11 3 11h4l3-13 3 13l14 2l2-8 2 8h12l2-12 2 12h3l3-14 3 13h5l2-8 2 8l11 1l3-8 3 9l2 1l2-5 2 5L160 50V98Z' fill='%23221A36'/%3E%3C/svg%3E") -50px 0/auto 100%}
+#gallery>.container::after{z-index:2;background:var(--n) 70px 150%/auto 72% repeat-x}
+#tiktok{isolation:isolate;--s:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='233' height='173'%3E%3Cg stroke='%23FFF3DC' stroke-linecap='round'%3E%3Cpath d='M22 102h.1M166 80h.1M209 41h.1M180 127h.1M153 5h.1M109 53h.1M207 51h.1' stroke-opacity='.8' stroke-width='1.2'/%3E%3Cpath d='M160 132h.1M53 107h.1' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E")}
+#home~#tiktok::before,#tiktok::after{inset:0;z-index:-1;background:var(--s) 0 0/233px 173px;--q:linear-gradient(#0000 50px,#000 140px,#000 calc(100% - 110px),#0000 calc(100% - 20px))}
+#tiktok::after{background-position:97px 61px;background-size:347px 258px}
+#tiktok>.container::before{inset:auto -30px 46px auto;width:90px;height:1.5px;background:linear-gradient(90deg,#0000,#FFECC8D9);opacity:0;transform:rotate(165deg)}
+#tiktok>.container::after{inset:18px 12px auto auto;width:64px;height:64px;z-index:-1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M16.9 12A8.6 8.6 0 1 0 28 23.1 8.4 8.4 0 0 1 16.9 12z' fill='%23F7E8C6'/%3E%3C/svg%3E") 50%/40px no-repeat,radial-gradient(closest-side,#F7E8C62B,#0000)}
+#review::before,#review>.container::after{--q:linear-gradient(#0000,#000 18%,#000 70%,#0000)}
+#review::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='88'%3E%3Cdefs%3E%3Cfilter id='b'%3E%3CfeGaussianBlur stdDeviation='1.3'/%3E%3C/filter%3E%3Cpath id='r' d='M-200 12H600' stroke-dasharray='0 5 0 5 0 31 0 6 0 38 0 4 0 4 0 4 0 24 0 7 0 7 0 29 0 5 0 44 0 5 0 5 0 21'/%3E%3Cpath id='t' d='M-200 12H600' stroke-dasharray='0 4 0 4 0 4 0 47 0 6 0 19 0 5 0 5 0 33 0 4 0 26 0 6 0 6 0 6 0 41'/%3E%3Cpath id='s' d='M-200 12H600' stroke-dasharray='10 29 7 20 4 48 5 53 6 28 11 55'/%3E%3C/defs%3E%3Cg filter='url(%23b)' stroke='%23FFB45C' stroke-opacity='.45' stroke-width='2.4'%3E%3Cuse href='%23s' y='15'/%3E%3Cuse href='%23s' transform='translate(-40 20)scale(1.2)'/%3E%3Cuse href='%23s' transform='translate(-9 26)scale(1.4)'/%3E%3Cuse href='%23s' transform='translate(-75 32)scale(1.6)'/%3E%3C/g%3E%3Cg stroke='%23FFE3A6' stroke-linecap='round' stroke-width='1.4'%3E%3Cuse href='%23r' transform='translate(-9 4.2)scale(.65)'/%3E%3Cuse href='%23t' transform='translate(-40 8)scale(.75)' stroke='%23FFD084'/%3E%3Cuse href='%23r' transform='translate(-71 11.8)scale(.85)'/%3E%3Cuse href='%23t' y='16' stroke='%23FFD084'/%3E%3Cuse href='%23r' transform='translate(-120 21.2)scale(1.15)'/%3E%3Cuse href='%23t' transform='translate(-57 26.8)scale(1.35)' stroke='%23FFD084'/%3E%3Cuse href='%23r' transform='translate(-150 32.8)scale(1.6)'/%3E%3Cuse href='%23t' transform='translate(-88 38.2)scale(1.9)' stroke='%23FFD084'/%3E%3C/g%3E%3C/svg%3E") 0 0/auto 100%,radial-gradient(70% 50% at 50% 46%,#FFA84C2E,#0000 72%)}
+#review>.container::after{background:var(--n) 0 0/auto 100%}
+#booking>.container::before,#booking>.container::after{bottom:var(--eb,8px);height:26px;opacity:0;--t:radial-gradient(circle,#FFE2AE 0 1px,#FF9240BF 1.7px,#0000 4.5px);background:var(--t) 14% 90%,var(--t) 51% 10%,var(--t) 86% 60%;background-size:10px 10px;background-repeat:no-repeat}
+#booking>.container::after{background-position:31% 20%,68% 100%,93% 0;scale:-1 1}
+@media (min-width:769px){#gallery{--wb:-60px;--wh:160px}#review{--wb:-46px;--wh:120px}#booking{--eb:14px}#tiktok>.container::before{right:8%}#tiktok>.container::after{inset:22px 6% auto auto;width:84px;height:84px}}
+/* Form = tam ve tau, dung chung trang chu + 4 trang dip. Gia tri dat trong bien --ve-*:
+   css/dip-landing.css nap SAU file nay va khai lai padding/nen/mask/bo goc cho .dip-form-wrapper
+   (do dac hieu bang nhau nen no thang), nen CUOI dip-landing.css phai ap lai tu cac bien nay.
+   Khong dung [class*=form-wrapper]: vua qua rong vua che mat loi thu tu nap. */
+:is(.booking-form-wrapper,.dip-form-wrapper){--band:58px;--stub:64px;--rw:190px;--dinh:radial-gradient(circle at 38% 36%,#FFF5D2 0 .9px,#E6C06C 2.2px,#9C7026 3.9px,#5C3F12 4.6px,#0000 5.1px) no-repeat;--ve-pt:calc(var(--band) + 34px);--ve-pb:calc(var(--stub) + 30px);--ve-m:radial-gradient(circle 12px at 12px calc(100% - 12px),#0000 95%,#000) -12px calc(12px - var(--stub))/100% 100%;--ve-nen:radial-gradient(circle,#1C1511 1.8px,#0000 2.3px) left 5px bottom calc(var(--stub) - 3px)/10px 6px repeat-x,linear-gradient(#F3E5C8,#EDDCBA) 0 100%/100% var(--stub) no-repeat,var(--giay);position:relative;border-radius:16px;padding-top:var(--ve-pt);padding-bottom:var(--ve-pb);-webkit-mask:var(--ve-m);mask:var(--ve-m);background:var(--ve-nen)}
+:is(.booking-form-wrapper,.dip-form-wrapper):before,:is(.booking-form-wrapper,.dip-form-wrapper):after{content:"";position:absolute;left:0;right:0;pointer-events:none}
+:is(.booking-form-wrapper,.dip-form-wrapper):before{top:0;height:var(--band);border-radius:16px 16px 0 0;background:var(--dinh) 14px 50%/12px 12px,var(--dinh) calc(100% - 14px) 50%/12px 12px,radial-gradient(circle,#FFF3CC 1.9px,#E2BB68 2.4px 4.8px,#0000 5.3px) calc(50% + var(--rw)) 50%/12px 12px no-repeat,radial-gradient(#FFD68073,#0000 70%) calc(50% + var(--rw)) 50%/38px 38px no-repeat,radial-gradient(circle,#0000 2.9px,#E2BB68 3.3px 4.5px,#0000 5px) calc(50% - var(--rw)) 50%/12px 12px no-repeat,repeating-linear-gradient(90deg,#E2BB689E 0 5px,#0000 0 9px) 50%/calc(2*var(--rw) - 18px) 1.5px no-repeat,linear-gradient(90deg,#0000,#C9A15A 8% 92%,#0000) 0 calc(100% - 5px)/100% 1px no-repeat,linear-gradient(#3A2B1F,#261B13)}
+:is(.booking-form-wrapper,.dip-form-wrapper):after{bottom:0;height:var(--stub);border-radius:0 0 16px 16px;background:radial-gradient(circle,#17120F 4.6px,#5A3C1973 5.2px,#0000 6px) calc(100% - 24px) 50%/14px 14px no-repeat,var(--dinh) 22px 50%/12px 12px,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 9' preserveAspectRatio='none'%3E%3Cpath d='M0 4.5h140' stroke='%23382815' stroke-width='9' stroke-dasharray='1 1.5 1 2 3 1 1 2 3 1 2 1 1 1.5 3 2 1 1 2 1 1 2 2 1 1 3'/%3E%3C/svg%3E") 50%/min(230px,56%) 28px no-repeat}
+@media (max-width:768px){:is(.booking-form-wrapper,.dip-form-wrapper){--band:54px;--stub:60px;--rw:112px;--ve-pt:calc(var(--band) + 26px);--ve-pb:calc(var(--stub) + 22px)}}
+@media (max-width:480px){:is(.booking-form-wrapper,.dip-form-wrapper){--rw:min(112px,calc(50vw - 64px))}}
+#home~#gallery{overflow-x:clip}
+#gallery .gallery-grid{gap:30px 24px;grid-auto-rows:290px}
+#home~#gallery .gallery-item{-webkit-mask:none;mask:none;border:0;border-radius:3px;background:linear-gradient(170deg,#FFFDF7,#F3EBDB)}
+/* min-width/min-height:0: overflow:visible (cho bang keo lo ra) lam mat co che min-width:auto -> 0 cua o luoi,
+   chu alt cua anh cho (chua co src that) keo cot luoi lech (1 cot 20px o 1366). */
+#gallery .gallery-item{--r:-1.6deg;overflow:visible;min-width:0;min-height:0;padding:10px 10px 42px;box-shadow:0 1px 2px #2312064D,0 12px 24px -10px #23120699;rotate:calc(var(--r)*var(--k,1))}
+.gallery-item:nth-child(2n){--r:2deg}.gallery-item:nth-child(3){--r:-2deg}.gallery-item:nth-child(4){--r:.8deg}.gallery-item:nth-child(6){--r:-.9deg}
+#gallery .gallery-item:hover img{transform:none}
+#gallery .gallery-item:before{content:"";position:absolute;z-index:2;top:-11px;left:calc(50% - 43px);width:86px;height:24px;rotate:-3deg;background:linear-gradient(#FFF5,#0000 45%,#785A281A),#E9D6AACC;clip-path:polygon(0 0,100% 0,97% 30%,100% 60%,97% 100%,0 100%,3% 70%,0 40%)}
+#gallery .gallery-item:nth-child(3n+2):before{top:5px;left:-14px;width:76px;rotate:-42deg}
+#gallery .gallery-item:nth-child(3n):before{top:5px;left:calc(100% - 62px);width:76px;rotate:41deg}
+#gallery .gallery-caption{inset:auto 0 0;height:42px;padding:0 14px 2px;background:none;opacity:1;justify-content:center;align-items:center}
+#gallery .gallery-caption span{color:#4E3920;font:700 1.4rem var(--font-accent)}
+@media (hover:hover){#gallery .gallery-item:hover{rotate:0deg;translate:0 -8px;scale:1.025;z-index:3}}
+@media (max-width:900px){#gallery .gallery-grid{gap:26px 20px;grid-auto-rows:240px}#gallery .gallery-item{--k:.8}}
+@media (max-width:768px){#gallery .gallery-grid{grid-auto-rows:214px}#gallery .gallery-item{padding:8px 8px 36px}#gallery .gallery-caption{height:36px}#gallery .gallery-caption span{font-size:1.25rem}}
+@media (max-width:480px){#gallery .gallery-grid{gap:22px;grid-auto-rows:262px}#gallery .gallery-item{--k:.62}}
+@media (prefers-reduced-motion:no-preference){
+.hero::before{animation:wTau 28s linear 1.6s infinite both}
+.hero-scroll-hint{animation:wNh 28s linear 1.6s infinite both}
+.hero-overlay::after{animation:wBat 1.2s linear .3s both}
+.hero-particles::before{animation:wBat 1.2s linear .8s both}
+@media (min-width:769px){.hero::before{animation-duration:40s}.hero-scroll-hint{animation-name:wNhD;animation-duration:40s}}
+#gallery>.container::after,#review>.container::after{animation:wN 6.4s ease -1s infinite alternate}
+#home~#tiktok::before{animation:wN 8s ease -3s infinite alternate}
+#tiktok>.container::before{animation:wB 23s linear -9s infinite}
+#booking>.container::before{animation:wT 10s ease-out infinite}
+#booking>.container::after{animation:wT 13s ease-out -5s infinite}
+#gallery .gallery-item{transition:opacity .7s,transform .7s,rotate .9s cubic-bezier(.2,.9,.3,1.2),scale .9s,translate .45s}
+#gallery .gallery-item.reveal:not(.visible){rotate:calc(var(--r)*var(--k,1)*-3);scale:1.06}
+@supports (animation-timeline:view()){body:has(#home){overflow-x:clip}
+.scroll-progress{width:auto!important;right:0;background:linear-gradient(#0000 7.7px,#D4A84342 0 8.7px,#0000 0 10.1px,#D4A8435C 0 11.3px,#0000 0),repeating-linear-gradient(90deg,#D4A8432B 0 1.6px,#0000 0 7px) 0 7.2px/100% 4.6px no-repeat}
+.scroll-progress::after{content:"";position:fixed;inset:0 0 auto;height:12px;scale:-1 1;transform:translateX(calc(100% - 150px));background:var(--tau) 0 100%/150px 18.5px no-repeat,var(--vet) 100% 0/calc(100% - 140px) 12px no-repeat;animation:wRay linear both;animation-timeline:scroll(root)}
+#review::before{animation:wO linear both;animation-timeline:view();animation-range:cover 8% cover 30%}
+#gallery>.container::before{animation:wR linear both;animation-timeline:view()}}}
+@keyframes wTau{0%{transform:none}42%,to{transform:translateX(calc(-100vw - 100%))}}
+@keyframes wNh{0%,6%,40%,to{opacity:1}9%,36.5%{opacity:0}}
+@keyframes wNhD{0%,10%,33%,to{opacity:1}12.5%,30.5%{opacity:0}}
+@keyframes wBat{0%{opacity:0}22%{opacity:.6}30%{opacity:.08}48%{opacity:.85}56%{opacity:.35}to{opacity:1}}
+@keyframes wRay{to{transform:none}}
+@keyframes wN{from{opacity:.3}}
+@keyframes wT{0%{opacity:0;transform:none}12%{opacity:1}55%{opacity:.85;transform:translate(8px,-40px)}78%,to{opacity:0;transform:translate(0,-62px)}}
+@keyframes wB{0%,95%{opacity:0;transform:rotate(165deg)}96%{opacity:1}98%,to{opacity:0;transform:rotate(165deg) translateX(150px)}}
+@keyframes wO{from{opacity:0}}
+@keyframes wR{from{transform:translateY(-14px)}to{transform:translateY(10px)}}
+
+/* Lop wow cho blog da tach ra file rieng (25/09/2026): css/wow-blog-ds.css (blog.html + tac gia)
+   va css/wow-blog-bai.css (bai blog). Moi trang chi tai lop cua minh. */

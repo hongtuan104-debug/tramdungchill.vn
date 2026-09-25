@@ -54,12 +54,13 @@
     @font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:103.25%;ascent-override:93.83%;descent-override:23.36%;line-gap-override:0%}@font-face{font-family:'Dancing Script Fallback';src:local('Arial');size-adjust:82.92%;ascent-override:110.95%;descent-override:33.77%;line-gap-override:0%}@font-face{font-family:'Playfair Fallback';src:local('Georgia');size-adjust:98.65%;ascent-override:109.68%;descent-override:25.44%;line-gap-override:0%}:root{--gold:#D4A853;--gold-light:#F0D48A;--gold-dark:#B8922E;--sunset:#E8814F;--sunset-deep:#C8572A;--ember:#A5451F;--night:#0F0D0A;--night-soft:#1A1612;--charcoal:#2C2420;--wood:#3D3229;--smoke:#8B7D6B;--cream:#FDF8F3;--linen:#F5EDE3;--parchment:#EDE4D8;--white:#FFFFFF;--border:#E0D5C7;--font-display:'Playfair Display','Playfair Fallback',Georgia,serif;--font-body:'Inter','Inter Fallback',-apple-system,sans-serif;--font-accent:'Dancing Script','Dancing Script Fallback',cursive;--shadow-soft:0 4px 20px rgba(15,13,10,0.08);--shadow-medium:0 8px 30px rgba(15,13,10,0.12);--shadow-heavy:0 12px 50px rgba(15,13,10,0.2);--shadow-gold:0 4px 25px rgba(212,168,83,0.3);--glow-gold:0 0 40px rgba(212,168,83,0.15);--radius:12px;--radius-lg:20px;--radius-xl:28px;--radius-full:50px;--ease:cubic-bezier(0.4,0,0.2,1)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;scroll-padding-top:80px;font-size:16px;overflow-x:hidden}
-    body{font-family:var(--font-body);color:var(--wood);background:var(--cream);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{font-family:var(--font-body);color:var(--wood);background:var(--cream);line-height:1.6;overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit;transition:all .3s var(--ease)}ul{list-style:none}button{border:none;background:none;cursor:pointer;font-family:inherit}
     .container{max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     ::selection{background:var(--gold);color:var(--night)}
     .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s var(--ease)}
+    .navbar:not(.scrolled){background:linear-gradient(rgba(15,13,10,.72),rgba(15,13,10,.4) 70%,#0000)}
     .navbar.scrolled{background:rgba(15,13,10,0.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:12px 0;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
     .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{display:flex;align-items:center;gap:12px}
@@ -68,8 +69,8 @@
     .logo-sub{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:.8;line-height:1}
     .logo-main{font-family:var(--font-accent);font-size:1.4rem;color:var(--white);font-weight:700;line-height:1.2}
     .nav-menu{display:flex;align-items:center;gap:4px}
-    .nav-link{color:rgba(255,255,255,0.75);font-size:.88rem;font-weight:500;padding:8px 16px;border-radius:var(--radius-full);transition:all .3s var(--ease);letter-spacing:.3px}
-    .nav-cta{background:linear-gradient(135deg,var(--gold-dark),var(--gold))!important;color:var(--night)!important;font-weight:600!important}
+    .nav-link{color:rgba(255,255,255,0.75);font-size:.88rem;font-weight:500;padding:8px 16px;border-radius:var(--radius-full);transition:all .3s var(--ease);letter-spacing:.3px;white-space:nowrap}
+    .nav-cta{background:linear-gradient(#F5DC9B,#E1B963 44%,#CB9D42 62%,#DDB566)!important;color:var(--night)!important;font-weight:600!important;box-shadow:inset 0 0 0 1px #A7822C,inset 0 1px 0 rgba(255,250,230,.8)}
     .nav-right{display:flex;align-items:center;gap:16px}
     .nav-phone{display:flex;align-items:center;gap:8px;color:var(--gold);font-size:.85rem;font-weight:600;padding:8px 16px;border:1px solid rgba(212,168,83,0.3);border-radius:var(--radius-full);transition:all .3s var(--ease)}
     .lang-toggle{display:flex;align-items:center;justify-content:center;gap:5px;height:36px;padding:0 12px;border-radius:var(--radius-full);border:1px solid rgba(212,168,83,0.4);background:rgba(255,255,255,0.08);cursor:pointer;transition:all .3s var(--ease);position:relative;overflow:hidden}
@@ -83,17 +84,17 @@
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,13,10,0.5) 0%,rgba(15,13,10,0.15) 35%,rgba(15,13,10,0.1) 50%,rgba(15,13,10,0.5) 85%,rgba(15,13,10,0.8) 100%);z-index:1}
     .hero-particles{position:absolute;inset:0;z-index:2;pointer-events:none}
     .hero-content{position:relative;z-index:3;text-align:center;color:var(--white);padding:0 24px;max-width:800px}
-    .hero-badge{display:inline-block;padding:6px 20px;background:rgba(212,168,83,0.15);border:1px solid rgba(212,168,83,0.3);border-radius:var(--radius-full);font-size:.8rem;font-weight:500;color:var(--gold-light);letter-spacing:1px;margin-bottom:24px;backdrop-filter:blur(10px)}
+    .hero-badge{display:inline-block;padding:6px 20px;background:rgba(15,13,10,.5);border:1px solid rgba(212,168,83,0.3);border-radius:var(--radius-full);font-size:.8rem;font-weight:500;color:var(--gold-light);letter-spacing:1px;margin-bottom:24px;backdrop-filter:blur(10px);text-wrap:balance}
     .hero-title{margin-bottom:20px}
     .hero-title-sub{display:block;font-family:var(--font-body);font-size:1rem;font-weight:300;letter-spacing:8px;text-transform:uppercase;opacity:.85;margin-bottom:8px}
-    .hero-title-main{display:block;font-family:var(--font-accent);font-size:clamp(3.2rem,9vw,6rem);font-weight:700;line-height:1.05;color:var(--white);text-shadow:0 4px 40px rgba(0,0,0,0.5);background:linear-gradient(180deg,var(--white) 0%,var(--gold-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-title-main{display:block;font-family:var(--font-accent);font-size:clamp(3.2rem,9vw,6rem);font-weight:700;line-height:1.05;color:var(--white);text-shadow:0 4px 40px rgba(0,0,0,0.5);background:linear-gradient(180deg,var(--white) 0%,var(--gold-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding:0 .12em .14em;margin:0 -.12em -.14em}
     .hero-divider{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:24px}
     .divider-line{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
     .divider-dot{width:4px;height:4px;background:var(--gold);border-radius:50%}
     .hero-description{font-size:1.15rem;font-weight:300;line-height:1.9;opacity:.9;margin-bottom:40px;max-width:550px;margin-left:auto;margin-right:auto}
     .hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:var(--radius-full);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .3s var(--ease);border:2px solid transparent;text-align:center;letter-spacing:.3px}
-    .btn-golden{background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--night);border-color:var(--gold)}
+    .btn-golden{background:linear-gradient(#F5DC9B,#E1B963 44%,#CB9D42 62%,#DDB566);color:var(--night);border-color:#A7822C;box-shadow:inset 0 1px 0 rgba(255,250,230,.85),inset 0 -3px 4px rgba(110,78,18,.25),0 6px 16px -6px rgba(70,46,10,.55)}
     .btn-glass{background:rgba(255,255,255,0.08);color:var(--white);border-color:rgba(255,255,255,0.25);backdrop-filter:blur(10px)}
     .animate-fade-up{opacity:0;transform:translateY(30px);animation:fadeUp .4s var(--ease) forwards}
     .delay-1{animation-delay:.04s}.delay-2{animation-delay:.08s}.delay-3{animation-delay:.12s}.delay-4{animation-delay:.16s}
@@ -101,13 +102,13 @@
     
     .hero-scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;pointer-events:none}
     .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--sunset));z-index:1001;transition:width .05s linear;box-shadow:0 0 8px rgba(212,168,83,0.5)}
-    /*CRIT-EXTRA-START*/.hero-trust{margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(0,0,0,0.35);border:1px solid rgba(212,168,83,0.25);border-radius:var(--radius-full);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:0.82rem;color:rgba(255,255,255,0.85)}.trust-stars{color:var(--gold);letter-spacing:1px;font-size:0.85rem;text-shadow:0 0 8px rgba(212,168,83,0.5);flex-shrink:0}.trust-text{white-space:nowrap;letter-spacing:0.2px}.trust-line{white-space:nowrap}.mouse{width:22px;height:34px;border:2px solid rgba(255,255,255,0.3);border-radius:12px;position:relative}.mouse-wheel{width:3px;height:8px;background:var(--gold);border-radius:3px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollWheel 2s ease-in-out infinite}.sticky-book-bar{position:fixed;bottom:0;transform:translateY(100%);left:0;right:0;z-index:1000;background:linear-gradient(135deg,rgba(15,13,10,0.98),rgba(26,22,18,0.98));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(212,168,83,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:transform 0.4s var(--ease);box-shadow:0 -8px 30px rgba(0,0,0,0.4)}.sticky-book-info{flex:1;min-width:0}.sticky-book-title{font-size:0.95rem;font-weight:700;color:var(--gold);margin-bottom:2px}.sticky-book-title{font-size:0.88rem}.sticky-book-sub{font-size:0.75rem;color:rgba(255,255,255,0.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sticky-book-sub{font-size:0.75rem}.sticky-book-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--night);font-weight:700;font-size:0.9rem;border-radius:var(--radius-full);box-shadow:0 4px 20px rgba(212,168,83,0.4);transition:all 0.3s var(--ease);flex-shrink:0;text-decoration:none;min-height:48px}.sticky-book-btn{padding:10px 18px;font-size:0.85rem;min-height:48px}.sticky-book-bar.visible{transform:translateY(0)}/*CRIT-EXTRA-END*//*CRIT-OVERLAY-START*//* Giau #successModal va #lightbox NGAY TU KHUNG HINH DAU. Ca hai chi duoc giau trong dist/style.min.css — file tai async — nen truoc khi no ve, hai khoi nay la chu tran nam trong luong tai lieu. PageSpeed 30/08/2026 bao phan tu LCP la <p class="modal-phone"> (Hotline trong modal dat ban thanh cong), render delay 2.790ms. Rule .modal.active / .lightbox.active trong style.css co do uu tien (0,2,0) cao hon dong nay (0,1,0) nen mo modal van chay binh thuong. */.lightbox,.modal{position:fixed;inset:0;opacity:0;visibility:hidden;pointer-events:none}/*CRIT-OVERLAY-END*//*CRIT-MOBILE-START*//* Ban mobile cua hero. THIEU KHOI NAY = CLS 0,275 (PageSpeed 30/08/2026): critical CSS chi co so do desktop, nen khung hinh dau tren may 412px ve hero theo desktop, toi khi style.min.css (tai async) ve thi .hero-buttons doi sang flex-direction:column, chu title 51,2px tut con 41,6px, the <br> trong mo ta bi an... Tat ca doi cung luc, ma .hero la flex align-items:center nen ca khoi tu can giua lai -> nhay 0,270. Truoc 30/08/2026 lop .preloader che dung khoanh khac do nen khong ai thay. Sua rule mobile trong style.css thi PHAI sua ca day. */@media(max-width:768px){.hero{min-height:100vh;min-height:100dvh}.hero-content{padding:0 20px}.hero-description br{display:none}.hero-description{font-size:1.05rem;line-height:1.75}.hero-scroll-hint{bottom:calc(16px + env(safe-area-inset-bottom,0px))}}@media(max-width:600px){.trust-text{white-space:normal;text-align:center}.hero-trust{margin-top:20px;padding:7px 14px;font-size:0.75rem;gap:8px;max-width:95vw}.trust-stars{font-size:0.75rem;letter-spacing:0.5px}}@media(max-width:480px){.trust-line{display:block}.trust-sep{display:none}.hero-title-sub{letter-spacing:4px;font-size:0.82rem}.hero-title-main{font-size:2.6rem}.hero-badge{font-size:0.72rem;padding:5px 14px;max-width:90%}.hero-description{font-size:0.95rem;margin-bottom:24px}.hero-buttons{flex-direction:column;width:100%;max-width:300px;margin:0 auto}.hero-buttons .btn{width:100%;justify-content:center}}@media(max-width:380px){.hero-trust{font-size:0.75rem;padding:6px 12px}}@media(max-width:360px){.hero-title-main{font-size:2.2rem}.hero-content{padding:0 16px}}@media(max-width:768px) and (max-height:500px){.hero{min-height:100vh}.hero-scroll-hint{display:none}}/*CRIT-MOBILE-END*//*CRIT-NAV-START*//* Ban MOBILE cua thanh nav. Thieu khoi nay thi khung hinh dau tren dien thoai ve nav theo so do DESKTOP: .nav-menu la flex hang ngang 7 muc, hamburger thi display:none — dung bo mat desktop tren man 360px. Toi khi dist/style.min.css (tai async) ve moi doi sang nav mobile. Cung ban chat voi loi hero da ghi o CRIT-MOBILE ben tren, chi khac la .navbar position:fixed nen no khong day noi dung trang — cai nhay nam BEN TRONG thanh nav. Chi chep nhung rule anh huong BO CUC khung hinh dau; kieu chu cua .nav-link mobile hay animation cua .nav-toggle.active de style.min.css lo, vi luc do .nav-menu da bi transform:translateX(100%) day han ra ngoai man hinh roi. Giu .nav-menu.open de phong khach bam hamburger truoc khi CSS async ve. SUA RULE NAV MOBILE TRONG style.css THI PHAI SUA CA DAY. */@media(max-width:768px){.nav-menu{display:flex!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;background:rgba(15,13,10,0.98)!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;padding:0 32px;gap:8px;transform:translateX(100%);z-index:1002;overflow-y:auto;margin:0}.nav-menu.open{transform:translateX(0)!important}.nav-toggle{display:flex;position:relative;z-index:1003}.nav-right{position:relative;z-index:1003;gap:8px}.nav-phone span{display:none}.nav-phone{padding:8px;border:none;min-width:48px;min-height:48px;justify-content:center}.lang-toggle{padding:0 10px;height:48px}.logo-main{font-size:clamp(1rem,3.5vw,1.4rem);white-space:nowrap}.logo-sub{font-size:clamp(0.5rem,1.5vw,0.6rem)}}@media(max-width:380px){.nav-container{padding:0 14px}.nav-right{gap:6px}.logo-icon{display:none}}/*CRIT-NAV-END*/</style>
+    /*CRIT-EXTRA-START*/.hero-trust{margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(0,0,0,0.35);border:1px solid rgba(212,168,83,0.25);border-radius:var(--radius-full);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:0.82rem;color:rgba(255,255,255,0.85)}.trust-stars{color:var(--gold);letter-spacing:1px;font-size:0.85rem;text-shadow:0 0 8px rgba(212,168,83,0.5);flex-shrink:0}.trust-text{white-space:nowrap;letter-spacing:0.2px}.trust-line{white-space:nowrap}.mouse{width:22px;height:34px;border:2px solid rgba(255,255,255,0.3);border-radius:12px;position:relative}.mouse-wheel{width:3px;height:8px;background:var(--gold);border-radius:3px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollWheel 2s ease-in-out infinite}.sticky-book-bar{position:fixed;bottom:0;transform:translateY(100%);left:0;right:0;z-index:1000;background:linear-gradient(135deg,rgba(15,13,10,0.98),rgba(26,22,18,0.98));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(212,168,83,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:transform 0.4s var(--ease);box-shadow:0 -8px 30px rgba(0,0,0,0.4)}.sticky-book-info{flex:1;min-width:0}.sticky-book-title{font-size:0.95rem;font-weight:700;color:var(--gold);margin-bottom:2px}.sticky-book-title{font-size:0.88rem}.sticky-book-sub{font-size:0.75rem;color:rgba(255,255,255,0.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sticky-book-sub{font-size:0.75rem}.sticky-book-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(#F5DC9B,#E1B963 44%,#CB9D42 62%,#DDB566);color:#0F0D0A;font-weight:700;font-size:0.9rem;border-radius:var(--radius-full);box-shadow:0 0 0 1px #A7822C,inset 0 1px 0 rgba(255,250,230,.85),inset 0 -3px 4px rgba(110,78,18,.25),0 6px 16px -6px rgba(70,46,10,.55);transition:all 0.3s var(--ease);flex-shrink:0;text-decoration:none;min-height:48px}.sticky-book-btn{padding:10px 18px;font-size:0.85rem;min-height:48px}.sticky-book-bar.visible{transform:translateY(0)}/*CRIT-EXTRA-END*//*CRIT-OVERLAY-START*//* Giau #successModal va #lightbox NGAY TU KHUNG HINH DAU. Ca hai chi duoc giau trong dist/style.min.css — file tai async — nen truoc khi no ve, hai khoi nay la chu tran nam trong luong tai lieu. PageSpeed 30/08/2026 bao phan tu LCP la <p class="modal-phone"> (Hotline trong modal dat ban thanh cong), render delay 2.790ms. Rule .modal.active / .lightbox.active trong style.css co do uu tien (0,2,0) cao hon dong nay (0,1,0) nen mo modal van chay binh thuong. */.lightbox,.modal{position:fixed;inset:0;opacity:0;visibility:hidden;pointer-events:none}/*CRIT-OVERLAY-END*//*CRIT-MOBILE-START*//* Ban mobile cua hero. THIEU KHOI NAY = CLS 0,275 (PageSpeed 30/08/2026): critical CSS chi co so do desktop, nen khung hinh dau tren may 412px ve hero theo desktop, toi khi style.min.css (tai async) ve thi .hero-buttons doi sang flex-direction:column, chu title 51,2px tut con 41,6px, the <br> trong mo ta bi an... Tat ca doi cung luc, ma .hero la flex align-items:center nen ca khoi tu can giua lai -> nhay 0,270. Truoc 30/08/2026 lop .preloader che dung khoanh khac do nen khong ai thay. Sua rule mobile trong style.css thi PHAI sua ca day. */@media(max-width:768px){.hero{min-height:100vh;min-height:100dvh}.hero-content{padding:0 20px}.hero-description br{display:none}.hero-description{font-size:1.05rem;line-height:1.75}.hero-scroll-hint{bottom:calc(16px + env(safe-area-inset-bottom,0px))}}@media(max-width:600px){.trust-text{white-space:normal;text-align:center}.hero-trust{margin-top:20px;padding:7px 14px;font-size:0.75rem;gap:8px;max-width:95vw}.trust-stars{font-size:0.75rem;letter-spacing:0.5px}}@media(max-width:480px){.trust-line{display:block}.trust-sep{display:none}.hero-title-sub{letter-spacing:4px;font-size:0.82rem}.hero-title-main{font-size:2.6rem}.hero-badge{font-size:0.72rem;padding:5px 14px;max-width:90%}.hero-description{font-size:0.95rem;margin-bottom:24px}.hero-buttons{flex-direction:column;width:100%;max-width:300px;margin:0 auto}.hero-buttons .btn{width:100%;justify-content:center}}@media(max-width:380px){.hero-trust{font-size:0.75rem;padding:6px 12px}}@media(max-width:360px){.hero-title-main{font-size:2.2rem}.hero-content{padding:0 16px}}@media(max-width:768px) and (max-height:500px){.hero{min-height:100vh}.hero-scroll-hint{display:none}}/*CRIT-MOBILE-END*//*CRIT-NAV-START*//* Ban MOBILE cua thanh nav. Thieu khoi nay thi khung hinh dau tren dien thoai ve nav theo so do DESKTOP: .nav-menu la flex hang ngang 7 muc, hamburger thi display:none — dung bo mat desktop tren man 360px. Toi khi dist/style.min.css (tai async) ve moi doi sang nav mobile. Cung ban chat voi loi hero da ghi o CRIT-MOBILE ben tren, chi khac la .navbar position:fixed nen no khong day noi dung trang — cai nhay nam BEN TRONG thanh nav. Chi chep nhung rule anh huong BO CUC khung hinh dau; kieu chu cua .nav-link mobile hay animation cua .nav-toggle.active de style.min.css lo, vi luc do .nav-menu da bi transform:translateX(100%) day han ra ngoai man hinh roi. Giu .nav-menu.open de phong khach bam hamburger truoc khi CSS async ve. SUA RULE NAV MOBILE TRONG style.css THI PHAI SUA CA DAY. Tu 25/09/2026 moc nav thu gon la 1199px (o 769-1149px nav 7 muc gay hai dong), khop khoi @media (max-width: 1199px) trong style.css. */@media(max-width:1199px){.nav-menu{display:flex!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;background:rgba(15,13,10,0.98)!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;padding:0 32px;gap:8px;transform:translateX(100%);z-index:1002;overflow-y:auto;margin:0}.nav-menu.open{transform:translateX(0)!important}.nav-toggle{display:flex;position:relative;z-index:1003}.nav-right{position:relative;z-index:1003;gap:8px}.nav-phone span{display:none}.nav-phone{padding:8px;border:none;min-width:48px;min-height:48px;justify-content:center}.lang-toggle{padding:0 10px;height:48px}.logo-main{font-size:clamp(1rem,3.5vw,1.4rem);white-space:nowrap}.logo-sub{font-size:clamp(0.5rem,1.5vw,0.6rem)}}@media(max-width:380px){.nav-container{padding:0 14px}.nav-right{gap:6px}.logo-icon{display:none}}/*CRIT-NAV-END*/</style>
 
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="dist/style.min.css?v=f591f8ee" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=f591f8ee"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=d36411d1" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=d36411d1"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -610,7 +611,7 @@
                 <span class="divider-line"></span>
             </div>
             <p class="hero-description animate-fade-up delay-3" data-i18n="hero.description">
-                Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ,<br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh
+                Dừng Chill giữa Đà Lạt — nướng BBQ, nghe còi tàu cổ, <br>đợi hoàng hôn buông và nhà lồng lên đèn lung linh
             </p>
             <div class="hero-buttons animate-fade-up delay-4">
                 <a href="#booking" class="btn btn-golden">
@@ -622,7 +623,7 @@
             <!-- Subtle social proof badge below CTA -->
             <div class="hero-trust animate-fade-up delay-4">
                 <span class="trust-stars">★★★★★</span>
-                <span class="trust-text"><span class="trust-line"><strong>4.8/5</strong> · <strong>7.060</strong> đánh giá Google</span><span class="trust-sep"> · </span><span class="trust-line"><strong>13M+</strong> views viral</span></span>
+                <span class="trust-text"><span class="trust-line" data-i18n="hero.trust1"><strong>4.8/5</strong> · <strong>7.060</strong> đánh giá Google</span><span class="trust-sep"> · </span><span class="trust-line"><strong>13M+</strong> views viral</span></span>
             </div>
         </div>
 
@@ -660,7 +661,7 @@
                 <div class="exp-card exp-sunset">
                     <div class="exp-card-img">
                         <img data-src="assets/images/hoang-hon-nha-long-da-lat-1200.webp" data-srcset="assets/images/hoang-hon-nha-long-da-lat-480.webp 480w, assets/images/hoang-hon-nha-long-da-lat-800.webp 800w, assets/images/hoang-hon-nha-long-da-lat-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 370px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Cô gái mặc áo lông đứng tựa lan can gỗ ở Trạm Dừng Chill lúc hoàng hôn, dây đèn giăng phía sau, thung lũng nhà kính trải dài tới chân trời" loading="lazy" width="1200" height="800">
-                        <div class="exp-time-badge">15:00 - 17:30</div>
+                        <div class="exp-time-badge">15:00 – 17:30</div>
                     </div>
                     <div class="exp-card-content">
                         <span class="exp-number">01</span>
@@ -676,8 +677,8 @@
 
                 <div class="exp-card exp-train">
                     <div class="exp-card-img">
-                        <img data-src="assets/images/tau-lua-da-lat-duoi-lan-can-quan-1200.webp" data-srcset="assets/images/tau-lua-da-lat-duoi-lan-can-quan-480.webp 480w, assets/images/tau-lua-da-lat-duoi-lan-can-quan-800.webp 800w, assets/images/tau-lua-da-lat-duoi-lan-can-quan-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 370px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'%3E%3C/svg%3E" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" width="1200" height="800">
-                        <div class="exp-time-badge">Mỗi ngày</div>
+                        <img data-src="assets/images/tau-lua-da-lat-duoi-lan-can-quan-1200.webp" data-srcset="assets/images/tau-lua-da-lat-duoi-lan-can-quan-480.webp 480w, assets/images/tau-lua-da-lat-duoi-lan-can-quan-800.webp 800w, assets/images/tau-lua-da-lat-duoi-lan-can-quan-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 370px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" width="1200" height="800">
+                        <div class="exp-time-badge" data-i18n="exp.badge.daily">Mỗi ngày</div>
                     </div>
                     <div class="exp-card-content">
                         <span class="exp-number">02</span>
@@ -693,8 +694,8 @@
 
                 <div class="exp-card exp-night">
                     <div class="exp-card-img">
-                        <img data-src="assets/images/tau-lua-da-lat-sang-den-ve-dem-1200.webp" data-srcset="assets/images/tau-lua-da-lat-sang-den-ve-dem-480.webp 480w, assets/images/tau-lua-da-lat-sang-den-ve-dem-800.webp 800w, assets/images/tau-lua-da-lat-sang-den-ve-dem-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 370px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'%3E%3C/svg%3E" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy" width="1200" height="800">
-                        <div class="exp-time-badge">18:30 - 23:00</div>
+                        <img data-src="assets/images/tau-lua-da-lat-sang-den-ve-dem-1200.webp" data-srcset="assets/images/tau-lua-da-lat-sang-den-ve-dem-480.webp 480w, assets/images/tau-lua-da-lat-sang-den-ve-dem-800.webp 800w, assets/images/tau-lua-da-lat-sang-den-ve-dem-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 370px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy" width="1200" height="800">
+                        <div class="exp-time-badge">18:30 – 23:00</div>
                     </div>
                     <div class="exp-card-content">
                         <span class="exp-number">03</span>
@@ -715,7 +716,7 @@
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     <div>
                         <h4 data-i18n="exp.occasion.title">Sinh nhật & Kỷ niệm</h4>
-                        <p data-i18n="exp.occasion.desc">Setup bàn tiệc lãng mạn với hoa, bảng chúc mừng — tạo kỷ niệm đáng nhớ bên người thương.</p>
+                        <p data-i18n="exp.occasion.desc">Setup bàn tiệc lãng mạn với hoa, bảng chúc mừng — biến khoảnh khắc của bạn thành kỷ niệm khắc sâu, chỉ có một lần trong đời.</p>
                     </div>
                     <a href="#booking" class="btn btn-golden btn-sm" data-i18n="exp.occasion.cta">Đặt tiệc ngay</a>
                 </div>
@@ -731,6 +732,7 @@
     <section class="experience" id="chon-cho-ngoi">
         <div class="container">
             <div class="section-header">
+                <span class="section-tag" data-i18n="seat.tag">Chọn chỗ ngồi</span>
                 <h2 class="section-title" data-i18n="seat.title">Bạn muốn ngắm view nào?<br><em>Mỗi view có một dãy bàn riêng</em></h2>
                 <p class="perks-sub" data-i18n="seat.sub">Trạm Dừng Chill là tiệm nướng ngoài trời, bàn xếp theo dãy. Bàn trong cùng một dãy đều ngắm chung một view — không cần giành bàn đầu dãy.</p>
             </div>
@@ -854,7 +856,7 @@
                         </svg>
                     </div>
                     <h3 data-i18n="perks.6.title">Bàn view không phụ thu</h3>
-                    <p data-i18n="perks.6.desc">Bàn view xe lửa, hoàng hôn, nhà lồng — tất cả đều cùng giá. Không tính thêm 1 đồng.</p>
+                    <p data-i18n="perks.6.desc">Bàn view xe lửa, hoàng hôn, nhà lồng — tất cả đều cùng giá. Không tính thêm 1&nbsp;đồng.</p>
                 </article>
             </div>
 
@@ -921,7 +923,7 @@
                     <a class="menu-preview-page" href="menu.html#menu-anh">
                         <img src="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-560.webp?v=86fbd6c3"
                              srcset="assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-560.webp?v=86fbd6c3 560w, assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-640.webp?v=a13605bf 640w, assets/menu-pages/menu-quan-nuong-da-lat-01-bia-tram-dung-chill-1000.webp?v=e0616436 1000w"
-                             sizes="(min-width: 701px) min(212px, calc(25vw - 26px)), min(204px, calc(50vw - 26px))"
+                             sizes="(min-width: 1200px) 274px, (min-width: 701px) calc(25vw - 26px), min(204px, calc(50vw - 26px))"
                              width="1054" height="1492"
                              alt="Bìa menu Tiệm Nướng Trạm Dừng Chill — quán nướng Đà Lạt view hoàng hôn và tàu cổ, đường Huỳnh Tấn Phát, Xuân Trường, mở cửa 15h-23h"
                              loading="lazy" decoding="async">
@@ -929,7 +931,7 @@
                     <a class="menu-preview-page" href="menu.html#menu-anh">
                         <img src="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-560.webp?v=2e758939"
                              srcset="assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-560.webp?v=2e758939 560w, assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-640.webp?v=7a57b2cc 640w, assets/menu-pages/menu-quan-nuong-da-lat-02-best-seller-bo-kobe-pho-mai-trung-muoi-1000.webp?v=6f861809 1000w"
-                             sizes="(min-width: 701px) min(212px, calc(25vw - 26px)), min(204px, calc(50vw - 26px))"
+                             sizes="(min-width: 1200px) 274px, (min-width: 701px) calc(25vw - 26px), min(204px, calc(50vw - 26px))"
                              width="1055" height="1491"
                              alt="Trang best seller menu quán nướng Đà Lạt: bò Kobe nướng tảng phô mai trứng muối, bò Okachi nướng tảng, ba chỉ bò nướng muối tiêu, vếu heo ướp sate"
                              loading="lazy" decoding="async">
@@ -937,7 +939,7 @@
                     <a class="menu-preview-page" href="menu.html#menu-anh">
                         <img src="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-560.webp?v=4c8fcc0c"
                              srcset="assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-560.webp?v=4c8fcc0c 560w, assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-640.webp?v=1de2b656 640w, assets/menu-pages/menu-quan-nuong-da-lat-05-bbq-nuong-tai-ban-bo-nuong-cuc-bo-xien-1000.webp?v=402dbd3c 1000w"
-                             sizes="(min-width: 701px) min(212px, calc(25vw - 26px)), min(204px, calc(50vw - 26px))"
+                             sizes="(min-width: 1200px) 274px, (min-width: 701px) calc(25vw - 26px), min(204px, calc(50vw - 26px))"
                              width="1054" height="1492"
                              alt="Thực đơn BBQ nướng tại bàn Đà Lạt: bò nướng cục, bò nướng xiên, ba chỉ heo nướng ngũ vị"
                              loading="lazy" decoding="async">
@@ -945,13 +947,13 @@
                     <a class="menu-preview-page" href="menu.html#menu-anh">
                         <img src="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-560.webp?v=df0c36a1"
                              srcset="assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-560.webp?v=df0c36a1 560w, assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-640.webp?v=3f5642d5 640w, assets/menu-pages/menu-quan-nuong-da-lat-10-lau-ga-la-e-lau-hai-san-lau-ca-tam-1000.webp?v=563d0d3b 1000w"
-                             sizes="(min-width: 701px) min(212px, calc(25vw - 26px)), min(204px, calc(50vw - 26px))"
+                             sizes="(min-width: 1200px) 274px, (min-width: 701px) calc(25vw - 26px), min(204px, calc(50vw - 26px))"
                              width="1055" height="1491"
                              alt="Menu lẩu Đà Lạt: lẩu gà lá é, lẩu hải sản, lẩu cá tầm — nồi lẩu nóng cho nhóm đông"
                              loading="lazy" decoding="async">
                     </a>
                 </div>
-                <a href="menu.html#menu-anh" class="btn btn-golden menu-preview-cta" data-i18n="menu.viewAll">Xem quyển menu đầy đủ</a>
+                <a href="menu.html#menu-anh" class="btn btn-golden menu-preview-cta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><span data-i18n="menu.viewAll">Xem quyển menu đầy đủ</span></a>
             </div>
             <!-- MENU_PREVIEW:END -->
 
@@ -969,12 +971,12 @@
                 <h2 class="section-title" data-i18n="gallery.title">Khoảnh khắc tại<br><em>Trạm Dừng Chill</em></h2>
             </div>
             <div class="gallery-grid">
-                <figure class="gallery-item gallery-tall"><img data-src="assets/images/cong-tron-hoang-hon-da-lat-1200.webp" data-srcset="assets/images/cong-tron-hoang-hon-da-lat-480.webp 480w, assets/images/cong-tron-hoang-hon-da-lat-800.webp 800w, assets/images/cong-tron-hoang-hon-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 92vw, 800px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'%3E%3C/svg%3E" alt="Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.1">Hoàng hôn</span></figcaption></figure>
-                <figure class="gallery-item"><img data-src="assets/images/quan-nuong-da-lat-dong-khach-ve-dem-1200.webp" data-srcset="assets/images/quan-nuong-da-lat-dong-khach-ve-dem-480.webp 480w, assets/images/quan-nuong-da-lat-dong-khach-ve-dem-800.webp 800w, assets/images/quan-nuong-da-lat-dong-khach-ve-dem-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 46vw, 400px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'%3E%3C/svg%3E" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.2">Quán về đêm</span></figcaption></figure>
+                <figure class="gallery-item gallery-tall"><img data-src="assets/images/cong-tron-hoang-hon-da-lat-1200.webp" data-srcset="assets/images/cong-tron-hoang-hon-da-lat-480.webp 480w, assets/images/cong-tron-hoang-hon-da-lat-800.webp 800w, assets/images/cong-tron-hoang-hon-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 92vw, 800px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.1">Hoàng hôn</span></figcaption></figure>
+                <figure class="gallery-item"><img data-src="assets/images/quan-nuong-da-lat-dong-khach-ve-dem-1200.webp" data-srcset="assets/images/quan-nuong-da-lat-dong-khach-ve-dem-480.webp 480w, assets/images/quan-nuong-da-lat-dong-khach-ve-dem-800.webp 800w, assets/images/quan-nuong-da-lat-dong-khach-ve-dem-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 46vw, 400px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.2">Quán về đêm</span></figcaption></figure>
                 <figure class="gallery-item"><img data-src="assets/images/ban-tiec-trang-tri-hoang-hon-da-lat-1200.webp" data-srcset="assets/images/ban-tiec-trang-tri-hoang-hon-da-lat-480.webp 480w, assets/images/ban-tiec-trang-tri-hoang-hon-da-lat-800.webp 800w, assets/images/ban-tiec-trang-tri-hoang-hon-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 46vw, 400px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Cô gái áo đỏ ngồi bàn ăn ngoài trời lúc hoàng hôn, trên bàn có nồi lẩu, bảng chữ viết tay và bình hoa vàng, phía sau là thung lũng nhà lồng" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.3">Bàn tiệc trang trí</span></figcaption></figure>
                 <figure class="gallery-item gallery-wide"><img data-src="assets/images/cap-doi-ngam-hoang-hon-nha-long-da-lat-1200.webp" data-srcset="assets/images/cap-doi-ngam-hoang-hon-nha-long-da-lat-480.webp 480w, assets/images/cap-doi-ngam-hoang-hon-nha-long-da-lat-800.webp 800w, assets/images/cap-doi-ngam-hoang-hon-nha-long-da-lat-1200.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 770px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect fill='%23d4c5a9' width='1200' height='800'/%3E%3C/svg%3E" alt="Cặp đôi tựa lan can gỗ lúc hoàng hôn, phía sau là thung lũng nhà lồng dưới trời mây vàng cam" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.4">Hẹn hò</span></figcaption></figure>
-                <figure class="gallery-item"><img data-src="assets/images/cong-tron-nha-long-ban-ngay-da-lat-1200.webp" data-srcset="assets/images/cong-tron-nha-long-ban-ngay-da-lat-480.webp 480w, assets/images/cong-tron-nha-long-ban-ngay-da-lat-800.webp 800w, assets/images/cong-tron-nha-long-ban-ngay-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 46vw, 400px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 799'%3E%3Crect fill='%23d4c5a9' width='1200' height='799'/%3E%3C/svg%3E" alt="Cô gái đứng trong cổng tròn gắn chữ trạm dừng chill giữa hai luống hoa đỏ, phía sau là thung lũng nhà lồng ban ngày" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.5">View nhà lồng</span></figcaption></figure>
-                <figure class="gallery-item gallery-tall"><img data-src="assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-1200.webp" data-srcset="assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-480.webp 480w, assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-800.webp 800w, assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 82vw, 720px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect fill='%23d4c5a9' width='1200' height='900'/%3E%3C/svg%3E" alt="Cặp đôi đứng giữa vườn hoa trước vách gỗ gắn chữ trạm dừng chill, bên cạnh là biển chỉ đường “Anh sẽ cầu hôn em ở Đà Lạt”" loading="lazy" width="1200" height="900"><figcaption class="gallery-caption"><span data-i18n="gallery.6">Kỷ niệm</span></figcaption></figure>
+                <figure class="gallery-item"><img data-src="assets/images/cong-tron-nha-long-ban-ngay-da-lat-1200.webp" data-srcset="assets/images/cong-tron-nha-long-ban-ngay-da-lat-480.webp 480w, assets/images/cong-tron-nha-long-ban-ngay-da-lat-800.webp 800w, assets/images/cong-tron-nha-long-ban-ngay-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 90vw, 400px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 799'%3E%3Crect fill='%23d4c5a9' width='1200' height='799'/%3E%3C/svg%3E" alt="Cô gái đứng trong cổng tròn gắn chữ trạm dừng chill giữa hai luống hoa đỏ, phía sau là thung lũng nhà lồng ban ngày" loading="lazy" width="1200" height="800"><figcaption class="gallery-caption"><span data-i18n="gallery.5">View nhà lồng</span></figcaption></figure>
+                <figure class="gallery-item gallery-tall"><img data-src="assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-1200.webp" data-srcset="assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-480.webp 480w, assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-800.webp 800w, assets/images/cap-doi-vuon-hoa-tram-dung-chill-da-lat-1200.webp 1200w" sizes="(max-width: 480px) calc(100vw - 40px), (max-width: 900px) 82vw, 770px" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect fill='%23d4c5a9' width='1200' height='900'/%3E%3C/svg%3E" alt="Cặp đôi đứng giữa vườn hoa trước vách gỗ gắn chữ trạm dừng chill, bên cạnh là biển chỉ đường “Anh sẽ cầu hôn em ở Đà Lạt”" loading="lazy" width="1200" height="900"><figcaption class="gallery-caption"><span data-i18n="gallery.6">Kỷ niệm</span></figcaption></figure>
             </div>
             <noscript>
                 <div class="gallery-static">
@@ -1005,7 +1007,7 @@
                         </video>
                         <div class="tiktok-overlay">
                             <div class="tiktok-views">▶ 13M+</div>
-                            <div class="tiktok-caption">Săn Tàu Đà Lạt</div>
+                            <div class="tiktok-caption" data-i18n="tiktok.cap1">Săn Tàu Đà Lạt</div>
                         </div>
                     </a>
                 </div>
@@ -1016,7 +1018,7 @@
                         </video>
                         <div class="tiktok-overlay">
                             <div class="tiktok-views">▶ 4.2M</div>
-                            <div class="tiktok-caption">Chuyến Tàu Đêm</div>
+                            <div class="tiktok-caption" data-i18n="tiktok.cap2">Chuyến Tàu Đêm</div>
                         </div>
                     </a>
                 </div>
@@ -1027,7 +1029,7 @@
                         </video>
                         <div class="tiktok-overlay">
                             <div class="tiktok-views">▶ 2.4M</div>
-                            <div class="tiktok-caption">Lẩu Nóng Ngày Mưa</div>
+                            <div class="tiktok-caption" data-i18n="tiktok.cap3">Lẩu Nóng Ngày Mưa</div>
                         </div>
                     </a>
                 </div>
@@ -1059,12 +1061,12 @@
             <div class="reviews-grid">
                 <article class="review-card">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Đầu tiên nói về phục vụ, dù quán rất đông khách, nhưng nhân viên cực kỳ chu đáo. Mấy bạn siêu nhiệt tình, mình rất ấn tượng. Cái bò phô mai siêu ngon, recommend mọi người lần đầu tiên đến thì nên gọi 🫣😎"</p>
+                    <p class="review-text">"Đầu tiên nói về phục vụ, dù quán rất đông khách, nhưng nhân viên cực kỳ chu đáo. Mấy bạn siêu nhiệt tình, mình rất ấn tượng. Cái bò phô mai siêu ngon, recommend mọi người lần đầu tiên đến thì nên gọi 😎"</p>
                     <div class="review-author">
                         <div class="review-avatar">Q</div>
                         <div class="review-info">
                             <strong>Quyên Quyên</strong>
-                            <span>Đánh giá Google</span>
+                            <span data-i18n="review.source">Đánh giá Google</span>
                         </div>
                         <svg class="review-google" viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     </div>
@@ -1077,7 +1079,7 @@
                         <div class="review-avatar">U</div>
                         <div class="review-info">
                             <strong>Thanh Hà Uyên Nguyễn</strong>
-                            <span>Đánh giá Google</span>
+                            <span data-i18n="review.source">Đánh giá Google</span>
                         </div>
                         <svg class="review-google" viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     </div>
@@ -1090,7 +1092,7 @@
                         <div class="review-avatar">P</div>
                         <div class="review-info">
                             <strong>Phương Mai Lưu</strong>
-                            <span>Đánh giá Google</span>
+                            <span data-i18n="review.source">Đánh giá Google</span>
                         </div>
                         <svg class="review-google" viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     </div>
@@ -1103,7 +1105,7 @@
                         <div class="review-avatar">T</div>
                         <div class="review-info">
                             <strong>Trung Nguyễn Chí</strong>
-                            <span>Đánh giá Google</span>
+                            <span data-i18n="review.source">Đánh giá Google</span>
                         </div>
                         <svg class="review-google" viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     </div>
@@ -1116,7 +1118,7 @@
                         <div class="review-avatar">D</div>
                         <div class="review-info">
                             <strong>Duyên Thùy</strong>
-                            <span>Đánh giá Google</span>
+                            <span data-i18n="review.source">Đánh giá Google</span>
                         </div>
                         <svg class="review-google" viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     </div>
@@ -1129,7 +1131,7 @@
                         <div class="review-avatar">J</div>
                         <div class="review-info">
                             <strong>Jeremy</strong>
-                            <span>Đánh giá Google</span>
+                            <span data-i18n="review.source">Đánh giá Google</span>
                         </div>
                         <svg class="review-google" viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     </div>
@@ -1138,7 +1140,7 @@
 
             <div class="reviews-cta">
                 <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" class="btn btn-golden">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     <span data-i18n="reviews.cta">Xem tất cả đánh giá trên Google</span>
                 </a>
                 <p class="reviews-cta-sub" data-i18n="reviews.sub">Đã đến quán? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Đánh giá ngay →</a></p>
@@ -1211,7 +1213,7 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                             <div>
                                 <strong data-i18n="booking.hours">Mở cửa</strong>
-                                <span>15:00 - 23:00</span>
+                                <span>15:00 – 23:00</span>
                             </div>
                         </div>
                     </div>
@@ -1222,7 +1224,7 @@
                     <form class="booking-form" id="bookingForm" data-clarity-mask="True">
                         <h3 data-i18n="booking.form.title">Đặt bàn online</h3>
                         <p class="form-subtitle" data-i18n="booking.form.subtitle">Điền thông tin bên dưới, chúng tôi sẽ xác nhận qua Zalo</p>
-                        <p class="form-urgency" data-i18n="booking.form.urgency">⚠️ Cuối tuần thường full từ 16h — đặt sớm để chọn chỗ view đẹp nhất</p>
+                        <p class="form-urgency" data-i18n="booking.form.urgency">⚠️ Cuối tuần quán thường kín bàn từ 16h. Đặt sớm để chọn được chỗ view đẹp nhất.</p>
                         <a href="https://zalo.me/0989765070?text=Em%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20b%C3%A0n%20%E1%BB%9F%20Tr%E1%BA%A1m%20D%E1%BB%ABng%20Chill" id="zaloQuickBook" class="booking-zalo-quick" target="_blank" rel="noopener">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.79 1.49 5.27 3.84 6.88-.13.93-.6 2.2-1.2 3.04-.18.25.02.6.32.53 1.86-.42 3.2-1.06 4.02-1.55.96.22 1.97.3 3.02.3 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/></svg>
                             <span><span data-i18n="booking.zalo.intro">Ngại điền form?</span> <strong data-i18n="booking.zalo.quick">Đặt nhanh qua Zalo</strong></span>
@@ -1258,7 +1260,7 @@
                                     <option value="21:00" data-i18n="booking.form.time.2100">21:00 — Đêm sương · khung giờ tàu tới 21:25 🌃🚂</option>
                                     <option value="21:30" data-i18n="booking.form.time.2130">21:30 — Ca cuối, chill thong thả 🌙</option>
                                 </select>
-                                <small data-i18n="booking.form.time.note" style="display:block;margin-top:8px;color:#888;font-size:13px;font-style:italic;">💡 Tàu cổ chạy qua tiệm trong khung 16:30 – 21:25; hoàng hôn từ khoảng 16:30, nhà lồng lên đèn khoảng 18:30. Khung 17:30–19:00 quán thường kín khách, không nhận đặt bàn mới.</small>
+                                <small class="form-note" data-i18n="booking.form.time.note">💡 Tàu cổ chạy qua tiệm trong khung 16:30 – 21:25; hoàng hôn từ khoảng 16:30, nhà lồng lên đèn khoảng 18:30. Khung 17:30–19:00 quán thường kín khách, không nhận đặt bàn mới.</small>
                             </div>
                         </div>
                         <div class="form-row">
@@ -1666,7 +1668,7 @@
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
                         <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>
-                        <li data-i18n="footer.hours.value">15:00 - 23:00 hàng ngày</li>
+                        <li data-i18n="footer.hours.value">15:00 – 23:00 hàng ngày</li>
                         <li><a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" data-i18n="footer.address">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng</a></li>
                     </ul>
                 </div>
@@ -1705,28 +1707,29 @@
         <button class="lightbox-prev" aria-label="Ảnh trước">&#10094;</button>
         <button class="lightbox-next" aria-label="Ảnh sau">&#10095;</button>
         <img class="lightbox-img" alt="" decoding="async">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
         <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">6</span></div>
     </div>
 
     <!-- Success Modal -->
-    <div class="modal" id="successModal">
+    <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
         <div class="modal-content">
-            <div class="modal-icon">&#10003;</div>
-            <h3>Đã gửi thông tin thành công!</h3>
-            <p>Vui lòng <strong>nhấn Gửi trong Zalo</strong> để hoàn tất đặt bàn. Trong giờ mở cửa (15:00–23:00), chúng tôi xác nhận trong vòng 15 phút.</p>
+            <div class="modal-icon" aria-hidden="true">&#10003;</div>
+            <h3 id="successModalTitle" data-i18n="modal.title">Đã gửi thông tin thành công!</h3>
+            <p data-i18n="modal.desc">Vui lòng <strong>nhấn Gửi trong Zalo</strong> để hoàn tất đặt bàn. Trong giờ mở cửa (15:00–23:00), chúng tôi xác nhận trong vòng 15 phút.</p>
             <p class="modal-phone">Hotline: <a href="tel:0989765070">0989.765.070</a></p>
-            <button class="btn btn-golden" id="closeModalBtn">Đóng</button>
+            <button class="btn btn-golden" id="closeModalBtn" data-i18n="modal.close">Đóng</button>
         </div>
     </div>
 
     <!-- Data Files -->
-    <script defer src="data/site-config.js?v=0aa35834"></script>
+    <script defer src="data/site-config.js?v=4ac35186"></script>
     <script defer src="data/menu-data.js?v=061e0cd3"></script>
-    <script defer src="data/translations.js?v=00fb0b3f"></script>
+    <script defer src="data/translations.js?v=29e192ec"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=6b7c7c9a"></script>
-    <script defer src="dist/index.min.js?v=757d7a24"></script>
+    <script defer src="dist/common.min.js?v=f8f4947b"></script>
+    <script defer src="dist/index.min.js?v=629bfdad"></script>
 
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>

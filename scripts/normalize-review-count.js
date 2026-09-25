@@ -79,13 +79,14 @@ for (const f of allFiles(ROOT)) {
         }
     );
 
-    // 2. Text tiếng Anh — cùng nguyên tắc.
+    // 2. Text tiếng Anh — cùng nguyên tắc. Nhóm `gg` bắt "7,060</strong> Google reviews"
+    //    (dòng đánh giá ở hero bản EN, thêm 25/09/2026).
     s = s.replace(
-        /(nearly |over |about |almost )?([0-9][0-9,]{2,6})\+?(<\/(?:strong|b|em|span)>)?(\s+)reviews/gi,
-        (m, pre, _num, tag, sp) => {
+        /(nearly |over |about |almost )?([0-9][0-9,]{2,6})\+?(<\/(?:strong|b|em|span)>)?(\s+)(Google )?reviews/gi,
+        (m, pre, _num, tag, sp, gg) => {
             hits++;
             const keep = pre ? (/nearly|about|almost/i.test(pre) ? "over " : pre) : "";
-            return keep + en + (tag || "") + sp + "reviews";
+            return keep + en + (tag || "") + sp + (gg || "") + "reviews";
         }
     );
 

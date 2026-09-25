@@ -36,7 +36,7 @@ const SITE_CONFIG = {
     hours: {
         open: '15:00',
         close: '23:00',
-        display: '15:00 - 23:00 hàng ngày',
+        display: '15:00 – 23:00 hàng ngày',
     },
 
     social: {

@@ -123,7 +123,13 @@ function initBlogFilters(articles) {
             categoryMap[a.category] = true;
         }
     });
-    const categories = Object.keys(categoryMap).sort();
+    // Xếp theo thứ tự chữ cái tiếng Việt (sort() thường so mã Unicode nên "Ẩm thực"
+    // rơi xuống sau "Tổ chức tiệc"); nút "English" dành cho khách nước ngoài để cuối.
+    const categories = Object.keys(categoryMap).sort(function(a, b) {
+        if (a === 'English') return 1;
+        if (b === 'English') return -1;
+        return a.localeCompare(b, 'vi');
+    });
 
     // Build filter buttons with safe DOM methods
     filtersContainer.innerHTML = '';
@@ -162,6 +168,14 @@ function initBlogFilters(articles) {
             LOC_HIEN_TAI.danhMuc = btn.getAttribute('data-category');
             apDungLoc(true);
             ghiURL();
+
+            // Điện thoại: hàng nút là một dải cuộn ngang, nút vừa bấm có thể nằm sát mép.
+            // CHỈ gọi khi khách bấm, không gọi lúc tải trang (khôi phục bộ lọc từ URL) —
+            // cuộn lúc tải là ép tính bố cục (CLAUDE.md bug #26).
+            if (btn.scrollIntoView) {
+                var giamChuyenDong = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: giamChuyenDong ? 'auto' : 'smooth' });
+            }
         });
     });
 }
@@ -483,6 +497,23 @@ function initBlogShare() {
             }
         });
         shareDiv.appendChild(copyBtn);
+
+        // Đo lượt chia sẻ bằng sự kiện share của GA4 (bộ nghe chung trong utils.js đã bỏ
+        // qua .blog-share, không còn đếm nhầm thành Contact). Giữ send_to: thiếu nó gtag
+        // gửi cả sang Google Ads.
+        shareDiv.addEventListener('click', function(e) {
+            const nut = e.target.closest('.blog-share-btn');
+            if (!nut || typeof gtag !== 'function') return;
+            const cach = nut.classList.contains('blog-share-fb') ? 'facebook'
+                : nut.classList.contains('blog-share-zalo') ? 'zalo' : 'copy_link';
+            gtag('event', 'share', {
+                method: cach,
+                content_type: 'blog_post',
+                item_id: id,
+                send_to: 'G-2VFBZDY6CD',
+                transport_type: 'beacon'
+            });
+        });
 
         const readMore = card.querySelector('.blog-read-more');
         if (readMore) {

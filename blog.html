@@ -37,7 +37,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=f591f8ee">
+    <link rel="stylesheet" href="dist/style.min.css?v=d36411d1">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -233,7 +233,18 @@
     <style>
     .blog-filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px; }
     .blog-filter-btn { padding:8px 20px; border-radius:50px; border:1.5px solid var(--border); background:transparent; color:var(--wood); font-size:0.9rem; cursor:pointer; transition:all 0.3s; }
-    .blog-filter-btn:hover { border-color:var(--gold); color:var(--gold); }
+    /* Rê chuột: chữ --gold trên nền cream chỉ 2,09:1 → --gold-on-light (4,99:1). */
+    .blog-filter-btn:hover { border-color:var(--gold); color:var(--gold-on-light); }
+    /* Điện thoại: 8 nút danh mục xếp 4 hàng đẩy thẻ bài đầu ra khỏi màn đầu, nút cao 35px (dưới
+       ngưỡng chạm 44px). Nay một dải cuộn ngang, mép phải mờ dần báo còn nút phía sau. Canh TRÁI
+       chứ không canh giữa: flex canh giữa mà tràn thì phần tràn bên trái không cuộn tới được. */
+    @media (max-width:768px) {
+        .blog-filters { flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; padding:6px 32px 6px 0; margin-top:-6px; margin-bottom:18px; -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent); mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent); }
+        .blog-filters::-webkit-scrollbar { display:none; }
+        .blog-filter-btn { flex:0 0 auto; min-height:44px; white-space:nowrap; }
+    }
+    /* Giữ chỗ cho hàng nút khi JS chưa dựng (cùng lý do với .blog-grid:empty, CLAUDE.md bug #28). */
+    @media (scripting: enabled) { #blogFilters:empty { min-height:44px; } }
     .blog-filter-btn.active { background:var(--gold); color:var(--night); border-color:var(--gold); font-weight:600; }
     .blog-card.hidden { display:none; }
     .blog-search { max-width:480px; margin:0 auto 24px; position:relative; }
@@ -349,7 +360,7 @@
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
                         <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>
-                        <li data-i18n="footer.hours.value">15:00 - 23:00 hàng ngày</li>
+                        <li data-i18n="footer.hours.value">15:00 – 23:00 hàng ngày</li>
                         <li><a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" data-i18n="footer.address">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng</a></li>
                     </ul>
                 </div>
@@ -362,13 +373,13 @@
     <!-- FOOTER:END -->
 
     <!-- Data Files -->
-    <script defer src="data/site-config.js?v=0aa35834"></script>
-    <script defer src="data/translations.js?v=00fb0b3f"></script>
-    <script defer src="data/blog-data-light.js?v=54923f0d"></script>
+    <script defer src="data/site-config.js?v=4ac35186"></script>
+    <script defer src="data/translations.js?v=29e192ec"></script>
+    <script defer src="data/blog-data-light.js?v=678e588d"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=6b7c7c9a"></script>
-    <script defer src="dist/blog.min.js?v=30a316f6"></script>
+    <script defer src="dist/common.min.js?v=f8f4947b"></script>
+    <script defer src="dist/blog.min.js?v=7e37056d"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>

@@ -9,7 +9,7 @@ const BLOG_ARTICLES = [
         date: "2026-03-24",
         image: "assets/images/blog/hoang-hon-nha-long-da-lat.webp",
         imageAlt: "Cô gái mặc áo lông đứng tựa lan can gỗ ở Trạm Dừng Chill lúc hoàng hôn, dây đèn giăng phía sau, thung lũng nhà kính trải dài tới chân trời",
-        badge: "Nổi bật",
+        badge: "",
         featured: true,
         excerpt: "Đà Lạt có những <strong>quán nướng BBQ view đẹp</strong> khiến bạn mê mẩn. Từ view hoàng hôn, nhà lồng lung linh đến xe lửa cổ — đây là 7 quán đáng thử nhất.",
         body: `<h2>1. Trạm Dừng Chill — Quán nướng view xe lửa + hoàng hôn</h2>
@@ -931,7 +931,7 @@ const BLOG_ARTICLES = [
         date: "2026-03-25",
         image: "assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp",
         imageAlt: "Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn",
-        badge: "Mới",
+        badge: "",
         featured: false,
         excerpt: "Đà Lạt mùa đông nhiệt độ xuống 10-15°C — lý tưởng để ngồi quanh <strong>bếp nướng BBQ nóng hổi</strong> giữa trời lạnh. Khám phá trải nghiệm nướng mùa đông đặc biệt nhất phố núi!",
         body: `<h2>Đà Lạt mùa đông lạnh cỡ nào?</h2>
@@ -1030,7 +1030,7 @@ const BLOG_ARTICLES = [
         date: "2026-03-31",
         image: "assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp",
         imageAlt: "Cô gái áo đỏ ngồi bàn ăn ngoài trời lúc hoàng hôn, trên bàn có nồi lẩu, bảng chữ viết tay và bình hoa vàng, phía sau là thung lũng nhà lồng",
-        badge: "Nổi bật",
+        badge: "",
         featured: false,
         excerpt: "<strong>Buffet nướng Đà Lạt</strong> giá bao nhiêu? Ăn ở đâu ngon và đáng tiền nhất? Bài viết so sánh chi tiết 5 quán buffet nướng hot nhất Đà Lạt hiện tại!",
         body: `<h2>Buffet nướng Đà Lạt có gì hấp dẫn?</h2>
@@ -1079,7 +1079,7 @@ const BLOG_ARTICLES = [
         date: "2026-04-03",
         image: "assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",
         imageAlt: "A guest poses at the bamboo gate with the Tram Dung Chill sign, rows of wooden tables and red flags inside",
-        badge: "Mới",
+        badge: "",
         featured: false,
         excerpt: "Looking for the <strong>best BBQ restaurant in Da Lat</strong>? This local guide covers top spots with stunning views, English menus, and authentic Vietnamese grilling experiences.",
         body: `<h2>Why Da Lat is Vietnam's BBQ Paradise</h2>
@@ -1383,7 +1383,7 @@ const BLOG_ARTICLES = [
         date: "2026-04-21",
         image: "assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp",
         imageAlt: "Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can",
-        badge: "Nổi bật",
+        badge: "",
         featured: false,
         excerpt: "Muốn <strong>đặt tiệc ở Đà Lạt</strong> cho sinh nhật, kỷ niệm, hay tiệc công ty? Đây là hướng dẫn chi tiết từ A-Z để tổ chức tiệc ngoài trời view triệu đô!",
         body: `<h2>Vì sao nên tổ chức tiệc ngoài trời ở Đà Lạt?</h2>
@@ -1554,7 +1554,7 @@ const BLOG_ARTICLES = [
         date: "2026-04-30",
         image: "assets/images/blog/cong-tron-hoang-hon-da-lat.webp",
         imageAlt: "Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau",
-        badge: "Mới",
+        badge: "",
         featured: false,
         excerpt: "Lần đầu đi Đà Lạt? Đây là 10 <strong>kinh nghiệm du lịch Đà Lạt</strong> thiết thực nhất — từ mang gì, ở đâu, ăn gì đến di chuyển ra sao. Đọc xong là yên tâm lên đường!",
         body: `<h2>1. Thời tiết Đà Lạt — Mang áo khoác dù mùa nào</h2>

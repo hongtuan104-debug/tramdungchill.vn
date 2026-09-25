@@ -38,7 +38,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=f591f8ee">
+    <link rel="stylesheet" href="dist/style.min.css?v=d36411d1">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1232,7 +1232,7 @@
     <!-- Menu Hero -->
     <section class="menu-hero">
         <div class="container">
-            <span class="section-tag">Thực Đơn</span>
+            <span class="section-tag">Thực đơn</span>
             <h1 class="menu-hero-title">Menu Quán Nướng <br class="ngat-h1 ngat-h1-436">Đà Lạt<br><em>Trạm Dừng Chill</em></h1>
             <p class="menu-hero-desc">Tươi ngon mỗi ngày -- từ nướng BBQ, lẩu nóng đến hải sản tươi sống. Giá theo thực đơn cập nhật 18/08/2026, đã gồm VAT.</p>            <p class="menu-hero-desc" style="margin-top:14px;">Quán mở ngoài trời, không cửa kính. Bàn xếp thành từng dãy, nhiều dãy chạy dọc lan can nhìn xuống đường ray tàu cổ Đà Lạt – Trại Mát và thung lũng nhà lồng. Một buổi ở <a href="/" style="color:var(--gold);font-weight:600;">quán nướng Đà Lạt view đẹp</a> này có ba khoảnh khắc: nắng chiều vàng từ lúc mở cửa 15:00 rồi hoàng hôn từ khoảng 16:30, tàu cổ Đà Lạt – Trại Mát chạy ngang trong khung 16:30 – 21:25, và biển sao nhà lồng lên đèn từ khoảng 18:30.</p>
             <p class="menu-hero-note"><strong>Mức chi thường 95.000đ - 300.000đ/người</strong> (đã gồm VAT). Giá in trên từng trang menu bên dưới là <strong>giá từng món</strong>, không phải giá một người.</p>
@@ -1261,7 +1261,7 @@
         <div class="section-header">
             <span class="section-tag" data-i18n="flip.tag">Quyển menu</span>
             <h2 class="section-title" data-i18n="flip.title">Lật từng trang menu<br><em>như cầm quyển thật</em></h2>
-            <p class="menu-flipbook-hint" data-i18n="flip.hint">Bấm vào mép trang để lật, hoặc dùng phím ← →. Trên điện thoại thì vuốt ngang. Bấm vào trang để phóng to đọc rõ.</p>
+            <p class="menu-flipbook-hint"><span class="goi-y-pc" data-i18n="flip.hint.pc">Bấm vào mép trang hoặc dùng phím ← → để lật. Bấm vào trang để phóng to đọc rõ.</span><span class="goi-y-mb" data-i18n="flip.hint.mb">Vuốt ngang hoặc chạm mũi tên hai bên để lật. Chạm vào trang để phóng to đọc rõ.</span></p>
         </div>
 
         <div class="flipbook" id="menuFlipbook" data-page-count="26">
@@ -1694,7 +1694,7 @@
         <div class="container">
             <h2>Đặt Bàn Ngay</h2>
             <p>Chọn vị trí view đẹp nhất -- vừa ăn nướng vừa ngắm hoàng hôn, xe lửa và biển sao nhà lồng</p>
-            <a href="/#booking" class="btn btn-golden">Đặt Bàn Ngay</a>
+            <a href="/#booking" class="btn btn-golden btn-lg">Đặt Bàn Ngay</a>
             <span class="menu-cta-phone">Hoặc gọi ngay: <a href="tel:0989765070">0989.765.070</a></span>
         </div>
     </section>
@@ -1741,7 +1741,7 @@
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
                         <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>
-                        <li data-i18n="footer.hours.value">15:00 - 23:00 hàng ngày</li>
+                        <li data-i18n="footer.hours.value">15:00 – 23:00 hàng ngày</li>
                         <li><a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" data-i18n="footer.address">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng</a></li>
                     </ul>
                 </div>
@@ -1768,13 +1768,13 @@
     </noscript>
 
     <!-- Data Files -->
-    <script defer src="data/site-config.js?v=0aa35834"></script>
-    <script defer src="data/translations.js?v=00fb0b3f"></script>
+    <script defer src="data/site-config.js?v=4ac35186"></script>
+    <script defer src="data/translations.js?v=29e192ec"></script>
     <script defer src="data/menu-data.js?v=061e0cd3"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=6b7c7c9a"></script>
-    <script defer src="dist/menu.min.js?v=a0cfc565"></script>
+    <script defer src="dist/common.min.js?v=f8f4947b"></script>
+    <script defer src="dist/menu.min.js?v=1b7de8a7"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>

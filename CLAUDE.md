@@ -1102,6 +1102,43 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      chọn bản 800w. Script `plans/cong-cu-anh-commons/chen-anh-quan.js` (có chặn ảnh trôi sang mục sau; mục kết thúc bằng
      danh sách thì truyền `"</ul>"` — lần đầu cộng cứng 4 ký tự nên chèn vào giữa `</ul` và `>`, đã sửa).
 
+45. **Giao diện "Một buổi ở Trạm" (A+C) + lớp wow chuyển động** (sếp Tuấn chốt 24–25/09/2026, lên web 25/09).
+   Sếp: "nâng cấp giao diện cho hợp với vibe tiệm và Đà Lạt" → chọn ghép **A** (nền trang chủ đổi theo một buổi ở quán: chiều vàng →
+   hoàng hôn ở gallery → giờ xanh → đêm nhà lồng ở TikTok/Đánh giá/Đặt bàn/FAQ/Cẩm nang) + **C** (ga tàu cổ, gỗ mộc: `.section-tag` thành
+   vé tàu, nút đặt bàn biển đồng thau, nút phụ viền gỗ, thẻ trải nghiệm khấc vé, form như tấm vé, đường ray vùng ngày, dây đèn vùng đêm,
+   gallery tem răng cưa). Sếp chê "chưa wow" → thêm lớp chuyển động: đèn hero chập chờn bật + **tàu hoàng hôn chạy ngang chân hero**,
+   tàu nhỏ trên thanh tiến độ, gallery bưu thiếp "tung" xuống bàn, chạng vạng đồi thông + nhà lồng, đêm trăng sao/sao băng, thung lũng
+   bật đèn ở khu đặt bàn, than hồng, form vé tàu. Kèm 64 mục sửa lỗi hiển thị (kế hoạch + kết quả: `plans/ke-hoach-giao-dien.json`,
+   `plans/ket-qua-*.json` — gitignore).
+   - **CSS nằm ở đâu:** cuối `css/style.css` có 2 khối theo thứ tự — "GIAO DIỆN MỘT BUỔI Ở TRẠM" rồi "LOP WOW". Phải giữ Ở CUỐI file
+     (thắng rule gốc cùng độ đặc hiệu) và khối wow SAU khối A+C (dùng `tdcDen`, `--ve-*`, `--giay`, `--seam` của A+C). Wow của bài blog:
+     `css/wow-blog-bai.css` → `dist/wow-blog-bai.min.css`, template nạp qua `{{CSS_BAI_VER}}` ngay sau style.min.css.
+     Form vé trang dịp khai lại ở CUỐI `css/dip-landing.css` qua biến `--ve-*` — dip-landing nạp SAU style.min.css nên rule ở style.css thua.
+   - ⚠️ **Bản thử `?inject=` KHÔNG giống production về thứ tự nạp CSS.** `plans/cong-cu-do-hieu-nang/phuc-vu.js` chèn CSS vào CUỐI `<head>`
+     (đứng sau mọi file); vào style.min.css thì nó đứng TRƯỚC dip-landing.min.css và `<style>` viết tay của trang tác giả → bị đè. Đã
+     dính: form vé trang dịp vẽ mã vạch đè dòng cam kết, trang tác giả mất lớp wow. Đưa bản thử vào code xong phải chụp lại trang dịp +
+     trang tác giả và so computed style với bản inject.
+   - ⚠️ **Lớp wow KHÔNG được chép vào critical CSS** (CRIT-NAV / CRIT-MOBILE / CRIT-EXTRA): hình tàu `--tau` (SVG có blur) không được nằm
+     trên đường LCP, hiệu ứng phải bắt đầu khi style.min.css về. Chỉ màu/nền/bóng của `.btn-golden` hero + `.nav-cta` (biển đồng),
+     `.navbar:not(.scrolled)` và `.hero-badge` là đã chép vào critical của index.html — đổi màu nút đồng thì sửa cả hai nơi.
+   - Hero wow chiếm 6 pseudo: `.hero::before/::after`, `.hero-overlay::before/::after`, `.hero-particles::before/::after`, và animation
+     của `.hero-scroll-hint` (chữ "Cuộn xuống" mờ đúng lúc tàu chạy qua — tàu và rule này phải cùng file, lệch nhịp là tàu đè chữ).
+     Không animation nào trên `.hero-title` (LCP, bug #19). Mọi chuyển động chỉ transform/opacity và nằm trong
+     `prefers-reduced-motion: no-preference`; bật giảm chuyển động thì đèn sáng đứng, tàu đỗ ló đầu ở mép phải.
+   - Keyframe lớp wow mang tiền tố `w` (wTau, wBat…); hai keyframe trùng tên từng làm đèn hero nhấp nháy sai — đặt tên mới thì grep trước.
+   - ⚠️ **`minifyCSS` trong bundle-js.js từng xoá dấu cách TRƯỚC ":"** → `.cha :is(a,b)` thành `.cha:is(a,b)` (nghĩa khác hẳn), thẻ FAQ tối
+     không lên màu. Nay chỉ bỏ cách SAU ":" (trên CSS cũ đầu ra y hệt). Cùng họ lỗi với bug #17.
+   - ⚠️ **Lớp wow riêng của trang Blog (danh sách) + trang tác giả CHƯA lên web** (`css/wow-blog-ds.css` → `dist/wow-blog-ds.min.css` có
+     sẵn nhưng blog.html / tac-gia chưa gắn link). Lighthouse A/B cục bộ: trang Blog 83 → 78, Speed Index 3,0 → 5,4 s (tàu/đèn đổi khung
+     hình tới giây 5 + nền gỗ/mask/thẻ xoay làm lần vẽ đầu chậm ~0,4–1,6 s trên GPU phần mềm). Sếp chọn đẩy phần còn lại trước, tối ưu
+     trang Blog sau. Bản đầy đủ nằm ở nhánh `giao-dien/tich-hop`; thử nghiệm tối ưu ở `plans/cong-cu-do-hieu-nang/inject-k5*.css`.
+     Hướng đang đi: cho hiệu ứng trang trí BẮT ĐẦU sau khi trang hiện xong, trạng thái đầu là trạng thái cuối tĩnh, làm rẻ lần vẽ đầu.
+   - Số đo lúc lên web (Lighthouse cục bộ, gzip, trung vị 3 lượt, chỉ để so A/B): trang chủ 57 → 64, bài blog 97 = 97, CLS 0 mọi trang;
+     dist/style.min.css 17,8 → 28,0 KB gzip (hình SVG vẽ tay nằm trong CSS; bài blog nạp thêm wow-blog-bai 3,6 KB gzip).
+     Mới kiểm bằng Chrome — **chưa thử Safari/iPhone thật**.
+   - Chưa làm, chờ sếp: 23 mục ❓ trong `plans/ke-hoach-giao-dien.json` (set menu team building, "Năm thành lập 2022", chữ "nhất" H1
+     trang cầu hôn, CTA đặt bàn giữa trang dịp/blog/Thực đơn/Đường đi, rút chữ nhãn dài, viết hoa nhãn nút…).
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

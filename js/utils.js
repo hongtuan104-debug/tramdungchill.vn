@@ -73,8 +73,11 @@ function buildSourceTag(src) {
  *   đếm riêng thì bộ nghe chung không đụng vào.
  */
 
-/* Nút có bộ đếm riêng — thêm nút mới có trackEvent riêng thì khai luôn vào đây */
-var CO_BO_DEM_RIENG = '.fab-contact, #zaloQuickBook';
+/* Nút có bộ đếm riêng — thêm nút mới có trackEvent riêng thì khai luôn vào đây.
+   .blog-share: nút chia sẻ bài (Facebook / Zalo) ở trang Blog là khách chia sẻ bài, không phải
+   liên hệ quán; link zalo.me/share từng bị đếm thành Contact cho Meta + TikTok và click_zalo
+   cho GA4. Lượt chia sẻ đo riêng bằng sự kiện share (js/blog-renderer.js). */
+var CO_BO_DEM_RIENG = '.fab-contact, #zaloQuickBook, .blog-share';
 
 function initContactTracking() {
     document.addEventListener('click', function(e) {
@@ -204,6 +207,9 @@ function initModalClose() {
     if (btn && modal) {
         btn.addEventListener('click', () => {
             modal.classList.remove('active');
+            // Trả tiêu điểm về nút Gửi của form, không để rơi về đầu trang.
+            const gui = document.querySelector('#bookingForm [type="submit"]');
+            if (gui) gui.focus();
         });
     }
 }

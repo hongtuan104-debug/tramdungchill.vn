@@ -75,7 +75,13 @@ function buildFlipbookHtml(data, meta) {
     out.push('        <div class="section-header">');
     out.push('            <span class="section-tag" data-i18n="flip.tag">Quyển menu</span>');
     out.push('            <h2 class="section-title" data-i18n="flip.title">Lật từng trang menu<br><em>như cầm quyển thật</em></h2>');
-    out.push('            <p class="menu-flipbook-hint" data-i18n="flip.hint">Bấm vào mép trang để lật, hoặc dùng phím ← →. Trên điện thoại thì vuốt ngang. Bấm vào trang để phóng to đọc rõ.</p>');
+    // Hai bản câu hướng dẫn (25/09/2026): câu chung cũ bảo cả khách điện thoại "dùng phím ← →".
+    // CSS (.goi-y-pc / .goi-y-mb trong style.css) chọn bản theo màn hình. data-i18n gắn vào
+    // TỪNG span, không gắn vào thẻ p — applyTranslations() ghi đè innerHTML nên gắn vào p là mất 2 span.
+    out.push('            <p class="menu-flipbook-hint">' +
+        '<span class="goi-y-pc" data-i18n="flip.hint.pc">Bấm vào mép trang hoặc dùng phím ← → để lật. Bấm vào trang để phóng to đọc rõ.</span>' +
+        '<span class="goi-y-mb" data-i18n="flip.hint.mb">Vuốt ngang hoặc chạm mũi tên hai bên để lật. Chạm vào trang để phóng to đọc rõ.</span>' +
+        '</p>');
     out.push('        </div>');
     out.push('');
     out.push('        <div class="flipbook" id="menuFlipbook" data-page-count="' + data.MENU_PAGES.length + '">');
@@ -198,8 +204,9 @@ function buildPreviewHtml(data, meta) {
         out.push('                    <a class="menu-preview-page" href="menu.html#menu-anh">');
         out.push('                        <img src="' + urlOf(mySizes[0]) + '"');
         out.push('                             srcset="' + srcset + '"');
-        // Ô xem trước: ≤700px lưới 2 cột (tối đa 420px, khe 12px) · >700px 4 cột (tối đa 900px, khe 18px) — đo 14/09/2026.
-        out.push('                             sizes="(min-width: 701px) min(212px, calc(25vw - 26px)), min(204px, calc(50vw - 26px))"');
+        // Ô xem trước: ≤700px lưới 2 cột (tối đa 420px, khe 12px) · >700px 4 cột (tối đa 1152px, khe 18px).
+        // Lưới nới 900 lên 1152px (kế hoạch giao diện B37, 09/2026): ô rộng nhất (1152 - 3 x 18) / 4 = 274px.
+        out.push('                             sizes="(min-width: 1200px) 274px, (min-width: 701px) calc(25vw - 26px), min(204px, calc(50vw - 26px))"');
         out.push('                             width="' + m.w + '" height="' + m.h + '"');
         out.push('                             alt="' + esc(p.alt) + '"');
         out.push('                             loading="lazy" decoding="async">');
@@ -207,7 +214,8 @@ function buildPreviewHtml(data, meta) {
     });
 
     out.push('                </div>');
-    out.push('                <a href="menu.html#menu-anh" class="btn btn-golden menu-preview-cta" data-i18n="menu.viewAll">Xem quyển menu đầy đủ</a>');
+    // Chữ nằm trong span riêng: applyTranslations() ghi đè innerHTML của phần tử mang data-i18n, gắn lên thẻ a là mất icon.
+    out.push('                <a href="menu.html#menu-anh" class="btn btn-golden menu-preview-cta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg><span data-i18n="menu.viewAll">Xem quyển menu đầy đủ</span></a>');
     out.push('            </div>');
     return out.join("\n");
 }

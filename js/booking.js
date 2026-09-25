@@ -393,7 +393,20 @@ function initBookingForm() {
             }
 
             const modal = document.getElementById('successModal');
-            if (modal) modal.classList.add('active');
+            if (modal) {
+                modal.classList.add('active');
+                // Đưa tiêu điểm vào hộp thoại: khách dùng bàn phím / trình đọc màn hình
+                // biết ngay đơn đã gửi và đóng được bằng Enter.
+                // Nút thừa hưởng visibility:hidden của modal (transition 0,3s) nên thử lại
+                // vài nhịp 50ms tới khi focus() ăn.
+                const closeModalBtn = document.getElementById('closeModalBtn');
+                let lanThu = 0;
+                (function thu() {
+                    if (!closeModalBtn) return;
+                    closeModalBtn.focus();
+                    if (document.activeElement !== closeModalBtn && ++lanThu < 10) setTimeout(thu, 50);
+                })();
+            }
             form.reset();
 
             window.open(zaloUrl, '_blank', 'noopener,noreferrer');

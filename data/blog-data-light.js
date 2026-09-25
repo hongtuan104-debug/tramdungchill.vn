@@ -139,7 +139,7 @@ const BLOG_ARTICLES = [
     "date": "2026-04-03",
     "image": "assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",
     "imageAlt": "A guest poses at the bamboo gate with the Tram Dung Chill sign, rows of wooden tables and red flags inside",
-    "badge": "Mới",
+    "badge": "",
     "featured": false,
     "excerpt": "A local owner's honest guide to the best BBQ in Da Lat for tourists: triple-view dining, a clear photo-and-price menu, real prices in USD, and how to book.",
     "tags": []

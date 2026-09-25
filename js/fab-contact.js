@@ -51,6 +51,7 @@
 
         const options = document.createElement('div');
         options.className = 'fab-options';
+        options.id = 'fabOptions';
 
         // Zalo — build URL động với tag nguồn tại lúc click (source có thể update sau khi user duyệt)
         const zaloLink = document.createElement('a');
@@ -94,6 +95,9 @@
         mainBtn.className = 'fab-main';
         mainBtn.id = 'fabMainBtn';
         mainBtn.setAttribute('aria-label', 'Liên hệ');
+        // Trình đọc màn hình biết nút này mở/đóng khối nào và đang ở trạng thái nào (25/09/2026)
+        mainBtn.setAttribute('aria-controls', 'fabOptions');
+        mainBtn.setAttribute('aria-expanded', 'false');
         mainBtn.innerHTML = '<svg class="fab-main-icon fab-icon-contact" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg class="fab-main-icon fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
         container.appendChild(mainBtn);
 
@@ -115,16 +119,30 @@
         const fabBtn = document.getElementById('fabMainBtn');
         if (!fabBtn || !fabEl) return;
 
+        // Mở/đóng qua MỘT hàm để aria-expanded luôn khớp class 'open' (mọi đường đóng đều đi qua đây)
+        function datMo(mo) {
+            fabEl.classList.toggle('open', mo);
+            fabBtn.setAttribute('aria-expanded', mo ? 'true' : 'false');
+        }
+
         // Toggle open/close
         fabBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            fabEl.classList.toggle('open');
+            datMo(!fabEl.classList.contains('open'));
         });
 
         // Close when clicking outside
         document.addEventListener('click', function(e) {
-            if (!fabEl.contains(e.target)) {
-                fabEl.classList.remove('open');
+            if (!fabEl.contains(e.target) && fabEl.classList.contains('open')) {
+                datMo(false);
+            }
+        });
+
+        // ESC đóng khối liên hệ rồi trả tiêu điểm về nút chính, như menu nav (js/navbar.js)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && fabEl.classList.contains('open')) {
+                datMo(false);
+                fabBtn.focus();
             }
         });
 
@@ -170,7 +188,7 @@
             new IntersectionObserver(function (entries) {
                 const dangHien = entries[0].isIntersecting;
                 fabEl.classList.toggle('in-booking', dangHien);
-                if (dangHien) fabEl.classList.remove('open');   // đang mở thì đóng luôn
+                if (dangHien) datMo(false);   // đang mở thì đóng luôn
             }).observe(khoiDatBan);
         }
 

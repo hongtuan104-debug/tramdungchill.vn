@@ -82,37 +82,78 @@ function initGalleryLightbox() {
 
     if (!img || !closeBtn || !prevBtn || !nextBtn) return;
 
+    const captionEl = document.getElementById('lightboxCaption');
     const items = document.querySelectorAll('.gallery-item');
     const images = [];
     let currentIndex = 0;
+    let lastFocus = null;   // phần tử khách đứng trước khi mở, để trả tiêu điểm khi đóng
 
+    /* Mở được bằng bàn phím (Tab tới ô ảnh rồi Enter/Space) — trước đây ô gallery
+       chỉ là <figure> nhận click chuột. Chỉ GHI thuộc tính lúc khởi tạo, không đọc
+       số đo bố cục nào (bug #26). Tên cho trình đọc màn hình trỏ vào chính
+       figcaption (aria-labelledby) nên đổi ngôn ngữ là tên đổi theo. */
     items.forEach(function (item, i) {
         const imgEl = item.querySelector('img');
         if (imgEl) {
             // Use data-src (original URL) if available, otherwise fall back to src
             const fullSrc = imgEl.dataset.src || imgEl.src;
-            images.push({ src: fullSrc, alt: imgEl.alt || 'Ảnh tại Trạm Dừng Chill' });
-            item.addEventListener('click', function () {
-                currentIndex = i;
-                showImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            const cap = item.querySelector('figcaption');
+            images.push({ src: fullSrc, alt: imgEl.alt || 'Ảnh tại Trạm Dừng Chill', cap: cap });
+            item.tabIndex = 0;
+            item.setAttribute('role', 'button');
+            item.setAttribute('aria-haspopup', 'dialog');
+            if (cap) {
+                if (!cap.id) cap.id = 'galleryCap' + (i + 1);
+                item.setAttribute('aria-labelledby', cap.id);
+            }
+            item.addEventListener('click', function () { open(i); });
+            item.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();   // Space mặc định cuộn trang
+                    open(i);
+                }
             });
         }
     });
 
     if (totalEl) totalEl.textContent = images.length;
 
+    function open(i) {
+        currentIndex = i;
+        showImage();
+        lastFocus = document.activeElement;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        focusKhiHien(closeBtn);
+    }
+
+    /* Nút Đóng thừa hưởng visibility:hidden của lớp phủ, lại có transition:all nên
+       ngay lúc mở nó vẫn còn "hidden" thêm một nhịp và focus() bị bỏ qua. Thử lại vài
+       lần cách nhau 50ms tới khi ăn. */
+    function focusKhiHien(el) {
+        let n = 0;
+        (function thu() {
+            el.focus();
+            if (document.activeElement !== el && ++n < 10) setTimeout(thu, 50);
+        })();
+    }
+
     function showImage() {
         if (!images[currentIndex]) return;
         img.src = images[currentIndex].src;
         img.alt = images[currentIndex].alt;
         if (currentEl) currentEl.textContent = currentIndex + 1;
+        if (captionEl) {
+            const cap = images[currentIndex].cap;
+            captionEl.textContent = cap ? cap.textContent.trim() : '';
+        }
     }
 
     function close() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+        lastFocus = null;
     }
 
     closeBtn.addEventListener('click', close);

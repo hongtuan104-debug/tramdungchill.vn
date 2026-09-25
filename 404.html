@@ -2,6 +2,12 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <!-- GitHub Pages trả trang này cho MỌI URL không có file, kể cả URL lồng như /blog/sai.html.
+         Đường dẫn tương đối khi đó bám theo /blog/ → mất CSS, phông, logo, FAB, còn link gợi ý lại
+         dẫn sang một trang 404 khác. Thẻ base href="/" neo mọi đường dẫn tương đối về gốc site
+         (25/09/2026). Hệ quả phụ: href="#main-content" thành "/#main-content" nên skip-link được
+         xử lý bằng script cuối trang. -->
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>404 - Trang Không Tìm Thấy | Trạm Dừng Chill</title>
@@ -17,6 +23,12 @@
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         html{scroll-behavior:smooth;font-size:16px}
         body{font-family:var(--font-body);min-height:100vh;display:flex;flex-direction:column;background:var(--night);color:var(--cream);overflow-x:hidden}
+        /* style.css (nạp SAU khối này) khai body nền kem, chữ nâu gỗ và .btn viền trong suốt:
+           cùng độ ưu tiên thì file sau thắng, nên H1 kem nằm trên nền kem (tàng hình) và nút
+           "Xem blog" mất viền. Gắn class trang để khối riêng của 404 thắng (25/09/2026). */
+        body.trang-404{background:var(--night);color:var(--cream)}
+        .trang-404 .footer{background:var(--night-soft)}
+        button{border:none;background:none;cursor:pointer}
         a{text-decoration:none;color:inherit}
         img{max-width:100%;height:auto;display:block}
 
@@ -67,6 +79,8 @@
         .btn-primary:hover{background:var(--gold-light);box-shadow:var(--shadow-gold);transform:translateY(-2px)}
         .btn-outline{border:1.5px solid rgba(212,168,83,0.5);color:var(--gold)}
         .btn-outline:hover{background:rgba(212,168,83,0.1);border-color:var(--gold);transform:translateY(-2px)}
+        .trang-404 .btn.btn-outline{border:1.5px solid rgba(212,168,83,0.5)}
+        .trang-404 .btn.btn-outline:hover{border-color:var(--gold)}
 
         /* Gợi ý điều hướng. Khối này tồn tại để trang 404 có một H2 thật:
            trước đó dàn bài nhảy thẳng H1 → H3 của footer — lỗi nhảy cấp
@@ -83,9 +97,9 @@
         .error-links a{display:block;padding:14px 4px;color:var(--smoke);font-size:0.92rem;transition:color .3s,padding-left .3s}
         .error-links a:hover{color:var(--gold);padding-left:12px}
 
-        /* Footer dùng chung — bản đầy đủ nằm trong css/style.css (nạp async bên
-           dưới). Vài dòng dựng khung ở đây để footer không đổ thành một cột chữ
-           trần trong lúc chờ CSS lớn về. */
+        /* Footer dùng chung — bản đầy đủ nằm trong css/style.css (dist/style.min.css
+           nạp bên dưới). Vài dòng dựng khung ở đây để footer không đổ thành một cột
+           chữ trần nếu CSS lớn tải hỏng. */
         .footer{position:relative;z-index:1;background:var(--night-soft);color:rgba(255,255,255,0.6);padding:56px 0 24px;border-top:1px solid rgba(212,168,83,0.1)}
         .footer .container{max-width:1200px;margin:0 auto;padding:0 24px}
         .footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:36px}
@@ -97,23 +111,37 @@
         .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;text-align:center;font-size:0.78rem}
         @media(max-width:768px){.footer-top{grid-template-columns:1fr;text-align:center}.footer-social{justify-content:center}}
 
-        /* Mobile */
-        @media(max-width:768px){
+        /* Nav gập thành nút menu tới 1199px — cùng mốc với nav trang chính (25/09/2026): ở
+           769-1149px nav 7 mục của trang chính gãy 2 dòng nên cả site dời mốc lên 1199.
+           Selector có .trang-404 vì style.css (nạp sau) khai .nav-toggle{display:none} ngoài
+           media: cùng độ ưu tiên là nó thắng và nav 404 mất sạch ở 769-1199px. */
+        @media(max-width:1199px){
             /* .navbar có backdrop-filter nên nó thành khung chứa của phần tử fixed bên trong:
                inset 0 chỉ phủ đúng 72px của thanh nav, "Trang chủ" + "Thực đơn" bị đẩy lên
                khỏi màn hình (đo Chrome 412px, 14/09/2026). Khai bề rộng/cao theo viewport như
                .nav-menu trong style.css; nút toggle nổi trên lớp phủ để còn đóng được. */
-            .nav-links{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;z-index:1;background:rgba(15,13,10,0.98);flex-direction:column;justify-content:center;gap:32px;font-size:1.2rem}
+            .nav-links{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;height:100dvh;z-index:1;background:rgba(15,13,10,0.98);flex-direction:column;justify-content:center;gap:16px;font-size:1.2rem}
             .nav-links.active{display:flex}
-            .nav-toggle{display:flex;position:relative;z-index:2}
+            /* Vùng chạm 48px: trước đây mỗi mục chỉ cao bằng dòng chữ (~24px) */
+            .nav-links a{display:flex;align-items:center;justify-content:center;min-height:48px;min-width:220px;padding:12px 24px;font-size:1.1rem}
+            .trang-404 .nav-toggle{display:flex;position:relative;z-index:2}
+            /* Ba vạch thành dấu X khi mở: vạch cao 2px cách nhau 5px nên tâm lệch nhau 7px */
+            .trang-404 .nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+            .trang-404 .nav-toggle.active span:nth-child(2){opacity:0}
+            .trang-404 .nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+            /* Khoá cuộn trang phía sau lớp phủ menu (script cuối trang giữ vị trí cuộn qua body.style.top) */
+            body.trang-404.menu-open{overflow:hidden;position:fixed;width:100%}
+        }
+        @media(max-width:768px){
             .error-buttons{flex-direction:column;align-items:center}
             .btn{width:100%;max-width:260px;justify-content:center}
         }
     </style>
 
-    <!-- Full CSS — async -->
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+    <!-- CSS đầy đủ — nạp ĐỒNG BỘ bản dist (25/09/2026). Trước đó trang này nạp async css/style.css
+         (bản nguồn): khung hình đầu tối rồi chớp sang nền kem khi CSS về, và @font-face của bản nguồn
+         không mang ?v= nên phông preload bên dưới bị tải hai lần (CLAUDE.md bug #27, #28). -->
+    <link rel="stylesheet" href="dist/style.min.css?v=d36411d1">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -159,7 +187,7 @@
     <link rel="dns-prefetch" href="https://analytics.tiktok.com">
     <link rel="dns-prefetch" href="https://www.clarity.ms">
 </head>
-<body>
+<body class="trang-404">
 
     <a class="skip-link" href="#main-content" data-i18n="nav.skip" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Bỏ qua tới nội dung</a>
 
@@ -254,7 +282,7 @@
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
                         <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>
-                        <li>15:00 - 23:00 hàng ngày</li>
+                        <li>15:00 – 23:00 hàng ngày</li>
                         <li><a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng</a></li>
                     </ul>
                 </div>
@@ -271,21 +299,49 @@
         (function () {
             var nut = document.getElementById("navToggle");
             var menu = document.getElementById("navLinks");
+            var viTri = 0;
+            // Mở/đóng như js/navbar.js của trang chính: nút thành dấu X, khoá cuộn trang phía
+            // sau (body.menu-open + giữ vị trí qua body.style.top) rồi trả về đúng chỗ khi đóng.
+            // scrollY chỉ đọc lúc khách bấm, không đọc lúc tải trang.
             function datMenu(mo) {
+                if (mo === menu.classList.contains("active")) return;
                 menu.classList.toggle("active", mo);
+                nut.classList.toggle("active", mo);
                 nut.setAttribute("aria-expanded", mo ? "true" : "false");
+                if (mo) {
+                    viTri = window.scrollY;
+                    document.body.classList.add("menu-open");
+                    document.body.style.top = "-" + viTri + "px";
+                } else {
+                    document.body.classList.remove("menu-open");
+                    document.body.style.top = "";
+                    // instant: html có scroll-behavior:smooth, cuộn mượt từ 0 là trang trôi thấy rõ
+                    window.scrollTo({ top: viTri, behavior: "instant" });
+                }
             }
             nut.setAttribute("aria-controls", "navLinks");
             nut.setAttribute("aria-expanded", "false");
             nut.addEventListener("click", function () { datMenu(!menu.classList.contains("active")); });
+            menu.addEventListener("click", function (e) { if (e.target.closest("a")) datMenu(false); });
             // ESC đóng menu rồi trả tiêu điểm về nút — giống js/navbar.js của trang chính.
             document.addEventListener("keydown", function (e) {
                 if (e.key === "Escape" && menu.classList.contains("active")) { datMenu(false); nut.focus(); }
             });
+            // Thẻ base href="/" biến "#main-content" thành "/#main-content" (về trang chủ), nên
+            // skip-link tự chuyển tiêu điểm vào nội dung chính của chính trang này.
+            var boQua = document.querySelector(".skip-link");
+            var noiDung = document.getElementById("main-content");
+            if (boQua && noiDung) {
+                boQua.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    noiDung.setAttribute("tabindex", "-1");
+                    noiDung.focus();
+                });
+            }
         })();
     </script>
 
-    <script defer src="js/fab-contact.js?v=c852569d"></script>
+    <script defer src="js/fab-contact.js?v=319b15b6"></script>
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');</script>

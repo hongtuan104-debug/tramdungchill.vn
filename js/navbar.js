@@ -14,13 +14,19 @@ function initNavbar() {
     let scrollY = 0;
 
     function closeMenu() {
+        // Menu chưa mở (máy tính, bấm link nav) thì không làm gì: scrollTo ở dưới sẽ kéo
+        // trang về đầu trước khi trượt tới neo. Giống dongMenu() của bài blog và 404.
+        if (!navMenu.classList.contains('open')) return;
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('open');
         if (navOverlay) navOverlay.classList.remove('active');
         document.body.classList.remove('menu-open');
         document.body.style.top = '';
-        window.scrollTo(0, scrollY);
+        // Trả về chỗ cũ NGAY, không trượt: html có scroll-behavior:smooth nên scrollTo(0, y)
+        // trượt từ đầu trang xuống, khách thấy trang chạy và bấm sớm thì dừng hụt chỗ.
+        // Giống bản trong templates/blog-post.html và 404.html.
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
     }
 
     function openMenu() {

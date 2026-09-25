@@ -19,11 +19,7 @@
            thành ra bắt tính lại bố cục liên tục suốt lúc cuộn. */
         var geo = cachedLayout(function () {
             var hero = document.querySelector('.hero');
-            var booking = document.getElementById('booking');
-            return {
-                heroHeight: hero ? hero.offsetHeight : 600,
-                bookingTop: booking ? booking.offsetTop - 200 : Infinity
-            };
+            return { heroHeight: hero ? hero.offsetHeight : 600 };
         });
 
         var shown = null;
@@ -34,7 +30,23 @@
             document.body.classList.toggle('sticky-bar-active', show);
         }
 
-        // Show after scroll past 60% of hero, hide when in booking section
+        /* Ẩn thanh CHỈ khi khối đặt bàn đang nằm trong màn hình (25/09/2026).
+           Bản cũ ẩn khi scrollY >= mốc khối đặt bàn, tức là tắt VĨNH VIỄN từ đó tới
+           cuối trang (~8.500px gồm cả FAQ, Cẩm nang, bản đồ): khách đọc FAQ xong
+           muốn đặt bàn thì không còn nút. Nay IntersectionObserver báo khối đặt bàn
+           (cả tiêu đề lẫn form) có đang hiện không; cuộn qua khỏi nó là thanh hiện lại.
+           Callback của IO không đọc số đo bố cục nào; geo đã được đo ở lần cuộn đầu
+           (lastY khác 0 nghĩa là đã cuộn ít nhất một lần). */
+        var formHien = false, lastY = 0;
+        var khoiDatBan = document.querySelector('.booking-wrapper');
+        if (khoiDatBan && 'IntersectionObserver' in window) {
+            new IntersectionObserver(function (es) {
+                formHien = es[es.length - 1].isIntersecting;
+                if (lastY) apply(lastY > geo.get().heroHeight * 0.6 && !formHien);
+            }).observe(khoiDatBan);
+        }
+
+        // Show after scroll past 60% of hero, hide while the booking block is on screen
         function handleScroll() {
             /* Ở đỉnh trang thì chắc chắn ẩn — thoát sớm, khỏi gọi geo.get().
                LƯU Ý: bản thân việc đọc window.pageYOffset ĐÃ buộc tính lại bố cục
@@ -42,9 +54,10 @@
                phải tính lại lần nào — sai. Vì vậy lời gọi đầu tiên đã được hoãn
                xuống cuối hàm, xem chú thích ở đó. */
             var scrollY = window.pageYOffset;
+            lastY = scrollY;
             if (scrollY === 0) { apply(false); return; }
             var g = geo.get();
-            apply(scrollY > g.heroHeight * 0.6 && scrollY < g.bookingTop);
+            apply(scrollY > g.heroHeight * 0.6 && !formHien);
         }
 
         var ticking = false;

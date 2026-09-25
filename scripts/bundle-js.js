@@ -209,8 +209,13 @@ function minifyCSS(source) {
         trongNgoac.push(m.replace(/\s+/g, " ").replace(/\s*([,:])\s*/g, "$1").replace(/\(\s+/g, "(").replace(/\s+\)/g, ")"));
         return "\u0001" + (trongNgoac.length - 1) + "\u0001";
     });
-    // Remove spaces around CSS punctuation (ngoài ngoặc tròn)
-    out = out.replace(/\s*([{}:;,>~+])\s*/g, "$1");
+    // Bỏ dấu cách quanh dấu câu (ngoài ngoặc tròn). Riêng dấu ":" chỉ bỏ cách phía SAU nó:
+    // cách phía TRƯỚC ":" trong bộ chọn là tổ hợp con cháu, ".the :is(a, b)" khác hẳn ".the:is(a, b)".
+    // Bản cũ xoá cả hai phía nên mọi rule dạng "cha :is(...)" / "cha :where(...)" hỏng lặng lẽ
+    // (gặp 09/2026 khi đưa giao diện A+C vào: thẻ FAQ tối không lên màu). Khai báo "color : red"
+    // còn lại "color :red", vẫn hợp lệ. Trên CSS cũ (không có bộ chọn nào như vậy) đầu ra y hệt.
+    out = out.replace(/\s*([{};,>~+])\s*/g, "$1");
+    out = out.replace(/:\s+/g, ":");
     out = out.replace(/\u0001(\d+)\u0001/g, (_, i) => trongNgoac[+i]);
     if (/\u0001/.test(out)) throw new Error("minifyCSS: còn sót dấu giữ chỗ trong CSS đã nén");
 
@@ -234,7 +239,12 @@ const CSS_BUNDLES = [
     // vao style.css — gop se bat 147 trang con lai tai them 8,9 KB CSS chet.
     // Truoc 05/09/2026 no duoc nap thang tu css/ nen khong minify va khong
     // co van tay: sua CSS xong khach cu van thay ban cu.
-    { src: "dip-landing.css", out: "dip-landing.min.css" }
+    { src: "dip-landing.css", out: "dip-landing.min.css" },
+    // Lop wow cua blog (25/09/2026): ~3,5 KB gzip moi file. Nam trong style.min.css thi moi
+    // trang nap CSS dong bo (menu, dip, duong di, 141 bai...) deu phai tai + tinh ca lop cua
+    // trang khac. Link dat NGAY SAU style.min.css de cascade giu nguyen.
+    { src: "wow-blog-ds.css", out: "wow-blog-ds.min.css" },   // blog.html + tac-gia/
+    { src: "wow-blog-bai.css", out: "wow-blog-bai.min.css" }  // templates/blog-post.html
 ];
 
 for (const b of CSS_BUNDLES) {

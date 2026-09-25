@@ -33,6 +33,9 @@ const CSS_VER = (function () {
         return "dev";
     }
 })();
+// Lop wow rieng cua bai blog (dist/wow-blog-bai.min.css, tach khoi style.min.css 25/09/2026).
+// Cung cach bam voi CSS_VER de khop muc "Link CSS kem van tay khop file that" (seo-geo-verify).
+const CSS_BAI_VER = require("./van-tay").bamFile(path.join(ROOT, "dist", "wow-blog-bai.min.css")) || "dev";
 // Vân tay cho dist/lazy-tracking.min.js (bản nén của js/lazy-tracking.js, 13/09/2026) — 142 bài blog đều nạp file này. Trang tĩnh
 // được scripts/toi-uu-tai-trang.js gắn ?v=, nhưng nó cố ý bỏ qua thư mục blog/
 // (bài blog sinh từ template, sửa thẳng vào file sinh ra là mất ở lần build sau)
@@ -115,11 +118,63 @@ function readingTime(html) {
     const words = text.split(/\s+/).filter(Boolean).length;
     return Math.max(1, Math.ceil(words / 200));
 }
+/* Bảng thành thẻ trên điện thoại (25/09/2026). Bảng 3–6 cột trong 14 bài đọc rất chật ở màn 412px.
+   CSS (style.css, <= 540px) xếp mỗi hàng thành một thẻ, mỗi ô một dòng kèm nhãn cột lấy từ
+   data-label. Chỉ làm với bảng có <thead> và không gộp ô (rowspan/colspan) — gộp ô thì nhãn
+   theo thứ tự cột sẽ gán sai. Thêm role table/rowgroup/row/cell vì display:block làm trình duyệt
+   bỏ nghĩa "bảng" với trình đọc màn hình. Chỉ thêm THUỘC TÍNH, chữ khách đọc không đổi nên dấu
+   vân nội dung (cap-nhat-lastmod.js) giữ nguyên. */
+function giaiMaThucThe(s) {
+    return String(s).replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+        .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+}
+function ganNhanBang(bang) {
+    if (!/<thead\b/i.test(bang) || /\b(rowspan|colspan)\s*=/i.test(bang)) return bang;
+    var thead = (bang.match(/<thead\b[\s\S]*?<\/thead>/i) || [""])[0];
+    var nhan = [];
+    thead.replace(/<th\b[^>]*>([\s\S]*?)<\/th>/gi, function (_, inner) {
+        nhan.push(htmlEncode(giaiMaThucThe(stripHtml(inner))));
+        return _;
+    });
+    if (nhan.length < 3) return bang;
+    // Chỉ bảng CHẬT mới đáng đổi: bảng giá "Món | Giá" hay "Món | Nhóm | Giá" (ô ngắn) vẫn đọc gọn
+    // dưới dạng bảng, đổi sang thẻ chỉ làm bài dài thêm cả nghìn px. Bảng 2 cột thì cột sau đã
+    // chiếm gần hết bề ngang nên cũng giữ nguyên.
+    var oDaiNhat = 0;
+    ((bang.match(/<tbody\b[\s\S]*?<\/tbody>/i) || [""])[0].match(/<tr\b[\s\S]*?<\/tr>/gi) || []).forEach(function (hang) {
+        (hang.match(/<td\b[^>]*>[\s\S]*?<\/td>/gi) || []).slice(1).forEach(function (o) {
+            oDaiNhat = Math.max(oDaiNhat, stripHtml(o).length);
+        });
+    });
+    if (oDaiNhat <= 24) return bang;
+    return bang
+        .replace(/<table\b([^>]*)>/i, function (_, attrs) {
+            if (/\sclass="/i.test(attrs)) attrs = attrs.replace(/\sclass="/i, ' class="bang-the ');
+            else attrs += ' class="bang-the"';
+            return "<table" + attrs + ' role="table">';
+        })
+        .replace(/<(thead|tbody)\b([^>]*)>/gi, '<$1$2 role="rowgroup">')
+        .replace(/<th\b([^>]*)>/gi, '<th$1 role="columnheader">')
+        .replace(/<tbody\b[\s\S]*?<\/tbody>/gi, function (tbody) {
+            return tbody.replace(/<tr\b([^>]*)>([\s\S]*?)<\/tr>/gi, function (_, attrs, hang) {
+                var cot = 0;
+                hang = hang.replace(/<td\b([^>]*)>/gi, function (__, a) {
+                    var n = nhan[cot++];
+                    return "<td" + a + ' role="cell"' + (n ? ' data-label="' + n + '"' : "") + ">";
+                });
+                return "<tr" + attrs + ' role="row">' + hang + "</tr>";
+            });
+        })
+        .replace(/<thead\b[\s\S]*?<\/thead>/i, function (th) {
+            return th.replace(/<tr\b([^>]*)>/gi, '<tr$1 role="row">');
+        });
+}
+
 function fixAssetPaths(body) {
     // Bọc <table> trong khung cuộn riêng: bảng giá nhiều cột mà không bọc thì
     // trên điện thoại nó đẩy CẢ TRANG trượt ngang, không chỉ mình nó.
     body = String(body).replace(/<table[\s\S]*?<\/table>/g, function (m) {
-        return '<div class="table-scroll">' + m + "</div>";
+        return '<div class="table-scroll">' + ganNhanBang(m) + "</div>";
     });
     return body
         .replace(/src="assets\//g, 'src="../assets/')
@@ -178,8 +233,11 @@ function themMucLuc(body, u) {
     // Dưới 3 mục thì mục lục chỉ tổ chiếm chỗ, không giúp ai điều hướng
     if (muc.length < 3) return body;
 
+    // role="list": lớp wow (css/wow-blog-bai.css) thay số thứ tự bằng chấm ga (list-style:none),
+    // mà Safari/VoiceOver bỏ vai trò danh sách của <ol> khi list-style:none → trình đọc màn hình
+    // không còn báo "danh sách, N mục". Chỉ thêm thuộc tính, không đổi chữ (dấu vân lastmod giữ nguyên).
     var nav = '<nav class="toc" aria-label="' + htmlEncode(u.toc) + '">'
-        + '<p class="toc-title">' + htmlEncode(u.toc) + "</p><ol>"
+        + '<p class="toc-title">' + htmlEncode(u.toc) + '</p><ol role="list">'
         + muc.map(function (m) {
             return '<li><a href="#' + m.id + '">' + htmlEncode(m.chu) + "</a></li>";
         }).join("")
@@ -426,10 +484,13 @@ function dienTrangTacGia(tg) {
     var the = bai.map(function (a, i) {
         var anh = "../" + a.image;
         var coFile = function (duoi) { return fs.existsSync(path.join(ROOT, a.image.replace(/\.(jpg|webp)$/i, duoi))); };
+        // Từ thẻ thứ 3, trên điện thoại (<= 480px) thẻ thu thành hàng ngang với ảnh vuông 104px
+        // (CSS trong vỏ tac-gia/*.html) → khai sizes 104px cho khung đó, không thì máy vẫn tải 800w.
+        var sizes = i >= 2 ? "(max-width: 480px) 104px, " + SIZES_THE_BAI : SIZES_THE_BAI;
         var srcset = coFile("-400w.webp") && coFile("-800w.webp")
             ? ' srcset="' + anh.replace(/\.(jpg|webp)$/i, "-400w.webp") + ' 400w, ' +
               anh.replace(/\.(jpg|webp)$/i, "-800w.webp") + ' 800w, ' + anh + ' 1200w"' +
-              ' sizes="' + SIZES_THE_BAI + '"'
+              ' sizes="' + sizes + '"'
             : "";
         return '                    <article class="blog-card"' + (a._lang === "en" ? ' lang="en"' : "") + '>\n' +
             '                        <div class="blog-card-img"><img src="' + anh + '"' + srcset + ' alt="' + htmlEncode(a.imageAlt || a.title) + '"' + (i === 0 ? ' fetchpriority="high"' : i === 1 ? '' : ' loading="lazy"') + '></div>\n' +
@@ -1013,6 +1074,7 @@ try {
                 .replace(/{{T_CTA_TRUST}}/g, ui(article).ctaTrust)
                 .replace(/{{T_CTA_TRUST_ARIA}}/g, ui(article).ctaTrustAria)
                 .replace(/{{CSS_VER}}/g, CSS_VER)
+                .replace(/{{CSS_BAI_VER}}/g, CSS_BAI_VER)
                 .replace(/{{JS_LAZY_VER}}/g, JS_LAZY_VER)
                 .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
                 .replace(/{{OG_LOCALE}}/g, article._lang === "en" ? "en_US" : "vi_VN")

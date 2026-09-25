@@ -32,7 +32,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="../dist/style.min.css?v=f591f8ee">
+    <link rel="stylesheet" href="../dist/style.min.css?v=d36411d1">
     <!-- Preload phông logo trên nav (Dancing Script) — lý do xem bug #5 trong CLAUDE.md -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
@@ -66,7 +66,22 @@
         .author-cta{padding:0 0 80px;background:var(--cream);text-align:center;color:var(--wood)}
         .author-cta p{margin-bottom:16px}
         .author-cta-buttons{display:flex;gap:20px;justify-content:center;align-items:center;flex-wrap:wrap}
-        .author-cta-link{color:var(--gold-dark);font-weight:600;text-decoration:none;text-underline-offset:3px}.author-cta-link:hover,.author-cta-link:focus-visible{text-decoration:underline}
+        /* --gold-dark trên nền cream chỉ 2,9:1 → --gold-on-light 4,99:1 */
+        .author-cta-link{color:var(--gold-on-light);font-weight:600;text-decoration:none;text-underline-offset:3px}.author-cta-link:hover,.author-cta-link:focus-visible{text-decoration:underline}
+        /* Điện thoại: 17 thẻ lớn xếp một cột dài gần 11.000px. Giữ 2 thẻ đầu dạng lớn (thẻ đầu là
+           ảnh LCP, 2 thẻ đầu không lazy), từ thẻ thứ 3 thu thành hàng ngang: ảnh vuông 104px bên
+           trái, tiêu đề + 2 dòng tóm tắt bên phải. Ảnh các thẻ này khai sizes 104px riêng trong
+           generate-blog-pages.js, nên không tải bản 800w cho ô 104px. */
+        @media (max-width:480px){
+            .author-posts .blog-grid{gap:16px}
+            .author-posts .blog-card:nth-child(n+3){display:grid;grid-template-columns:104px 1fr;gap:12px;padding:12px;align-items:start}
+            .author-posts .blog-card:nth-child(n+3) .blog-card-img{aspect-ratio:1/1;min-height:0;border-radius:12px}
+            .author-posts .blog-card:nth-child(n+3) .blog-card-content{padding:0}
+            .author-posts .blog-card:nth-child(n+3) .blog-meta{flex-wrap:wrap;gap:4px 8px;margin-bottom:6px;font-size:.74rem}
+            .author-posts .blog-card:nth-child(n+3) .blog-category{font-size:.72rem;padding:2px 8px}
+            .author-posts .blog-card:nth-child(n+3) .blog-card-content h2{font-size:1rem;line-height:1.35;margin-bottom:6px}
+            .author-posts .blog-card:nth-child(n+3) .blog-card-content>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;font-size:.85rem;line-height:1.5;margin:0}
+        }
     </style>
     <!-- TAC_GIA_JSONLD:START ngayTao=2026-09-13 — sinh bởi scripts/generate-blog-pages.js, đừng sửa tay -->
     <script type="application/ld+json">
@@ -229,7 +244,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp" srcset="../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem-400w.webp 400w, ../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem-800w.webp 800w, ../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp" srcset="../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem-400w.webp 400w, ../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem-800w.webp 800w, ../assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-06-05">05/06/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
                             <h2><a href="../blog/da-lat-ve-dem-di-dau.html">Đà Lạt Về Đêm Đi Đâu? 8 Hoạt Động Đáng Thử Sau 20h</a></h2>
@@ -237,7 +252,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp" srcset="../assets/images/blog/cap-doi-ban-lau-nuong-da-lat-400w.webp 400w, ../assets/images/blog/cap-doi-ban-lau-nuong-da-lat-800w.webp 800w, ../assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp" srcset="../assets/images/blog/cap-doi-ban-lau-nuong-da-lat-400w.webp 400w, ../assets/images/blog/cap-doi-ban-lau-nuong-da-lat-800w.webp 800w, ../assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-05-24">24/05/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
                             <h2><a href="../blog/mon-nuong-ngon-nhat-da-lat.html">Món Nướng Ngon Nhất Đà Lạt — Bò Tảng Phô Mai, Hải Sản &amp; BBQ Tại Trạm Dừng Chill</a></h2>
@@ -245,7 +260,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp" srcset="../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat-400w.webp 400w, ../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat-800w.webp 800w, ../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái áo đỏ ngồi bàn ăn ngoài trời lúc hoàng hôn, trên bàn có nồi lẩu, bảng chữ viết tay và bình hoa vàng, phía sau là thung lũng nhà lồng" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp" srcset="../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat-400w.webp 400w, ../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat-800w.webp 800w, ../assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái áo đỏ ngồi bàn ăn ngoài trời lúc hoàng hôn, trên bàn có nồi lẩu, bảng chữ viết tay và bình hoa vàng, phía sau là thung lũng nhà lồng" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-05-18">18/05/2026</time><span class="blog-category">Hẹn hò &amp; Sinh nhật</span></div>
                             <h2><a href="../blog/setup-sinh-nhat-mien-phi-da-lat.html">Setup Sinh Nhật Miễn Phí Đà Lạt — Quán Nào Tặng Trang Trí Bàn Tiệc?</a></h2>
@@ -253,7 +268,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" srcset="../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem-400w.webp 400w, ../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem-800w.webp 800w, ../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" srcset="../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem-400w.webp 400w, ../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem-800w.webp 800w, ../assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-05-03">03/05/2026</time><span class="blog-category">View đẹp Đà Lạt</span></div>
                             <h2><a href="../blog/quan-nuong-da-lat-view-nha-long.html">Quán Nướng Đà Lạt View Nhà Lồng — Ngắm &quot;Biển Sao&quot; Thung Lũng Lung Linh Về Đêm</a></h2>
@@ -261,7 +276,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp" srcset="../assets/images/blog/lau-hai-san-hoang-hon-da-lat-400w.webp 400w, ../assets/images/blog/lau-hai-san-hoang-hon-da-lat-800w.webp 800w, ../assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp" srcset="../assets/images/blog/lau-hai-san-hoang-hon-da-lat-400w.webp 400w, ../assets/images/blog/lau-hai-san-hoang-hon-da-lat-800w.webp 800w, ../assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-04-15">15/04/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
                             <h2><a href="../blog/lau-nuong-da-lat-mua-lanh.html">Lẩu Nướng Đà Lạt Mùa Lạnh — Tự Ghép Món Ấm Bụng, View Sương Mù &amp; Xe Lửa</a></h2>
@@ -269,7 +284,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp" srcset="../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat-400w.webp 400w, ../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat-800w.webp 800w, ../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái đứng trong cổng tròn gắn chữ trạm dừng chill giữa hai luống hoa đỏ, phía sau là thung lũng nhà lồng ban ngày" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp" srcset="../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat-400w.webp 400w, ../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat-800w.webp 800w, ../assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái đứng trong cổng tròn gắn chữ trạm dừng chill giữa hai luống hoa đỏ, phía sau là thung lũng nhà lồng ban ngày" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-04-14">14/04/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
                             <h2><a href="../blog/lich-trinh-da-lat-3-ngay-2-dem.html">Lịch Trình Du Lịch Đà Lạt 3 Ngày 2 Đêm — Trọn Vẹn Từ A Đến Z</a></h2>
@@ -277,7 +292,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/hoang-hon-nha-long-da-lat.webp" srcset="../assets/images/blog/hoang-hon-nha-long-da-lat-400w.webp 400w, ../assets/images/blog/hoang-hon-nha-long-da-lat-800w.webp 800w, ../assets/images/blog/hoang-hon-nha-long-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái mặc áo lông đứng tựa lan can gỗ ở Trạm Dừng Chill lúc hoàng hôn, dây đèn giăng phía sau, thung lũng nhà kính trải dài tới chân trời" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/hoang-hon-nha-long-da-lat.webp" srcset="../assets/images/blog/hoang-hon-nha-long-da-lat-400w.webp 400w, ../assets/images/blog/hoang-hon-nha-long-da-lat-800w.webp 800w, ../assets/images/blog/hoang-hon-nha-long-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái mặc áo lông đứng tựa lan can gỗ ở Trạm Dừng Chill lúc hoàng hôn, dây đèn giăng phía sau, thung lũng nhà kính trải dài tới chân trời" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-04-10">10/04/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
                             <h2><a href="../blog/cam-trai-da-lat.html">Cắm Trại Đà Lạt 2026 — 5 Khu Vực Camping Đẹp Và Kinh Nghiệm Đi Thực Tế</a></h2>
@@ -285,7 +300,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat.webp" srcset="../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat-400w.webp 400w, ../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat-800w.webp 800w, ../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái váy trắng ngồi giữa vườn cẩm tú cầu ở Trạm Dừng Chill, phía sau là cối xay gió và đồi nhà lồng Đà Lạt" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat.webp" srcset="../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat-400w.webp 400w, ../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat-800w.webp 800w, ../assets/images/blog/co-gai-vay-trang-vuon-cam-tu-cau-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái váy trắng ngồi giữa vườn cẩm tú cầu ở Trạm Dừng Chill, phía sau là cối xay gió và đồi nhà lồng Đà Lạt" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-04-08">08/04/2026</time><span class="blog-category">Ẩm thực Đà Lạt</span></div>
                             <h2><a href="../blog/dac-san-da-lat-mua-ve.html">Đặc Sản Đà Lạt Mua Về Làm Quà: 10 Món Nên Mua Và Cách Chọn Không Bị Hớ</a></h2>
@@ -293,7 +308,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp" srcset="../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat-400w.webp 400w, ../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat-800w.webp 800w, ../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái đứng giữa khóm cẩm tú cầu cạnh cối xay gió gắn đèn ở Trạm Dừng Chill, trời hoàng hôn tím hồng trên thung lũng nhà kính Đà Lạt" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp" srcset="../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat-400w.webp 400w, ../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat-800w.webp 800w, ../assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái đứng giữa khóm cẩm tú cầu cạnh cối xay gió gắn đèn ở Trạm Dừng Chill, trời hoàng hôn tím hồng trên thung lũng nhà kính Đà Lạt" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-04-04">04/04/2026</time><span class="blog-category">Du lịch Đà Lạt</span></div>
                             <h2><a href="../blog/da-lat-mua-nao-dep-nhat.html">Đà Lạt Mùa Nào Đẹp Nhất? Hướng Dẫn Chọn Thời Điểm Đi Theo Từng Tháng</a></h2>
@@ -301,7 +316,7 @@
                         </div>
                     </article>
                     <article class="blog-card" lang="en">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp" srcset="../assets/images/blog/cong-tre-tram-dung-chill-da-lat-400w.webp 400w, ../assets/images/blog/cong-tre-tram-dung-chill-da-lat-800w.webp 800w, ../assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="A guest poses at the bamboo gate with the Tram Dung Chill sign, rows of wooden tables and red flags inside" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp" srcset="../assets/images/blog/cong-tre-tram-dung-chill-da-lat-400w.webp 400w, ../assets/images/blog/cong-tre-tram-dung-chill-da-lat-800w.webp 800w, ../assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="A guest poses at the bamboo gate with the Tram Dung Chill sign, rows of wooden tables and red flags inside" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-04-03">03/04/2026</time><span class="blog-category">English</span></div>
                             <h2><a href="../blog/da-lat-cho-nguoi-nuoc-ngoai.html">Best BBQ Restaurant in Da Lat for Foreign Tourists — A Local Guide</a></h2>
@@ -309,7 +324,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" srcset="../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi-400w.webp 400w, ../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi-800w.webp 800w, ../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" srcset="../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi-400w.webp 400w, ../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi-800w.webp 800w, ../assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-03-29">29/03/2026</time><span class="blog-category">Trải nghiệm</span></div>
                             <h2><a href="../blog/team-building-da-lat.html">Team Building Đà Lạt: Quán Nướng View Đẹp Cho Nhóm Đông, Đặt Bàn Trước</a></h2>
@@ -317,7 +332,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" srcset="../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-400w.webp 400w, ../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-800w.webp 800w, ../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" srcset="../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-400w.webp 400w, ../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-800w.webp 800w, ../assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Trải nghiệm</span></div>
                             <h2><a href="../blog/nuong-bbq-ngam-xe-lua.html">Nướng BBQ Ngắm Tàu Lửa Đà Lạt — Tàu Cổ Chạy Ngay Dưới Chân Quán</a></h2>
@@ -325,7 +340,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp" srcset="../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat-400w.webp 400w, ../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat-800w.webp 800w, ../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cặp đôi tựa lan can gỗ lúc hoàng hôn, phía sau là thung lũng nhà lồng dưới trời mây vàng cam" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp" srcset="../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat-400w.webp 400w, ../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat-800w.webp 800w, ../assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cặp đôi tựa lan can gỗ lúc hoàng hôn, phía sau là thung lũng nhà lồng dưới trời mây vàng cam" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Hẹn hò &amp; Sinh nhật</span></div>
                             <h2><a href="../blog/hen-ho-da-lat.html">Quán Hẹn Hò Lãng Mạn Đà Lạt — Date Night Nướng BBQ Ngắm Tàu Lửa &amp; Biển Sao Nhà Lồng</a></h2>
@@ -333,7 +348,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" srcset="../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem-400w.webp 400w, ../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem-800w.webp 800w, ../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" srcset="../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem-400w.webp 400w, ../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem-800w.webp 800w, ../assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Quán nướng Đà Lạt</span></div>
                             <h2><a href="../blog/quan-an-gia-dinh-da-lat.html">Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé</a></h2>
@@ -341,7 +356,7 @@
                         </div>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp" srcset="../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat-400w.webp 400w, ../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat-800w.webp 800w, ../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp 1200w" sizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái áo đỏ đứng bên lan can ngắm hoàng hôn trên thung lũng nhà lồng, cạnh bàn ăn có bảng chữ viết tay và bình hoa vàng" loading="lazy"></div>
+                        <div class="blog-card-img"><img width="1200" height="800" src="../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp" srcset="../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat-400w.webp 400w, ../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat-800w.webp 800w, ../assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp 1200w" sizes="(max-width: 480px) 104px, (max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" alt="Cô gái áo đỏ đứng bên lan can ngắm hoàng hôn trên thung lũng nhà lồng, cạnh bàn ăn có bảng chữ viết tay và bình hoa vàng" loading="lazy"></div>
                         <div class="blog-card-content">
                             <div class="blog-meta"><time datetime="2026-03-24">24/03/2026</time><span class="blog-category">Quán nướng Đà Lạt</span></div>
                             <h2><a href="../blog/an-nuong-da-lat-bao-nhieu-tien.html">Ăn Nướng Đà Lạt Bao Nhiêu Tiền? Bảng Giá Menu Chi Tiết</a></h2>
@@ -404,7 +419,7 @@
                     <ul>
                         <li><a href="tel:0989765070">0989.765.070</a></li>
                         <li><a href="https://zalo.me/0989765070" target="_blank" rel="noopener">Zalo 0989.765.070</a></li>
-                        <li data-i18n="footer.hours.value">15:00 - 23:00 hàng ngày</li>
+                        <li data-i18n="footer.hours.value">15:00 – 23:00 hàng ngày</li>
                         <li><a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener" data-i18n="footer.address">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng</a></li>
                     </ul>
                 </div>
@@ -431,11 +446,11 @@
     </noscript>
 
     <!-- Data Files -->
-    <script defer src="../data/site-config.js?v=0aa35834"></script>
-    <script defer src="../data/translations.js?v=00fb0b3f"></script>
+    <script defer src="../data/site-config.js?v=4ac35186"></script>
+    <script defer src="../data/translations.js?v=29e192ec"></script>
 
     <!-- Bundled & Minified JS (includes layout-loader) -->
-    <script defer src="../dist/common.min.js?v=6b7c7c9a"></script>
+    <script defer src="../dist/common.min.js?v=f8f4947b"></script>
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
