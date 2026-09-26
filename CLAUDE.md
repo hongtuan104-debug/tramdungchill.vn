@@ -1132,6 +1132,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      — và CSS đổi hình sang `--tau-lui` (khai cạnh `--tau` trong style.css). `--tau-lui` = đúng SVG `--tau` bọc nét vẽ trong
      `<g transform='matrix(-1 0 0 1 500 0)'>` (lật gương quanh tâm viewBox -90..590). ⚠️ **Sửa hình `--tau` thì sinh lại `--tau-lui`**
      theo cách đó (giải mã → bọc sau `</defs>` → mã hoá lại chỉ `%`,`<`,`>`,`#`), không thì hai chiều tàu khác nhau.
+     Dải ray + tàu cao **8px**, tàu rộng 100px (26/09 thu từ 12px/150px vì sếp thấy tàu sát chữ "TIỆM NƯỚNG" của logo khi chạy ngang
+     qua). Đổi cỡ thì đổi đủ: `--vet` + nền `.scroll-progress` + `::after` (height, translateX, background-size) trong style.css và
+     `--v` + `#readingProgress`/`::before`/`::after` trong wow-blog-bai.css, giữ tỉ lệ tàu 150 : 18,5.
    - ⚠️ **Animation vùng đêm (gallery · TikTok · Đánh giá · Đặt bàn) CHỈ chạy khi section có class `dem-chay`** — `initDemKhiGan()` trong
      `js/hero.js` gắn/gỡ bằng IntersectionObserver (rootMargin 300px) khi khách cuộn gần/xa (26/09/2026). PageSpeed thật trang chủ sau đợt
      #45: FCP 1,8 s · **LCP 2,9 s · Speed Index 4,5 s** · TBT 130 ms · CLS 0 (13/09 là 98 điểm). Chia đôi bằng Lighthouse (4 vòng × 5 lượt):
