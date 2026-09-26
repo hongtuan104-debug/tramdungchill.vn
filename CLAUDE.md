@@ -1129,11 +1129,26 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - ⚠️ **`minifyCSS` trong bundle-js.js từng xoá dấu cách TRƯỚC ":"** → `.cha :is(a,b)` thành `.cha:is(a,b)` (nghĩa khác hẳn), thẻ FAQ tối
      không lên màu. Nay chỉ bỏ cách SAU ":" (trên CSS cũ đầu ra y hệt). Cùng họ lỗi với bug #17.
    - ⚠️ **Lớp wow riêng của trang Blog (danh sách) + trang tác giả CHƯA lên web** (`css/wow-blog-ds.css` → `dist/wow-blog-ds.min.css` có
-     sẵn nhưng blog.html / tac-gia chưa gắn link). Lighthouse A/B cục bộ: trang Blog 83 → 78, Speed Index 3,0 → 5,4 s (tàu/đèn đổi khung
-     hình tới giây 5 + nền gỗ/mask/thẻ xoay làm lần vẽ đầu chậm ~0,4–1,6 s trên GPU phần mềm). Sếp chọn đẩy phần còn lại trước, tối ưu
-     trang Blog sau. Bản đầy đủ nằm ở nhánh `giao-dien/tich-hop`; thử nghiệm tối ưu ở `plans/cong-cu-do-hieu-nang/inject-k5*.css`.
-     Hướng đang đi: cho hiệu ứng trang trí BẮT ĐẦU sau khi trang hiện xong, trạng thái đầu là trạng thái cuối tĩnh, làm rẻ lần vẽ đầu.
-   - Số đo lúc lên web (Lighthouse cục bộ, gzip, trung vị 3 lượt, chỉ để so A/B): trang chủ 57 → 64, bài blog 97 = 97, CLS 0 mọi trang;
+     sẵn nhưng blog.html / tac-gia chưa gắn link; bản có gắn ở nhánh `giao-dien/tich-hop`). Lighthouse A/B 26/09/2026, **5 lượt trung vị**
+     (bản cũ 13b9e594 · bản đang chạy · bản gắn wow-blog-ds): trang Blog 82 · 81 · **79**; trang tác giả 92 · 88 · **77** — bản gắn lớp
+     này làm khung hình còn đổi tới giây 4–5 (tàu/đèn/sao) và lần vẽ đầu nặng hơn (nền gỗ, mask, thẻ xoay trên GPU phần mềm).
+     **Thủ phạm chính (đo Chrome thật 4G chậm + CPU 4×):** gắn lớp này thì hero cao hơn + thẻ bưu thiếp có viền → ẢNH THẺ BÀI ĐẦU (lazy,
+     do blog-renderer chèn) lọt vào màn đầu và thành phần tử LCP → **LCP trang Blog 1,8 s → 8,0 s**. Đèn sáng sẵn + tàu chạy sau 6 s
+     (đã sửa trong css/wow-blog-ds.css 26/09) chữa được phần "khung hình còn đổi tới giây 5" nhưng KHÔNG chữa lỗi LCP này; bản bỏ vân
+     gỗ/xoay/mask cũng vẫn tụt. Làm lại thì phải giữ hero + khung thẻ để ảnh thẻ đầu vẫn nằm dưới màn đầu ở 412×823 (hoặc xử lý
+     ảnh đó — cho eager từng làm Lighthouse tệ hơn, xem ket-qua-wow-blog.json), rồi mới tính chuyện trang trí.
+   - ⚠️ **Lighthouse cục bộ KHÔNG đủ tin để kết luận vài điểm** — cùng bản cũ, trang chủ một lượt 64 lượt sau 71; Speed Index trang Blog
+     25/09 là 3,0 s, 26/09 là 4,35 s. Trace cho thấy máy này tốn ~3,8 s "Style & Layout" mỗi lượt, rơi trước hay sau lần vẽ đầu là
+     điểm nhảy cả chục. Đã kết luận nhầm HAI lần: 25/09 "trang Blog tụt 83 → 76 do CSS chung" (5 lượt: 82 vs 81), 26/09 "trang chủ
+     68 → 62" (Chrome thật: bản mới NHANH hơn). → Dùng **`plans/cong-cu-do-hieu-nang/fcp-ab.js` với `MANG=cham`** (Chrome thật, 4G chậm,
+     CPU 4×, GPU tắt, 5–7 lượt xen kẽ, đo FCP/LCP + phần tử LCP) — ổn định hơn nhiều. Số 26/09 (LCP, trung vị): trang chủ bản cũ 2,08 s
+     → bản giao diện mới 1,88 s · trang Blog 1,81 → 1,91 s · trang tác giả 2,04–2,09 → 2,28–2,37 s (tăng cả khi bỏ A+C lẫn wow — nguồn là
+     đợt sửa 64 mục, chưa tìm ra, trang ít khách). Đã thử "đèn sáng sẵn, tàu chạy sau 6 s" cho hero trang chủ: không nhanh hơn (1,92 vs
+     1,88 s) mà mất hiệu ứng sếp đã duyệt → hoàn tác, đừng làm lại vì lý do hiệu năng.
+     Công cụ khác: `lh-ab.js` (Lighthouse xen kẽ) · `phuc-vu-ab.js` (server gzip, tham số 3 = thư mục đè để thử biến thể file) ·
+     `tao-bien-the-css.js` (cắt style.css tại một khối, nén bằng chính minifyCSS). Scratchpad phiên bị xoá giữa các ngày — công cụ để `plans/`.
+   - Số đo lúc lên web: CLS 0 mọi trang; Lighthouse cục bộ 5 lượt: Thực đơn 92 → 93, Sinh nhật 77 → 76, bài blog 97 = 97 (số trang chủ /
+     Blog xem mục đo bằng Chrome thật ở trên — Lighthouse cục bộ nhiễu quá mức để dùng cho 2 trang đó);
      dist/style.min.css 17,8 → 28,0 KB gzip (hình SVG vẽ tay nằm trong CSS; bài blog nạp thêm wow-blog-bai 3,6 KB gzip).
      Mới kiểm bằng Chrome — **chưa thử Safari/iPhone thật**.
    - Chưa làm, chờ sếp: 23 mục ❓ trong `plans/ke-hoach-giao-dien.json` (set menu team building, "Năm thành lập 2022", chữ "nhất" H1

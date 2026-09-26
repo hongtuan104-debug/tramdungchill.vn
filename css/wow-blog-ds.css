@@ -85,10 +85,12 @@
 .blog-section .blog-cta{--dh:46px;padding:66px 40px 128px;background:var(--bd-day) 0 0/calc(var(--dh)*5.421) var(--dh) repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='96'%3E%3Cpath d='M0 42C70 30 140 24 220 36S380 60 470 44S560 30 600 42V96H0Z' fill='%23191424'/%3E%3Cpath d='M0 66C90 56 180 60 270 68S440 76 530 64S585 60 600 66V96H0Z' fill='%23100C12'/%3E%3C/svg%3E") 0 100%/600px 96px repeat-x,var(--bd-sao) 0 28px/240px 150px,radial-gradient(60% 110px at 50% 100%,#FFAA502E,#0000 80%),linear-gradient(#141226,#1B1830 40%,#251D30 75%,#2E2129);box-shadow:inset 0 0 0 1px #F0D48A2E,0 22px 40px -20px #281406BF}
 .blog-section .blog-cta::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--bd-den) 0 0/calc(var(--dh)*5.421) var(--dh) repeat-x,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='56' stroke-linecap='round'%3E%3Cpath d='M44 30h.1M157 17h.1M268 10h.1M184 12h.1M69 14h.1M114 22h.1M226 20h.1M12 24h.1' stroke='%23FFE3A8' stroke-opacity='.5' stroke-width='1.6'/%3E%3Cpath d='M3 34h.1M246 32h.1M67 44h.1M166 36h.1M214 46h.1M131 50h.1M291 42h.1M100 38h.1' stroke='%23FFD07A' stroke-opacity='.75' stroke-width='2.2'/%3E%3Cpath d='M16 48h.1M94 46h.1M183 51h.1M283 50h.1M193 38h.1M250 52h.1M40 52h.1M140 44h.1' stroke='%23FFC25E' stroke-width='2.8'/%3E%3C/svg%3E") 0 calc(100% - 8px)/300px 56px repeat-x}
 @media (max-width:768px){.blog-section .blog-cta{--dh:40px;padding:56px 20px 112px}}
+/* Noi dung truoc, trang tri sau (26/09/2026): Lighthouse A/B 5 luot, ban cu den bat chap chon 0,3-2s
+   + tau chay tu 1,6s -> khung hinh con doi toi giay 4-5, Blog 82 -> 79, tac gia 92 -> 77. Nay den
+   sang san tu lan ve dau (bo wBat luc tai) va tau lan banh sau 6s (cung moc hoan pixel, bug #20):
+   luc dang tai hero dung yen; delay + fill both giu tau ngoai mep phai toi luc chay. */
 @media (prefers-reduced-motion:no-preference){
-:is(.blog-hero,.author-hero)>.container::before{animation:wBat 1.2s linear .3s both}
-:is(.blog-hero .section-tag,.author-tag)::before{animation:wBat 1.2s linear .8s both}
-:is(.blog-hero-desc,.author-meta)::after{animation:wTau 40s linear 1.6s infinite both}
+:is(.blog-hero-desc,.author-meta)::after{animation:wTau 40s linear 6s infinite both}
 @media (max-width:768px){:is(.blog-hero-desc,.author-meta)::after{animation-duration:28s}}
 .blog-section .blog-cta::after{animation:tdcDen 4.4s ease-in-out -2.2s infinite alternate}
 /* Xoay nay + chip nhich len: chi khi khach khong bat giam chuyen dong (the bai co transition
