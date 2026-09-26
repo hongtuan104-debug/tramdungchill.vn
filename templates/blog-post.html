@@ -193,13 +193,21 @@
         window.addEventListener("resize", doLai, { passive: true });
         window.addEventListener("load", doLai);
         var ticking = false;
+        // Tàu trên thanh đọc quay đầu khi cuộn lên (class "lui", xem js/i18n.js). Lệch từ 4px mới đổi.
+        var truoc = 0, dangLui = false;
         window.addEventListener("scroll", function () {
             if (ticking) return;
             ticking = true;
             // Gộp việc ghi style vào một khung hình, tránh đọc-ghi xen kẽ
             requestAnimationFrame(function () {
                 if (!daDo) measure();
-                var p = ((window.scrollY - top + window.innerHeight * 0.3) / height) * 100;
+                var y = window.scrollY;
+                if (Math.abs(y - truoc) >= 4) {
+                    var lui = y < truoc;
+                    if (lui !== dangLui) { dangLui = lui; bar.classList.toggle("lui", lui); }
+                    truoc = y;
+                }
+                var p = ((y - top + window.innerHeight * 0.3) / height) * 100;
                 bar.style.width = Math.min(100, Math.max(0, p)) + "%";
                 ticking = false;
             });

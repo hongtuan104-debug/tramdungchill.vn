@@ -23,6 +23,7 @@
 #readingProgress{--v:linear-gradient(#0000 7.4px,currentColor 0 8.6px,#0000 0 10.2px,currentColor 0 11.4px,#0000 0),repeating-linear-gradient(90deg,currentColor 0 1.6px,#0000 0 7px) 0 6.8px/100% 5.2px no-repeat;height:12px;pointer-events:none;color:#E3BE66;background:var(--v)}
 #readingProgress::before{content:"";position:fixed;inset:0 0 auto;height:12px;z-index:-1;color:#D4A84347;background:var(--v)}
 #readingProgress::after{content:"";position:absolute;top:0;left:max(0px,100% - 150px);width:150px;height:12px;background:var(--tau) 0 100%/150px 18.5px no-repeat;scale:-1 1}
+#readingProgress.lui::after{background-image:var(--tau-lui)}
 /* muc luc = tuyen tau, moi muc mot ga */
 .blog-post-body .toc{isolation:isolate;border:1px solid #E6D3B1;border-radius:8px;background:linear-gradient(#FFFBF3,#FAF0DF);box-shadow:0 12px 26px -20px #5A3C1480}
 .blog-post-body .toc-title{display:table;margin:0 0 16px;padding:5px 14px 5px 30px;font-size:.8rem;letter-spacing:.12em;color:var(--ve-chu);background:linear-gradient(#B8924E 55%,#0000 0) 21px 0/1.2px 5px repeat-y,radial-gradient(circle at 11px 50%,#B8924E 2px,#0000 2.5px),var(--ve-giay);-webkit-mask:radial-gradient(circle 5px at 5px 50%,#0000 94%,#000) -5px 0/100% 100%;mask:radial-gradient(circle 5px at 5px 50%,#0000 94%,#000) -5px 0/100% 100%}

@@ -1126,6 +1126,12 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      Không animation nào trên `.hero-title` (LCP, bug #19). Mọi chuyển động chỉ transform/opacity và nằm trong
      `prefers-reduced-motion: no-preference`; bật giảm chuyển động thì đèn sáng đứng, tàu đỗ ló đầu ở mép phải.
    - Keyframe lớp wow mang tiền tố `w` (wTau, wBat…); hai keyframe trùng tên từng làm đèn hero nhấp nháy sai — đặt tên mới thì grep trước.
+   - **Tàu trên thanh tiến độ quay đầu theo chiều cuộn** (sếp Tuấn 26/09/2026: "cuộn lên thì tàu quay đầu chứ không đi lùi"). Vị trí
+     tàu vẫn do animation theo cuộn (`.scroll-progress::after`) hoặc bề rộng thanh (`#readingProgress` bài blog) quyết; JS chỉ gắn
+     class `lui` khi cuộn lên (lệch ≥ 4px) — `initScrollProgress()` trong js/i18n.js + script thanh đọc trong templates/blog-post.html
+     — và CSS đổi hình sang `--tau-lui` (khai cạnh `--tau` trong style.css). `--tau-lui` = đúng SVG `--tau` bọc nét vẽ trong
+     `<g transform='matrix(-1 0 0 1 500 0)'>` (lật gương quanh tâm viewBox -90..590). ⚠️ **Sửa hình `--tau` thì sinh lại `--tau-lui`**
+     theo cách đó (giải mã → bọc sau `</defs>` → mã hoá lại chỉ `%`,`<`,`>`,`#`), không thì hai chiều tàu khác nhau.
    - ⚠️ **Animation vùng đêm (gallery · TikTok · Đánh giá · Đặt bàn) CHỈ chạy khi section có class `dem-chay`** — `initDemKhiGan()` trong
      `js/hero.js` gắn/gỡ bằng IntersectionObserver (rootMargin 300px) khi khách cuộn gần/xa (26/09/2026). PageSpeed thật trang chủ sau đợt
      #45: FCP 1,8 s · **LCP 2,9 s · Speed Index 4,5 s** · TBT 130 ms · CLS 0 (13/09 là 98 điểm). Chia đôi bằng Lighthouse (4 vòng × 5 lượt):

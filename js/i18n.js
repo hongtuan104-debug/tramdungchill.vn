@@ -112,9 +112,20 @@ function initScrollProgress() {
         return document.documentElement.scrollHeight - document.documentElement.clientHeight;
     });
 
+    /* Tàu trên thanh tiến độ quay đầu theo chiều cuộn (26/09/2026, sếp Tuấn: cuộn lên thì tàu quay
+       đầu chứ không đi lùi). Class "lui" đổi hình tàu sang bản quay đầu (--tau-lui trong style.css).
+       Chỉ đổi khi lệch từ 4px trở lên để khỏi chập chờn lúc cuộn quán tính; dùng lại scrollY đã đọc
+       sẵn ở dưới, không đọc thêm thuộc tính bố cục nào (bug #26). */
+    let truoc = 0, dangLui = false;
+
     function updateProgress() {
         const docHeight = docHeightCache.get();
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (Math.abs(scrollTop - truoc) >= 4) {
+            const lui = scrollTop < truoc;
+            if (lui !== dangLui) { dangLui = lui; bar.classList.toggle('lui', lui); }
+            truoc = scrollTop;
+        }
         const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         bar.style.width = progress + '%';
         ticking = false;
