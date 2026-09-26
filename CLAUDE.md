@@ -1128,15 +1128,13 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Keyframe lớp wow mang tiền tố `w` (wTau, wBat…); hai keyframe trùng tên từng làm đèn hero nhấp nháy sai — đặt tên mới thì grep trước.
    - ⚠️ **`minifyCSS` trong bundle-js.js từng xoá dấu cách TRƯỚC ":"** → `.cha :is(a,b)` thành `.cha:is(a,b)` (nghĩa khác hẳn), thẻ FAQ tối
      không lên màu. Nay chỉ bỏ cách SAU ":" (trên CSS cũ đầu ra y hệt). Cùng họ lỗi với bug #17.
-   - ⚠️ **Lớp wow riêng của trang Blog (danh sách) + trang tác giả CHƯA lên web** (`css/wow-blog-ds.css` → `dist/wow-blog-ds.min.css` có
-     sẵn nhưng blog.html / tac-gia chưa gắn link; bản có gắn ở nhánh `giao-dien/tich-hop`). Lighthouse A/B 26/09/2026, **5 lượt trung vị**
-     (bản cũ 13b9e594 · bản đang chạy · bản gắn wow-blog-ds): trang Blog 82 · 81 · **79**; trang tác giả 92 · 88 · **77** — bản gắn lớp
-     này làm khung hình còn đổi tới giây 4–5 (tàu/đèn/sao) và lần vẽ đầu nặng hơn (nền gỗ, mask, thẻ xoay trên GPU phần mềm).
-     **Thủ phạm chính (đo Chrome thật 4G chậm + CPU 4×):** gắn lớp này thì hero cao hơn + thẻ bưu thiếp có viền → ẢNH THẺ BÀI ĐẦU (lazy,
-     do blog-renderer chèn) lọt vào màn đầu và thành phần tử LCP → **LCP trang Blog 1,8 s → 8,0 s**. Đèn sáng sẵn + tàu chạy sau 6 s
-     (đã sửa trong css/wow-blog-ds.css 26/09) chữa được phần "khung hình còn đổi tới giây 5" nhưng KHÔNG chữa lỗi LCP này; bản bỏ vân
-     gỗ/xoay/mask cũng vẫn tụt. Làm lại thì phải giữ hero + khung thẻ để ảnh thẻ đầu vẫn nằm dưới màn đầu ở 412×823 (hoặc xử lý
-     ảnh đó — cho eager từng làm Lighthouse tệ hơn, xem ket-qua-wow-blog.json), rồi mới tính chuyện trang trí.
+   - **Lớp wow riêng của trang Blog (danh sách) + trang tác giả** (`css/wow-blog-ds.css` → `dist/wow-blog-ds.min.css`, link NGAY SAU
+     style.min.css trong blog.html + tac-gia/nguyen-duy.html) — gắn 26/09/2026, sếp duyệt. Hoãn một ngày vì đo thấy LCP trang Blog 8 s;
+     thủ phạm thật là ảnh thẻ bài đầu lazy lọt màn đầu (lỗi có sẵn trên bản đang chạy, xem #46), không phải trang trí. Sau khi có preload
+     ảnh thẻ đầu: Chrome thật 4G chậm + CPU 4×, 5 lượt, LCP trang Blog 2,17 s (không wow) → **2,34 s** (có wow); trang tác giả ngang nhau.
+     Lớp này: đèn sáng sẵn từ lần vẽ đầu, tàu lăn bánh sau 6 s (bản đầu đèn chập chờn 0,3–2 s + tàu từ 1,6 s làm khung hình đổi tới
+     giây 5). ⚠️ Trang tác giả: `<style>` viết tay đã GỠ các khai báo trùng với lớp này (nền/padding hero, màu meta…) — gỡ link lớp
+     wow thì phải trả lại các khai báo đó (lấy từ commit f6ba1461).
    - ⚠️ **Lighthouse cục bộ KHÔNG đủ tin để kết luận vài điểm** — cùng bản cũ, trang chủ một lượt 64 lượt sau 71; Speed Index trang Blog
      25/09 là 3,0 s, 26/09 là 4,35 s. Trace cho thấy máy này tốn ~3,8 s "Style & Layout" mỗi lượt, rơi trước hay sau lần vẽ đầu là
      điểm nhảy cả chục. Đã kết luận nhầm HAI lần: 25/09 "trang Blog tụt 83 → 76 do CSS chung" (5 lượt: 82 vs 81), 26/09 "trang chủ
