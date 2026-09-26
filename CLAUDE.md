@@ -1195,6 +1195,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      Hiện khi cuộn quá 600px, ẩn khi khối "Đặt bàn ngay" cuối bài (`.blog-cta-cuoi`) đang hiện (IntersectionObserver), gắn
      `body.sticky-bar-active` để FAB/nút lên đầu nhích lên (CSS sẵn ở style.css, bug #22). Chỉ đọc scrollY trong sự kiện cuộn (bug #26).
    - Các trang khác chưa có thanh này + nút lên đầu (Thực đơn, Blog, Đường đi, tác giả, trang dịp — FAB thì có, qua common.min.js).
+   - **FAB luôn mở** (26/09/2026, sếp: "để 3 nút này ra màn luôn"): fab-contact.js gắn `.fab-mo-san`, KHÔNG còn nút tròn bật/tắt
+     `.fab-main` (CSS cũ của nó còn trong style.css nhưng không phần tử nào dùng). Màn ≥ 1400px: viên có chữ; nhỏ hơn: nút tròn 48px
+     chỉ biểu tượng (viên có chữ ~150px đè mép phải nội dung laptop 1366px, che ~1/3 điện thoại). Footer điện thoại chừa đáy 190px.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
