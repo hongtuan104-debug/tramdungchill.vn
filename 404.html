@@ -34,7 +34,7 @@
 
         /* Navbar */
         .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s var(--ease);background:rgba(15,13,10,0.92);backdrop-filter:blur(20px)}
-        .navbar.scrolled{padding:12px 0}
+        .navbar.scrolled{padding:20px 0 12px}
         .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
         .nav-logo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--gold)}
         .nav-logo img{width:48px;height:48px}
@@ -141,7 +141,7 @@
     <!-- CSS đầy đủ — nạp ĐỒNG BỘ bản dist (25/09/2026). Trước đó trang này nạp async css/style.css
          (bản nguồn): khung hình đầu tối rồi chớp sang nền kem khi CSS về, và @font-face của bản nguồn
          không mang ?v= nên phông preload bên dưới bị tải hai lần (CLAUDE.md bug #27, #28). -->
-    <link rel="stylesheet" href="dist/style.min.css?v=5f8666f7">
+    <link rel="stylesheet" href="dist/style.min.css?v=c7772938">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra

@@ -20,9 +20,9 @@
 .blog-post-hero::after{--h:#FFB050CC,#FFB05000 12px;background:radial-gradient(circle at 25% 50%,var(--h)),radial-gradient(circle at 50% 59%,var(--h)),radial-gradient(circle at 75% 50%,var(--h));background-size:100px 34px;background-position:50% 0}
 @media (min-width:769px){.blog-post-hero{--d:14px}.blog-post-hero>.container{padding-top:36px}.blog-post-hero::before,.blog-post-hero::after{height:51px;background-size:150px 51px}}
 /* tien do doc = ray + tau */
-#readingProgress{--v:linear-gradient(#0000 4.9px,currentColor 0 5.7px,#0000 0 6.8px,currentColor 0 7.6px,#0000 0),repeating-linear-gradient(90deg,currentColor 0 1.6px,#0000 0 7px) 0 4.5px/100% 3.5px no-repeat;height:8px;pointer-events:none;color:#E3BE66;background:var(--v)}
-#readingProgress::before{content:"";position:fixed;inset:0 0 auto;height:8px;z-index:-1;color:#D4A84347;background:var(--v)}
-#readingProgress::after{content:"";position:absolute;top:0;left:max(0px,100% - 100px);width:100px;height:8px;background:var(--tau) 0 100%/100px 12.3px no-repeat;scale:-1 1}
+#readingProgress{--v:linear-gradient(#0000 7.4px,currentColor 0 8.6px,#0000 0 10.2px,currentColor 0 11.4px,#0000 0),repeating-linear-gradient(90deg,currentColor 0 1.6px,#0000 0 7px) 0 6.8px/100% 5.2px no-repeat;height:12px;pointer-events:none;color:#E3BE66;background:var(--v)}
+#readingProgress::before{content:"";position:fixed;inset:0 0 auto;height:12px;z-index:-1;color:#D4A84347;background:var(--v)}
+#readingProgress::after{content:"";position:absolute;top:0;left:max(0px,100% - 150px);width:150px;height:12px;background:var(--tau) 0 100%/150px 18.5px no-repeat;scale:-1 1}
 #readingProgress.lui::after{background-image:var(--tau-lui)}
 /* muc luc = tuyen tau, moi muc mot ga */
 .blog-post-body .toc{isolation:isolate;border:1px solid #E6D3B1;border-radius:8px;background:linear-gradient(#FFFBF3,#FAF0DF);box-shadow:0 12px 26px -20px #5A3C1480}
