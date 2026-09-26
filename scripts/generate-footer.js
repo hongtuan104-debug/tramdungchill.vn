@@ -82,6 +82,8 @@ function navItem(href, key, opts) {
 const SVG = {
     facebook: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
     tiktok: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.92 2.92 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.57 6.33 6.33 0 0 0 9.37 22a6.33 6.33 0 0 0 6.33-6.33V9.19a8.16 8.16 0 0 0 4.29 1.2V6.69z"/></svg>',
+    // Zalo không có biểu tượng một màu gọn như FB/TikTok → chữ Zalo đậm, cùng cỡ ô 20px (26/09/2026)
+    zalo: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><text x="12" y="15.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="800" letter-spacing="-0.3">Zalo</text></svg>',
     maps: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>'
 };
 
@@ -101,6 +103,7 @@ function buildFooter(opts) {
         '                <p' + i18nAttr("footer.desc", mode) + ">" + txt("footer.desc", mode) + "</p>",
         '                <div class="footer-social">',
         '                    <a href="' + CFG.social.facebook + '" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">' + SVG.facebook + "</a>",
+        '                    <a href="' + zaloUrl + '" target="_blank" rel="noopener" aria-label="Zalo" title="Zalo">' + SVG.zalo + "</a>",
         '                    <a href="' + CFG.social.tiktok + '" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">' + SVG.tiktok + "</a>",
         '                    <a href="' + CFG.social.googleMaps + '" target="_blank" rel="noopener" aria-label="Google Maps" title="Google Maps">' + SVG.maps + "</a>",
         "                </div>",
