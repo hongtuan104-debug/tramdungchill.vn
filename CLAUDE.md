@@ -1126,6 +1126,16 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      Không animation nào trên `.hero-title` (LCP, bug #19). Mọi chuyển động chỉ transform/opacity và nằm trong
      `prefers-reduced-motion: no-preference`; bật giảm chuyển động thì đèn sáng đứng, tàu đỗ ló đầu ở mép phải.
    - Keyframe lớp wow mang tiền tố `w` (wTau, wBat…); hai keyframe trùng tên từng làm đèn hero nhấp nháy sai — đặt tên mới thì grep trước.
+   - ⚠️ **Animation vùng đêm (gallery · TikTok · Đánh giá · Đặt bàn) CHỈ chạy khi section có class `dem-chay`** — `initDemKhiGan()` trong
+     `js/hero.js` gắn/gỡ bằng IntersectionObserver (rootMargin 300px) khi khách cuộn gần/xa (26/09/2026). PageSpeed thật trang chủ sau đợt
+     #45: FCP 1,8 s · **LCP 2,9 s · Speed Index 4,5 s** · TBT 130 ms · CLS 0 (13/09 là 98 điểm). Chia đôi bằng Lighthouse (4 vòng × 5 lượt):
+     đúng `index.html` mới + CSS cũ là về như cũ; trong CSS, làm trơn nền đêm HOẶC tắt riêng các animation đêm đều kéo Speed Index
+     4,9 → 3,2 s, còn bỏ mask / bỏ SVG / bỏ quầng sáng thì không. Thủ phạm: animation vô hạn + theo cuộn (wN, wB, wT, wO, wR) chạy từ lúc
+     tải dù nằm tận cuối trang. **Thêm animation cho section dưới màn đầu thì gắn sau `dem-chay` (hoặc cơ chế tương tự), đừng cho chạy
+     từ lúc tải.** Trạng thái tĩnh khi chưa chạy phải là trạng thái đẹp (đèn sáng, than + sao băng ẩn nhờ opacity 0 ở rule gốc).
+     ⚠️ Lighthouse máy này có 2 "chế độ" (lần vẽ đầu quan sát ~1,5 s hoặc ~2,6 s) đổi ngẫu nhiên giữa các lượt, CẢ bản cũ cũng dính —
+     chỉ so trong CÙNG một lượt xen kẽ và luôn kèm bản cũ làm mốc; kết luận cuối lấy từ PageSpeed thật (sếp chạy pagespeed.web.dev,
+     API ẩn danh của máy này hay hết hạn mức).
    - ⚠️ **`minifyCSS` trong bundle-js.js từng xoá dấu cách TRƯỚC ":"** → `.cha :is(a,b)` thành `.cha:is(a,b)` (nghĩa khác hẳn), thẻ FAQ tối
      không lên màu. Nay chỉ bỏ cách SAU ":" (trên CSS cũ đầu ra y hệt). Cùng họ lỗi với bug #17.
    - **Lớp wow riêng của trang Blog (danh sách) + trang tác giả** (`css/wow-blog-ds.css` → `dist/wow-blog-ds.min.css`, link NGAY SAU

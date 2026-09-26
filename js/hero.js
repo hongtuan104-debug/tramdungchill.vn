@@ -66,3 +66,22 @@ function initHeroParticles() {
     const khiRanh = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1500); };
     khiRanh(taoHat, { timeout: 3000 });
 }
+
+/* Lop wow vung dem (anh den thung lung "tho", sao bang, than hong, doi troi theo cuon) chi chay khi khach
+   cuon GAN section do. Cho chay tu luc tai trang thi lan ve dau cham ~1,2s va Speed Index 3,1 -> 4,9s
+   (Lighthouse 26/09/2026) du cac section nam tan cuoi trang. CSS chi gan animation cho section co class
+   dem-chay (xem khoi LOP WOW trong style.css). IntersectionObserver khong ep tinh bo cuc (bug #26); cuon xa
+   thi go class de may yeu khong phai chay animation ngoai man hinh. */
+function initDemKhiGan() {
+    const ids = ['gallery', 'tiktok', 'review', 'booking'];
+    const els = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('dem-chay'); });
+        return;
+    }
+    const io = new IntersectionObserver(function (ds) {
+        ds.forEach(function (d) { d.target.classList.toggle('dem-chay', d.isIntersecting); });
+    }, { rootMargin: '300px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+}

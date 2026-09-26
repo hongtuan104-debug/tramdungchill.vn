@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (page === 'index') {
         if (typeof initHeroVideo === 'function') initHeroVideo();
         if (typeof initHeroParticles === 'function') initHeroParticles();
+        if (typeof initDemKhiGan === 'function') initDemKhiGan();
         if (typeof initLazyImages === 'function') initLazyImages();
         if (typeof initGalleryLightbox === 'function') initGalleryLightbox();
         if (typeof initBookingForm === 'function') initBookingForm();

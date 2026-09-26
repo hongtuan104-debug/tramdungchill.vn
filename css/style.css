@@ -6865,18 +6865,23 @@ body.sticky-bar-active .fab-contact {
 .hero-overlay::after{animation:wBat 1.2s linear .3s both}
 .hero-particles::before{animation:wBat 1.2s linear .8s both}
 @media (min-width:769px){.hero::before{animation-duration:40s}.hero-scroll-hint{animation-name:wNhD;animation-duration:40s}}
-#gallery>.container::after,#review>.container::after{animation:wN 6.4s ease -1s infinite alternate}
-#home~#tiktok::before{animation:wN 8s ease -3s infinite alternate}
-#tiktok>.container::before{animation:wB 23s linear -9s infinite}
-#booking>.container::before{animation:wT 10s ease-out infinite}
-#booking>.container::after{animation:wT 13s ease-out -5s infinite}
+/* Vung dem: animation CHI chay khi section co class dem-chay (js/hero.js gan bang IntersectionObserver
+   khi khach cuon gan, go khi cuon xa). Do 26/09/2026 (Lighthouse 5 luot, 4 bien the): cho chay tu luc tai
+   thi lan ve dau cham ~1,2s va Speed Index 3,1 -> 4,9s du cac section nay nam tan cuoi trang; tat rieng
+   cac animation nay (giu nguyen nen) la ve lai 3,2s. Trang thai tinh khi chua chay: den sang, than + sao
+   bang an (opacity 0 o rule goc) - khong nhay hinh khi class duoc gan vi luc do section con ngoai man. */
+#gallery.dem-chay>.container::after,#review.dem-chay>.container::after{animation:wN 6.4s ease -1s infinite alternate}
+#home~#tiktok.dem-chay::before{animation:wN 8s ease -3s infinite alternate}
+#tiktok.dem-chay>.container::before{animation:wB 23s linear -9s infinite}
+#booking.dem-chay>.container::before{animation:wT 10s ease-out infinite}
+#booking.dem-chay>.container::after{animation:wT 13s ease-out -5s infinite}
 #gallery .gallery-item{transition:opacity .7s,transform .7s,rotate .9s cubic-bezier(.2,.9,.3,1.2),scale .9s,translate .45s}
 #gallery .gallery-item.reveal:not(.visible){rotate:calc(var(--r)*var(--k,1)*-3);scale:1.06}
 @supports (animation-timeline:view()){body:has(#home){overflow-x:clip}
 .scroll-progress{width:auto!important;right:0;background:linear-gradient(#0000 7.7px,#D4A84342 0 8.7px,#0000 0 10.1px,#D4A8435C 0 11.3px,#0000 0),repeating-linear-gradient(90deg,#D4A8432B 0 1.6px,#0000 0 7px) 0 7.2px/100% 4.6px no-repeat}
 .scroll-progress::after{content:"";position:fixed;inset:0 0 auto;height:12px;scale:-1 1;transform:translateX(calc(100% - 150px));background:var(--tau) 0 100%/150px 18.5px no-repeat,var(--vet) 100% 0/calc(100% - 140px) 12px no-repeat;animation:wRay linear both;animation-timeline:scroll(root)}
-#review::before{animation:wO linear both;animation-timeline:view();animation-range:cover 8% cover 30%}
-#gallery>.container::before{animation:wR linear both;animation-timeline:view()}}}
+#review.dem-chay::before{animation:wO linear both;animation-timeline:view();animation-range:cover 8% cover 30%}
+#gallery.dem-chay>.container::before{animation:wR linear both;animation-timeline:view()}}}
 @keyframes wTau{0%{transform:none}42%,to{transform:translateX(calc(-100vw - 100%))}}
 @keyframes wNh{0%,6%,40%,to{opacity:1}9%,36.5%{opacity:0}}
 @keyframes wNhD{0%,10%,33%,to{opacity:1}12.5%,30.5%{opacity:0}}
