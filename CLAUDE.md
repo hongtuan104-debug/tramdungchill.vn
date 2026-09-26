@@ -1184,6 +1184,18 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    Sau sửa (Chrome thật, 4G chậm + CPU 4×, 5 lượt, chờ 20 s): LCP 19,9 s → **2,47 s** (phần tử LCP nay là ảnh thẻ đầu; bản trước #45
    là h1 1,8 s); ảnh tải MỘT lần, bắt đầu từ giây 0,02.
 
+47. **141 bài blog có thanh "Đặt bàn online" dính đáy + nút chat nổi (FAB) + nút lên đầu trang** như trang chủ (26/09/2026,
+   sếp hỏi "sao mấy bài blog không có"). Trước đó nút đặt bàn đầu tiên trong bài nằm ở ~89% trang (mục C05 đợt rà #45).
+   - FAB: template nạp thẳng `../js/fab-contact.js?v={{JS_FAB_VER}}` (defer; vân tay do generate-blog-pages.js băm). File tự chạy:
+     tự đo lường (GA4 click_zalo/click_phone + Meta/TikTok Contact), SITE_CONFIG không có thì dùng số mặc định. Bài blog KHÔNG
+     có bộ đếm link gọi/Zalo chung (`initContactTracking` ở utils.js không nạp) nên không đếm đôi (bug #35).
+   - Thanh đặt bàn + nút lên đầu trang: **TẠO BẰNG JS** trong script cuối template, KHÔNG viết vào HTML — chữ "Đặt bàn online /
+     Setup miễn phí…" nằm trong HTML là lọt vào dấu vân nội dung (`chuHienThi` chỉ bỏ nav/footer/khối gợi ý, chữ trong `<a>` vẫn
+     tính) → 141 bài bị đóng dấu "Cập nhật" + IndexNow oan. Chữ = bản dịch `sticky.*` (bài `lang="en"` dùng bản tiếng Anh).
+     Hiện khi cuộn quá 600px, ẩn khi khối "Đặt bàn ngay" cuối bài (`.blog-cta-cuoi`) đang hiện (IntersectionObserver), gắn
+     `body.sticky-bar-active` để FAB/nút lên đầu nhích lên (CSS sẵn ở style.css, bug #22). Chỉ đọc scrollY trong sự kiện cuộn (bug #26).
+   - Các trang khác chưa có thanh này + nút lên đầu (Thực đơn, Blog, Đường đi, tác giả, trang dịp — FAB thì có, qua common.min.js).
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

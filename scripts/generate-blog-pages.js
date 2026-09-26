@@ -41,6 +41,8 @@ const CSS_BAI_VER = require("./van-tay").bamFile(path.join(ROOT, "dist", "wow-bl
 // (bài blog sinh từ template, sửa thẳng vào file sinh ra là mất ở lần build sau)
 // nên chỗ này phải tự lo. Dùng chung scripts/van-tay.js để hai bên ra cùng mã.
 const JS_LAZY_VER = require("./van-tay").bamFile(path.join(ROOT, "dist", "lazy-tracking.min.js")) || "dev";
+// FAB liên hệ (Zalo/Gọi/Facebook) cho 141 bài — cùng file js/fab-contact.js trang 404 đang nạp thẳng (26/09/2026).
+const JS_FAB_VER = require("./van-tay").bamFile(path.join(ROOT, "js", "fab-contact.js")) || "dev";
 const TODAY = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Ho_Chi_Minh",
     year: "numeric", month: "2-digit", day: "2-digit"
@@ -1076,6 +1078,7 @@ try {
                 .replace(/{{CSS_VER}}/g, CSS_VER)
                 .replace(/{{CSS_BAI_VER}}/g, CSS_BAI_VER)
                 .replace(/{{JS_LAZY_VER}}/g, JS_LAZY_VER)
+                .replace(/{{JS_FAB_VER}}/g, JS_FAB_VER)
                 .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
                 .replace(/{{OG_LOCALE}}/g, article._lang === "en" ? "en_US" : "vi_VN")
                 .replace(/{{BYLINE}}/g, bylineHtml(article))

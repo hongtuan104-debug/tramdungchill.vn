@@ -137,6 +137,8 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD',{content_group:'blog',content_id:'quan-nuong-da-lat-nhom-ban'});</script>
 <script defer src="../dist/lazy-tracking.min.js?v=953df734"></script>
+<!-- Nut lien he noi (Zalo/Goi/Facebook) giong cac trang khac - tu chen DOM, tu do luong (26/09/2026). -->
+<script defer src="../js/fab-contact.js?v=319b15b6"></script>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
@@ -320,6 +322,58 @@
             });
         }, { passive: true });
     }
+
+    // Thanh "Đặt bàn online" dính đáy + nút lên đầu trang, giống trang chủ (26/09/2026, sếp Tuấn hỏi sao bài
+    // blog không có). TẠO BẰNG JS, không viết vào HTML: chữ của thanh nằm trong HTML là lọt vào dấu vân nội
+    // dung của cap-nhat-lastmod.js → 141 bài bị đóng dấu "Cập nhật" + báo IndexNow oan (CLAUDE.md #30, #34).
+    // CSS sẵn trong style.css: thanh ẩn sẵn (translateY 100%) nên không xô bố cục; body.sticky-bar-active đẩy
+    // nút nổi lên. Chữ = bản dịch sticky.* của trang chủ. Chỉ đọc scrollY trong sự kiện cuộn (bug #26).
+    (function () {
+        var en = document.documentElement.lang === "en";
+        var thanh = document.createElement("div");
+        thanh.className = "sticky-book-bar";
+        thanh.id = "stickyBookBar";
+        thanh.innerHTML = '<div class="sticky-book-info"><div class="sticky-book-title">' + (en ? "Book online" : "Đặt bàn online") +
+            '</div><div class="sticky-book-sub">' + (en ? "Free setup • 15-minute confirmation" : "Setup miễn phí • Phản hồi 15 phút") +
+            '</div></div><a href="/#booking" class="sticky-book-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>' +
+            (en ? "Book Now" : "Đặt Bàn") + "</span></a>";
+        var lenDau = document.createElement("button");
+        lenDau.type = "button";
+        lenDau.className = "back-to-top";
+        lenDau.id = "backToTop";
+        lenDau.setAttribute("aria-label", en ? "Back to top" : "Lên đầu trang");
+        lenDau.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
+        document.body.appendChild(thanh);
+        document.body.appendChild(lenDau);
+        lenDau.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+
+        // Ẩn thanh khi khối "Đặt bàn ngay" cuối bài đang hiện, khỏi hai lời mời chồng nhau (như trang chủ ẩn
+        // thanh khi khối đặt bàn hiện).
+        var ctaHien = false, dangHien = null, choKhung = false;
+        function capNhat() {
+            var y = window.scrollY;
+            var hien = y > 600 && !ctaHien;
+            if (hien !== dangHien) {
+                dangHien = hien;
+                thanh.classList.toggle("visible", hien);
+                document.body.classList.toggle("sticky-bar-active", hien);
+            }
+            lenDau.classList.toggle("visible", y > 800);
+            choKhung = false;
+        }
+        var cta = document.querySelector(".blog-cta-cuoi");
+        if (cta && "IntersectionObserver" in window) {
+            new IntersectionObserver(function (es) {
+                ctaHien = es[es.length - 1].isIntersecting;
+                if (dangHien !== null) capNhat();   // chưa cuộn lần nào thì thôi, khỏi đọc scrollY lúc tải
+            }).observe(cta);
+        }
+        window.addEventListener("scroll", function () {
+            if (choKhung) return;
+            choKhung = true;
+            requestAnimationFrame(capNhat);
+        }, { passive: true });
+    })();
 
     // Menu di động. Trước đây script này tìm id "navLinks" — id đó không còn
     // tồn tại sau khi nav dựng lại theo components/nav.html, nên bấm nút
