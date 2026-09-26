@@ -46,12 +46,16 @@
 
     function buildFabDOM() {
         const container = document.createElement('div');
-        container.className = 'fab-contact';
+        // 3 nut luon hien san, khong con nut tron bat/tat (26/09/2026, sep Tuan: de 3 nut nay ra man luon).
+        // Dien thoai: nut tron chi co bieu tuong; may tinh: vien co chu (CSS .fab-mo-san trong style.css).
+        container.className = 'fab-contact fab-mo-san';
         container.id = 'fabContact';
 
         const options = document.createElement('div');
         options.className = 'fab-options';
         options.id = 'fabOptions';
+        options.setAttribute('role', 'group');
+        options.setAttribute('aria-label', 'Liên hệ nhanh');
 
         // Zalo — build URL động với tag nguồn tại lúc click (source có thể update sau khi user duyệt)
         const zaloLink = document.createElement('a');
@@ -60,6 +64,7 @@
         zaloLink.rel = 'noopener';
         zaloLink.className = 'fab-option fab-opt-zalo';
         zaloLink.title = 'Chat Zalo';
+        zaloLink.setAttribute('aria-label', 'Chat Zalo');
         zaloLink.innerHTML = '<span class="fab-opt-zalo-icon">Zalo</span><span>Zalo</span>';
         zaloLink.addEventListener('click', function() {
             // Refresh URL ngay trước khi mở (trong case user vừa đổi nguồn / navigate)
@@ -73,6 +78,7 @@
         phoneLink.href = 'tel:' + phone;
         phoneLink.className = 'fab-option fab-opt-phone';
         phoneLink.title = 'Gọi ngay';
+        phoneLink.setAttribute('aria-label', 'Gọi ngay ' + phone);
         phoneLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Gọi ngay</span>';
         phoneLink.addEventListener('click', function() { trackEvent('click_phone', 'fab'); });
         options.appendChild(phoneLink);
@@ -84,22 +90,12 @@
         fbLink.rel = 'noopener';
         fbLink.className = 'fab-option fab-opt-fb';
         fbLink.title = 'Facebook';
+        fbLink.setAttribute('aria-label', 'Facebook');
         fbLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span>';
         fbLink.addEventListener('click', function() { trackEvent('click_facebook', 'fab'); });
         options.appendChild(fbLink);
 
         container.appendChild(options);
-
-        // Main button
-        const mainBtn = document.createElement('button');
-        mainBtn.className = 'fab-main';
-        mainBtn.id = 'fabMainBtn';
-        mainBtn.setAttribute('aria-label', 'Liên hệ');
-        // Trình đọc màn hình biết nút này mở/đóng khối nào và đang ở trạng thái nào (25/09/2026)
-        mainBtn.setAttribute('aria-controls', 'fabOptions');
-        mainBtn.setAttribute('aria-expanded', 'false');
-        mainBtn.innerHTML = '<svg class="fab-main-icon fab-icon-contact" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><svg class="fab-main-icon fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
-        container.appendChild(mainBtn);
 
         return container;
     }
@@ -116,35 +112,7 @@
         const fabEl = buildFabDOM();
         document.body.appendChild(fabEl);
 
-        const fabBtn = document.getElementById('fabMainBtn');
-        if (!fabBtn || !fabEl) return;
-
-        // Mở/đóng qua MỘT hàm để aria-expanded luôn khớp class 'open' (mọi đường đóng đều đi qua đây)
-        function datMo(mo) {
-            fabEl.classList.toggle('open', mo);
-            fabBtn.setAttribute('aria-expanded', mo ? 'true' : 'false');
-        }
-
-        // Toggle open/close
-        fabBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            datMo(!fabEl.classList.contains('open'));
-        });
-
-        // Close when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!fabEl.contains(e.target) && fabEl.classList.contains('open')) {
-                datMo(false);
-            }
-        });
-
-        // ESC đóng khối liên hệ rồi trả tiêu điểm về nút chính, như menu nav (js/navbar.js)
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && fabEl.classList.contains('open')) {
-                datMo(false);
-                fabBtn.focus();
-            }
-        });
+        if (!fabEl) return;
 
         /* "Trang có ngắn không" — lấy từ ResizeObserver, KHÔNG đọc scrollHeight (14/09/2026).
            Bản trước đo document.body.scrollHeight trong một requestIdleCallback lúc
@@ -188,7 +156,6 @@
             new IntersectionObserver(function (entries) {
                 const dangHien = entries[0].isIntersecting;
                 fabEl.classList.toggle('in-booking', dangHien);
-                if (dangHien) datMo(false);   // đang mở thì đóng luôn
             }).observe(khoiDatBan);
         }
 
