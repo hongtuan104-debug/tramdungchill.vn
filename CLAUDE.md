@@ -1202,8 +1202,8 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      ⚠️ Chú thích đầu file ghi "TẠO BẰNG JS" — chữ **"Ằ" (U+1EB0) chỉ có ở đó**, cat-phong đã thêm nó vào 4 phông tiếng Việt
      (commit b3a98423, khách cũ tải lại ~22 KB một lần). **Đừng sửa chú thích đó thành chữ thường**: bỏ "Ằ" là phông đổi thêm lần nữa.
    - **FAB luôn mở** (26/09/2026, sếp: "để 3 nút này ra màn luôn"): fab-contact.js gắn `.fab-mo-san`, KHÔNG còn nút tròn bật/tắt
-     `.fab-main` (CSS cũ của nó còn trong style.css nhưng không phần tử nào dùng). Màn ≥ 1400px: viên có chữ; nhỏ hơn: nút tròn 48px
-     chỉ biểu tượng (viên có chữ ~150px đè mép phải nội dung laptop 1366px, che ~1/3 điện thoại). Footer điện thoại chừa đáy 190px.
+     `.fab-main` (CSS cũ của nó còn trong style.css nhưng không phần tử nào dùng). Mọi cỡ màn: nút tròn 48px chỉ biểu tượng (sếp
+     chốt 26/09 "thành nút tròn đi"; tên nút hiện qua title khi rê chuột, trình đọc màn hình đọc aria-label). Footer điện thoại chừa đáy 190px.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
