@@ -60,4 +60,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     } else if (page === 'menu') {
         if (typeof initMenuFlipbook === 'function') initMenuFlipbook();
     }
+
+    // Thanh đặt bàn dính đáy + nút lên đầu cho trang con; trang chủ tự có nên hàm tự bỏ qua (26/09/2026)
+    if (typeof initThanhDatBan === 'function') initThanhDatBan();
 });

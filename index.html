@@ -107,8 +107,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="dist/style.min.css?v=1b387ed7" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=1b387ed7"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=4faeb4c8" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=4faeb4c8"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -116,7 +116,7 @@
          Chỉ preload Dancing Script (31 KB): Inter 58 KB sẽ giành băng thông
          với ảnh hero (phần tử LCP), mà Inter đã có phông lót khớp số đo. -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=1cfc1ae7">
 
     <!-- Schema.org: generated dynamically by js/schema-generator.js -->
 
@@ -1728,7 +1728,7 @@
     <script defer src="data/translations.js?v=29e192ec"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=db340e74"></script>
+    <script defer src="dist/common.min.js?v=374ddc60"></script>
     <script defer src="dist/index.min.js?v=b3f27bb9"></script>
 
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->

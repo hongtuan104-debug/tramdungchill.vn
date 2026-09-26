@@ -29,6 +29,7 @@ const COMMON_FILES = [
     "js/i18n.js",
     "js/scroll-ui.js",
     "js/fab-contact.js",
+    "js/thanh-dat-ban.js",   // thanh đặt bàn + nút lên đầu cho trang con (26/09/2026)
     "js/app.js"
 ];
 

@@ -34,7 +34,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="../dist/style.min.css?v=1b387ed7">
+    <link rel="stylesheet" href="../dist/style.min.css?v=4faeb4c8">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -42,15 +42,15 @@
          Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
          Trang này không có ảnh hero → preload thêm phông màn đầu, xem khối dưới (bug #29). -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-vietnamese.woff2?v=d234cfe1">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-vietnamese.woff2?v=1cfc1ae7">
     <!-- Preload phông màn đầu (14/09/2026, CLAUDE.md bug #29): trang nạp CSS đồng bộ mà không preload thì phông chỉ được
          phát hiện SAU khi CSS về → đổi phông sau lần vẽ đầu → chữ xuống dòng lệch (CLS). Menu A/B: CLS 0,104 → 0. -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2?v=1598c370">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2?v=e529d476">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2?v=ae4cc827">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-latin.woff2?v=d172a6cf">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-vietnamese.woff2?v=3d726fc3">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-vietnamese.woff2?v=0eb30ef7">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-italic-latin.woff2?v=c8f44b07">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-italic-vietnamese.woff2?v=b91660e8">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/playfair-italic-vietnamese.woff2?v=f5fe5a9c">
 
     <!-- Page-specific styles -->
     <style>
@@ -608,7 +608,7 @@
     <script defer src="../data/translations.js?v=29e192ec"></script>
 
     <!-- Bundled & Minified JS (includes layout-loader) -->
-    <script defer src="../dist/common.min.js?v=db340e74"></script>
+    <script defer src="../dist/common.min.js?v=374ddc60"></script>
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>

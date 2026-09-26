@@ -1194,7 +1194,11 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      tính) → 141 bài bị đóng dấu "Cập nhật" + IndexNow oan. Chữ = bản dịch `sticky.*` (bài `lang="en"` dùng bản tiếng Anh).
      Hiện khi cuộn quá 600px, ẩn khi khối "Đặt bàn ngay" cuối bài (`.blog-cta-cuoi`) đang hiện (IntersectionObserver), gắn
      `body.sticky-bar-active` để FAB/nút lên đầu nhích lên (CSS sẵn ở style.css, bug #22). Chỉ đọc scrollY trong sự kiện cuộn (bug #26).
-   - Các trang khác chưa có thanh này + nút lên đầu (Thực đơn, Blog, Đường đi, tác giả, trang dịp — FAB thì có, qua common.min.js).
+   - **Trang con (Thực đơn, Blog, Đường đi, tác giả, 4 trang dịp)** cũng có từ 26/09/2026: `js/thanh-dat-ban.js` (trong
+     COMMON_FILES, gọi cuối app.js) tạo thanh + nút lên đầu bằng JS, cùng lý do dấu vân. Tự bỏ qua trang chủ (đã có
+     `#stickyBookBar` trong HTML). Trang dịp dẫn tới form ngay trên trang (`#booking-form`), trang khác về `/#booking`. Ẩn thanh
+     khi khối mời đặt bàn của chính trang hiện (`#booking-form` / `.menu-cta` / `.blog-cta` / `.author-cta`; Đường đi không có).
+     Chữ mang `data-i18n="sticky.*"` nên bấm EN là đổi theo (trang dịp không nạp bản dịch → tiếng Việt).
    - **FAB luôn mở** (26/09/2026, sếp: "để 3 nút này ra màn luôn"): fab-contact.js gắn `.fab-mo-san`, KHÔNG còn nút tròn bật/tắt
      `.fab-main` (CSS cũ của nó còn trong style.css nhưng không phần tử nào dùng). Màn ≥ 1400px: viên có chữ; nhỏ hơn: nút tròn 48px
      chỉ biểu tượng (viên có chữ ~150px đè mép phải nội dung laptop 1366px, che ~1/3 điện thoại). Footer điện thoại chừa đáy 190px.
