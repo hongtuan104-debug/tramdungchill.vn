@@ -15,8 +15,8 @@ function renderBlog() {
     const today = new Date().toISOString().slice(0, 10);
     const articles = BLOG_ARTICLES.filter(function(a) { return a.date <= today; });
 
-    articles.forEach(function(article) {
-        grid.appendChild(buildBlogCard(article));
+    articles.forEach(function(article, i) {
+        grid.appendChild(buildBlogCard(article, i === 0));
     });
 
     // Auto-insert share buttons
@@ -33,7 +33,7 @@ function renderBlog() {
     khoiPhucTuURL();
 }
 
-function buildBlogCard(article) {
+function buildBlogCard(article, laTheDau) {
     const card = document.createElement('article');
     card.className = 'blog-card' + (article.featured ? ' blog-featured' : '');
     card.id = article.id;
@@ -43,6 +43,12 @@ function buildBlogCard(article) {
     imgDiv.className = 'blog-card-img';
 
     const img = document.createElement('img');
+    // Ảnh thẻ ĐẦU nằm trong màn đầu điện thoại (412x823: đỉnh ảnh ~642px) nên nó là phần tử LCP.
+    // Để lazy thì trên 4G chậm nó xếp hàng sau mọi thứ: LCP 19,9s (đo 26/09/2026, bản cũ 1,8s vì
+    // ảnh nằm dưới màn đầu). Cùng URL với thẻ preload do generate-blog-pages.js sinh trong <head>
+    // blog.html (mốc ANH_THE_DAU) → tải MỘT lần, bắt đầu từ lúc đọc HTML. Khai trước src.
+    img.loading = laTheDau ? 'eager' : 'lazy';
+    if (laTheDau) img.fetchPriority = 'high';
     img.src = article.image;
     img.srcset = article.image.replace(/\.(jpg|webp)$/i, '-400w.webp') + ' 400w, ' +
                  article.image.replace(/\.(jpg|webp)$/i, '-800w.webp') + ' 800w, ' +
@@ -52,7 +58,6 @@ function buildBlogCard(article) {
     // Đổi lưới .blog-grid trong style.css thì sửa cả chuỗi này và SIZES_THE_BAI trong generate-blog-pages.js.
     img.sizes = '(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px';
     img.alt = article.imageAlt || '';
-    img.loading = 'lazy';
     imgDiv.appendChild(img);
 
     if (article.badge) {

@@ -1229,6 +1229,28 @@ try {
     fs.writeFileSync(LIGHT_FILE, lightOut, "utf8");
     console.log("blog-data-light.js updated: " + lightArr.length + " bài hiển thị trên trang blog");
 
+    // Preload ảnh THẺ ĐẦU của blog.html (26/09/2026, CLAUDE.md #46). Ảnh đó nằm trong màn đầu điện thoại nên là
+    // phần tử LCP, mà js/blog-renderer.js chỉ chèn nó SAU khi JS chạy → trên 4G chậm LCP 19,9s. Preload cho
+    // trình duyệt tải từ lúc đọc <head>. Thẻ đầu = bài đầu tiên renderBlog() hiện: thứ tự lightArr, ngày <= hôm nay.
+    // srcset + sizes PHẢI trùng từng chữ với buildBlogCard(), lệch là tải ảnh hai lần.
+    (function capNhatPreloadAnhTheDau() {
+        var BLOG_HTML = path.join(ROOT, "blog.html");
+        var dau = lightArr.filter(function (a) { return a.date <= TODAY; })[0];
+        var html = fs.readFileSync(BLOG_HTML, "utf8");
+        var moc = /<!-- ANH_THE_DAU:START[^>]*-->[\s\S]*?<!-- ANH_THE_DAU:END -->/;
+        if (!moc.test(html)) throw new Error("blog.html thiếu mốc ANH_THE_DAU:START/END");
+        var the = "";
+        if (dau && dau.image) {
+            var goc = dau.image;
+            var bien = function (hau) { return goc.replace(/\.(jpg|webp)$/i, hau); };
+            the = '\n    <link rel="preload" as="image" fetchpriority="high" href="' + goc + '" imagesrcset="' +
+                bien("-400w.webp") + " 400w, " + bien("-800w.webp") + " 800w, " + goc + ' 1200w" imagesizes="' +
+                "(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px" + '">\n    ';
+        }
+        var moi = html.replace(moc, "<!-- ANH_THE_DAU:START — sinh bởi scripts/generate-blog-pages.js, ĐỪNG sửa tay -->" + the + "<!-- ANH_THE_DAU:END -->");
+        if (moi !== html) { fs.writeFileSync(BLOG_HTML, moi, "utf8"); console.log("blog.html: preload ảnh thẻ đầu → " + (dau ? dau.image : "(không có)")); }
+    })();
+
     // Sinh luôn danh sách link tĩnh trong blog.html — đây mới là bản DUY NHẤT
     // mà bot AI đọc được (blog.html vẽ danh sách bằng JS, bot không chạy JS).
     //

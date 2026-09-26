@@ -54,6 +54,11 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-vietnamese.woff2?v=3d726fc3">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-latin.woff2?v=c8f44b07">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-vietnamese.woff2?v=b91660e8">
+    <!-- Ảnh thẻ bài đầu = phần tử LCP ở điện thoại (26/09/2026, CLAUDE.md #46): thẻ do JS chèn, không preload thì
+         trên 4G chậm LCP 19,9s. Khối dưới do generator ghi đè theo bài đứng đầu danh sách. -->
+    <!-- ANH_THE_DAU:START — sinh bởi scripts/generate-blog-pages.js, ĐỪNG sửa tay -->
+    <link rel="preload" as="image" fetchpriority="high" href="assets/images/blog/cong-tron-hoang-hon-da-lat.webp" imagesrcset="assets/images/blog/cong-tron-hoang-hon-da-lat-400w.webp 400w, assets/images/blog/cong-tron-hoang-hon-da-lat-800w.webp 800w, assets/images/blog/cong-tron-hoang-hon-da-lat.webp 1200w" imagesizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px">
+    <!-- ANH_THE_DAU:END -->
 
     <!-- PAGE_JSONLD:START — WebPage + Breadcrumb, viet tay -->
     <script type="application/ld+json">
@@ -379,7 +384,7 @@
 
     <!-- Bundled & Minified JS -->
     <script defer src="dist/common.min.js?v=f8f4947b"></script>
-    <script defer src="dist/blog.min.js?v=7e37056d"></script>
+    <script defer src="dist/blog.min.js?v=4090637a"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>

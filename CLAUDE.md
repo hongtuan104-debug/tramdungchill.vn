@@ -1154,6 +1154,18 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Chưa làm, chờ sếp: 23 mục ❓ trong `plans/ke-hoach-giao-dien.json` (set menu team building, "Năm thành lập 2022", chữ "nhất" H1
      trang cầu hôn, CTA đặt bàn giữa trang dịp/blog/Thực đơn/Đường đi, rút chữ nhãn dài, viết hoa nhãn nút…).
 
+46. **Trang Blog: ảnh thẻ bài đầu lọt màn đầu → LCP 19,9 s trên 4G chậm** (tìm ra 26/09/2026, lỗi do đợt sửa #45 gây ra).
+   Mục sửa A10 bỏ khoảng trống thừa giữa breadcrumb và hero → cả trang nhích lên ~100px, đỉnh ảnh thẻ đầu từ 869px lên 642px ở
+   412×823, tức lọt vào màn đầu và thành phần tử LCP (67.000px² > h1 22.700px²). Ảnh đó do `js/blog-renderer.js` chèn SAU khi JS chạy
+   và để `loading="lazy"` → trên 4G chậm tải xong lúc ~19,9 s. Công cụ đo chờ 12 s nên lần đo đầu KHÔNG thấy (chỉ ghi h1 1,6 s) —
+   ⚠️ **đo LCP trang có ảnh do JS chèn phải chờ ≥ 20 s** (`CHO=20000` cho `fcp-ab.js`) và in cả chuỗi ứng viên (`CHI_TIET=1`).
+   → Sửa: thẻ đầu `eager` + `fetchPriority="high"` (blog-renderer.js), và `generate-blog-pages.js` sinh `<link rel="preload" as="image"
+   fetchpriority="high" imagesrcset imagesizes>` cho ảnh bài đứng đầu danh sách vào mốc `ANH_THE_DAU` trong `<head>` blog.html.
+   ⚠️ **srcset + sizes của preload PHẢI trùng từng chữ với `buildBlogCard()`** — lệch là trình duyệt tải ảnh hai lần. Đổi lưới
+   `.blog-grid` / chuỗi sizes thì sửa cả hai nơi (cộng `SIZES_THE_BAI`, xem #32).
+   Sau sửa (Chrome thật, 4G chậm + CPU 4×, 5 lượt, chờ 20 s): LCP 19,9 s → **2,47 s** (phần tử LCP nay là ảnh thẻ đầu; bản trước #45
+   là h1 1,8 s); ảnh tải MỘT lần, bắt đầu từ giây 0,02.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
