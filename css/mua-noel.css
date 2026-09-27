@@ -90,8 +90,14 @@
    thước khung có sẵn là dời mép trên của nó → đo ra CLS 0,0014 (27/09/2026). Lớp gradient thứ hai chép nguyên từ
    .hero-overlay trong style.css — sửa gradient gốc thì sửa cả đây. --- */
 .mua-noel .hero-overlay {
-    background: url("mua/noel-tuyet-bo.svg") 0 100% / 400px 30px repeat-x,
+    background: url("mua/noel-nguoi-tuyet.svg") 10px calc(100% - 6px) / 72px 90px no-repeat,
+                url("mua/noel-tuyet-bo.svg") 0 100% / 400px 30px repeat-x,
                 linear-gradient(180deg, rgba(15, 13, 10, .5) 0%, rgba(15, 13, 10, .15) 35%, rgba(15, 13, 10, .1) 50%, rgba(15, 13, 10, .5) 85%, rgba(15, 13, 10, .8) 100%);
+}
+/* Người tuyết (sếp Tuấn 27/09/2026 "thêm người tuyết"): lớp nền trên cùng của .hero-overlay, đứng trên bờ tuyết góc
+   trái. Không phải phần tử mới → không dời gì. Đoàn tàu (z-index 2) chạy ngang QUA TRƯỚC mặt người tuyết — cố ý. */
+@media (min-width: 769px) {
+    .mua-noel .hero-overlay { background-position: 5% calc(100% - 8px), 0 100%, 0 0; background-size: 136px 170px, 400px 30px, auto; }
 }
 
 /* --- Ông già Noel cưỡi xe tuần lộc bay ngang ảnh đầu trang chủ. Giảm chuyển động: đỗ ở góc phải.

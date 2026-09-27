@@ -1235,7 +1235,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
        cùng chu kỳ 28s với tàu và xuất phát sớm hơn 1s → dẫn đường cho tàu (bay cao hơn thì bị địa chỉ / tên quán che vì hero-content
        z-index 3); máy tính bay cao dưới dây đèn, 17s một lượt. Thêm **ông già Noel ngồi trong cabin tàu** (tau-noel.svg), **bờ tuyết**
        dưới đường ray (lớp nền thêm cho `.hero-overlay`, gradient chép từ style.css — sửa gradient gốc thì sửa cả đây. ⚠️ ĐỪNG kéo
-       cao `.hero::after` để vẽ tuyết: đổi kích thước khung có sẵn dời mép trên → đo ra CLS 0,0014), **mũ Noel** trên nút
+       cao `.hero::after` để vẽ tuyết: đổi kích thước khung có sẵn dời mép trên → đo ra CLS 0,0014), **người tuyết** đứng trên bờ tuyết
+       góc trái (lớp nền TRÊN CÙNG của `.hero-overlay`, `css/mua/noel-nguoi-tuyet.svg`; tàu chạy ngang qua trước mặt — cố ý; ≥769px
+       đổi `background-position/size` theo đúng 3 lớp), **mũ Noel** trên nút
        "Đặt Bàn" của thanh đặt bàn (`.sticky-book-btn::before`, mọi trang), dây kim tuyến dưới nav có tuyết.
      · Tết: **cành mai anh đào treo 2 lồng đèn** ở góc phải ảnh đầu trang chủ (`.hero-particles::after`, đung đưa). R31 nay cho
        keyframes dùng cả `translate/rotate/scale` (dạng tách của transform).
