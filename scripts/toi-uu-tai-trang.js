@@ -52,6 +52,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const { bamFile, regexScriptJS } = require("./van-tay");
+const mua = require("./mua-le");
 
 const ROOT = path.resolve(__dirname, "..");
 const SKIP_DIRS = /^(node_modules|\.git|dist|docs|plans|dev|templates|blog)$/;
@@ -158,6 +159,10 @@ for (const f of allHtml(ROOT)) {
 
     // ── 4. vân tay phông: thẻ <link rel="preload" as="font"> + @font-face inline (review-qr)
     s = ganVanTayPhong(s, THU_MUC_PHONG);
+
+    // ── 5. đoạn script giao diện mùa (Noel / Tết) ngay sau meta viewport — CLAUDE.md #48.
+    // Mang vân tay dist/mua-*.min.css nên phải gắn ở đây, sau khi VERS đã băm.
+    if (mua.trangCanMua(f)) s = mua.ganVaoTrang(s, { noel: VERS["mua-noel.min.css"], tet: VERS["mua-tet.min.css"] });
 
     if (s !== before) {
         fs.writeFileSync(f, s, "utf8");

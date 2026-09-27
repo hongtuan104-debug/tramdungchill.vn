@@ -2748,6 +2748,101 @@ const CAU_AEO = (() => {
                      : bai.length + "/" + bai.length + " bài index trong sitemap đều có link từ thân trang chủ");
 }
 
+// ── R31. Giao diện mùa Noel / Tết (27/09/2026, CLAUDE.md #48) ────────────────
+// Đoạn script đầu trang tự bật giao diện theo ngày giờ Việt Nam; CSS mùa chỉ nạp trong mùa, sau load.
+// Canh: (a) mọi trang khách xem có ĐÚNG MỘT đoạn mùa, khớp bản sinh mới nhất (lịch + vân tay CSS),
+// nằm ngay sau meta viewport và TRƯỚC mọi stylesheet (script nội tuyến sau stylesheet phải chờ CSS);
+// (b) lịch âm đúng mốc đã biết + bảng còn phủ ≥ 1 năm tới; (c) dist/mua-*.min.css đã ghép xong,
+// không trang nào link thẳng; (d) CSS mùa chỉ "thay áo" — không thuộc tính bố cục trên phần tử thật,
+// chuyển động chỉ trong prefers-reduced-motion: no-preference và chỉ transform/opacity;
+// (e) chữ mùa không chứa từ cấm; (f) style.css còn luật giấu tàu/đèn hero chờ mua-san, 3 nơi đọc TDC_MUA.
+{
+    const mua = require("./mua-le");
+    const loi = [];
+    const vers = mua.versHienTai();
+    const doan = mua.doanDauTrang(vers);
+    let soTrang = 0;
+    for (const f of files) {
+        const s = fs.readFileSync(f, "utf8");
+        const r = rel(f);
+        const coDoan = (s.match(/<!-- MUA:START/g) || []).length;
+        if (!mua.trangCanMua(f) || !/<meta name="viewport"/.test(s)) {
+            if (coDoan) loi.push(r + ": không được có đoạn mùa");
+            continue;
+        }
+        soTrang++;
+        if (coDoan !== 1) { loi.push(r + ": " + coDoan + " đoạn mùa (cần đúng 1) — chạy bundle-js.js + generate-blog-pages.js"); continue; }
+        const i = s.indexOf("<!-- MUA:START");
+        const khoi = s.slice(i, s.indexOf("<!-- MUA:END -->", i) + "<!-- MUA:END -->".length);
+        if (khoi !== doan) loi.push(r + ": đoạn mùa cũ (lịch hoặc vân tay CSS lệch) — build lại");
+        const css1 = s.search(/<link[^>]+rel="stylesheet"/);
+        if (css1 >= 0 && css1 < i) loi.push(r + ": đoạn mùa đứng sau stylesheet");
+        if (s.indexOf('<meta name="viewport"') > i) loi.push(r + ": đoạn mùa đứng trước meta viewport");
+        if (/href="[^"]*mua-(noel|tet)\.min\.css/.test(s)) loi.push(r + ": link thẳng CSS mùa (chỉ đoạn script được nạp)");
+    }
+    // (b) lịch âm: mốc đã biết (Việt Nam, múi +7)
+    const moc = [[[1, 1, 2026], "17/2/2026"], [[1, 1, 2027], "6/2/2027"], [[1, 1, 2030], "2/2/2030"], [[15, 12, 2026], "22/1/2027"]];
+    for (const [[d, m, y], ky] of moc) {
+        const kq = mua.amSangDuong(d, m, y).join("/");
+        if (kq !== ky) loi.push("âm lịch " + d + "/" + m + "/" + y + " ra " + kq + ", đúng là " + ky);
+    }
+    const bang = mua.bangMua();
+    const homNay = +new Date(Date.now() + 7 * 3600e3).toISOString().slice(0, 10).replace(/-/g, "");
+    const cuoi = Math.max(...bang.map((b) => b[3]));
+    if (cuoi - homNay < 10000) loi.push("bảng mùa chỉ phủ tới " + cuoi + " — tăng soNam trong data/mua-le.json");
+    for (const t of mua.TEN_MUA) if (!bang.some((b) => b[0] === t && b[3] >= homNay)) loi.push("bảng mùa không còn " + t + " nào sắp tới");
+    // (c) CSS mùa đã ghép
+    for (const t of mua.TEN_MUA) {
+        const p = path.join(ROOT, "dist", "mua-" + t + ".min.css");
+        if (!fs.existsSync(p)) { loi.push("thiếu dist/mua-" + t + ".min.css"); continue; }
+        const c = fs.readFileSync(p, "utf8");
+        if (/TAU-MUA|url\("mua\//.test(c)) loi.push("dist/mua-" + t + ".min.css còn chỗ giữ chưa ghép");
+        if (!/--tau:url\("data:image\/svg\+xml/.test(c) || !/--tau-lui:url\("data:image\/svg\+xml/.test(c)) loi.push("dist/mua-" + t + ".min.css thiếu hình tàu");
+    }
+    // (d) CSS mùa chỉ thay áo
+    const BO_CUC = /^(width|height|min-|max-|margin|padding|top|left|right|bottom|inset|position|display|float|flex|grid|gap|font|line-height|letter-spacing|border(?!-radius)|order|align|justify|columns|content)/;
+    for (const t of mua.TEN_MUA) {
+        const src = fs.readFileSync(path.join(ROOT, "css", "mua-" + t + ".css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+        const ngu = [];          // chồng các prelude đang mở
+        let dau = 0;
+        for (let k = 0; k < src.length; k++) {
+            const ch = src[k];
+            if (ch === "{") { ngu.push(src.slice(dau, k).trim()); dau = k + 1; }
+            else if (ch === "}") {
+                const than = src.slice(dau, k); dau = k + 1;
+                const sel = ngu.pop() || "";
+                if (!than.includes(":")) continue;
+                const trongKhung = ngu.some((p) => /^@keyframes/.test(p));
+                const chuyenDongDuoc = ngu.some((p) => /prefers-reduced-motion:\s*no-preference/.test(p));
+                for (const kb of than.split(";")) {
+                    const m = /^\s*([a-z-]+)\s*:/.exec(kb);
+                    if (!m || m[1].startsWith("--")) continue;
+                    const tp = m[1];
+                    if (trongKhung) { if (!/^(transform|opacity)$/.test(tp)) loi.push("css/mua-" + t + ".css: @keyframes animate " + tp + " (chỉ transform/opacity)"); continue; }
+                    if (/^animation/.test(tp) && !chuyenDongDuoc) loi.push("css/mua-" + t + ".css: " + sel.slice(0, 50) + " có " + tp + " ngoài prefers-reduced-motion: no-preference");
+                    if (BO_CUC.test(tp) && !/::?(before|after)\b/.test(sel) && !/\.particle\b/.test(sel)) loi.push("css/mua-" + t + ".css: " + sel.slice(0, 50) + " đổi " + tp + " trên phần tử thật");
+                }
+            }
+        }
+    }
+    // (e) chữ mùa
+    const cauHinh = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "mua-le.json"), "utf8"));
+    for (const t of mua.TEN_MUA) for (const [k, v] of Object.entries(cauHinh[t].chu || {})) for (const [ng, chu] of Object.entries(v)) {
+        if (/duy nhất|số một|số 1\b|\bnến\b|candle|hoa tươi|\bnhất\b/i.test(chu)) loi.push("data/mua-le.json " + t + "." + k + "." + ng + ": chữ cấm trong \"" + chu + "\"");
+    }
+    // (f) luật giấu hero + nơi đọc TDC_MUA
+    if (!/:not\(\.mua-san\)/.test(fs.readFileSync(path.join(ROOT, "css", "style.css"), "utf8"))) loi.push("css/style.css mất luật giấu tàu/đèn hero chờ mua-san");
+    for (const f of ["js/i18n.js", "js/thanh-dat-ban.js", "templates/blog-post.html"]) {
+        if (!fs.readFileSync(path.join(ROOT, f), "utf8").includes("TDC_MUA")) loi.push(f + " không đọc chữ mùa (window.TDC_MUA)");
+    }
+    const sap = bang.filter((b) => b[3] >= homNay).slice(0, 2)
+        .map((b) => (b[0] === "noel" ? "Noel " : "Tết ") + String(b[1]).slice(6) + "/" + String(b[1]).slice(4, 6) + "/" + String(b[1]).slice(0, 4));
+    add("Giao diện mùa Noel / Tết: đoạn script đúng mọi trang · lịch âm đúng · CSS mùa chỉ thay áo",
+        loi.length === 0,
+        loi.length ? loi.slice(0, 4).join(" | ") + (loi.length > 4 ? " … (+" + (loi.length - 4) + ")" : "")
+                   : soTrang + " trang có đoạn mùa khớp bản sinh · sắp bật: " + sap.join(", ") + " · xem trước: ?mua=noel / ?mua=tet");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

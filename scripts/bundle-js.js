@@ -245,7 +245,11 @@ const CSS_BUNDLES = [
     // trang nap CSS dong bo (menu, dip, duong di, 141 bai...) deu phai tai + tinh ca lop cua
     // trang khac. Link dat NGAY SAU style.min.css de cascade giu nguyen.
     { src: "wow-blog-ds.css", out: "wow-blog-ds.min.css" },   // blog.html + tac-gia/
-    { src: "wow-blog-bai.css", out: "wow-blog-bai.min.css" }  // templates/blog-post.html
+    { src: "wow-blog-bai.css", out: "wow-blog-bai.min.css" }, // templates/blog-post.html
+    // Giao diện mùa (27/09/2026, CLAUDE.md #48): KHÔNG trang nào link thẳng. Đoạn script đầu
+    // trang (scripts/mua-le.js) chỉ nạp trong mùa, sau sự kiện load → ngoài mùa khách tải 0 byte.
+    { src: "mua-noel.css", out: "mua-noel.min.css" },
+    { src: "mua-tet.css", out: "mua-tet.min.css" }
 ];
 
 for (const b of CSS_BUNDLES) {
@@ -267,6 +271,9 @@ for (const b of CSS_BUNDLES) {
         (cssMin / 1024).toFixed(1) + " KB  (" + cssPct + "% smaller)"
     );
 }
+// CSS mùa: ghép hình tàu mùa + nhúng hình css/mua/*.svg. Lỗi ở đây phải DỪNG build: để lọt
+// thì dist/mua-*.min.css còn chỗ giữ "TAU-MUA", vào mùa khách thấy tàu trống.
+require("./mua-le").hoanTatCss(DIST);
 
 // ── Footer dùng chung cho mọi trang ──────────────────────────────
 // Chạy ở đây để không ai quên: footer nằm trong 7 file (component + template bài

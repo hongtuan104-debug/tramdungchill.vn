@@ -15,8 +15,11 @@ function initThanhDatBan() {
 
     // 4 trang dịp có form ngay trên trang → dẫn tới form đó; trang khác dẫn về form trang chủ.
     const formTrang = document.getElementById('booking-form');
-    const dich = (window.TRANSLATIONS && window.TRANSLATIONS[document.documentElement.lang]) || null;
-    const chu = function (khoa, macDinh) { return (dich && dich[khoa]) || macDinh; };
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'vi';
+    const dich = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || null;
+    // Chữ mùa (Noel / Tết) đứng trước bản dịch thường — window.TDC_MUA do đoạn script đầu trang đặt (CLAUDE.md #48)
+    const mua = window.TDC_MUA && window.TDC_MUA.chu;
+    const chu = function (khoa, macDinh) { return (mua && mua[khoa] && mua[khoa][lang]) || (dich && dich[khoa]) || macDinh; };
 
     const thanh = document.createElement('div');
     thanh.className = 'sticky-book-bar';

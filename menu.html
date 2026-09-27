@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- MUA:START (scripts/mua-le.js sinh, đừng sửa tay) -->
+<script>!function(){try{var h=document.documentElement,n=+new Date(Date.now()+252e5).toISOString().slice(0,10).replace(/-/g,""),B=[["tet",20260202,20260224,20260303],["noel",20261201,20261224,20270101],["tet",20270122,20270213,20270220],["noel",20271201,20271224,20280101],["tet",20280111,20280202,20280209],["noel",20281201,20281224,20290101],["tet",20290129,20290220,20290227],["noel",20291201,20291224,20300101],["tet",20300118,20300209,20300216],["noel",20301201,20301224,20310101],["tet",20310108,20310130,20310206]],C={"noel":{"sticky.title":{"vi":"Đặt bàn mùa Noel","en":"Book for Christmas"},"sticky.sub":{"vi":"Đêm 24/12 không phụ thu","en":"No surcharge on 24 Dec"}},"tet":{"sticky.title":{"vi":"Đặt bàn dịp Tết","en":"Book for Tết"},"sticky.sub":{"vi":"Mùng 2–8 Tết phụ thu 10%","en":"10% surcharge, Tết days 2–8"}}},V={"noel":"89db7b48","tet":"f92f3fb0"},m="",l=0,q,i;for(i=0;i<B.length;i++)if(n>=B[i][1]&&n<=B[i][3]){m=B[i][0];l=n<=B[i][2]}q=/[?&]mua=(noel|tet|tat)(&|$)/.exec(location.search);q=q&&q[1];try{if(q)sessionStorage.setItem("tdc-mua",q);else q=sessionStorage.getItem("tdc-mua")}catch(e){}if(q){m=q=="tat"?"":q;l=1}if(!m)return;h.classList.add("mua-"+m);window.TDC_MUA={ten:m,chu:l?C[m]:null};var f=function(){var k=document.createElement("link");k.rel="stylesheet";k.href="/dist/mua-"+m+".min.css?v="+V[m];k.onload=k.onerror=function(){h.classList.add("mua-san")};document.head.appendChild(k)};document.readyState=="complete"?f():addEventListener("load",f)}catch(e){}}();</script>
+<!-- MUA:END -->
 
     <title>Menu Trạm Dừng Chill | Quán Nướng BBQ Đà Lạt 2026</title>
     <meta name="description" content="Menu quán nướng Đà Lạt Trạm Dừng Chill - hơn 70 món BBQ nướng tại bàn, lẩu, hải sản. Mức chi 95.000-300.000đ/người (đã gồm VAT). Đặt bàn: 0989.765.070">
@@ -38,7 +41,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=d7b51491">
+    <link rel="stylesheet" href="dist/style.min.css?v=3343c12e">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1774,7 +1777,7 @@
     <script defer src="data/menu-data.js?v=061e0cd3"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=374ddc60"></script>
+    <script defer src="dist/common.min.js?v=92228cb9"></script>
     <script defer src="dist/menu.min.js?v=1b7de8a7"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>

@@ -1,0 +1,24 @@
+{
+  "_ghiChu": "Giao diện theo mùa (Noel, Tết) — nguồn DUY NHẤT cho khung ngày và chữ mùa. scripts/mua-le.js đọc file này, tính ngày âm lịch, sinh đoạn script đầu trang cho MỌI trang (trang tĩnh qua toi-uu-tai-trang.js, 141 bài qua generate-blog-pages.js). Sửa xong chạy: node scripts/bundle-js.js rồi node scripts/generate-blog-pages.js. Xem trước bất cứ lúc nào: thêm ?mua=noel / ?mua=tet / ?mua=tat vào địa chỉ trang. CLAUDE.md mục #48.",
+  "_ghiChuNgay": "tu/den/loiDen: ngày dương 'MM-DD' (Noel; den nhỏ hơn tu nghĩa là sang năm sau). tuAm/denAm/loiDenAm: [ngày, tháng] âm lịch; tháng 12 là tháng Chạp của năm âm TRƯỚC Tết. loiDen = hết ngày này thì thôi hiện chữ mùa trên thanh đặt bàn (giao diện vẫn giữ tới den). Sếp Tuấn duyệt khung 27/09/2026: Noel 01/12–01/01, Tết 15 Chạp–Rằm tháng Giêng.",
+  "soNam": 5,
+  "noel": {
+    "tu": "12-01",
+    "den": "01-01",
+    "loiDen": "12-24",
+    "chu": {
+      "sticky.title": { "vi": "Đặt bàn mùa Noel", "en": "Book for Christmas" },
+      "sticky.sub": { "vi": "Đêm 24/12 không phụ thu", "en": "No surcharge on 24 Dec" }
+    }
+  },
+  "tet": {
+    "tuAm": [15, 12],
+    "denAm": [15, 1],
+    "loiDenAm": [8, 1],
+    "_ghiChuChu": "Phụ thu Tết 10% từ Mùng 2 đến Mùng 8 Âm lịch — sếp chốt 14/09/2026 (facts.json giaDipLe). Đổi mức phụ thu thì sửa cả facts.json.",
+    "chu": {
+      "sticky.title": { "vi": "Đặt bàn dịp Tết", "en": "Book for Tết" },
+      "sticky.sub": { "vi": "Mùng 2–8 Tết phụ thu 10%", "en": "10% surcharge, Tết days 2–8" }
+    }
+  }
+}

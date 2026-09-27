@@ -1,0 +1,136 @@
+/* ==========================================================================
+   GIAO DIỆN MÙA NOEL — CLAUDE.md mục #48.
+   Lịch + đoạn script đầu trang: scripts/mua-le.js · khung ngày + chữ mùa: data/mua-le.json.
+   File này CHỈ được nạp trong mùa (hoặc khi xem trước bằng ?mua=noel), và nạp SAU sự kiện
+   load. Lúc đó <html> đã mang class mua-noel từ trước lần vẽ đầu; nạp xong có thêm mua-san.
+
+   Hình: url("mua/<tên>.svg") trỏ file trong css/mua/ — bundle-js.js nén xong thì mua-le.js
+   nhúng thẳng vào dist/mua-noel.min.css. TAU-MUA / TAU-MUA-LUI là chỗ giữ cho hình tàu,
+   ghép từ --tau của style.css + css/mua/tau-noel.svg (sửa hình tàu gốc là tàu mùa tự theo).
+
+   Luật của file này (R31 canh):
+   - Chỉ thay áo: hình nền, màu, biến --*, và ::before/::after mới đặt position:absolute.
+     Không đổi kích thước, lề, vị trí trong luồng của phần tử thật → CLS vẫn 0. Không đổi màu
+     phần tử có transition all (navbar, thẻ...) kẻo kích cả loạt transition khi file về (bug #21).
+   - Không đụng tên quán và ảnh đầu trang (phần tử LCP, bug #19).
+   - Chuyển động chỉ trong prefers-reduced-motion: no-preference, chỉ transform/opacity;
+     vùng đêm trang chủ chỉ chạy khi section có class dem-chay (bug #45).
+   - Không vẽ nến: setup ở quán không có nến (bug #39).
+   ========================================================================== */
+
+/* --- Tàu: hero trang chủ, thanh tiến độ, thanh đọc bài blog, hero trang Blog + tác giả.
+   Tuyết phủ mái, dây bóng đỏ-vàng-xanh dưới mép mái, vòng nguyệt quế bên hông cabin. --- */
+:root.mua-noel {
+    --tau: TAU-MUA;
+    --tau-lui: TAU-MUA-LUI;
+    --i-mua: url("mua/noel-icon.svg");
+    /* Dây đèn hero trang Blog + tác giả (wow-blog-ds.css đọc các biến này) */
+    --bd-den-le: url("mua/noel-den-le.svg");
+    --bd-den-chan: url("mua/noel-den-chan.svg");
+    --bd-den: url("mua/noel-den.svg");
+}
+
+/* --- Hero trang chủ: bóng đèn đỏ / vàng / xanh thay cho bóng vàng --- */
+.mua-noel .hero-overlay::after { --i: url("mua/noel-den-le.svg"); }
+.mua-noel .hero-particles::before { --i: url("mua/noel-den-chan.svg"); }
+
+/* Tàu + đèn hero được style.css giấu tới khi file này về (class mua-san); đổi tên animation
+   để chúng chạy lại TỪ ĐẦU với áo mới, thay vì hiện giữa chừng. */
+@media (prefers-reduced-motion: no-preference) {
+    .mua-noel .hero::before { animation-name: mTau; }
+    .mua-noel .hero-scroll-hint { animation-name: mNh; }
+    .mua-noel .hero-overlay::after { animation-name: mBat; }
+    .mua-noel .hero-particles::before { animation-name: mBat; }
+
+    /* Hạt sáng trong hero thành tuyết rơi */
+    .mua-noel .particle {
+        background: #FFFFFF;
+        box-shadow: 0 0 5px rgba(255, 255, 255, .85), 0 0 10px rgba(190, 220, 255, .35);
+        animation-name: mTuyet;
+        animation-timing-function: linear;
+    }
+
+    /* Trời đêm: ngôi sao lớn lấp lánh thay trăng */
+    .mua-noel #tiktok.dem-chay > .container::after { animation: mSao 2.8s ease-in-out infinite alternate; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
+    .mua-noel .hero-scroll-hint { animation-name: mNhD; }
+}
+
+/* --- Nhãn vé tàu đầu mỗi mục: icon bông tuyết. Hero trang Blog / Thực đơn không phải vé. --- */
+.mua-noel .section-tag:not(:is(.blog-hero, .menu-hero) *) { --i-tag: var(--i-mua); }
+
+/* --- Dây đèn mép trên khối đặt bàn + footer mọi trang --- */
+.mua-noel :is(.footer, #home ~ #booking)::before { background-image: url("mua/noel-day-den.svg"); }
+.mua-noel :is(.footer, #home ~ #booking)::after {
+    background-image: radial-gradient(circle at 25px 14px, rgba(255, 80, 70, .6), #0000 10px),
+                      radial-gradient(circle at 75px 21px, rgba(255, 210, 100, .55), #0000 10px),
+                      radial-gradient(circle at 125px 21px, rgba(70, 215, 125, .55), #0000 10px),
+                      radial-gradient(circle at 175px 14px, rgba(255, 210, 100, .55), #0000 10px);
+}
+
+/* --- Dây đèn đầu bài blog --- */
+.mua-noel .blog-post-hero::before { background-image: url("mua/noel-day-bai.svg"); }
+.mua-noel .blog-post-hero::after {
+    background-image: radial-gradient(circle at 25% 50%, #FF5A4CCC, #FF5A4C00 12px),
+                      radial-gradient(circle at 50% 59%, #4FD885B3, #4FD88500 12px),
+                      radial-gradient(circle at 75% 50%, #FFD06ACC, #FFD06A00 12px);
+}
+
+/* --- Dây kim tuyến có bóng treo dưới thanh nav (trang chủ: khi đã cuộn; trang dịp: dip-nav).
+   Trang đã có dây đèn ngay đầu trang (bài blog, trang Blog, tác giả) thì thôi, kẻo hai dây chồng
+   nhau. Trình duyệt chưa hiểu :has() bỏ cả rule → chỉ mất dây này, không vỡ gì.
+   z-index -1: menu điện thoại mở ra thì che được dây. --- */
+.mua-noel:not(:has(.blog-post-hero, .blog-hero, .author-hero)) .navbar.scrolled::after,
+.mua-noel .dip-nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 16px;
+    z-index: -1;
+    pointer-events: none;
+    background: url("mua/noel-nav.svg") 0 0 / 120px 16px repeat-x;
+}
+
+/* --- Ảnh bưu thiếp mục Không gian: băng keo sọc kẹo đỏ trắng --- */
+.mua-noel #gallery .gallery-item::before {
+    background: linear-gradient(#FFF5, #0000 45%, #785A281A),
+                repeating-linear-gradient(-50deg, #C7372FE6 0 6px, #FBF4E8E6 0 12px);
+}
+
+/* --- Trời đêm mục TikTok: ngôi sao thay trăng (tĩnh khi chưa cuộn tới / giảm chuyển động) --- */
+.mua-noel #tiktok > .container::after {
+    background: url("mua/noel-sao.svg") 50% / 42px no-repeat,
+                radial-gradient(closest-side, #FFE9A840, #0000);
+}
+
+/* --- Form đặt bàn (trang chủ + 4 trang dịp): con dấu đỏ bông tuyết giữa dải đầu tấm vé --- */
+.mua-noel :is(.booking-form-wrapper, .dip-form-wrapper) > :first-child::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--band) / 2 - 19px);
+    left: calc(50% - 19px);
+    width: 38px;
+    height: 38px;
+    z-index: 1;
+    pointer-events: none;
+    background: url("mua/noel-dau.svg") 50% / contain no-repeat;
+    filter: drop-shadow(0 0 6px rgba(255, 190, 120, .35));
+}
+
+@keyframes mTau { 0% { transform: none; } 42%, to { transform: translateX(calc(-100vw - 100%)); } }
+@keyframes mNh { 0%, 6%, 40%, to { opacity: 1; } 9%, 36.5% { opacity: 0; } }
+@keyframes mNhD { 0%, 10%, 33%, to { opacity: 1; } 12.5%, 30.5% { opacity: 0; } }
+@keyframes mBat { 0% { opacity: 0; } 22% { opacity: .6; } 30% { opacity: .08; } 48% { opacity: .85; } 56% { opacity: .35; } to { opacity: 1; } }
+@keyframes mTuyet {
+    0% { opacity: 0; transform: translate(0, -70px); }
+    15% { opacity: .95; }
+    80% { opacity: .8; }
+    to { opacity: 0; transform: translate(var(--dx), 150px); }
+}
+@keyframes mSao {
+    from { opacity: .7; transform: scale(.88) rotate(-6deg); }
+    to { opacity: 1; transform: scale(1.06) rotate(4deg); }
+}

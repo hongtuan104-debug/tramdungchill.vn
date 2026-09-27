@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- MUA:START (scripts/mua-le.js sinh, đừng sửa tay) -->
+<script>!function(){try{var h=document.documentElement,n=+new Date(Date.now()+252e5).toISOString().slice(0,10).replace(/-/g,""),B=[["tet",20260202,20260224,20260303],["noel",20261201,20261224,20270101],["tet",20270122,20270213,20270220],["noel",20271201,20271224,20280101],["tet",20280111,20280202,20280209],["noel",20281201,20281224,20290101],["tet",20290129,20290220,20290227],["noel",20291201,20291224,20300101],["tet",20300118,20300209,20300216],["noel",20301201,20301224,20310101],["tet",20310108,20310130,20310206]],C={"noel":{"sticky.title":{"vi":"Đặt bàn mùa Noel","en":"Book for Christmas"},"sticky.sub":{"vi":"Đêm 24/12 không phụ thu","en":"No surcharge on 24 Dec"}},"tet":{"sticky.title":{"vi":"Đặt bàn dịp Tết","en":"Book for Tết"},"sticky.sub":{"vi":"Mùng 2–8 Tết phụ thu 10%","en":"10% surcharge, Tết days 2–8"}}},V={"noel":"89db7b48","tet":"f92f3fb0"},m="",l=0,q,i;for(i=0;i<B.length;i++)if(n>=B[i][1]&&n<=B[i][3]){m=B[i][0];l=n<=B[i][2]}q=/[?&]mua=(noel|tet|tat)(&|$)/.exec(location.search);q=q&&q[1];try{if(q)sessionStorage.setItem("tdc-mua",q);else q=sessionStorage.getItem("tdc-mua")}catch(e){}if(q){m=q=="tat"?"":q;l=1}if(!m)return;h.classList.add("mua-"+m);window.TDC_MUA={ten:m,chu:l?C[m]:null};var f=function(){var k=document.createElement("link");k.rel="stylesheet";k.href="/dist/mua-"+m+".min.css?v="+V[m];k.onload=k.onerror=function(){h.classList.add("mua-san")};document.head.appendChild(k)};document.readyState=="complete"?f():addEventListener("load",f)}catch(e){}}();</script>
+<!-- MUA:END -->
     <title>Quán Nướng Đà Lạt Cho Người Lớn Tuổi — Chọn Quán Thế Nào Cho Ba Mẹ Thoải Mái</title>
     <meta name="description" content="Đưa ba mẹ lên Đà Lạt ăn nướng? Hướng dẫn chọn quán nướng Đà Lạt cho người lớn tuổi — tiêu chí về độ ồn, chỗ đỗ xe, lối đi, món dễ ăn và mẹo đi cùng người...">
     <meta name="keywords" content="quán nướng đà lạt cho người lớn tuổi — chọn quán thế nào cho ba mẹ thoải mái, đà lạt, quán nướng, bbq">
@@ -33,7 +36,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
     <meta name="theme-color" content="#D4A853">
-    <link rel="stylesheet" href="../dist/style.min.css?v=d7b51491">
+    <link rel="stylesheet" href="../dist/style.min.css?v=3343c12e">
     <link rel="stylesheet" href="../dist/wow-blog-bai.min.css?v=416c91b5">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2?v=1598c370">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2?v=ae4cc827">
@@ -332,11 +335,14 @@
     // nút nổi lên. Chữ = bản dịch sticky.* của trang chủ. Chỉ đọc scrollY trong sự kiện cuộn (bug #26).
     (function () {
         var en = document.documentElement.lang === "en";
+        // Chữ mùa (Noel / Tết) do đoạn script đầu trang đặt vào window.TDC_MUA — CLAUDE.md #48
+        var mua = window.TDC_MUA && window.TDC_MUA.chu;
+        var chuMua = function (khoa, macDinh) { return (mua && mua[khoa] && mua[khoa][en ? "en" : "vi"]) || macDinh; };
         var thanh = document.createElement("div");
         thanh.className = "sticky-book-bar";
         thanh.id = "stickyBookBar";
-        thanh.innerHTML = '<div class="sticky-book-info"><div class="sticky-book-title">' + (en ? "Book online" : "Đặt bàn online") +
-            '</div><div class="sticky-book-sub">' + (en ? "Free setup • 15-minute confirmation" : "Setup miễn phí • Phản hồi 15 phút") +
+        thanh.innerHTML = '<div class="sticky-book-info"><div class="sticky-book-title">' + chuMua("sticky.title", en ? "Book online" : "Đặt bàn online") +
+            '</div><div class="sticky-book-sub">' + chuMua("sticky.sub", en ? "Free setup • 15-minute confirmation" : "Setup miễn phí • Phản hồi 15 phút") +
             '</div></div><a href="/#booking" class="sticky-book-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>' +
             (en ? "Book Now" : "Đặt Bàn") + "</span></a>";
         var lenDau = document.createElement("button");

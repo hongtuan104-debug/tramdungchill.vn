@@ -46,10 +46,10 @@
    Sửa danh sách precache trong chính script đó rồi chạy node scripts/bundle-js.js.
    URL kèm ?v= là BẮT BUỘC: bộ xử lý fetch bên dưới khớp URL chính xác, ghi
    URL trần trong khi trang gọi URL có vân tay = precache không bao giờ dùng được. */
-const CACHE_NAME = 'tdc-v13-fedb4f9a';
+const CACHE_NAME = 'tdc-v13-935f9a4c';
 const STATIC_ASSETS = [
     '/index.html',
-    '/dist/common.min.js?v=374ddc60',
+    '/dist/common.min.js?v=92228cb9',
     '/dist/index.min.js?v=b3f27bb9',
     '/data/site-config.js?v=4ac35186',
     '/data/translations.js?v=29e192ec',

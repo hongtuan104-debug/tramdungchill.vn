@@ -36,12 +36,17 @@ function applyTranslations(lang) {
        hành vi. (Chuyện 8 chỗ HTML lệch với translations.vi là bug riêng, xem
        mục "Bug đã fix" số 0 trong CLAUDE.md.) */
 
+    // Chữ mùa (Noel / Tết) đè lên bản dịch thường cho vài khoá, vd. thanh "Đặt bàn online".
+    // window.TDC_MUA do đoạn script đầu trang đặt — CLAUDE.md #48, data/mua-le.json.
+    const mua = window.TDC_MUA && window.TDC_MUA.chu;
+
     // Text content
     const els = document.querySelectorAll('[data-i18n]');
     for (let i = 0; i < els.length; i++) {
         const key = els[i].getAttribute('data-i18n');
-        if (dict[key] && els[i].innerHTML !== dict[key]) {
-            els[i].innerHTML = dict[key];
+        const val = (mua && mua[key] && mua[key][lang]) || dict[key];
+        if (val && els[i].innerHTML !== val) {
+            els[i].innerHTML = val;
         }
     }
 

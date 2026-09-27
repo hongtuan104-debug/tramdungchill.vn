@@ -6936,3 +6936,11 @@ body.sticky-bar-active .fab-contact {
 
 /* Lop wow cho blog da tach ra file rieng (25/09/2026): css/wow-blog-ds.css (blog.html + tac gia)
    va css/wow-blog-bai.css (bai blog). Moi trang chi tai lop cua minh. */
+
+/* Giao dien mua Noel / Tet (27/09/2026, CLAUDE.md #48): trong mua, <html> co class mua-noel / mua-tet
+   ngay tu dau, con CSS mua (dist/mua-*.min.css) chi nap SAU su kien load roi gan them mua-san.
+   Giau tau + day den hero toi luc do, khoi thay ban thuong roi "doi ao" giua chung; CSS mua cho
+   animation chay lai tu dau. Dung visibility (khong phai opacity): wBat dang animate opacity se de.
+   CSS mua loi thi doan script van gan mua-san -> hien lai ban thuong. */
+:is(.mua-noel, .mua-tet):not(.mua-san) :is(.hero, .hero-overlay, .hero-particles)::before,
+:is(.mua-noel, .mua-tet):not(.mua-san) .hero-overlay::after { visibility: hidden; }

@@ -43,6 +43,9 @@ const CSS_BAI_VER = require("./van-tay").bamFile(path.join(ROOT, "dist", "wow-bl
 const JS_LAZY_VER = require("./van-tay").bamFile(path.join(ROOT, "dist", "lazy-tracking.min.js")) || "dev";
 // FAB liên hệ (Zalo/Gọi/Facebook) cho 141 bài — cùng file js/fab-contact.js trang 404 đang nạp thẳng (26/09/2026).
 const JS_FAB_VER = require("./van-tay").bamFile(path.join(ROOT, "js", "fab-contact.js")) || "dev";
+// Đoạn script giao diện mùa (Noel / Tết) cho 141 bài — cùng hàm với trang tĩnh (toi-uu-tai-trang.js),
+// mang vân tay dist/mua-*.min.css. CLAUDE.md #48. Chạy bundle-js.js trước để có bản dist mới.
+const MUA_DOAN = require("./mua-le").doanDauTrang(require("./mua-le").versHienTai());
 const TODAY = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Ho_Chi_Minh",
     year: "numeric", month: "2-digit", day: "2-digit"
@@ -1079,6 +1082,7 @@ try {
                 .replace(/{{CSS_BAI_VER}}/g, CSS_BAI_VER)
                 .replace(/{{JS_LAZY_VER}}/g, JS_LAZY_VER)
                 .replace(/{{JS_FAB_VER}}/g, JS_FAB_VER)
+                .replace(/{{MUA}}/g, () => MUA_DOAN)
                 .replace(/{{HTML_LANG}}/g, article._lang === "en" ? "en" : "vi")
                 .replace(/{{OG_LOCALE}}/g, article._lang === "en" ? "en_US" : "vi_VN")
                 .replace(/{{BYLINE}}/g, bylineHtml(article))

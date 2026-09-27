@@ -1,0 +1,28 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='-90 -24 680 84'>
+<!-- Phần trang trí Tết cho tàu. Cùng quy ước với tau-noel.svg (xem chú thích ở đó).
+     Toa: 2 lồng đèn đỏ treo ở mép mái, đúng khe giữa hai cửa sổ (x 48.5 / 102.5, khe rộng 7).
+     Đầu máy: cành mai vàng + mai anh đào hồng trên nắp máy phía trước, bảng đỏ viền vàng bên hông cabin.
+     Id tiền tố mt. -->
+<defs>
+<filter id='mtG' x='-1' y='-1' width='3' height='3'><feGaussianBlur stdDeviation='2'/></filter>
+<g id='mtL'>
+<path d='M0 14.6v2.3' stroke='#E3B452' stroke-width='.7'/>
+<circle cy='21' r='5.6' fill='#FF4A24' opacity='.55' filter='url(#mtG)'/>
+<ellipse cy='21' rx='3.7' ry='4.1' fill='#D6281E'/>
+<path d='M-1.6 17.3Q-2.8 21-1.6 24.7M1.6 17.3Q2.8 21 1.6 24.7M0 16.9v8.2' fill='none' stroke='#9C1812' stroke-width='.45'/>
+<ellipse cx='-1.2' cy='20' rx='1' ry='2.1' fill='#FF8C5E' opacity='.75'/>
+<rect x='-1.9' y='16.3' width='3.8' height='1.3' rx='.4' fill='#E8BC4E'/>
+<rect x='-1.9' y='24.5' width='3.8' height='1.3' rx='.4' fill='#E8BC4E'/>
+<path d='M0 25.8v3.6' stroke='#E8BC4E' stroke-width='.9'/>
+</g>
+<g id='mtT'><use href='#mtL' x='48.5'/><use href='#mtL' x='102.5'/></g>
+<g id='mtH'><circle cx='0' cy='-1.25' r='1.05'/><circle cx='1.19' cy='-.39' r='1.05'/><circle cx='.73' cy='1.01' r='1.05'/><circle cx='-.73' cy='1.01' r='1.05'/><circle cx='-1.19' cy='-.39' r='1.05'/><circle r='.55' fill='#B5561B'/></g>
+</defs>
+<use href='#mtT' x='118'/><use href='#mtT' x='274'/><use href='#mtT' x='430'/>
+<path d='M8 28.2C11 24.6 14.6 22.4 19.4 21M13.2 23.8c-1.1-2.3-.8-4.6.8-6.4M19.4 21c2.4-.9 4.6-2.8 6-5.4M16.6 22.1c1.6-2.6 1.6-4.6.9-6.6' fill='none' stroke='#5A3A22' stroke-width='1.1' stroke-linecap='round'/>
+<g fill='#FFC93C'><use href='#mtH' x='14' y='17.4'/><use href='#mtH' x='25.4' y='15.8'/><use href='#mtH' x='11.4' y='24.4'/><use href='#mtH' x='20.6' y='20.4'/></g>
+<g fill='#FFA3C0'><use href='#mtH' x='17.5' y='15.6'/><use href='#mtH' x='22.6' y='16.9'/><use href='#mtH' x='16.6' y='22.3'/></g>
+<rect x='35.6' y='26.6' width='22.8' height='12' rx='1.2' fill='#C8261D' stroke='#E8BC4E' stroke-width='.8'/>
+<rect x='37.4' y='28.3' width='19.2' height='8.6' rx='.6' fill='none' stroke='#E8BC4E' stroke-width='.4' opacity='.8'/>
+<g fill='#FFD45A'><use href='#mtH' x='47' y='32.6'/></g>
+</svg>

@@ -136,6 +136,15 @@ function gomKyTu() {
         for (const k of Object.keys(sandbox.T[lang])) nap(sandbox.T[lang][k]);
     }
 
+    // Chữ mùa Noel / Tết (thanh "Đặt bàn online") — nằm trong <script> đầu trang nên phần quét HTML
+    // ở trên bỏ qua, phải gom riêng từ nguồn của nó (CLAUDE.md #48).
+    const mua = JSON.parse(fs.readFileSync(path.join(ROOT, "data/mua-le.json"), "utf8"));
+    for (const ten of Object.keys(mua)) {
+        const chu = mua[ten] && mua[ten].chu;
+        if (!chu) continue;
+        for (const k of Object.keys(chu)) for (const lang of Object.keys(chu[k])) nap(chu[k][lang]);
+    }
+
     return [...tap].sort().join("");
 }
 

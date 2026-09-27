@@ -1205,6 +1205,42 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      `.fab-main` (CSS cũ của nó còn trong style.css nhưng không phần tử nào dùng). Mọi cỡ màn: nút tròn 48px chỉ biểu tượng (sếp
      chốt 26/09 "thành nút tròn đi"; tên nút hiện qua title khi rê chuột, trình đọc màn hình đọc aria-label). Footer điện thoại chừa đáy 190px.
 
+48. **Giao diện mùa Noel + Tết tự bật / tự tắt theo ngày giờ Việt Nam** (sếp Tuấn "làm đi" 27/09/2026). Làm một lần, đưa lên web ở
+   trạng thái "ngủ"; không ai phải push đúng ngày. Khung: **Noel 01/12 → 01/01**, **Tết 15 tháng Chạp → Rằm tháng Giêng** (2027: 22/01 →
+   20/02, Mùng 1 = 06/02). Xem trước bất cứ lúc nào: **`?mua=noel` · `?mua=tet` · `?mua=tat`** (giữ trong sessionStorage `tdc-mua`).
+   `node scripts/mua-le.js` in lịch 5 năm.
+   - **Nguồn:** `data/mua-le.json` (khung ngày + chữ mùa trên thanh "Đặt bàn online", vi + en) · `scripts/mua-le.js` (âm lịch Hồ Ngọc Đức
+     múi +7, sinh đoạn script đầu trang, ghép tàu mùa) · `css/mua-noel.css`, `css/mua-tet.css` · hình thô trong `css/mua/*.svg`.
+     ⚠️ **Không chép lịch Tết Trung Quốc**: 2030 Việt Nam Mùng 1 = 02/02, Trung Quốc 03/02. R31 kiểm mốc 2026/2027/2030.
+   - **Đoạn script đầu trang** (mốc `<!-- MUA:START … MUA:END -->`, ~1,6 KB) nằm ngay sau meta viewport của 151 trang: trang tĩnh do
+     `toi-uu-tai-trang.js` bước 5 gắn, 141 bài qua `{{MUA}}` trong template. Nó phải đứng TRƯỚC mọi stylesheet (script nội tuyến đứng sau
+     stylesheet phải chờ CSS tải xong). Ngoài mùa chỉ so vài con số rồi thôi → **0 byte tải thêm**. Trong mùa: gắn class `mua-noel`/`mua-tet`
+     lên `<html>` trước lần vẽ đầu, đặt `window.TDC_MUA`, **chờ sự kiện load** rồi mới nạp `dist/mua-*.min.css` (không giành băng thông với
+     ảnh LCP), nạp xong (hoặc lỗi) gắn `mua-san`. Bảng ngày chỉ phụ thuộc NĂM build → build lại trong năm không làm 141 bài đổi. Nó nằm
+     trong `<script>` nên dấu vân lastmod bỏ qua (không đóng dấu "Cập nhật" oan). Không gắn cho `review-qr.html` + file xác minh Google.
+   - **CSS mùa chỉ "thay áo"** các thứ lớp A+C/wow (#45) đã có: tàu (`--tau`/`--tau-lui` ghép phần trang trí `css/mua/tau-*.svg` vào tàu gốc
+     của style.css — sửa tàu gốc là tàu mùa tự theo; bản quay đầu sinh bằng đúng cách lật gương của #45), đèn hero trang chủ + trang Blog
+     (biến `--i`, `--bd-*`), hạt sáng hero (tuyết / cánh mai anh đào + mai vàng), icon vé `.section-tag`, dây đèn khối đặt bàn + footer,
+     dây đèn đầu bài blog, băng keo gallery, trăng mục TikTok (→ sao / pháo hoa, chỉ chạy khi `dem-chay`), con dấu đỏ giữa dải đầu form vé
+     (trang chủ + 4 trang dịp), dây trang trí dưới thanh nav (trang KHÔNG có dây đèn đầu trang — `:has()`; trang dịp dùng `.dip-nav::after`).
+     Thanh "Đặt bàn online": Noel tới 24/12 "Đặt bàn mùa Noel · Đêm 24/12 không phụ thu", Tết tới Mùng 8 "Đặt bàn dịp Tết · Mùng 2–8 Tết
+     phụ thu 10%" — đọc `TDC_MUA` ở `js/i18n.js`, `js/thanh-dat-ban.js`, `templates/blog-post.html`.
+   - `style.css` cuối file giấu tàu + đèn hero khi có `mua-*` mà chưa có `mua-san`; CSS mùa đổi tên animation (`mTau`, `mBat`…) để chúng
+     chạy lại TỪ ĐẦU với áo mới — không thấy bản thường rồi đổi áo giữa chừng.
+   - Hình trong `css/mua/*.svg` viết thô (nháy đơn, không nháy kép); `mua-le.js hoanTatCss()` nhúng thành data URI sau khi bundle-js nén.
+     Không ghi năm / con giáp lên hình — file dùng lại mọi năm. **Không vẽ nến** (#39). Con dấu không có chữ (chữ 7px không đọc được).
+   - ⚠️ Chú thích trong `css/mua-*.css` cũng lọt vào bộ phông (cat-phong quét thô css/): bản đầu viết "LUẬT CỦA FILE NÀY" kéo "Ủ" vào,
+     4 phông đổi — đã viết thường. `cat-phong.js` nay gom thêm chữ mùa trong `data/mua-le.json` (chữ đó nằm trong `<script>`, phần quét
+     HTML bỏ qua). Kiểm bộ ký tự so với HEAD: `node plans/cong-cu-mua/so-ky-tu.js`.
+   - Công cụ (gitignore): `plans/cong-cu-mua/chup.js` (chụp nhiều cảnh một phiên Chrome), `do-mua.js` (FCP/LCP/CLS/TBT xen kẽ),
+     `xem-tau.js` (tàu mùa phóng to), `tao-svg.js` (sinh dây đèn / lồng đèn).
+   → Máy canh **R31**: đúng 1 đoạn mùa mỗi trang, khớp bản sinh mới nhất (lịch + vân tay CSS), đứng sau viewport + trước stylesheet ·
+   mốc âm lịch đúng + bảng phủ ≥ 1 năm · dist/mua-*.min.css đã ghép, không trang nào link thẳng · CSS mùa không đổi thuộc tính bố cục của
+   phần tử thật, animation chỉ trong no-preference, keyframes chỉ transform/opacity · chữ mùa không có từ cấm · style.css còn luật giấu
+   hero · 3 nơi đọc TDC_MUA. Đã bẻ thử 3 kiểu, bắt đủ.
+   ⚠️ Chờ sếp: quán nghỉ ngày nào dịp Tết / giờ có đổi không (thanh đặt bàn hiện KHÔNG nói gì về ngày nghỉ) · quán có trang trí thật
+   không (có ảnh thì thay vài ảnh gallery trong mùa).
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
