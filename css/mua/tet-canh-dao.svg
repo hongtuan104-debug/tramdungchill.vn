@@ -1,0 +1,14 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='40 0 182 110'>
+<!-- Cành mai anh đào (hoa hồng đặc trưng Đà Lạt mùa Tết) vươn từ mép PHẢI, treo 2 lồng đèn. Hero trang chủ (mùa Tết). -->
+<defs>
+<filter id='lg' x='-1' y='-1' width='3' height='3'><feGaussianBlur stdDeviation='3'/></filter>
+<g id='h'><circle cy='-4.2' r='3.6' fill='#FFB8CB'/><circle cx='4' cy='-1.3' r='3.6' fill='#FFB8CB'/><circle cx='2.5' cy='3.4' r='3.6' fill='#FFC6D5'/><circle cx='-2.5' cy='3.4' r='3.6' fill='#FFC6D5'/><circle cx='-4' cy='-1.3' r='3.6' fill='#FFB8CB'/><circle r='1.8' fill='#E0648A'/><path d='M0 0l0-2.6M0 0l2.4-.9M0 0l1.5 2.1M0 0l-1.5 2.1M0 0l-2.4-.9' stroke='#C23A62' stroke-width='.5'/></g>
+<g id='n'><ellipse rx='2.4' ry='3.2' fill='#F07AA0'/><path d='M0 3v2' stroke='#6E4630' stroke-width='.8'/></g>
+<g id='L'><path d='M0 0v8' stroke='#E3B452' stroke-width='.9'/><circle cy='20' r='11' fill='#FF4A24' opacity='.45' filter='url(#lg)'/><ellipse cy='20' rx='8.4' ry='9.4' fill='#D6281E'/><path d='M-3.6 11.8Q-6.2 20-3.6 28.2M3.6 11.8Q6.2 20 3.6 28.2M0 10.8v18.4' fill='none' stroke='#9C1812' stroke-width='.8'/><ellipse cx='-2.8' cy='17.6' rx='2.2' ry='4.6' fill='#FF8C5E' opacity='.7'/><rect x='-4.4' y='8.4' width='8.8' height='2.8' rx='1' fill='#E8BC4E'/><rect x='-4.4' y='28.6' width='8.8' height='2.8' rx='1' fill='#E8BC4E'/><path d='M0 31.4v9M-1.5 31.4l-.6 8M1.5 31.4l.6 8' stroke='#E8BC4E' stroke-width='1'/></g>
+</defs>
+<path d='M222 18 C190 22 168 30 140 48 C112 66 84 72 52 76 M170 30 C160 14 150 8 136 6 M140 48 C136 70 128 84 112 96 M96 67 C84 56 70 50 56 50' fill='none' stroke='#5A3A22' stroke-width='4.2' stroke-linecap='round'/>
+<path d='M222 18 C190 22 168 30 140 48 C112 66 84 72 52 76' fill='none' stroke='#7A5234' stroke-width='1.6' stroke-linecap='round' opacity='.7'/>
+<use href='#L' x='118' y='58'/><use href='#L' x='176' y='27'/>
+<use href='#h' x='54' y='74'/><use href='#h' x='70' y='70'/><use href='#h' x='92' y='67'/><use href='#h' x='138' y='8'/><use href='#h' x='152' y='13'/><use href='#h' x='112' y='96'/><use href='#h' x='128' y='84'/><use href='#h' x='160' y='36'/><use href='#h' x='196' y='21'/><use href='#h' x='58' y='51'/><use href='#h' x='76' y='52'/>
+<use href='#n' x='44' y='78'/><use href='#n' x='84' y='76'/><use href='#n' x='146' y='4'/><use href='#n' x='104' y='103'/><use href='#n' x='208' y='16'/><use href='#n' x='64' y='44'/>
+</svg>

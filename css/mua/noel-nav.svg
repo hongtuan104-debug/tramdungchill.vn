@@ -1,1 +1,8 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='120' height='16'><path d='M0 1.5Q30 11.5 60 1.5Q90 11.5 120 1.5' fill='none' stroke='#1D4A2C' stroke-width='3.4' stroke-linecap='round'/><path d='M0 1.5Q30 11.5 60 1.5Q90 11.5 120 1.5' fill='none' stroke='#3E8A55' stroke-width='1.4' stroke-dasharray='1.4 2.2'/><g stroke='#FFF6E8' stroke-width='.5'><circle cx='15' cy='7.6' r='2' fill='#FF5B4F'/><circle cx='45' cy='7.6' r='2' fill='#FFD66B'/><circle cx='75' cy='7.6' r='2' fill='#4FD885'/><circle cx='105' cy='7.6' r='2' fill='#FFD66B'/></g></svg>
+<svg xmlns='http://www.w3.org/2000/svg' width='120' height='18'>
+<!-- Dây kim tuyến phủ tuyết, bóng đèn màu, treo dưới thanh nav (ô lặp 120px). -->
+<path d='M0 2Q30 12 60 2Q90 12 120 2' fill='none' stroke='#1D4A2C' stroke-width='3.6' stroke-linecap='round'/>
+<path d='M0 2Q30 12 60 2Q90 12 120 2' fill='none' stroke='#3E8A55' stroke-width='1.4' stroke-dasharray='1.4 2.2'/>
+<path d='M4 2.4Q30 10.6 56 2.6M64 2.6Q90 10.6 116 2.4' fill='none' stroke='#F4F8FC' stroke-width='1.6' stroke-linecap='round' stroke-dasharray='5 3 8 4'/>
+<g stroke='#FFF6E8' stroke-width='.5'><circle cx='15' cy='8.4' r='2.1' fill='#FF5B4F'/><circle cx='45' cy='8.4' r='2.1' fill='#FFD66B'/><circle cx='75' cy='8.4' r='2.1' fill='#4FD885'/><circle cx='105' cy='8.4' r='2.1' fill='#FFD66B'/></g>
+<g fill='#FFFFFF'><circle cx='30' cy='6.6' r='1.2'/><circle cx='90' cy='6.6' r='1.2'/></g>
+</svg>

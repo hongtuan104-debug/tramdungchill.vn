@@ -1223,8 +1223,22 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      (biến `--i`, `--bd-*`), hạt sáng hero (tuyết / cánh mai anh đào + mai vàng), icon vé `.section-tag`, dây đèn khối đặt bàn + footer,
      dây đèn đầu bài blog, băng keo gallery, trăng mục TikTok (→ sao / pháo hoa, chỉ chạy khi `dem-chay`), con dấu đỏ giữa dải đầu form vé
      (trang chủ + 4 trang dịp), dây trang trí dưới thanh nav (trang KHÔNG có dây đèn đầu trang — `:has()`; trang dịp dùng `.dip-nav::after`).
+     Đã lên web 27/09/2026 (commit 412d1f64, bản 1) ở trạng thái "ngủ".
      Thanh "Đặt bàn online": Noel tới 24/12 "Đặt bàn mùa Noel · Đêm 24/12 không phụ thu", Tết tới Mùng 8 "Đặt bàn dịp Tết · Mùng 2–8 Tết
      phụ thu 10%" — đọc `TDC_MUA` ở `js/i18n.js`, `js/thanh-dat-ban.js`, `templates/blog-post.html`.
+   - **Bản 2 (27/09/2026, sếp: "chưa đẹp, cần tuyết nhiều hơn, ông già Noel nữa")**:
+     · **Tuyết rơi khắp mọi trang** = `body::before` (lớp xa, bông nhỏ) + `body::after` (lớp gần, bông to + tinh thể, đung đưa),
+       `position:fixed`, z-index 990 (dưới nav / thanh đặt bàn / nút nổi 1000), cao hơn màn hình đúng 1 ô lặp và trượt đúng 1 ô →
+       lặp liền. Chỉ có khi cho phép chuyển động. Mùa Tết cùng cơ chế với **cánh mai vàng + mai anh đào**. Ô lặp sinh bằng
+       `plans/cong-cu-mua/tao-svg-2.js` (hạt giống cố định). ⚠️ `body::before/::after` nay là của giao diện mùa — đừng dùng chỗ khác.
+     · **Ông già Noel cưỡi xe tuần lộc** (`.hero-particles::after`, hình `css/mua/noel-ong-gia.svg`): điện thoại bay ngay TRÊN đoàn tàu,
+       cùng chu kỳ 28s với tàu và xuất phát sớm hơn 1s → dẫn đường cho tàu (bay cao hơn thì bị địa chỉ / tên quán che vì hero-content
+       z-index 3); máy tính bay cao dưới dây đèn, 17s một lượt. Thêm **ông già Noel ngồi trong cabin tàu** (tau-noel.svg), **bờ tuyết**
+       dưới đường ray (lớp nền thêm cho `.hero-overlay`, gradient chép từ style.css — sửa gradient gốc thì sửa cả đây. ⚠️ ĐỪNG kéo
+       cao `.hero::after` để vẽ tuyết: đổi kích thước khung có sẵn dời mép trên → đo ra CLS 0,0014), **mũ Noel** trên nút
+       "Đặt Bàn" của thanh đặt bàn (`.sticky-book-btn::before`, mọi trang), dây kim tuyến dưới nav có tuyết.
+     · Tết: **cành mai anh đào treo 2 lồng đèn** ở góc phải ảnh đầu trang chủ (`.hero-particles::after`, đung đưa), **bao lì xì** trên nút
+       "Đặt Bàn". R31 nay cho keyframes dùng cả `translate/rotate/scale` (dạng tách của transform).
    - `style.css` cuối file giấu tàu + đèn hero khi có `mua-*` mà chưa có `mua-san`; CSS mùa đổi tên animation (`mTau`, `mBat`…) để chúng
      chạy lại TỪ ĐẦU với áo mới — không thấy bản thường rồi đổi áo giữa chừng.
    - Hình trong `css/mua/*.svg` viết thô (nháy đơn, không nháy kép); `mua-le.js hoanTatCss()` nhúng thành data URI sau khi bundle-js nén.

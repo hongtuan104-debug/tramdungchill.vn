@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='400' height='30'>
+<!-- Bờ tuyết chân hero trang chủ, dưới đường ray (hero::after). Ô lặp ngang 400px. -->
+<path d='M0 30V15Q22 7 46 13Q72 3 102 11Q132 5 162 14Q194 6 226 12Q260 2 292 11Q322 7 352 13Q380 5 400 15V30Z' fill='#EEF4FA'/>
+<path d='M0 30V22Q40 17 80 21Q130 16 180 22Q240 16 300 21Q350 17 400 22V30Z' fill='#D9E5F0'/>
+<g fill='#FFFFFF'><circle cx='40' cy='12' r='1.1'/><circle cx='118' cy='9' r='.9'/><circle cx='205' cy='12' r='1'/><circle cx='276' cy='7' r='1.1'/><circle cx='338' cy='11' r='.9'/></g>
+</svg>

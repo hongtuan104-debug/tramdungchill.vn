@@ -57,6 +57,82 @@
     .mua-noel .hero-scroll-hint { animation-name: mNhD; }
 }
 
+/* --- Tuyết rơi khắp trang: 2 lớp cố định phủ màn hình — xa (bông nhỏ, chậm) ở body::before, gần (bông to,
+   nhanh, đung đưa) ở body::after. Mỗi lớp cao hơn màn hình đúng 1 ô lặp rồi trượt xuống đúng 1 ô → lặp liền.
+   Chỉ có khi cho phép chuyển động (giảm chuyển động thì không có tuyết, khỏi thành đốm bẩn đứng yên trên chữ).
+   z-index 990: dưới thanh nav / thanh đặt bàn / nút nổi (1000), trên nội dung. Không chặn bấm. --- */
+@media (prefers-reduced-motion: no-preference) {
+    .mua-noel body::before,
+    .mua-noel body::after {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 990;
+        pointer-events: none;
+    }
+    .mua-noel body::before {
+        top: -240px;
+        height: calc(100vh + 240px);
+        background: url("mua/noel-tuyet-xa.svg") 0 0 / 240px 240px;
+        animation: mRoiXa 12s linear infinite;
+    }
+    .mua-noel body::after {
+        top: -320px;
+        height: calc(100vh + 320px);
+        background: url("mua/noel-tuyet-gan.svg") 70px 0 / 320px 320px;
+        animation: mRoiGan 8s linear infinite, mLac 3.4s ease-in-out infinite alternate;
+    }
+}
+
+/* --- Bờ tuyết chân ảnh đầu trang chủ: thêm một lớp nền cho .hero-overlay (lớp phủ tối trùm cả hero, z-index 1),
+   đường ray (.hero::after, cũng z-index 1 nhưng đứng sau) vẫn vẽ đè lên tuyết. KHÔNG kéo cao .hero::after: đổi kích
+   thước khung có sẵn là dời mép trên của nó → đo ra CLS 0,0014 (27/09/2026). Lớp gradient thứ hai chép nguyên từ
+   .hero-overlay trong style.css — sửa gradient gốc thì sửa cả đây. --- */
+.mua-noel .hero-overlay {
+    background: url("mua/noel-tuyet-bo.svg") 0 100% / 400px 30px repeat-x,
+                linear-gradient(180deg, rgba(15, 13, 10, .5) 0%, rgba(15, 13, 10, .15) 35%, rgba(15, 13, 10, .1) 50%, rgba(15, 13, 10, .5) 85%, rgba(15, 13, 10, .8) 100%);
+}
+
+/* --- Ông già Noel cưỡi xe tuần lộc bay ngang ảnh đầu trang chủ. Giảm chuyển động: đỗ ở góc phải.
+   Điện thoại: bay NGAY TRÊN đoàn tàu, cùng chu kỳ 28s với tàu (.hero::before) và xuất phát sớm hơn 1s, tốc độ
+   ~bằng tàu → ông già Noel dẫn đường cho tàu. Chỗ đó chỉ có ảnh nền; bay cao hơn thì bị dòng địa chỉ / tên quán che
+   (hero-content nằm trên, z-index 3). Máy tính: bầu trời rộng hai bên chữ → bay cao dưới dây đèn, 17s một lượt. --- */
+.mua-noel .hero-particles::after {
+    content: "";
+    position: absolute;
+    left: calc(100% - 218px);
+    bottom: 100px;
+    width: 210px;
+    height: 70px;
+    pointer-events: none;
+    background: url("mua/noel-ong-gia.svg") 0 0 / 100% 100% no-repeat;
+    filter: drop-shadow(0 0 8px rgba(255, 230, 170, .35));
+}
+@media (min-width: 769px) {
+    .mua-noel .hero-particles::after { left: calc(100% - 320px); top: calc(var(--dt) + var(--dh) + 4px); bottom: auto; width: 300px; height: 100px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .mua-noel .hero-particles::after { left: 100%; animation: mXe 28s linear .6s infinite both, mNhun 1.3s ease-in-out infinite alternate; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
+    .mua-noel .hero-particles::after { animation: mXeD 17s linear 3s infinite both, mNhun 1.3s ease-in-out infinite alternate; }
+}
+
+/* --- Mũ Noel trên nút "Đặt Bàn" của thanh đặt bàn dính đáy (mọi trang) --- */
+.mua-noel .sticky-book-btn::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: -15px;
+    width: 34px;
+    height: 27px;
+    z-index: 1;
+    pointer-events: none;
+    transform: rotate(-16deg);
+    background: url("mua/noel-mu.svg") 0 0 / 100% 100% no-repeat;
+}
+
 /* --- Nhãn vé tàu đầu mỗi mục: icon bông tuyết. Hero trang Blog / Thực đơn không phải vé. --- */
 .mua-noel .section-tag:not(:is(.blog-hero, .menu-hero) *) { --i-tag: var(--i-mua); }
 
@@ -88,10 +164,10 @@
     left: 0;
     right: 0;
     top: 100%;
-    height: 16px;
+    height: 18px;
     z-index: -1;
     pointer-events: none;
-    background: url("mua/noel-nav.svg") 0 0 / 120px 16px repeat-x;
+    background: url("mua/noel-nav.svg") 0 0 / 120px 18px repeat-x;
 }
 
 /* --- Ảnh bưu thiếp mục Không gian: băng keo sọc kẹo đỏ trắng --- */
@@ -134,3 +210,9 @@
     from { opacity: .7; transform: scale(.88) rotate(-6deg); }
     to { opacity: 1; transform: scale(1.06) rotate(4deg); }
 }
+@keyframes mRoiXa { from { transform: none; } to { transform: translateY(240px); } }
+@keyframes mRoiGan { from { transform: none; } to { transform: translateY(320px); } }
+@keyframes mLac { from { translate: -10px 0; } to { translate: 10px 0; } }
+@keyframes mXe { 0% { transform: none; } 24%, to { transform: translateX(calc(-100vw - 100%)); } }
+@keyframes mXeD { 0% { transform: none; } 40%, to { transform: translateX(calc(-100vw - 100%)); } }
+@keyframes mNhun { from { translate: 0 -5px; } to { translate: 0 5px; } }

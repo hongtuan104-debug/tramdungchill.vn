@@ -46,6 +46,67 @@
     .mua-tet .hero-scroll-hint { animation-name: mNhD; }
 }
 
+/* --- Cánh mai vàng (lớp xa) + mai anh đào hồng (lớp gần) rơi khắp trang — cùng cách làm với tuyết mùa Noel
+   (xem mua-noel.css): 2 lớp cố định, trượt đúng 1 ô lặp, chỉ khi cho phép chuyển động, z-index dưới nav. --- */
+@media (prefers-reduced-motion: no-preference) {
+    .mua-tet body::before,
+    .mua-tet body::after {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 990;
+        pointer-events: none;
+    }
+    .mua-tet body::before {
+        top: -240px;
+        height: calc(100vh + 240px);
+        background: url("mua/tet-canh-xa.svg") 0 0 / 240px 240px;
+        animation: mRoiXa 14s linear infinite, mLac 4.2s ease-in-out infinite alternate;
+    }
+    .mua-tet body::after {
+        top: -320px;
+        height: calc(100vh + 320px);
+        background: url("mua/tet-canh-gan.svg") 90px 0 / 320px 320px;
+        animation: mRoiGan 10s linear infinite, mLac 3.1s ease-in-out -1.5s infinite alternate;
+    }
+}
+
+/* --- Cành mai anh đào treo 2 lồng đèn vươn từ mép phải ảnh đầu trang chủ, đè lên đầu dây lồng đèn.
+   Cao ~84px (điện thoại) nên không chạm dòng địa chỉ. Đung đưa nhẹ quanh gốc cành ở mép phải. --- */
+.mua-tet .hero-particles::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: calc(var(--dt) - 6px);
+    width: 170px;
+    height: 103px;
+    pointer-events: none;
+    transform-origin: 100% 15%;
+    background: url("mua/tet-canh-dao.svg") 100% 0 / 100% 100% no-repeat;
+}
+@media (min-width: 769px) {
+    .mua-tet .hero-particles::after { width: 280px; height: 169px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .mua-tet .hero-particles::after { animation: mDu 4.5s ease-in-out infinite alternate; }
+}
+
+/* --- Bao lì xì trên nút "Đặt Bàn" của thanh đặt bàn dính đáy (mọi trang) --- */
+.mua-tet .sticky-book-btn::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: -14px;
+    width: 20px;
+    height: 26px;
+    z-index: 1;
+    pointer-events: none;
+    transform: rotate(-14deg);
+    background: url("mua/tet-li-xi.svg") 0 0 / 100% 100% no-repeat;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+}
+
 /* --- Nhãn vé tàu: icon hoa mai --- */
 .mua-tet .section-tag:not(:is(.blog-hero, .menu-hero) *) { --i-tag: var(--i-mua); }
 
@@ -116,6 +177,10 @@
     80% { opacity: .8; }
     to { opacity: 0; transform: translate(var(--dx), 140px) rotate(300deg); }
 }
+@keyframes mRoiXa { from { transform: none; } to { transform: translateY(240px); } }
+@keyframes mRoiGan { from { transform: none; } to { transform: translateY(320px); } }
+@keyframes mLac { from { translate: -12px 0; } to { translate: 12px 0; } }
+@keyframes mDu { from { transform: rotate(-2.5deg); } to { transform: rotate(1.5deg); } }
 @keyframes mPhao {
     0% { opacity: 0; transform: scale(.25); }
     10% { opacity: 1; }
