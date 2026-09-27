@@ -2821,6 +2821,9 @@ const CAU_AEO = (() => {
                     // translate / rotate / scale là dạng tách của transform — cũng ghép lớp được, không đụng bố cục
                     if (trongKhung) { if (!/^(transform|opacity|translate|rotate|scale)$/.test(tp)) loi.push("css/mua-" + t + ".css: @keyframes animate " + tp + " (chỉ transform/opacity)"); continue; }
                     if (/^animation/.test(tp) && !chuyenDongDuoc) loi.push("css/mua-" + t + ".css: " + sel.slice(0, 50) + " có " + tp + " ngoài prefers-reduced-motion: no-preference");
+                    // position:relative KHÔNG kèm top/left/right/bottom/inset thì không dời gì — cho phép (mũ Noel / hoa trên nút cần nó)
+                    const giaTri = kb.slice(kb.indexOf(":") + 1).trim();
+                    if (tp === "position" && giaTri === "relative") continue;
                     if (BO_CUC.test(tp) && !/::?(before|after)\b/.test(sel) && !/\.particle\b/.test(sel)) loi.push("css/mua-" + t + ".css: " + sel.slice(0, 50) + " đổi " + tp + " trên phần tử thật");
                 }
             }

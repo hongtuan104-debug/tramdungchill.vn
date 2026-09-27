@@ -133,6 +133,60 @@
     background: url("mua/noel-mu.svg") 0 0 / 100% 100% no-repeat;
 }
 
+/* --- Mũ Noel cho MỌI nút (sếp Tuấn 27/09/2026): nút viên .btn (Đặt Bàn Ngay, Xem Menu, gửi form, nút trang dịp /
+   Thực đơn / Đường đi / 404…), nút Đặt bàn trên nav, nút "Đặt nhanh qua Zalo", 3 nút tròn Zalo/Gọi/Facebook, nút lên
+   đầu trang. Mũ là ::after nhô khỏi góc trái trên (không nút nào dùng ::after — đã rà 8 kiểu trang). Các nút này
+   đang position:static → thêm relative: KHÔNG dời gì (không kèm top/left); con định vị tuyệt đối duy nhất bên trong
+   là chữ ẩn 1px cho trình đọc màn hình của nút tròn. Nút tròn đội mũ nhỏ hơn, lệch hơn. --- */
+.mua-noel :is(.btn, .nav-cta, #zaloQuickBook, .fab-option) { position: relative; }
+.mua-noel :is(.btn, .nav-cta, #zaloQuickBook, .fab-option, .back-to-top)::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: -17px;
+    width: 34px;
+    height: 27px;
+    z-index: 2;
+    pointer-events: none;
+    transform: rotate(-18deg);
+    background: url("mua/noel-mu.svg") 0 0 / 100% 100% no-repeat;
+}
+.mua-noel :is(.fab-option, .back-to-top)::after { left: 1px; top: -15px; width: 31px; height: 25px; transform: rotate(-14deg); }
+
+/* --- Thanh nav (sếp khoanh 27/09/2026): nút EN + nút số điện thoại ở mọi cỡ màn; các mục chữ (Trang chủ, Trải nghiệm,
+   Thực đơn, Không gian, Đánh giá, Blog) chỉ khi nav nằm ngang (≥ 1200px) — dưới đó chúng là hàng rộng trong menu ba gạch,
+   mũ ở mép hàng sẽ lạc khỏi chữ. Mục chữ thấp (~36px) nên đội mũ nhỏ hơn. --- */
+.mua-noel :is(.lang-toggle, .nav-phone, .dip-nav-phone) { position: relative; }
+/* Nút EN có overflow:hidden (không có gì bên trong cần cắt — chỉ quả cầu + chữ) → mũ bị cắt mất nửa trên */
+.mua-noel .lang-toggle { overflow: visible; }
+.mua-noel :is(.lang-toggle, .nav-phone, .dip-nav-phone)::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: -14px;
+    width: 29px;
+    height: 23px;
+    z-index: 2;
+    pointer-events: none;
+    transform: rotate(-16deg);
+    background: url("mua/noel-mu.svg") 0 0 / 100% 100% no-repeat;
+}
+@media (min-width: 1200px) {
+    .mua-noel .nav-link { position: relative; }
+    .mua-noel .nav-link:not(.nav-cta)::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: -13px;
+        width: 27px;
+        height: 22px;
+        z-index: 2;
+        pointer-events: none;
+        transform: rotate(-18deg);
+        background: url("mua/noel-mu.svg") 0 0 / 100% 100% no-repeat;
+    }
+}
+
 /* --- Nhãn vé tàu đầu mỗi mục: icon bông tuyết. Hero trang Blog / Thực đơn không phải vé. --- */
 .mua-noel .section-tag:not(:is(.blog-hero, .menu-hero) *) { --i-tag: var(--i-mua); }
 

@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'>
+<!-- Nhành mai anh đào cài lên góc các nút (mùa Tết): 4 hoa hồng đậm viền trắng mảnh (để tách khỏi cánh hoa đang rơi
+     màu nhạt), 2 nụ, cành nâu chéo. -->
+<defs>
+<g id='h' stroke='#FFF6F8' stroke-width='.45'><circle cy='-3.3' r='2.9' fill='#FF8FB0'/><circle cx='3.1' cy='-1' r='2.9' fill='#FF8FB0'/><circle cx='1.9' cy='2.7' r='2.9' fill='#FFA3BE'/><circle cx='-1.9' cy='2.7' r='2.9' fill='#FFA3BE'/><circle cx='-3.1' cy='-1' r='2.9' fill='#FF8FB0'/><circle r='1.5' fill='#D23C6C' stroke='none'/><path d='M0 0l0-2M0 0l1.9-.7M0 0l1.2 1.6M0 0l-1.2 1.6M0 0l-1.9-.7' stroke='#FFE7A0' stroke-width='.5'/></g>
+</defs>
+<path d='M2 27C9 22 15 19 24 15C29 13 33 10 37 5M15 19.5C15 15 17 11 20 8' fill='none' stroke='#4E321D' stroke-width='2.2' stroke-linecap='round'/>
+<use href='#h' x='10.5' y='20'/><use href='#h' x='24' y='14.2'/><use href='#h' x='19.5' y='7.2'/><use href='#h' x='32.5' y='8.6'/>
+<ellipse cx='4.6' cy='24.6' rx='1.8' ry='2.3' fill='#E8628A' transform='rotate(-40 4.6 24.6)'/>
+<ellipse cx='16' cy='13.5' rx='1.5' ry='2' fill='#E8628A' transform='rotate(-15 16 13.5)'/>
+</svg>

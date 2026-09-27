@@ -92,19 +92,57 @@
     .mua-tet .hero-particles::after { animation: mDu 4.5s ease-in-out infinite alternate; }
 }
 
-/* --- Bao lì xì trên nút "Đặt Bàn" của thanh đặt bàn dính đáy (mọi trang) --- */
+/* --- Nhành mai anh đào cài lên MỌI nút (sếp Tuấn 27/09/2026) — cùng danh sách nút + cùng lý do position:relative
+   như mũ Noel (xem mua-noel.css). Nút "Đặt Bàn" của thanh đặt bàn dùng ::before vì ::after của nó là vòng sáng nhấp nháy. --- */
+.mua-tet :is(.btn, .nav-cta, #zaloQuickBook, .fab-option) { position: relative; }
+.mua-tet :is(.btn, .nav-cta, #zaloQuickBook, .fab-option, .back-to-top)::after,
 .mua-tet .sticky-book-btn::before {
     content: "";
     position: absolute;
-    left: -4px;
-    top: -14px;
-    width: 20px;
-    height: 26px;
-    z-index: 1;
+    left: 2px;
+    top: -20px;
+    width: 50px;
+    height: 38px;
+    z-index: 2;
     pointer-events: none;
-    transform: rotate(-14deg);
-    background: url("mua/tet-li-xi.svg") 0 0 / 100% 100% no-repeat;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .35));
+    transform: rotate(-8deg);
+    background: url("mua/tet-hoa-nut.svg") 0 0 / 100% 100% no-repeat;
+    filter: drop-shadow(0 1px 2px rgba(60, 20, 20, .4));
+}
+.mua-tet :is(.fab-option, .back-to-top)::after { left: -9px; top: -16px; width: 38px; height: 29px; }
+.mua-tet .sticky-book-btn::before { left: -12px; top: -19px; width: 46px; height: 35px; }
+
+/* --- Thanh nav: nút EN + nút số điện thoại mọi cỡ màn; mục chữ chỉ khi nav nằm ngang (≥ 1200px) — xem mua-noel.css --- */
+.mua-tet :is(.lang-toggle, .nav-phone, .dip-nav-phone) { position: relative; }
+.mua-tet .lang-toggle { overflow: visible; }   /* xem mua-noel.css */
+.mua-tet :is(.lang-toggle, .nav-phone, .dip-nav-phone)::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: -14px;
+    width: 36px;
+    height: 27px;
+    z-index: 2;
+    pointer-events: none;
+    transform: rotate(-8deg);
+    background: url("mua/tet-hoa-nut.svg") 0 0 / 100% 100% no-repeat;
+    filter: drop-shadow(0 1px 2px rgba(60, 20, 20, .4));
+}
+@media (min-width: 1200px) {
+    .mua-tet .nav-link { position: relative; }
+    .mua-tet .nav-link:not(.nav-cta)::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: -13px;
+        width: 34px;
+        height: 26px;
+        z-index: 2;
+        pointer-events: none;
+        transform: rotate(-8deg);
+        background: url("mua/tet-hoa-nut.svg") 0 0 / 100% 100% no-repeat;
+        filter: drop-shadow(0 1px 2px rgba(60, 20, 20, .4));
+    }
 }
 
 /* --- Nhãn vé tàu: icon hoa mai --- */

@@ -1237,8 +1237,15 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
        dưới đường ray (lớp nền thêm cho `.hero-overlay`, gradient chép từ style.css — sửa gradient gốc thì sửa cả đây. ⚠️ ĐỪNG kéo
        cao `.hero::after` để vẽ tuyết: đổi kích thước khung có sẵn dời mép trên → đo ra CLS 0,0014), **mũ Noel** trên nút
        "Đặt Bàn" của thanh đặt bàn (`.sticky-book-btn::before`, mọi trang), dây kim tuyến dưới nav có tuyết.
-     · Tết: **cành mai anh đào treo 2 lồng đèn** ở góc phải ảnh đầu trang chủ (`.hero-particles::after`, đung đưa), **bao lì xì** trên nút
-       "Đặt Bàn". R31 nay cho keyframes dùng cả `translate/rotate/scale` (dạng tách của transform).
+     · Tết: **cành mai anh đào treo 2 lồng đèn** ở góc phải ảnh đầu trang chủ (`.hero-particles::after`, đung đưa). R31 nay cho
+       keyframes dùng cả `translate/rotate/scale` (dạng tách của transform).
+     · **Mọi nút đội mũ Noel / cài nhành mai anh đào** (sếp 27/09/2026): `.btn`, `.nav-cta`, `#zaloQuickBook`, 3 nút tròn `.fab-option`,
+       `.back-to-top` dùng `::after` (đã rà 8 kiểu trang, không nút nào dùng ::after); nút Đặt Bàn của thanh dính đáy dùng `::before`
+       (`::after` của nó là vòng sáng). Các nút đang static → CSS mùa thêm `position: relative` (không kèm top/left nên không dời gì;
+       R31 cho phép đúng giá trị này). ⚠️ Thêm nút mới mà dùng `::after` cho việc khác thì loại nút đó khỏi danh sách trong 2 file CSS mùa.
+       Thanh nav (sếp khoanh ảnh): nút EN `.lang-toggle` + nút gọi `.nav-phone` / `.dip-nav-phone` mọi cỡ màn; các mục chữ `.nav-link`
+       chỉ khi nav nằm ngang (≥ 1200px — dưới đó là hàng rộng trong menu ba gạch). `.lang-toggle` vốn `overflow:hidden` (không có gì
+       bên trong cần cắt) → CSS mùa mở `overflow:visible`, không thì mũ bị cắt nửa trên.
    - `style.css` cuối file giấu tàu + đèn hero khi có `mua-*` mà chưa có `mua-san`; CSS mùa đổi tên animation (`mTau`, `mBat`…) để chúng
      chạy lại TỪ ĐẦU với áo mới — không thấy bản thường rồi đổi áo giữa chừng.
    - Hình trong `css/mua/*.svg` viết thô (nháy đơn, không nháy kép); `mua-le.js hoanTatCss()` nhúng thành data URI sau khi bundle-js nén.
