@@ -421,6 +421,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // báo sửa hộ (docs/thu-xin-nhac-ten-2026-08.md), trong khi 12/09/2026 phát hiện
 // chính blog nhà mình vẫn còn 3 chỗ khai tên cũ.
 // Số 113 Huỳnh Tấn Phát là Xóm Lèo — QUÁN RIÊNG, không được gán cho quán này.
+// Tên phường mới là "Xuân Trường - Đà Lạt" ("- Đà Lạt" thuộc tên phường, sếp chốt 29/09/2026).
+// Viết dấu phẩy là coi Đà Lạt như thành phố — 29/09 còn 62 chỗ, có 3 chỗ trong llms.txt (file AI đọc).
 {
     const bad = [];
     const walk = (d, out = []) => {
@@ -429,7 +431,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             if (e.isDirectory()) {
                 if (["node_modules", ".git", "assets", "dist", "scripts", "docs", "plans", "dev"].includes(e.name)) continue;
                 walk(fp, out);
-            } else if (/\.(html|js)$/.test(e.name)) out.push(fp);
+            } else if (/\.(html|js)$/.test(e.name) || e.name === "llms.txt") out.push(fp);
         }
         return out;
     };
@@ -446,11 +448,15 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             if (m && m[1] !== "111" && !/Xóm\s*Lèo|quán riêng|QUÁN RIÊNG/i.test(l)) {
                 bad.push(rel + ":" + (i + 1) + " số nhà " + m[1] + " (quán ở 111)");
             }
+            // tên phường viết tách bằng dấu phẩy
+            if (/Xuân Trường\s*,\s*(?:TP\.?\s*|thành phố\s*)?Đà Lạt|Xuan Truong(?: Ward)?\s*,\s*Da ?Lat/i.test(l)) {
+                bad.push(rel + ":" + (i + 1) + " viết \"Xuân Trường, Đà Lạt\" (đúng: \"Xuân Trường - Đà Lạt\")");
+            }
         });
     }
     add("Địa chỉ đúng số nhà 111 · đúng tên phường sau sáp nhập",
         bad.length === 0,
-        bad.length ? bad.slice(0, 6).join(" | ") : "toàn site: 111 Huỳnh Tấn Phát, Phường Xuân Trường");
+        bad.length ? bad.slice(0, 6).join(" | ") : "toàn site: 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt");
 }
 
 // ── R7e. Đủ thuộc tính Google cần cho từng loại schema (checklist #23) ──

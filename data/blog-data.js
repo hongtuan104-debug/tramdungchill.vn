@@ -1196,7 +1196,7 @@ const BLOG_ARTICLES = [
 <h3>Trạm Dừng Chill có gì liên quan tới đồ biển?</h3>
 <p>Nói thẳng trước cho khỏi mất công: <a href="/">Trạm Dừng Chill</a> không phải quán chuyên hải sản. Bên mình là quán nướng than hoa gọi món lẻ, hơn 70 món tính cả đồ ăn lẫn đồ uống, không buffet và không combo cố định. Món signature của quán là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>.</p>
 <p>Phần liên quan tới đồ biển rõ nhất ở đây là <strong>nồi lẩu hải sản 320K</strong> — một trong ba nồi lẩu của quán, cùng với lẩu gà lá é 300K và lẩu cá tầm 320K. Còn cụ thể hôm nay bếp có gì nướng được, bạn cứ mở <a href="menu.html">menu</a> xem trước hoặc hỏi thẳng bạn phục vụ, đừng tin mô tả chép qua chép lại trên mạng.</p>
-<p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt · <strong>Giờ mở cửa:</strong> 15:00-23:00 · <strong>Mức chi:</strong> 95.000đ-300.000đ mỗi người, đã gồm VAT · 4,8 sao với 7.060 lượt đánh giá trên Google.</p>
+<p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt · <strong>Giờ mở cửa:</strong> 15:00-23:00 · <strong>Mức chi:</strong> 95.000đ-300.000đ mỗi người, đã gồm VAT · 4,8 sao với 7.060 lượt đánh giá trên Google.</p>
 <img src="assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Bốn kiểu quán hải sản nướng thường gặp ở Đà Lạt</h2>
@@ -5703,7 +5703,7 @@ const BLOG_ARTICLES = [
 </ul>
 
 <h2>Ở Trạm Dừng Chill thì sao?</h2>
-<p><a href="/">Trạm Dừng Chill</a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt — <strong>nhận chuyển khoản và QR</strong> bên cạnh tiền mặt, nên nhóm bạn có thể chia tiền với nhau rồi một người trả một lần cho gọn.</p>
+<p><a href="/">Trạm Dừng Chill</a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt — <strong>nhận chuyển khoản và QR</strong> bên cạnh tiền mặt, nên nhóm bạn có thể chia tiền với nhau rồi một người trả một lần cho gọn.</p>
 <p>Quán mở 15:00-23:00, gọi món lẻ chứ không buffet và không combo cố định, <a href="menu.html">hơn 70 món</a> tính cả đồ uống. Mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT — biết trước khoảng này thì dễ ước lượng số dư cần có trong tài khoản. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>, trời lạnh thì thêm nồi lẩu gà lá é 300K, hải sản 320K hoặc cá tầm 320K.</p>
 <p>Quán cách trung tâm khoảng 7 km, có bãi đỗ miễn phí cho xe máy và ô tô con, và có WiFi mạnh — cái này quan trọng thật, vì sóng 4G khu ngoại ô đôi lúc hơi yếu mà chuyển khoản thì cần mạng. <a href="/#booking">Đặt bàn →</a></p>
 
@@ -5906,7 +5906,7 @@ const BLOG_ARTICLES = [
 <h2>Trạm Dừng Chill nằm ở đâu trong bảng phân loại này</h2>
 <p><a href="/">Trạm Dừng Chill</a> thuộc nhóm quán vòng ngoài có tầm nhìn, tính tiền theo món lẻ. Thông tin cụ thể để bạn tự đối chiếu:</p>
 <ul>
-<li><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt — cách trung tâm khoảng 7 km.</li>
+<li><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt — cách trung tâm khoảng 7 km.</li>
 <li><strong>Giờ mở cửa:</strong> 15:00-23:00.</li>
 <li><strong>Mức chi:</strong> 95.000đ-300.000đ mỗi người, đã gồm VAT.</li>
 <li><strong>Menu:</strong> hơn 70 món tính cả đồ uống, gọi lẻ, không buffet, không combo cố định. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Ba nồi lẩu gồm gà lá é 300K, hải sản 320K và cá tầm 320K. Xem trước tại <a href="menu.html">menu</a>.</li>

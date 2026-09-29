@@ -1264,6 +1264,15 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    ⚠️ Chờ sếp: quán nghỉ ngày nào dịp Tết / giờ có đổi không (thanh đặt bàn hiện KHÔNG nói gì về ngày nghỉ) · quán có trang trí thật
    không (có ảnh thì thay vài ảnh gallery trong mùa).
 
+49. **Tên phường là "Xuân Trường - Đà Lạt", không phải "Xuân Trường, Đà Lạt"** (sếp Tuấn chốt 29/09/2026). Sau sáp nhập 2025
+   "- Đà Lạt" là một phần tên phường; dấu phẩy là coi Đà Lạt như thành phố. Footer, Google Maps, Apple Maps, Tripadvisor,
+   Instagram, TikTok vốn ghi gạch nối, còn web ghi dấu phẩy 62 chỗ (có 3 chỗ trong `llms.txt`) → đã chuẩn hoá:
+   **VI** `111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng` · **EN** `111 Huynh Tan Phat, Xuan Truong - Da Lat Ward,
+   Lam Dong` (khớp `site-config.js`). Schema `PostalAddress` giữ tách trường như cũ (`addressLocality: "Đà Lạt"`).
+   Cùng đợt: trang chủ bỏ tự xưng "đẹp nhất" — `<title>`, og:title, twitter:title, WebPage.name = H1 ("Quán Nướng Đà Lạt View
+   Đẹp — Tiệm Nướng Trạm Dừng Chill"); `Restaurant.description` = khối B của bộ bio các kênh (mô tả xoay quanh view).
+   → Máy canh: R7d nay bắt thêm dạng dấu phẩy, và quét cả `llms.txt`.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

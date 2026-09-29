@@ -75,7 +75,7 @@ const SCHEMA_DATA = {
         },
         {
             question: 'Where is Tram Dung Chill BBQ in Da Lat?',
-            answer: 'Tram Dung Chill is located at 111 Huynh Tan Phat, Xuan Truong Ward, Da Lat City. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night.'
+            answer: 'Tram Dung Chill is located at 111 Huynh Tan Phat, Xuan Truong - Da Lat Ward. The restaurant offers unique views of the Da Lat railway, sunset over the valley, and thousands of glowing greenhouses at night.'
         }
     ],
     // Review THẬT — đồng bộ đúng với các review đang hiển thị trên index.html
