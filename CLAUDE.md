@@ -867,8 +867,21 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      Đánh đổi: mất bước kiểm SĐT 10 số của booking.js, ngang bằng 3 trang dịp kia.
    - 🟢 **PII sạch, không phải sửa** (mục 259): pixel chỉ nhận `num_guests`/`source`/`content_category`.
      Tên + SĐT chỉ đi tới webhook của quán và tin nhắn Zalo, không vào payload đo lường nào.
-   - ⚠️ **Kịch bản "đơn rớt" vẫn hiện modal "Đặt bàn thành công"** ở trang chủ (hành vi có sẵn, chưa sửa —
-     chờ sếp): khách đọc lời chúc mừng rồi bỏ đi, không nhắn Zalo. Chỉ có một toast lỗi kèm theo.
+   - ✅ **Đơn rớt không còn báo "thành công"** (sửa 30/09/2026, sếp duyệt). Trước đó trang chủ hiện
+     "Đã gửi thông tin thành công!" cả khi app lẫn Apps Script đều hỏng, rồi xoá form. Nay
+     `moHopThoaiDatBan(daLuuDuoc, zaloUrl)` trong `js/booking.js` có 2 trạng thái: lưu được → như cũ;
+     rớt → dấu ! cam, "Chưa gửi được đơn đặt bàn", tiêu điểm vào nút "Gửi đơn qua Zalo", **form giữ
+     nguyên chữ**. Chữ đổi bằng cách gắn lại `data-i18n` (khoá `modal.fail.*`) để nút EN dịch đúng
+     trạng thái đang hiện.
+     ⚠️ **Cửa sổ Zalo tự mở hay bị trình duyệt chặn**: `window.open` chạy sau 2 lần chờ máy chủ + 1 giây
+     nên không còn tính là cú bấm của khách (Safari iPhone chặt nhất). Vì vậy hộp thoại luôn có nút
+     `#modalZaloBtn` (thẻ `<a>` zalo.me, tin điền sẵn) — bộ nghe chung đếm nó 1 lần như mọi link Zalo.
+     4 trang dịp không có hộp thoại: `window.open` trả `null` (bị chặn) mà đơn rớt thì `alert` rồi
+     `location.href = zaloUrl`. Đừng bỏ độ trễ 1 giây "cho đỡ bị chặn": nó cho pixel kịp gửi trước khi
+     điện thoại nhảy sang app Zalo, còn nút bấm tay đã lo phần bị chặn.
+     Đo 30/09 (Chrome 412px, webhook giả lập, `window.open` giả bị chặn): trang chủ đơn rớt → hộp thoại
+     lỗi + nút Zalo có tin điền sẵn + form còn tên; đơn lưu được → như cũ, form xoá; trang dịp đơn rớt +
+     Zalo bị chặn → chuyển sang zalo.me 1 lần. R25 mục (e) canh — bẻ thử 3 kiểu, bắt đủ 3.
    - **Consent (mục 260) chưa có gì**: không cookie banner, không Consent Mode, chưa có trang chính sách.
      Nháp nằm ở `docs/nhap-chinh-sach-du-lieu.md` (soạn 13/09), chờ sếp duyệt. Clarity đang quay màn hình
      khách gồm cả lúc gõ form mà code không khai `data-clarity-mask` nào — mức che phụ thuộc hoàn toàn

@@ -138,7 +138,7 @@ async function chayLuot(goc, trang, kb) {
     const goi = (method, params = {}) => new Promise((ok) => { const i = ++id; cho.set(i, ok); sock.send(JSON.stringify({ id: i, method, params })); });
     const danhGia = async (expr) => { const r = await goi("Runtime.evaluate", { expression: expr, returnByValue: true, awaitPromise: true }); return r.result && r.result.result ? r.result.result.value : undefined; };
 
-    const hits = [], webhook = [], loiTrang = [], loiNgoai = [];
+    const hits = [], webhook = [], loiTrang = [], loiNgoai = [], sangZalo = [];
     let daLoad = false, buocHienTai = "tai";
     nghe.push((d) => {
         if (d.method === "Page.loadEventFired") daLoad = true;
@@ -174,6 +174,12 @@ async function chayLuot(goc, trang, kb) {
                 if (!kq) return void goi("Fetch.failRequest", { requestId: rid, errorReason: "ConnectionFailed" });
                 return void goi("Fetch.fulfillRequest", { requestId: rid, responseCode: kq[0], responseHeaders: cors, body: Buffer.from(JSON.stringify(kq[1])).toString("base64") });
             }
+            /* Trang dịp: Zalo bị chặn mà đơn rớt thì chuyển thẳng sang zalo.me (30/09/2026). Đó là tin
+               nhắn đặt bàn khách GỬI CHO QUÁN, không phải hit đo lường — tách riêng để chấm, đừng soi PII. */
+            if (/^https:\/\/zalo\.me\//.test(rq.url)) {
+                sangZalo.push(rq.url);
+                return void goi("Fetch.fulfillRequest", { requestId: rid, responseCode: 204, responseHeaders: cors, body: "" });
+            }
             hits.push({ buoc: buocHienTai, url: rq.url, postData: rq.postData || "" });
             if (/facebook\.com\/tr/.test(rq.url)) {
                 return void goi("Fetch.fulfillRequest", { requestId: rid, responseCode: 200, body: "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
@@ -193,7 +199,8 @@ async function chayLuot(goc, trang, kb) {
     await goi("Emulation.setDeviceMetricsOverride", { width: 412, height: 823, deviceScaleFactor: 1.75, mobile: true });
     await goi("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
     await goi("Emulation.setUserAgentOverride", { userAgent: "Mozilla/5.0 (Linux; Android 14; SM-A546E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36", acceptLanguage: "vi-VN,vi;q=0.9" });
-    // Không cho rời trang: ghi lại window.open / alert, chặn điều hướng của link gọi/Zalo/Facebook
+    // Không cho rời trang: ghi lại window.open / alert, chặn điều hướng của link gọi/Zalo/Facebook.
+    // window.open trả null = giả lập trình duyệt CHẶN cửa sổ Zalo (hay gặp trên iPhone) — kịch bản xấu nhất.
     await goi("Page.addScriptToEvaluateOnNewDocument", { source: `(() => {
         window.__moTab = [];
         window.open = function (u) { window.__moTab.push(String(u)); return null; };
@@ -218,6 +225,7 @@ async function chayLuot(goc, trang, kb) {
     };
 
     const soBam = { tel: 0, zalo: 0 };
+    let hopThoai = null;
     await ngu(1500);
     buocHienTai = "cuon";
     await goi("Input.dispatchMouseEvent", { type: "mouseWheel", x: 200, y: 400, deltaX: 0, deltaY: 300 });
@@ -238,10 +246,8 @@ async function chayLuot(goc, trang, kb) {
             fabHien = await danhGia(`(() => { const f = document.getElementById('fabContact'); return !!f && f.classList.contains('visible') && !f.classList.contains('in-booking'); })()`);
             if (fabHien) break;
         }
-        if (fabHien && await bam("#fabMainBtn")) {
-            await ngu(600);
-            if (await bam(".fab-opt-zalo")) soBam.zalo++;
-        }
+        // FAB luôn mở từ 26/09/2026 (CLAUDE.md #47) — không còn nút tròn #fabMainBtn để bấm mở
+        if (fabHien && await bam(".fab-opt-zalo")) soBam.zalo++;
         await ngu(2000);
 
         buocHienTai = "zalo-nhanh";
@@ -262,6 +268,11 @@ async function chayLuot(goc, trang, kb) {
             await ngu(400);
             await bam('#bookingForm [type="submit"]');
             await ngu(5000);
+            hopThoai = await danhGia(`(() => { const m = document.getElementById('successModal'); if (!m) return null;
+                const z = document.getElementById('modalZaloBtn');
+                return { hien: m.classList.contains('active'), loi: m.classList.contains('modal--loi'),
+                    nutZalo: !!(z && z.href.indexOf('https://zalo.me/') === 0 && z.href.indexOf('text=') !== -1),
+                    conTen: document.querySelector('#bookingForm [name="name"]').value !== '' }; })()`);
         }
     }
     buocHienTai = "cuoi";
@@ -272,7 +283,7 @@ async function chayLuot(goc, trang, kb) {
     await ngu(300);
     try { fs.rmSync(HOME, { recursive: true, force: true }); } catch (e) {}
 
-    return { hits, webhook, moTab, loiTrang, loiNgoai, soBam, urlSauGo };
+    return { hits, webhook, moTab, loiTrang, loiNgoai, soBam, urlSauGo, sangZalo, hopThoai };
 }
 
 // ── chấm điểm ───────────────────────────────────────────────────────────
@@ -331,6 +342,21 @@ function cham(trang, kb, kq) {
     const zalo = kq.moTab.filter((u) => /zalo\.me/.test(u)).length;
     const okGui = (laDip ? soApp === 0 : soApp === 1) && soSheet === 1 && zalo === 1;
     them("Đơn gửi đúng 1 lần mỗi đường · luôn mở Zalo 1 lần", okGui, "app " + soApp + " · Apps Script " + soSheet + " · Zalo " + zalo);
+
+    /* Đơn rớt KHÔNG được báo thành công (30/09/2026, CLAUDE.md #35). Công cụ giả lập Zalo bị chặn nên:
+       trang chủ phải hiện hộp thoại lỗi có nút Zalo bấm tay + giữ chữ trong form; trang dịp phải chuyển
+       thẳng sang zalo.me. Đơn trùng (deduped) vẫn là đơn đã lưu → hộp thoại thành công. */
+    const rot = kb === "sheetLoi" || kb === "chet";
+    if (laDip) {
+        const n = kq.sangZalo.length;
+        them("Đơn rớt + Zalo bị chặn → chuyển thẳng sang Zalo", n === (rot ? 1 : 0), n + " lần chuyển sang zalo.me (cần " + (rot ? 1 : 0) + ")");
+    } else {
+        const h = kq.hopThoai;
+        const okH = !!h && h.hien && h.loi === rot && h.nutZalo && h.conTen === rot && kq.sangZalo.length === 0;
+        them("Hộp thoại đúng kết quả (" + (rot ? "đơn rớt" : "đơn đã lưu") + ")", okH,
+            h ? (h.loi ? "hộp thoại LỖI" : "hộp thoại thành công") + " · nút Zalo " + (h.nutZalo ? "có tin điền sẵn" : "THIẾU") +
+                " · form " + (h.conTen ? "giữ chữ" : "đã xoá") : "không thấy hộp thoại");
+    }
 
     const bay = kq.hits.filter(coPII).length;
     them("Không hit đo lường nào mang tên/SĐT khách", bay === 0, bay + "/" + kq.hits.length + " hit (gói Clarity nén — không soi được)");

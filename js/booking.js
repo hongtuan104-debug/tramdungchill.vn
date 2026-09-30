@@ -385,33 +385,79 @@ function initBookingForm() {
             btnLoading.style.display = 'none';
             submitBtn.disabled = false;
 
-            if (!webhookOk) {
+            // Đơn đã vào app nhưng Apps Script hỏng (hoặc ngược lại): nhân viên có thể không nhận
+            // Telegram/Zalo nhóm → vẫn nhắc khách nhắn Zalo. Cả hai cùng hỏng thì chính hộp thoại
+            // đã nói rõ, không cần thêm toast.
+            if (daLuuDuoc && !webhookOk) {
                 showNotification(
                     t('notify.webhook_fail', 'Lưu đặt bàn tạm lỗi — vui lòng nhắn Zalo để xác nhận!'),
                     'error'
                 );
             }
 
-            const modal = document.getElementById('successModal');
-            if (modal) {
-                modal.classList.add('active');
-                // Đưa tiêu điểm vào hộp thoại: khách dùng bàn phím / trình đọc màn hình
-                // biết ngay đơn đã gửi và đóng được bằng Enter.
-                // Nút thừa hưởng visibility:hidden của modal (transition 0,3s) nên thử lại
-                // vài nhịp 50ms tới khi focus() ăn.
-                const closeModalBtn = document.getElementById('closeModalBtn');
-                let lanThu = 0;
-                (function thu() {
-                    if (!closeModalBtn) return;
-                    closeModalBtn.focus();
-                    if (document.activeElement !== closeModalBtn && ++lanThu < 10) setTimeout(thu, 50);
-                })();
-            }
-            form.reset();
+            moHopThoaiDatBan(daLuuDuoc, zaloUrl);
+            // Đơn chưa lưu được thì GIỮ nguyên chữ khách đã gõ: Zalo bị chặn hay khách lỡ đóng
+            // tab Zalo thì họ vẫn bấm Gửi lại được, không phải điền lại từ đầu.
+            if (daLuuDuoc) form.reset();
 
             window.open(zaloUrl, '_blank', 'noopener,noreferrer');
         }, 1000);
     });
+}
+
+/* Hộp thoại sau khi bấm Gửi — HAI trạng thái (sửa 30/09/2026).
+
+   Trước đây hộp thoại luôn ghi "Đã gửi thông tin thành công!", kể cả khi cả app lẫn Apps
+   Script đều hỏng: khách đọc chữ "thành công" rồi đi, quán không nhận được gì, form lại
+   bị xoá sạch. Đơn rớt kiểu này không để lại dấu vết nào — không chuyển đổi, không Sheet.
+
+   Và cửa sổ Zalo tự mở ở cuối hàm submit chạy SAU hai lần chờ máy chủ + 1 giây: trình
+   duyệt hay coi đó không còn là cú bấm của khách nên chặn (Safari trên iPhone chặt nhất).
+   Nên hộp thoại luôn có nút Zalo khách tự bấm — cú bấm tay thì không trình duyệt nào chặn.
+   Nút đó là <a href> trỏ zalo.me nên bộ nghe chung ở utils.js đếm nó là click_zalo /
+   Contact, đúng một lần như mọi nút Zalo khác.
+
+   Chữ đổi bằng cách gắn lại data-i18n rồi lấy bản dịch: đổi ngôn ngữ khi hộp thoại đang
+   mở thì applyTranslations() dịch đúng trạng thái đang hiện (bug #0). */
+function moHopThoaiDatBan(daLuu, zaloUrl) {
+    const modal = document.getElementById('successModal');
+    if (!modal) return;
+
+    const CHU = daLuu ? {
+        'successModalTitle': ['modal.title', 'Đã gửi thông tin thành công!'],
+        'successModalDesc': ['modal.desc', 'Vui lòng <strong>nhấn Gửi trong Zalo</strong> để hoàn tất đặt bàn. Trong giờ mở cửa (15:00–23:00), chúng tôi xác nhận trong vòng 15 phút.'],
+        'modalZaloBtn': ['modal.zalo', 'Mở Zalo gửi tin']
+    } : {
+        'successModalTitle': ['modal.fail.title', 'Chưa gửi được đơn đặt bàn'],
+        'successModalDesc': ['modal.fail.desc', 'Hệ thống lưu đơn đang lỗi nên quán <strong>chưa nhận được</strong> đơn của bạn. Bấm nút bên dưới để gửi đơn qua Zalo (tin nhắn đã điền sẵn), hoặc gọi hotline.'],
+        'modalZaloBtn': ['modal.fail.zalo', 'Gửi đơn qua Zalo']
+    };
+    Object.keys(CHU).forEach(function (id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('data-i18n', CHU[id][0]);
+        el.innerHTML = t(CHU[id][0], CHU[id][1]);
+    });
+
+    modal.classList.toggle('modal--loi', !daLuu);
+    const icon = modal.querySelector('.modal-icon');
+    if (icon) icon.textContent = daLuu ? '✓' : '!';
+
+    const zaloBtn = document.getElementById('modalZaloBtn');
+    if (zaloBtn) zaloBtn.href = zaloUrl;
+
+    modal.classList.add('active');
+    // Đưa tiêu điểm vào hộp thoại: khách dùng bàn phím / trình đọc màn hình nghe ngay kết
+    // quả. Đơn rớt thì tiêu điểm vào nút Zalo — đó là việc khách cần làm tiếp.
+    // Nút thừa hưởng visibility:hidden của modal (transition 0,3s) nên thử lại vài nhịp
+    // 50ms tới khi focus() ăn.
+    const dich = daLuu ? document.getElementById('closeModalBtn') : zaloBtn;
+    let lanThu = 0;
+    (function thu() {
+        if (!dich) return;
+        dich.focus();
+        if (document.activeElement !== dich && ++lanThu < 10) setTimeout(thu, 50);
+    })();
 }
 
 function formatZaloMessage(data) {

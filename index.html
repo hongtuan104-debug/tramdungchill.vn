@@ -110,8 +110,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="dist/style.min.css?v=3343c12e" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=3343c12e"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=064351f2" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=064351f2"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1716,24 +1716,28 @@
     </div>
 
     <!-- Success Modal -->
-    <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+    <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" aria-describedby="successModalDesc">
         <div class="modal-content">
             <div class="modal-icon" aria-hidden="true">&#10003;</div>
             <h3 id="successModalTitle" data-i18n="modal.title">Đã gửi thông tin thành công!</h3>
-            <p data-i18n="modal.desc">Vui lòng <strong>nhấn Gửi trong Zalo</strong> để hoàn tất đặt bàn. Trong giờ mở cửa (15:00–23:00), chúng tôi xác nhận trong vòng 15 phút.</p>
+            <p id="successModalDesc" data-i18n="modal.desc">Vui lòng <strong>nhấn Gửi trong Zalo</strong> để hoàn tất đặt bàn. Trong giờ mở cửa (15:00–23:00), chúng tôi xác nhận trong vòng 15 phút.</p>
             <p class="modal-phone">Hotline: <a href="tel:0989765070">0989.765.070</a></p>
-            <button class="btn btn-golden" id="closeModalBtn" data-i18n="modal.close">Đóng</button>
+            <!-- Chữ của nút do JS điền (bản dịch modal.zalo / modal.fail.zalo — xem moHopThoaiDatBan
+                 trong js/booking.js). Hộp thoại chỉ hiện khi có JS; chữ viết sẵn ở đây sẽ lọt vào dấu vân
+                 nội dung và trang chủ bị đóng dấu "Cập nhật" oan (CLAUDE.md #47). -->
+            <a class="btn btn-golden modal-zalo" id="modalZaloBtn" href="https://zalo.me/0989765070" target="_blank" rel="noopener noreferrer" data-i18n="modal.zalo"></a>
+            <button class="modal-dong" id="closeModalBtn" data-i18n="modal.close">Đóng</button>
         </div>
     </div>
 
     <!-- Data Files -->
     <script defer src="data/site-config.js?v=4ac35186"></script>
     <script defer src="data/menu-data.js?v=061e0cd3"></script>
-    <script defer src="data/translations.js?v=0700086a"></script>
+    <script defer src="data/translations.js?v=2309fd62"></script>
 
     <!-- Bundled & Minified JS -->
     <script defer src="dist/common.min.js?v=92228cb9"></script>
-    <script defer src="dist/index.min.js?v=b3f27bb9"></script>
+    <script defer src="dist/index.min.js?v=41d37b0c"></script>
 
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>

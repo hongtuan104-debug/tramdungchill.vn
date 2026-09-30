@@ -3345,6 +3345,28 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
 
 .modal-phone a { color: var(--sunset-deep); }
 
+/* Nút Zalo là việc chính của hộp thoại: cửa sổ Zalo tự mở hay bị trình duyệt chặn
+   (xem moHopThoaiDatBan trong js/booking.js), nên khách luôn có một nút bấm tay. */
+.modal-content .modal-zalo { width: 100%; justify-content: center; }
+
+.modal-dong {
+    display: block;
+    margin: 8px auto 0;
+    padding: 12px 20px;
+    min-height: 48px;
+    background: none;
+    border: 0;
+    font: inherit;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+.modal-dong:hover,
+.modal-dong:focus-visible { color: var(--night-soft); text-decoration: underline; }
+
+/* Đơn CHƯA lưu được: dấu ✓ xanh đổi thành dấu ! cam — đừng để khách tưởng đã xong. */
+.modal--loi .modal-icon { background: linear-gradient(135deg, #B45309, #D97706); }
+
 /* ============================================
    MOBILE MENU OVERLAY
    ============================================ */

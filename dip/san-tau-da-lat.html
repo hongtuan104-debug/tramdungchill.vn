@@ -62,7 +62,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 <link rel="preload" as="image" href="../assets/images/tau-lua-da-lat-duoi-lan-can-quan-1200.webp" type="image/webp" fetchpriority="high">
 
-<link rel="stylesheet" href="../dist/style.min.css?v=3343c12e">
+<link rel="stylesheet" href="../dist/style.min.css?v=064351f2">
 <link rel="stylesheet" href="../dist/dip-landing.min.css?v=b33e86a0">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2?v=1598c370">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2?v=ae4cc827">
@@ -668,12 +668,19 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     var zaloMsg = '🚂 ĐẶT BÀN SĂN TÀU\n\nTên: ' + data.name + '\nSĐT: ' + data.phone + '\nNgày: ' + data.date + '\nGiờ: ' + data.time + '\nSố khách: ' + data.guests + '\nGhi chú: ' + (data.note || 'Không có');
     /* Mở Zalo trong MỌI trường hợp: webhook hỏng thì tin nhắn Zalo là đường duy nhất còn lại
        để đơn tới quán — bản cũ gặp lỗi là chỉ báo "gọi điện" rồi bỏ đó. */
-    window.open('https://zalo.me/0989765070?text=' + encodeURIComponent(zaloMsg), '_blank');
+    var zaloUrl = 'https://zalo.me/0989765070?text=' + encodeURIComponent(zaloMsg);
+    var cuaSoZalo = window.open(zaloUrl, '_blank');
     if (luuOk) {
         alert('Đã gửi thông tin thành công! Trạm sẽ liên hệ qua Zalo trong 15 phút (trong giờ mở cửa) 🚂');
         this.reset();
-    } else {
+    } else if (cuaSoZalo) {
         alert('Chưa lưu được đơn — Trạm vừa mở Zalo sẵn, bạn bấm gửi tin nhắn giúp Trạm nhé. Hoặc gọi 0989.765.070.');
+    } else {
+        /* Trình duyệt chặn cửa sổ Zalo: nó mở SAU lúc chờ máy chủ nên không còn tính là cú bấm của
+           khách (Safari trên iPhone hay chặn). Đơn rớt mà Zalo cũng không mở là khách mất đường tới
+           quán → chuyển thẳng sang Zalo ngay trong tab này (sửa 30/09/2026). */
+        alert('Chưa lưu được đơn — bấm OK để mở Zalo, tin nhắn đã điền sẵn, bạn chỉ cần bấm Gửi. Hoặc gọi 0989.765.070.');
+        location.href = zaloUrl;
     }
     btnText.style.display = 'inline';
     btnLoading.style.display = 'none';

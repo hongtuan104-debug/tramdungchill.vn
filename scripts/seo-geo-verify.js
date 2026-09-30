@@ -2547,10 +2547,29 @@ const CAU_AEO = (() => {
         }
     }
 
+    /* (e) đơn rớt KHÔNG được báo "thành công" (30/09/2026). Trang chủ từng hiện "Đã gửi thông
+       tin thành công!" cả khi app lẫn Apps Script đều hỏng, rồi xoá form. Cửa sổ Zalo tự mở
+       chạy sau lúc chờ máy chủ nên trình duyệt hay chặn → phải có nút Zalo khách tự bấm.
+       Trang dịp: cửa sổ bị chặn mà đơn rớt thì chuyển thẳng sang Zalo trong tab đang mở. */
+    {
+        const bk = boChuThich(fs.readFileSync(path.join(ROOT, "js", "booking.js"), "utf8"));
+        if (!/moHopThoaiDatBan\(daLuuDuoc,/.test(bk)) pham.push("js/booking.js: hộp thoại sau khi gửi không còn phân biệt đơn lưu được / đơn rớt");
+        if (/form\.reset\(\)/.test(bk) && !/if \(daLuuDuoc\) form\.reset\(\)/.test(bk)) pham.push("js/booking.js: xoá form cả khi đơn rớt — khách mất chữ đã gõ");
+        const idx = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+        if (!/<a [^>]*id="modalZaloBtn"[^>]*href="https:\/\/zalo\.me\//.test(idx)) pham.push("index.html: hộp thoại đặt bàn thiếu nút Zalo bấm tay (#modalZaloBtn)");
+        for (const f of fs.readdirSync(path.join(ROOT, "dip")).filter(f => f.endsWith(".html"))) {
+            const s = boChuThich(fs.readFileSync(path.join(ROOT, "dip", f), "utf8"));
+            if (!/window\.open\(/.test(s)) continue;
+            if (!/var cuaSoZalo = window\.open\(/.test(s) || !/location\.href = zaloUrl/.test(s)) {
+                pham.push("dip/" + f + ": Zalo bị chặn mà đơn rớt thì khách không còn đường tới quán");
+            }
+        }
+    }
+
     add("Đo lường: một cú bấm đếm một lần · chuyển đổi chỉ đếm khi đơn lưu được",
         pham.length === 0,
         pham.length ? pham.slice(0, 3).join(" | ")
-                    : "bộ nghe chung bỏ qua " + dsLoaiTru + " · 0 chỗ dùng no-cors · conversion đều trong nhánh điều kiện");
+                    : "bộ nghe chung bỏ qua " + dsLoaiTru + " · 0 chỗ dùng no-cors · conversion đều trong nhánh điều kiện · đơn rớt không báo thành công");
 }
 
 // ── R27. Công cụ theo dõi: đúng phạm vi · không rò dữ liệu người · lead phải là đơn THẬT ──
