@@ -4047,6 +4047,58 @@ body.sticky-bar-active .fab-contact {
     .sticky-book-btn { padding: 10px 18px; font-size: 0.85rem; min-height: 48px; }
 }
 
+/* Cụm Zalo / Gọi / Facebook NẰM TRONG thanh "Đặt bàn online" (04/10/2026, sếp Tuấn chọn gộp vào thanh đáy).
+   Rà 21 cỡ điện thoại: 3 nút tròn nổi che khoảng 40px mép phải của chữ, nút lên-đầu-trang che đầu dòng bên
+   trái, suốt lúc cuộn, nặng nhất ở bài blog. Khi thanh đặt bàn đã hiện: nút nổi mờ đi bằng opacity +
+   visibility (KHÔNG dời vị trí nên không tính CLS, xem bug #22), cụm này hiện cạnh nút Đặt Bàn. Đầu trang
+   (thanh chưa hiện) vẫn là nút nổi. Nút lên-đầu-trang bỏ trên điện thoại (iPhone chạm thanh trạng thái là
+   lên đầu). Máy cảm ứng nằm ngang rộng hơn 768px cũng dùng: thiếu bề cao hơn là thiếu bề rộng.
+   Cụm do fab-contact.js gắn vào #stickyBookBar; máy tính không hiện. */
+.thanh-lien-he { display: none; }
+@media (max-width: 768px), (pointer: coarse) and (max-height: 500px) {
+    .thanh-lien-he {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    .thanh-lien-he .fab-option {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: none;
+    }
+    .thanh-lien-he .fab-option > span:not(.fab-opt-zalo-icon) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+    .thanh-lien-he .fab-option svg { width: 22px; height: 22px; }
+    .thanh-lien-he .fab-option:hover { transform: none; }
+    body.sticky-bar-active .fab-contact {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .back-to-top { display: none; }
+}
+/* Điện thoại dựng đứng: không đủ chỗ cho chữ "Đặt bàn online" cạnh 3 nút + nút Đặt Bàn. */
+@media (max-width: 480px) {
+    .sticky-book-info { display: none; }
+}
+/* Galaxy Fold gập (280px): thu nút cho vừa một hàng. */
+@media (max-width: 340px) {
+    .sticky-book-bar { gap: 10px; }
+    .thanh-lien-he { gap: 6px; }
+    .thanh-lien-he .fab-option { width: 40px; height: 40px; }
+    .sticky-book-btn { padding: 10px 14px; }
+}
+
 /* ============================================
    PERKS SECTION - 6 Unique Services
    ============================================ */

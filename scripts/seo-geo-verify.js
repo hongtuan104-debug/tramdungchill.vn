@@ -2505,6 +2505,7 @@ const CAU_AEO = (() => {
     // mọi nút có bộ đếm riêng (bắn Contact ngoài utils.js) phải nằm trong danh sách đó
     const nguonCoBoDem = [
         ["js/fab-contact.js", /className\s*=\s*'(fab-contact)'/],
+        ["js/fab-contact.js", /className\s*=\s*'(thanh-lien-he)'/],
         ["index.html", /getElementById\('(zaloQuickBook)'\)[\s\S]{0,900}?fbq\('track', 'Contact'/]
     ];
     for (const [f, re] of nguonCoBoDem) {

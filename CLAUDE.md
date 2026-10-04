@@ -1217,6 +1217,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - **FAB luôn mở** (26/09/2026, sếp: "để 3 nút này ra màn luôn"): fab-contact.js gắn `.fab-mo-san`, KHÔNG còn nút tròn bật/tắt
      `.fab-main` (CSS cũ của nó còn trong style.css nhưng không phần tử nào dùng). Mọi cỡ màn: nút tròn 48px chỉ biểu tượng (sếp
      chốt 26/09 "thành nút tròn đi"; tên nút hiện qua title khi rê chuột, trình đọc màn hình đọc aria-label). Footer điện thoại chừa đáy 190px.
+     → Từ 04/10/2026 trên điện thoại: thanh đặt bàn hiện thì 3 nút chuyển vào trong thanh, nút lên-đầu-trang bỏ (xem #50).
 
 48. **Giao diện mùa Noel + Tết tự bật / tự tắt theo ngày giờ Việt Nam** (sếp Tuấn "làm đi" 27/09/2026). Làm một lần, đưa lên web ở
    trạng thái "ngủ"; không ai phải push đúng ngày. Khung: **Noel 01/12 → 01/01**, **Tết 15 tháng Chạp → Rằm tháng Giêng** (2027: 22/01 →
@@ -1311,9 +1312,16 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      chạm. Nay `@media (pointer: coarse)` ép 16px (trang chủ + 4 trang dịp dùng chung `.form-group`).
    - **Nav trang dịp ở màn 320–374px** (iPhone SE 1, iPhone SE/mini bật Phóng to màn hình, Android cỡ hiển thị lớn): tên quán gãy
      2–3 dòng, nav dính cao 105–155px → thu nút gọi + tên quán một dòng; < 330px nút gọi chỉ còn biểu tượng.
+   - **3 nút tròn + nút lên-đầu-trang đè chữ khi cuộn trên MỌI điện thoại** (nút tròn che khoảng 40px mép phải, nút lên-đầu che đầu
+     dòng bên trái; nặng nhất ở bài blog). Sếp chọn **gộp vào thanh đáy**: `fab-contact.js` gắn cụm `.thanh-lien-he` (Zalo / Gọi /
+     Facebook) vào đầu `#stickyBookBar` (thanh có thể ra đời sau script → chờ bằng MutationObserver). CSS `(max-width:768px), (pointer:
+     coarse) and (max-height:500px)`: thanh đã hiện (`body.sticky-bar-active`) thì nút nổi mờ đi bằng opacity/visibility (KHÔNG dời
+     vị trí → không CLS), đầu trang vẫn là nút nổi; `.back-to-top` ẩn trên điện thoại; ≤ 480px ẩn chữ "Đặt bàn online / Setup miễn
+     phí…" của thanh (không đủ chỗ cạnh 3 nút + nút Đặt Bàn — chữ mùa Noel/Tết trên thanh cũng ẩn theo). Máy tính giữ nguyên.
+     Đo lường: event_label `thanh_dat_ban` (nút nổi vẫn `fab`), đã thử bấm: đúng 1 GA4 + 1 Meta + 1 TikTok mỗi cú.
+     ⚠️ `.thanh-lien-he` phải nằm trong `CO_BO_DEM_RIENG` (js/utils.js) — R25 canh, đã bẻ thử.
    Đạt sẵn: 0 tràn mép ở mọi máy ≥ 320px · 0 nút < 24px · 0 ảnh hỏng/méo · 0 lỗi JS · bản tiếng Anh không tràn.
-   Chưa sửa, chờ sếp: 3 nút tròn + nút lên-đầu-trang đè chữ khi cuộn trên MỌI điện thoại (nút tròn che ~40px mép phải, nút lên-đầu
-   che đầu dòng bên trái) · máy nằm ngang: nav + thanh đặt bàn chiếm 33–46% chiều cao.
+   Chưa sửa (ít người xem ngang): máy nằm ngang thì nav + thanh đặt bàn chiếm 33–46% chiều cao.
    Ghi nhận, không sửa: Galaxy Fold đời đầu (280px) nút ba gạch lòi 2px; `review-qr.html` (trang in nội bộ) tràn ở 280px;
    `/favicon.ico` 404 (mọi trang khai `rel=icon` nên điện thoại vẫn hiện biểu tượng). Mới đo bằng Chrome (Blink) — chưa thử Safari thật.
 

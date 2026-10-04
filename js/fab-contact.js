@@ -44,6 +44,47 @@
         fbUrl = (SITE_CONFIG.social && SITE_CONFIG.social.facebook) || fbUrl;
     }
 
+    // 3 link liên hệ (Zalo, Gọi, Facebook). "nguon" là nhãn đo lường: 'fab' (nút nổi) hoặc
+    // 'thanh_dat_ban' (cụm nằm trong thanh "Đặt bàn online") — cùng sự kiện, khác vị trí bấm.
+    function taoLienKet(nguon) {
+        // Zalo — build URL động với tag nguồn tại lúc click (source có thể update sau khi user duyệt)
+        const zaloLink = document.createElement('a');
+        zaloLink.href = buildZaloUrlWithSource(zaloPhone);
+        zaloLink.target = '_blank';
+        zaloLink.rel = 'noopener';
+        zaloLink.className = 'fab-option fab-opt-zalo';
+        zaloLink.title = 'Chat Zalo';
+        zaloLink.setAttribute('aria-label', 'Chat Zalo');
+        zaloLink.innerHTML = '<span class="fab-opt-zalo-icon">Zalo</span><span>Zalo</span>';
+        zaloLink.addEventListener('click', function() {
+            // Refresh URL ngay trước khi mở (trong case user vừa đổi nguồn / navigate)
+            zaloLink.href = buildZaloUrlWithSource(zaloPhone);
+            trackEvent('click_zalo', nguon);
+        });
+
+        // Phone
+        const phoneLink = document.createElement('a');
+        phoneLink.href = 'tel:' + phone;
+        phoneLink.className = 'fab-option fab-opt-phone';
+        phoneLink.title = 'Gọi ngay';
+        phoneLink.setAttribute('aria-label', 'Gọi ngay ' + phone);
+        phoneLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Gọi ngay</span>';
+        phoneLink.addEventListener('click', function() { trackEvent('click_phone', nguon); });
+
+        // Facebook
+        const fbLink = document.createElement('a');
+        fbLink.href = fbUrl;
+        fbLink.target = '_blank';
+        fbLink.rel = 'noopener';
+        fbLink.className = 'fab-option fab-opt-fb';
+        fbLink.title = 'Facebook';
+        fbLink.setAttribute('aria-label', 'Facebook');
+        fbLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span>';
+        fbLink.addEventListener('click', function() { trackEvent('click_facebook', nguon); });
+
+        return [zaloLink, phoneLink, fbLink];
+    }
+
     function buildFabDOM() {
         const container = document.createElement('div');
         // 3 nut luon hien san, khong con nut tron bat/tat (26/09/2026, sep Tuan: de 3 nut nay ra man luon).
@@ -57,47 +98,37 @@
         options.setAttribute('role', 'group');
         options.setAttribute('aria-label', 'Liên hệ nhanh');
 
-        // Zalo — build URL động với tag nguồn tại lúc click (source có thể update sau khi user duyệt)
-        const zaloLink = document.createElement('a');
-        zaloLink.href = buildZaloUrlWithSource(zaloPhone);
-        zaloLink.target = '_blank';
-        zaloLink.rel = 'noopener';
-        zaloLink.className = 'fab-option fab-opt-zalo';
-        zaloLink.title = 'Chat Zalo';
-        zaloLink.setAttribute('aria-label', 'Chat Zalo');
-        zaloLink.innerHTML = '<span class="fab-opt-zalo-icon">Zalo</span><span>Zalo</span>';
-        zaloLink.addEventListener('click', function() {
-            // Refresh URL ngay trước khi mở (trong case user vừa đổi nguồn / navigate)
-            zaloLink.href = buildZaloUrlWithSource(zaloPhone);
-            trackEvent('click_zalo', 'fab');
-        });
-        options.appendChild(zaloLink);
-
-        // Phone
-        const phoneLink = document.createElement('a');
-        phoneLink.href = 'tel:' + phone;
-        phoneLink.className = 'fab-option fab-opt-phone';
-        phoneLink.title = 'Gọi ngay';
-        phoneLink.setAttribute('aria-label', 'Gọi ngay ' + phone);
-        phoneLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Gọi ngay</span>';
-        phoneLink.addEventListener('click', function() { trackEvent('click_phone', 'fab'); });
-        options.appendChild(phoneLink);
-
-        // Facebook
-        const fbLink = document.createElement('a');
-        fbLink.href = fbUrl;
-        fbLink.target = '_blank';
-        fbLink.rel = 'noopener';
-        fbLink.className = 'fab-option fab-opt-fb';
-        fbLink.title = 'Facebook';
-        fbLink.setAttribute('aria-label', 'Facebook');
-        fbLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span>';
-        fbLink.addEventListener('click', function() { trackEvent('click_facebook', 'fab'); });
-        options.appendChild(fbLink);
+        taoLienKet('fab').forEach(function (a) { options.appendChild(a); });
 
         container.appendChild(options);
 
         return container;
+    }
+
+    /* Cụm liên hệ nằm TRONG thanh "Đặt bàn online" (04/10/2026, sếp Tuấn chọn).
+       Trên điện thoại 3 nút tròn nổi bên phải che ~40px mép phải của chữ suốt lúc cuộn. Khi thanh
+       đặt bàn đã hiện, CSS (style.css, .thanh-lien-he) giấu nút nổi và hiện cụm này cạnh nút Đặt
+       Bàn — 3 nút vẫn luôn trên màn mà không đè chữ. Đầu trang (chưa có thanh) vẫn là nút nổi.
+       Thanh có nơi viết sẵn trong HTML (trang chủ), có nơi do JS tạo (thanh-dat-ban.js, mẫu bài
+       blog) và có thể ra đời SAU script này → chưa thấy thì chờ bằng MutationObserver.
+       Đo lường: event_label 'thanh_dat_ban'; .thanh-lien-he nằm trong CO_BO_DEM_RIENG (js/utils.js)
+       để bộ nghe chung không đếm lần hai. */
+    function ganVaoThanh() {
+        function gan() {
+            const thanh = document.getElementById('stickyBookBar');
+            if (!thanh) return false;
+            if (thanh.querySelector('.thanh-lien-he')) return true;
+            const cum = document.createElement('div');
+            cum.className = 'thanh-lien-he';
+            cum.setAttribute('role', 'group');
+            cum.setAttribute('aria-label', 'Liên hệ nhanh');
+            taoLienKet('thanh_dat_ban').forEach(function (a) { cum.appendChild(a); });
+            thanh.insertBefore(cum, thanh.firstChild);
+            return true;
+        }
+        if (gan() || typeof MutationObserver !== 'function') return;
+        const mo = new MutationObserver(function () { if (gan()) mo.disconnect(); });
+        mo.observe(document.body, { childList: true });
     }
 
     // Inject when DOM is ready
@@ -111,6 +142,7 @@
 
         const fabEl = buildFabDOM();
         document.body.appendChild(fabEl);
+        ganVaoThanh();
 
         if (!fabEl) return;
 

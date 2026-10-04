@@ -76,8 +76,9 @@ function buildSourceTag(src) {
 /* Nút có bộ đếm riêng — thêm nút mới có trackEvent riêng thì khai luôn vào đây.
    .blog-share: nút chia sẻ bài (Facebook / Zalo) ở trang Blog là khách chia sẻ bài, không phải
    liên hệ quán; link zalo.me/share từng bị đếm thành Contact cho Meta + TikTok và click_zalo
-   cho GA4. Lượt chia sẻ đo riêng bằng sự kiện share (js/blog-renderer.js). */
-var CO_BO_DEM_RIENG = '.fab-contact, #zaloQuickBook, .blog-share';
+   cho GA4. Lượt chia sẻ đo riêng bằng sự kiện share (js/blog-renderer.js).
+   .thanh-lien-he: cụm Zalo / Gọi / Facebook trong thanh "Đặt bàn online" (fab-contact.js, 04/10/2026). */
+var CO_BO_DEM_RIENG = '.fab-contact, .thanh-lien-he, #zaloQuickBook, .blog-share';
 
 function initContactTracking() {
     document.addEventListener('click', function(e) {
