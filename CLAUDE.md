@@ -1325,6 +1325,12 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      form (iPhone SE 320px; lỗi có từ trước). Nay `in-booking` của fab-contact.js theo dõi CẢ các khối đó, không riêng `#booking`
      trang chủ. ⚠️ Thêm khối mời đặt bàn mới ở trang con thì thêm selector vào cả `fab-contact.js` (in-booking) lẫn
      `thanh-dat-ban.js` (khoiMoi).
+   - **"Ô form đặt bàn chồng lên nhau ở một số điện thoại"** (sếp báo cùng ngày): gốc là nút nổi + nút lên-đầu-trang nằm đè lên ô
+     "Số khách" / "Yêu cầu đặc biệt" của form 4 trang dịp và form trang chủ khi máy nằm ngang — đã hết nhờ 2 mục trên. Bản thân
+     form KHÔNG có ô nào chồng ô: `plans/cong-cu-do-hieu-nang/kiem-form.js` (21 máy × 6 form × cỡ chữ 100/130/160/200% bằng
+     `text-size-adjust` — giống máy chỉnh chữ to / WebView Zalo-Facebook, điền giá trị dài nhất, đo mọi cặp ô/nhãn/chữ; đã bẻ thử)
+     ra 0/504; đo bằng WebKit (Playwright, lõi Safari) 15 máy ra 0/90. ⚠️ WebKit bản Windows KHÔNG có ô chọn ngày (coi như ô chữ)
+     và ảnh chụp `fullPage` của nó vẽ thanh dính đáy giữa trang — đừng đọc hai thứ đó thành lỗi.
    Đạt sẵn: 0 tràn mép ở mọi máy ≥ 320px · 0 nút < 24px · 0 ảnh hỏng/méo · 0 lỗi JS · bản tiếng Anh không tràn.
    Chưa sửa (ít người xem ngang): máy nằm ngang thì nav + thanh đặt bàn chiếm 33–46% chiều cao.
    Ghi nhận, không sửa: Galaxy Fold đời đầu (280px) nút ba gạch lòi 2px; `review-qr.html` (trang in nội bộ) tràn ở 280px;
