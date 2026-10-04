@@ -1320,6 +1320,11 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      phí…" của thanh (không đủ chỗ cạnh 3 nút + nút Đặt Bàn — chữ mùa Noel/Tết trên thanh cũng ẩn theo). Máy tính giữ nguyên.
      Đo lường: event_label `thanh_dat_ban` (nút nổi vẫn `fab`), đã thử bấm: đúng 1 GA4 + 1 Meta + 1 TikTok mỗi cú.
      ⚠️ `.thanh-lien-he` phải nằm trong `CO_BO_DEM_RIENG` (js/utils.js) — R25 canh, đã bẻ thử.
+     Soi lại trên web thật cùng ngày: ở khối mời đặt bàn cuối trang con (`.menu-cta`, `.blog-cta`, `.author-cta`,
+     `.blog-cta-cuoi`, form `#booking-form` trang dịp) thanh tự ẩn nên nút nổi hiện lại và đè lên nút gọi / "Đặt bàn ngay" / nút gửi
+     form (iPhone SE 320px; lỗi có từ trước). Nay `in-booking` của fab-contact.js theo dõi CẢ các khối đó, không riêng `#booking`
+     trang chủ. ⚠️ Thêm khối mời đặt bàn mới ở trang con thì thêm selector vào cả `fab-contact.js` (in-booking) lẫn
+     `thanh-dat-ban.js` (khoiMoi).
    Đạt sẵn: 0 tràn mép ở mọi máy ≥ 320px · 0 nút < 24px · 0 ảnh hỏng/méo · 0 lỗi JS · bản tiếng Anh không tràn.
    Chưa sửa (ít người xem ngang): máy nằm ngang thì nav + thanh đặt bàn chiếm 33–46% chiều cao.
    Ghi nhận, không sửa: Galaxy Fold đời đầu (280px) nút ba gạch lòi 2px; `review-qr.html` (trang in nội bộ) tràn ở 280px;

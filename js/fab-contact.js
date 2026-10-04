@@ -182,13 +182,21 @@
            Dùng IntersectionObserver chứ KHÔNG đo offsetTop trong sự kiện cuộn:
            observer không đọc số đo nào từ JS nên không buộc trình duyệt tính lại
            bố cục — đúng lý do đã phải hoãn checkScroll xuống requestIdleCallback
-           ở dưới. Thêm một phép đo vào vòng cuộn là dựng lại đúng 200ms đã gỡ. */
-        const khoiDatBan = document.getElementById('booking');
-        if (khoiDatBan && 'IntersectionObserver' in window) {
-            new IntersectionObserver(function (entries) {
-                const dangHien = entries[0].isIntersecting;
-                fabEl.classList.toggle('in-booking', dangHien);
-            }).observe(khoiDatBan);
+           ở dưới. Thêm một phép đo vào vòng cuộn là dựng lại đúng 200ms đã gỡ.
+           04/10/2026: trang con cũng vậy — khối mời đặt bàn cuối trang Thực đơn / Blog / tác giả /
+           bài blog và form trang dịp. Ở đó thanh đặt bàn tự ẩn nên nút nổi hiện lại và đè lên
+           chính nút gọi / "Đặt bàn ngay" / nút gửi form của khối (đo iPhone SE 320px). Các khối
+           này đã có sẵn nút gọi + đặt bàn, nên rút nút nổi đi như trang chủ. */
+        const khoiDatBan = document.querySelectorAll('#booking, #booking-form, .menu-cta, .blog-cta, .author-cta, .blog-cta-cuoi');
+        if (khoiDatBan.length && 'IntersectionObserver' in window) {
+            const dangHien = new Set();
+            const io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) dangHien.add(e.target); else dangHien.delete(e.target);
+                });
+                fabEl.classList.toggle('in-booking', dangHien.size > 0);
+            });
+            khoiDatBan.forEach(function (k) { io.observe(k); });
         }
 
         let ticking = false;

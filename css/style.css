@@ -3001,8 +3001,9 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
 /* Khách đang ở khối đặt bàn — fab-contact.js gắn class này qua
    IntersectionObserver. Rút FAB đi để nó thôi đè lên nút "Gửi đặt bàn"
    (nút này width:100% trên mobile, checklist Mobile #143).
-   Phải đứng SAU .fab-contact.visible vì cùng độ ưu tiên — thứ tự quyết định. */
-@media (max-width: 768px) {
+   Phải đứng SAU .fab-contact.visible vì cùng độ ưu tiên — thứ tự quyết định.
+   Cùng mốc với cụm liên hệ trong thanh đặt bàn (04/10/2026): máy cảm ứng nằm ngang cũng rút. */
+@media (max-width: 768px), (pointer: coarse) and (max-height: 500px) {
     .fab-contact.in-booking {
         opacity: 0;
         visibility: hidden;
