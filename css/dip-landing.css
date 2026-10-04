@@ -654,6 +654,18 @@ html {
 @media (max-width: 360px) {
     .dip-pricing-big.dip-pricing-range { font-size: 1.7rem; }
 }
+/* Màn 320-374px (04/10/2026): iPhone SE đời 1, iPhone SE/mini bật Phóng to màn hình, Android chỉnh cỡ
+   hiển thị lớn. Nút gọi khoảng 162px + tên quán khoảng 145px vượt ô 280px nên tên quán gãy 2 dòng, thanh
+   nav dính cao 105px (155px ở màn 280px). Thu nút gọi + tên quán cho vừa một dòng. */
+@media (max-width: 374px) {
+    .dip-logo-main { font-size: 1.25rem; white-space: nowrap; }
+    .dip-nav-phone { padding: 8px 12px; gap: 6px; font-size: 0.85rem; }
+}
+/* Dưới 330px (Galaxy Fold gập): nút gọi chỉ còn biểu tượng 48x48. Số điện thoại vẫn là chữ trong
+   link (cỡ 0) nên trình đọc màn hình vẫn đọc được tên nút. */
+@media (max-width: 329px) {
+    .dip-nav-phone { width: 48px; padding: 0; gap: 0; justify-content: center; font-size: 0; }
+}
 /* Màn rộng từ 1440px: .container đổi lề sang 40px, nav đổi theo cho thẳng hàng. */
 @media (min-width: 1440px) {
     .dip-nav { padding-left: max(40px, calc((100% - 1200px) / 2 + 40px)); padding-right: max(40px, calc((100% - 1200px) / 2 + 40px)); }

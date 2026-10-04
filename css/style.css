@@ -1538,6 +1538,14 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
     min-width: 0;
     box-sizing: border-box;
 }
+/* Máy cảm ứng: ô nhập dưới 16px thì Safari iPhone tự phóng to cả trang khi khách chạm vào.
+   Khối 768px bên dưới đã ép 16px, nhưng iPhone nằm ngang rộng hơn 768px (Pro Max ~840px)
+   lọt ra ngoài và còn 15,2px (04/10/2026). */
+@media (pointer: coarse) {
+    .form-group input,
+    .form-group select,
+    .form-group textarea { font-size: 16px; }
+}
 
 /* Chỉ báo focus của form đặt bàn. Bản cũ dùng border --gold (#D4A853) + quầng
    rgba(gold,0.12), đo ra: viền focus chỉ hơn viền thường 1,52:1 và cái quầng
@@ -3153,6 +3161,12 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
 }
 .fab-contact.fab-mo-san .fab-option svg { width: 22px; height: 22px; }
 .fab-contact.fab-mo-san .fab-option:hover { transform: scale(1.08); }
+/* Máy nằm ngang (04/10/2026): cột 3 nút cao 164px đứng trên thanh đặt bàn (cách đáy 90px), máy cao
+   280px thì đỉnh cột lên tới y khoảng 26 — nút Zalo chui xuống dưới thanh nav. Màn ngang thừa bề rộng,
+   thiếu bề cao → xếp 3 nút thành hàng ngang. */
+@media (max-height: 500px) and (orientation: landscape) {
+    .fab-contact.fab-mo-san .fab-options { flex-direction: row; }
+}
 
 /* Back to top */
 .back-to-top {
@@ -3496,8 +3510,11 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
         -webkit-backdrop-filter: blur(24px);
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important;
-        padding: 0 32px;
+        /* flex-start + margin auto ở mục đầu/cuối (bên dưới) thay cho center (04/10/2026):
+           danh sách dài hơn màn (máy thấp, màn ngang) thì center đẩy phần đầu lên quá mép trên,
+           không cuộn tới được — "Trang chủ" mất hẳn. Đệm trên chừa hàng nút EN / gọi / đóng. */
+        justify-content: flex-start !important;
+        padding: 88px 32px;
         gap: 8px;
         transform: translateX(100%);
         transition: transform 0.4s var(--ease);
@@ -3536,9 +3553,16 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
         background: rgba(212, 168, 83, 0.1);
     }
 
+    /* Đủ chỗ thì hai margin auto chia đều khoảng trống → danh sách vẫn nằm giữa như cũ;
+       thiếu chỗ thì chúng về 0 và danh sách cuộn được từ mục đầu tiên. */
+    .nav-menu li:first-child {
+        margin-top: auto;
+    }
+
     /* CTA button in mobile menu */
     .nav-menu li:last-child {
         margin-top: 20px;
+        margin-bottom: auto;
     }
 
     .nav-cta {
@@ -3581,9 +3605,18 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
 @media (max-width: 768px) {
 
     /* === HERO === */
+    /* Khung cao theo nội dung khi màn thấp (04/10/2026). Trước đó .hero giữ height:100vh +
+       overflow:hidden + căn giữa: máy thấp (iPhone SE, Galaxy S8, máy nằm ngang, trình duyệt
+       trong Zalo/Facebook) mà nội dung cao hơn màn thì nội dung tràn ĐỀU lên trên — dòng địa
+       chỉ + tên quán lấn dưới thanh nav — và xuống dưới — dòng đánh giá bị cắt.
+       Đệm trên = đệm dưới = 88px (nav 80px + 8px): màn đủ cao thì nội dung vẫn căn giữa đúng
+       chỗ cũ, màn thấp thì khung tự dài ra. min-height 100vh, KHÔNG dùng dvh: dvh đổi theo
+       thanh địa chỉ co/giãn lúc cuộn → khung đổi cao → mọi thứ bên dưới xô theo.
+       SỬA KHỐI NÀY THÌ SỬA CẢ CRIT-MOBILE TRONG index.html. */
     .hero {
+        height: auto;
         min-height: 100vh;
-        min-height: 100dvh;
+        padding: 88px 0;
     }
     .hero-content { padding: 0 20px; }
     .hero-description br { display: none; }
@@ -3870,7 +3903,7 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
     .lightbox-next { right: auto; left: calc(50% + 20px); }
 
     /* Nav menu — tighter on small screens */
-    .nav-menu { padding: 0 24px; gap: 6px; }
+    .nav-menu { padding: 88px 24px; gap: 6px; }
     .nav-link { font-size: 1.05rem; padding: 14px 20px; }
 }
 
@@ -3891,10 +3924,14 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
    LANDSCAPE on small phones
    ============================================ */
 @media (max-width: 768px) and (max-height: 500px) {
-    .hero { min-height: 100vh; }
+    .hero { min-height: 100vh; padding-bottom: 32px; }
     .hero-scroll-hint { display: none; }
     .map-embed { min-height: 200px; }
-    .nav-menu { padding: 0 32px; gap: 4px; }
+}
+/* Menu ba gạch khi màn thấp: mốc bề ngang theo nav thu gọn (1199px), không theo 768px —
+   Android nằm ngang 800px, iPhone Pro Max nằm ngang ~840px cũng dùng menu này (04/10/2026). */
+@media (max-width: 1199px) and (max-height: 500px) {
+    .nav-menu { padding: 80px 32px 24px; gap: 4px; }
     .nav-link { padding: 10px 20px; font-size: 0.95rem; }
 }
 

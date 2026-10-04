@@ -1286,6 +1286,37 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    Đẹp — Tiệm Nướng Trạm Dừng Chill"); `Restaurant.description` = khối B của bộ bio các kênh (mô tả xoay quanh view).
    → Máy canh: R7d nay bắt thêm dạng dấu phẩy, và quét cả `llms.txt`.
 
+50. **Rà giao diện 21 cỡ điện thoại × 19 trang** (sếp Tuấn: "kiểm tra giao diện trên tất cả loại điện thoại", 04/10/2026).
+   Công cụ (gitignore): `plans/cong-cu-do-hieu-nang/kiem-dien-thoai.js` (Chrome giả lập: cỡ màn + DPR + UA iPhone/Android, cuộn hết
+   trang, bấm-trúng từng dòng chữ/nút, đo tràn mép · chữ bị cắt · nút < 24px · ô nhập < 16px · ảnh hỏng/méo · menu ba gạch · phần tử
+   cố định đè nhau) + `tong-hop-dien-thoai.js` (gom lỗi → danh sách máy dính) + `ghep-to.js` (ghép ảnh từng màn để soi) +
+   `cls-ab-dien-thoai.js` (A/B CLS/LCP 4G chậm). Chiều cao máy = vùng trang THẤY ĐƯỢC (trừ thanh trạng thái + thanh địa chỉ), gần với
+   trình duyệt trong Zalo/Facebook, nơi `100vh` = đúng vùng thấy được. ⚠️ Đừng chạy 2 lượt đo song song (8+ Chrome): máy nghẽn, công
+   cụ đo nhầm trang đang tải dở.
+   Đã sửa:
+   - **Ảnh đầu trang chủ trên màn thấp** (iPhone SE 1–3, Galaxy S8/S9, iPhone X/mini, máy nằm ngang, Galaxy Fold): `.hero` giữ
+     `height:100vh` + `overflow:hidden` + căn giữa → nội dung cao hơn màn tràn ĐỀU lên trên (địa chỉ + tên quán lấn dưới nav) và xuống
+     dưới (dòng đánh giá bị cắt). Nay ≤768px: `height:auto; min-height:100vh; padding:88px 0` — đệm trên = dưới nên màn đủ cao vẫn
+     căn giữa đúng chỗ cũ (iPhone 14 trước/sau trùng từng px). ⚠️ `min-height` dùng `vh`, KHÔNG dùng `dvh` (dvh đổi theo thanh địa chỉ
+     lúc cuộn → khung đổi cao → mọi thứ bên dưới xô). Sửa cả `CRIT-MOBILE`. A/B 7 máy 4G chậm: CLS ≤ 0,007 cả hai bản.
+   - **Menu ba gạch** (style.css + `CRIT-NAV`): `justify-content:center` đẩy phần đầu danh sách lên quá mép trên khi màn thấp — "Trang
+     chủ", "Trải nghiệm" mất hẳn, không cuộn tới được; iPhone SE 1 thì "Trang chủ" nằm dưới nút EN. Nay `flex-start` + đệm trên 88px +
+     `margin-top:auto` mục đầu / `margin-bottom:auto` mục cuối (đủ chỗ vẫn nằm giữa, thiếu chỗ thì cuộn từ mục đầu). Khối màn thấp đổi
+     mốc `(max-width:1199px) and (max-height:500px)` — Android nằm ngang 800px, iPhone Pro Max ngang ~840px cũng dùng menu này.
+     ⚠️ **Đừng quay lại `justify-content:center` cho danh sách có thể dài hơn màn** (lỗi kinh điển của flexbox: phần tràn phía trên
+     không cuộn tới được).
+   - **Máy nằm ngang: nút Zalo chui dưới thanh nav** (cột 3 nút cao 164px đứng trên thanh đặt bàn) → `max-height:500px` + landscape
+     xếp 3 nút thành hàng ngang.
+   - **Ô nhập form đặt bàn 15,2px khi iPhone nằm ngang** (bề ngang > 768px lọt khỏi khối ép 16px) → Safari tự phóng to cả trang khi
+     chạm. Nay `@media (pointer: coarse)` ép 16px (trang chủ + 4 trang dịp dùng chung `.form-group`).
+   - **Nav trang dịp ở màn 320–374px** (iPhone SE 1, iPhone SE/mini bật Phóng to màn hình, Android cỡ hiển thị lớn): tên quán gãy
+     2–3 dòng, nav dính cao 105–155px → thu nút gọi + tên quán một dòng; < 330px nút gọi chỉ còn biểu tượng.
+   Đạt sẵn: 0 tràn mép ở mọi máy ≥ 320px · 0 nút < 24px · 0 ảnh hỏng/méo · 0 lỗi JS · bản tiếng Anh không tràn.
+   Chưa sửa, chờ sếp: 3 nút tròn + nút lên-đầu-trang đè chữ khi cuộn trên MỌI điện thoại (nút tròn che ~40px mép phải, nút lên-đầu
+   che đầu dòng bên trái) · máy nằm ngang: nav + thanh đặt bàn chiếm 33–46% chiều cao.
+   Ghi nhận, không sửa: Galaxy Fold đời đầu (280px) nút ba gạch lòi 2px; `review-qr.html` (trang in nội bộ) tràn ở 280px;
+   `/favicon.ico` 404 (mọi trang khai `rel=icon` nên điện thoại vẫn hiện biểu tượng). Mới đo bằng Chrome (Blink) — chưa thử Safari thật.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
