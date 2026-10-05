@@ -212,7 +212,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-05",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -295,7 +295,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-17",
+      "dateModified": "2026-10-05",
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
@@ -338,7 +338,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-17",
+      "dateModified": "2026-10-05",
       "lang": "vi"
     },
     "lich-trinh-da-lat-3-ngay-2-dem": {
@@ -463,7 +463,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Co-owner, Tram Dung Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-05",
       "lang": "en",
       "category": "English"
     },
@@ -563,7 +563,7 @@ const BLOG_SEO = {
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-05",
       "author": {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
