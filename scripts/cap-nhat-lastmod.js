@@ -156,6 +156,11 @@ function chuHienThi(html) {
   return [tieuDe, meta, schema, chu]
     .join('\n')
     .replace(/&nbsp;/g, ' ')
+    // Emoji / ký hiệu hình (🚂 📞 ★ ▶…) là ICON trang trí, không phải chữ khách đọc. Thêm 05/10/2026:
+    // đổi 48 emoji làm icon sang SVG nét (trang dịp, đường đi, khung "Đêm ở Trạm") làm 6 trang đổi
+    // dấu vân dù không đổi một chữ nào → bot sẽ đóng dấu "Cập nhật" + báo IndexNow oan. Đã tính lại
+    // data/dau-van-noi-dung.json đối xứng trên HEAD (CLAUDE.md #30). Đổi dòng này thì phải tính lại y vậy.
+    .replace(/[\p{Extended_Pictographic}️‍]/gu, '')
     .replace(/\s+/g, ' ')
     .trim();
 }

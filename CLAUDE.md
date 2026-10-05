@@ -1336,6 +1336,38 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    Ghi nhận, không sửa: Galaxy Fold đời đầu (280px) nút ba gạch lòi 2px; `review-qr.html` (trang in nội bộ) tràn ở 280px;
    `/favicon.ico` 404 (mọi trang khai `rel=icon` nên điện thoại vẫn hiện biểu tượng). Mới đo bằng Chrome (Blink) — chưa thử Safari thật.
 
+51. **Nâng cấp giao diện theo skill design (redesign-existing-projects + Web Interface Guidelines của Vercel)** (sếp Tuấn
+   "áp dụng các skill này nâng cấp giao diện", 05/10/2026). Skill cài ở `~/.claude/skills` (memory `skill-design-ben-thu-ba`).
+   Rà 6 loại trang × điện thoại/máy tính; phần lớn mục của bộ Vercel đã đạt sẵn (text-wrap, :active, skip link, focus-visible,
+   alt, width/height ảnh). **Không áp các luật gu chung đá với quyết định đã chốt**: giữ phông Inter/Playfair/Dancing Script (phông
+   lót chống CLS), giữ tông đồng thau, giữ icon SVG tự vẽ (tàu), không thêm thư viện, không thêm hiệu ứng hiện dần lên phần tử LCP.
+   Đã làm:
+   - **Emoji làm icon → SVG nét bộ Lucide** (cùng bộ trang chủ đang dùng, nét 1.8): 48 chỗ ở 4 trang dịp (thẻ đặc quyền, nhãn hero,
+     nút gọi, nút gửi form, 3 bước săn tàu, ghi chú an toàn), trang đường đi, khung "Đêm ở Trạm" + dòng thưởng thẻ tàu ở trang
+     chủ. Thẻ đặc quyền trang dịp nay là giấy ngà + huy hiệu đồng thau như "6 điều tử tế". Icon nội dòng dùng class `.ic-dong`
+     (style.css). **Cố ý giữ emoji** trong lời khách đánh giá, trong `<option>` (ô chọn không vẽ được SVG) và trong câu ghi chú ⚠️/💡.
+     ⚠️ Thêm thẻ/nút mới ở trang dịp thì dùng SVG như vậy, đừng quay lại emoji màu (tím, đen, đỏ — lạc tông cả site).
+   - **Điện thoại: thẻ nằm ngang, icon trái** cho "6 điều tử tế" (≤480px) và thẻ đặc quyền trang dịp (≤600px); **khối đánh giá
+     trang chủ vuốt ngang** ở ≤768px (giống khối TikTok; `role="region"` + `aria-labelledby="reviews-title"` + `tabindex="0"`
+     cho bàn phím). Chiều cao ở 412px: đánh giá 2.215 → 876px, "6 điều tử tế" 1.886 → 1.365px, thẻ trang dịp 983–1.654 →
+     566–1.057px. 0 tràn mép ở 320–1024px. Chỉ đổi bố cục, không đổi chữ.
+   - **Hàm dấu vân lastmod bỏ qua emoji/ký hiệu hình** (`\p{Extended_Pictographic}`, `cap-nhat-lastmod.js`): không thì 6 trang bị
+     đóng dấu "Cập nhật" + IndexNow chỉ vì đổi icon. Đã tính lại `data/dau-van-noi-dung.json` đối xứng trên HEAD (26/26 khớp hàm
+     cũ, 23 giá trị đổi vì ★ © cũng là ký hiệu hình) → chạy thử: 0 trang bị đóng dấu.
+   - Đo (Chrome thật, 4G chậm + CPU 4×, 5 lượt): trang chủ LCP 1.412 → 1.428ms (ngang), sinh nhật 4.712 → 3.908ms. seo-geo-verify
+     65/65, check-facts sạch, bộ phông không đổi byte nào (chú thích CSS viết không dấu).
+   Bản thử A/B: `git worktree` của HEAD phục vụ cổng 8766 bằng `phuc-vu.js`, công cụ chụp khối ở scratchpad phiên (chup-khoi.js:
+   cuộn qua khối để bật hiệu ứng hiện dần rồi chụp vùng khối bằng `captureBeyondViewport`).
+   - **Sửa kèm (sếp "fix đi"): thanh đặt bàn dính đáy đang ẩn vẫn bị tính CLS 0,020–0,045 lúc tải trang chủ** (có trên bản đang
+     chạy, không do đợt này). Ghi nguồn từng cú xô (4G chậm + CPU 4×): nút "Đặt Bàn" lòi **1px** ở mép dưới màn hình — thanh ẩn
+     bằng `translateY(100%)` nhưng vị trí ra số lẻ khi DPR 2,625/3 — và Chrome coi nút "trong màn hình" bị xô khi CSS chính về.
+     Thử đẩy thanh xuống thêm 8px: 0,0274 → 0,0006 (2 lượt), xác nhận đúng thủ phạm. Sửa gốc: `.sticky-book-bar` có
+     `visibility: hidden` lúc ẩn (đổi sau 0,4s để cú trượt xuống vẫn thấy), `.visible` bật lại ngay — ở `style.css` **và** khối
+     CRIT-EXTRA của `index.html`. Sau sửa CLS lúc tải 7 cỡ máy: 0,0004–0,0022 (phần còn lại là chữ "Trạm Dừng Chill" đổi phông).
+     Kèm lợi khả năng tiếp cận: Tab không còn lọt vào nút đang ẩn ngoài màn hình. Đã kiểm 4 loại trang (chủ, thực đơn, dịp,
+     bài blog): đầu trang ẩn + không Tab được · cuộn xuống hiện + Tab được · tới khối đặt bàn ẩn · về đầu ẩn.
+     ⚠️ **Ẩn phần tử cố định bằng transform ra ngoài màn hình thì kèm `visibility: hidden`** — số lẻ DPR để lòi 1px là bị tính CLS.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

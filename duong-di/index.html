@@ -37,7 +37,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="../dist/style.min.css?v=552fb540">
+    <link rel="stylesheet" href="../dist/style.min.css?v=7fc15bbc">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -126,8 +126,9 @@
             flex-shrink:0;width:40px;height:40px;border-radius:12px;
             background:linear-gradient(135deg,rgba(212,168,83,.14),rgba(232,129,79,.08));
             display:flex;align-items:center;justify-content:center;
-            font-size:18px;
+            font-size:18px;color:var(--gold-on-light);
         }
+        .info-row .ic svg{width:20px;height:20px}
         .info-row .text{flex:1;padding-top:2px}
         .info-row .label{
             font-size:.72rem;color:var(--gold-on-light);font-weight:700;
@@ -373,7 +374,7 @@
         <!-- Hero -->
         <section class="directions-hero">
             <div class="container">
-                <span class="directions-tag">📍 Hướng dẫn đường đi</span>
+                <span class="directions-tag"><svg class="ic-dong" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Hướng dẫn đường đi</span>
                 <h1>
                     <span class="dong-h1">Đến Quán</span> <span class="dong-h1">Trạm Dừng Chill</span>
                     <span class="accent">thật dễ — thật chill</span>
@@ -399,7 +400,7 @@
 
                     <div class="info-card">
                         <div class="info-row">
-                            <div class="ic">📍</div>
+                            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
                             <div class="text">
                                 <div class="label">Địa chỉ</div>
                                 <div class="value">111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</div>
@@ -407,14 +408,14 @@
                             </div>
                         </div>
                         <div class="info-row">
-                            <div class="ic">⏰</div>
+                            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
                             <div class="text">
                                 <div class="label">Giờ mở cửa</div>
                                 <div class="value">15:00 – 23:00 hằng ngày</div>
                             </div>
                         </div>
                         <div class="info-row">
-                            <div class="ic">📞</div>
+                            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></div>
                             <div class="text">
                                 <div class="label">Hotline</div>
                                 <div class="value"><a href="tel:0989765070">0989.765.070</a></div>
@@ -427,7 +428,7 @@
                         <strong>Khoảng cách &amp; đường đi:</strong> Trạm Dừng Chill nằm ở khu Trại Mát (Phường Xuân Trường), cách trung tâm Đà Lạt (Chợ Đà Lạt, Hồ Xuân Hương) khoảng <strong>7 km — đi xe khoảng 20 phút</strong> theo hướng Trại Mát. Quán nằm ngay trên tuyến đường sắt cổ Đà Lạt – Trại Mát nên rất dễ tìm. Có <strong>bãi đỗ miễn phí cho ô tô con và xe máy</strong> (giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m); Grab/taxi tới tận nơi.
                     </div>
 
-                    <div class="section-label">🎥 Video hướng dẫn đường đi</div>
+                    <div class="section-label"><svg class="ic-dong" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>Video hướng dẫn đường đi</div>
                     <div class="video-short">
                         <iframe
                             data-src="https://www.youtube.com/embed/KaivEzo606E?rel=0&playsinline=1"
@@ -441,7 +442,7 @@
                             loading="lazy" allowfullscreen></iframe></noscript>
                     </div>
 
-                    <div class="section-label">🗺️ Bản đồ vị trí quán</div>
+                    <div class="section-label"><svg class="ic-dong" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>Bản đồ vị trí quán</div>
                     <div class="map-wrap">
                         <iframe
                             data-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Tiệm+Nướng+Trạm+Dừng+Chill,+111+Huỳnh+Tấn+Phát,+Đà+Lạt&zoom=17&language=vi"

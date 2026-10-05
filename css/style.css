@@ -3973,7 +3973,13 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
     gap: 16px;
     /* transform thay cho bottom: animate bottom là tính lại bố cục mỗi khung
        hình suốt 0,4s; transform chạy trên GPU, không đụng luồng chính. */
-    transition: transform 0.4s var(--ease);
+    /* visibility: hidden lúc ẩn (05/10/2026): translateY(100%) để lòi 1px của nút Đặt Bàn ở mép
+       dưới màn hình (số lẻ khi DPR 2,625 / 3) — Chrome tính là phần tử trong màn bị xô lúc tải:
+       CLS 0,0274 ở 390px, 0,0200 ở 412px. Ẩn hẳn thì còn 0,0006. Kèm lợi: Tab không lọt vào
+       nút đang nằm ngoài màn hình. Lúc ẩn đi, visibility đổi SAU 0,4s để cú trượt xuống vẫn thấy.
+       Khối CRIT-EXTRA trong index.html chép y hai rule này — sửa thì sửa cả hai. */
+    visibility: hidden;
+    transition: transform 0.4s var(--ease), visibility 0s linear 0.4s;
     box-shadow: 0 -8px 30px rgba(0,0,0,0.4);
 }
 .sticky-book-bar.visible {
@@ -3981,6 +3987,8 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
        transform:translateY(100%) để ẩn, nếu .visible chỉ đặt bottom:0 thì
        transform vẫn giữ nguyên và thanh KHÔNG BAO GIỜ hiện ra. */
     transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.4s var(--ease), visibility 0s;
 }
 /* Nâng nút lên-đầu-trang + FAB khi thanh đặt bàn dính đáy đang hiện (mọi thiết bị).
    Sửa 13/09/2026: bản cũ đổi `bottom: 90px !important` kèm transition bottom — mỗi
@@ -7056,3 +7064,57 @@ body.sticky-bar-active .fab-contact {
    CSS mua loi thi doan script van gan mua-san -> hien lai ban thuong. */
 :is(.mua-noel, .mua-tet):not(.mua-san) :is(.hero, .hero-overlay, .hero-particles)::before,
 :is(.mua-noel, .mua-tet):not(.mua-san) .hero-overlay::after { visibility: hidden; }
+
+/* Nang cap giao dien 05/10/2026 (skill redesign + Web Interface Guidelines), sep duyet truoc khi push.
+   1) Icon dong: SVG net bo Lucide thay emoji mau (trang dip, duong di, khung "Dem o Tram").
+   2) Dien thoai: "6 dieu tu te" xep thanh hang ngang (icon trai), danh gia vuot ngang nhu khoi TikTok
+      -> trang chu bot khoang 4 man cuon. Chi doi bo cuc, khong doi chu. */
+.ic-dong {
+    display: inline-block;
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.2em;
+    margin-right: 0.45em;
+    flex-shrink: 0;
+}
+.btn > .ic-dong { margin-right: 0; }
+.night-item-icon { color: #FFD9A0; }
+.night-item-icon svg { display: block; width: 17px; height: 17px; }
+.train-card-bonus-icon svg { display: block; width: 18px; height: 18px; color: #FFD282; }
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        display: flex;
+        gap: 14px;
+        margin: 0 -20px 28px;
+        padding: 4px 20px 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 20px;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+    }
+    .reviews-grid::-webkit-scrollbar { display: none; }
+    .reviews-grid:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; border-radius: 14px; }
+    .review-card { flex: 0 0 84%; max-width: 360px; scroll-snap-align: start; }
+}
+@media (max-width: 360px) {
+    .reviews-grid { margin-inline: -14px; padding-inline: 14px; scroll-padding-inline: 14px; }
+}
+@media (max-width: 480px) {
+    .perks-grid { gap: 12px; }
+    .perk-card {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        column-gap: 14px;
+        align-items: start;
+        text-align: left;
+        padding: 18px 16px;
+    }
+    .perk-icon { width: 48px; height: 48px; margin: 0; grid-row: 1 / span 3; }
+    .perk-icon svg { width: 24px; height: 24px; }
+    .perk-icon svg[viewBox="0 0 64 48"] { width: 30px; height: 23px; }
+    .perk-badge { justify-self: start; margin: 0 0 6px; }
+    .perk-card h3 { font-size: 1.08rem; margin: 2px 0 4px; }
+    .perk-card p { font-size: 0.86rem; line-height: 1.6; }
+}
