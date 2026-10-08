@@ -1368,6 +1368,30 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      bài blog): đầu trang ẩn + không Tab được · cuộn xuống hiện + Tab được · tới khối đặt bàn ẩn · về đầu ẩn.
      ⚠️ **Ẩn phần tử cố định bằng transform ra ngoài màn hình thì kèm `visibility: hidden`** — số lẻ DPR để lòi 1px là bị tính CLS.
 
+52. **Checklist "Kiểm toán HTML cho SEO" 12 mục (danhnolan.com/html/audit-checklist)** (rà + sửa 08/10/2026, sếp "sửa đi").
+   Quét 26 URL sitemap + 151 trang, W3C Nu HTML Checker 7 trang live. Đạt sẵn, đừng làm lại: title 1 thẻ/trang, 0 trùng ·
+   description/canonical/robots/heading/alt/JSON-LD (R19–R22, R26, R7c/R7e) · 151/151 trang đúng 1 `<main>`, bài trong `<article>` ·
+   0 link thiếu href / `#` / `javascript:` / onclick điều hướng / `_blank` thiếu noopener · anchor text đa dạng (19 kiểu trỏ Thực đơn).
+   Đã sửa:
+   - **2 title > ~600px** (đo Arial 20px, ngưỡng Google cắt trên máy tính): trang săn tàu → "…View Tàu Lửa — Săn Tàu | Trạm Dừng Chill"
+     (og:title + WebPage.name đổi theo) · bài view nhà lồng → seoTitle "…View Nhà Lồng — Biển Sao Thung Lũng". Hai trang này bị đóng dấu
+     "Cập nhật" (title nằm trong dấu vân) — cố ý.
+   - **`<th>` khai `scope`**: `ganScope()` trong generate-blog-pages.js (col trong thead, row trong tbody). Theo chuẩn HTML th trong thead
+     vốn tự hiểu là tiêu đề cột → lợi ích chủ yếu là qua được công cụ kiểm. Chỉ thêm thuộc tính → 0 bài bị đóng dấu.
+   - **`<section>` không tiêu đề**: dải mời đặt bàn trang tác giả → `<div>`; trang Đường đi đổi 2 nhãn sẵn có "Video hướng dẫn đường đi" /
+     "Bản đồ vị trí quán" từ `<div class="section-label">` thành `<h2>` — chữ không đổi nên không bị đóng dấu, computed style khớp từng
+     thuộc tính ở 412 + 1366px (không có rule h2 toàn cục nào; `.section-label` khai đủ cỡ/đậm/margin).
+   - ⚠️ **`<noscript><img>` của Meta Pixel nằm trong `<head>`** → trình phân tích HTML (khi tắt JS) đóng head ngay tại đó, và Google ghi
+     "gặp img/iframe trong head là ngừng đọc các thẻ phía sau". Hiện VÔ HẠI: title/canonical/robots/description đứng TRƯỚC ở cả 151 trang;
+     sau nó chỉ còn JSON-LD (Google đọc cả trong body). Không dời pixel; thay vào đó **R32 mục (a)** chặn ai thêm thẻ SEO xuống dưới nó.
+   Cố ý KHÔNG làm: `<caption>` cho 30 bảng (Google không ghi caption là điều kiện Featured Snippet — đó là lời bài viết; heading ngay trên
+   bảng đã nêu tên bảng; thêm chữ là ~14 bài bị đóng dấu) · lỗi W3C về `role` trên bảng `.bang-the` (cần vì display:block làm mất nghĩa
+   bảng, #45/25/09) · gtag `type="text/plain" data-tdc-lazy` (pixel hoãn bật) · `#modalZaloBtn` rỗng chữ (#47) · 6 thẻ đánh giá `<article>`
+   không heading (W3C chỉ cảnh báo).
+   → Máy canh **R32**: (a) title/canonical/robots/description/hreflang đứng trước phần tử không hợp lệ đầu tiên trong `<head>` (kể cả
+   noscript chứa img) · (b) mọi `<th>` có scope · (c) mọi `<section>` có h1–h6 của CHÍNH nó (không tính section con) hoặc aria-label.
+   Đã bẻ thử 5 kiểu, bắt đủ. Khối mới không cần tiêu đề → dùng `<div>`, đừng dùng `<section>`.
+
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
 `data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";

@@ -175,11 +175,22 @@ function ganNhanBang(bang) {
         });
 }
 
+/* scope cho ô tiêu đề bảng (08/10/2026, checklist HTML cho SEO). Theo chuẩn HTML, <th> trong
+   <thead> vốn tự hiểu là tiêu đề cột — khai rõ để W3C checker / công cụ audit đọc đúng, và để
+   bảng nào sau này có <th> đầu hàng trong <tbody> thì thành tiêu đề HÀNG chứ không bị đoán.
+   Chỉ thêm thuộc tính, chữ không đổi nên dấu vân nội dung giữ nguyên. Máy canh R32. */
+function ganScope(bang) {
+    return bang.replace(/<(thead|tbody|tfoot)\b[\s\S]*?<\/\1>/gi, function (nhom, ten) {
+        var scope = ten.toLowerCase() === "thead" ? "col" : "row";
+        return nhom.replace(/<th\b(?![^>]*\sscope=)([^>]*)>/gi, '<th scope="' + scope + '"$1>');
+    });
+}
+
 function fixAssetPaths(body) {
     // Bọc <table> trong khung cuộn riêng: bảng giá nhiều cột mà không bọc thì
     // trên điện thoại nó đẩy CẢ TRANG trượt ngang, không chỉ mình nó.
     body = String(body).replace(/<table[\s\S]*?<\/table>/g, function (m) {
-        return '<div class="table-scroll">' + ganNhanBang(m) + "</div>";
+        return '<div class="table-scroll">' + ganNhanBang(ganScope(m)) + "</div>";
     });
     return body
         .replace(/src="assets\//g, 'src="../assets/')

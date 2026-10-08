@@ -2873,6 +2873,72 @@ const CAU_AEO = (() => {
                    : soTrang + " trang có đoạn mùa khớp bản sinh · sắp bật: " + sap.join(", ") + " · xem trước: ?mua=noel / ?mua=tet");
 }
 
+// ── R32. Thẻ HTML cho SEO: thứ tự <head> · scope bảng · section có tiêu đề (08/10/2026, CLAUDE.md #52) ──
+// (a) Google: gặp phần tử không hợp lệ trong <head> (img, iframe…) là coi như hết head, bỏ mọi thẻ phía sau.
+//     <noscript><img> của Meta Pixel đang nằm trong head; trình phân tích HTML (khi tắt JS) đóng head ngay
+//     tại đó. Hiện vô hại vì title/canonical/robots/description đều đứng TRƯỚC — luật này giữ nguyên thứ tự
+//     ấy: thêm canonical/hreflang xuống dưới pixel là Google lặng lẽ bỏ qua, không báo gì.
+// (b) Mọi <th> khai scope (col trong thead, row trong tbody) — generate-blog-pages.js ganScope() lo bài blog.
+// (c) <section> phải có tiêu đề h1–h6 của CHÍNH nó (không tính section con) hoặc aria-label/labelledby —
+//     section không tiêu đề là vùng không tên với trình đọc màn hình (W3C báo); không cần tiêu đề thì dùng div.
+{
+    const loi = [];
+    const HOP_LE_HEAD = /^(title|meta|link|script|style|base|noscript|template)$/i;
+    const QUAN_TRONG = [
+        ["title", /<title[\s>]/i],
+        ["canonical", /<link\b[^>]*rel=["']canonical["']/i],
+        ["meta robots", /<meta\b[^>]*name=["']robots["']/i],
+        ["meta description", /<meta\b[^>]*name=["']description["']/i],
+        ["hreflang", /<link\b[^>]*hreflang=/i],
+    ];
+    let soTh = 0, soSection = 0;
+    for (const f of files) {
+        const r = rel(f);
+        if (/^googlef[0-9a-f]+\.html$/.test(r)) continue;
+        const s = fs.readFileSync(f, "utf8").replace(/<!--[\s\S]*?-->/g, (m) => " ".repeat(m.length));
+        const iHead = s.search(/<\/head>/i);
+        if (iHead > 0) {
+            // vị trí phần tử không hợp lệ đầu tiên: thẻ lạ đứng thẳng trong head, hoặc noscript chứa thẻ lạ
+            const head = s.slice(0, iHead).replace(/<(script|style|template)\b[\s\S]*?<\/\1>/gi, (m) => " ".repeat(m.length));
+            let viTri = -1, ten = "";
+            for (const m of head.matchAll(/<noscript\b[^>]*>([\s\S]*?)<\/noscript>|<([a-z][a-z0-9-]*)\b/gi)) {
+                if (m[2] && !HOP_LE_HEAD.test(m[2]) && !/^(html|head)$/i.test(m[2])) { viTri = m.index; ten = "<" + m[2] + ">"; break; }
+                const la = m[1] && [...m[1].matchAll(/<([a-z][a-z0-9-]*)\b/gi)].find((t) => !/^(link|style|meta)$/i.test(t[1]));
+                if (la) { viTri = m.index; ten = "<noscript><" + la[1] + ">"; break; }
+            }
+            if (viTri >= 0) {
+                const sau = head.slice(viTri);
+                for (const [nhan, re] of QUAN_TRONG) if (re.test(sau)) loi.push(r + ": " + nhan + " đứng sau " + ten + " trong <head> — Google bỏ qua");
+            }
+        }
+        const than = s.slice(Math.max(0, s.search(/<body[\s>]/i)))
+            .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, " ");
+        // (b) scope
+        for (const tb of than.match(/<table\b[\s\S]*?<\/table>/gi) || []) {
+            for (const th of tb.match(/<th\b[^>]*>/gi) || []) {
+                soTh++;
+                if (!/\sscope=["'](col|row|colgroup|rowgroup)["']/i.test(th)) { loi.push(r + ": <th> thiếu scope — " + th.slice(0, 50)); break; }
+            }
+        }
+        // (c) section có tiêu đề của chính nó
+        const chong = [];
+        for (const m of than.matchAll(/<(\/?)(section|h[1-6])\b([^>]*)>/gi)) {
+            const dong = m[1] === "/", the = m[2].toLowerCase();
+            if (the === "section") {
+                if (!dong) { soSection++; chong.push({ attrs: m[3], coTieuDe: /\saria-(label|labelledby)=/i.test(m[3]) }); }
+                else {
+                    const sec = chong.pop();
+                    if (sec && !sec.coTieuDe) loi.push(r + ": <section" + (sec.attrs.match(/\sclass="[^"]*"/) || [""])[0] + "> không có tiêu đề h1–h6 — thêm tiêu đề hoặc đổi thành <div>");
+                }
+            } else if (!dong && chong.length) chong[chong.length - 1].coTieuDe = true;
+        }
+    }
+    add("Thẻ HTML cho SEO: title/canonical/robots đứng trước phần tử lạ trong <head> · <th> có scope · <section> có tiêu đề",
+        loi.length === 0,
+        loi.length ? loi.slice(0, 4).join(" | ") + (loi.length > 4 ? " … (+" + (loi.length - 4) + ")" : "")
+                   : files.length + " trang · thẻ SEO trong head đứng trước pixel · " + soTh + " ô <th> đều có scope · " + soSection + " section đều có tiêu đề");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
