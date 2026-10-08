@@ -126,7 +126,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-23",
+      "dateModified": "2026-10-08",
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {

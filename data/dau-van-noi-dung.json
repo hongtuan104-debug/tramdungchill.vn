@@ -1,11 +1,11 @@
 {
   "_ghiChu": "Dấu vân phần CHỮ HIỂN THỊ của từng trang trong sitemap. Máy tự ghi — đừng sửa tay. Xem scripts/cap-nhat-lastmod.js.",
-  "capNhatLuc": "2026-10-05",
+  "capNhatLuc": "2026-10-08",
   "trang": {
     "https://tramdungchill.vn/": "e7f34d06903fdd9d1e5b35607e58d8e16e6879be",
     "https://tramdungchill.vn/blog.html": "590949a920516b5e752a19a4dc926f7c0310797a",
     "https://tramdungchill.vn/menu.html": "ccd317a2ba233153e1c816abfb589f5d204b36f8",
-    "https://tramdungchill.vn/dip/san-tau-da-lat.html": "63ba74c534025b9b99e1c001801cedc6020abec3",
+    "https://tramdungchill.vn/dip/san-tau-da-lat.html": "2cb2ef40dcbbd9da3960890f17c26da8bc45b8af",
     "https://tramdungchill.vn/dip/cau-hon-hen-ho.html": "bc1259f2f44311e634cf76b1df5aa934b241fad0",
     "https://tramdungchill.vn/dip/sinh-nhat.html": "34f11cd010c3862951e503e3bc0fb1b7dadda745",
     "https://tramdungchill.vn/dip/team-building.html": "1afb66d7b47a7da68ce078c696ed065df810878c",
@@ -21,7 +21,7 @@
     "https://tramdungchill.vn/blog/lich-trinh-da-lat-3-ngay-2-dem.html": "995139afbdaa31cf0749a0396aa26ffedb6186d0",
     "https://tramdungchill.vn/blog/da-lat-cho-nguoi-nuoc-ngoai.html": "c29c946852c16ca58c5084affe44e13b1304f2ce",
     "https://tramdungchill.vn/blog/lau-nuong-da-lat-mua-lanh.html": "2b61348e95105782814de97855360353c46fe256",
-    "https://tramdungchill.vn/blog/quan-nuong-da-lat-view-nha-long.html": "a86212ce5c335a50839fc32a131f816417f2d0e4",
+    "https://tramdungchill.vn/blog/quan-nuong-da-lat-view-nha-long.html": "b936c51661b053cc00d14220cbdff9b7bb3a71d1",
     "https://tramdungchill.vn/blog/setup-sinh-nhat-mien-phi-da-lat.html": "bf3f8a4804e4c09ffa60457e0126759d72cd4176",
     "https://tramdungchill.vn/blog/mon-nuong-ngon-nhat-da-lat.html": "d5e6f1ae0c669d7d9d0a96df37297380eaadbb82",
     "https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html": "c599c81d60c35132d2c46571ea057af94d6362ae",
