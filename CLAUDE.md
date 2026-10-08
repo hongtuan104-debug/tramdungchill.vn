@@ -1391,6 +1391,11 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    → Máy canh **R32**: (a) title/canonical/robots/description/hreflang đứng trước phần tử không hợp lệ đầu tiên trong `<head>` (kể cả
    noscript chứa img) · (b) mọi `<th>` có scope · (c) mọi `<section>` có h1–h6 của CHÍNH nó (không tính section con) hoặc aria-label.
    Đã bẻ thử 5 kiểu, bắt đủ. Khối mới không cần tiêu đề → dùng `<div>`, đừng dùng `<section>`.
+   - ⚠️ **Chạy thử bot đóng dấu ngày phải bằng NODE 20 như CI**: `npx -y node@20 scripts/cap-nhat-lastmod.js --kiem-tra`. Máy này
+     Node 22 (Unicode 16) coi ★ U+2605 là `Extended_Pictographic` nên lọc khỏi dấu vân, Node 20 của CI thì giữ — trang có sao đánh
+     giá (trang chủ, 4 trang dịp, 5 bài) ra dấu vân KHÁC nhau giữa hai máy. Hậu quả đã xảy ra: #51 tính lại `dau-van-noi-dung.json`
+     bằng Node 22, chạy thử báo "0 trang", nhưng bot (Node 20) vẫn đóng dấu "Cập nhật 05/10/2026" + IndexNow cho 10 trang đó
+     (commit e39761f4). Đợt này Node 22 báo 11 trang, Node 20 báo đúng 2. Tính lại dấu vân đối xứng cũng phải chạy bằng Node 20.
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
