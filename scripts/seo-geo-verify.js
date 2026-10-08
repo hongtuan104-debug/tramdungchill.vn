@@ -1424,14 +1424,23 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         const doiNhan = chuHienThi(mau("Thực đơn", "Xem thực đơn tại đây."));
         const bocLink = chuHienThi(mau("Menu", 'Xem <a href="menu.html">thực đơn</a> tại đây.'));
         const doiChu = chuHienThi(mau("Menu", "Xem thực đơn ở đây."));
-        ok = goc === doiNhan && goc === bocLink && goc !== doiChu;
+        // 08/10/2026 (CLAUDE.md #52): icon emoji đổi sang SVG không được đổi dấu vân; và hàm KHÔNG được dùng
+        // \p{...} — tập đó đổi theo bản Unicode của Node, CI (Node 20, Unicode 17) với máy làm việc (Node 22,
+        // Unicode 16) ra hai dấu vân khác nhau cho cùng một trang (bot đã đóng dấu oan 10 trang ngày 05/10).
+        const coIcon = chuHienThi(mau("Menu", "🚂 Xem thực đơn tại đây. ▶"));
+        // bỏ chú thích trước khi quét — chính lời dặn "không dùng \p{…}" cũng chứa chuỗi đó (bài học bug #10/#35)
+        const maThuan = src.slice(dau, cuoi).replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+        const dungPropEscape = /\\p\{/.test(maThuan);
+        ok = goc === doiNhan && goc === bocLink && goc !== doiChu && goc === coIcon && !dungPropEscape;
         chiTiet = ok
-            ? "đổi nhãn nav/footer · bọc chữ vào link: dấu vân đứng yên · đổi chữ thì có đổi"
+            ? "đổi nhãn nav/footer · bọc chữ vào link · bỏ icon emoji: dấu vân đứng yên · đổi chữ thì có đổi · tập ký hiệu viết cứng"
+            : dungPropEscape ? "chuHienThi dùng \\p{...} — tập đó đổi theo bản Unicode của Node, CI và máy làm việc sẽ ra dấu vân khác nhau"
             : goc === doiChu ? "đổi chữ mà dấu vân đứng yên → bot bỏ sót trang sửa thật"
             : goc !== doiNhan ? "đổi nhãn nav/footer làm đổi dấu vân → cả site bị đóng dấu ngày sửa oan"
+            : goc !== coIcon ? "icon emoji làm đổi dấu vân → đổi icon sang SVG là trang bị đóng dấu oan"
             : "bọc chữ vào link làm đổi dấu vân → trang bị đóng dấu ngày sửa oan";
     }
-    add("Dấu vân lastmod bỏ qua khung nav/footer + bọc link", ok, chiTiet);
+    add("Dấu vân lastmod bỏ qua khung nav/footer + bọc link + icon emoji (tập ký hiệu viết cứng, không theo bản Node)", ok, chiTiet);
 }
 
 // ── R18. Điều hướng (checklist #18, 14/09/2026) ─────────────────────────

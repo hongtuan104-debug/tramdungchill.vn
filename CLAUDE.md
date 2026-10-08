@@ -1391,11 +1391,15 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    → Máy canh **R32**: (a) title/canonical/robots/description/hreflang đứng trước phần tử không hợp lệ đầu tiên trong `<head>` (kể cả
    noscript chứa img) · (b) mọi `<th>` có scope · (c) mọi `<section>` có h1–h6 của CHÍNH nó (không tính section con) hoặc aria-label.
    Đã bẻ thử 5 kiểu, bắt đủ. Khối mới không cần tiêu đề → dùng `<div>`, đừng dùng `<section>`.
-   - ⚠️ **Chạy thử bot đóng dấu ngày phải bằng NODE 20 như CI**: `npx -y node@20 scripts/cap-nhat-lastmod.js --kiem-tra`. Máy này
-     Node 22 (Unicode 16) coi ★ U+2605 là `Extended_Pictographic` nên lọc khỏi dấu vân, Node 20 của CI thì giữ — trang có sao đánh
-     giá (trang chủ, 4 trang dịp, 5 bài) ra dấu vân KHÁC nhau giữa hai máy. Hậu quả đã xảy ra: #51 tính lại `dau-van-noi-dung.json`
-     bằng Node 22, chạy thử báo "0 trang", nhưng bot (Node 20) vẫn đóng dấu "Cập nhật 05/10/2026" + IndexNow cho 10 trang đó
-     (commit e39761f4). Đợt này Node 22 báo 11 trang, Node 20 báo đúng 2. Tính lại dấu vân đối xứng cũng phải chạy bằng Node 20.
+   - ⚠️ **Dấu vân lastmod từng phụ thuộc bản Node — ĐÃ SỬA GỐC 08/10/2026.** Hàm `chuHienThi` (#51) lọc emoji bằng
+     `\p{Extended_Pictographic}`, mà tập này đổi theo bản Unicode của Node: Node 22.15 máy này (Unicode 16) coi ★ U+2605 cùng ~690 ký
+     hiệu là emoji, Node 20.20 của CI (Unicode 17 — bản MỚI hơn, đã thu hẹp tập) thì không → trang có sao đánh giá ra hai dấu vân.
+     Hậu quả đã xảy ra: #51 tính lại dấu vân bằng Node 22, chạy thử báo "0 trang", bot vẫn đóng dấu "Cập nhật 05/10/2026" + IndexNow
+     oan cho 10 trang (commit e39761f4). Sửa: hằng `KY_HIEU_HINH` trong `cap-nhat-lastmod.js` VIẾT CỨNG đúng tập Unicode 17 mà CI đã
+     dùng (156 dải, 2.848 ký tự + U+FE0F/U+200D, đặt GIỮA `chuHienThi` và `dauVan` vì R13c/R13e cắt đoạn đó ra chạy). Kiểm: Node 20 lẫn
+     22 đều khớp tập Unicode 17 từng mã, 26/26 dấu vân khớp số đang lưu, chạy thử bot 0 trang → không phải tính lại file dấu vân.
+     Máy canh **R13e** nay chặn `\p{…}` trong hàm (quét sau khi bỏ chú thích) + kiểm icon emoji không đổi dấu vân; bẻ thử 2 kiểu, bắt đủ.
+     Muốn chắc như CI thì vẫn chạy được `npx -y node@20 scripts/cap-nhat-lastmod.js --kiem-tra` (npx tải được node@20 trên máy này).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong

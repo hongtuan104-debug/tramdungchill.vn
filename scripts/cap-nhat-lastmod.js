@@ -156,14 +156,52 @@ function chuHienThi(html) {
   return [tieuDe, meta, schema, chu]
     .join('\n')
     .replace(/&nbsp;/g, ' ')
-    // Emoji / ký hiệu hình (🚂 📞 ★ ▶…) là ICON trang trí, không phải chữ khách đọc. Thêm 05/10/2026:
+    // Emoji / ký hiệu hình (🚂 📞 ▶…) là ICON trang trí, không phải chữ khách đọc. Thêm 05/10/2026:
     // đổi 48 emoji làm icon sang SVG nét (trang dịp, đường đi, khung "Đêm ở Trạm") làm 6 trang đổi
-    // dấu vân dù không đổi một chữ nào → bot sẽ đóng dấu "Cập nhật" + báo IndexNow oan. Đã tính lại
-    // data/dau-van-noi-dung.json đối xứng trên HEAD (CLAUDE.md #30). Đổi dòng này thì phải tính lại y vậy.
-    .replace(/[\p{Extended_Pictographic}️‍]/gu, '')
+    // dấu vân dù không đổi một chữ nào → bot sẽ đóng dấu "Cập nhật" + báo IndexNow oan. Tập ký tự nằm ở
+    // KY_HIEU_HINH ngay dưới hàm này. Đổi tập đó thì phải tính lại data/dau-van-noi-dung.json đối xứng
+    // trên HEAD (CLAUDE.md #30, #52).
+    .replace(KY_HIEU_HINH, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
+
+// Tập ký hiệu hình mà chuHienThi() bỏ khỏi dấu vân — VIẾT CỨNG, không dùng \p{Extended_Pictographic}.
+// Vì sao (08/10/2026, CLAUDE.md #52): tập \p{} đổi theo bản Unicode của Node. Node 22.15 (Unicode 16) coi
+// ★ cùng ~690 ký hiệu khác là Extended_Pictographic, Node 20.20 của CI (Unicode 17) thì không — cùng một
+// trang ra hai dấu vân. Chạy thử trên máy làm việc báo "0 trang" trong khi bot đóng dấu oan 10 trang
+// ngày 05/10/2026 (commit e39761f4). Đây là đúng tập Unicode 17 mà CI đã dùng để ghi dấu vân hiện có
+// (156 dải, 2.848 ký tự), cộng U+FE0F (biến thể emoji) và U+200D (nối emoji) → viết cứng không làm
+// trang nào đổi dấu vân, và từ nay Node nào cũng ra cùng một kết quả.
+// ⚠️ Đặt GIỮA chuHienThi và dauVan: seo-geo-verify (R13c/R13e) cắt đúng đoạn đó ra chạy.
+const KY_HIEU_HINH = new RegExp('[' + [
+  String.raw`\u{A9}\u{AE}\u{203C}\u{2049}\u{2122}\u{2139}\u{2194}-\u{2199}\u{21A9}-\u{21AA}\u{231A}-\u{231B}`,
+  String.raw`\u{2328}\u{23CF}\u{23E9}-\u{23F3}\u{23F8}-\u{23FA}\u{24C2}\u{25AA}-\u{25AB}\u{25B6}\u{25C0}`,
+  String.raw`\u{25FB}-\u{25FE}\u{2600}-\u{2604}\u{260E}\u{2611}\u{2614}-\u{2615}\u{2618}\u{261D}\u{2620}`,
+  String.raw`\u{2622}-\u{2623}\u{2626}\u{262A}\u{262E}-\u{262F}\u{2638}-\u{263A}\u{2640}\u{2642}`,
+  String.raw`\u{2648}-\u{2653}\u{265F}-\u{2660}\u{2663}\u{2665}-\u{2666}\u{2668}\u{267B}\u{267E}-\u{267F}`,
+  String.raw`\u{2692}-\u{2697}\u{2699}\u{269B}-\u{269C}\u{26A0}-\u{26A1}\u{26A7}\u{26AA}-\u{26AB}`,
+  String.raw`\u{26B0}-\u{26B1}\u{26BD}-\u{26BE}\u{26C4}-\u{26C5}\u{26C8}\u{26CE}-\u{26CF}\u{26D1}`,
+  String.raw`\u{26D3}-\u{26D4}\u{26E9}-\u{26EA}\u{26F0}-\u{26F5}\u{26F7}-\u{26FA}\u{26FD}\u{2702}\u{2705}`,
+  String.raw`\u{2708}-\u{270D}\u{270F}\u{2712}\u{2714}\u{2716}\u{271D}\u{2721}\u{2728}\u{2733}-\u{2734}`,
+  String.raw`\u{2744}\u{2747}\u{274C}\u{274E}\u{2753}-\u{2755}\u{2757}\u{2763}-\u{2764}\u{2795}-\u{2797}`,
+  String.raw`\u{27A1}\u{27B0}\u{27BF}\u{2934}-\u{2935}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{2B50}\u{2B55}`,
+  String.raw`\u{3030}\u{303D}\u{3297}\u{3299}\u{1F004}\u{1F02C}-\u{1F02F}\u{1F094}-\u{1F09F}`,
+  String.raw`\u{1F0AF}-\u{1F0B0}\u{1F0C0}\u{1F0CF}-\u{1F0D0}\u{1F0F6}-\u{1F0FF}\u{1F170}-\u{1F171}`,
+  String.raw`\u{1F17E}-\u{1F17F}\u{1F18E}\u{1F191}-\u{1F19A}\u{1F1AE}-\u{1F1E5}\u{1F201}-\u{1F20F}\u{1F21A}`,
+  String.raw`\u{1F22F}\u{1F232}-\u{1F23A}\u{1F23C}-\u{1F23F}\u{1F249}-\u{1F25F}\u{1F266}-\u{1F321}`,
+  String.raw`\u{1F324}-\u{1F393}\u{1F396}-\u{1F397}\u{1F399}-\u{1F39B}\u{1F39E}-\u{1F3F0}\u{1F3F3}-\u{1F3F5}`,
+  String.raw`\u{1F3F7}-\u{1F3FA}\u{1F400}-\u{1F4FD}\u{1F4FF}-\u{1F53D}\u{1F549}-\u{1F54E}\u{1F550}-\u{1F567}`,
+  String.raw`\u{1F56F}-\u{1F570}\u{1F573}-\u{1F57A}\u{1F587}\u{1F58A}-\u{1F58D}\u{1F590}\u{1F595}-\u{1F596}`,
+  String.raw`\u{1F5A4}-\u{1F5A5}\u{1F5A8}\u{1F5B1}-\u{1F5B2}\u{1F5BC}\u{1F5C2}-\u{1F5C4}\u{1F5D1}-\u{1F5D3}`,
+  String.raw`\u{1F5DC}-\u{1F5DE}\u{1F5E1}\u{1F5E3}\u{1F5E8}\u{1F5EF}\u{1F5F3}\u{1F5FA}-\u{1F64F}`,
+  String.raw`\u{1F680}-\u{1F6C5}\u{1F6CB}-\u{1F6D2}\u{1F6D5}-\u{1F6E5}\u{1F6E9}\u{1F6EB}-\u{1F6F0}`,
+  String.raw`\u{1F6F3}-\u{1F6FF}\u{1F7DA}-\u{1F7FF}\u{1F80C}-\u{1F80F}\u{1F848}-\u{1F84F}\u{1F85A}-\u{1F85F}`,
+  String.raw`\u{1F888}-\u{1F88F}\u{1F8AE}-\u{1F8AF}\u{1F8BC}-\u{1F8BF}\u{1F8C2}-\u{1F8CF}\u{1F8D9}-\u{1F8FF}`,
+  String.raw`\u{1F90C}-\u{1F93A}\u{1F93C}-\u{1F945}\u{1F947}-\u{1F9FF}\u{1FA58}-\u{1FA5F}\u{1FA6E}-\u{1FAFF}`,
+  String.raw`\u{1FC00}-\u{1FFFD}`,
+  String.raw`\u{FE0F}\u{200D}`,
+].join('') + ']', 'gu');
 
 function dauVan(html) {
   return crypto.createHash('sha1').update(chuHienThi(html), 'utf8').digest('hex');
