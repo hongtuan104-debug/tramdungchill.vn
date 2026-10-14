@@ -126,7 +126,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-10-08",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {
@@ -169,7 +169,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -253,7 +253,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -295,7 +295,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-10-05",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
@@ -338,7 +338,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-10-05",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "lich-trinh-da-lat-3-ngay-2-dem": {
@@ -379,7 +379,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-23",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -421,7 +421,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "da-lat-cho-nguoi-nuoc-ngoai": {
@@ -507,7 +507,7 @@ const BLOG_SEO = {
         "name": "Nguyen Duy",
         "role": "Co-owner, Tram Dung Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-14",
       "lang": "en",
       "category": "English",
       "date": "2026-06-16",
@@ -555,7 +555,7 @@ const BLOG_SEO = {
         "name": "Nguyễn Duy",
         "role": "Đồng chủ Tiệm Nướng Trạm Dừng Chill"
       },
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-14",
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {
