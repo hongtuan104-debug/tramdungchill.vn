@@ -66,7 +66,7 @@ var MENU_PAGES = [
         n: 4,
         group: 'bestseller',
         slug: 'menu-quan-nuong-da-lat-04-best-seller-ca-tam-rang-muoi-suon-cay-thai',
-        alt: 'Best seller quán nướng Đà Lạt: cá tầm rang muối, sườn cay Thái Lan, tôm chiên trứng muối'
+        alt: 'Best seller quán nướng Đà Lạt: cá tầm rang muối, sườn cay Thái Lan, tôm chiên trứng muối, gỏi sứa'
     },
     {
         n: 5,

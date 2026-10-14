@@ -38,9 +38,10 @@ const MENU_ITEMS = {
         { name: 'Vếu Heo Ướp Chao', price: '145K' },
         { name: 'Ốc Nhồi Thịt', price: '165K' },
         { name: 'Cá Tầm Lúc Lắc', price: '165K' },
-        { name: 'Cá Tầm Rang Muối', price: '200K' },
-        { name: 'Sườn Cay Thái Lan', price: '260K', badge: 'Hot' },
-        { name: 'Tôm Chiên Trứng Muối', price: '160K' },
+        { name: 'Cá Tầm Rang Muối', price: '199K' },
+        { name: 'Sườn Cay Thái Lan', price: '259K', badge: 'Hot' },
+        { name: 'Tôm Chiên Trứng Muối', price: '158K' },
+        { name: 'Gỏi Sứa', price: '159K' },
     ],
 
     nuong: [

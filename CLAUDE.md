@@ -30,8 +30,11 @@
 - **Setup miễn phí (sinh nhật / kỷ niệm / cầu hôn):** bảng chúc mừng / bảng "Marry Me?" + **hoa trang trí — là hoa NHỰA**,
   đừng viết "hoa tươi", đừng hứa bó hoa hồng. **KHÔNG có nến ở setup nào** (sếp chốt 23/09/2026). "Thổi nến" trên bánh kem
   của khách thì vẫn viết được. Luật R8r chặn câu setup nhắc hoa tươi / nến / hoa hồng — xem bug #39.
-- **Menu:** 81 món trong `data/menu-data.js` (44 món ăn + 37 đồ uống) → viết "hơn 70 món".
+- **Menu:** 82 món trong `data/menu-data.js` (45 món ăn + 37 đồ uống) → viết "hơn 70 món".
   Đồng bộ theo menu in 26 trang ngày 04/08/2026 — sếp Tuấn xác nhận **bản in là chuẩn**.
+  14/10/2026 thay trang ảnh 4 (best seller "03"): thêm **Gỏi Sứa 159K**, Cá Tầm Rang Muối 200→**199K**, Sườn Cay
+  Thái Lan 260→**259K**, Tôm Chiên Trứng Muối 160→**158K** — sếp xác nhận đây là giá bán thật HIỆN TẠI (11/08 từng
+  sửa ngược 199/259/158 → 200/260/160; giá đổi qua lại hai lần, gặp lệch thì hỏi sếp, đừng tự chọn bên).
   Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
 - **Đánh giá:** 4,8/5 sao · **7.060 lượt** (GBP, xác nhận 04/09/2026 — Google có tỉa bớt review, 24/08 từng thấy 7.123)
 - ⚠️ **Nguồn chuẩn cho mọi con số:** `data/facts.json`. Đừng chép số từ bài cũ —
@@ -134,7 +137,7 @@ chỉ đích danh phần tử LCP là `<span class="logo-main">` với render de
 ## Menu ảnh dạng sách lật (flipbook) — cũng sinh tự động
 Trang menu: hero → **quyển menu ảnh 26 trang lật được** → FAQ → khối đặt bàn.
 Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu cũ bỏ đi").
-- Giá cho máy đọc giờ nằm ở 2 chỗ: **JSON-LD Menu** (81 món, sinh từ menu-data.js)
+- Giá cho máy đọc giờ nằm ở 2 chỗ: **JSON-LD Menu** (82 món, sinh từ menu-data.js)
   và khối **`<noscript>` MENU_STATIC** — khối này khách có JS KHÔNG thấy, nó chỉ để
   GPTBot/ClaudeBot/PerplexityBot đọc được giá vì chúng không chạy JS và không đọc
   được chữ trong ảnh. **Đừng xoá nó vì "trang không hiển thị"** — đó là chủ đích.
