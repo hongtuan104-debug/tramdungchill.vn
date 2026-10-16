@@ -747,8 +747,13 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      `cited` (có URL của mình VÀ link còn sống) · `replaced` (AI chọn nguồn khác — phải ghi rõ ai). `mentioned` mà không `cited`
      là tín hiệu riêng: AI biết quán nhưng lấy tin từ chỗ khác, tin sai thì mình không sửa được.
    - **URL hỏng thì KHÔNG tính là owned citation**: `--kiem-url` soi status / chuỗi redirect / canonical / noindex, URL nào hỏng
-     bị loại khỏi owned-source share. Phần "trang có thật sự đỡ được tuyên bố đó không" máy **không** kiểm hộ được — người đo tự
-     mở ra đọc rồi đánh `daMoKiemTuyenBo: true`, script bắt thiếu cờ này (mục 240).
+     bị loại khỏi cả Citation Rate lẫn Citation Share. Phần "trang có thật sự đỡ được tuyên bố đó không" máy **không** kiểm hộ
+     được — người đo tự mở ra đọc rồi đánh `daMoKiemTuyenBo: true`, script bắt thiếu cờ này (mục 240).
+   - **Ba chỉ số, đơn vị là câu trả lời** (đổi tên + sửa mẫu số 16/10/2026): **Citation Rate** = câu dẫn ≥ 1 link quán còn sống
+     / tổng câu · **Brand Mention Rate** = câu nêu tên quán / tổng câu · **Citation Share** = link quán còn sống / TỔNG link mọi
+     câu dẫn (`nguonDuocDan` + `nguonThayThe`). Bản cũ: share bỏ sót nguồn của câu `replaced` ở mẫu số (share thổi lên), rate
+     vẫn đếm câu `cited` có link chết. ⚠️ Nhật ký phải ghi **mọi** nguồn AI dẫn, không riêng link của mình — chỉ ghi link của
+     mình là share 100% giả. Link "của mình" so theo tên miền (`laCuaMinh()`), không so đầu chuỗi.
    - Mỗi lần đo phải đủ `nenTang`/`model`/`ngonNgu`/`thiTruong`/`trangThaiTaiKhoan`/`thoiDiem` + `trichDoan` hoặc `anhChup`
      (mục 238, 241). Đo mốc chính ở chế độ **ẩn danh** — tài khoản đã đăng nhập có cá nhân hoá, số đẹp giả. Nhịp: **hàng tháng**.
    - **IndexNow (mục 235) vốn đã đạt**: `bao-indexnow.js` chỉ gửi URL thật sự đổi nội dung, chặn URL ngoài miền, thử lại 3 lần,

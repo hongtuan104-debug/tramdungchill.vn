@@ -95,7 +95,12 @@ tên quán hoặc có đoạn văn na ná.
 
 Phần máy làm được thì `node scripts/do-hien-thi-ai.js --kiem-url` lo: HTTP status,
 chuỗi redirect, canonical có trỏ về chính nó không, trang có `noindex` không. URL nào
-hỏng thì **không được tính** vào owned citation khi cộng số.
+hỏng thì **không được tính** vào owned citation khi cộng số — ở cả Citation Rate lẫn
+Citation Share.
+
+⚠️ **`nguonDuocDan` ghi MỌI nguồn câu trả lời dẫn, cả của trang khác**, không riêng link
+của mình (câu `replaced` thì ghi vào `nguonThayThe`). Citation Share lấy tổng số nguồn làm
+mẫu số: chỉ ghi link của mình là share thành 100% giả.
 
 ## 7. Lưu bằng chứng (mục 241)
 
@@ -111,14 +116,33 @@ node scripts/do-hien-thi-ai.js --kiem-url   # + soi từng URL được dẫn (g
 node scripts/do-hien-thi-ai.js --lich-su    # + tách theo đợt để thấy xu hướng
 ```
 
-Số in ra: **citation coverage** (% lần đo có dẫn nguồn của mình) · **mention rate**
-(% lần đo có nhắc tên) · **owned-source share** (nguồn của mình / tổng nguồn AI dẫn) ·
-số `cited` / `mentioned` / `replaced` / `missing`, tách theo nền tảng và loại truy vấn.
+Số in ra (đơn vị là **câu trả lời** — một lần hỏi một câu), tách theo nền tảng và loại truy vấn:
+
+| Chỉ số | Tử số | Mẫu số |
+|---|---|---|
+| **Citation Rate** | câu trả lời dẫn ít nhất 1 link tramdungchill.vn **còn sống** | tổng câu trả lời đã kiểm |
+| **Brand Mention Rate** | câu trả lời có nêu tên quán (dù có link hay không) | tổng câu trả lời đã kiểm |
+| **Citation Share** | số link tramdungchill.vn còn sống | **tổng số link** mọi câu trả lời dẫn (`nguonDuocDan` + `nguonThayThe`) |
+
+Ví dụ: hỏi 200 lần, 30 lần có dẫn link quán → Citation Rate 15%. Hai chỉ số đầu chung mẫu
+số, chỉ số thứ ba thì không — đừng cộng hay so trực tiếp với nhau. Kèm theo là số
+`cited` / `mentioned` / `replaced` / `missing`.
+
+Chưa có công thức chuẩn chung cho mọi nền tảng AI; số của công cụ bên ngoài có thể dùng mẫu
+số khác. Chỉ so số **giữa các đợt của chính bộ đo này** (cùng bộ câu hỏi, nền tảng, thị
+trường, trạng thái tài khoản).
+
+(Trước 16/10/2026 script in "citation coverage" / "mention rate" / "owned-source share".
+Share cũ chỉ cộng `nguonDuocDan` nên bỏ sót nguồn của câu `replaced` ở mẫu số, và Citation
+Rate cũ vẫn đếm câu khai `cited` dù link của mình đã hỏng. Nhật ký lúc đó còn trống nên không
+có số cũ nào phải tính lại.)
 
 ## 9. Nhịp đo lại (mục 243)
 
 **Hàng tháng**, cùng bộ câu hỏi, cùng điều kiện. Một lần xuất hiện không đủ kết luận
-xu hướng — câu trả lời AI dao động mạnh giữa hai lần hỏi cách nhau vài phút.
+xu hướng — câu trả lời AI dao động mạnh giữa hai lần hỏi cách nhau vài phút. Trong một đợt
+có thể hỏi mỗi câu 2–3 lần (mỗi lần một dòng `lanDo`, phiên mới): các chỉ số tính theo câu
+trả lời nên tự cộng đúng, và đỡ ăn may một lần.
 
 Sau mỗi đợt, đối chiếu với GA4 (lượt truy cập từ `chatgpt.com`, `perplexity.ai`,
 `copilot.microsoft.com`) và báo cáo Generative AI trong Search Console nếu có. Đừng

@@ -19,7 +19,9 @@
       "trangThai": "cited",
       "_trangThai": "missing = không nhắc, không dẫn · mentioned = có nhắc tên quán nhưng không dẫn nguồn · cited = có dẫn URL thuộc tramdungchill.vn · replaced = không dẫn mình, dẫn nguồn/đối thủ khác cho đúng câu hỏi này",
       "nhacTen": true,
+      "_nguonDuocDan": "Ghi MỌI nguồn câu trả lời dẫn — link của mình lẫn của trang khác. Citation Share lấy tổng số link làm mẫu số; chỉ ghi link của mình là share thành 100% giả. Nguồn khác chỉ cần url.",
       "nguonDuocDan": [
+        { "url": "https://www.example.com/nguon-khac-ai-dan-cung-cau" },
         {
           "url": "https://tramdungchill.vn/blog/nuong-bbq-ngam-xe-lua.html",
           "tuyenBo": "Quán nằm sát tuyến đường sắt Đà Lạt – Trại Mát",

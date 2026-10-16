@@ -15,10 +15,15 @@
  *
  * MÃ THOÁT  0 = nhật ký hợp lệ · 1 = có lỗi nhật ký hoặc URL dẫn hỏng
  *
- * ĐỊNH NGHĨA (mục 239 — đừng gộp làm một)
- *   nhắc tên (mention) = câu trả lời có nêu tên quán.
- *   trích dẫn (citation) = có URL/nguồn hiện ra. Chỉ tính là "của mình" khi URL thuộc
- *   tramdungchill.vn VÀ link còn hoạt động — nên --kiem-url báo hỏng là citation đó không tính.
+ * ĐỊNH NGHĨA (mục 239 — đừng gộp làm một). Đơn vị đếm là CÂU TRẢ LỜI (một lần hỏi một câu).
+ *   Brand Mention Rate = câu trả lời có nêu tên quán / tổng câu trả lời đã kiểm.
+ *   Citation Rate      = câu trả lời dẫn ít nhất 1 URL của tramdungchill.vn CÒN SỐNG / tổng câu trả lời.
+ *                        --kiem-url báo link hỏng thì câu đó không tính, dù nhật ký khai "cited".
+ *   Citation Share     = số URL của mình (còn sống) / TỔNG số URL mọi câu trả lời dẫn — gồm cả nguồn
+ *                        của trang khác (nguonDuocDan + nguonThayThe). Mẫu số khác hẳn Citation Rate.
+ *   (Tên gọi theo cách dân SEO đang dùng; trước 16/10/2026 script in "citation coverage" / "mention
+ *   rate" / "owned-source share" — cùng ý, nhưng share cũ chỉ cộng nguonDuocDan nên bỏ sót nguồn
+ *   của các câu "replaced" ở mẫu số → share bị thổi lên.)
  */
 "use strict";
 
@@ -28,6 +33,10 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const THU_MUC = path.join(ROOT, "docs", "do-hien-thi-ai");
 const MIEN = "https://tramdungchill.vn";
+// So theo tên miền, không so đầu chuỗi: "https://tramdungchill.vn.lua-dao.com" cũng bắt đầu bằng MIEN.
+function laCuaMinh(u) {
+    try { return /^(www\.)?tramdungchill\.vn$/.test(new URL(u).hostname); } catch (e) { return false; }
+}
 
 const doiSo = process.argv.slice(2);
 const KIEM_URL = doiSo.includes("--kiem-url");
@@ -82,7 +91,7 @@ for (const f of tepNhatKy) {
         if (l.anhChup && !fs.existsSync(path.join(THU_MUC, l.anhChup))) loi.push(o + ": anhChup không có file (" + l.anhChup + ")");
 
         const dan = l.nguonDuocDan || [];
-        const cuaMinh = dan.filter((n) => (n.url || "").startsWith(MIEN));
+        const cuaMinh = dan.filter((n) => laCuaMinh(n.url || ""));
         // Mục 239: 4 trạng thái phải khớp với dữ liệu, không khai bừa.
         if (l.trangThai === "cited" && cuaMinh.length === 0) loi.push(o + ": khai cited nhưng không có nguồn nào thuộc " + MIEN);
         if (l.trangThai === "mentioned" && cuaMinh.length > 0) loi.push(o + ": có nguồn của mình được dẫn → phải là cited, không phải mentioned");
@@ -133,17 +142,17 @@ async function kiemMoiUrl() {
     const hong = new Set();
     for (const u of [...tap].sort()) {
         const kq = await soiUrl(u);
-        const laCuaMinh = u.startsWith(MIEN);
+        const cuaMinh = laCuaMinh(u);
         const van = [];
         if (kq.loi) van.push(kq.loi);
         else {
             if (kq.chang.length) van.push("redirect " + kq.chang.length + " chặng: " + kq.chang.join(" · "));
-            if (laCuaMinh && kq.canonical && kq.canonical !== u) van.push("canonical trỏ " + kq.canonical);
-            if (laCuaMinh && !kq.canonical) van.push("không có canonical");
+            if (cuaMinh && kq.canonical && kq.canonical !== u) van.push("canonical trỏ " + kq.canonical);
+            if (cuaMinh && !kq.canonical) van.push("không có canonical");
             if (kq.noindex) van.push("trang khai noindex");
         }
         if (van.length) hong.add(u);
-        console.log("  " + (van.length ? "❌" : "✅") + "  " + u + (laCuaMinh ? "" : "   (nguồn ngoài)"));
+        console.log("  " + (van.length ? "❌" : "✅") + "  " + u + (cuaMinh ? "" : "   (nguồn ngoài)"));
         if (van.length) console.log("        " + van.join(" | "));
     }
     console.log("");
@@ -152,16 +161,21 @@ async function kiemMoiUrl() {
 
 // ── Mục 242 + 243: cộng số ───────────────────────────────────────────────
 function tinh(danhSach, urlHong) {
-    const s = { lan: 0, nhacTen: 0, cited: 0, mentioned: 0, replaced: 0, missing: 0, danCuaMinh: 0, danTong: 0 };
+    const s = { lan: 0, nhacTen: 0, coDanMinh: 0, citedLinkHong: 0, cited: 0, mentioned: 0, replaced: 0, missing: 0, danCuaMinh: 0, danTong: 0 };
     for (const l of danhSach) {
         s.lan++;
         if (l.nhacTen) s.nhacTen++;
         if (s[l.trangThai] !== undefined) s[l.trangThai]++;
-        for (const n of l.nguonDuocDan || []) {
+        // Mọi nguồn câu trả lời này dẫn — của mình lẫn của trang khác; URL trùng trong cùng câu tính 1 lần.
+        const urls = new Set([].concat(l.nguonDuocDan || [], l.nguonThayThe || []).map((n) => n.url).filter(Boolean));
+        let minhSong = 0;
+        for (const u of urls) {
             s.danTong++;
-            // Mục 239: link chết thì không tính là owned citation.
-            if ((n.url || "").startsWith(MIEN) && !urlHong.has(n.url)) s.danCuaMinh++;
+            // Mục 239: link chết thì không tính là owned citation — ở CẢ Citation Rate lẫn Citation Share.
+            if (laCuaMinh(u) && !urlHong.has(u)) { s.danCuaMinh++; minhSong++; }
         }
+        if (minhSong > 0) s.coDanMinh++;
+        else if (l.trangThai === "cited") s.citedLinkHong++;
     }
     return s;
 }
@@ -170,10 +184,11 @@ const pt = (a, b) => (b === 0 ? "—" : (a * 100 / b).toFixed(0) + "%");
 
 function inBang(ten, s) {
     console.log("  " + ten);
-    console.log("      " + s.lan + " lần đo · citation coverage " + pt(s.cited, s.lan) +
-        " · mention rate " + pt(s.nhacTen, s.lan) +
-        " · owned-source share " + pt(s.danCuaMinh, s.danTong) + " (" + s.danCuaMinh + "/" + s.danTong + " nguồn)");
-    console.log("      cited " + s.cited + " · mentioned " + s.mentioned + " · replaced " + s.replaced + " · missing " + s.missing);
+    console.log("      " + s.lan + " câu trả lời · Citation Rate " + pt(s.coDanMinh, s.lan) + " (" + s.coDanMinh + "/" + s.lan + ")" +
+        " · Brand Mention Rate " + pt(s.nhacTen, s.lan) + " (" + s.nhacTen + "/" + s.lan + ")" +
+        " · Citation Share " + pt(s.danCuaMinh, s.danTong) + " (" + s.danCuaMinh + "/" + s.danTong + " nguồn)");
+    console.log("      cited " + s.cited + " · mentioned " + s.mentioned + " · replaced " + s.replaced + " · missing " + s.missing +
+        (s.citedLinkHong ? " · ⚠️ " + s.citedLinkHong + " câu khai cited nhưng link của mình hỏng — không tính vào Citation Rate" : ""));
 }
 
 (async () => {
