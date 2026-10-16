@@ -27,7 +27,9 @@ liên kết GA4 ↔ Ads (hit `/measurement/conversion`), và trang chủ chỉ g
 - **Không Clarity:** `duong-di/`, `tac-gia/nguyen-duy.html` — chưa từng gắn (bỏ sót, không phải quyết
   định). Chờ sếp: có cần heatmap trang đường đi không?
 - **Không gắn gì (cố ý):** `review-qr.html` (trang in QR cho nhân viên — mã QR trỏ thẳng tới trang viết
-  đánh giá Google, khách không bao giờ vào), `dev/utm-builder.html`, `components/*`, file xác minh Google.
+  đánh giá Google, khách không bao giờ vào), `dev/utm-builder.html`, `components/*`, file xác minh Google,
+  `quan-tri/` (trang thống kê của chủ quán — lượt mở nó không được tự đếm vào chính số nó hiện; CLAUDE.md #53).
+  Máy đăng nhập được vào `quan-tri/` tự được đánh dấu nội bộ như mở `?noi_bo=1`.
 - **Máy làm việc** (localhost, 127.x, mạng LAN, file://): `lazy-tracking.js` không bật pixel.
   Công cụ đo cần pixel thật thêm `?pixel_thu=1` và PHẢI tự chặn hit gửi đi.
 - 🟢 Meta Pixel còn bật **Traffic Permissions** (danh sách domain được phép): xin cấu hình với

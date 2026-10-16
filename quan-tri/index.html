@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thống kê truy cập | Tiệm Nướng Trạm Dừng Chill</title>
+  <!-- Trang quan tri (CLAUDE.md muc 53): khong index, khong gan GA4/pixel (luot mo trang nay khong bi dem), khong nam
+       trong sitemap, khong link tu dau tren site, khong co doan giao dien mua (mua-le.js trangCanMua bo qua).
+       So lieu lay tu Apps Script docs/thong-ke/Code.gs, cach cai: docs/thong-ke/HUONG-DAN.md.
+       Chep kien truc trang /quan-tri/ cua xomleo.vn (quan cung chu). -->
+  <meta name="robots" content="noindex, nofollow">
+  <!-- no-referrer: bam link trang tu bang so thi web quan khong ghi /quan-tri/ lam nguon; goi Apps Script cung khong mang theo dia chi trang -->
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://script.google.com https://script.googleusercontent.com; base-uri 'none'; object-src 'none'; form-action 'none'">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <meta name="theme-color" content="#0F0D0A">
+  <style>
+    /* Bo cuc: mot cot, tom tat truoc chi tiet — ngay luc nay -> so chinh -> khach lam gi -> don den tu dau -> theo ngay
+       -> nguon -> trang -> gio / thiet bi / thanh pho. Mau lay tu bang "dem" cua css/style.css (--night, --gold, --cream).
+       Trang dung rieng, khong nap dist/style.min.css nen tu khai phong (giong review-qr.html). */
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/assets/fonts/inter-vietnamese.woff2?v=ae4cc827') format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 700; font-display: swap; src: url('/assets/fonts/inter-latin.woff2?v=1598c370') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/playfair-vietnamese.woff2?v=0eb30ef7') format('woff2');
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('/assets/fonts/playfair-latin.woff2?v=d172a6cf') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    :root {
+      --nen: #0F0D0A; --nen-2: #171310; --the: #1A1612; --vien: #3D3229; --ke: rgba(212, 168, 83, 0.18);
+      --chu: #FDF8F3; --chu-2: #B3A690; --vang: #D4A853; --vang-sang: #F0D48A; --vang-nhat: rgba(212, 168, 83, 0.14);
+      --tang: #7FCB8E; --giam: #E8907A; --loi: #E8814F;
+      --f-than: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif; --f-tieu-de: 'Playfair Display', Georgia, serif;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: var(--nen); color: var(--chu); font: 16px/1.55 var(--f-than); }
+    /* Link khong gach chan (CLAUDE.md muc 43): gach chan chi khi re chuot / Tab toi */
+    a { color: var(--vang); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--vang); outline-offset: 2px; }
+    .khung { max-width: 1120px; margin: 0 auto; padding-block: 1.25rem 3.5rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 2.2rem; }
+    .dau { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1.2rem; border-bottom: 1px solid var(--vien); padding-bottom: .9rem; }
+    .dau .quan { color: var(--chu-2); font-size: .92rem; }
+    .dau .quan:hover { color: var(--vang); }
+    h1 { margin: 0; font-family: var(--f-tieu-de); font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem); font-weight: 600; color: var(--vang); text-wrap: balance; }
+    h2 { margin: 0; font-family: var(--f-tieu-de); font-size: 1.25rem; font-weight: 600; text-wrap: balance; }
+    p { margin: 0; }
+    .mo { color: var(--chu-2); }
+    .nho { font-size: .86rem; }
+    section { display: grid; gap: .9rem; min-width: 0; align-content: start; }
+    .cot-doc { display: grid; gap: 2.2rem; min-width: 0; }
+    .tieu-de-muc { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; }
+
+    /* dang nhap */
+    .dang-nhap { max-width: 460px; width: 100%; justify-self: center; background: var(--the); border: 1px solid var(--vien); border-radius: 12px; padding: 1.4rem; display: grid; gap: 1rem; }
+    label { display: grid; gap: .35rem; font-size: .92rem; color: var(--chu-2); }
+    input[type="password"], input[type="url"], input[type="text"] { font: inherit; font-size: 1rem; color: var(--chu); background: var(--nen); border: 1px solid var(--vien); padding: .6rem .7rem; width: 100%; min-width: 0; border-radius: 6px; }
+    .o-chon { display: flex; align-items: center; gap: .55rem; color: var(--chu); }
+    .o-chon input { width: 1.1rem; height: 1.1rem; accent-color: var(--vang); }
+    .nut { font: 600 .95rem var(--f-than); padding: .6rem 1.1rem; border: 1px solid var(--vang); background: var(--vang); color: var(--nen); cursor: pointer; border-radius: 6px; min-height: 44px; }
+    .nut.phu { background: transparent; color: var(--chu); border-color: var(--vien); }
+    .nut:disabled { opacity: .55; cursor: default; }
+    .hang-nut { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+    .bao { border: 1px solid var(--loi); color: var(--chu); background: rgba(232, 129, 79, 0.1); border-radius: 6px; padding: .7rem .9rem; }
+
+    /* thanh chon ky */
+    .thanh { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .7rem 1rem; }
+    .chon-ky { display: inline-flex; border: 1px solid var(--vien); border-radius: 6px; overflow: hidden; }
+    .chon-ky button { font: 600 .92rem var(--f-than); background: transparent; color: var(--chu-2); border: 0; padding: .55rem .95rem; min-height: 44px; cursor: pointer; }
+    .chon-ky button + button { border-left: 1px solid var(--vien); }
+    .chon-ky button[aria-pressed="true"] { background: var(--vang); color: var(--nen); }
+
+    /* o so */
+    .luoi-so { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--ke); border: 1px solid var(--ke); border-radius: 12px; overflow: hidden; }
+    @media (min-width: 760px) { .luoi-so { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    .o-so { background: var(--the); padding: 1rem 1.1rem; display: grid; gap: .15rem; align-content: start; min-width: 0; }
+    .o-so .nhan { font-size: .88rem; color: var(--chu-2); }
+    .o-so .gia-tri { font-weight: 600; font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); line-height: 1.15; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+    .o-so .gia-tri.chu { font-size: clamp(1.3rem, 1.1rem + .8vw, 1.65rem); }
+    .o-so .phu-chu { font-size: .82rem; color: var(--chu-2); }
+    .tang { color: var(--tang); } .giam { color: var(--giam); } .ngang { color: var(--chu-2); }
+    .bien { font-size: .86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    .luoi-hd { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--ke); border: 1px solid var(--ke); border-radius: 12px; overflow: hidden; }
+    .luoi-hd .chinh { grid-column: span 2; background: linear-gradient(180deg, var(--vang-nhat), transparent 70%), var(--the); }
+    .luoi-hd .chinh .gia-tri { color: var(--vang); }
+    @media (min-width: 760px) { .luoi-hd { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+    /* bieu do cot (HTML, de chu khong bi co khi man hinh hep) */
+    .bieu-do { background: var(--the); border: 1px solid var(--ke); border-radius: 12px; padding: 1rem 1rem .6rem; display: grid; gap: .4rem; min-width: 0; }
+    .cot-cao { font-size: .82rem; color: var(--chu-2); }
+    .cac-cot { display: flex; align-items: flex-end; gap: 2px; height: 180px; border-bottom: 1px solid var(--vien); background-image: linear-gradient(to top, var(--ke) 1px, transparent 1px); background-size: 100% 25%; }
+    .cac-cot .cot { flex: 1 1 0; min-width: 0; background: var(--vang); opacity: .85; border-radius: 2px 2px 0 0; min-height: 1px; }
+    .cac-cot .cot.nay { opacity: .45; }
+    .cac-cot .cot.dinh { opacity: 1; background: var(--vang-sang); }
+    .nhan-cot { display: flex; gap: 2px; font-size: .74rem; color: var(--chu-2); font-variant-numeric: tabular-nums; }
+    .nhan-cot span { flex: 1 1 0; min-width: 0; text-align: center; white-space: nowrap; overflow: visible; }
+    /* nhan o cot dau / cot cuoi rong hon cot -> can vao trong, khong lo ra ngoai khung bieu do */
+    .nhan-cot span:first-child { text-align: left; } .nhan-cot span:last-child { text-align: right; }
+    .gio .cac-cot { height: 120px; }
+
+    /* thanh ngang nguon */
+    .ds-thanh { display: grid; gap: .55rem; background: var(--the); border: 1px solid var(--ke); border-radius: 12px; padding: 1rem 1.1rem; }
+    .dong-thanh { display: grid; grid-template-columns: minmax(8.5rem, 14rem) minmax(0, 1fr) auto; gap: .3rem .8rem; align-items: center; }
+    .dong-thanh .ten { font-size: .95rem; }
+    .dong-thanh .rang { height: .7rem; background: var(--nen-2); border-radius: 2px; overflow: hidden; }
+    .dong-thanh .rang i { display: block; height: 100%; background: var(--vang); }
+    .dong-thanh .so { font-size: .9rem; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    @media (max-width: 560px) { .dong-thanh { grid-template-columns: minmax(0, 1fr) auto; } .dong-thanh .rang { grid-column: 1 / -1; grid-row: 2; } }
+
+    /* bang */
+    .cuon { overflow-x: auto; background: var(--the); border: 1px solid var(--ke); border-radius: 12px; }
+    table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+    th, td { text-align: left; padding: .5rem .75rem; border-bottom: 1px solid var(--ke); vertical-align: top; }
+    tbody th { font-weight: 400; }
+    thead th { color: var(--chu-2); font-weight: 600; font-size: .84rem; white-space: nowrap; }
+    td.so, th.so { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    td.duong { overflow-wrap: anywhere; min-width: 12rem; }
+    .hai-cot { display: grid; gap: 1.6rem; grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 760px) { .hai-cot { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    details summary { cursor: pointer; color: var(--chu-2); font-size: .9rem; min-height: 32px; }
+    details[open] summary { margin-bottom: .5rem; }
+
+    /* ngay luc nay (thoi gian thuc) */
+    .tgt-so { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--ke); border: 1px solid var(--ke); border-radius: 12px; overflow: hidden; }
+    .tgt-so .o-so .gia-tri { font-size: clamp(2.2rem, 1.8rem + 1.4vw, 3rem); }
+    .tgt-ds { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .the-ds { background: var(--the); border: 1px solid var(--ke); border-radius: 12px; padding: .9rem 1rem; display: grid; gap: .5rem; align-content: start; min-width: 0; }
+    .the-ds h3 { margin: 0; font-size: .95rem; font-weight: 600; color: var(--chu-2); }
+    .the-ds ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+    .the-ds li { display: flex; justify-content: space-between; gap: .8rem; font-size: .93rem; }
+    .the-ds li span:first-child { min-width: 0; overflow-wrap: anywhere; }
+    .the-ds li span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--vang); font-weight: 600; }
+    .the-ds .trong { color: var(--chu-2); font-size: .88rem; }
+    .cham-song { display: inline-block; width: .55rem; height: .55rem; border-radius: 50%; background: var(--tang); box-shadow: 0 0 0 4px rgba(127, 203, 142, 0.18); margin-right: .5rem; vertical-align: middle; }
+    .tgt .cac-cot { height: 130px; }
+    .ghi-chu { border-top: 1px solid var(--vien); padding-top: 1rem; display: grid; gap: .6rem; }
+    .ghi-chu ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .35rem; color: var(--chu-2); font-size: .9rem; max-width: 75ch; }
+    .may-noi-bo { color: var(--chu-2); font-size: .9rem; max-width: 75ch; }
+    @media (prefers-reduced-motion: no-preference) { .cac-cot .cot, .dong-thanh .rang i { transition: height .3s ease, width .3s ease; } }
+  </style>
+</head>
+<body>
+<div class="khung">
+  <header class="dau">
+    <h1>Thống kê truy cập</h1>
+    <a class="quan" href="/">Tiệm Nướng Trạm Dừng Chill · tramdungchill.vn</a>
+  </header>
+
+  <main id="noi-dung" class="cot-doc">
+    <form id="dang-nhap" class="dang-nhap" novalidate>
+      <h2>Vào xem số liệu</h2>
+      <p class="mo nho">Số lấy trực tiếp từ Google Analytics 4 của web quán. Trang này chỉ dành cho chủ quán, không hiện trên Google.</p>
+      <label for="o-dia-chi" id="nhan-dia-chi" hidden>Địa chỉ Apps Script (kết thúc bằng /exec)
+        <input id="o-dia-chi" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://script.google.com/macros/s/…/exec">
+      </label>
+      <input type="text" name="username" value="quan-tri-tramdungchill" autocomplete="username" hidden>
+      <label for="o-mat-ma">Mật mã
+        <input id="o-mat-ma" type="password" autocomplete="current-password" required>
+      </label>
+      <label class="o-chon" for="o-nho"><input id="o-nho" type="checkbox"> Nhớ mật mã trên máy này (chỉ bật trên máy riêng)</label>
+      <p class="bao" id="loi-dang-nhap" role="alert" hidden></p>
+      <div class="hang-nut">
+        <button class="nut" id="nut-vao" type="submit">Xem số liệu</button>
+        <button class="nut phu" id="nut-doi-dia-chi" type="button">Đổi địa chỉ Apps Script</button>
+      </div>
+    </form>
+
+    <div id="bang" class="cot-doc" hidden>
+      <section aria-labelledby="h-tgt" class="tgt">
+        <div class="tieu-de-muc"><h2 id="h-tgt"><span class="cham-song" aria-hidden="true"></span>Ngay lúc này</h2><p class="mo nho" id="tgt-luc"></p></div>
+        <div class="tgt-so" id="tgt-so"></div>
+        <div class="bieu-do" id="bd-phut"></div>
+        <div class="tgt-ds" id="tgt-ds"></div>
+      </section>
+
+      <div class="thanh">
+        <div class="chon-ky" role="group" aria-label="Chọn khoảng thời gian">
+          <button type="button" data-ky="7" aria-pressed="false">7 ngày</button>
+          <button type="button" data-ky="28" aria-pressed="true">28 ngày</button>
+          <button type="button" data-ky="90" aria-pressed="false">90 ngày</button>
+        </div>
+      </div>
+      <p class="mo nho" id="trang-thai" role="status" aria-live="polite"></p>
+      <p class="bao" id="loi-bang" role="alert" hidden></p>
+
+      <section aria-labelledby="h-tong">
+        <div class="tieu-de-muc"><h2 id="h-tong">Tổng quan</h2><p class="mo nho" id="so-voi"></p></div>
+        <div class="luoi-so" id="o-tong"></div>
+      </section>
+
+      <section aria-labelledby="h-hd">
+        <div class="tieu-de-muc"><h2 id="h-hd">Khách làm gì trên web</h2><p class="mo nho" id="ti-le-dat"></p></div>
+        <div class="luoi-hd" id="o-hd"></div>
+      </section>
+
+      <div class="hai-cot">
+        <section aria-labelledby="h-don-nguon">
+          <h2 id="h-don-nguon">Đơn đặt bàn đến từ đâu</h2>
+          <div class="ds-thanh" id="ds-don-nguon"></div>
+        </section>
+        <section aria-labelledby="h-don-trang">
+          <h2 id="h-don-trang">Đơn gửi từ trang nào</h2>
+          <div class="cuon"><table aria-labelledby="h-don-trang"><thead><tr><th scope="col">Trang</th><th scope="col" class="so">Đơn</th></tr></thead><tbody id="bang-don-trang"></tbody></table></div>
+        </section>
+      </div>
+
+      <section aria-labelledby="h-ngay">
+        <h2 id="h-ngay">Người truy cập theo ngày</h2>
+        <div class="bieu-do" id="bd-ngay"></div>
+        <details><summary>Xem bảng số theo ngày</summary><div class="cuon"><table aria-labelledby="h-ngay"><thead><tr><th scope="col">Ngày</th><th scope="col" class="so">Người truy cập</th><th scope="col" class="so">Lượt xem trang</th></tr></thead><tbody id="bang-ngay"></tbody></table></div></details>
+      </section>
+
+      <section aria-labelledby="h-nguon">
+        <div class="tieu-de-muc"><h2 id="h-nguon">Khách đến từ đâu</h2><p class="mo nho">Tính theo lượt ghé, so với kỳ trước</p></div>
+        <div class="ds-thanh" id="ds-nguon"></div>
+        <details><summary>Nguồn chi tiết (đúng tên GA4 ghi nhận)</summary><div class="cuon"><table aria-labelledby="h-nguon"><thead><tr><th scope="col">Nguồn / kênh</th><th scope="col" class="so">Lượt ghé</th><th scope="col" class="so">Người</th></tr></thead><tbody id="bang-nguon"></tbody></table></div></details>
+      </section>
+
+      <section aria-labelledby="h-trang">
+        <h2 id="h-trang">Trang được xem nhiều</h2>
+        <div class="cuon"><table aria-labelledby="h-trang"><thead><tr><th scope="col">Trang</th><th scope="col" class="so">Lượt xem</th><th scope="col" class="so">Người</th></tr></thead><tbody id="bang-trang"></tbody></table></div>
+      </section>
+
+      <section aria-labelledby="h-gio" class="gio">
+        <div class="tieu-de-muc"><h2 id="h-gio">Giờ khách xem web</h2><p class="mo nho" id="gio-cao"></p></div>
+        <div class="bieu-do" id="bd-gio"></div>
+      </section>
+
+      <div class="hai-cot">
+        <section aria-labelledby="h-tb">
+          <h2 id="h-tb">Thiết bị</h2>
+          <div class="ds-thanh" id="ds-thiet-bi"></div>
+        </section>
+        <section aria-labelledby="h-tp">
+          <h2 id="h-tp">Thành phố</h2>
+          <div class="cuon"><table aria-labelledby="h-tp"><thead><tr><th scope="col">Thành phố</th><th scope="col" class="so">Người</th></tr></thead><tbody id="bang-tp"></tbody></table></div>
+        </section>
+      </div>
+
+      <section class="ghi-chu" aria-labelledby="h-gc">
+        <h2 id="h-gc">Cách đọc số</h2>
+        <ul>
+          <li>Số lấy từ Google Analytics 4 của tramdungchill.vn. Mục Ngay lúc này tự cập nhật mỗi phút khi trang đang mở; các mục theo 7 / 28 / 90 ngày được lưu tạm 15 phút.</li>
+          <li>Web chỉ bật Google Analytics khi khách chạm hoặc cuộn trang, hoặc 6 giây sau khi trang tải xong (để trang mở nhanh). Khách vào rồi đi ngay mà không chạm gì thì không được đếm, nên số thật cao hơn một chút.</li>
+          <li>Kỳ đang xem gồm cả hôm nay (chưa hết ngày), nên khi so với kỳ trước thường hơi thấp. Cột hôm nay trên biểu đồ tô nhạt.</li>
+          <li>Đặt bàn thành công chỉ tính khi đơn đã lưu được vào hệ thống đặt bàn hoặc bảng tính, không tính đơn gửi trùng. Khách gọi điện hoặc nhắn Zalo rồi đặt qua đó thì không nằm trong số này.</li>
+          <li>Lượt mở trang thống kê này không bị đếm vào số liệu.</li>
+        </ul>
+        <p class="may-noi-bo" id="may-noi-bo" role="status"></p>
+        <div class="hang-nut">
+          <button class="nut phu" id="nut-tai-lai" type="button">Tải lại</button>
+          <button class="nut phu" id="nut-noi-bo" type="button" hidden>Đếm lại lượt xem của máy này</button>
+          <button class="nut phu" id="nut-thoat" type="button">Thoát và quên mật mã trên máy này</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+<script>
+(() => {
+  'use strict';
+  // Dia chi web app Apps Script (docs/thong-ke/HUONG-DAN.md, buoc 5). Con trong thi trang hoi dia chi o o nhap va nho tren may.
+  const DIA_CHI_MAC_DINH = '';
+  const RE_DIA_CHI = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]{20,}\/exec$/;
+  const KHOA = 'tdc-thong-ke';
+  // Cung khoa voi js/lazy-tracking.js (?noi_bo=1): may co khoa nay thi web khong bat GA4/pixel nao
+  const KHOA_NOI_BO = 'tdc_noi_bo';
+  // Dung hop dong su kien o docs/do-luong.md muc 3
+  const SU_KIEN = [
+    ['conversion_event_submit_lead_form', 'Đặt bàn thành công', 'đơn đã lưu vào hệ thống của quán', true],
+    ['click_phone', 'Bấm gọi điện', 'mở cuộc gọi tới quán'],
+    ['click_zalo', 'Bấm nhắn Zalo', 'mở Zalo của quán'],
+    ['click_facebook', 'Bấm Facebook', 'mở trang Facebook của quán'],
+    ['click_directions', 'Bấm chỉ đường', 'mở Google Maps tới quán'],
+  ];
+  const LOI = {
+    'sai-mat-ma': 'Sai mật mã.',
+    'tam-khoa': 'Nhập sai quá nhiều lần. Đợi 15 phút rồi thử lại.',
+    'chua-cai-dat': 'Apps Script chưa có MAT_MA hoặc GA4_PROPERTY_ID. Chạy hàm kiemTra trong Apps Script (xem HUONG-DAN.md, bước 4).',
+    'yeu-cau-hong': 'Apps Script không đọc được yêu cầu. Tải lại trang rồi thử lại.',
+  };
+  const THIET_BI = { mobile: 'Điện thoại', desktop: 'Máy tính', tablet: 'Máy tính bảng', 'smart tv': 'Tivi' };
+  const THANH_PHO = { 'Ho Chi Minh City': 'TP. Hồ Chí Minh', Hanoi: 'Hà Nội', 'Da Lat': 'Đà Lạt', Dalat: 'Đà Lạt', 'Da Nang': 'Đà Nẵng',
+    'Can Tho': 'Cần Thơ', 'Bien Hoa': 'Biên Hòa', 'Thu Duc': 'Thủ Đức', Haiphong: 'Hải Phòng', 'Hai Phong': 'Hải Phòng',
+    'Vung Tau': 'Vũng Tàu', 'Buon Ma Thuot': 'Buôn Ma Thuột', 'Bao Loc': 'Bảo Lộc', 'Nha Trang': 'Nha Trang', 'Thu Dau Mot': 'Thủ Dầu Một',
+    'Phan Thiet': 'Phan Thiết', 'Quy Nhon': 'Quy Nhơn', Hue: 'Huế', '(not set)': 'Không rõ' };
+
+  const $ = (id) => document.getElementById(id);
+  function h(tag, attrs, ...kids) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === 'class') e.className = v; else if (k === 'text') e.textContent = v; else if (k === 'style') e.setAttribute('style', v); else e.setAttribute(k, v === true ? '' : v);
+    }
+    for (const k of kids.flat()) if (k != null) e.append(k.nodeType ? k : document.createTextNode(String(k)));
+    return e;
+  }
+  const so = (n) => Math.round(Number(n) || 0).toLocaleString('vi-VN');
+  const phanTram = (a, b) => (b ? Math.round((a / b) * 100) + '%' : '—');
+  const thoiGian = (giay) => {
+    const g = Math.round(Number(giay) || 0);
+    if (g < 60) return g + ' giây';
+    return Math.floor(g / 60) + ' phút ' + (g % 60 ? (g % 60) + ' giây' : '');
+  };
+  function bienDong(nay, truoc) {
+    nay = Number(nay) || 0; truoc = Number(truoc) || 0;
+    if (!truoc && !nay) return h('span', { class: 'bien ngang', text: 'không đổi' });
+    if (!truoc) return h('span', { class: 'bien tang', text: 'mới có' });
+    const p = Math.round(((nay - truoc) / truoc) * 100);
+    if (p === 0) return h('span', { class: 'bien ngang', text: '±0%' });
+    return h('span', { class: 'bien ' + (p > 0 ? 'tang' : 'giam'), text: (p > 0 ? '+' : '−') + Math.abs(p) + '%' });
+  }
+  // Duong dan trang tu GA4 -> link toi web quan. Chi nhan duong dan noi bo "/..." (chan "//ten-mien-la" — GA4 nhan
+  // hit gia tu bat ky ai biet ma do, nen khong tin du lieu nay de dung link ra ngoai).
+  function oTrang(duong, nhanTrangChu) {
+    let chu = duong;
+    try { chu = decodeURIComponent(duong); } catch (e) { /* giu nguyen */ }
+    if (chu === '/') chu = nhanTrangChu;
+    return /^\/(?!\/)[^\s\\]*$/.test(duong) ? h('a', { href: duong, target: '_blank', rel: 'noopener', text: chu }) : chu;
+  }
+
+  // ---------- luu tren may (chi la tien loi; khong co van chay binh thuong) ----------
+  function docLuu() {
+    for (const ten of ['localStorage', 'sessionStorage']) {
+      try { const v = JSON.parse(window[ten].getItem(KHOA) || 'null'); if (v) return Object.assign(v, { nho: ten === 'localStorage' }); } catch (e) { /* bo qua */ }
+    }
+    return {};
+  }
+  function ghiLuu() {
+    const v = JSON.stringify({ diaChi: st.diaChi, matMa: st.matMa, ky: st.ky });
+    try { (st.nho ? localStorage : sessionStorage).setItem(KHOA, v); (st.nho ? sessionStorage : localStorage).removeItem(KHOA); } catch (e) { /* bo qua */ }
+  }
+  function quen() {
+    try { localStorage.removeItem(KHOA); sessionStorage.removeItem(KHOA); } catch (e) { /* bo qua */ }
+  }
+
+  // ---------- may noi bo: nguoi vao duoc trang nay la nguoi trong quan -> khong dem luot ho xem web ----------
+  function laNoiBo() { try { return localStorage.getItem(KHOA_NOI_BO) === '1'; } catch (e) { return null; } }
+  function hienNoiBo() {
+    const nb = laNoiBo();
+    $('may-noi-bo').textContent = nb === null
+      ? 'Trình duyệt này chặn bộ nhớ trang, nên lượt xem web từ máy này vẫn được đếm.'
+      : nb ? 'Máy này đã được loại khỏi số liệu (giống mở tramdungchill.vn/?noi_bo=1): lượt xem web từ trình duyệt này không bị đếm, kể cả khi đặt bàn thử.'
+        : 'Lượt xem web từ máy này đang được đếm như khách.';
+    $('nut-noi-bo').hidden = !nb;
+  }
+  function danhDauNoiBo() { try { localStorage.setItem(KHOA_NOI_BO, '1'); } catch (e) { /* bo qua */ } hienNoiBo(); }
+
+  const luu = docLuu();
+  const st = { diaChi: DIA_CHI_MAC_DINH || luu.diaChi || '', matMa: luu.matMa || '', nho: !!luu.nho, ky: [7, 28, 90].includes(luu.ky) ? luu.ky : 28, dangTai: false };
+
+  // ---------- goi Apps Script ----------
+  async function goi(them) {
+    const huy = new AbortController();
+    const hen = setTimeout(() => huy.abort(), 45000);
+    try {
+      // text/plain de khong phai preflight; Apps Script tra 302 sang googleusercontent kem Access-Control-Allow-Origin: *
+      const r = await fetch(st.diaChi, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(Object.assign({ matMa: st.matMa }, them)), credentials: 'omit', redirect: 'follow', signal: huy.signal });
+      if (!r.ok) return { loi: 'http', chiTiet: 'HTTP ' + r.status };
+      return await r.json();
+    } catch (e) {
+      return { loi: e && e.name === 'AbortError' ? 'het-gio' : 'mang' };
+    } finally { clearTimeout(hen); }
+  }
+  function cauLoi(d) {
+    if (LOI[d.loi]) return LOI[d.loi];
+    if (d.loi === 'ga4') return 'Google Analytics báo lỗi: ' + (d.chiTiet || 'không rõ') + '. Kiểm tra tài khoản chạy Apps Script còn quyền xem GA4.';
+    if (d.loi === 'het-gio') return 'Apps Script trả lời quá lâu (hơn 45 giây). Thử lại sau ít phút.';
+    if (d.loi === 'mang') return 'Không gọi được Apps Script. Kiểm tra mạng, địa chỉ Apps Script, và lúc triển khai đã chọn “Bất kỳ ai” có quyền truy cập.';
+    return 'Không lấy được số (' + (d.chiTiet || d.loi) + ').';
+  }
+
+  async function tai(tuDangNhap) {
+    if (st.dangTai) return;
+    st.dangTai = true;
+    const nut = $('nut-vao');
+    nut.disabled = true; nut.textContent = 'Đang lấy số…';
+    $('trang-thai').textContent = 'Đang lấy số từ Google Analytics…';
+    document.querySelectorAll('.chon-ky button, #nut-tai-lai').forEach((b) => { b.disabled = true; });
+    const d = await goi({ ky: st.ky });
+    st.dangTai = false;
+    nut.disabled = false; nut.textContent = 'Xem số liệu';
+    document.querySelectorAll('.chon-ky button, #nut-tai-lai').forEach((b) => { b.disabled = false; });
+    if (d.loi) {
+      if (d.loi === 'sai-mat-ma' || d.loi === 'tam-khoa' || tuDangNhap || $('bang').hidden) {
+        if (d.loi === 'sai-mat-ma') { st.matMa = ''; quen(); }
+        hienDangNhap(cauLoi(d));
+      } else {
+        $('loi-bang').textContent = cauLoi(d); $('loi-bang').hidden = false; $('trang-thai').textContent = '';
+      }
+      return;
+    }
+    ghiLuu();
+    // Chi danh dau khi dang nhap tay lan nay — bam "Dem lai" roi thi lan tai sau khong tu danh dau lai
+    if (tuDangNhap) danhDauNoiBo(); else hienNoiBo();
+    $('loi-bang').hidden = true;
+    $('dang-nhap').hidden = true;
+    $('bang').hidden = false;
+    ve(d);
+    batTuDong();
+  }
+
+  function hienDangNhap(loi) {
+    $('bang').hidden = true;
+    $('dang-nhap').hidden = false;
+    $('nhan-dia-chi').hidden = RE_DIA_CHI.test(st.diaChi);
+    $('o-dia-chi').value = st.diaChi;
+    $('o-nho').checked = st.nho;
+    $('loi-dang-nhap').textContent = loi || '';
+    $('loi-dang-nhap').hidden = !loi;
+    (!$('nhan-dia-chi').hidden && !st.diaChi ? $('o-dia-chi') : $('o-mat-ma')).focus();
+  }
+
+  // ---------- ve ----------
+  function ve(d) {
+    const ky = d.ky || st.ky;
+    document.querySelectorAll('.chon-ky button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.ky) === ky)));
+    const luc = new Date(d.capNhat || Date.now());
+    $('trang-thai').textContent = 'Số của ' + ky + ' ngày gần nhất (gồm hôm nay), lấy lúc ' +
+      luc.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ngày ' + luc.toLocaleDateString('vi-VN') + '.';
+    veTgt(d.thoiGianThuc);
+    $('so-voi').textContent = 'So với ' + ky + ' ngày liền trước';
+
+    // Tong quan
+    const a = (d.tong && d.tong.nay) || {}, b = (d.tong && d.tong.truoc) || {};
+    const tb = (x) => (x.nguoi ? x.giayTuongTac / x.nguoi : 0);
+    $('o-tong').replaceChildren(...[
+      ['Người truy cập', so(a.nguoi), bienDong(a.nguoi, b.nguoi), so(a.nguoiMoi) + ' người lần đầu ghé'],
+      ['Lượt xem trang', so(a.luotXem), bienDong(a.luotXem, b.luotXem), (a.phien ? (a.luotXem / a.phien).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) : '0') + ' trang mỗi lượt ghé'],
+      ['Lượt ghé', so(a.phien), bienDong(a.phien, b.phien), phanTram(a.phienTuongTac, a.phien) + ' lượt có xem kỹ (trên 10 giây hoặc từ 2 trang)'],
+      ['Thời gian xem mỗi người', thoiGian(tb(a)), bienDong(tb(a), tb(b)), 'trung bình, chỉ tính lúc trang đang mở trên màn hình'],
+    ].map(([nhan, giaTri, bien, phu], i) => h('div', { class: 'o-so' }, h('span', { class: 'nhan', text: nhan }), h('span', { class: i === 3 ? 'gia-tri chu' : 'gia-tri', text: giaTri }), bien, h('span', { class: 'phu-chu', text: phu }))));
+
+    // Hanh dong
+    const hd = { nay: {}, truoc: {} };
+    for (const x of d.hanhDong || []) hd[x.ky === 'truoc' ? 'truoc' : 'nay'][x.su] = x.lan;
+    $('o-hd').replaceChildren(...SU_KIEN.map(([ma, nhan, phu, chinh]) => h('div', { class: 'o-so' + (chinh ? ' chinh' : '') },
+      h('span', { class: 'nhan', text: nhan }), h('span', { class: 'gia-tri', text: so(hd.nay[ma]) }), bienDong(hd.nay[ma], hd.truoc[ma]), h('span', { class: 'phu-chu', text: phu }))));
+    const soDon = hd.nay.conversion_event_submit_lead_form || 0;
+    $('ti-le-dat').textContent = a.nguoi ? 'Cứ 100 người truy cập có ' + ((100 * soDon) / a.nguoi).toLocaleString('vi-VN', { maximumFractionDigits: 1 }) + ' đơn đặt bàn qua web' : '';
+
+    // Don dat ban theo nguon + theo trang
+    const nhomDon = new Map();
+    let tongDon = 0;
+    for (const x of d.donTheoNguon || []) {
+      const ten = nhomNguon(x.nguon, x.kenh);
+      nhomDon.set(ten, (nhomDon.get(ten) || 0) + x.don);
+      tongDon += x.don;
+    }
+    const dsDon = [...nhomDon].filter(([, v]) => v > 0).sort((p, q) => q[1] - p[1]);
+    $('ds-don-nguon').replaceChildren(...(dsDon.length ? dsDon.map(([ten, v]) => dongThanh(ten, v / dsDon[0][1], [so(v) + ' · ' + phanTram(v, tongDon)]))
+      : [h('p', { class: 'mo', text: 'Chưa có đơn đặt bàn nào qua web trong kỳ này.' })]));
+    $('bang-don-trang').replaceChildren(...((d.donTheoTrang || []).length
+      ? d.donTheoTrang.map((x) => h('tr', {}, h('td', { class: 'duong' }, oTrang(x.duong, '/ (trang chủ)')), h('td', { class: 'so', text: so(x.don) })))
+      : [h('tr', {}, h('td', { colspan: 2, class: 'mo', text: 'Chưa có đơn nào.' }))]));
+
+    // Theo ngay: lap ngay trong (GA4 bo ngay khong co luot nao)
+    const theo = new Map((d.theoNgay || []).map((x) => [x.ngay, x]));
+    const homNay = new Date(Date.now() + 7 * 3600e3);
+    const ngay = [];
+    for (let i = ky - 1; i >= 0; i--) {
+      const t = new Date(Date.UTC(homNay.getUTCFullYear(), homNay.getUTCMonth(), homNay.getUTCDate() - i));
+      const ma = t.toISOString().slice(0, 10).replace(/-/g, '');
+      const x = theo.get(ma) || {};
+      ngay.push({ ma, nhan: t.getUTCDate() + '/' + (t.getUTCMonth() + 1), nguoi: x.nguoi || 0, luotXem: x.luotXem || 0, homNay: i === 0 });
+    }
+    veCot($('bd-ngay'), ngay.map((x) => ({ v: x.nguoi, nhan: x.nhan, mo: x.homNay, tieuDe: x.nhan + (x.homNay ? ' (hôm nay, chưa hết ngày)' : '') + ': ' + so(x.nguoi) + ' người, ' + so(x.luotXem) + ' lượt xem' })),
+      { buoc: ky <= 7 ? 1 : ky <= 28 ? 7 : 15, donVi: 'người', moTa: 'Biểu đồ cột người truy cập theo ngày, ' + ky + ' ngày gần nhất' });
+    $('bang-ngay').replaceChildren(...[...ngay].reverse().map((x) => h('tr', {}, h('th', { scope: 'row', text: x.nhan + (x.homNay ? ' (hôm nay)' : '') }), h('td', { class: 'so', text: so(x.nguoi) }), h('td', { class: 'so', text: so(x.luotXem) }))));
+
+    // Nguon
+    const nhom = new Map();
+    let tongPhien = 0;
+    for (const x of d.nguon || []) {
+      const ten = nhomNguon(x.nguon, x.kenh);
+      const g = nhom.get(ten) || { nay: 0, truoc: 0 };
+      g[x.ky === 'truoc' ? 'truoc' : 'nay'] += x.phien;
+      if (x.ky !== 'truoc') tongPhien += x.phien;
+      nhom.set(ten, g);
+    }
+    const dsNhom = [...nhom].filter(([, g]) => g.nay > 0).sort((p, q) => q[1].nay - p[1].nay);
+    const lonNhat = dsNhom.length ? dsNhom[0][1].nay : 1;
+    $('ds-nguon').replaceChildren(...(dsNhom.length ? dsNhom.map(([ten, g]) => dongThanh(ten, g.nay / lonNhat,
+      [so(g.nay) + ' · ' + phanTram(g.nay, tongPhien) + ' ', bienDong(g.nay, g.truoc)])) : [h('p', { class: 'mo', text: 'Chưa có lượt ghé nào trong kỳ này.' })]));
+    $('bang-nguon').replaceChildren(...(d.nguon || []).filter((x) => x.ky !== 'truoc').slice(0, 25).map((x) =>
+      h('tr', {}, h('td', { text: x.nguon + ' / ' + x.kenh }), h('td', { class: 'so', text: so(x.phien) }), h('td', { class: 'so', text: so(x.nguoi) }))));
+
+    // Trang
+    $('bang-trang').replaceChildren(...((d.trang || []).length
+      ? d.trang.map((x) => h('tr', {}, h('td', { class: 'duong' }, oTrang(x.duong, '/ (trang chủ)')), h('td', { class: 'so', text: so(x.luotXem) }), h('td', { class: 'so', text: so(x.nguoi) })))
+      : [h('tr', {}, h('td', { colspan: 3, class: 'mo', text: 'Chưa có số liệu.' }))]));
+
+    // Gio
+    const gio = new Array(24).fill(0);
+    for (const x of d.theoGio || []) if (x.gio >= 0 && x.gio < 24) gio[x.gio] = x.nguoi;
+    const dinh = gio.indexOf(Math.max(...gio));
+    veCot($('bd-gio'), gio.map((v, i) => ({ v, nhan: i + 'h', tieuDe: i + ':00–' + i + ':59: ' + so(v) + ' người' })), { buoc: 3, tuDau: true, dinh: true, donVi: 'người', moTa: 'Biểu đồ cột người truy cập theo giờ trong ngày' });
+    $('gio-cao').textContent = Math.max(...gio) ? 'Đông nhất lúc ' + dinh + ':00–' + dinh + ':59' : '';
+
+    // Thiet bi
+    const tongTb = (d.thietBi || []).reduce((s, x) => s + x.nguoi, 0) || 1;
+    $('ds-thiet-bi').replaceChildren(...((d.thietBi || []).length ? d.thietBi.map((x) => dongThanh(THIET_BI[x.loai] || x.loai, x.nguoi / tongTb, [so(x.nguoi) + ' · ' + phanTram(x.nguoi, tongTb)]))
+      : [h('p', { class: 'mo', text: 'Chưa có số liệu.' })]));
+
+    // Thanh pho
+    $('bang-tp').replaceChildren(...((d.thanhPho || []).length ? d.thanhPho.map((x) => h('tr', {}, h('td', { text: THANH_PHO[x.ten] || x.ten }), h('td', { class: 'so', text: so(x.nguoi) })))
+      : [h('tr', {}, h('td', { colspan: 2, class: 'mo', text: 'Chưa có số liệu.' }))]));
+  }
+
+  // ---------- ngay luc nay (thoi gian thuc, 30 phut gan nhat) ----------
+  let henTgt = null, lanTgt = 0;
+  function veTgt(t) {
+    if (!t) return;
+    lanTgt = Date.now();
+    const luc = new Date(t.luc || Date.now());
+    $('tgt-luc').textContent = 'Tự cập nhật mỗi phút · lúc ' + luc.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+    $('tgt-so').replaceChildren(...[
+      ['Người trên web trong 30 phút qua', t.n30], ['Người trên web trong 5 phút qua', t.n5],
+    ].map(([nhan, v]) => h('div', { class: 'o-so' }, h('span', { class: 'nhan', text: nhan }), h('span', { class: 'gia-tri', text: v == null ? '—' : so(v) }))));
+    const phut = new Array(30).fill(0);
+    for (const x of t.theoPhut || []) if (x.phut >= 0 && x.phut < 30) phut[x.phut] = x.nguoi;
+    veCot($('bd-phut'), phut.map((v, m) => ({ v, m })).reverse().map(({ v, m }) => ({ v, nhan: m === 0 ? 'bây giờ' : '-' + m + ' phút',
+      tieuDe: (m === 0 ? 'Phút này' : m + '–' + (m + 1) + ' phút trước') + ': ' + so(v) + ' người' })),
+      { buoc: 5, donVi: 'người mỗi phút', moTa: 'Biểu đồ cột số người trên web theo từng phút, 30 phút gần nhất' });
+    const nhanSk = Object.fromEntries(SU_KIEN.map(([ma, nhan]) => [ma, nhan]));
+    const the = (tieuDe, ds, chu, so_, rong) => h('div', { class: 'the-ds' }, h('h3', { text: tieuDe }),
+      ds && ds.length ? h('ol', {}, ds.map((x) => h('li', {}, h('span', { text: chu(x) }), h('span', { text: so(so_(x)) })))) : h('p', { class: 'trong', text: rong }));
+    $('tgt-ds').replaceChildren(...[
+      the('Đang xem trang nào', t.trang, (x) => x.ten || '(không tên)', (x) => x.luotXem, 'Chưa có lượt xem nào.'),
+      t.nguon ? the('Đến từ đâu (nguồn lần đầu)', t.nguon, (x) => x.nguon === '(direct)' ? 'Gõ thẳng địa chỉ / lưu sẵn' : x.nguon, (x) => x.nguoi, 'Chưa có ai.') : null,
+      the('Ở thành phố nào', t.thanhPho, (x) => THANH_PHO[x.ten] || x.ten, (x) => x.nguoi, 'Chưa có ai.'),
+      the('Vừa bấm gì', t.suKien, (x) => nhanSk[x.su] || x.su, (x) => x.lan, 'Chưa ai đặt bàn, bấm gọi, Zalo, Facebook hay chỉ đường trong 30 phút qua.'),
+    ].filter(Boolean));
+  }
+  async function capNhatTgt() {
+    if (document.hidden || $('bang').hidden || st.dangTai || !st.matMa) return;
+    const d = await goi({ chi: 'tgt' });
+    if (d && d.thoiGianThuc) veTgt(d.thoiGianThuc);
+  }
+  function batTuDong() {
+    clearInterval(henTgt);
+    henTgt = setInterval(capNhatTgt, 60000);
+  }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - lanTgt > 60000) capNhatTgt(); });
+
+  function dongThanh(ten, tiLe, soChu) {
+    return h('div', { class: 'dong-thanh' }, h('span', { class: 'ten', text: ten }),
+      h('span', { class: 'rang', 'aria-hidden': 'true' }, h('i', { style: 'width:' + Math.max(1, Math.round(tiLe * 100)) + '%' })),
+      h('span', { class: 'so' }, ...soChu));
+  }
+
+  // Cot bang HTML (khong dung SVG co gian, de chu khong bi thu nho tren dien thoai)
+  function veCot(noi, ds, { buoc, tuDau, dinh: danhDauDinh, donVi, moTa }) {
+    const max = Math.max(1, ...ds.map((x) => x.v));
+    const iDinh = ds.findIndex((x) => x.v === max);
+    const cot = h('div', { class: 'cac-cot', role: 'img', 'aria-label': moTa + '. Cao nhất ' + so(max) + ' ' + donVi + '.' },
+      ds.map((x, i) => h('span', { class: 'cot' + (x.mo ? ' nay' : '') + (danhDauDinh && i === iDinh && x.v ? ' dinh' : ''), title: x.tieuDe, style: 'height:' + ((x.v / max) * 100).toFixed(1) + '%' })));
+    const nhan = h('div', { class: 'nhan-cot', 'aria-hidden': 'true' }, ds.map((x, i) => h('span', { text: (tuDau ? i : ds.length - 1 - i) % buoc === 0 ? x.nhan : '' })));
+    noi.replaceChildren(h('p', { class: 'cot-cao', text: 'Cao nhất ' + so(max) + ' ' + donVi + (ds[iDinh] ? ' (' + ds[iDinh].nhan + ')' : '') }), cot, nhan);
+  }
+
+  // Gom source/medium cua GA4 thanh nhom de doc. Sua nhom o day, khong can trien khai lai Apps Script.
+  // Ten nguon theo docs/UTM-CONVENTION.md: ho so ban do = google|bing / referral / local_listing; bai bao = <ten bao> / referral.
+  function nhomNguon(nguon, kenh) {
+    const s = String(nguon || '').toLowerCase(), m = String(kenh || '').toLowerCase();
+    if (s === '(direct)') return 'Gõ thẳng địa chỉ / lưu sẵn';
+    if (/^(cpc|ppc|cpm|cpv|paid|paidsearch|paid_search|paidsocial|paid_social|display)$/.test(m)) {
+      if (/google|youtube/.test(s)) return 'Quảng cáo Google';
+      if (/facebook|^fb$|instagram|^ig$|messenger|meta/.test(s)) return 'Quảng cáo Facebook / Instagram';
+      if (/tiktok/.test(s)) return 'Quảng cáo TikTok';
+      return 'Quảng cáo khác';
+    }
+    if (/google_maps|gmb|maps\.google|maps\.app\.goo|business\.google/.test(s) || (s === 'google' && m === 'referral')) return 'Google Maps';
+    if (s === 'bing' && m === 'referral') return 'Bing Maps';
+    if (/chatgpt|openai|perplexity|gemini\.google|copilot|claude\.ai|deepseek|grok|meta\.ai|you\.com/.test(s)) return 'AI (ChatGPT, Gemini…)';
+    if (/^(24h|kenh14|yeah1|saostar|phunuvagiadinh)$|24h\.com\.vn|kenh14\.vn|yeah1\.com|saostar\.vn|phunuvagiadinh\.vn|vnexpress|tuoitre|thanhnien|dantri|znews|baomoi|vietnamnet/.test(s)) return 'Báo chí (bài PR)';
+    if (/facebook|^fb$|instagram|^ig$|messenger|threads/.test(s)) return 'Facebook / Instagram';
+    if (/tiktok/.test(s)) return 'TikTok';
+    if (/zalo/.test(s)) return 'Zalo';
+    if (/youtube/.test(s)) return 'YouTube';
+    if (s === 'kol' || m === 'affiliate') return 'KOL / người review';
+    if (s === 'qr' || m === 'qr') return 'Mã QR (menu, card)';
+    if (/xomleo/.test(s)) return 'Xóm Lèo (quán cùng chủ)';
+    if (/google/.test(s) && (m === 'organic' || m === '(none)' || m === 'referral')) return 'Google tìm kiếm';
+    if (/bing|coccoc|yahoo|duckduckgo|yandex|naver|baidu|ecosia/.test(s)) return 'Công cụ tìm kiếm khác';
+    if (/tripadvisor|foody|pasgo|riviu|mia\.vn|vntrip|traveloka|klook/.test(s)) return 'Trang review / du lịch';
+    if (/^(email|sms)$/.test(s) || /^(email|sms)$/.test(m)) return 'Email / SMS';
+    if (/tramdungchill/.test(s)) return 'Chính web quán';
+    if (s === '(not set)' || !s) return 'Không rõ';
+    return 'Trang khác';
+  }
+
+  // ---------- su kien ----------
+  $('dang-nhap').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    if (!$('nhan-dia-chi').hidden) {
+      const dc = $('o-dia-chi').value.trim();
+      if (!RE_DIA_CHI.test(dc)) { hienDangNhap('Địa chỉ Apps Script chưa đúng. Dạng đúng: https://script.google.com/macros/s/…/exec'); return; }
+      st.diaChi = dc;
+    }
+    const mm = $('o-mat-ma').value;
+    if (!mm) { hienDangNhap('Nhập mật mã.'); return; }
+    st.matMa = mm; st.nho = $('o-nho').checked;
+    tai(true);
+  });
+  $('nut-doi-dia-chi').addEventListener('click', () => { $('nhan-dia-chi').hidden = false; $('o-dia-chi').focus(); });
+  document.querySelectorAll('.chon-ky button').forEach((b) => b.addEventListener('click', () => {
+    st.ky = Number(b.dataset.ky);
+    tai(false);
+  }));
+  $('nut-tai-lai').addEventListener('click', () => tai(false));
+  $('nut-noi-bo').addEventListener('click', () => { try { localStorage.removeItem(KHOA_NOI_BO); } catch (e) { /* bo qua */ } hienNoiBo(); });
+  $('nut-thoat').addEventListener('click', () => { clearInterval(henTgt); st.matMa = ''; quen(); $('o-mat-ma').value = ''; hienDangNhap(''); });
+
+  if (RE_DIA_CHI.test(st.diaChi) && st.matMa) tai(false); else hienDangNhap('');
+})();
+</script>
+</body>
+</html>

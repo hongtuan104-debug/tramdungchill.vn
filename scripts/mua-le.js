@@ -167,10 +167,12 @@ function ganVaoTrang(html, vers) {
 }
 
 /** Trang nào có đoạn mùa: mọi trang khách xem. Bỏ: file xác minh Google (nội dung phải y hệt),
- *  mảnh nav/footer (không có head), review-qr.html (trang in QR nội bộ, bug #37). */
+ *  mảnh nav/footer (không có head), review-qr.html (trang in QR nội bộ, bug #37),
+ *  quan-tri/ (trang thống kê của chủ quán, CLAUDE.md #53). */
 function trangCanMua(file) {
     const ten = path.basename(file);
     if (/^google[0-9a-f]+\.html$/.test(ten) || ten === "review-qr.html") return false;
+    if (/[\\/]quan-tri[\\/]/.test(file)) return false;
     return /[\\/]components[\\/]/.test(file) === false;
 }
 

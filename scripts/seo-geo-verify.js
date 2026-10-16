@@ -2626,11 +2626,15 @@ const CAU_AEO = (() => {
     if (!/if \(daLuuDuoc && !donTrung\) \{/.test(bk)) pham.push("js/booking.js: đơn trùng (deduped) vẫn đếm chuyển đổi");
 
     // (d) trang nội bộ không gắn công cụ theo dõi
-    const noiBo = ["review-qr.html"].concat(fs.existsSync(path.join(ROOT, "dev"))
+    //     quan-tri/index.html (CLAUDE.md #53): lượt chủ quán mở trang thống kê không được tự đếm vào chính số đó,
+    //     và trang mang ô nhập mật mã nên phải giữ noindex
+    const noiBo = ["review-qr.html", "quan-tri/index.html"].concat(fs.existsSync(path.join(ROOT, "dev"))
         ? fs.readdirSync(path.join(ROOT, "dev")).filter(f => f.endsWith(".html")).map(f => "dev/" + f) : []);
     for (const f of noiBo) {
+        if (!fs.existsSync(path.join(ROOT, f))) { pham.push(f + " không còn trên đĩa — sửa danh sách trang nội bộ trong R27"); continue; }
         const s = fs.readFileSync(path.join(ROOT, f), "utf8");
-        if (/data-tdc-lazy|fbq\(|ttq\.load|clarity\.ms|googletagmanager\.com\/gtag/.test(s)) pham.push(f + " là trang nội bộ nhưng gắn pixel/GA4/Clarity");
+        if (/data-tdc-lazy|fbq\(|ttq\.load|clarity\.ms|googletagmanager\.com\/gtag|<script[^>]*src="[^"]*lazy-tracking/.test(s)) pham.push(f + " là trang nội bộ nhưng gắn pixel/GA4/Clarity");
+        if (f.startsWith("quan-tri/") && !/<meta name="robots" content="noindex, nofollow">/.test(s)) pham.push(f + " thiếu noindex, nofollow");
     }
 
     // (e) mọi form đặt bàn che trong bản quay Clarity

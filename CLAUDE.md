@@ -83,6 +83,7 @@ tiem-nuong-tram-dung-chill/
 - **Sổ đo lường (hợp đồng sự kiện, phạm vi, luật đếm lead, việc chờ sếp):** `docs/do-luong.md` — xem bug #37
 - **Máy nội bộ:** mở `https://tramdungchill.vn/?noi_bo=1` một lần trên máy chủ quán / nhân viên → máy đó không bật pixel nữa
 - **RUM Core Web Vitals** (15/09/2026): sự kiện GA4 `LCP` `INP` `CLS` `TTFB` đo trên máy khách thật, nạp SAU pixel — xem bug #31
+- **Xem số ngay trên web:** `https://tramdungchill.vn/quan-tri/` (mật mã, số GA4 qua Apps Script riêng) — xem bug #53
 
 ## Footer — sinh tự động, ĐỪNG sửa HTML tay
 Footer nằm trong 8 file (component + template bài + 404 + 4 trang dịp), tất cả
@@ -905,7 +906,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    file VẪN trong git). Phần máy làm được đã đo và đã canh:
    - 🟢 **27/27 URL sitemap gọi thật đều 200, 0 chuyển hướng, 0 `X-Robots-Tag`, canonical tự trỏ, 0 noindex**
      (mục 266 đạt). URL lạ trả 404 thật, không soft-404. `www` → 301 → không-www.
-   - 🟢 **`http://tramdungchill.vn/` trả 200, KHÔNG 301 sang https.** Property là URL-prefix
+   - ✅ **ĐÃ SỬA 10/10/2026: sếp bật Enforce HTTPS** — `http://` nay 301 sang https, giữ nguyên đường dẫn + tham số.
+     ⚠️ Trang Settings → Pages chỉ tài khoản CHỦ `hongtuan104-debug` mở được; tài khoản cộng tác viên gặp 404.
+     Trước đó (đo 18/09): `http://tramdungchill.vn/` trả 200, KHÔNG 301 sang https. Property là URL-prefix
      `https://tramdungchill.vn/` (xác minh 22/03/2026 bằng file `googlef9138a5a20ad2da4.html`) nên bản http
      nằm NGOÀI mọi báo cáo. Sửa = tick **Enforce HTTPS** trong GitHub Pages → Settings → Pages. **Máy này
      không bấm hộ được**: không có `gh` CLI, không có token, MCP github không có tool cho Pages API.
@@ -944,7 +947,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    → Sau deploy: **`node scripts/kiem-sitemap-live.js`** (`--nhanh` = chỉ xem header) gọi thật 27 URL + 3 bản
    khác của trang chủ + file xác minh + sitemap/robots. Header `X-Robots-Tag` và cú 301 chỉ lộ ở đây, đọc
    file trong repo không bao giờ thấy. ⚠️ Chạy SAU khi Pages deploy xong, không thì báo nhầm bản cũ.
-   ⚠️ **Chờ sếp** (chi tiết trong `docs/search-console.md`): bật Enforce HTTPS · thêm Domain property (bản ghi
+   ⚠️ **Chờ sếp** (chi tiết trong `docs/search-console.md`): ~~bật Enforce HTTPS~~ (xong 10/10/2026) · thêm Domain property (bản ghi
    TXT ở iNET) · thêm chủ sở hữu thứ 2 · gửi em danh sách 15 URL "đã phát hiện – chưa lập chỉ mục" · quyết
    việc đổi 1.960 link nội bộ sang `/`.
 
@@ -1403,6 +1406,31 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      22 đều khớp tập Unicode 17 từng mã, 26/26 dấu vân khớp số đang lưu, chạy thử bot 0 trang → không phải tính lại file dấu vân.
      Máy canh **R13e** nay chặn `\p{…}` trong hàm (quét sau khi bỏ chú thích) + kiểm icon emoji không đổi dấu vân; bẻ thử 2 kiểu, bắt đủ.
      Muốn chắc như CI thì vẫn chạy được `npx -y node@20 scripts/cap-nhat-lastmod.js --kiem-tra` (npx tải được node@20 trên máy này).
+
+53. **Trang thống kê truy cập `/quan-tri/` — chức năng của web, chép từ `xomleo.vn/quan-tri/`** (sếp Tuấn hỏi 16/10/2026).
+   Trước đó số GA4 chỉ đọc được bằng `scripts/do-khach-vao-web.js` (cần chìa khoá service account, máy này không có).
+   - **Kiến trúc** (giống Xóm Lèo, dựng cùng ngày): `quan-tri/index.html` gửi `fetch` POST `text/plain` (không preflight) tới một
+     web app Apps Script RIÊNG (`docs/thong-ke/Code.gs`, chạy với tư cách chủ quán, quyền "Bất kỳ ai") → `AnalyticsData.batchRunReports`
+     (2 lô × ≤ 5 báo cáo) + `runRealtimeReport`. Cách cài: **`docs/thong-ke/HUONG-DAN.md`**.
+   - **Mật mã `MAT_MA` + `GA4_PROPERTY_ID` nằm ở Script Properties, KHÔNG ở code** (repo công khai). So qua SHA-256, khoá 15 lần sai /
+     15 phút cho cả script, số kỳ lưu tạm 15 phút, số thời gian thực 60 giây. `kiemTra()` tự tìm property có luồng `G-2VFBZDY6CD`.
+   - ⚠️ **Đừng dán Code.gs vào dự án Apps Script nhận đơn đặt bàn** (`AKfycbz46uJ…`): thêm dịch vụ Analytics là phải cấp quyền lại +
+     triển khai bản mới, lỡ tay là đơn rớt.
+   - **Khác bản Xóm Lèo:** sự kiện theo `docs/do-luong.md` mục 3 (`conversion_event_submit_lead_form` = đặt bàn thành công, `click_phone`,
+     `click_zalo`, `click_facebook`, `click_directions`); thêm 2 mục **"Đơn đặt bàn đến từ đâu" / "Đơn gửi từ trang nào"** (lọc đúng sự kiện
+     đơn); `nhomNguon()` theo `docs/UTM-CONVENTION.md` (google|bing/referral = hồ sơ bản đồ, 5 báo PR = "Báo chí", tách quảng cáo trả tiền
+     theo nền tảng); **máy đăng nhập được tự đánh dấu nội bộ** (`localStorage tdc_noi_bo=1`, cùng khoá với `?noi_bo=1` của
+     `lazy-tracking.js`) — chỉ khi đăng nhập tay, có nút "Đếm lại lượt xem của máy này"; không CSP-hash vì site không dùng CSP (trang có
+     CSP riêng chỉ mở `connect-src` tới script.google.com / googleusercontent.com); `referrer: no-referrer`.
+   - Trang: `noindex, nofollow`, không GA4/pixel, không trong sitemap, không link từ đâu, **không đoạn giao diện mùa** (`trangCanMua()` trong
+     `mua-le.js` bỏ qua `quan-tri/`). Phông tự khai `@font-face` trỏ `/assets/fonts/` (build gắn `?v=`). Link trang trong bảng chỉ nhận đường
+     dẫn `/…` — chặn `//miền-lạ` vì GA4 nhận hit giả từ bất kỳ ai biết mã đo.
+   - `DIA_CHI_MAC_DINH = ''` trong `quan-tri/index.html`: sếp gửi URL `/exec` thì điền vào đây rồi push — từ đó máy nào cũng chỉ cần mật mã.
+   - Đã thử 16/10: `Code.gs` trong Node `vm` với GA4 giả 13/13 ca · trang trong Chrome (Apps Script giả qua CDP Fetch, mọi tên miền khác
+     chặn ở DNS) 30/30 ca, 0 lỗi JS, 0 request ra ngoài, không tràn ngang 390/1280px · build: 8 phông + `sw.js` không đổi byte nào.
+   → Máy canh **R27 mục (d)**: `quan-tri/index.html` không được nạp pixel / GA4 / `lazy-tracking` và phải giữ `noindex, nofollow`
+   (luật chỉ bắt thẻ `<script src>` thật — chữ "lazy-tracking" trong chú thích từng làm nó báo nhầm). Bẻ thử 2 kiểu, bắt đủ.
+   Chưa làm: Search Console (Apps Script không có dịch vụ sẵn, phải tạo dự án Google Cloud riêng).
 
 ## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
 `tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
