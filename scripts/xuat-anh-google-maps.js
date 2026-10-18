@@ -41,7 +41,7 @@ const THU_MUC_DICH = path.join(__dirname, '..', '..', 'anh-google-maps');
 const TEN_FILE = {
     1:  'quan-nuong-da-lat-tram-dung-chill-bia-menu',
     2:  'menu-quan-nuong-da-lat-bo-kobe-nuong-tang-pho-mai-trung-muoi',
-    3:  'tiem-nuong-da-lat-veu-heo-uop-chao-oc-nhoi-thit',
+    3:  'tiem-nuong-da-lat-veu-heo-uop-chao-ca-tam-luc-lac',
     4:  'quan-nuong-ngon-da-lat-ca-tam-rang-muoi-suon-cay-thai',
     5:  'nuong-tai-ban-da-lat-bo-nuong-cuc-bo-nuong-xien',
     6:  'bbq-da-lat-ba-chi-heo-han-quoc-suon-que-chan-ga-nuong',

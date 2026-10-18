@@ -2589,7 +2589,7 @@ const BLOG_ARTICLES = [
                             <p>Nhiều người nghĩ <strong>hải sản Đà Lạt</strong> không tươi vì xa biển. Thực tế, nhờ logistics hiện đại, nhiều quán nhập hải sản tươi sống hàng ngày từ Phan Thiết, Nha Trang (chỉ 3-4 tiếng xe). Tôm, mực, cá tầm, bạch tuộc — đều tươi roi rói!</p>
 
                             <h2>Hải sản nướng tại Trạm Dừng Chill</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm, mực, cá tầm, bạch tuộc, ốc. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
+                            <p><a href="/">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm, mực, cá tầm, bạch tuộc. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
 <img src="assets/images/blog/cong-tron-hoang-hon-da-lat.webp" alt="Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 

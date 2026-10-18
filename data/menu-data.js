@@ -36,7 +36,6 @@ const MENU_ITEMS = {
         { name: 'Bò Okachi Nướng Tảng Phô Mai Trứng Muối', price: '229K' },
         { name: 'Vếu Heo Ướp Sate', price: '145K' },
         { name: 'Vếu Heo Ướp Chao', price: '145K' },
-        { name: 'Ốc Nhồi Thịt', price: '165K' },
         { name: 'Cá Tầm Lúc Lắc', price: '165K' },
         { name: 'Cá Tầm Rang Muối', price: '199K' },
         { name: 'Sườn Cay Thái Lan', price: '259K', badge: 'Hot' },

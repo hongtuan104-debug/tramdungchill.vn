@@ -59,8 +59,10 @@ var MENU_PAGES = [
     {
         n: 3,
         group: 'bestseller',
-        slug: 'menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-oc-nhoi-thit',
-        alt: 'Món best seller Trạm Dừng Chill: vếu heo ướp chao, ba chỉ bò cuộn nấm kim châm, ốc nhồi thịt, cá tầm lúc lắc'
+        // 18/10/2026 đổi slug: quán ngừng bán ốc nhồi thịt, trang in mới bỏ món này — tên cũ "-oc-nhoi-thit"
+        // là tả món không còn trong ảnh. File cũ đã xoá để Google Images gỡ ảnh mang món ngừng bán.
+        slug: 'menu-quan-nuong-da-lat-03-best-seller-veu-heo-uop-chao-ca-tam-luc-lac',
+        alt: 'Món best seller Trạm Dừng Chill: vếu heo ướp chao, ba chỉ bò cuộn nấm kim châm, cá tầm lúc lắc'
     },
     {
         n: 4,
