@@ -26,7 +26,7 @@ var TRANSLATIONS = {
     'hero.cta': 'Đặt Bàn Ngay',
     'hero.menu': 'Xem Menu',
     'hero.scroll': 'Cuộn xuống',
-    'hero.trust1': '<strong>4.8/5</strong> · <strong>7.060</strong> đánh giá Google',
+    'hero.trust1': '<strong>4.8/5</strong> · <strong>7.344</strong> đánh giá Google',
 
     // Experience
     'exp.tag': 'Trải nghiệm độc đáo',
@@ -105,9 +105,9 @@ var TRANSLATIONS = {
 
     // Reviews (real testimonials)
     'reviews.tag': 'Khách nói gì',
-    'reviews.title': '<em>7.060 lượt đánh giá</em><br>4.8/5 sao trên Google',
+    'reviews.title': '<em>7.344 lượt đánh giá</em><br>4.8/5 sao trên Google',
     'reviews.on': 'trên Google Reviews',
-    'reviews.count': '· 7.060 đánh giá thực tế (số đọc ngày 04/09/2026)',
+    'reviews.count': '· 7.344 đánh giá thực tế (số đọc ngày 18/10/2026)',
     'reviews.cta': 'Xem tất cả đánh giá trên Google',
     'reviews.sub': 'Đã đến quán? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Đánh giá ngay →</a>',
 
@@ -384,7 +384,7 @@ var TRANSLATIONS = {
     'hero.cta': 'Book Now',
     'hero.menu': 'View Menu',
     'hero.scroll': 'Scroll down',
-    'hero.trust1': '<strong>4.8/5</strong> · <strong>7,060</strong> Google reviews',
+    'hero.trust1': '<strong>4.8/5</strong> · <strong>7,344</strong> Google reviews',
 
     // Experience
     'exp.tag': 'Unique experiences',
@@ -463,9 +463,9 @@ var TRANSLATIONS = {
 
     // Reviews (real testimonials)
     'reviews.tag': 'What guests say',
-    'reviews.title': '<em>7,060 reviews</em><br>rated 4.8/5 on Google',
+    'reviews.title': '<em>7,344 reviews</em><br>rated 4.8/5 on Google',
     'reviews.on': 'on Google Reviews',
-    'reviews.count': '· 7,060 reviews from real guests (as of 4 Sep 2026)',
+    'reviews.count': '· 7,344 reviews from real guests (as of 18 Oct 2026)',
     'reviews.cta': 'See all reviews on Google',
     'reviews.sub': 'Already visited? <a href="https://maps.app.goo.gl/LYKSGggSms2nwTWq7" target="_blank" rel="noopener">Leave a review →</a>',
 

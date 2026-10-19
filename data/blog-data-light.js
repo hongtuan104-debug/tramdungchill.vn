@@ -21,7 +21,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "A grey Dalat Plateau Rail Road carriage on the tracks right below the restaurant's wooden railing, a railway crossing sign, greenhouses and a pink house behind",
     "badge": "",
     "featured": false,
-    "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8/5 on Google Maps from 7,060 reviews.",
+    "excerpt": "Looking for a Da Lat restaurant with a train view? Tram Dung Chill grills BBQ above the historic Da Lat–Trai Mat railway, rated 4.8/5 on Google Maps from 7,344 reviews.",
     "tags": []
   },
   {
@@ -81,7 +81,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính",
     "badge": "",
     "featured": false,
-    "excerpt": "Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù & xe lửa, 4.8/5 sao với 7.060 lượt đánh giá Google.",
+    "excerpt": "Mùa lạnh Đà Lạt ăn lẩu nướng ở đâu? Trạm Dừng Chill — bếp than ấm, lẩu nóng, view thung lũng sương mù & xe lửa, 4.8/5 sao với 7.344 lượt đánh giá Google.",
     "tags": []
   },
   {

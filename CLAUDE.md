@@ -35,11 +35,15 @@
   14/10/2026 thay trang ảnh 4 (best seller "03"): thêm **Gỏi Sứa 159K**, Cá Tầm Rang Muối 200→**199K**, Sườn Cay
   Thái Lan 260→**259K**, Tôm Chiên Trứng Muối 160→**158K** — sếp xác nhận đây là giá bán thật HIỆN TẠI (11/08 từng
   sửa ngược 199/259/158 → 200/260/160; giá đổi qua lại hai lần, gặp lệch thì hỏi sếp, đừng tự chọn bên).
+  **19/10/2026 sếp chốt lại lần nữa: 199/259/158 là đúng** — artifact "Kế hoạch khách nước ngoài" (17/10) ghi giá máy tính tiền
+  200/260/160 là đúng là ghi NHẦM; menu in trang 4 + web không phải sửa, máy tính tiền + thực đơn Google Maps phải theo 199/259/158.
   18/10/2026 thay trang ảnh 3 (best seller "02"): **quán ngừng bán Ốc Nhồi Thịt** (sếp chốt) — gỡ khỏi menu-data,
   FAQ trang Thực đơn, 8 bài blog; slug ảnh đổi `…-oc-nhoi-thit` → `…-ca-tam-luc-lac`, file cũ đã xoá. Quán nay
   KHÔNG còn món ốc nào — "ốc" trong bài chợ đêm / quán khác thì giữ. Mục Best Seller còn 11 món (4 món bò).
   Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
-- **Đánh giá:** 4,8/5 sao · **7.060 lượt** (GBP, xác nhận 04/09/2026 — Google có tỉa bớt review, 24/08 từng thấy 7.123)
+- **Đánh giá:** 4,8/5 sao · **7.344 lượt** (GBP, đọc 18/10/2026 — tổng 5 mức sao 6.702+223+121+78+220; 04/09 là 7.060;
+  Google có tỉa bớt review, 24/08 từng thấy 7.123). Đổi số: `node scripts/normalize-review-count.js <số> <YYYY-MM-DD>` — script
+  KHÔNG bắt dạng "N lượt" trong `data/blog-seo.js`, `data/blog-data.js`, `llms.txt`, `data/schema-data.js` (count) → sửa tay 4 file đó.
 - ⚠️ **Nguồn chuẩn cho mọi con số:** `data/facts.json`. Đừng chép số từ bài cũ —
   kiểm bằng `node scripts/check-facts.js` và `node scripts/seo-geo-verify.js`.
 
