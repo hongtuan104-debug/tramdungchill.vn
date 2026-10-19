@@ -44,7 +44,7 @@ Vì sao từng mục:
 - Mỗi mục hỏng **3 lần liền, cách 20 giây** mới tính là hỏng. Mọi mục đều đỏ mà google.com cũng không
   gọi được → máy kiểm mất mạng, bỏ qua lượt đó.
 - **Báo động = issue** `[giam-sat] Sự cố: <các mục hỏng>`, gắn `@hongtuan104-debug` → GitHub gửi email,
-  rồi **gửi Telegram** cho sếp (sếp yêu cầu 19/10/2026) kèm link issue — cùng con bot báo đơn đặt bàn, chat
+  rồi **gửi Telegram** cho sếp (sếp yêu cầu 19/10/2026) kèm link issue — **bot riêng** (sếp chọn 19/10/2026, không dùng bot báo đơn), chat
   `6293463576`. Vẫn hỏng thì im lặng (không gửi mỗi 15 phút); danh sách mục hỏng đổi thì sửa tiêu đề +
   bình luận + 1 tin 🟠; lên lại thì bình luận "đã lên lại, kéo dài ~N phút", tự đóng, 1 tin ✅.
   Nhắc chứng chỉ / tên miền cũng đi Telegram.
@@ -54,16 +54,6 @@ Vì sao từng mục:
 - **Bấm "Run workflow" tay** → luôn gửi 1 tin thử `🧪 Thử máy giám sát web` về Telegram; gửi không được thì
   lượt chạy đỏ, mở ra xem dòng `Tin thử: …` chỉ lỗi gì.
 
-### Cài Telegram — sếp làm 1 lần (~3 phút)
-Mã bot không nằm trong repo (repo công khai) mà ở code Apps Script nhận đơn, nên em không tự cài được.
-1. **Chép mã bot:** script.google.com → dự án Apps Script nhận đơn đặt bàn → dòng
-   `var TELEGRAM_BOT_TOKEN = '…'` → chép phần trong dấu nháy. **Chép-dán, đừng gõ lại**: mã có chữ **O**
-   dễ nhầm số 0 (bug #3).
-2. **Dán vào GitHub:** đăng nhập bằng tài khoản **chủ `hongtuan104-debug`** (tài khoản cộng tác viên không
-   thấy trang Settings) → repo tramdungchill.vn → **Settings → Secrets and variables → Actions → New
-   repository secret** → Name `TELEGRAM_BOT_TOKEN` → Secret: dán mã → **Add secret**.
-3. **Thử:** tab **Actions** → **Giám sát uptime** → **Run workflow** → **Run workflow**. ~1–2 phút sau
-   Telegram nhận tin 🧪. Lượt bấm tay này cũng là cú "mồi" nếu lịch tự động chưa chạy lượt nào.
 - **Nhắc chứng chỉ**: issue khi còn < 20 ngày (GitHub tự gia hạn từ ~30 ngày, tụt dưới 20 là kẹt).
 - **Nhắc tên miền**: issue khi còn ≤ 30 ngày. Hạn .vn KHÔNG tra tự động được (không RDAP, iNET chặn API)
   → ghi tay ở `HAN_TEN_MIEN` trong `scripts/giam-sat-uptime.js`. **Gia hạn xong thì sửa ngày đó** rồi
@@ -76,6 +66,21 @@ Mã bot không nằm trong repo (repo công khai) mà ở code Apps Script nhậ
 - Máy kiểm không chạy JavaScript → không bật GA4 / Meta / TikTok, không làm bẩn số đo lường.
 - Kiểm logic issue bằng client giả 19/10/2026: 9 tình huống (im lặng khi ổn · mở · không lặp · đổi danh
   sách · đóng + tính phút · mở lại lần sau · nhắc chứng chỉ · nhắc tên miền đúng mốc 30 ngày · API hỏng).
+
+### Cài Telegram — sếp làm 1 lần (~5 phút)
+Dùng **bot riêng** chứ không dùng bot báo đơn: mã bot báo đơn chỉ nằm trong Apps Script, đem ra chỗ khác
+là thêm một chỗ có thể lộ; tin giám sát cũng tách khỏi tin đơn, tắt/bật thông báo riêng được. Mã bot phải
+nằm trong Secrets của GitHub (repo công khai), em không tự cài được.
+1. **Tạo bot:** Telegram → tìm **@BotFather** (có dấu tích xanh) → **Start** → gửi `/newbot` → tên hiển thị,
+   vd `Giám sát web Trạm Dừng Chill` → username phải kết thúc bằng `bot`, vd `tdc_giamsat_bot` (trùng thì
+   thêm số). BotFather trả về mã dạng `123456789:AA…` → **chép-dán, đừng gõ lại**.
+2. **Bấm Start với bot mới** (BotFather có gửi link `t.me/<username>`). Bắt buộc: chưa Start thì bot không
+   được nhắn cho sếp, lỗi sẽ hiện là mã 400.
+3. **Dán vào GitHub:** đăng nhập bằng tài khoản **chủ `hongtuan104-debug`** (tài khoản cộng tác viên không
+   thấy trang Settings) → repo tramdungchill.vn → **Settings → Secrets and variables → Actions → New
+   repository secret** → Name `TELEGRAM_BOT_TOKEN` → Secret: dán mã → **Add secret**.
+4. **Thử:** tab **Actions** → **Giám sát uptime** → **Run workflow** → **Run workflow**. ~1–2 phút sau
+   Telegram nhận tin 🧪. Lượt bấm tay này cũng là cú "mồi" nếu lịch tự động chưa chạy lượt nào.
 
 ## Khi nhận báo động (Telegram / email)
 1. Mở thử bằng 4G trên điện thoại — sập thật hay chỉ máy kiểm thấy.

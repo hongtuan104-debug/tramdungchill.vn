@@ -7,7 +7,7 @@ name: Giám sát uptime
 # GitHub gửi email cho chủ repo + báo TELEGRAM; lên lại thì issue tự đóng.
 #
 # CẦN CÀI (GitHub → Settings → Secrets and variables → Actions):
-#   TELEGRAM_BOT_TOKEN   mã bot báo đơn — chép từ Apps Script (dòng var TELEGRAM_BOT_TOKEN)
+#   TELEGRAM_BOT_TOKEN   mã bot giám sát RIÊNG (tạo bằng @BotFather; không dùng bot báo đơn)
 # Tuỳ chọn: TELEGRAM_CHAT_ID (mặc định chat của sếp Tuấn) · ZALO_WEBHOOK_URL /
 # ZALO_WEBHOOK_SECRET (cùng cặp với canh-bai-cu). Chưa cài thì vẫn báo qua email.
 # Bấm "Run workflow" tay → luôn gửi 1 tin thử về Telegram để biết đường báo thông.

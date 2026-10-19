@@ -10,8 +10,8 @@
  * Mỗi lượt (workflow giam-sat-uptime.yml, ~15 phút/lần) gọi thử 8 mục. Mục nào
  * hỏng 3 lần liền (cách nhau 20 giây) mới tính là hỏng — một cú chớp mạng không
  * đáng báo. Báo động = mở một issue "[giam-sat] Sự cố: …" trong repo, gắn tên
- * chủ repo → GitHub gửi email, rồi gửi TELEGRAM cho sếp kèm link issue (cùng con
- * bot báo đơn đặt bàn). Lên lại thì bình luận "đã lên lại" + đóng issue + báo
+ * chủ repo → GitHub gửi email, rồi gửi TELEGRAM cho sếp kèm link issue (bot RIÊNG,
+ * không dùng bot báo đơn — mã bot đó chỉ nằm trong Apps Script). Lên lại thì bình luận "đã lên lại" + đóng issue + báo
  * Telegram. Telegram gửi hỏng thì ghi vào issue — email vẫn tới. Có secret
  * ZALO_WEBHOOK_URL/ZALO_WEBHOOK_SECRET (của canh-bai-cu.js) thì nhắn Zalo thêm.
  *
@@ -30,7 +30,7 @@
  *   Bấm "Run workflow" tay trong tab Actions → luôn gửi một tin thử về Telegram.
  *
  * BIẾN MÔI TRƯỜNG (Actions tự có GITHUB_TOKEN, GITHUB_REPOSITORY)
- *   TELEGRAM_BOT_TOKEN   mã bot — chép từ Apps Script nhận đơn (dòng var TELEGRAM_BOT_TOKEN)
+ *   TELEGRAM_BOT_TOKEN   mã bot giám sát riêng (tạo bằng @BotFather, sếp phải bấm Start với bot)
  *   TELEGRAM_CHAT_ID     tuỳ chọn, mặc định 6293463576 (sếp Tuấn)
  *   ZALO_WEBHOOK_URL, ZALO_WEBHOOK_SECRET    tuỳ chọn
  *
@@ -205,7 +205,9 @@ function ghClient() {
   };
 }
 
-// Cùng con bot đang báo đơn đặt bàn (Apps Script). Chat mặc định là của sếp Tuấn.
+// Bot riêng cho giám sát (sếp chọn 19/10/2026): lộ mã cũng không đụng bot báo đơn.
+// Chat mặc định = ID tài khoản Telegram của sếp Tuấn — dùng được với mọi bot, miễn
+// sếp đã bấm Start với bot đó (bot không được nhắn trước).
 async function nhanTelegram(tinNhan) {
   const maBot = process.env.TELEGRAM_BOT_TOKEN;
   const chat = process.env.TELEGRAM_CHAT_ID || '6293463576';
@@ -219,7 +221,7 @@ async function nhanTelegram(tinNhan) {
     });
     const tl = await res.json().catch(() => ({}));
     if (res.ok && tl.ok) return { ok: true, ghi: 'Telegram: đã gửi' };
-    const vi = res.status === 401 ? ' — sai mã bot (chép lại, chữ O chứ không phải số 0)'
+    const vi = res.status === 401 ? ' — sai mã bot (chép-dán lại từ BotFather, đừng gõ tay)'
       : res.status === 400 ? ' — sai chat ID, hoặc chưa bấm Start với bot' : '';
     return { ok: false, ghi: `Telegram: gửi hỏng (mã ${res.status}${vi})` };
   } catch (e) {
