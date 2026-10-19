@@ -31,7 +31,7 @@
  *
  * BIẾN MÔI TRƯỜNG (Actions tự có GITHUB_TOKEN, GITHUB_REPOSITORY)
  *   TELEGRAM_BOT_TOKEN   mã bot giám sát riêng (tạo bằng @BotFather, sếp phải bấm Start với bot)
- *   TELEGRAM_CHAT_ID     tuỳ chọn, mặc định 6293463576 (sếp Tuấn)
+ *   TELEGRAM_CHAT_ID     tuỳ chọn, nhiều người thì ngăn bằng dấu phẩy; mặc định NGUOI_NHAN
  *   ZALO_WEBHOOK_URL, ZALO_WEBHOOK_SECRET    tuỳ chọn
  *
  * MÃ THOÁT
@@ -206,12 +206,12 @@ function ghClient() {
 }
 
 // Bot riêng cho giám sát (sếp chọn 19/10/2026): lộ mã cũng không đụng bot báo đơn.
-// Chat mặc định = ID tài khoản Telegram của sếp Tuấn — dùng được với mọi bot, miễn
-// sếp đã bấm Start với bot đó (bot không được nhắn trước).
-async function nhanTelegram(tinNhan) {
-  const maBot = process.env.TELEGRAM_BOT_TOKEN;
-  const chat = process.env.TELEGRAM_CHAT_ID || '6293463576';
-  if (!maBot) return { ok: false, ghi: 'Telegram: chưa cài secret TELEGRAM_BOT_TOKEN' };
+// Người nhận = ID tài khoản Telegram đã bấm Start với bot (bot không được nhắn trước).
+// ⚠️ 6293463576 (tài khoản nhận báo đơn) CHƯA bấm Start với bot này — thêm vào đây
+// trước khi bấm là Telegram trả 400 "chat not found" (đã thử 19/10/2026).
+const NGUOI_NHAN = ['6022990090']; // tài khoản đã bấm Start ngày 19/10/2026
+
+async function guiMotChat(maBot, chat, tinNhan) {
   try {
     const res = await fetch(`https://api.telegram.org/bot${maBot}/sendMessage`, {
       method: 'POST',
@@ -220,13 +220,25 @@ async function nhanTelegram(tinNhan) {
       signal: AbortSignal.timeout(HET_GIO),
     });
     const tl = await res.json().catch(() => ({}));
-    if (res.ok && tl.ok) return { ok: true, ghi: 'Telegram: đã gửi' };
+    if (res.ok && tl.ok) return null;
     const vi = res.status === 401 ? ' — sai mã bot (chép-dán lại từ BotFather, đừng gõ tay)'
-      : res.status === 400 ? ' — sai chat ID, hoặc chưa bấm Start với bot' : '';
-    return { ok: false, ghi: `Telegram: gửi hỏng (mã ${res.status}${vi})` };
+      : res.status === 400 ? ' — sai chat ID, hoặc người nhận chưa bấm Start với bot' : '';
+    return `mã ${res.status}${vi}`;
   } catch (e) {
-    return { ok: false, ghi: `Telegram: gửi hỏng (${e.message})` };
+    return e.message;
   }
+}
+
+/** ok = tới được ít nhất một người; người nào hỏng thì ghi rõ. */
+async function nhanTelegram(tinNhan) {
+  const maBot = process.env.TELEGRAM_BOT_TOKEN;
+  if (!maBot) return { ok: false, ghi: 'Telegram: chưa cài secret TELEGRAM_BOT_TOKEN' };
+  const ds = process.env.TELEGRAM_CHAT_ID ? process.env.TELEGRAM_CHAT_ID.split(',').map((s) => s.trim()).filter(Boolean) : NGUOI_NHAN;
+  const loi = await Promise.all(ds.map((c) => guiMotChat(maBot, c, tinNhan)));
+  const hong = ds.map((c, i) => loi[i] && `${c}: ${loi[i]}`).filter(Boolean);
+  const soToi = ds.length - hong.length;
+  if (hong.length === 0) return { ok: true, ghi: `Telegram: đã gửi ${soToi}/${ds.length}` };
+  return { ok: soToi > 0, ghi: `Telegram: gửi được ${soToi}/${ds.length} — hỏng ${hong.join('; ')}` };
 }
 
 async function nhanZalo(tinNhan) {

@@ -93,7 +93,7 @@ tiem-nuong-tram-dung-chill/
 - **Xem số ngay trên web:** `https://tramdungchill.vn/quan-tri/` (mật mã, số GA4 qua Apps Script riêng) — xem bug #53
 - **Giám sát uptime** (19/10/2026): workflow `giam-sat-uptime.yml` + `scripts/giam-sat-uptime.js`, ~15 phút/lần kiểm 8 mục
   (3 khuôn trang + robots + sitemap + Apps Script + app + VPS). Hỏng → issue `[giam-sat] Sự cố…` → email + **Telegram**
-  (bot RIÊNG tạo bằng @BotFather, secret `TELEGRAM_BOT_TOKEN` — sếp tự cài; chat mặc định 6293463576); lên lại tự đóng.
+  (bot RIÊNG tạo bằng @BotFather, secret `TELEGRAM_BOT_TOKEN` — sếp tự cài; người nhận ở `NGUOI_NHAN` — phải bấm Start với bot trước); lên lại tự đóng.
   ⚠️ **Gia hạn tên miền xong thì sửa `HAN_TEN_MIEN`** trong script (hiện 13/12/2026 — issue nhắc tự mở 13/11).
   Thêm/đổi mục: sửa `danhSachMuc()`, chạy `--thu`. Chi tiết + lớp UptimeRobot tuỳ chọn: `docs/giam-sat-uptime.md`.
 

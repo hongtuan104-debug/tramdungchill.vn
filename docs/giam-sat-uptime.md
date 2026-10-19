@@ -44,8 +44,9 @@ Vì sao từng mục:
 - Mỗi mục hỏng **3 lần liền, cách 20 giây** mới tính là hỏng. Mọi mục đều đỏ mà google.com cũng không
   gọi được → máy kiểm mất mạng, bỏ qua lượt đó.
 - **Báo động = issue** `[giam-sat] Sự cố: <các mục hỏng>`, gắn `@hongtuan104-debug` → GitHub gửi email,
-  rồi **gửi Telegram** cho sếp (sếp yêu cầu 19/10/2026) kèm link issue — **bot riêng** (sếp chọn 19/10/2026, không dùng bot báo đơn), chat
-  `6293463576`. Vẫn hỏng thì im lặng (không gửi mỗi 15 phút); danh sách mục hỏng đổi thì sửa tiêu đề +
+  rồi **gửi Telegram** cho sếp (sếp yêu cầu 19/10/2026) kèm link issue — **bot riêng** (sếp chọn 19/10/2026, không dùng bot báo đơn), người nhận
+  khai ở `NGUOI_NHAN` trong script (hiện `6022990090` — tài khoản đã bấm Start 19/10/2026; tài khoản nhận báo
+  đơn `6293463576` chưa bấm Start nên chưa thêm). Vẫn hỏng thì im lặng (không gửi mỗi 15 phút); danh sách mục hỏng đổi thì sửa tiêu đề +
   bình luận + 1 tin 🟠; lên lại thì bình luận "đã lên lại, kéo dài ~N phút", tự đóng, 1 tin ✅.
   Nhắc chứng chỉ / tên miền cũng đi Telegram.
 - Telegram gửi hỏng (chưa cài secret, sai mã bot…) → ghi bình luận vào issue; email vẫn tới.
