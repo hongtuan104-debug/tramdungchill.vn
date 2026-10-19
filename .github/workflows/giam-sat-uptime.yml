@@ -1,0 +1,51 @@
+name: Giám sát uptime
+
+# Vì sao cần: trước 19/10/2026 không máy nào canh web liên tục — web sập, form
+# đặt bàn rớt hay VPS báo Zalo chết thì chỉ biết khi có người tình cờ phát hiện.
+# Mỗi ~15 phút gọi thử 8 mục (trang chủ, thực đơn, bài blog, robots.txt, sitemap,
+# Apps Script, app nhận đơn, VPS). Hỏng thì mở issue "[giam-sat] Sự cố: …" →
+# GitHub gửi email cho chủ repo; lên lại thì issue tự đóng.
+#
+# KHÔNG CẦN CÀI GÌ: chỉ dùng GITHUB_TOKEN sẵn có. Có thêm secret
+# ZALO_WEBHOOK_URL / ZALO_WEBHOOK_SECRET (cùng cặp với canh-bai-cu) thì nhắn Zalo.
+#
+# Giới hạn: chạy trên chính GitHub — GitHub sập toàn bộ thì không báo được, và
+# lịch có lúc trễ cả tiếng (01/10/2026 lịch 08:00 chạy lúc 13:47). Chi tiết +
+# lớp độc lập (UptimeRobot): docs/giam-sat-uptime.md.
+
+on:
+  schedule:
+    # Lệch khỏi phút 00 — đầu giờ là lúc Actions đông nhất, lịch hay bị trễ / bỏ.
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+# Lượt trước còn chạy (đang chờ thử lại) thì lượt sau xếp hàng, không chạy song
+# song — tránh hai lượt cùng mở hai issue sự cố.
+concurrency:
+  group: giam-sat-uptime
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  giam-sat:
+    name: Gọi thử web + đường nhận đơn
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v4
+
+      - name: Cài Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 'Kiểm 8 mục — hỏng thì mở issue, lên lại thì đóng'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZALO_WEBHOOK_URL: ${{ secrets.ZALO_WEBHOOK_URL }}
+          ZALO_WEBHOOK_SECRET: ${{ secrets.ZALO_WEBHOOK_SECRET }}
+        run: node scripts/giam-sat-uptime.js
