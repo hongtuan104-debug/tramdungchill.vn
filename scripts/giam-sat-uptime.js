@@ -10,9 +10,10 @@
  * Mỗi lượt (workflow giam-sat-uptime.yml, ~15 phút/lần) gọi thử 8 mục. Mục nào
  * hỏng 3 lần liền (cách nhau 20 giây) mới tính là hỏng — một cú chớp mạng không
  * đáng báo. Báo động = mở một issue "[giam-sat] Sự cố: …" trong repo, gắn tên
- * chủ repo → GitHub gửi email. Lên lại thì bình luận "đã lên lại" + đóng issue.
- * Có secret ZALO_WEBHOOK_URL/ZALO_WEBHOOK_SECRET thì nhắn Zalo thêm (cùng cặp
- * secret với canh-bai-cu.js); không có thì thôi, email vẫn đi.
+ * chủ repo → GitHub gửi email, rồi gửi TELEGRAM cho sếp kèm link issue (cùng con
+ * bot báo đơn đặt bàn). Lên lại thì bình luận "đã lên lại" + đóng issue + báo
+ * Telegram. Telegram gửi hỏng thì ghi vào issue — email vẫn tới. Có secret
+ * ZALO_WEBHOOK_URL/ZALO_WEBHOOK_SECRET (của canh-bai-cu.js) thì nhắn Zalo thêm.
  *
  * Kèm 2 lời nhắc (cũng bằng issue): chứng chỉ HTTPS còn < 20 ngày (GitHub vốn tự
  * gia hạn từ lúc còn ~30 ngày — tụt dưới 20 là có chuyện) · tên miền còn ≤ 30
@@ -24,15 +25,19 @@
  * Muốn lớp độc lập hẳn thì thêm UptimeRobot — xem docs/giam-sat-uptime.md.
  *
  * CÁCH CHẠY
- *   node scripts/giam-sat-uptime.js --thu    chỉ kiểm và in ra, không đụng GitHub/Zalo
- *   node scripts/giam-sat-uptime.js          (trong Actions) kiểm + mở/đóng issue
+ *   node scripts/giam-sat-uptime.js --thu    chỉ kiểm và in ra, không đụng GitHub/Telegram/Zalo
+ *   node scripts/giam-sat-uptime.js          (trong Actions) kiểm + mở/đóng issue + báo
+ *   Bấm "Run workflow" tay trong tab Actions → luôn gửi một tin thử về Telegram.
  *
  * BIẾN MÔI TRƯỜNG (Actions tự có GITHUB_TOKEN, GITHUB_REPOSITORY)
+ *   TELEGRAM_BOT_TOKEN   mã bot — chép từ Apps Script nhận đơn (dòng var TELEGRAM_BOT_TOKEN)
+ *   TELEGRAM_CHAT_ID     tuỳ chọn, mặc định 6293463576 (sếp Tuấn)
  *   ZALO_WEBHOOK_URL, ZALO_WEBHOOK_SECRET    tuỳ chọn
  *
  * MÃ THOÁT
  *   0 = kiểm xong (kể cả khi web đang hỏng — báo động nằm ở issue)
- *   1 = không mở/đóng được issue → cố tình rớt để GitHub gửi mail thay
+ *   1 = không mở/đóng được issue → cố tình rớt để GitHub gửi mail thay;
+ *       hoặc lượt chạy tay mà tin thử Telegram không gửi được
  */
 
 'use strict';
@@ -200,10 +205,32 @@ function ghClient() {
   };
 }
 
+// Cùng con bot đang báo đơn đặt bàn (Apps Script). Chat mặc định là của sếp Tuấn.
+async function nhanTelegram(tinNhan) {
+  const maBot = process.env.TELEGRAM_BOT_TOKEN;
+  const chat = process.env.TELEGRAM_CHAT_ID || '6293463576';
+  if (!maBot) return { ok: false, ghi: 'Telegram: chưa cài secret TELEGRAM_BOT_TOKEN' };
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${maBot}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chat, text: tinNhan, disable_web_page_preview: true }),
+      signal: AbortSignal.timeout(HET_GIO),
+    });
+    const tl = await res.json().catch(() => ({}));
+    if (res.ok && tl.ok) return { ok: true, ghi: 'Telegram: đã gửi' };
+    const vi = res.status === 401 ? ' — sai mã bot (chép lại, chữ O chứ không phải số 0)'
+      : res.status === 400 ? ' — sai chat ID, hoặc chưa bấm Start với bot' : '';
+    return { ok: false, ghi: `Telegram: gửi hỏng (mã ${res.status}${vi})` };
+  } catch (e) {
+    return { ok: false, ghi: `Telegram: gửi hỏng (${e.message})` };
+  }
+}
+
 async function nhanZalo(tinNhan) {
   const diaChi = process.env.ZALO_WEBHOOK_URL;
   const matKhau = process.env.ZALO_WEBHOOK_SECRET;
-  if (!diaChi || !matKhau) return 'chưa cài secret Zalo — chỉ báo qua email';
+  if (!diaChi || !matKhau) return 'chưa cài secret Zalo';
   try {
     const res = await fetch(diaChi, {
       method: 'POST',
@@ -215,6 +242,12 @@ async function nhanZalo(tinNhan) {
   } catch (e) {
     return `nhắn Zalo hỏng (${e.message})`;
   }
+}
+
+/** Gửi mọi kênh. Telegram là kênh chính; Zalo chỉ khi đã có secret. */
+async function baoTatCa(tinNhan) {
+  const [tg, zl] = await Promise.all([nhanTelegram(tinNhan), nhanZalo(tinNhan)]);
+  return { ok: tg.ok, ghi: `${tg.ghi} · Zalo: ${zl}` };
 }
 
 const DAU_HONG = /<!-- dang-hong: (.*?) -->/;
@@ -237,22 +270,32 @@ const HUONG_DAN = [
  * Quyết định mở / sửa / đóng issue. Tách riêng để thử được bằng client giả.
  * Trả về danh sách việc đã làm (để in log).
  */
-async function xuLy({ ketQua, ngayChungChi, homNay, gh, zalo, bayGio = new Date() }) {
+async function xuLy({ ketQua, ngayChungChi, homNay, gh, bao, bayGio = new Date() }) {
   const viec = [];
   const mo = await gh.dangMo();
   const suCo = mo.find((i) => i.title.startsWith(`${TIEN_TO} Sự cố`));
   const hong = ketQua.filter((k) => !k.ok);
   const tap = hong.map((k) => k.ten).join(', ');
 
+  const lienKet = (i) => (i && i.html_url) || `https://github.com/${process.env.GITHUB_REPOSITORY || `${CHU_REPO}/tramdungchill.vn`}/issues`;
+  // Gửi Telegram SAU khi có issue để tin mang được đường link. Gửi hỏng thì ghi
+  // vào issue — email vẫn tới, và nhìn issue là biết kênh Telegram đang đứt.
+  const guiTin = async (issue, tin) => {
+    const kq = await bao(`${tin}\n${lienKet(issue)}`);
+    viec.push(`  ${kq.ghi}`);
+    if (!kq.ok && issue && issue.number) await gh.binhLuan(issue.number, `⚠️ Không báo được qua Telegram — ${kq.ghi}`);
+  };
+
   if (hong.length > 0 && !suCo) {
-    const kenh = await zalo(`🔴 Web Trạm Dừng Chill có sự cố (${gioVN(bayGio)}): ${tap}. Chi tiết trong email GitHub.`);
-    await gh.tao(`${TIEN_TO} Sự cố: ${tap}`, [
+    const issue = await gh.tao(`${TIEN_TO} Sự cố: ${tap}`, [
       `@${CHU_REPO} máy giám sát thấy **${hong.length}/${ketQua.length} mục hỏng** lúc ${gioVN(bayGio)} (giờ VN), mỗi mục đã thử ${SO_LAN_THU} lần.`,
       '', bangKetQua(ketQua), '', HUONG_DAN, '',
-      `Lên lại thì issue này tự đóng. Zalo: ${kenh}.`,
+      'Lên lại thì issue này tự đóng.',
       `<!-- dang-hong: ${tap} -->`,
     ].join('\n'));
     viec.push(`mở issue sự cố (${tap})`);
+    await guiTin(issue, [`🔴 Web Trạm Dừng Chill có sự cố — ${gioVN(bayGio)}`,
+      ...hong.map((k) => `• ${k.ten}: ${k.loi}`)].join('\n'));
   } else if (hong.length > 0 && suCo) {
     const cu = ((suCo.body || '').match(DAU_HONG) || [])[1];
     if (cu !== tap) {
@@ -262,26 +305,28 @@ async function xuLy({ ketQua, ngayChungChi, homNay, gh, zalo, bayGio = new Date(
       });
       await gh.binhLuan(suCo.number, `Danh sách mục hỏng đổi lúc ${gioVN(bayGio)}: **${tap}**\n\n${bangKetQua(ketQua)}`);
       viec.push(`cập nhật issue #${suCo.number} (${cu} → ${tap})`);
+      await guiTin(suCo, [`🟠 Mục đang hỏng đổi — ${gioVN(bayGio)}`, ...hong.map((k) => `• ${k.ten}: ${k.loi}`)].join('\n'));
     } else {
       viec.push(`issue #${suCo.number} vẫn mở, không đổi`);
     }
   } else if (suCo) {
     const phut = Math.round((bayGio - new Date(suCo.created_at)) / 60000);
-    const kenh = await zalo(`✅ Web Trạm Dừng Chill đã lên lại (${gioVN(bayGio)}), sự cố kéo dài khoảng ${phut} phút.`);
-    await gh.binhLuan(suCo.number, `✅ Cả ${ketQua.length} mục đã lên lại lúc ${gioVN(bayGio)} — sự cố kéo dài khoảng **${phut} phút** (tính từ lúc máy kiểm phát hiện). Zalo: ${kenh}.`);
+    await gh.binhLuan(suCo.number, `✅ Cả ${ketQua.length} mục đã lên lại lúc ${gioVN(bayGio)} — sự cố kéo dài khoảng **${phut} phút** (tính từ lúc máy kiểm phát hiện).`);
     await gh.dong(suCo.number);
     viec.push(`đóng issue #${suCo.number} sau ${phut} phút`);
+    await guiTin(suCo, `✅ Web Trạm Dừng Chill đã lên lại — ${gioVN(bayGio)}, sự cố kéo dài khoảng ${phut} phút.`);
   }
 
   // Nhắc chứng chỉ — null nghĩa là không đọc được, việc đó các mục trang web đã báo.
   const nhacCC = mo.find((i) => i.title.startsWith(`${TIEN_TO} Nhắc: chứng chỉ`));
   if (ngayChungChi != null && ngayChungChi < NHAC_CHUNG_CHI_DUOI && !nhacCC) {
-    await gh.tao(`${TIEN_TO} Nhắc: chứng chỉ HTTPS còn ${ngayChungChi} ngày`, [
+    const issue = await gh.tao(`${TIEN_TO} Nhắc: chứng chỉ HTTPS còn ${ngayChungChi} ngày`, [
       `@${CHU_REPO} chứng chỉ HTTPS của ${MIEN} còn **${ngayChungChi} ngày**.`,
       'GitHub Pages (hoặc Cloudflare nếu đã bật mây cam) vốn tự gia hạn từ lúc còn ~30 ngày — tụt dưới 20 ngày là quá trình tự gia hạn đang kẹt.',
       'Kiểm: `node scripts/kiem-cloudflare.js`; xem GitHub → Settings → Pages có báo lỗi chứng chỉ / DNS không.',
     ].join('\n'));
     viec.push(`mở nhắc chứng chỉ (${ngayChungChi} ngày)`);
+    await guiTin(issue, `⚠️ Chứng chỉ HTTPS của ${MIEN} còn ${ngayChungChi} ngày — tự gia hạn đang kẹt, cần xem.`);
   } else if (ngayChungChi != null && ngayChungChi >= NHAC_CHUNG_CHI_DUOI && nhacCC) {
     await gh.binhLuan(nhacCC.number, `✅ Chứng chỉ đã gia hạn — còn ${ngayChungChi} ngày.`);
     await gh.dong(nhacCC.number);
@@ -292,12 +337,13 @@ async function xuLy({ ketQua, ngayChungChi, homNay, gh, zalo, bayGio = new Date(
   const conLai = soNgayToi(HAN_TEN_MIEN, homNay);
   const nhacTM = mo.find((i) => i.title.startsWith(`${TIEN_TO} Nhắc: tên miền`));
   if (conLai <= NHAC_TEN_MIEN_TRUOC && !nhacTM) {
-    await gh.tao(`${TIEN_TO} Nhắc: tên miền hết hạn ${ngayVN(HAN_TEN_MIEN)}`, [
+    const issue = await gh.tao(`${TIEN_TO} Nhắc: tên miền hết hạn ${ngayVN(HAN_TEN_MIEN)}`, [
       `@${CHU_REPO} tên miền **${MIEN}** hết hạn **${ngayVN(HAN_TEN_MIEN)}** — còn **${conLai} ngày**.`,
       'Hết hạn là cả web biến mất khỏi Google lẫn khách. Gia hạn ở iNET (nên gia hạn nhiều năm + bật tự gia hạn).',
       `Gia hạn xong: sửa \`HAN_TEN_MIEN\` trong \`scripts/giam-sat-uptime.js\` sang ngày hết hạn mới rồi đẩy lên — issue này tự đóng.`,
     ].join('\n'));
     viec.push(`mở nhắc tên miền (còn ${conLai} ngày)`);
+    await guiTin(issue, `⚠️ Tên miền ${MIEN} hết hạn ${ngayVN(HAN_TEN_MIEN)} — còn ${conLai} ngày. Gia hạn ở iNET.`);
   } else if (conLai > NHAC_TEN_MIEN_TRUOC && nhacTM) {
     await gh.binhLuan(nhacTM.number, `✅ Hạn tên miền đã cập nhật thành ${ngayVN(HAN_TEN_MIEN)} (còn ${conLai} ngày).`);
     await gh.dong(nhacTM.number);
@@ -325,8 +371,22 @@ async function main() {
   }
 
   if (CHI_THU) {
-    console.log('\n(chế độ --thu: không mở/đóng issue, không nhắn Zalo)');
+    console.log('\n(chế độ --thu: không mở/đóng issue, không nhắn Telegram/Zalo)');
     return;
+  }
+
+  // Bấm "Run workflow" tay = muốn biết đường báo còn thông → luôn gửi một tin
+  // tóm tắt. Gửi hỏng thì rớt workflow cho thấy đỏ ngay trong tab Actions.
+  if (process.env.GITHUB_EVENT_NAME === 'workflow_dispatch') {
+    const soDat = ketQua.filter((k) => k.ok).length;
+    const kq = await baoTatCa([
+      `🧪 Thử máy giám sát web (chạy tay) — ${gioVN()}`,
+      `${soDat}/${ketQua.length} mục đạt${soDat === ketQua.length ? ' ✅' : ''}`,
+      ...ketQua.filter((k) => !k.ok).map((k) => `• ${k.ten}: ${k.loi}`),
+      `Chứng chỉ còn ${ngayChungChi ?? '?'} ngày · tên miền còn ${soNgayToi(HAN_TEN_MIEN, homNay)} ngày`,
+    ].join('\n'));
+    console.log(`\nTin thử: ${kq.ghi}`);
+    if (!kq.ok) process.exitCode = 1;
   }
 
   if (ketQua.some((k) => !k.ok) && !(await mayKiemConMang())) {
@@ -335,7 +395,7 @@ async function main() {
   }
 
   try {
-    const viec = await xuLy({ ketQua, ngayChungChi, homNay, gh: ghClient(), zalo: nhanZalo });
+    const viec = await xuLy({ ketQua, ngayChungChi, homNay, gh: ghClient(), bao: baoTatCa });
     console.log('\n' + (viec.length ? viec.map((v) => `→ ${v}`).join('\n') : '→ không có gì phải báo'));
   } catch (e) {
     console.error(`\n❌ Không mở/đóng được issue: ${e.message}`);
@@ -351,4 +411,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { xuLy, kiemMot, TIEN_TO, HAN_TEN_MIEN, NHAC_TEN_MIEN_TRUOC, NHAC_CHUNG_CHI_DUOI };
+module.exports = { xuLy, kiemMot, nhanTelegram, baoTatCa, TIEN_TO, HAN_TEN_MIEN, NHAC_TEN_MIEN_TRUOC, NHAC_CHUNG_CHI_DUOI };

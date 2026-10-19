@@ -4,10 +4,13 @@ name: Giám sát uptime
 # đặt bàn rớt hay VPS báo Zalo chết thì chỉ biết khi có người tình cờ phát hiện.
 # Mỗi ~15 phút gọi thử 8 mục (trang chủ, thực đơn, bài blog, robots.txt, sitemap,
 # Apps Script, app nhận đơn, VPS). Hỏng thì mở issue "[giam-sat] Sự cố: …" →
-# GitHub gửi email cho chủ repo; lên lại thì issue tự đóng.
+# GitHub gửi email cho chủ repo + báo TELEGRAM; lên lại thì issue tự đóng.
 #
-# KHÔNG CẦN CÀI GÌ: chỉ dùng GITHUB_TOKEN sẵn có. Có thêm secret
-# ZALO_WEBHOOK_URL / ZALO_WEBHOOK_SECRET (cùng cặp với canh-bai-cu) thì nhắn Zalo.
+# CẦN CÀI (GitHub → Settings → Secrets and variables → Actions):
+#   TELEGRAM_BOT_TOKEN   mã bot báo đơn — chép từ Apps Script (dòng var TELEGRAM_BOT_TOKEN)
+# Tuỳ chọn: TELEGRAM_CHAT_ID (mặc định chat của sếp Tuấn) · ZALO_WEBHOOK_URL /
+# ZALO_WEBHOOK_SECRET (cùng cặp với canh-bai-cu). Chưa cài thì vẫn báo qua email.
+# Bấm "Run workflow" tay → luôn gửi 1 tin thử về Telegram để biết đường báo thông.
 #
 # Giới hạn: chạy trên chính GitHub — GitHub sập toàn bộ thì không báo được, và
 # lịch có lúc trễ cả tiếng (01/10/2026 lịch 08:00 chạy lúc 13:47). Chi tiết +
@@ -43,9 +46,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: 'Kiểm 8 mục — hỏng thì mở issue, lên lại thì đóng'
+      - name: 'Kiểm 8 mục — hỏng thì mở issue + báo Telegram, lên lại thì đóng'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           ZALO_WEBHOOK_URL: ${{ secrets.ZALO_WEBHOOK_URL }}
           ZALO_WEBHOOK_SECRET: ${{ secrets.ZALO_WEBHOOK_SECRET }}
         run: node scripts/giam-sat-uptime.js
