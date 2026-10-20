@@ -2,7 +2,9 @@
 
 Dựng 19/10/2026. Hai lớp:
 1. **GitHub Actions** (lên GitHub 19/10/2026), không cần tài khoản dịch vụ nào, báo email + Telegram: `.github/workflows/giam-sat-uptime.yml`
-   + `scripts/giam-sat-uptime.js`, ~15 phút/lần.
+   + `scripts/giam-sat-uptime.js`. Lịch đặt 15 phút/lần nhưng GitHub chạy thưa hơn nhiều: 19–20/10/2026 đo được
+   **2,5–5 tiếng/lần** (lượt 19:22 → 23:02 → 01:42 → 06:42 UTC). Sự cố ngắn hơn vài tiếng có thể lọt; muốn
+   phát hiện trong ~5 phút thì thêm lớp 2. Telegram đã thông 20/10/2026 (sếp cài secret, lượt chạy tay báo về được).
 2. **UptimeRobot — tuỳ chọn**, lớp độc lập với GitHub. Sếp muốn thêm thì làm theo mục cuối.
 
 ## Vì sao cần
