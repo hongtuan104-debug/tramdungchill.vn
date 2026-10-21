@@ -125,6 +125,7 @@ Các thứ tiếng khác dịch theo nghĩa, có thể dựa vào bản tiếng 
 | Bò Okachi Nướng Tảng Phô Mai Trứng Muối | Okachi Beef with Salted Egg Cheese |
 | Vếu Heo Ướp Sate | Pork Udder Marinated with Satay |
 | Vếu Heo Ướp Chao | Pork Udder Marinated with Fermented Tofu |
+| Ốc Nhồi Thịt | Stuffed Snails |
 | Cá Tầm Lúc Lắc | Shaking Sturgeon |
 | Cá Tầm Rang Muối | Salt-Roasted Sturgeon |
 | Sườn Cay Thái Lan | Thai Spicy Ribs |

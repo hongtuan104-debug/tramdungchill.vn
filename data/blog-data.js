@@ -2589,7 +2589,7 @@ const BLOG_ARTICLES = [
                             <p>Nhiều người nghĩ <strong>hải sản Đà Lạt</strong> không tươi vì xa biển. Thực tế, nhờ logistics hiện đại, nhiều quán nhập hải sản tươi sống hàng ngày từ Phan Thiết, Nha Trang (chỉ 3-4 tiếng xe). Tôm, mực, cá tầm, bạch tuộc — đều tươi roi rói!</p>
 
                             <h2>Hải sản nướng tại Trạm Dừng Chill</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm, mực, cá tầm, bạch tuộc. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
+                            <p><a href="/">Trạm Dừng Chill</a> nhập <strong>hải sản tươi</strong> mỗi ngày: tôm, mực, cá tầm, bạch tuộc, ốc. Nướng trên than hoa, chấm muối ớt chanh — vị ngọt tự nhiên của hải sản hòa với hương khói than. Set hải sản nướng từ 200K/2 người.</p>
 <img src="assets/images/blog/cong-tron-hoang-hon-da-lat.webp" alt="Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3106,7 +3106,7 @@ const BLOG_ARTICLES = [
 <p>Riêng ở Đà Lạt món này ăn sướng hơn nơi khác vì thời tiết: ngồi ngoài trời mười mấy độ, tay hơ bếp than, miếng sườn vừa gắp ra còn nóng — cái đó ở đồng bằng không có được.</p>
 
 <h2>Sườn ở Trạm Dừng Chill</h2>
-<p><a href="/">Trạm Dừng Chill</a> có hai món sườn đi theo hai hướng vị khác nhau trong <a href="menu.html">thực đơn</a>: <strong>Sườn Que Nướng 155K</strong> — kiểu que, nướng than ngay tại bàn, bạn tự canh độ chín; và <strong>Sườn Cay Thái Lan 259K</strong> cho ai thích vị cay chua đậm hơn. Ăn kèm thì có Khoai Tây Chiên 70K và Salad Trộn Dầu Giấm 95K để cân lại độ ngậy.</p>
+<p><a href="/">Trạm Dừng Chill</a> có hai món sườn đi theo hai hướng vị khác nhau trong <a href="menu.html">thực đơn</a>: <strong>Sườn Que Nướng 155K</strong> — kiểu que, nướng than ngay tại bàn, bạn tự canh độ chín; và <strong>Sườn Cay Thái Lan 260K</strong> cho ai thích vị cay chua đậm hơn. Ăn kèm thì có Khoai Tây Chiên 70K và Salad Trộn Dầu Giấm 95K để cân lại độ ngậy.</p>
 <p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00–23:00. Gọi món lẻ, không buffet và không combo cố định, giá 95.000đ–300.000đ/người đã gồm VAT — nên bạn gọi đúng thứ mình muốn ăn chứ không phải mua kèm.</p>
 <img src="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p>👉 <a href="/#booking">Đặt bàn thưởng thức sườn nướng</a></p>
@@ -3139,7 +3139,7 @@ const BLOG_ARTICLES = [
 </ul>
 
 <h2>Kết luận</h2>
-<p><strong>Sườn nướng Đà Lạt</strong> ngon hay không phần lớn nằm ở chỗ bạn gọi đúng kiểu mình thích và không nướng quá tay. Biết ba kiểu ở trên là đọc menu quán nào cũng đoán được sẽ nhận về cái gì. <a href="/">Trạm Dừng Chill</a> có Sườn Que Nướng 155K nướng than tại bàn và Sườn Cay Thái Lan 259K cho ai thích vị mạnh. <a href="/#booking">Đặt bàn ngay</a>!</p>`
+<p><strong>Sườn nướng Đà Lạt</strong> ngon hay không phần lớn nằm ở chỗ bạn gọi đúng kiểu mình thích và không nướng quá tay. Biết ba kiểu ở trên là đọc menu quán nào cũng đoán được sẽ nhận về cái gì. <a href="/">Trạm Dừng Chill</a> có Sườn Que Nướng 155K nướng than tại bàn và Sườn Cay Thái Lan 260K cho ai thích vị mạnh. <a href="/#booking">Đặt bàn ngay</a>!</p>`
     },
     {
         id: "du-lich-da-lat-tu-sai-gon",
@@ -4519,7 +4519,7 @@ const BLOG_ARTICLES = [
 
 <h2>Ăn tôm nướng ở Trạm Dừng Chill</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00–23:00, nướng than ngay tại bàn nên bạn tự canh độ chín theo đúng mấy mẹo ở trên.</p>
-<p>Phần tôm trong <a href="menu.html">thực đơn</a> có Tôm Nướng Muối Ớt 150K, Tôm Chiên Trứng Muối 158K và Chả Ram Tôm Đất 95K. Muốn thêm hải sản thì có Bạch Tuột Nướng 155K, Mực Ướp Sate 160K, hoặc một nồi Lẩu Hải Sản 320K cho cả bàn. Quán gọi món lẻ, không buffet và không combo cố định, giá 95.000đ–300.000đ/người đã gồm VAT.</p>
+<p>Phần tôm trong <a href="menu.html">thực đơn</a> có Tôm Nướng Muối Ớt 150K, Tôm Chiên Trứng Muối 160K và Chả Ram Tôm Đất 95K. Muốn thêm hải sản thì có Bạch Tuột Nướng 155K, Mực Ướp Sate 160K, hoặc một nồi Lẩu Hải Sản 320K cho cả bàn. Quán gọi món lẻ, không buffet và không combo cố định, giá 95.000đ–300.000đ/người đã gồm VAT.</p>
 <p>Nếu đi buổi chiều tối, ba mốc cảnh đáng canh là tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và biển sao nhà lồng lên đèn từ khoảng 18h30 — đều là mốc tham khảo thôi. <a href="/#booking">Đặt bàn tại đây →</a></p>
 
 <h2>Kết luận</h2>

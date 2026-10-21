@@ -38,7 +38,7 @@ const trongSitemap = [...fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8")
 // Một URL cho mỗi mẫu trang — sửa template nào thì URL tương ứng phải qua.
 const DAI_DIEN = [
     "/",                    // index.html: Restaurant, WebSite, WebPage, FAQPage, 3 VideoObject
-    "/menu.html",           // Menu 81 món
+    "/menu.html",           // Menu 82 món
     "/blog.html",           // CollectionPage + Blog
     "/duong-di/",           // WebPage + BreadcrumbList
     "/dip/sinh-nhat.html",  // mẫu 4 trang dịp: Service

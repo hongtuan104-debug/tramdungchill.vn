@@ -33,16 +33,20 @@
 - **Setup miễn phí (sinh nhật / kỷ niệm / cầu hôn):** bảng chúc mừng / bảng "Marry Me?" + **hoa trang trí — là hoa NHỰA**,
   đừng viết "hoa tươi", đừng hứa bó hoa hồng. **KHÔNG có nến ở setup nào** (sếp chốt 23/09/2026). "Thổi nến" trên bánh kem
   của khách thì vẫn viết được. Luật R8r chặn câu setup nhắc hoa tươi / nến / hoa hồng — xem bug #39.
-- **Menu:** 81 món trong `data/menu-data.js` (44 món ăn + 37 đồ uống) → viết "hơn 70 món".
+- **Menu:** 82 món trong `data/menu-data.js` (45 món ăn + 37 đồ uống) → viết "hơn 70 món".
   Đồng bộ theo menu in 26 trang ngày 04/08/2026 — sếp Tuấn xác nhận **bản in là chuẩn**.
-  14/10/2026 thay trang ảnh 4 (best seller "03"): thêm **Gỏi Sứa 159K**, Cá Tầm Rang Muối 200→**199K**, Sườn Cay
-  Thái Lan 260→**259K**, Tôm Chiên Trứng Muối 160→**158K** — sếp xác nhận đây là giá bán thật HIỆN TẠI (11/08 từng
-  sửa ngược 199/259/158 → 200/260/160; giá đổi qua lại hai lần, gặp lệch thì hỏi sếp, đừng tự chọn bên).
-  **19/10/2026 sếp chốt lại lần nữa: 199/259/158 là đúng** — artifact "Kế hoạch khách nước ngoài" (17/10) ghi giá máy tính tiền
-  200/260/160 là đúng là ghi NHẦM; menu in trang 4 + web không phải sửa, máy tính tiền + thực đơn Google Maps phải theo 199/259/158.
-  18/10/2026 thay trang ảnh 3 (best seller "02"): **quán ngừng bán Ốc Nhồi Thịt** (sếp chốt) — gỡ khỏi menu-data,
-  FAQ trang Thực đơn, 8 bài blog; slug ảnh đổi `…-oc-nhoi-thit` → `…-ca-tam-luc-lac`, file cũ đã xoá. Quán nay
-  KHÔNG còn món ốc nào — "ốc" trong bài chợ đêm / quán khác thì giữ. Mục Best Seller còn 11 món (4 món bò).
+  - **GIÁ ĐÚNG — sếp chốt 21/10/2026: Cá Tầm Rang Muối 200K · Sườn Cay Thái Lan 260K · Tôm Chiên Trứng Muối 160K ·
+    Ốc Nhồi Thịt 165K VẪN BÁN.** Khớp máy tính tiền (`menu_items` id 8/9/10 = 200/260/160, id 6 Ốc 165K đang bật) + phiếu
+    order giấy (`SLIP_MENU` mã 04/06/07/08) + thực đơn Google Maps. Mục Best Seller 12 món (4 món bò).
+  - Giá 3 món này đã LẬT nhiều lần: 11/08 → 200/260/160 · 14/10 → 199/259/158 (theo trang in 4 mới, thêm Gỏi Sứa 159K) ·
+    18/10 gỡ Ốc ("ngừng bán") · 19/10 ghi "sếp chốt 199/259/158" — **21/10 sếp trả lời ngược lại cả hai**: web sửa về
+    200/260/160 + đưa Ốc lại đúng các chỗ đã gỡ. ⇒ Gặp lệch giá: **hỏi sếp, ghi ngày giờ câu trả lời**, đừng tự chọn bên,
+    và so đủ 4 nguồn (ảnh menu · menu-data.js · `menu_items` · `SLIP_MENU`).
+  - ⚠️ **Ảnh menu trang 3–4 CHƯA khớp chữ** (giữ, chờ thợ in gửi file mới): trang 3 (bản in 18/10) không có Ốc, trang 4
+    (bản in 14/10, có Gỏi Sứa) còn in 199/259/158. Có file mới → `node scripts/tao-anh-menu.js` → bundle như mục flipbook.
+    Alt ảnh tả đúng thứ trong ảnh nên alt trang 3 KHÔNG nhắc ốc cho tới khi đổi ảnh. Tên tiếng Anh in trên menu cũ: "Stuffed Snails".
+  - Đếm lại giá thì nhớ: "199K VND/person" trong blog-data.js là giá quán K-BBQ khác (không phải món quán), ví dụ `199K`
+    trong docs/HOW-TO-UPDATE.md là mẫu. Từ điển `data/ban-dich/*.json` còn khoá câu mang giá cũ — cố ý, xem mục "Đa ngôn ngữ".
   Nếu quán thật có nhiều hơn, bổ sung vào menu-data.js rồi chạy generator, mọi chỗ tự khớp.
 - **Đánh giá:** 4,8/5 sao · **7.344 lượt** (GBP, đọc 18/10/2026 — tổng 5 mức sao 6.702+223+121+78+220; 04/09 là 7.060;
   Google có tỉa bớt review, 24/08 từng thấy 7.123). Đổi số: `node scripts/normalize-review-count.js <số> <YYYY-MM-DD>` — script
@@ -154,7 +158,7 @@ chỉ đích danh phần tử LCP là `<span class="logo-main">` với render de
 ## Menu ảnh dạng sách lật (flipbook) — cũng sinh tự động
 Trang menu: hero → **quyển menu ảnh 26 trang lật được** → FAQ → khối đặt bàn.
 Bảng giá text hiển thị đã bỏ ngày 04/08/2026 (sếp Tuấn: "menu cũ bỏ đi").
-- Giá cho máy đọc giờ nằm ở 2 chỗ: **JSON-LD Menu** (81 món, sinh từ menu-data.js)
+- Giá cho máy đọc giờ nằm ở 2 chỗ: **JSON-LD Menu** (82 món, sinh từ menu-data.js)
   và khối **`<noscript>` MENU_STATIC** — khối này khách có JS KHÔNG thấy, nó chỉ để
   GPTBot/ClaudeBot/PerplexityBot đọc được giá vì chúng không chạy JS và không đọc
   được chữ trong ảnh. **Đừng xoá nó vì "trang không hiển thị"** — đó là chủ đích.
