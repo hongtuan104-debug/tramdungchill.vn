@@ -1490,6 +1490,18 @@ còn khai hreflang trỏ chính nó trong khi canonical trỏ bài khác.
 - R13d: không hreflang trong HTML · URL tự khai chính nó, mã khớp `<html lang>` · mọi URL
   trong cụm phải nằm trong sitemap (index được, canonical chính nó) · liên kết hai chiều.
 
+## Nút đặt bàn trên bài tiếng Anh — `bookHref` (21/10/2026)
+Trang chủ LUÔN mở tiếng Việt (`js/i18n.js` chỉ đọc `localStorage`, không đọc `?lang=`), nên nút
+Book trỏ `/#booking` đưa khách nước ngoài vào form tiếng Việt. 3 nút trong `templates/blog-post.html`
+(menu · khối cuối bài · thanh dính đáy) đọc `{{BOOK_HREF}}`: pillar khai `bookHref` trong
+`data/blog-seo.js` thì trỏ về đó, bài khác giữ `/#booking`. Chân trang KHÔNG đổi (generate-footer sinh).
+- Đang dùng: `da-lat-restaurant-train-view-en` (URL cuối của QC Google tiếng Anh từ 26/10) →
+  `#how-to-book-a-table` = mục đặt bàn qua Messenger `m.me/tiemnuongtramdungchill` · TikTok · gọi.
+  ⚠️ id do `themMucLuc()` sinh từ chữ tiêu đề: đổi chữ `<h2>How to book a table</h2>` là đổi id → sửa `bookHref` theo.
+- Giờ KHÔNG nhận đặt: sếp chốt 21/10/2026 giữ **17:30–19:00** như web tiếng Việt.
+- GA4/pixel không đếm bấm `m.me` (bộ nghe chung trong `js/utils.js` chỉ bắt tel / zalo.me / facebook.com).
+- R8d (`seo-geo-verify.js`) coi `m.me` là kênh của quán, không phải nguồn trích.
+
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
 xuống đúng những ký tự site thật sự dùng: **160,2 KB → 109,0 KB**. Bộ ký tự gom

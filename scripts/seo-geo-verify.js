@@ -720,7 +720,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         const ext = [...art.matchAll(/<a\s[^>]*href="(https?:\/\/[^"]+)"[^>]*>/g)]
             .filter((m) => !/rel="[^"]*nofollow/i.test(m[0]))   // nofollow ≠ citation
             .map((m) => m[1])
-            .filter((u) => !/tramdungchill\.vn|facebook|instagram|tiktok|youtube|threads|zalo|goo\.gl|google\.com/i.test(u));
+            // Kênh của chính quán không phải trích nguồn. m.me = Messenger của quán (mục đặt bàn bài tiếng Anh, 21/10/2026).
+            .filter((u) => !/tramdungchill\.vn|facebook|m\.me\/|instagram|tiktok|youtube|threads|zalo|goo\.gl|google\.com/i.test(u));
         if (ext.length) withCite++;
         for (const u of ext) if (!ALLOWED.test(u)) offDomain.push(f.replace(".html", "") + " → " + u.slice(0, 50));
     }

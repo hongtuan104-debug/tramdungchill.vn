@@ -84,7 +84,7 @@
     <div class="reading-progress" id="readingProgress"></div>
     <style>.reading-progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--gold), var(--sunset)); width:0%; z-index:9999; transition:width 0.1s linear; }</style>
     <a class="skip-link" href="#main-content" data-i18n="nav.skip" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Bỏ qua tới nội dung</a>
-<nav class="navbar scrolled" id="navbar"><div class="nav-container"><a href="/" class="nav-logo"><span class="logo-icon">&#9733;</span><div class="logo-text-wrapper"><span class="logo-sub">Tiệm Nướng</span><span class="logo-main">Trạm Dừng Chill</span></div></a><ul class="nav-menu" id="navMenu"><li><a href="/" class="nav-link">{{T_HOME}}</a></li><li><a href="../menu.html" class="nav-link">{{T_MENU}}</a></li><li><a href="../blog.html" class="nav-link active" aria-current="page">{{T_BLOG}}</a></li><li><a href="/#booking" class="nav-link nav-cta">{{T_BOOK}}</a></li></ul><div class="nav-right"><a href="tel:0989765070" class="nav-phone">0989.765.070</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<nav class="navbar scrolled" id="navbar"><div class="nav-container"><a href="/" class="nav-logo"><span class="logo-icon">&#9733;</span><div class="logo-text-wrapper"><span class="logo-sub">Tiệm Nướng</span><span class="logo-main">Trạm Dừng Chill</span></div></a><ul class="nav-menu" id="navMenu"><li><a href="/" class="nav-link">{{T_HOME}}</a></li><li><a href="../menu.html" class="nav-link">{{T_MENU}}</a></li><li><a href="../blog.html" class="nav-link active" aria-current="page">{{T_BLOG}}</a></li><li><a href="{{BOOK_HREF}}" class="nav-link nav-cta">{{T_BOOK}}</a></li></ul><div class="nav-right"><a href="tel:0989765070" class="nav-phone">0989.765.070</a></div><button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
     <main id="main-content">
     <section class="blog-post-hero" style="padding-top:100px;"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">{{T_HOME}}</a> › <a href="../blog.html">{{T_BLOG}}</a> › <span>{{TITLE_SHORT}}</span></nav><div class="blog-post-meta" style="margin:16px 0;"><span class="blog-category">{{CATEGORY}}</span> <time datetime="{{DATE}}">{{DATE_VI}}</time>{{UPDATED}} <span class="reading-time">{{READING_TIME}} {{T_READ}}</span>{{BYLINE}}</div><h1 class="blog-post-title">{{TITLE}}</h1><p style="font-size:1.1rem;color:var(--text-muted);max-width:720px;">{{EXCERPT_CLEAN}}</p></div></section>
     <div class="container blog-post-cover" style="margin:24px auto 32px;"><img src="../{{IMAGE}}" srcset="../{{IMAGE_400W}} 400w, ../{{IMAGE_800W}} 800w, ../{{IMAGE}} 1200w" sizes="(max-width:480px) 400px, (max-width:768px) 800px, 752px" alt="{{IMAGE_ALT}}" style="width:100%;max-height:500px;object-fit:cover;border-radius:20px;" loading="eager" fetchpriority="high"></div>
@@ -125,7 +125,7 @@
             </div>
         </div>
     </section>
-    <section class="blog-cta-cuoi"><div class="container"><div class="blog-cta"><h2>{{T_CTA_TITLE}}</h2><p>{{T_CTA_SUB}}</p><a href="/#booking" class="btn btn-golden btn-lg">{{T_CTA_BTN}}</a><p class="blog-cta-trust"><a href="/#review" aria-label="{{T_CTA_TRUST_ARIA}}">{{T_CTA_TRUST}}</a></p></div></div></section>
+    <section class="blog-cta-cuoi"><div class="container"><div class="blog-cta"><h2>{{T_CTA_TITLE}}</h2><p>{{T_CTA_SUB}}</p><a href="{{BOOK_HREF}}" class="btn btn-golden btn-lg">{{T_CTA_BTN}}</a><p class="blog-cta-trust"><a href="/#review" aria-label="{{T_CTA_TRUST_ARIA}}">{{T_CTA_TRUST}}</a></p></div></div></section>
     </main>
 
     <!-- FOOTER:START — sinh bởi scripts/generate-footer.js, ĐỪNG sửa tay -->
@@ -233,7 +233,7 @@
         thanh.id = "stickyBookBar";
         thanh.innerHTML = '<div class="sticky-book-info"><div class="sticky-book-title">' + chuMua("sticky.title", en ? "Book online" : "Đặt bàn online") +
             '</div><div class="sticky-book-sub">' + chuMua("sticky.sub", en ? "Free setup • 15-minute confirmation" : "Setup miễn phí • Phản hồi 15 phút") +
-            '</div></div><a href="/#booking" class="sticky-book-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>' +
+            '</div></div><a href="{{BOOK_HREF}}" class="sticky-book-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>' +
             (en ? "Book Now" : "Đặt Bàn") + "</span></a>";
         var lenDau = document.createElement("button");
         lenDau.type = "button";

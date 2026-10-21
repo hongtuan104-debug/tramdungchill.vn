@@ -631,6 +631,7 @@ try {
             existing._author = p.author;
             existing._dateModified = p.dateModified;
             existing._lang = p.lang;
+            existing._bookHref = p.bookHref;
             existing._pillar = true;
         } else {
             var na = {
@@ -650,6 +651,7 @@ try {
                 _author: p.author,
                 _dateModified: p.dateModified,
                 _lang: p.lang,
+                _bookHref: p.bookHref,
                 _pillar: true
             };
             articles.push(na);
@@ -1087,6 +1089,9 @@ try {
                 .replace(/{{T_CTA_TITLE}}/g, ui(article).ctaTitle)
                 .replace(/{{T_CTA_SUB}}/g, ui(article).ctaSub)
                 .replace(/{{T_CTA_BTN}}/g, ui(article).ctaBtn)
+                // Nút đặt bàn (menu · khối cuối bài · thanh dính đáy). Bài khai bookHref trong blog-seo.js thì
+                // trỏ về đó: bài tiếng Anh trỏ mục "How to book" ngay trong bài, vì trang chủ luôn mở tiếng Việt.
+                .replace(/{{BOOK_HREF}}/g, article._bookHref || "/#booking")
                 .replace(/{{T_CTA_TRUST}}/g, ui(article).ctaTrust)
                 .replace(/{{T_CTA_TRUST_ARIA}}/g, ui(article).ctaTrustAria)
                 .replace(/{{CSS_VER}}/g, CSS_VER)
