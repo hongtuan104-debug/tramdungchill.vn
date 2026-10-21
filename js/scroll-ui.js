@@ -131,7 +131,7 @@ function initScrollUI() {
                 iframe.allowFullscreen = true;
                 iframe.loading = 'lazy';
                 iframe.referrerPolicy = 'no-referrer-when-downgrade';
-                iframe.title = 'Bản đồ Tiệm Nướng Trạm Dừng Chill';
+                iframe.title = t('map.iframe', 'Bản đồ Tiệm Nướng Trạm Dừng Chill');
                 mapEmbed.innerHTML = '';
                 mapEmbed.appendChild(iframe);
                 mapObserver.disconnect();

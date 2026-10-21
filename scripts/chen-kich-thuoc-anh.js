@@ -20,7 +20,8 @@ const path = require("path");
 const { kichThuocAnh } = require("./kich-thuoc-anh.js");
 
 const ROOT = path.join(__dirname, "..");
-const BO_QUA_THU_MUC = new Set([".git", "node_modules", "dist", "plans", "docs"]);
+// Trang dịch (en/zh/… — scripts/dich-trang.js) chép nguyên thẻ <img> đã có kích thước từ trang tiếng Việt
+const BO_QUA_THU_MUC = new Set([".git", "node_modules", "dist", "plans", "docs", "en", "zh", "ko", "ja", "ru", "th"]);
 
 function gomTrangHtml(dir, out = []) {
     for (const f of fs.readdirSync(dir)) {

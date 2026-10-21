@@ -55,7 +55,9 @@ const { bamFile, regexScriptJS } = require("./van-tay");
 const mua = require("./mua-le");
 
 const ROOT = path.resolve(__dirname, "..");
-const SKIP_DIRS = /^(node_modules|\.git|dist|docs|plans|dev|templates|blog)$/;
+// en|zh|ko|ja|ru|th = trang dịch (21/10/2026): scripts/dich-trang.js sinh từ trang tiếng Việt ĐÃ gắn vân tay,
+// chạy cuối build — đụng vào ở đây chỉ làm hai máy ghi đè nhau.
+const SKIP_DIRS = /^(node_modules|\.git|dist|docs|plans|dev|templates|blog|en|zh|ko|ja|ru|th)$/;
 
 // domain tải script bên thứ ba → đáng tra sẵn DNS
 const SCRIPT_HOSTS = [

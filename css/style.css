@@ -678,10 +678,50 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     line-height: 1;
 }
 
-/* Language transition overlay */
-.lang-transitioning [data-i18n] {
-    transition: opacity 0.2s ease;
-    opacity: 0.3;
+/* Ô chọn ngôn ngữ (21/10/2026) — thay nút EN đổi chữ tại chỗ. Mỗi thứ tiếng là trang dịch sẵn ở
+   thư mục riêng (/en/, /zh/…), nên mỗi mục là một link thật. Dùng <details>: mở được cả khi tắt JS.
+   Nút bấm vẫn là .lang-toggle (cùng khuôn nút EN cũ, critical CSS trang chủ đã có) nên không xô bố cục. */
+.chon-ngon-ngu {
+    position: relative;
+}
+.chon-ngon-ngu > summary {
+    list-style: none;
+}
+.chon-ngon-ngu > summary::-webkit-details-marker {
+    display: none;
+}
+.ds-ngon-ngu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 1004;
+    min-width: 172px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--night);
+    border: 1px solid rgba(212, 168, 83, 0.35);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+.ds-ngon-ngu a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+.ds-ngon-ngu a:hover,
+.ds-ngon-ngu a:focus-visible {
+    background: rgba(212, 168, 83, 0.16);
+    color: var(--white);
+}
+.ds-ngon-ngu a[aria-current] {
+    color: var(--gold);
+    font-weight: 700;
 }
 
 .lang-flag {
@@ -3123,6 +3163,12 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
 
 .fab-opt-fb svg {
     fill: #1877F2;
+    flex-shrink: 0;
+}
+
+/* WhatsApp thay Zalo trên trang tiếng nước ngoài (21/10/2026, js/fab-contact.js) */
+.fab-opt-wa svg {
+    color: #25D366;
     flex-shrink: 0;
 }
 

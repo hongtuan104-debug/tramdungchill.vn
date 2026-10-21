@@ -34,8 +34,8 @@ const files = allHtml(ROOT);
 const KEY_PAGES = [
     "index.html", "menu.html", "blog.html", "duong-di/index.html",
     "dip/san-tau-da-lat.html", "dip/sinh-nhat.html",
-    "dip/team-building.html", "dip/cau-hon-hen-ho.html",
-    "tac-gia/nguyen-duy.html"
+    "dip/team-building.html", "dip/cau-hon-hen-ho.html"
+    // trang tác giả (tac-gia/): đã GỠ 21/10/2026 — sếp Tuấn bỏ tên tác giả khỏi web
 ];
 
 const results = [];
@@ -256,8 +256,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         "dip/san-tau-da-lat.html": ["WebPage", "BreadcrumbList", "FAQPage"],
         "dip/sinh-nhat.html": ["WebPage", "BreadcrumbList", "Service", "FAQPage"],
         "dip/team-building.html": ["WebPage", "BreadcrumbList", "FAQPage"],
-        "dip/cau-hon-hen-ho.html": ["WebPage", "BreadcrumbList", "FAQPage"],
-        "tac-gia/nguyen-duy.html": ["ProfilePage", "BreadcrumbList"]
+        "dip/cau-hon-hen-ho.html": ["WebPage", "BreadcrumbList", "FAQPage"]
     };
     const bad = [];
     for (const [p, want] of Object.entries(EXPECTED)) {
@@ -289,7 +288,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     const ID_QUAN = "https://tramdungchill.vn/#restaurant";
     const TRANG = ["index.html", "menu.html", "blog.html", "duong-di/index.html",
         "dip/sinh-nhat.html", "dip/team-building.html", "dip/cau-hon-hen-ho.html",
-        "dip/san-tau-da-lat.html", "blog/top-quan-nuong-da-lat.html", "tac-gia/nguyen-duy.html"];
+        "dip/san-tau-da-lat.html", "blog/top-quan-nuong-da-lat.html"];
     const bad = [];
     for (const p of TRANG) {
         const abs = path.join(ROOT, p);
@@ -524,8 +523,11 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                     bad.push(p + ": VideoObject \"" + j.name + "\" thiếu/sai duration (ISO 8601, vd PT16S)");
                 }
                 if (!j.contentUrl && !j.embedUrl) bad.push(p + ": VideoObject thiếu cả contentUrl lẫn embedUrl");
-                for (const k of [j.name, j.description]) {
-                    if (videoDaGap.has(k) && videoDaGap.get(k) !== j["@id"]) bad.push(p + ": 2 video trùng name/description \"" + k + "\"");
+                // so trùng trong CÙNG thứ tiếng — bản dịch cùng một video ở /en/, /zh/… là video khác @id, tên khác tiếng
+                const tiengTrang = ((s.match(/<html[^>]*\blang="([^"]+)"/) || [])[1] || "vi").toLowerCase();
+                for (const k0 of [j.name, j.description]) {
+                    const k = tiengTrang + "|" + k0;
+                    if (videoDaGap.has(k) && videoDaGap.get(k) !== j["@id"]) bad.push(p + ": 2 video trùng name/description \"" + k0 + "\"");
                     videoDaGap.set(k, j["@id"]);
                 }
             }
@@ -541,7 +543,10 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                 if (Date.parse(j.dateModified) < Date.parse(j.datePublished)) bad.push(p + ": dateModified trước datePublished");
                 const tacGia = [].concat(j.author || []);
                 if (!tacGia.length || tacGia.some((x) => !coChu(x.name))) bad.push(p + ": " + t + " thiếu author.name");
-                tacGia.filter((x) => x.url).forEach((x) => tacGiaTro.push({ p: p, id: x["@id"], url: x.url }));
+                // Chỉ tác giả là NGƯỜI mới phải có trang hồ sơ. Từ 21/10/2026 (sếp bỏ tên tác giả khỏi web) mọi bài
+                // khai tác giả là chính quán — Restaurant @id #restaurant, url trang chủ — không phải ProfilePage.
+                tacGia.filter((x) => x.url && [].concat(x["@type"]).includes("Person"))
+                    .forEach((x) => tacGiaTro.push({ p: p, id: x["@id"], url: x.url }));
             }
 
             // (e) BreadcrumbList: position chạy 1..n, có name, có item (trừ chặng cuối)
@@ -1460,7 +1465,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         T = eval(fs.readFileSync(path.join(ROOT, "data/translations.js"), "utf8") + "; TRANSLATIONS");
     } catch (e) { /* R9 đã báo */ }
 
-    const trang = ["index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html", "tac-gia/nguyen-duy.html"]
+    const trang = ["index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html"]
         .concat(fs.readdirSync(path.join(ROOT, "dip")).filter((f) => f.endsWith(".html")).map((f) => "dip/" + f))
         .concat(fs.readdirSync(path.join(ROOT, "blog")).filter((f) => f.endsWith(".html")).map((f) => "blog/" + f));
     const RE_TRAN = /(\.\.\/|\s\/|\()(dip\/[a-z-]+\.html|menu\.html|blog\.html|index\.html#booking|duong-di\/)/;
@@ -1478,7 +1483,8 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         const lang = (html.match(/<html[^>]*lang="([a-z]+)/) || [])[1] || "vi";
         if (nav && T && T[lang]) {
             soNav++;
-            const muc = nav.match(/<a [^>]*href="(\.\.\/)?menu\.html"[^>]*>([^<]*)<\/a>/);
+            // bài gốc tiếng Anh trỏ bản /en/menu.html (dich-trang.js suaBaiGocTiengAnh)
+            const muc = nav.match(/<a [^>]*href="(\.\.\/|\/en\/)?menu\.html"[^>]*>([^<]*)<\/a>/);
             if (!muc) bad.push(p + ": nav thiếu mục thực đơn");
             else if (muc[2].trim() !== T[lang]["nav.menu"]) {
                 bad.push(p + ": nav ghi \"" + muc[2].trim() + "\" ≠ bản dịch " + lang + " \"" + T[lang]["nav.menu"] + "\"");
@@ -1844,14 +1850,19 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
 // 13/09/2026: GHI RÕ cùng chủ, chỉ trong câu chữ. KHÔNG khai alternateName/sameAs
 // (hai hồ sơ Maps riêng, xem docs/digital-pr-outreach.md).
 // Câu khách viết "ăn nhiều quán ở Xóm Lèo" là ĐỊA DANH, không có link → không xét.
+// Trang dịch sẵn (21/10/2026): "cùng chủ" ở 6 thứ tiếng, và tiếng Trung/Nhật/Hàn/Thái hay đặt cụm đó TRƯỚC tên quán
+// ("同一老板的姐妹店 Xóm Lèo") → trang dịch soi cả 80 ký tự đứng trước link.
 {
+    const CUNG_CHU = /cùng chủ|sister restaurant|same owner|同一老板|姐妹店|系列店|同じオーナー|같은 주인|자매 식당|побратим|т(?:от|ого) же владел|ในเครือ|เจ้าของเดียวกัน/i;
     const pham = [];
     for (const f of files) {
         const tu = rel(f);
         if (tu.startsWith("components/")) continue;
         const s = fs.readFileSync(f, "utf8");
+        const laDich = require("./ngon-ngu").laTrangDich(tu);
         for (const m of s.matchAll(/<a\s[^>]*href="https?:\/\/(?:www\.)?xomleo\.vn[^"]*"[^>]*>[\s\S]*?<\/a>([^.<]{0,80})/gi)) {
-            if (!/cùng chủ/i.test(m[1])) pham.push(tu + " → " + m[0].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").slice(0, 70));
+            const truoc = laDich ? s.slice(Math.max(0, m.index - 300), m.index).replace(/<[^>]+>/g, "").slice(-80) : "";
+            if (!CUNG_CHU.test(truoc + " " + m[1])) pham.push(tu + " → " + m[0].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").slice(0, 70));
         }
     }
     add("Nhắc Xóm Lèo thì nói rõ quán cùng chủ", pham.length === 0,
@@ -1997,7 +2008,7 @@ const CAU_AEO = (() => {
 {
     const SAI = [
         ["Tết giữ nguyên giá", (c) => /\bTết\b|\bTet\b/.test(c) && /giữ nguyên|không phụ thu|không tăng giá|no (?:holiday )?surcharge|same price/i.test(c) && !/Mùng 2|2nd[–-]8th|10%/i.test(c)],
-        ["phụ thu Tết thiếu điều kiện Mùng 2–8", (c) => /phụ thu[^.]{0,25}10%|10% surcharge/i.test(c) && !/Mùng 2|2nd[–-]8th/i.test(c)],
+        ["phụ thu Tết thiếu điều kiện Mùng 2–8", (c) => /phụ thu[^.]{0,25}10%|10% surcharge/i.test(c) && !/Mùng 2|2nd(?:[–-]| to (?:the )?)8th/i.test(c)],
         ["hoàng hôn lúc 15h", (c) => /hoàng hôn[^.]{0,15}\b(?:từ|lúc|bắt đầu)\s*(?:~|khoảng )?15(?::00|h)(?![0-9])|sunset (?:from|at) (?:~|around )?(?:3(?::00)? ?PM|15:00)|15:00[^.]{0,12}bắt đầu hoàng hôn|From ~?15:00 \| Golden sunset/i.test(c)],
         // "mẹo xếp giờ để khỏi bỏ lỡ hoàng hôn" là lời khuyên bình thường — chỉ bắt khi đem quán khác ra so
         ["so giờ mở cửa với quán khác", (c) => /sớm nhất khu|earliest on Huynh/i.test(c)
@@ -2153,11 +2164,14 @@ const CAU_AEO = (() => {
         if (the.length !== 1) { pham.push(f + ": " + the.length + " thẻ description"); continue; }
         const d = giai(the[0][1]).trim();
         const n = [...d].length;
-        if (n < 110 || n > 160) pham.push(f + ": " + n + " ký tự");
+        // Trang dịch (21/10/2026): chữ Hán/Hàn rộng gấp đôi chữ Latin trên kết quả tìm kiếm → khung ngắn hơn
+        const ngonNgu = ((s.match(/<html[^>]*\blang="([^"]+)"/) || [])[1] || "vi").toLowerCase().split("-")[0];
+        const [toiThieu, toiDa] = { zh: [35, 90], ja: [35, 90], ko: [45, 110], th: [60, 160], en: [90, 160], ru: [90, 170] }[ngonNgu] || [110, 160];
+        if (n < toiThieu || n > toiDa) pham.push(f + ": " + n + " ký tự (" + ngonNgu + ": " + toiThieu + "–" + toiDa + ")");
         if (/(\.\.\.|…)$/.test(d)) pham.push(f + ": mô tả bị cắt cụt");
         const t = giai((s.match(/<title>([^<]*)<\/title>/) || ["", ""])[1]);
         if (chuan(d) === chuan(t)) pham.push(f + ": mô tả trùng title");
-        const k = chuan(d);
+        const k = ngonNgu + "|" + chuan(d);   // so trùng trong CÙNG thứ tiếng
         if (daGap.has(k)) pham.push(f + ": trùng mô tả với " + daGap.get(k)); else daGap.set(k, f);
     }
     add("Meta description: đủ, 110–160 ký tự, không cắt cụt, không trùng title / trang khác", pham.length === 0,
@@ -2227,7 +2241,8 @@ const CAU_AEO = (() => {
     }
     const tpl = fs.readFileSync(path.join(ROOT, "templates", "blog-post.html"), "utf8");
     if (!/<img src="\.\.\/\{\{IMAGE\}\}"[^>]*fetchpriority="high"/.test(tpl)) pham.push("templates/blog-post.html: ảnh hero bài (LCP) thiếu fetchpriority=high");
-    for (const t of fs.readdirSync(path.join(ROOT, "tac-gia")).filter((x) => x.endsWith(".html"))) {
+    const thuMucTacGia = path.join(ROOT, "tac-gia");
+    for (const t of (fs.existsSync(thuMucTacGia) ? fs.readdirSync(thuMucTacGia) : []).filter((x) => x.endsWith(".html"))) {
         const dau = [...fs.readFileSync(path.join(ROOT, "tac-gia", t), "utf8").matchAll(/<div class="blog-card-img"><img\b[^>]*>/g)].slice(0, 2);
         if (dau.some((m) => /loading="lazy"/.test(m[0]))) pham.push("tac-gia/" + t + ": thẻ bài đầu (ảnh LCP) đang lazy");
     }
@@ -2446,7 +2461,8 @@ const CAU_AEO = (() => {
             const rs = RANK[bacNguon(id)];
             let coLen = false;
             for (const href of the) {
-                const d = traDich(href);
+                // bài gốc tiếng Anh: dich-trang.js đổi link sang bản /en/ (vd /en/menu.html) — tra theo đích gốc
+                const d = traDich(nnNguon === "en" ? href.replace(/^\/en\//, "../") : href);
                 if (!d) { pham.push(f + ": thẻ trỏ " + href + " — không phải đích khai trong data/dln-map.js"); continue; }
                 demDich[d.ma] = (demDich[d.ma] || 0) + 1;
                 if (!d.ngoai) {
@@ -2814,7 +2830,10 @@ const CAU_AEO = (() => {
         if (coDoan !== 1) { loi.push(r + ": " + coDoan + " đoạn mùa (cần đúng 1) — chạy bundle-js.js + generate-blog-pages.js"); continue; }
         const i = s.indexOf("<!-- MUA:START");
         const khoi = s.slice(i, s.indexOf("<!-- MUA:END -->", i) + "<!-- MUA:END -->".length);
-        if (khoi !== doan) loi.push(r + ": đoạn mùa cũ (lịch hoặc vân tay CSS lệch) — build lại");
+        // Trang dịch (/en/…, 21/10/2026) mang đoạn mùa chỉ có chữ của đúng thứ tiếng đó (scripts/dich-trang.js)
+        const maDich = (r.match(/^(en|zh|ko|ja|ru|th)\//) || [])[1];
+        const doanCan = maDich ? mua.doanDauTrang(vers, undefined, require("./dich-trang").chuMua(maDich)) : doan;
+        if (khoi !== doanCan) loi.push(r + ": đoạn mùa cũ (lịch hoặc vân tay CSS lệch) — build lại");
         const css1 = s.search(/<link[^>]+rel="stylesheet"/);
         if (css1 >= 0 && css1 < i) loi.push(r + ": đoạn mùa đứng sau stylesheet");
         if (s.indexOf('<meta name="viewport"') > i) loi.push(r + ": đoạn mùa đứng trước meta viewport");
@@ -2951,6 +2970,136 @@ const CAU_AEO = (() => {
         loi.length === 0,
         loi.length ? loi.slice(0, 4).join(" | ") + (loi.length > 4 ? " … (+" + (loi.length - 4) + ")" : "")
                    : files.length + " trang · thẻ SEO trong head đứng trước pixel · " + soTh + " ô <th> đều có scope · " + soSection + " section đều có tiêu đề");
+}
+
+// ── R33. Trang dịch sẵn 6 thứ tiếng (21/10/2026, sếp Tuấn: "dịch sẵn chứ không phải Google dịch") ──────
+// /en/, /zh/, /ko/, /ja/, /ru/, /th/ do scripts/dich-trang.js sinh từ trang gốc + data/ban-dich/<mã>.json.
+// (a) đủ câu — trang dịch không được mượn tạm tiếng Anh / giữ chữ gốc (tiếng Việt vừa sửa mà chưa dịch lại)
+// (b) mọi câu đang dùng trong từ điển qua kiem-ban-dich.js: chỗ giữ chỗ, chữ số (giá, giờ, số đánh giá — check-facts.js
+//     chỉ đọc được tiếng Việt), không tự xưng "duy nhất / số một", setup không hoa tươi / nến / hoa hồng
+// (c) khuôn trang: <html lang> đúng thư mục, canonical + og:url tự trỏ, og:locale, nạp dist/chu-<mã>.js đúng vân tay,
+//     không nạp data/translations.js, ô chọn ngôn ngữ đánh dấu đúng thứ tiếng của trang
+// (d) WhatsApp thay Zalo (sếp chốt 21/10/2026): 0 link zalo.me tới số quán, 0 chữ "Zalo" hiển thị, số gọi dạng +84
+// (e) không sót tiếng Việt: không đoạn chữ hiển thị nào quá nửa là tiếng Việt (trừ tên quán, địa chỉ, chữ trong ngoặc)
+//     — bản đầu đo tỉ lệ cả trang (≤ 2%) thì báo nhầm bài ẩm thực nhắc tên món ("bánh căn") và trang chữ Hán
+// (f) link nội bộ tuyệt đối, trỏ file có thật; trang đích có bản dịch cùng tiếng thì phải trỏ bản dịch
+// (g) sitemap: số trang dịch trong sitemap = số file trang dịch trên đĩa
+// (h) bài viết GỐC tiếng Anh ở /blog/: WhatsApp thay Zalo, số +84, link nội bộ trỏ bản /en/ nếu có
+{
+    const loi = [];
+    const MA = ["en", "zh", "ko", "ja", "ru", "th"];
+    const N = require("./ngon-ngu");
+    const kiem = require("./dich/kiem-ban-dich");
+    const D = require("./dich-trang");
+    const dangCo = MA.filter((ma) => fs.existsSync(path.join(ROOT, ma, "index.html")));
+    const trangDich = [];
+    const diTim = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) diTim(p); else if (p.endsWith(".html")) trangDich.push(p); } };
+    for (const ma of dangCo) diTim(path.join(ROOT, ma));
+    let soCau = 0, soCauLoi = 0;
+    if (dangCo.length) {
+        // (a) + (b)
+        const cau = D.moiCau();
+        for (const ma of dangCo) {
+            const thieu = [];
+            for (const c of cau) {
+                if (c.langNguon === ma) continue;
+                const d = D.dich(ma, c.khoa);
+                if (d === null) { thieu.push(c.khoa); continue; }
+                soCau++;
+                const l = kiem.kiemCau(ma, c.khoa, d);
+                if (l.length) { soCauLoi++; loi.push(ma + ": câu dịch lỗi (" + l[0] + ") — " + c.khoa.slice(0, 60)); }
+            }
+            if (thieu.length) loi.push(ma + ": thiếu " + thieu.length + " câu dịch (vd: " + thieu[0].slice(0, 60) + ") — node scripts/dich-trang.js --xuat " + ma);
+        }
+        // (c)–(f)
+        const BO_TEN = ["Tiệm Nướng Trạm Dừng Chill", "Trạm Dừng Chill", "Tiệm Nướng", "TIỆM NƯỚNG", "Tiếng Việt",
+            "111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng", "Huỳnh Tấn Phát", "Phường Xuân Trường", "Xuân Trường",
+            "Đà Lạt", "Lâm Đồng", "Trại Mát", "Hồ Xuân Hương", "Xóm Lèo"];
+        const VN = /[ạảãàáâậầấẩẫăắằặẳẵóòọõỏôộổỗồốơờớợởỡéèẻẹẽêếềệểễúùủũụưứừựửữíìỉĩịýỳỷỹỵđ]/i;
+        for (const f of trangDich) {
+            const r = rel(f);
+            const ma = r.split("/")[0];
+            const NG = N.THEO_MA[ma];
+            const s = fs.readFileSync(f, "utf8");
+            const urlTu = N.urlTuDuongDan(r);
+            if (!new RegExp('<html[^>]*\\slang="' + NG.html + '"').test(s)) loi.push(r + ": <html lang> không phải " + NG.html);
+            if (!s.includes('<link rel="canonical" href="' + urlTu + '">')) loi.push(r + ": canonical không tự trỏ " + urlTu);
+            if (!s.includes('<meta property="og:url" content="' + urlTu + '">')) loi.push(r + ": og:url không tự trỏ");
+            if (/<meta property="og:locale"/.test(s) && !s.includes('<meta property="og:locale" content="' + NG.og + '">')) loi.push(r + ": og:locale không phải " + NG.og);
+            if (/data\/translations\.js/.test(s)) loi.push(r + ": còn nạp data/translations.js (trang dịch dùng dist/chu-" + ma + ".js)");
+            const vChu = (s.match(new RegExp('/dist/chu-' + ma + '\\.js\\?v=([a-f0-9]{8})')) || [])[1];
+            const fChu = path.join(ROOT, "dist", "chu-" + ma + ".js");
+            const vThat = fs.existsSync(fChu) ? require("crypto").createHash("md5").update(fs.readFileSync(fChu, "utf8")).digest("hex").slice(0, 8) : null;
+            if (!vChu || vChu !== vThat) loi.push(r + ": dist/chu-" + ma + ".js thiếu hoặc lệch vân tay");
+            if (!new RegExp('<summary class="lang-toggle"[^>]*><svg[\\s\\S]*?<span class="lang-text">' + NG.ngan + "</span>").test(s)) loi.push(r + ": ô chọn ngôn ngữ không đánh dấu " + NG.ngan);
+            // (d)
+            if (/zalo\.me\/0?989765070/.test(s)) loi.push(r + ": còn link Zalo của quán (trang nước ngoài dùng WhatsApp)");
+            // Bỏ: chú thích HTML (chú thích có ">" làm regex thẻ cắt hụt, để lọt chữ tiếng Việt của chú thích) ·
+            // phần tử translate="no" (tên khách viết đánh giá — cố ý giữ nguyên)
+            // Thẻ nội dòng gỡ hẳn, thẻ khối thành xuống dòng → mỗi dòng là một đoạn chữ khách đọc liền
+            const hien = s.replace(/<!-- NGON-NGU:START[\s\S]*?NGON-NGU:END -->/, " ").replace(/<!--[\s\S]*?-->/g, " ")
+                .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/gi, " ")
+                .replace(/<([a-z][a-z0-9]*)\b[^>]*\stranslate="no"[^>]*>[^<]*<\/\1>/gi, " ")
+                .replace(/<\/?(?:a|strong|em|b|i|span|small|sup|sub|abbr|time|mark|u|s|code|q|cite)\b[^>]*>/gi, "")
+                .replace(/<[^>]+>/g, "\n").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&");
+            if (/\bZalo\b/i.test(hien)) loi.push(r + ": chữ \"Zalo\" còn hiển thị");
+            if (/href="tel:0/.test(s)) loi.push(r + ": số gọi chưa có mã nước (tel:+84…)");
+            // (e) theo TỪNG ĐOẠN, đếm theo chữ cái (chữ Hán / Thái không cách nhau bằng dấu cách): đoạn ≥ 20 chữ cái mà quá
+            // nửa nằm trong từ Latin có dấu tiếng Việt → dịch sót. Tên món / địa danh lẻ ("bánh căn", "Cầu Đất") không vượt
+            // nửa đoạn nên không bị bắt; tên tiếng Việt để TRONG NGOẶC sau bản dịch ("烤米纸（bánh tráng nướng）") là cố ý.
+            for (const doan of hien.split("\n")) {
+                const sach = BO_TEN.reduce((x, t) => x.split(t).join(" "), doan).replace(/[（(][^（）()]*[）)]/g, " ");
+                const tongChu = (sach.match(/\p{L}/gu) || []).length;
+                if (tongChu < 20) continue;
+                const viet = (sach.match(/\p{Script=Latin}+/gu) || []).filter((w) => VN.test(w)).reduce((a, w) => a + w.length, 0);
+                if (viet / tongChu > 0.5) { loi.push(r + ": đoạn chưa dịch — " + doan.trim().slice(0, 70)); break; }
+            }
+            // (f)
+            // bỏ ô chọn ngôn ngữ: link "Tiếng Việt" trong đó CỐ Ý trỏ bản gốc
+            const than = s.replace(/<!-- NGON-NGU:START[\s\S]*?NGON-NGU:END -->/, " ").replace(/<script[\s\S]*?<\/script>/g, " ");
+            const dsUrl = [];
+            for (const m of than.matchAll(/\s(?:href|src|data-src|poster)="([^"]+)"/g)) dsUrl.push(m[1]);
+            for (const m of than.matchAll(/\s(?:srcset|data-srcset|imagesrcset)="([^"]+)"/g)) m[1].split(",").forEach((x) => dsUrl.push(x.trim().split(/\s+/)[0]));
+            for (const u of dsUrl) {
+                if (!u || /^(#|https?:|mailto:|tel:|data:|javascript:)/.test(u)) continue;
+                if (!u.startsWith("/")) { loi.push(r + ": đường dẫn tương đối " + u); break; }
+                let p = decodeURIComponent(u.split(/[?#]/)[0]).replace(/^\//, "");
+                if (p === "" || p.endsWith("/")) p += "index.html";
+                if (!fs.existsSync(path.join(ROOT, p))) { loi.push(r + ": trỏ file không có " + u); break; }
+                if (/\.html$/.test(p) && !N.laTrangDich(p) && fs.existsSync(path.join(ROOT, ma, p))) {
+                    loi.push(r + ": link " + u + " trỏ bản gốc trong khi có /" + ma + "/" + p); break;
+                }
+            }
+        }
+        // (h) bài viết GỐC tiếng Anh ở /blog/ cũng là trang cho khách nước ngoài: WhatsApp thay Zalo, số +84,
+        //     link nội bộ trỏ bản /en/ nếu có (dich-trang.js suaBaiGocTiengAnh)
+        for (const f of fs.readdirSync(path.join(ROOT, "blog")).filter((x) => x.endsWith(".html"))) {
+            const r = "blog/" + f;
+            const s = fs.readFileSync(path.join(ROOT, r), "utf8");
+            if (!/<html[^>]*\slang="en"/.test(s)) continue;
+            const than = s.slice(s.search(/<body\b/)).replace(/<!-- NGON-NGU:START[\s\S]*?NGON-NGU:END -->/, " ")
+                .replace(/<!--[\s\S]*?-->/g, " ").replace(/<script\b[\s\S]*?<\/script>/gi, " ");
+            if (/zalo\.me\/0?989765070/.test(s)) loi.push(r + ": bài tiếng Anh còn link Zalo của quán");
+            if (/\bZalo\b/.test(than.replace(/<[^>]+>/g, " "))) loi.push(r + ": bài tiếng Anh còn chữ \"Zalo\" hiển thị");
+            if (/href="tel:0/.test(s)) loi.push(r + ": bài tiếng Anh: số gọi chưa có mã nước");
+            for (const m of than.matchAll(/<a\s[^>]*?\bhref="\/([^"#?]*)/g)) {
+                let p = m[1];
+                if (p === "" || p.endsWith("/")) p += "index.html";
+                if (/\.html$/.test(p) && !N.laTrangDich(p) && fs.existsSync(path.join(ROOT, "en", p))) {
+                    loi.push(r + ": bài tiếng Anh trỏ /" + m[1] + " trong khi có /en/" + m[1]); break;
+                }
+            }
+        }
+        // (g)
+        const sm = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+        const trongSm = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => N.duongDanTuUrl(m[1])).filter((p) => N.laTrangDich(p));
+        if (trongSm.length !== trangDich.length) loi.push("sitemap có " + trongSm.length + " trang dịch, trên đĩa có " + trangDich.length);
+    }
+    add("Trang dịch sẵn: đủ câu · bản dịch giữ số + chỗ giữ chỗ · WhatsApp thay Zalo · không sót tiếng Việt · link đúng thứ tiếng",
+        loi.length === 0,
+        loi.length ? loi.slice(0, 4).join(" | ") + (loi.length > 4 ? " … (+" + (loi.length - 4) + ")" : "")
+                   : (dangCo.length ? trangDich.length + " trang dịch (" + dangCo.join(", ") + ") · " + soCau + " lượt câu đều đạt · lỗi " + soCauLoi
+                                    : "chưa có thứ tiếng nào được sinh trang"));
 }
 
 // ── In kết quả ───────────────────────────────────────────────────────────

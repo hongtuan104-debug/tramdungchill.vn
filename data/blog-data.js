@@ -5846,7 +5846,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>How to Book</h2>
-                            <p>Visit the <a href="/#booking"><strong>online booking form</strong></a> or message via Zalo. Confirmation within 15 minutes during opening hours. Book 1-2 days ahead for sunset-view tables, especially on weekends. Specify "sunset view" or "train view" when booking.</p>
+                            <p>Visit the <a href="/#booking"><strong>online booking form</strong></a> or message us on WhatsApp. Confirmation within 15 minutes during opening hours. Book 1-2 days ahead for sunset-view tables, especially on weekends. Specify "sunset view" or "train view" when booking.</p>
 <img src="assets/images/blog/coi-xay-gio-cam-tu-cau-da-lat.webp" alt="A woman among hydrangeas beside the lit windmill at Tram Dung Chill, a purple-pink sunset over the Da Lat greenhouse valley" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 

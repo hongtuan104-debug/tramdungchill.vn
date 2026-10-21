@@ -356,6 +356,21 @@ try {
     console.error("  Buoc nay loi (khong chan build): " + e.message);
 }
 
+// ── Trang dịch sẵn 6 thứ tiếng (21/10/2026) ──────────────────────
+// Sinh /en/, /zh/… từ trang tiếng Việt vừa build xong + data/ban-dich/<mã>.json. Chạy TRƯỚC cắt
+// phông (để bộ ký tự có cả chữ Latin của bản dịch: dấu nháy cong, chữ có dấu trong tên riêng…) và
+// chạy LẠI ở cuối (vân tay phông/CSS đổi sau cắt phông thì trang dịch phải mang vân tay mới).
+function chayDichTrang() {
+    try {
+        require("child_process").execSync("node " + JSON.stringify(path.join(__dirname, "dich-trang.js")), { stdio: "inherit" });
+    } catch (e) {
+        console.error("  Bước dịch trang lỗi: " + e.message);
+        process.exitCode = 1;
+    }
+}
+console.log("\nSinh trang dịch...");
+chayDichTrang();
+
 // Cat nho phong xuong dung ky tu site dung. Chay CUOI CUNG: no quet chu tu cac
 // file .html, ma nav/footer/menu deu vua duoc sinh o cac buoc tren.
 console.log("");
@@ -377,5 +392,8 @@ try {
 } catch (e) {
     console.error("  Buoc nay loi (khong chan build): " + e.message);
 }
+
+console.log("\nSinh lại trang dịch (vân tay phông/CSS mới)...");
+chayDichTrang();
 
 console.log("\nAll done!");

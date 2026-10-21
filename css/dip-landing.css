@@ -682,6 +682,17 @@ html {
 @media (max-width: 360px) {
     .dip-pricing-big.dip-pricing-range { font-size: 1.7rem; }
 }
+@media (max-width: 480px) {
+    /* trang dich (21/10/2026): don vi tien dai hon "d" ("越南盾", "донгов") nen dong gia tran mep 14-25px
+       o 320-375px; "Tu 250K" thanh "От 250 000 донгов" / "เริ่มต้น 250,000 ดอง" */
+    html:not([lang="vi"]) .dip-pricing-big.dip-pricing-range { font-size: 1.45rem; }
+    html:not([lang="vi"]) .dip-pricing-big.dip-pricing-mid { font-size: 2rem; }
+}
+@media (max-width: 400px) {
+    /* trang dich: h1 hero dai hon ban Viet (Nga 4 dong, Anh/Nhat 4 dong o 375px) — iPhone mini / SE day nut
+       dat ban xuong duoi man dau 10-60px */
+    html:not([lang="vi"]) .dip-hero-content h1 { font-size: 1.7rem; }
+}
 /* Màn 320-374px (04/10/2026): iPhone SE đời 1, iPhone SE/mini bật Phóng to màn hình, Android chỉnh cỡ
    hiển thị lớn. Nút gọi khoảng 162px + tên quán khoảng 145px vượt ô 280px nên tên quán gãy 2 dòng, thanh
    nav dính cao 105px (155px ở màn 280px). Thu nút gọi + tên quán cho vừa một dòng. */
@@ -736,4 +747,10 @@ html {
 /* Máy cảm ứng: chạm xong không để thẻ nhấc lên mãi (mục B15) */
 @media (hover: none) {
     .dip-feature:hover { transform: none; }
+}
+
+/* Ô chọn ngôn ngữ (21/10/2026): nằm sát nút gọi, không giữa thanh. */
+.dip-nav .chon-ngon-ngu {
+    margin-left: auto;
+    margin-right: 12px;
 }

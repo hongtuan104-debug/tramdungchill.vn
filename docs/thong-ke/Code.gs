@@ -24,7 +24,8 @@ const PHIEN_BAN = '2026-10-16-tdc';
 const KY_HOP_LE = [7, 28, 90];
 // Đúng hợp đồng sự kiện ở docs/do-luong.md mục 3. Đơn đặt bàn = conversion_event_submit_lead_form (chỉ nổ khi
 // đơn ĐÃ LƯU được, không tính đơn trùng — CLAUDE.md #35, #37). generate_lead chỉ có ở trang chủ nên không dùng.
-const SU_KIEN = ['conversion_event_submit_lead_form', 'click_phone', 'click_zalo', 'click_facebook', 'click_directions'];
+// click_whatsapp: trang dịch sẵn tiếng nước ngoài dùng WhatsApp thay Zalo (21/10/2026)
+const SU_KIEN = ['conversion_event_submit_lead_form', 'click_phone', 'click_zalo', 'click_whatsapp', 'click_facebook', 'click_directions'];
 const SU_KIEN_DON = 'conversion_event_submit_lead_form';
 const SAI_TOI_DA = 15;                  // lần sai mỗi cửa sổ 15 phút, tính chung cả script
 const LUU_TAM_GIAY = 900;               // số liệu GA4 lưu tạm 15 phút (đỡ tốn hạn mức)

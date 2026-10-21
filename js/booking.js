@@ -135,6 +135,12 @@ function initBookingForm() {
     if (!form) return;
 
     const zaloNumber = SITE_CONFIG.contact.zaloNumber;
+    /* Trang tiếng nước ngoài (/en/, /zh/… — 21/10/2026): khách Singapore, Malaysia, Hàn… ít ai có Zalo,
+       nên đơn đi qua WhatsApp cùng số hotline; số điện thoại nhận cả số quốc tế; tin nhắn gửi quán viết
+       tiếng Anh vì quán xác nhận khách nước ngoài bằng tin nhắn tiếng Anh (sếp chốt). */
+    const lang = maNgonNgu();
+    const nuocNgoai = lang !== 'vi';
+    const waNumber = SITE_CONFIG.contact.whatsapp || '84989765070';
 
     // Pre-fill date = today + set min = today (prevent past dates)
     const dateInput = form.querySelector('input[type="date"][name="date"]');
@@ -194,21 +200,29 @@ function initBookingForm() {
 
         // Phone validation (Vietnamese: 0xxx or +84xxx or 84xxx)
         let cleanPhone = data.phone.replace(/[\.\s\-\(\)]/g, '');
+        if (/^00/.test(cleanPhone)) cleanPhone = '+' + cleanPhone.slice(2);
         if (/^\+84/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(3);
         if (/^84[0-9]{9}$/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(2);
-        if (!/^0[0-9]{9}$/.test(cleanPhone)) {
-            showNotification(t('notify.phone', 'Số điện thoại không hợp lệ (cần 10 số)!'), 'error');
+        // Khách nước ngoài: số Việt Nam 10 số HOẶC số quốc tế 8–15 chữ số (Singapore chỉ có 8)
+        const soHopLe = /^0[0-9]{9}$/.test(cleanPhone) || (nuocNgoai && /^\+?[1-9][0-9]{7,14}$/.test(cleanPhone));
+        if (!soHopLe) {
+            showNotification(nuocNgoai
+                ? t('notify.phone_intl', 'Số điện thoại chưa đúng — ghi cả mã quốc gia, ví dụ +65 8123 4567.')
+                : t('notify.phone', 'Số điện thoại không hợp lệ (cần 10 số)!'), 'error');
             markInvalid('phone');
             return;
         }
+        // Nhân viên đọc đơn trên Telegram / Sheet: biết ngay khách dùng tiếng gì để nhắn lại cho đúng
+        const ghiChu = nuocNgoai ? '[' + lang.toUpperCase() + '] ' + (data.note || '') : (data.note || '');
 
         // Show loading
         btnText.style.display = 'none';
         btnLoading.style.display = 'inline';
         submitBtn.disabled = true;
 
-        // Format message
-        const message = formatZaloMessage(data);
+        // Format message — bản tiếng Việt cho nhân viên (Apps Script); khách nước ngoài gửi quán bản tiếng Anh
+        const message = formatZaloMessage(Object.assign({}, data, { note: ghiChu }));
+        const tinKhach = nuocNgoai ? formatTinNhanTiengAnh(data) : message;
 
         // Get traffic source (UTM or referrer)
         const trafficSource = getTrafficSource();
@@ -240,7 +254,7 @@ function initBookingForm() {
                     time: data.time,
                     guests: parseInt(data.guests) || 2,
                     occasion: data.occasion || '',
-                    note: data.note || '',
+                    note: ghiChu,
                     source: trafficSource.source,
                     medium: trafficSource.medium,
                     campaign: trafficSource.campaign,
@@ -293,7 +307,7 @@ function initBookingForm() {
                         time: data.time,
                         guests: data.guests,
                         occasion: data.occasion || '',
-                        note: data.note || '',
+                        note: ghiChu,
                         message: message,
                         source: trafficSource.source,
                         medium: trafficSource.medium,
@@ -377,8 +391,10 @@ function initBookingForm() {
             }
         }
 
-        // Open Zalo with pre-filled message
-        const zaloUrl = 'https://zalo.me/' + zaloNumber + '?text=' + encodeURIComponent(message);
+        // Open Zalo with pre-filled message (trang tiếng nước ngoài: WhatsApp, tin nhắn tiếng Anh)
+        const zaloUrl = nuocNgoai
+            ? 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(tinKhach)
+            : 'https://zalo.me/' + zaloNumber + '?text=' + encodeURIComponent(message);
 
         setTimeout(() => {
             btnText.style.display = 'inline';
@@ -388,7 +404,9 @@ function initBookingForm() {
             // Đơn đã vào app nhưng Apps Script hỏng (hoặc ngược lại): nhân viên có thể không nhận
             // Telegram/Zalo nhóm → vẫn nhắc khách nhắn Zalo. Cả hai cùng hỏng thì chính hộp thoại
             // đã nói rõ, không cần thêm toast.
-            if (daLuuDuoc && !webhookOk) {
+            // Trang nước ngoài: chỉ nhắc khi Apps Script (đường báo Telegram cho nhân viên) hỏng. App đặt bàn có thể
+            // chưa nhận số quốc tế, mà Apps Script đã nhận thì nhân viên vẫn thấy đơn — nhắc nữa là báo động oan.
+            if (daLuuDuoc && (nuocNgoai ? !sheetOk : !webhookOk)) {
                 showNotification(
                     t('notify.webhook_fail', 'Lưu đặt bàn tạm lỗi — vui lòng nhắn Zalo để xác nhận!'),
                     'error'
@@ -488,5 +506,23 @@ function formatZaloMessage(data) {
     }
     msg += '---\nĐặt qua website tramdungchill.vn';
 
+    return msg;
+}
+
+/* Tin nhắn WhatsApp khách nước ngoài gửi quán (21/10/2026). Luôn tiếng Anh dù trang tiếng Trung, Hàn, Nhật…:
+   khách đọc được trước khi bấm Gửi, nhân viên đọc được để nhắn xác nhận (sếp chốt: xác nhận bằng tiếng Anh). */
+function formatTinNhanTiengAnh(data) {
+    const dip = { birthday: 'Birthday', anniversary: 'Anniversary', date: 'Date night', gathering: 'Friends gathering', company: 'Company / team', other: 'Other' };
+    const [y, m, d] = data.date.split('-');
+    let msg = '--- TABLE BOOKING ---\n';
+    msg += 'Name: ' + data.name + '\n';
+    msg += 'Phone: ' + data.phone + '\n';
+    msg += 'Date: ' + d + '/' + m + '/' + y + '\n';
+    msg += 'Time: ' + data.time + '\n';
+    msg += 'Guests: ' + data.guests + '\n';
+    if (data.occasion) msg += 'Occasion: ' + (dip[data.occasion] || data.occasion) + '\n';
+    if (data.note) msg += 'Note: ' + data.note + '\n';
+    msg += 'Language: ' + maNgonNgu().toUpperCase() + '\n';
+    msg += '---\nBooked on tramdungchill.vn';
     return msg;
 }

@@ -8,6 +8,8 @@ name: Giám sát uptime
 #
 # CẦN CÀI (GitHub → Settings → Secrets and variables → Actions):
 #   TELEGRAM_BOT_TOKEN   mã bot giám sát RIÊNG (tạo bằng @BotFather; không dùng bot báo đơn)
+#   VPS_URL              địa chỉ webhook VPS báo Zalo (http://<IP>:<cổng>/) — gỡ khỏi code 21/10/2026 vì repo
+#                        công khai; giá trị ở .claude/thong-tin-noi-bo.md. Chưa cài thì máy bỏ qua mục VPS.
 # Tuỳ chọn: TELEGRAM_CHAT_ID (mặc định NGUOI_NHAN trong script) · ZALO_WEBHOOK_URL /
 # ZALO_WEBHOOK_SECRET (cùng cặp với canh-bai-cu). Chưa cài thì vẫn báo qua email.
 # Bấm "Run workflow" tay → luôn gửi 1 tin thử về Telegram để biết đường báo thông.
@@ -53,4 +55,5 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           ZALO_WEBHOOK_URL: ${{ secrets.ZALO_WEBHOOK_URL }}
           ZALO_WEBHOOK_SECRET: ${{ secrets.ZALO_WEBHOOK_SECRET }}
+          VPS_URL: ${{ secrets.VPS_URL }}
         run: node scripts/giam-sat-uptime.js

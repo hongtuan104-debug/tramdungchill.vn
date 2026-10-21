@@ -351,6 +351,17 @@ var TRANSLATIONS = {
     'notify.required': 'Vui lòng điền đầy đủ thông tin bắt buộc!',
     'notify.phone': 'Số điện thoại không hợp lệ (cần 10 số)!',
     'notify.webhook_fail': 'Lưu đặt bàn tạm lỗi — vui lòng nhắn Zalo để xác nhận!',
+    // Chỉ trang tiếng nước ngoài hiện câu này (nhận số quốc tế) — bản dịch sinh từ đây (21/10/2026)
+    'notify.phone_intl': 'Số điện thoại chưa đúng — ghi cả mã quốc gia, ví dụ +65 8123 4567.',
+
+    // Chữ JS gán lúc chạy (21/10/2026): trang dịch lấy bản dịch qua dist/chu-<mã>.js
+    'map.iframe': 'Bản đồ Tiệm Nướng Trạm Dừng Chill',
+    'gallery.alt': 'Ảnh tại Trạm Dừng Chill',
+    'sticky.top': 'Lên đầu trang',
+    'fab.group': 'Liên hệ nhanh',
+    'fab.call': 'Gọi ngay',
+    'fab.whatsapp': 'Nhắn WhatsApp',
+    'fab.msg': 'Em muốn đặt bàn ở Trạm Dừng Chill',
 
     // Blog
     'blog.readmore': 'Đọc tiếp →',
@@ -705,6 +716,15 @@ var TRANSLATIONS = {
     'notify.required': 'Please fill in all required fields!',
     'notify.phone': 'Invalid phone number (10 digits required)!',
     'notify.webhook_fail': 'Booking save failed — please message us on Zalo to confirm!',
+    'notify.phone_intl': 'Please check your phone number — include the country code, e.g. +65 8123 4567.',
+
+    'map.iframe': 'Map of Tiệm Nướng Trạm Dừng Chill',
+    'gallery.alt': 'Photo at Trạm Dừng Chill',
+    'sticky.top': 'Back to top',
+    'fab.group': 'Quick contact',
+    'fab.call': 'Call now',
+    'fab.whatsapp': 'Chat on WhatsApp',
+    'fab.msg': "Hi, I'd like to book a table at Trạm Dừng Chill",
 
     // Blog
     'blog.readmore': 'Read more →',

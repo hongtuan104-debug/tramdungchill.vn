@@ -62,11 +62,11 @@
 <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
 <link rel="preload" as="image" href="../assets/images/tau-lua-da-lat-duoi-lan-can-quan-1200.webp" type="image/webp" fetchpriority="high">
 
-<link rel="stylesheet" href="../dist/style.min.css?v=7fc15bbc">
-<link rel="stylesheet" href="../dist/dip-landing.min.css?v=084afe29">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2?v=1598c370">
+<link rel="stylesheet" href="../dist/style.min.css?v=f7e4e956">
+<link rel="stylesheet" href="../dist/dip-landing.min.css?v=7c43bb75">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-latin.woff2?v=d9ce470c">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-vietnamese.woff2?v=ae4cc827">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-latin.woff2?v=157f06c4">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/dancing-script-700-vietnamese.woff2?v=1cfc1ae7">
 
 <script type="application/ld+json">
@@ -200,7 +200,7 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
 }
 </script>
 <!-- FAQ_JSONLD:END -->
-<script defer src="../dist/lazy-tracking.min.js?v=953df734"></script>
+<script defer src="../dist/lazy-tracking.min.js?v=6f353f36"></script>
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="https://analytics.tiktok.com">
     <link rel="dns-prefetch" href="https://www.clarity.ms">
@@ -215,6 +215,7 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
         <span class="dip-logo-sub">TIỆM NƯỚNG</span>
         <span class="dip-logo-main">Trạm Dừng Chill</span>
     </a>
+    <!-- NGON-NGU:START (scripts/dich-trang.js sinh, đừng sửa tay) --><details class="chon-ngon-ngu" translate="no"><summary class="lang-toggle" aria-label="Ngôn ngữ / Language: Tiếng Việt" title="Ngôn ngữ / Language: Tiếng Việt"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-text">VI</span></summary><ul class="ds-ngon-ngu"><li><a href="/dip/san-tau-da-lat.html" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li><li><a href="/en/dip/san-tau-da-lat.html" hreflang="en" lang="en">English</a></li><li><a href="/zh/dip/san-tau-da-lat.html" hreflang="zh-Hans" lang="zh-Hans">中文</a></li><li><a href="/ko/dip/san-tau-da-lat.html" hreflang="ko" lang="ko">한국어</a></li><li><a href="/ja/dip/san-tau-da-lat.html" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/dip/san-tau-da-lat.html" hreflang="ru" lang="ru">Русский</a></li><li><a href="/th/dip/san-tau-da-lat.html" hreflang="th" lang="th">ไทย</a></li></ul></details><!-- NGON-NGU:END -->
     <a href="tel:0989765070" class="dip-nav-phone">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         0989.765.070
@@ -615,9 +616,9 @@ fbq('track','ViewContent',{content_name:'San tau Da Lat',content_category:'landi
     </footer>
     <!-- FOOTER:END -->
 
-<script defer src="../data/site-config.js?v=4ac35186"></script>
+<script defer src="../data/site-config.js?v=1dc10b01"></script>
 <!-- Common bundle: bật đo lường click Gọi/Zalo (Contact) + FAB liên hệ nổi -->
-<script defer src="../dist/common.min.js?v=9a62bb6e"></script>
+<script defer src="../dist/common.min.js?v=d57cda41"></script>
 <script>
 document.getElementById('bookingForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -633,6 +634,9 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     data.medium = 'landing-page';
     data.campaign = 'san-tau';
     data.timestamp = new Date().toISOString();
+    // Trang tiếng nước ngoài (/en/dip/…, 21/10/2026): gắn mã tiếng vào ghi chú để nhân viên nhắn lại đúng tiếng
+    var ngonNgu = (document.documentElement.lang || 'vi').toLowerCase().split('-')[0];
+    if (ngonNgu !== 'vi') data.note = '[' + ngonNgu.toUpperCase() + '] ' + (data.note || '');
 
     /* Chỉ đếm chuyển đổi khi Apps Script THẬT SỰ nhận đơn (sửa 17/09/2026, CLAUDE.md #35).
        Bản cũ dùng mode:'no-cors' — trình duyệt trả "opaque response" nên promise resolve kể cả

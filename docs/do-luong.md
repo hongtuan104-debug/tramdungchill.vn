@@ -1,6 +1,6 @@
 # Sổ đo lường — tramdungchill.vn
 
-> Chủ sở hữu: **sếp Tuấn** (Nguyễn Hồng Tuấn). Cập nhật lần cuối: **19/09/2026** (checklist #30).
+> Chủ sở hữu: **sếp Tuấn**. Cập nhật lần cuối: **19/09/2026** (checklist #30).
 > Đổi bất cứ sự kiện, pixel hay trang nào trong sổ này thì ghi một dòng vào **Nhật ký thay đổi** ở cuối.
 > Mức tin cậy: 🟢 đã đo · 🟡 suy ra · 🔴 chưa kiểm được từ máy này.
 
@@ -24,7 +24,7 @@ liên kết GA4 ↔ Ads (hit `/measurement/conversion`), và trang chủ chỉ g
 
 - **Gắn đủ 5 công cụ:** trang chủ, menu, blog, 141 bài blog, 4 trang dịp, 404.
   404 cố ý giữ: nhờ GA4 ghi trang 404 mà biết link hỏng từ đâu tới.
-- **Không Clarity:** `duong-di/`, `tac-gia/nguyen-duy.html` — chưa từng gắn (bỏ sót, không phải quyết
+- **Không Clarity:** `duong-di/` (trang tác giả cũ đã gỡ 21/10/2026) — chưa từng gắn (bỏ sót, không phải quyết
   định). Chờ sếp: có cần heatmap trang đường đi không?
 - **Không gắn gì (cố ý):** `review-qr.html` (trang in QR cho nhân viên — mã QR trỏ thẳng tới trang viết
   đánh giá Google, khách không bao giờ vào), `dev/utm-builder.html`, `components/*`, file xác minh Google,
@@ -55,8 +55,8 @@ Lọc "lưu lượng nội bộ" theo IP của GA4 không dùng được cho đi
 |---|---|---|---|---|
 | `page_view` / `PageView` / `Pageview` | GA4 · Meta · TikTok | pixel bật (chạm/cuộn đầu hoặc load+6s) | — | nền |
 | `ViewContent` | Meta | cùng lúc PageView ở menu, trang dịp, bài blog | `content_name`, `content_category` | vi mô |
-| `click_phone` / `click_zalo` / `click_facebook` / `click_directions` | GA4 | bấm link tel / zalo.me / facebook / Maps | `event_category=contact`, `event_label` = vị trí (`page_link`, `fab`, `booking_zalo_quick`) | vi mô |
-| `Contact` | Meta · TikTok | bấm link tel / zalo.me (MỖI cú bấm đúng 1 lần — bug #35) | `content_category` / `content_type` | vi mô |
+| `click_phone` / `click_zalo` / `click_whatsapp` / `click_facebook` / `click_directions` | GA4 | bấm link tel / zalo.me / wa.me (trang dịch /en/, /zh/… — từ 21/10/2026) / facebook / Maps | `event_category=contact`, `event_label` = vị trí (`page_link`, `fab`, `booking_zalo_quick`) | vi mô |
+| `Contact` | Meta · TikTok | bấm link tel / zalo.me / wa.me (MỖI cú bấm đúng 1 lần — bug #35) | `content_category` / `content_type` | vi mô |
 | `bam_the_goi_y` | GA4 | bấm thẻ "Gợi ý cho bạn" cuối bài | `link_url`, `o_thu`, `tu_trang` | vi mô |
 | `LCP` `INP` `CLS` `TTFB` | GA4 | sau khi pixel bật (đo khách thật) | `metric_rating`, `nhom_trang`, `debug_*` | kỹ thuật |
 | `conversion_event_submit_lead_form` | GA4 (key event) → Google Ads | **đơn đã lưu được** (mục 4) | — | **vĩ mô** |

@@ -41,22 +41,22 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=7fc15bbc">
+    <link rel="stylesheet" href="dist/style.min.css?v=f7e4e956">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
          Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
          Trang menu không có ảnh hero → preload đủ phông màn đầu, xem khối dưới (bug #29). -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=179a7d55">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=157f06c4">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=1cfc1ae7">
     <!-- Preload đủ phông hero (14/09/2026, CLAUDE.md bug #29): không preload thì phông chỉ được phát hiện SAU khi CSS về,
          đổi phông sau lần vẽ đầu → đoạn văn Inter xuống dòng lệch vài chữ (Lighthouse CLS 0,104 ở 412px). A/B: CLS → 0, FCP nhanh hơn. -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2?v=1598c370">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2?v=d9ce470c">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-vietnamese.woff2?v=ae4cc827">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-latin.woff2?v=d172a6cf">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-latin.woff2?v=bd9fd811">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-vietnamese.woff2?v=0eb30ef7">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-latin.woff2?v=c8f44b07">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-latin.woff2?v=83cf3a25">
     <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-vietnamese.woff2?v=f5fe5a9c">
 
     <!-- Schema.org JSON-LD: Menu (MenuItem + giá) — SINH TỰ ĐỘNG từ data/menu-data.js bởi scripts/generate-menu.js. KHÔNG sửa tay phần giữa marker. -->
@@ -67,7 +67,7 @@
     "@type": "Menu",
     "@id": "https://tramdungchill.vn/menu.html#menu",
     "name": "Thực Đơn Tiệm Nướng Trạm Dừng Chill",
-    "description": "Thực đơn quán nướng BBQ Đà Lạt — nướng tại bàn, lẩu, hải sản, đồ uống. hơn 80 món, giá đã gồm VAT.",
+    "description": "Thực đơn quán nướng BBQ Đà Lạt — nướng tại bàn, lẩu, hải sản, đồ uống. Hơn 70 món, giá đã gồm VAT.",
     "url": "https://tramdungchill.vn/menu.html",
     "inLanguage": "vi",
     "mainEntity": {
@@ -1157,7 +1157,7 @@
 }
 </script>
 <!-- FAQ_JSONLD:END -->
-<script defer src="dist/lazy-tracking.min.js?v=953df734"></script>
+<script defer src="dist/lazy-tracking.min.js?v=6f353f36"></script>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
@@ -1185,10 +1185,7 @@
                 <li><a href="/#booking" class="nav-link nav-cta" data-i18n="nav.booking" data-home-href="#booking">Đặt bàn</a></li>
             </ul>
             <div class="nav-right">
-                <button class="lang-toggle" id="langToggle" aria-label="Switch to English" title="Switch to English">
-                    <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    <span class="lang-text">EN</span>
-                </button>
+                <!-- NGON-NGU:START (scripts/dich-trang.js sinh, đừng sửa tay) --><details class="chon-ngon-ngu" translate="no"><summary class="lang-toggle" aria-label="Ngôn ngữ / Language: Tiếng Việt" title="Ngôn ngữ / Language: Tiếng Việt"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-text">VI</span></summary><ul class="ds-ngon-ngu"><li><a href="/menu.html" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li><li><a href="/en/menu.html" hreflang="en" lang="en">English</a></li><li><a href="/zh/menu.html" hreflang="zh-Hans" lang="zh-Hans">中文</a></li><li><a href="/ko/menu.html" hreflang="ko" lang="ko">한국어</a></li><li><a href="/ja/menu.html" hreflang="ja" lang="ja">日本語</a></li><li><a href="/ru/menu.html" hreflang="ru" lang="ru">Русский</a></li><li><a href="/th/menu.html" hreflang="th" lang="th">ไทย</a></li></ul></details><!-- NGON-NGU:END -->
                 <a href="tel:0989765070" class="nav-phone" aria-label="Gọi 0989.765.070">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span>0989.765.070</span>
@@ -1772,13 +1769,13 @@
     </noscript>
 
     <!-- Data Files -->
-    <script defer src="data/site-config.js?v=4ac35186"></script>
-    <script defer src="data/translations.js?v=05bb45d6"></script>
+    <script defer src="data/site-config.js?v=1dc10b01"></script>
+    <script defer src="data/translations.js?v=e530f061"></script>
     <script defer src="data/menu-data.js?v=0aeb3b5b"></script>
 
     <!-- Bundled & Minified JS -->
-    <script defer src="dist/common.min.js?v=9a62bb6e"></script>
-    <script defer src="dist/menu.min.js?v=1b7de8a7"></script>
+    <script defer src="dist/common.min.js?v=d57cda41"></script>
+    <script defer src="dist/menu.min.js?v=7b5dc532"></script>
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFBZDY6CD" type="text/plain" data-tdc-lazy></script>
     <script type="text/plain" data-tdc-lazy>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2VFBZDY6CD');gtag('config','AW-18038463990');</script>

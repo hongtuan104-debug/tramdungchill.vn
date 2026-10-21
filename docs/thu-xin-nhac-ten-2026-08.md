@@ -43,7 +43,7 @@ LƯU Ý KHI GỬI:
 
 > Kính gửi anh/chị phụ trách nội dung AGO Tourist,
 > 
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt.
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt.
 > 
 > Tôi viết thư này vì hai việc. Việc thứ nhất là báo giúp quý trang, không phải xin xỏ gì.
 > 
@@ -86,7 +86,7 @@ LƯU Ý KHI GỬI:
 > 
 > Trân trọng,
 > 
-> Nguyễn Hồng Tuấn
+> [Họ tên chủ quán]
 > Chủ Tiệm Nướng Trạm Dừng Chill
 > 0989.765.070 — https://tramdungchill.vn
 
@@ -140,7 +140,7 @@ VIỆC KHÔNG LÀM: không gửi email, không nhắn Zalo, không nhắn fanpag
 > 
 > Chào anh Đức,
 > 
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, phường Xuân Trường — khu Trại Mát. Tôi viết thư này sau khi đọc kỹ bài "Quán Nướng Đà Lạt Ngon: Top Địa Chỉ View Đẹp, Gần Trung Tâm (Cập Nhật 2026)" bên anh, bản cập nhật giữa tháng 7 vừa rồi.
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, phường Xuân Trường — khu Trại Mát. Tôi viết thư này sau khi đọc kỹ bài "Quán Nướng Đà Lạt Ngon: Top Địa Chỉ View Đẹp, Gần Trung Tâm (Cập Nhật 2026)" bên anh, bản cập nhật giữa tháng 7 vừa rồi.
 > 
 > Thứ làm tôi chú ý nhất trong bài không phải danh sách quán, mà cái bảng anh ghép quán nướng theo cung tham quan — dòng đầu là cung Trại Mát – Cầu Đất, với lời khuyên đi một chiều về khu phía Đông để khỏi chạy xuyên trung tâm nhiều lần. Người viết được dòng đó là người thật sự dắt khách đi, chứ không phải ngồi chép danh sách. Quán tôi nằm đúng trên cung ấy.
 > 
@@ -168,7 +168,7 @@ VIỆC KHÔNG LÀM: không gửi email, không nhắn Zalo, không nhắn fanpag
 > 
 > Cảm ơn anh đã đọc hết thư.
 > 
-> Nguyễn Hồng Tuấn — 0989.765.070 — tramdungchill.vn
+> [Họ tên chủ quán] — 0989.765.070 — tramdungchill.vn
 > 
 > 
 > === BẢN NGẮN — NHẮN ZALO 0961 246 379 HOẶC FACEBOOK ANH ĐỨC ===
@@ -228,7 +228,7 @@ KÊNH PHỤ nếu muốn thử thêm (cùng bộ máy truyền thông, nhắn b�
 > Độ dài: ~145 chữ, vừa khung chat.
 > ═══════════════════════════════════════════
 > 
-> Chào anh/chị, mình là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
+> Chào anh/chị, mình là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
 > 
 > Mình vừa đọc bài "Đã bụng, đã mắt với 25 quán nướng Đà Lạt ngon, view đẹp nhất 2026" của VinWonders. Bài đặt tiêu chí view ngay trên tiêu đề nên mình mạnh dạn nhắn: quán mình ở 111 Huỳnh Tấn Phát, hướng Trại Mát, chưa có trong 25 quán của bài.
 > 
@@ -236,7 +236,7 @@ KÊNH PHỤ nếu muốn thử thêm (cùng bộ máy truyền thông, nhắn b�
 > 
 > Nếu bên mình có dịp cập nhật bài, mình xin gửi ảnh chất lượng cao và mời anh/chị ghé trải nghiệm thật, mình giữ sẵn bàn view.
 > 
-> Nguyễn Hồng Tuấn — 0989.765.070 — tramdungchill.vn
+> [Họ tên chủ quán] — 0989.765.070 — tramdungchill.vn
 > 
 > 
 > ═══════════════════════════════════════════
@@ -248,7 +248,7 @@ KÊNH PHỤ nếu muốn thử thêm (cùng bộ máy truyền thông, nhắn b�
 > 
 > Kính gửi Ban biên tập Wonderpedia — VinWonders,
 > 
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
 > 
 > Tôi có đọc bài "Đã bụng, đã mắt với 25 quán nướng Đà Lạt ngon, view đẹp nhất 2026" trên Wonderpedia. Bài công phu, gom được 25 địa chỉ, và đặt hẳn tiêu chí "đã mắt — view đẹp" lên ngay tiêu đề. Chính vì tiêu chí đó mà tôi mạnh dạn viết thư này, để đề xuất bổ sung một địa điểm nếu quý trang có dịp cập nhật bài.
 > 
@@ -284,7 +284,7 @@ KÊNH PHỤ nếu muốn thử thêm (cùng bộ máy truyền thông, nhắn b�
 > Cảm ơn anh/chị đã đọc hết thư.
 > 
 > Trân trọng,
-> Nguyễn Hồng Tuấn
+> [Họ tên chủ quán]
 > Chủ Tiệm Nướng Trạm Dừng Chill
 > 0989.765.070 — https://tramdungchill.vn
 
@@ -352,13 +352,13 @@ https://www.nguyenkim.com/20-quan-nuong-ngon-da-lat-gia-re-cuc-dong-khach-NKCZ69
 > 
 > Chào anh/chị,
 > 
-> Mình là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Mình đọc bài "22 Quán Nướng Đà Lạt Ngon, Rẻ, View Đẹp Quên Lối Về" trên Nguyễn Kim, có mục "Quán nướng ngon view đồi Đà Lạt". Các quán trong bài đều quanh trung tâm — Hoàng Diệu, Bùi Thị Xuân, Lê Hồng Phong — chưa có quán nào hướng Trại Mát.
+> Mình là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Mình đọc bài "22 Quán Nướng Đà Lạt Ngon, Rẻ, View Đẹp Quên Lối Về" trên Nguyễn Kim, có mục "Quán nướng ngon view đồi Đà Lạt". Các quán trong bài đều quanh trung tâm — Hoàng Diệu, Bùi Thị Xuân, Lê Hồng Phong — chưa có quán nào hướng Trại Mát.
 > 
 > Quán mình ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm ~7km. Tàu lửa cổ Đà Lạt–Trại Mát chạy ngay dưới chân quán, khách vừa nướng vừa ngắm tàu và hoàng hôn thung lũng. 4,8 sao / 6.889 đánh giá Google, mở 15:00–23:00, 95–300k/người.
 > 
 > Nếu có dịp cập nhật bài, mong quý trang cân nhắc bổ sung. Mình có sẵn ảnh chất lượng cao và mời anh/chị ghé trải nghiệm, quán lo bàn view cho đoàn.
 > 
-> Nguyễn Hồng Tuấn — 0989.765.070 — tramdungchill.vn
+> [Họ tên chủ quán] — 0989.765.070 — tramdungchill.vn
 > 
 > 
 > ═══════════════════════════════════════════
@@ -370,7 +370,7 @@ https://www.nguyenkim.com/20-quan-nuong-ngon-da-lat-gia-re-cuc-dong-khach-NKCZ69
 > 
 > Chào anh/chị,
 > 
-> Mình là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
+> Mình là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
 > 
 > Mình biết đây là hộp thư chăm sóc khách hàng chứ không phải ban biên tập — mình có tìm trên trang nhưng không thấy email của bộ phận nội dung. Rất mong anh/chị chuyển giúp thư này tới người phụ trách mục blog. Nếu không đúng chỗ thì anh/chị cứ bỏ qua giúp mình, mình không phiền.
 > 
@@ -397,7 +397,7 @@ https://www.nguyenkim.com/20-quan-nuong-ngon-da-lat-gia-re-cuc-dong-khach-NKCZ69
 > 
 > Cảm ơn anh/chị đã đọc thư.
 > 
-> Nguyễn Hồng Tuấn — 0989.765.070 — https://tramdungchill.vn
+> [Họ tên chủ quán] — 0989.765.070 — https://tramdungchill.vn
 
 ### Chỗ đã cá nhân hoá riêng cho nơi này
 
@@ -446,7 +446,7 @@ Về hình thức: đường liên hệ khả dĩ nhất là fanpage/Zalo nên b
 
 > Kính gửi Ban Truyền thông Vietnam Airlines,
 > 
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt.
 > 
 > Tôi biết địa chỉ này là kênh báo chí chứ không phải bộ phận làm nội dung du lịch, nên rất mong anh/chị chuyển giúp thư tới người phụ trách mục Cẩm nang du lịch trên website. Tôi có hai việc: việc thứ nhất là báo một chi tiết cần cập nhật, việc thứ hai mới là đề xuất của quán tôi.
 > 
@@ -493,7 +493,7 @@ Về hình thức: đường liên hệ khả dĩ nhất là fanpage/Zalo nên b
 > 
 > Trân trọng,
 > 
-> Nguyễn Hồng Tuấn
+> [Họ tên chủ quán]
 > Chủ Tiệm Nướng Trạm Dừng Chill
 > 0989.765.070 — https://tramdungchill.vn
 > 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng
@@ -578,7 +578,7 @@ DỰ PHÒNG nếu 5–7 ngày không ai trả lời:
 > Kính gửi bộ phận nội dung PasGo,
 > (Nhờ anh/chị chuyển giúp tới người phụ trách bài — bài ghi tác giả là "Quỳnh Trang & PasGo Team".)
 > 
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Tôi có đọc kỹ bài "Top quán nướng ngon Đà Lạt" bên mình (https://pasgo.vn/kham-pha/top-quan-nuong-ngon-da-lat-1712, trên bài ghi cập nhật ngày 08/06/2026). Tôi viết thư này để xin đề xuất bổ sung một địa chỉ vào mục "Đang cập nhật thêm" ở cuối bài, nếu quý trang thấy phù hợp.
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Tôi có đọc kỹ bài "Top quán nướng ngon Đà Lạt" bên mình (https://pasgo.vn/kham-pha/top-quan-nuong-ngon-da-lat-1712, trên bài ghi cập nhật ngày 08/06/2026). Tôi viết thư này để xin đề xuất bổ sung một địa chỉ vào mục "Đang cập nhật thêm" ở cuối bài, nếu quý trang thấy phù hợp.
 > 
 > TRƯỚC HẾT XIN NÓI RÕ MỘT CHUYỆN RẤT DỄ NHẦM
 > 
@@ -626,19 +626,19 @@ DỰ PHÒNG nếu 5–7 ngày không ai trả lời:
 > Cảm ơn anh/chị đã đọc hết thư. Cần tôi bổ sung thông tin hay ảnh gì, anh/chị cứ gọi hoặc nhắn Zalo số dưới, tôi nghe máy cả ngày.
 > 
 > Trân trọng,
-> Nguyễn Hồng Tuấn — 0989.765.070 — tramdungchill.vn
+> [Họ tên chủ quán] — 0989.765.070 — tramdungchill.vn
 > Tiệm Nướng Trạm Dừng Chill, 111 Huỳnh Tấn Phát, Phường Xuân Trường, Đà Lạt, Lâm Đồng
 > 
 > 
 > === BẢN NGẮN — NHẮN ZALO SỐ 0934.626.005 (gửi SAU khi đã gửi email) ===
 > 
-> Chào anh/chị, mình là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Đà Lạt. Mình có đọc bài "Top quán nướng ngon Đà Lạt" của PasGo. Bài có quán số 113 và quán 115–117 cùng đường với mình, quán mình ở số 111 là quán khác hẳn (Google Maps riêng, web tramdungchill.vn riêng), mình nhắn trước để anh/chị khỏi nhầm là trùng.
+> Chào anh/chị, mình là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Đà Lạt. Mình có đọc bài "Top quán nướng ngon Đà Lạt" của PasGo. Bài có quán số 113 và quán 115–117 cùng đường với mình, quán mình ở số 111 là quán khác hẳn (Google Maps riêng, web tramdungchill.vn riêng), mình nhắn trước để anh/chị khỏi nhầm là trùng.
 > 
 > Mình xin đề xuất bổ sung quán vào mục cập nhật thêm nếu bài thấy phù hợp: mở 15:00 nên đón trọn hoàng hôn, 18:30 nhà lồng lên đèn như biển sao, bàn view không phụ thu, 4,8 sao với 6.889 đánh giá Google, 95–300k/người.
 > 
 > Mình có sẵn ảnh chất lượng cao và mời anh/chị ghé trải nghiệm thật. Mình đã gửi email chi tiết tới kinhdoanh@pasgo.vn rồi ạ. Cảm ơn anh/chị.
 > 
-> Nguyễn Hồng Tuấn — 0989.765.070
+> [Họ tên chủ quán] — 0989.765.070
 
 ### Chỗ đã cá nhân hoá riêng cho nơi này
 
@@ -726,7 +726,7 @@ DỰ PHÒNG (chỉ dùng nếu 4 đường trên im):
 > BẢN 1 — GỬI FANPAGE FACEBOOK & ZALO OA (bản ngắn, gửi TRƯỚC)
 > ══════════════════════════════════════════
 > 
-> Chào anh/chị, tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill (Đà Lạt).
+> Chào anh/chị, tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill (Đà Lạt).
 > 
 > Bài "Tổng hợp 25 quán nướng Đà Lạt cực ngon, khiến vạn người mê" có nhắc quán tôi trong bảng 10 quán bổ sung. Link Google Maps quý trang gắn đúng quán tôi, chỉ phần chữ bên cạnh là dữ liệu cũ. Xin nhờ anh/chị sửa giúp 3 chỗ:
 > 
@@ -738,7 +738,7 @@ DỰ PHÒNG (chỉ dùng nếu 4 đường trên im):
 > 
 > Tôi có sẵn ảnh chất lượng cao và sẵn sàng mời anh/chị ghé trải nghiệm.
 > 
-> Nguyễn Hồng Tuấn — 0989.765.070 — tramdungchill.vn
+> [Họ tên chủ quán] — 0989.765.070 — tramdungchill.vn
 > 
 > (≈150 chữ, hợp khung chat)
 > 
@@ -751,7 +751,7 @@ DỰ PHÒNG (chỉ dùng nếu 4 đường trên im):
 > 
 > Kính gửi Ban biên tập Zalopay,
 > 
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill, 111 Huỳnh Tấn Phát, Đà Lạt.
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill, 111 Huỳnh Tấn Phát, Đà Lạt.
 > 
 > Tôi có đọc bài "Tổng hợp 25 quán nướng Đà Lạt cực ngon, khiến vạn người mê" (https://zalopay.vn/quan-nuong-da-lat-5268). Bài làm khá công phu — 15 quán có mục riêng kèm ảnh, sau đó thêm bảng 10 quán nữa. Quán tôi nằm trong bảng bổ sung này.
 > 
@@ -793,7 +793,7 @@ DỰ PHÒNG (chỉ dùng nếu 4 đường trên im):
 > Cảm ơn anh/chị đã đọc thư.
 > 
 > Trân trọng,
-> Nguyễn Hồng Tuấn
+> [Họ tên chủ quán]
 > Chủ Tiệm Nướng Trạm Dừng Chill
 > 0989.765.070 — https://tramdungchill.vn
 

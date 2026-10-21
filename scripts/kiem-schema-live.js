@@ -53,7 +53,7 @@ const args = process.argv.slice(2);
 const biDoi = args.filter((u) => /^[A-Za-z]:[\\/]/.test(u));
 if (biDoi.length) {
     console.error("❌ Đối số đã bị Git Bash đổi thành đường dẫn Windows: " + biDoi.join(", ") +
-        "\n   Gõ không có dấu / ở đầu (vd: tac-gia/nguyen-duy.html) hoặc URL đầy đủ https://…");
+        "\n   Gõ không có dấu / ở đầu (vd: dip/sinh-nhat.html) hoặc URL đầy đủ https://…");
     process.exit(1);
 }
 const urls = args.includes("--all")

@@ -22,3 +22,6 @@ plans/
 # Ảnh menu GỐC (PNG/JPG nặng) — chỉ bản WebP đã tối ưu mới lên web.
 # Đưa file gốc vào git là repo phình vài chục MB mà không ai tải chúng.
 assets/menu-pages/_goc/
+
+# Thông tin cá nhân / bí mật (họ tên, email, IP máy chủ, mật mã) — repo công khai, KHÔNG đưa lên git (21/10/2026)
+.claude/thong-tin-noi-bo.md

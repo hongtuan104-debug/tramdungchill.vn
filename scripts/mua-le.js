@@ -131,11 +131,13 @@ function bangMua(namGoc) {
 const MOC_DAU = "<!-- MUA:START (scripts/mua-le.js sinh, đừng sửa tay) -->";
 const MOC_CUOI = "<!-- MUA:END -->";
 
-/** vers = { noel: "<md5 8 ký tự của dist/mua-noel.min.css>", tet: "…" } */
-function doanDauTrang(vers, namGoc) {
+/** vers = { noel: "<md5 8 ký tự của dist/mua-noel.min.css>", tet: "…" }
+ *  chuRieng (tuỳ chọn) = chữ mùa thay cho data/mua-le.json — trang dịch (scripts/dich-trang.js, 21/10/2026)
+ *  truyền bản chỉ có đúng thứ tiếng của trang: { noel: { "sticky.title": { zh: "…" } }, tet: {…} }. */
+function doanDauTrang(vers, namGoc, chuRieng) {
     const B = JSON.stringify(bangMua(namGoc));
     const C = {};
-    for (const t of TEN_MUA) C[t] = CAU_HINH[t].chu;
+    for (const t of TEN_MUA) C[t] = (chuRieng && chuRieng[t]) || CAU_HINH[t].chu;
     const V = {};
     for (const t of TEN_MUA) V[t] = vers[t] || "dev";
     // Viết tay cho gọn (chạy trên MỌI trang, trước CSS). Không throw ra ngoài: lỗi gì cũng chỉ mất
@@ -229,7 +231,7 @@ function hoanTatCss(distDir) {
     }
 }
 
-module.exports = { amSangDuong, bangMua, doanDauTrang, ganVaoTrang, trangCanMua, versHienTai, tauGoc, quayDau, hoanTatCss, MOC_DAU, MOC_CUOI, TEN_MUA };
+module.exports = { CAU_HINH, amSangDuong, bangMua, doanDauTrang, ganVaoTrang, trangCanMua, versHienTai, tauGoc, quayDau, hoanTatCss, MOC_DAU, MOC_CUOI, TEN_MUA };
 
 if (require.main === module) {
     const f = (n) => { const s = String(n); return s.slice(6) + "/" + s.slice(4, 6) + "/" + s.slice(0, 4); };

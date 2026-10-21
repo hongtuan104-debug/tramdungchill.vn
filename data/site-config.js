@@ -19,6 +19,9 @@ const SITE_CONFIG = {
         phone: '0989765070',
         phoneDisplay: '0989.765.070',
         zaloNumber: '0989765070',
+        // WhatsApp cùng số hotline (sếp xác nhận 21/10/2026) — trang tiếng nước ngoài dùng thay Zalo.
+        // Dạng quốc tế không dấu + (đúng chuẩn link wa.me/<số>).
+        whatsapp: '84989765070',
     },
 
     address: {

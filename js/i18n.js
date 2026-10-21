@@ -5,14 +5,16 @@
    - localStorage persistence
    ============================================ */
 
+/* 21/10/2026: mỗi thứ tiếng là một trang dịch sẵn ở thư mục riêng (/en/, /zh/…, sinh bởi
+   scripts/dich-trang.js) — không còn nút EN đổi chữ bằng JS trên cùng URL (Google chỉ thấy bản
+   tiếng Việt, và khách bấm sang bài blog là lại về tiếng Việt). Ngôn ngữ nay là của chính trang
+   (<html lang>), ô chọn ngôn ngữ là các link thật tới bản dịch. */
 function initI18n() {
-    const saved = localStorage.getItem('lang');
-    // Always default to Vietnamese unless user explicitly chose English
-    const lang = saved || 'vi';
-
-    document.documentElement.lang = lang;
+    const lang = maNgonNgu();
+    // Khách từng bấm EN ở bản cũ: khoá này không còn tác dụng, dọn đi cho khỏi lẫn
+    try { localStorage.removeItem('lang'); } catch (e) {}
     applyTranslations(lang);
-    setupLangToggle(lang);
+    setupLangPicker();
 }
 
 function applyTranslations(lang) {
@@ -60,44 +62,23 @@ function applyTranslations(lang) {
     }
 }
 
-function setupLangToggle(currentLang) {
-    const btn = document.getElementById('langToggle');
-    if (!btn) return;
-
-    updateLangButton(btn, currentLang);
-
-    btn.addEventListener('click', function () {
-        const newLang = document.documentElement.lang === 'vi' ? 'en' : 'vi';
-
-        // Smooth fade transition
-        document.body.classList.add('lang-transitioning');
-
-        setTimeout(function () {
-            document.documentElement.lang = newLang;
-            localStorage.setItem('lang', newLang);
-            applyTranslations(newLang);
-            updateLangButton(btn, newLang);
-
-            // Remove transition class
-            setTimeout(function () {
-                document.body.classList.remove('lang-transitioning');
-            }, 50);
-        }, 200);
+/* Ô chọn ngôn ngữ là <details> — mở/đóng không cần JS. JS chỉ thêm hai tiện ích: bấm ra ngoài
+   hoặc nhấn Esc thì đóng (Esc trả tiêu điểm về nút). Chỉ nghe sự kiện, không đọc số đo bố cục (bug #26). */
+function setupLangPicker() {
+    const hop = document.querySelectorAll('details.chon-ngon-ngu');
+    if (!hop.length) return;
+    document.addEventListener('click', function (e) {
+        hop.forEach(function (d) { if (d.open && !d.contains(e.target)) d.open = false; });
     });
-}
-
-function updateLangButton(btn, lang) {
-    const globe = '<svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
-
-    if (lang === 'vi') {
-        btn.innerHTML = globe + '<span class="lang-text">EN</span>';
-        btn.setAttribute('aria-label', 'Switch to English');
-        btn.title = 'Switch to English';
-    } else {
-        btn.innerHTML = globe + '<span class="lang-text">VI</span>';
-        btn.setAttribute('aria-label', 'Chuyển sang Tiếng Việt');
-        btn.title = 'Chuyển sang Tiếng Việt';
-    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        hop.forEach(function (d) {
+            if (!d.open) return;
+            d.open = false;
+            const s = d.querySelector('summary');
+            if (s) s.focus();
+        });
+    });
 }
 
 /* ============================================

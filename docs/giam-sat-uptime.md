@@ -26,7 +26,7 @@ bug #4 từng làm rớt đơn mà không ai hay.
 | 5 | sitemap.xml | `https://tramdungchill.vn/sitemap.xml` | 200 + có `<urlset` |
 | 6 | Form đặt bàn (Apps Script) | `webhookUrl` trong `data/site-config.js` | 200 + có `"status":"ok"` |
 | 7 | App nhận đơn | `https://app.tramdungchill.vn/` | 200 (theo chuyển hướng) |
-| 8 | VPS báo Zalo | `http://14.225.224.28:3456/` | trả lời < 500 + tiêu đề CORS có `x-webhook-token` |
+| 8 | VPS báo Zalo | secret `VPS_URL` (địa chỉ ở file nội bộ, không lên git) | trả lời < 500 + tiêu đề CORS có `x-webhook-token` |
 
 Vì sao từng mục:
 - **1–3** — ba khuôn trang khác nhau. Dùng từ khoá chứ không chỉ mã 200: trang đỗ tên miền khi hết
@@ -48,7 +48,7 @@ Vì sao từng mục:
 - **Báo động = issue** `[giam-sat] Sự cố: <các mục hỏng>`, gắn `@hongtuan104-debug` → GitHub gửi email,
   rồi **gửi Telegram** cho sếp (sếp yêu cầu 19/10/2026) kèm link issue — **bot riêng** (sếp chọn 19/10/2026, không dùng bot báo đơn), người nhận
   khai ở `NGUOI_NHAN` trong script (hiện `6022990090` — tài khoản đã bấm Start 19/10/2026; tài khoản nhận báo
-  đơn `6293463576` chưa bấm Start nên chưa thêm). Vẫn hỏng thì im lặng (không gửi mỗi 15 phút); danh sách mục hỏng đổi thì sửa tiêu đề +
+  đơn (số ở file nội bộ) chưa bấm Start nên chưa thêm). Vẫn hỏng thì im lặng (không gửi mỗi 15 phút); danh sách mục hỏng đổi thì sửa tiêu đề +
   bình luận + 1 tin 🟠; lên lại thì bình luận "đã lên lại, kéo dài ~N phút", tự đóng, 1 tin ✅.
   Nhắc chứng chỉ / tên miền cũng đi Telegram.
 - Telegram gửi hỏng (chưa cài secret, sai mã bot…) → ghi bình luận vào issue; email vẫn tới.

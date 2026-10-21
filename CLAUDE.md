@@ -10,8 +10,11 @@
 - Khi sửa code → giải thích "tại sao" trước khi nói "làm gì"
 
 ## Thông tin sếp Tuấn (chủ website)
-- **Họ tên:** Nguyễn Hồng Tuấn (sinh 1993)
-- **Email:** hongtuan104@gmail.com
+- ⚠️ **Họ tên, email, số Telegram, IP máy chủ, mật mã webhook nằm ở file nội bộ (không lên git):**
+  @.claude/thong-tin-noi-bo.md
+  Repo GitHub CÔNG KHAI, và trước 21/10/2026 GitHub Pages còn phục vụ thẳng file này ra tramdungchill.vn/CLAUDE.md
+  → **đừng viết thông tin cá nhân / bí mật vào CLAUDE.md, docs/, scripts/** (nay `_config.yml` chặn web phục vụ
+  mấy thư mục đó, nhưng repo vẫn đọc được). Sếp chốt 21/10/2026: **không để tên người trên web** (xem bug #16).
 - **Phong cách:** Bách Khoa, thận trọng theo số liệu, thích nghiên cứu cái mới
 - **Mong muốn:** Tự động vận hành, tự do tài chính
 
@@ -52,7 +55,8 @@
 - **Hosting:** GitHub Pages
 - **GitHub repo:** https://github.com/hongtuan104-debug/tramdungchill.vn (branch: `main`)
 - **Build command:** `node scripts/bundle-js.js`
-- **i18n:** EN/VI — `var TRANSLATIONS` (⚠️ PHẢI dùng `var`, KHÔNG dùng `const` vì const không tạo window property → language switcher hỏng)
+- **i18n:** trang **dịch sẵn 6 thứ tiếng** ở `/en/ /zh/ /ko/ /ja/ /ru/ /th/` (21/10/2026) — xem mục "Đa ngôn ngữ".
+  `var TRANSLATIONS` (⚠️ PHẢI dùng `var`, KHÔNG dùng `const` vì const không tạo window property) nay chỉ còn là chữ JS lúc chạy.
 
 ## Cấu trúc folder
 ```
@@ -211,7 +215,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    `seo-geo-verify.js` nay soi cả file này.
 1. **Language switcher EN/VI hỏng** → Fix: đổi `const TRANSLATIONS` thành `var TRANSLATIONS`
 2. **`scripts/generate-blog-pages.js`:** `const BLOG_ARTICLES` không expose vào vm sandbox → append `;this.BLOG_ARTICLES = BLOG_ARTICLES;` sau dataSource trước khi `runInNewContext`
-3. **Telegram không nhận thông báo** → Token đúng: `AAGO55X` (chữ **O**, KHÔNG phải số 0)
+3. **Telegram không nhận thông báo** → token có một chữ **O** dễ gõ nhầm thành số 0 — đoạn đúng ghi ở `.claude/thong-tin-noi-bo.md`
 4. **Zalo không nhận thông báo** → Dùng deployment Apps Script `AKfycbz46uJ...` (quyền "Bất kỳ ai"), KHÔNG dùng `AKfycbw3y1TpNm...` (cần đăng nhập)
 5. **4 thẻ `preload` phông nằm TRONG `<noscript>`** → với mọi khách có JS chúng
    không chạy, tức preload chưa từng hoạt động dù nhìn HTML tưởng có. Phông chỉ
@@ -371,8 +375,9 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      xóm để khách "so thử" mà không nói quan hệ. Sếp chốt 13/09/2026: mọi link sang xomleo.vn kèm
      chữ "quán cùng chủ". Chỉ nói trong câu chữ — **KHÔNG** khai alternateName/sameAs (hai hồ sơ
      Maps riêng, xem `docs/digital-pr-outreach.md`).
-   - Tác giả **Nguyễn Duy là đồng chủ** (sếp xác nhận 13/09/2026) → vai trò trong `blog-seo.js` là
-     "Đồng chủ Tiệm Nướng Trạm Dừng Chill". Thư báo chí ký Nguyễn Hồng Tuấn, chủ quán, cũng đúng.
+   - ~~Byline tác giả là người đồng chủ (13/09/2026)~~ → **21/10/2026 sếp bỏ tên người khỏi web**: gỡ 19 khối
+     `author` trong `blog-seo.js` (bài ký "Đội ngũ Trạm Dừng Chill", schema author = Restaurant `#restaurant`),
+     xoá trang tác giả, sửa 2 câu xưng "tôi (tên…)". **Đừng thêm lại tên người** vào web / bản dịch / llms.txt.
    - `dip/san-tau-da-lat.html` bỏ "Tips chuyên gia" + "thành công 100%" (chính trang ghi "không
      phải ai đến cũng thấy tàu"), thêm cảnh báo không bước xuống đường ray. Bài gia đình thêm
      một gạch đầu dòng về đường sắt cạnh lan can.
@@ -1185,7 +1190,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - ⚠️ **`minifyCSS` trong bundle-js.js từng xoá dấu cách TRƯỚC ":"** → `.cha :is(a,b)` thành `.cha:is(a,b)` (nghĩa khác hẳn), thẻ FAQ tối
      không lên màu. Nay chỉ bỏ cách SAU ":" (trên CSS cũ đầu ra y hệt). Cùng họ lỗi với bug #17.
    - **Lớp wow riêng của trang Blog (danh sách) + trang tác giả** (`css/wow-blog-ds.css` → `dist/wow-blog-ds.min.css`, link NGAY SAU
-     style.min.css trong blog.html + tac-gia/nguyen-duy.html) — gắn 26/09/2026, sếp duyệt. Hoãn một ngày vì đo thấy LCP trang Blog 8 s;
+     style.min.css trong blog.html + trang tác giả cũ, đã gỡ 21/10/2026) — gắn 26/09/2026, sếp duyệt. Hoãn một ngày vì đo thấy LCP trang Blog 8 s;
      thủ phạm thật là ảnh thẻ bài đầu lazy lọt màn đầu (lỗi có sẵn trên bản đang chạy, xem #46), không phải trang trí. Sau khi có preload
      ảnh thẻ đầu: Chrome thật 4G chậm + CPU 4×, 5 lượt, LCP trang Blog 2,17 s (không wow) → **2,34 s** (có wow); trang tác giả ngang nhau.
      Lớp này: đèn sáng sẵn từ lần vẽ đầu, tàu lăn bánh sau 6 s (bản đầu đèn chập chờn 0,3–2 s + tàu từ 1,6 s làm khung hình đổi tới
@@ -1449,16 +1454,17 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    (luật chỉ bắt thẻ `<script src>` thật — chữ "lazy-tracking" trong chú thích từng làm nó báo nhầm). Bẻ thử 2 kiểu, bắt đủ.
    Chưa làm: Search Console (Apps Script không có dịch vụ sẵn, phải tạo dự án Google Cloud riêng).
 
-## Trang tác giả — vỏ viết tay, danh sách bài sinh tự động
-`tac-gia/nguyen-duy.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
-`data/blog-seo.js`. Google khuyến nghị author.url = "trang định danh duy nhất tác giả";
-trước đó 18 bài index ghi "Nguyễn Duy" mà không trỏ đi đâu. Sếp xác nhận: người thật,
-chưa có profile mạng xã hội → trang đặt trên site.
+## Trang tác giả — ĐÃ GỠ 21/10/2026 (cơ chế vẫn còn trong generator)
+⚠️ **Sếp Tuấn bỏ tên người khỏi web (21/10/2026)** → không bài nào khai `author`, thư mục `tac-gia/` đã xoá,
+mọi bài ký "Đội ngũ Trạm Dừng Chill" + schema author = Restaurant. Phần dưới chỉ để hiểu code còn lại trong
+`generate-blog-pages.js` — **đừng dựng lại trang tác giả** trừ khi sếp bảo.
+Trước đó `tac-gia/<slug>.html` (thêm 13/09/2026) là `author.url` của mọi bài có `author` trong
+`data/blog-seo.js` (Google khuyến nghị author.url = "trang định danh duy nhất tác giả").
 - **Vỏ trang** (head, CSS, pixel, lời mời ghé quán) viết tay theo khuôn `duong-di/`.
   Nav/footer do `generate-nav.js` + `generate-footer.js` nướng (tự nhận mọi file trong `tac-gia/`).
 - **Hai vùng có mốc do `generate-blog-pages.js` ghi đè**: `TAC_GIA_JSONLD` (ProfilePage +
   BreadcrumbList) và `TAC_GIA_NOI_DUNG` (breadcrumb + tên/vai trò + thẻ bài). Sửa tay là mất.
-- Generator đổi tên → slug (`Nguyễn Duy`/`Nguyen Duy` → `nguyen-duy`); **có file
+- Generator đổi tên → slug (tên có dấu / không dấu ra cùng một slug); **có file
   `tac-gia/<slug>.html` thì mới gắn**: Person trong BlogPosting thêm `@id` + `url`, byline
   thành link `rel="author"`, trang vào sitemap. Chưa có file thì bài giữ nguyên như cũ —
   máy KHÔNG tự đẻ trang. Thêm tác giả mới = chép vỏ trang đổi tên file rồi chạy build.
@@ -1482,11 +1488,10 @@ còn khai hreflang trỏ chính nó trong khi canonical trỏ bài khác.
 - Nay chỉ còn MỘT nguồn: `sitemapUrl()` trong `generate-blog-pages.js`, mã theo `_lang`
   của bài. Google coi HTML / HTTP header / sitemap là tương đương, dùng nhiều cách
   "no benefit". **Đừng thêm `<link rel="alternate" hreflang>` vào HTML** — R13d chặn.
-- Chưa trang nào có bản dịch ở URL riêng → mỗi cụm chỉ gồm chính nó + x-default, tức
-  hreflang hiện KHÔNG định tuyến được gì. Nút EN trên trang chính đổi chữ bằng JS trên
-  cùng URL: Google nhận ngôn ngữ từ chữ hiển thị (không từ `lang`/hreflang) nên chỉ
-  thấy bản tiếng Việt. Muốn khách nước ngoài tìm thấy từ Google thì phải có URL tiếng
-  Anh riêng, nội dung viết cho họ, rồi khai cụm HAI CHIỀU trong `sitemapUrl()`.
+- ~~Chưa trang nào có bản dịch ở URL riêng~~ → **từ 21/10/2026 có trang dịch sẵn 6 thứ tiếng** (mục "Đa ngôn ngữ"
+  ngay dưới). Cụm hreflang HAI CHIỀU (vi + en + zh-Hans + ko + ja + ru + th, x-default = bản tiếng Anh) do
+  `boSungSitemap()` trong `scripts/dich-trang.js` khai — `generate-blog-pages.js` vẫn ghi sitemap tiếng gốc trước, rồi
+  gọi dich-trang.js khai cụm + thêm URL trang dịch. Hai nơi cùng chạy một hàm nên ra cùng kết quả.
 - R13d: không hreflang trong HTML · URL tự khai chính nó, mã khớp `<html lang>` · mọi URL
   trong cụm phải nằm trong sitemap (index được, canonical chính nó) · liên kết hai chiều.
 
@@ -1501,6 +1506,83 @@ Book trỏ `/#booking` đưa khách nước ngoài vào form tiếng Việt. 3 n
 - Giờ KHÔNG nhận đặt: sếp chốt 21/10/2026 giữ **17:30–19:00** như web tiếng Việt.
 - GA4/pixel không đếm bấm `m.me` (bộ nghe chung trong `js/utils.js` chỉ bắt tel / zalo.me / facebook.com).
 - R8d (`seo-geo-verify.js`) coi `m.me` là kênh của quán, không phải nguồn trích.
+- Từ 21/10/2026 có trang dịch sẵn `/en/` (mục "Đa ngôn ngữ" ngay dưới): bài gốc tiếng Anh KHÔNG khai `bookHref` thì
+  `suaBaiGocTiengAnh()` đổi `/#booking` → `/en/#booking` (form tiếng Anh). Mục "How to book" của bài này ghi số gọi "dùng được
+  cả WhatsApp" (sếp chốt trang nước ngoài dùng WhatsApp thay Zalo — R33 mục (h) chặn chữ "Zalo" trên bài gốc tiếng Anh).
+
+## Đa ngôn ngữ — trang DỊCH SẴN 6 thứ tiếng (21/10/2026)
+Sếp Tuấn: *"chế độ chuyển ngôn ngữ là bài viết được dịch sẵn chứ không phải Google dịch, nhiều ngôn ngữ lên"*.
+Chốt: **en · zh (giản thể) · ko · ja · ru · th**, dịch **toàn bộ 25 URL đang index** (123 bài noindex không dịch).
+Trước đó: nút EN đổi chữ giao diện bằng JS trên cùng URL ở 5 trang, Google chỉ thấy tiếng Việt, bài blog không dịch.
+- **Mỗi thứ tiếng một thư mục**: `/en/`, `/zh/`… chép cấu trúc trang gốc (`/en/menu.html`, `/zh/blog/hen-ho-da-lat.html`).
+  2 bài viết GỐC tiếng Anh (`blog/da-lat-cho-nguoi-nuoc-ngoai.html`, `blog/da-lat-restaurant-train-view-en.html`) không
+  có bản `/en/` — 5 thứ tiếng còn lại dịch từ tiếng Anh.
+- **Bài gốc tiếng Anh ở `/blog/` (3 bài, kể cả `sunset-bbq-da-lat-guide` noindex) cũng là trang cho khách nước ngoài**
+  nhưng do generate-blog-pages.js dựng bằng khuôn bài Việt → `suaBaiGocTiengAnh()` trong dich-trang.js sửa tại chỗ sau
+  mỗi lượt build: link nội bộ trỏ bản `/en/` (nav, breadcrumb, thẻ gợi ý, nút đặt bàn), liên hệ WhatsApp + `+84`.
+  Câu trong dữ liệu (`blog-seo.js`) đã đổi Zalo → WhatsApp 21/10/2026. ⚠️ Vì file đó vừa bị sửa vừa là CÂU NGUỒN cho 5
+  thứ tiếng, `chuanBiNguon()` áp cùng `lienHeNuocNgoai()` trước khi tách câu — bỏ bước đó là khoá câu đổi qua lại giữa
+  hai lượt build và bản dịch "mất". `vietLaiUrl()` coi link `/en/x` như trỏ trang nguồn `x`.
+- **Máy sinh: `scripts/dich-trang.js`** (bundle-js.js gọi 2 lần — trước cắt phông và cuối build; generate-blog-pages.js
+  gọi cuối). Trang dịch = trang gốc ĐÃ BUILD (đủ nav, footer, vân tay, critical CSS) + thay chữ theo từ điển. Nên sửa
+  giao diện/chữ tiếng Việt xong chỉ cần build lại. **ĐỪNG sửa tay file trong `en/ zh/ ko/ ja/ ru/ th/`** — mất ở lần build sau.
+- **Từ điển: `data/ban-dich/<mã>.json`** — khoá = câu gốc đã chuẩn hoá, thẻ nội dòng thay bằng chỗ giữ chỗ `<a1>…</a1>`,
+  `<strong2>…</strong2>`, `<img3/>` (máy trả lại href/class từ bản gốc, người dịch không làm gãy link được).
+  Bộ tách câu: `scripts/dich/phan-tich.js` (tự viết, không thư viện — package.json bị gitignore). Câu chỉ khác chữ số
+  ("Cập nhật 19/10/2026", "7.344 đánh giá") **tự suy** từ bản dịch cũ, không phải dịch lại khi đổi số đánh giá/ngày.
+- **Sửa chữ tiếng Việt → câu đó thành "thiếu" ở 6 thứ tiếng.** Trang dịch đã có thì vẫn sinh lại (câu thiếu tạm lấy
+  tiếng Anh) và **R33 báo đỏ** tới khi dịch xong. Quy trình:
+  `node scripts/dich-trang.js --bao-cao` → `--xuat <mã> plans/ban-dich` → dịch file `<mã>-NN.json` thành `<mã>-NN.dich.json`
+  (`{ "id": "bản dịch" }`) → `--kiem <file> <mã>` (0 lỗi) → `--nap <file> <mã>` → build lại.
+  Chuẩn dịch + bảng thuật ngữ + tên món: **`data/ban-dich/HUONG-DAN.md`**. Bộ kiểm: `scripts/dich/kiem-ban-dich.js`
+  (chỗ giữ chỗ, chữ số — "0989.765.070" và "+84 989 765 070" tính là một số, từ cấm "duy nhất / số một" 6 thứ tiếng,
+  setup không hoa tươi / nến).
+- **Soát thống nhất thuật ngữ** (21/10/2026 đã làm đủ 6 thứ tiếng — mỗi phần một người dịch nên cùng một món có 3–4 cách
+  gọi): `node scripts/dich/xuat-soat.js <mã> [--tru <file soát cũ>] [--ten <tên>]` xuất câu có tên món / dãy bàn / câu xác
+  nhận… (khớp KHÔNG phân biệt hoa thường; bản đầu phân biệt nên sót "Bò Tảng", "lẩu gà lá é"); người soát nộp
+  `soat-<mã>.dich.json` chỉ gồm câu sửa → `--nap`. File đã nạp cất trong `plans/ban-dich/da-nap/` (gitignore).
+- **Meta description có bản rút gọn riêng**: khoá `@meta <câu gốc>` trong từ điển được ưu tiên cho thẻ description /
+  og:description / twitter:description. Câu gốc ~160 ký tự Việt dịch ra tiếng Anh/Nga thành 175–220 ký tự (vượt khung
+  R19), mà 18/19 câu đó CŨNG là đoạn mở đầu bài → rút bản dịch chung là cắt luôn đoạn văn. Không có `@meta` thì dùng
+  bản thường. Nhớ số `0989.765.070` sẽ thành `+84 989 765 070` (+3 ký tự) sau khi sinh trang.
+- **Nhãn nút trên trang dịch phải vừa MỘT dòng ở màn 360px** — bản Nga/Nhật đầu tiên ("Забронировать столик для охоты за
+  поездом") xuống 2 dòng, đẩy nút đặt bàn ra khỏi màn đầu. `css/dip-landing.css` có 2 rule riêng cho
+  `html:not([lang="vi"])`: ≤480px dòng giá `.dip-pricing-range` 1,45rem / `.dip-pricing-mid` 2rem (đơn vị "越南盾",
+  "донгов", "ดอง" dài hơn "đ" → tràn mép 14–25px) · ≤400px h1 hero 1,7rem (h1 dịch dài hơn → nút đặt bàn khuất màn đầu
+  iPhone mini). Rà 21/10/2026: 24 trang dịp dịch × 5 máy, 0 tràn mép, 0 nút khuất (trừ iPhone SE đời 1 — bản Việt cũng khuất).
+- **Luật nội dung khác bản Việt** (sếp chốt 21/10/2026): trang nước ngoài dùng **WhatsApp cùng số 0989.765.070** thay Zalo
+  (link `zalo.me/0989765070` tự đổi `wa.me/84989765070`; chữ "Zalo" người dịch đổi); quán **xác nhận bằng tin nhắn tiếng
+  Anh** trong 15 phút, trong giờ mở cửa; số gọi hiện `+84 989 765 070` + `tel:+84989765070`; tin nhắn WhatsApp gửi quán
+  luôn tiếng Anh (`LUON_TIENG_ANH` trong `scripts/ngon-ngu.js`); địa chỉ: tiếng Anh viết không dấu, thứ tiếng khác giữ
+  nguyên tiếng Việt (đưa tài xế xem). Form đặt bàn nhận số quốc tế 8–15 chữ số; ghi chú gửi quán có tiền tố `[EN]`, `[ZH]`…
+- **Không dịch**: thực thể dùng chung `Restaurant/Organization/WebSite` trong JSON-LD (một `@id` duy nhất — bug #11) giữ
+  y bản Việt; tên quán `Tiệm Nướng Trạm Dừng Chill`; pixel (`content_name` giữ tiếng Việt cho báo cáo gộp).
+- **Ô chọn ngôn ngữ** `<details class="chon-ngon-ngu">` (mốc `NGON-NGU:START/END`, máy điền link theo từng trang, có trên
+  mọi trang kể cả bài noindex → trỏ trang chủ các tiếng). Nằm trong `<nav>` nên dấu vân lastmod không tính. Nút vẫn mang
+  class `.lang-toggle` (critical CSS trang chủ có sẵn); thứ tiếng chưa có trang nào thì không hiện.
+- **JS lúc chạy**: ngôn ngữ = `<html lang>` của trang (`maNgonNgu()` trong utils.js), không còn localStorage `lang`.
+  Chữ JS gán lúc chạy lấy từ `dist/chu-<mã>.js` (sinh từ `data/translations.js` vi + từ điển — chỉ các khoá JS thật sự
+  đọc, `KHOA_CHAY`). Trang Blog dịch đọc `dist/bai-viet-<mã>.js`. **Thêm chữ JS mới → thêm khoá vào translations.js
+  (vi + en) và gọi `t('khoá', 'mặc định')`**, đừng viết chuỗi tiếng Việt cứng (trang dịch sẽ hiện tiếng Việt).
+- **Phông**: Inter/Playfair/Dancing Script chỉ có Latin + Việt → chữ Hán/Hàn/Thái dùng phông máy; `cssPhong()` trong
+  ngon-ngu.js chèn `:root:lang(zh){--font-body:…}` (đúng phông theo tiếng: cùng chữ Hán, Trung và Nhật vẽ khác nhau).
+  Chữ Hán/Hàn/Thái/Kirin lọt vào bộ quét của cat-phong.js KHÔNG làm phông đổi (phông không có glyph đó) — nhưng chữ
+  Latin lạ trong bản dịch (é, ’, «») thì có.
+- **Ngày sửa**: trang dịch MANG ngày của trang gốc. `cap-nhat-lastmod.js` không lấy dấu vân trang dịch; trang gốc đổi
+  ngày thì mọi bản dịch đổi theo + báo IndexNow cùng lượt.
+- Thử bộ sinh khi chưa có bản dịch: `DICH_GIA=1 node scripts/dich-trang.js` (bọc câu gốc trong «») — **xong phải xoá
+  `en/ zh/ ko/ ja/ ru/ th/` + `dist/chu-*.js` + `dist/bai-viet-*.js` rồi chạy lại không biến**.
+- Máy canh **R33**: đủ câu · bản dịch qua bộ kiểm · khuôn trang (lang, canonical, og, chu-<mã>.js đúng vân tay, ô chọn
+  ngôn ngữ) · 0 link Zalo + 0 chữ "Zalo" + tel:+84 (icon chữ "Zalo" ở footer cũng phải thành icon WhatsApp) · không đoạn
+  chữ nào quá nửa là tiếng Việt (đo theo CHỮ CÁI từng đoạn — bản đầu đo tỉ lệ cả trang thì báo nhầm tên món "bánh căn",
+  địa danh "Cầu Đất" và trang chữ Hán; chữ trong ngoặc sau bản dịch là cố ý) · link nội bộ tuyệt đối, trỏ bản dịch cùng
+  tiếng · số trang dịch trong sitemap = trên đĩa · (h) bài gốc tiếng Anh: không Zalo, số +84, link trỏ `/en/`.
+  R19 (meta description) đo theo khung từng tiếng (zh/ja 35–90 ký tự…), R7e (video) + R19 so trùng trong CÙNG thứ tiếng,
+  R31 tính đoạn mùa riêng từng tiếng. R8m nhận "cùng chủ" ở 6 thứ tiếng (trang dịch soi cả 80 ký tự TRƯỚC link — tiếng
+  Trung/Nhật/Hàn/Thái đặt cụm đó trước tên quán). R18 + R24 nhận link `/en/` trên bài gốc tiếng Anh.
+  `check-facts.js` (21/10/2026): điểm aggregateRating chỉ xét khi khoá "…Rating" gần nhất là aggregateRating — JSON-LD
+  trang dịch in giãn dòng nên điểm 5 của review lẻ từng bị báo nhầm. `generate-menu.js` ghi cứng "Hơn 70 món" (trước tự
+  tính "hơn 80 món" từ 81 món, lệch chữ trên trang + lệch quy ước, build còn ghi đè chỗ sửa tay).
 
 ## Phông đã cắt nhỏ — bản gốc nằm ở `assets/fonts/_goc/`
 `scripts/cat-phong.js` (bundle-js.js gọi sẵn, chạy CUỐI cùng) cắt 8 file .woff2
@@ -1541,7 +1623,7 @@ chữ vẫn chiếm đúng bề rộng → **không đổi số dòng → không
 Đây mới là thứ chữa CLS; tự chứa phông (31/07) chỉ bỏ được chặng gstatic.
 - Cả 3 khối này **được chép vào critical CSS inline** của `index/menu/blog/404/
   duong-di` — vì lúc dễ nhảy nhất là lúc CSS async chưa về. Sửa `style.css` mà
-  quên 5 file kia là công cốc. (Từ 13/09/2026 thêm file thứ 6: `tac-gia/nguyen-duy.html`.)
+  quên 5 file kia là công cốc. (13/09–21/10/2026 có thêm file thứ 6 là trang tác giả, nay đã gỡ.)
 - Bộ số **không được tự nghĩ**: tính từ bảng `cmap`+`hmtx` trong chính file
   `.woff2`, cân theo tần suất ký tự thật của trang (tiếng Việt lệch hẳn tiếng Anh).
 - Đổi phông / đổi subset / đổi nhiều chữ hero → chạy `node scripts/kiem-phong-lot.js`
@@ -1555,10 +1637,11 @@ chữ vẫn chiếm đúng bề rộng → **không đổi số dòng → không
 tramdungchill.vn (form đặt bàn inline trên homepage, KHÔNG có route /dat-ban riêng)
   → Apps Script (deployment AKfycbz46uJ..., version 18 — có sendToApp forward sang app DB)
     ├→ Google Sheet (lưu trữ)
-    ├→ Telegram bot 8791984601 → chat ID 6293463576 (Tuấn)
-    └→ VPS webhook 14.225.224.28:3456 → OpenClaw → Zalo nhóm "Đội Tư Vấn"
+    ├→ Telegram bot → chat của sếp Tuấn
+    └→ VPS webhook → OpenClaw → Zalo nhóm "Đội Tư Vấn"
   → 23:00 daily: dailySummary() gửi báo cáo Telegram + Zalo
 ```
+Số bot, chat ID, IP + cổng + mật mã VPS: `.claude/thong-tin-noi-bo.md` (không lên git).
 
 ## Apps Script — các hàm chính
 - `doPost(e)` — nhận data từ website
@@ -1566,12 +1649,8 @@ tramdungchill.vn (form đặt bàn inline trên homepage, KHÔNG có route /dat-
 - `fixDashboard()`, `dailySummary()`, `setupTriggers()`
 
 ## VPS Webhook
-- **IP:** 14.225.224.28
-- **Port webhook:** 3456
-- **Webhook secret:** `tramdungchill2026`
-- **PM2 process:** `zalo-webhook`
-- **Script path:** `/home/molt/zalo-webhook.js`
-- **Zalo group ID:** `group:2069484793216742236` (Đội Tư Vấn)
+IP, cổng, mật mã, tên tiến trình PM2, đường dẫn script, mã nhóm Zalo: `.claude/thong-tin-noi-bo.md` (gỡ khỏi
+file này 21/10/2026 — repo công khai). ⚠️ Mật mã cũ đã lộ trong lịch sử git → nên đổi.
 
 ## Quy trình sửa code (sếp Tuấn ưu tiên)
 1. Edit local

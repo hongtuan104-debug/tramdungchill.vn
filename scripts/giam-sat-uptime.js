@@ -87,7 +87,9 @@ function danhSachMuc() {
     // x-webhook-token là của đúng chương trình zalo-webhook (cổng 3457 cạnh bên là
     // dịch vụ khác, trả 404 với tiêu đề khác) → chứng minh tiến trình pm2 còn sống.
     // KHÔNG chứng minh OpenClaw → nhóm Zalo chạy.
-    { ten: 'VPS báo Zalo', url: 'http://14.225.224.28:3456/', canTieuDe: ['access-control-allow-headers', 'x-webhook-token'] },
+    // Địa chỉ VPS đọc từ secret VPS_URL (21/10/2026): repo công khai, không ghi IP máy chủ trong code.
+    // Chưa cài secret thì bỏ mục này (không báo động giả) — giá trị ghi ở .claude/thong-tin-noi-bo.md.
+    ...(process.env.VPS_URL ? [{ ten: 'VPS báo Zalo', url: process.env.VPS_URL, canTieuDe: ['access-control-allow-headers', 'x-webhook-token'] }] : []),
   ];
 }
 
@@ -207,7 +209,7 @@ function ghClient() {
 
 // Bot riêng cho giám sát (sếp chọn 19/10/2026): lộ mã cũng không đụng bot báo đơn.
 // Người nhận = ID tài khoản Telegram đã bấm Start với bot (bot không được nhắn trước).
-// ⚠️ 6293463576 (tài khoản nhận báo đơn) CHƯA bấm Start với bot này — thêm vào đây
+// ⚠️ Tài khoản nhận báo đơn (số ở .claude/thong-tin-noi-bo.md) CHƯA bấm Start với bot này — thêm vào đây
 // trước khi bấm là Telegram trả 400 "chat not found" (đã thử 19/10/2026).
 const NGUOI_NHAN = ['6022990090']; // tài khoản đã bấm Start ngày 19/10/2026
 

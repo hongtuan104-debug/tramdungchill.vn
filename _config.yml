@@ -1,0 +1,17 @@
+# GitHub Pages dựng site bằng Jekyll (repo không có .nojekyll). File này CHỈ dùng để KHÔNG phục vụ
+# tài liệu / công cụ nội bộ ra tramdungchill.vn (21/10/2026, sếp Tuấn duyệt): trước hôm nay mở
+# tramdungchill.vn/CLAUDE.md hay /docs/… là đọc được cả ghi chép nội bộ. Không trang nào nạp các file dưới đây.
+# ⚠️ Repo GitHub vẫn CÔNG KHAI — chặn ở đây không giấu được file trong repo. Thông tin cá nhân / bí mật để ở
+# .claude/thong-tin-noi-bo.md (không lên git), đừng viết vào CLAUDE.md, docs/, scripts/.
+# Thêm thư mục nội bộ mới thì thêm vào danh sách này. Không thêm data/ chung: trang nạp data/*.js lúc chạy.
+exclude:
+  - CLAUDE.md
+  - docs/
+  - scripts/
+  - templates/
+  - plans/
+  - data/ban-dich/
+  - data/dau-van-noi-dung.json
+  - package.json
+  - package-lock.json
+  - node_modules/

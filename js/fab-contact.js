@@ -19,6 +19,16 @@
         }
     }
 
+    /* Trang tiếng nước ngoài (/en/, /zh/… — 21/10/2026): Zalo đổi thành WhatsApp cùng số hotline, vì
+       khách Singapore, Malaysia, Hàn… ít ai có Zalo. Chữ lấy từ window.TRANSLATIONS của trang (trang
+       dịch nạp dist/chu-<mã>.js); bài blog tiếng Việt không nạp bản dịch → dùng chữ mặc định. */
+    const lang = (document.documentElement.lang || 'vi').toLowerCase().split('-')[0];
+    const nuocNgoai = lang !== 'vi';
+    function tt(khoa, macDinh) {
+        const d = window.TRANSLATIONS && window.TRANSLATIONS[lang];
+        return (d && d[khoa]) || macDinh;
+    }
+
     // Build Zalo URL với pre-fill message mang tag nguồn (#tt_main / #fb / #gmb ...)
     // để NV đọc tin nhắn biết ngay khách từ kênh nào, không cần hỏi.
     function buildZaloUrlWithSource(phoneNumber) {
@@ -27,9 +37,9 @@
             const src = (typeof getSourceForTag === 'function') ? getSourceForTag() : null;
             tag = (typeof buildSourceTag === 'function' && src) ? buildSourceTag(src) : '';
         } catch (e) {}
-        const msg = tag
-            ? 'Em muốn đặt bàn ở Trạm Dừng Chill ' + tag
-            : 'Em muốn đặt bàn ở Trạm Dừng Chill';
+        const goc = tt('fab.msg', 'Em muốn đặt bàn ở Trạm Dừng Chill');
+        const msg = tag ? goc + ' ' + tag : goc;
+        if (nuocNgoai) return 'https://wa.me/' + waPhone + '?text=' + encodeURIComponent(msg);
         return 'https://zalo.me/' + phoneNumber + '?text=' + encodeURIComponent(msg);
     }
 
@@ -37,10 +47,12 @@
     let phone = '0989765070';
     let zaloPhone = '0989765070';
     let fbUrl = 'https://www.facebook.com/tiemnuongtramdungchill';
+    let waPhone = '84989765070';
 
     if (typeof SITE_CONFIG !== 'undefined') {
         phone = SITE_CONFIG.contact.phone || phone;
         zaloPhone = SITE_CONFIG.contact.zaloNumber || phone;
+        waPhone = SITE_CONFIG.contact.whatsapp || waPhone;
         fbUrl = (SITE_CONFIG.social && SITE_CONFIG.social.facebook) || fbUrl;
     }
 
@@ -52,23 +64,33 @@
         zaloLink.href = buildZaloUrlWithSource(zaloPhone);
         zaloLink.target = '_blank';
         zaloLink.rel = 'noopener';
-        zaloLink.className = 'fab-option fab-opt-zalo';
-        zaloLink.title = 'Chat Zalo';
-        zaloLink.setAttribute('aria-label', 'Chat Zalo');
-        zaloLink.innerHTML = '<span class="fab-opt-zalo-icon">Zalo</span><span>Zalo</span>';
+        if (nuocNgoai) {
+            // WhatsApp: biểu tượng SVG của bộ Simple Icons (CC0, không tải thêm gì), màu xanh nhận diện của WhatsApp
+            const tenWa = tt('fab.whatsapp', 'Chat WhatsApp');
+            zaloLink.className = 'fab-option fab-opt-wa';
+            zaloLink.title = tenWa;
+            zaloLink.setAttribute('aria-label', tenWa);
+            zaloLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span>';
+        } else {
+            zaloLink.className = 'fab-option fab-opt-zalo';
+            zaloLink.title = 'Chat Zalo';
+            zaloLink.setAttribute('aria-label', 'Chat Zalo');
+            zaloLink.innerHTML = '<span class="fab-opt-zalo-icon">Zalo</span><span>Zalo</span>';
+        }
         zaloLink.addEventListener('click', function() {
             // Refresh URL ngay trước khi mở (trong case user vừa đổi nguồn / navigate)
             zaloLink.href = buildZaloUrlWithSource(zaloPhone);
-            trackEvent('click_zalo', nguon);
+            trackEvent(nuocNgoai ? 'click_whatsapp' : 'click_zalo', nguon);
         });
 
         // Phone
+        const goiNgay = tt('fab.call', 'Gọi ngay');
         const phoneLink = document.createElement('a');
-        phoneLink.href = 'tel:' + phone;
+        phoneLink.href = 'tel:' + (nuocNgoai ? '+' + waPhone : phone);
         phoneLink.className = 'fab-option fab-opt-phone';
-        phoneLink.title = 'Gọi ngay';
-        phoneLink.setAttribute('aria-label', 'Gọi ngay ' + phone);
-        phoneLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Gọi ngay</span>';
+        phoneLink.title = goiNgay;
+        phoneLink.setAttribute('aria-label', goiNgay + ' ' + (nuocNgoai ? '+84 989 765 070' : phone));
+        phoneLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>' + goiNgay + '</span>';
         phoneLink.addEventListener('click', function() { trackEvent('click_phone', nguon); });
 
         // Facebook
@@ -96,7 +118,7 @@
         options.className = 'fab-options';
         options.id = 'fabOptions';
         options.setAttribute('role', 'group');
-        options.setAttribute('aria-label', 'Liên hệ nhanh');
+        options.setAttribute('aria-label', tt('fab.group', 'Liên hệ nhanh'));
 
         taoLienKet('fab').forEach(function (a) { options.appendChild(a); });
 
@@ -121,7 +143,7 @@
             const cum = document.createElement('div');
             cum.className = 'thanh-lien-he';
             cum.setAttribute('role', 'group');
-            cum.setAttribute('aria-label', 'Liên hệ nhanh');
+            cum.setAttribute('aria-label', tt('fab.group', 'Liên hệ nhanh'));
             taoLienKet('thanh_dat_ban').forEach(function (a) { cum.appendChild(a); });
             thanh.insertBefore(cum, thanh.firstChild);
             return true;

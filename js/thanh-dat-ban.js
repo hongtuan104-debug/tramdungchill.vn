@@ -15,7 +15,7 @@ function initThanhDatBan() {
 
     // 4 trang dịp có form ngay trên trang → dẫn tới form đó; trang khác dẫn về form trang chủ.
     const formTrang = document.getElementById('booking-form');
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'vi';
+    const lang = maNgonNgu();
     const dich = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || null;
     // Chữ mùa (Noel / Tết) đứng trước bản dịch thường — window.TDC_MUA do đoạn script đầu trang đặt (CLAUDE.md #48)
     const mua = window.TDC_MUA && window.TDC_MUA.chu;
@@ -28,7 +28,7 @@ function initThanhDatBan() {
     thanh.innerHTML = '<div class="sticky-book-info">' +
         '<div class="sticky-book-title" data-i18n="sticky.title">' + chu('sticky.title', 'Đặt bàn online') + '</div>' +
         '<div class="sticky-book-sub" data-i18n="sticky.sub">' + chu('sticky.sub', 'Setup miễn phí • Phản hồi 15 phút') + '</div></div>' +
-        '<a href="' + (formTrang ? '#booking-form' : '/#booking') + '" class="sticky-book-btn">' +
+        '<a href="' + (formTrang ? '#booking-form' : (lang === 'vi' ? '/#booking' : '/' + lang + '/#booking')) + '" class="sticky-book-btn">' +
         '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' +
         '<span data-i18n="sticky.cta">' + chu('sticky.cta', 'Đặt Bàn') + '</span></a>';
     document.body.appendChild(thanh);
@@ -39,7 +39,7 @@ function initThanhDatBan() {
         lenDau.type = 'button';
         lenDau.className = 'back-to-top';
         lenDau.id = 'backToTop';
-        lenDau.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Back to top' : 'Lên đầu trang');
+        lenDau.setAttribute('aria-label', chu('sticky.top', 'Lên đầu trang'));
         lenDau.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>';
         document.body.appendChild(lenDau);
         lenDau.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });

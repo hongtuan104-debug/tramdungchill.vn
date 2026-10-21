@@ -266,8 +266,22 @@ function ganNgaySua(html, ngayISO) {
 // ─────────────────── đóng ngày ngược vào NGUỒN data/blog-seo.js ───────────────────
 /** 'https://tramdungchill.vn/blog/abc.html' → 'abc'. Trang không phải bài blog → null. */
 function maBaiTuUrl(loc) {
-  const m = loc.match(/\/blog\/([^/]+)\.html$/);
+  // Chỉ bài gốc ở /blog/ — bản dịch /en/blog/… KHÔNG có khối riêng trong blog-seo.js (21/10/2026)
+  const m = loc.match(/^https:\/\/tramdungchill\.vn\/blog\/([^/]+)\.html$/);
   return m ? m[1] : null;
+}
+
+// ─────────────────────────── trang dịch sẵn (21/10/2026) ───────────────────────────
+// /en/, /zh/, /ko/, /ja/, /ru/, /th/ do scripts/dich-trang.js sinh từ trang gốc và MANG LUÔN ngày sửa của trang
+// gốc. Nên bot KHÔNG lấy dấu vân trang dịch (sửa riêng một câu dịch không tính là trang "vừa cập nhật"), mà trang
+// gốc đổi ngày thì mọi bản dịch đổi theo cùng ngày, cùng báo IndexNow. Hai máy cùng giữ một ngày → không giật qua lại.
+const MA_DICH = ['en', 'zh', 'ko', 'ja', 'ru', 'th'];
+const RE_URL_DICH = new RegExp('^' + MIEN.replace(/\./g, '\\.') + '/(?:' + MA_DICH.join('|') + ')/');
+function laUrlDich(loc) { return RE_URL_DICH.test(loc); }
+/** URL các bản dịch đang có trong sitemap của một URL gốc. */
+function urlDichCua(loc, tapLoc) {
+  const duoi = loc.replace(MIEN, '');
+  return MA_DICH.map((ma) => MIEN + '/' + ma + duoi).filter((u) => tapLoc.has(u));
 }
 
 /**
@@ -418,6 +432,12 @@ function main() {
       loi(`sitemap trỏ tới ${t.loc} nhưng không có file ${t.duongDan}`);
     }
     const html = fs.readFileSync(duongDanDay, 'utf8');
+    if (laUrlDich(t.loc)) {
+      // Trang dịch: không dấu vân. Chỉ vá sitemap cho khớp schema của chính nó (ngày theo trang gốc lo ở dưới).
+      const trongSchema = (html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/) || ['', ''])[1];
+      if (trongSchema && trongSchema !== t.lastmod) { ngayMoi.set(t.loc, trongSchema); soLech++; }
+      continue;
+    }
     const van = dauVan(html);
 
     let ngayDat = null;
@@ -464,6 +484,21 @@ function main() {
       } else {
         banGhi.push(`  ·   ${t.duongDan}  ${t.lastmod || '—'}   (${lyDo})`);
       }
+    }
+  }
+
+  // ── Trang gốc đổi ngày → mọi bản dịch của nó đổi cùng ngày (trang dịch mang ngày của trang gốc) ──
+  const tapLoc = new Set(trang.map((t) => t.loc));
+  const daDoi = new Set(urlDaDoi);
+  for (const [loc, ngay] of [...ngayMoi]) {
+    if (laUrlDich(loc)) continue;
+    for (const u of urlDichCua(loc, tapLoc)) {
+      const f = path.join(GOC, duongDanTuUrl(u));
+      if (!fs.existsSync(f)) loi(`sitemap trỏ tới ${u} nhưng không có file ${duongDanTuUrl(u)}`);
+      ghiSau.push([f, ganNgaySua(fs.readFileSync(f, 'utf8'), ngay)]);
+      ngayMoi.set(u, ngay);
+      if (daDoi.has(loc)) urlDaDoi.push(u);
+      banGhi.push(`  ↳  ${duongDanTuUrl(u)}  → ${ngay}   (theo trang gốc)`);
     }
   }
 

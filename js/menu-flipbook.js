@@ -152,7 +152,7 @@ var MenuFlipbook = (function () {
     };
 
     function t(key, fallback) {
-        var lang = document.documentElement.lang === 'en' ? 'en' : 'vi';
+        var lang = (document.documentElement.lang || 'vi').toLowerCase().split('-')[0];
         if (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
             return TRANSLATIONS[lang][key];
         }

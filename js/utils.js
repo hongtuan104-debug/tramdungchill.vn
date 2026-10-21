@@ -93,6 +93,8 @@ function initContactTracking() {
 
         if (href.startsWith('tel:')) { action = 'click_phone'; category = 'phone'; }
         else if (href.indexOf('zalo.me') !== -1) { action = 'click_zalo'; category = 'zalo'; }
+        // Trang tiếng nước ngoài dùng WhatsApp thay Zalo (21/10/2026) — cùng vai trò liên hệ nên cùng tính Contact
+        else if (href.indexOf('wa.me/') !== -1) { action = 'click_whatsapp'; category = 'whatsapp'; }
         else if (href.indexOf('facebook.com') !== -1) { action = 'click_facebook'; category = 'facebook'; }
         else if (href.indexOf('maps.app.goo.gl') !== -1 || href.indexOf('google.com/maps') !== -1) { action = 'click_directions'; category = 'maps'; }
         else return;
@@ -101,10 +103,11 @@ function initContactTracking() {
             gtag('event', action, { event_category: 'contact', event_label: 'page_link' });
         }
         // Contact = conversion signal cho FB/TikTok ads optimization
-        if ((category === 'zalo' || category === 'phone') && typeof fbq === 'function') {
+        const lienHe = category === 'zalo' || category === 'whatsapp' || category === 'phone';
+        if (lienHe && typeof fbq === 'function') {
             fbq('track', 'Contact', { content_category: category });
         }
-        if ((category === 'zalo' || category === 'phone') && typeof ttq !== 'undefined' && ttq.track) {
+        if (lienHe && typeof ttq !== 'undefined' && ttq.track) {
             ttq.track('Contact', { content_type: category });
         }
     });
@@ -125,11 +128,20 @@ function escapeHtml(str) {
 }
 
 /**
+ * Mã ngôn ngữ của trang: 'vi', 'en', 'zh'… (21/10/2026). Mỗi thứ tiếng là một trang dịch sẵn ở
+ * thư mục riêng (/en/, /zh/…), nên ngôn ngữ đọc từ <html lang> của chính trang — không còn lưu
+ * localStorage rồi đổi chữ bằng JS như nút EN cũ. 'zh-Hans' → 'zh'.
+ */
+function maNgonNgu() {
+    return (document.documentElement.lang || 'vi').toLowerCase().split('-')[0];
+}
+
+/**
  * Translation helper — returns translated string or fallback.
  * Usage: t('booking.cta') or t('booking.cta', 'Đặt bàn')
  */
 function t(key, fallback) {
-    const lang = document.documentElement.lang || 'vi';
+    const lang = maNgonNgu();
     if (window.TRANSLATIONS && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
         return TRANSLATIONS[lang][key];
     }

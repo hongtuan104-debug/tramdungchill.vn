@@ -39,7 +39,8 @@
     var daGui = {};
 
     function nhomTrang() {
-        var p = location.pathname;
+        // Trang dịch (/en/menu.html… 21/10/2026) cùng khuôn với trang gốc → chung nhóm; tiếng đã có sẵn trong page_location
+        var p = location.pathname.replace(/^\/(?:en|zh|ko|ja|ru|th)(?=\/)/, '');
         // GitHub Pages trả 404.html NGAY TẠI URL hỏng — nhìn đường dẫn dễ tưởng là bài blog
         if (document.querySelector('h1.error-title')) return 'loi-404';
         if (p === '/' || p === '/index.html') return 'trang-chu';

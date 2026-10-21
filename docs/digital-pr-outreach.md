@@ -157,7 +157,7 @@ biên tập viên nhận ra ngay và bỏ qua.
 >
 > Chào anh/chị,
 >
-> Tôi là Nguyễn Hồng Tuấn, chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Tôi có đọc
+> Tôi là [Họ tên chủ quán], chủ Tiệm Nướng Trạm Dừng Chill ở Đà Lạt. Tôi có đọc
 > bài *"[tên bài]"* của quý trang và thấy bài tổng hợp khá đầy đủ các quán nướng
 > trong thành phố.
 >
@@ -178,7 +178,7 @@ biên tập viên nhận ra ngay và bỏ qua.
 >
 > Cảm ơn anh/chị đã đọc.
 >
-> Nguyễn Hồng Tuấn — 0989.765.070
+> [Họ tên chủ quán] — 0989.765.070
 
 **Lưu ý khi gửi:** không xin "đặt quán lên vị trí số 1", không đề nghị trả tiền
 để được xếp hạng cao trong bài đánh giá. Từ 05/2026 Google xếp việc dựng listicle

@@ -422,7 +422,7 @@ function bylineHtml(article) {
 
 // ---- Trang tác giả (13/09/2026) ----------------------------------------
 // Vì sao: Google khuyến nghị author.url cho Article — "một trang định danh duy
-// nhất tác giả". Trước hôm nay 18 bài đang index ghi tác giả Nguyễn Duy mà
+// nhất tác giả". Trước hôm nay 18 bài đang index ghi tên một tác giả mà
 // không trỏ đi đâu. Vỏ trang (CSS, pixel, nav/footer) viết tay trong
 // tac-gia/<slug>.html; máy chỉ điền hai vùng có mốc để danh sách bài luôn khớp nguồn:
 //   TAC_GIA_JSONLD   → ProfilePage + BreadcrumbList
@@ -699,7 +699,7 @@ try {
     var tacGia = {};
     articles.forEach(function (a) {
         if (!a._author || !a._author.name) return;
-        var slug = slugTiengViet(a._author.name);   // "Nguyễn Duy" và "Nguyen Duy" cùng ra nguyen-duy
+        var slug = slugTiengViet(a._author.name);   // tên có dấu và không dấu cùng ra một slug
         var file = path.join(ROOT, "tac-gia", slug + ".html");
         if (!fs.existsSync(file)) return;
         if (!tacGia[slug]) tacGia[slug] = { slug: slug, file: file, url: SITE_URL + "/tac-gia/" + slug + ".html", bai: [] };
@@ -1306,6 +1306,10 @@ try {
         { stdio: "inherit" }
     );
     require("./cap-nhat-sw").chay();
+
+    // Trang dịch sẵn (21/10/2026): bài vừa dựng lại thì bản /en/blog/…, /zh/blog/… dựng lại theo, và
+    // sitemap vừa ghi ở trên (chỉ có tiếng gốc) được khai lại cụm hreflang + URL trang dịch.
+    require("child_process").execFileSync(process.execPath, [path.join(__dirname, "dich-trang.js")], { stdio: "inherit" });
 
     console.log("Done!");
 

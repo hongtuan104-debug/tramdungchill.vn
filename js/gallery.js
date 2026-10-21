@@ -98,7 +98,7 @@ function initGalleryLightbox() {
             // Use data-src (original URL) if available, otherwise fall back to src
             const fullSrc = imgEl.dataset.src || imgEl.src;
             const cap = item.querySelector('figcaption');
-            images.push({ src: fullSrc, alt: imgEl.alt || 'Ảnh tại Trạm Dừng Chill', cap: cap });
+            images.push({ src: fullSrc, alt: imgEl.alt || t('gallery.alt', 'Ảnh tại Trạm Dừng Chill'), cap: cap });
             item.tabIndex = 0;
             item.setAttribute('role', 'button');
             item.setAttribute('aria-haspopup', 'dialog');

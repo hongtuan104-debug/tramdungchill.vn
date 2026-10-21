@@ -1,7 +1,7 @@
 {
   "_doc": "MẪU — chép file này thành <YYYY-MM-DD>-<nen-tang>.json rồi điền. File tên MAU.json bị script bỏ qua, không tính vào số liệu.",
   "dot": "2026-09-16",
-  "nguoiDo": "Nguyễn Hồng Tuấn",
+  "nguoiDo": "[người đo]",
   "boCauHoi": "v1",
   "dieuKienChung": {
     "nenTang": "ChatGPT",

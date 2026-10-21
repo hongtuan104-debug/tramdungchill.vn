@@ -81,9 +81,13 @@ function buildMenuJsonLd(d) {
     // So mon lay tu chinh du lieu, KHONG hardcode: truoc day description ghi
     // "~100 mon" trong khi menu-data.js chi co 73 mon va trang menu cung chi
     // liet ke 73 -> structured data khong khop noi dung nhin thay duoc.
+    // 21/10/2026: cach ghi so mon do sep chot la "hon 70 mon" (CLAUDE.md: 81 mon gom 37 do uong), khop chu
+    // hien thi tren trang ("Menu hon 70 mon..."). Tu tinh ra "hon 80 mon" tung lam schema lech chu trang.
+    // Van dem tu du lieu de chan khi so mon that tut xuong con <= 70 (luc do "hon 70" thanh sai).
     var dishCount = 0;
     d.MENU_CATEGORIES.forEach(function (c) { dishCount += (d.MENU_ITEMS[c.id] || []).length; });
-    var dishPhrase = "hơn " + (Math.floor(dishCount / 10) * 10) + " món";
+    if (dishCount <= 70) throw new Error("menu-data.js chi con " + dishCount + " mon — sua cau 'Hơn 70 món' trong generate-menu.js va chu tren trang");
+    var dishPhrase = "Hơn 70 món";
 
     // mainEntity chi tham chieu @id + thong tin co ban (KHONG lap aggregateRating
     // -> tranh trung/lech so review voi index.html, von la nguon chuan cua rating).

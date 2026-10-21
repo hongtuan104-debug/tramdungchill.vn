@@ -213,8 +213,13 @@ const PHEP_KIEM = [
     mau: /"ratingValue"\s*:\s*"?([\d.]+)"?/g,
     batBuocCoKhop: true,
     // Chi xet khi nam trong aggregateRating. Review le co ratingValue "5" -> bo qua.
-    chiKhi: (noiDung, viTri) =>
-      /aggregateRating/.test(noiDung.slice(Math.max(0, viTri - 300), viTri)),
+    // Khoa "...Rating" GAN NHAT dung truoc phai la aggregateRating: JSON-LD trang dich in gian dong
+    // (21/10/2026) nen review dau tien nam trong 300 ky tu sau aggregateRating -> bao nham "ghi 5".
+    chiKhi: (noiDung, viTri) => {
+      const truoc = noiDung.slice(Math.max(0, viTri - 300), viTri);
+      const ds = truoc.match(/"(aggregateRating|reviewRating)"/g);
+      return !!ds && ds[ds.length - 1] === '"aggregateRating"';
+    },
     kiemTra: (m) => {
       return m[1] === FACTS.diemDanhGiaGoogle
         ? null

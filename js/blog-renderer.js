@@ -92,7 +92,8 @@ function buildBlogCard(article, laTheDau) {
     // Title
     const h2 = document.createElement('h2');
     const titleLink = document.createElement('a');
-    titleLink.href = 'blog/' + article.id + '.html';
+    // url riêng: bài viết gốc tiếng Anh nằm ở /blog/ dù đang xem danh sách /en/blog.html (21/10/2026)
+    titleLink.href = article.url || ('blog/' + article.id + '.html');
     titleLink.textContent = article.title;
     h2.appendChild(titleLink);
     contentDiv.appendChild(h2);
@@ -104,7 +105,7 @@ function buildBlogCard(article, laTheDau) {
 
     // Read more link
     const readMore = document.createElement('a');
-    readMore.href = 'blog/' + article.id + '.html';
+    readMore.href = article.url || ('blog/' + article.id + '.html');
     readMore.className = 'blog-read-more';
     readMore.textContent = t('blog.readmore', 'Đọc tiếp →');
     // 18 link "Đọc tiếp →" y hệt nhau: trình đọc màn hình liệt kê link thì khách nghe
