@@ -147,6 +147,15 @@ for (const [so, can] of MAO_TU) {
 }
 const baoViAu = SDT.cauBao(SDT.phanTich('0412345678', '', 'vi'), 'vi');
 if (!/This looks like an Australia number/.test(baoViAu)) { loi++; console.log('✗ mạo từ dòng tiếng Anh trang Việt: ' + JSON.stringify(baoViAu)); }
+// Khách Việt gõ sai số trên trang Việt: ĐÚNG câu cũ ngắn, không nhắc số nước ngoài, không tiếng Anh (chủ dặn 22/10)
+const CAU_CU = 'Số điện thoại không hợp lệ (cần 10 số)!';
+for (const so of ['090123456', '09012345678', '0901 234 56', '01689123456']) {
+    const c = SDT.cauBao(SDT.phanTich(so, 'US', 'vi'), 'vi');
+    if (c !== CAU_CU) { loi++; console.log('✗ câu báo khách Việt gõ sai "' + so + '": ' + JSON.stringify(c) + ' · cần đúng câu cũ'); }
+}
+// Số trông như NƯỚC NGOÀI trên trang Việt mà không đoán được nước: vẫn có hướng dẫn mã nước + 1 dòng tiếng Anh
+const baoNgoai = SDT.cauBao(SDT.phanTich('415 555 0123', '', 'vi'), 'vi');
+if (!/ghi kèm mã nước/.test(baoNgoai) || !/Foreign number\?/.test(baoNgoai)) { loi++; console.log('✗ câu báo số nước ngoài trang Việt: ' + JSON.stringify(baoNgoai)); }
 console.log((loi ? '✗ ' : '✓ ') + (dem - loi) + '/' + dem + ' ca đạt (mã gốc + mã đã nén)' + (loi ? ' · ' + loi + ' ca SAI' : '') + ' · câu báo: ' + (baoOk ? 'đạt' : 'SAI'));
 console.log('  ví dụ câu báo trang Việt: ' + bao.replace(/\n/g, ' ⏎ '));
 process.exit(loi ? 1 : 0);

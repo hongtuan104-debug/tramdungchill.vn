@@ -170,7 +170,7 @@ var SoDienThoai = (function () {
         if (lang === 'vi' && /^[35789]\d{8}$/.test(s)) return { loai: 'vn', so: '0' + s, hienThi: '0' + s };
         if (s.charAt(0) === '+') {
             var q = chuanQuocTe(s);
-            return q ? { loai: 'quocte', so: q.so, hienThi: q.hienThi } : { loai: 'sai', goiY: [] };
+            return q ? { loai: 'quocte', so: q.so, hienThi: q.hienThi } : { loai: 'sai', goiY: [], chiSo: s };
         }
 
         var goiY = [];
@@ -213,7 +213,7 @@ var SoDienThoai = (function () {
                 }
             }
         }
-        return { loai: 'sai', goiY: goiY };
+        return { loai: 'sai', goiY: goiY, chiSo: chiSo };
     }
 
     // Tiếng Anh: "a Australia / a India number" → "an …" (tên nước bắt đầu bằng nguyên âm; "United…"/"Ukraine" giữ "a")
@@ -231,7 +231,9 @@ var SoDienThoai = (function () {
 
     /**
      * Câu báo cho khách khi số chưa đúng. lang = tiếng của trang.
-     * Trang tiếng Việt kèm thêm 1 câu tiếng Anh: khách nước ngoài vẫn hay vào trang chủ tiếng Việt từ Google.
+     * Trang tiếng Việt: khách Việt gõ sai số (bắt đầu bằng 0, thiếu/thừa chữ số) chỉ thấy câu ngắn y như form cũ — chủ dặn
+     * 22/10: khách Việt không phải ghi gì thêm, càng đơn giản càng không mất khách. Câu hướng dẫn mã nước (kèm 1 câu tiếng
+     * Anh) chỉ hiện khi số trông như số nước ngoài — khách nước ngoài vẫn hay vào trang chủ tiếng Việt từ Google.
      * Khoá chữ nằm trong data/translations.js; trang dịch lấy bản dịch từ dist/chu-<mã>.js (dich-trang.js).
      */
     function cauBao(kq, lang) {
@@ -244,8 +246,11 @@ var SoDienThoai = (function () {
             cau = cau.replace('{nuoc}', tenNuoc(g.nuoc, lang)).replace('{so}', g.hienThi);
             anh = anMaoTu(anh.replace('{nuoc}', tenNuoc(g.nuoc, 'en')).replace('{so}', g.hienThi));
             if (lang === 'en') cau = anMaoTu(cau);
+        } else if (lang === 'vi' && /^0\d{7,10}$/.test(kq.chiSo || '')) {
+            cau = tr('notify.phone', 'Số điện thoại không hợp lệ (cần 10 số)!');
+            anh = '';
         } else if (lang === 'vi') {
-            cau = tr('notify.phone', 'Số điện thoại chưa đúng (số Việt cần 10 số, đầu 03/05/07/08/09). Số nước ngoài: ghi kèm mã nước, ví dụ +60 17 523 3899.');
+            cau = tr('notify.phone_nuoc_ngoai', 'Số điện thoại chưa đúng (số Việt cần 10 số, đầu 03/05/07/08/09). Số nước ngoài: ghi kèm mã nước, ví dụ +60 17 523 3899.');
             anh = 'Foreign number? Please add your country code, e.g. +60 17 523 3899.';
         } else {
             cau = tr('notify.phone_intl', 'Số điện thoại chưa đúng — ghi cả mã quốc gia, ví dụ +65 8123 4567.');
