@@ -1,9 +1,9 @@
 {
   "_ghiChu": "Dấu vân phần CHỮ HIỂN THỊ của từng trang trong sitemap. Máy tự ghi — đừng sửa tay. Xem scripts/cap-nhat-lastmod.js.",
-  "capNhatLuc": "2026-10-21",
+  "capNhatLuc": "2026-10-22",
   "trang": {
     "https://tramdungchill.vn/": "aee1201c55f8bcaeb6355f444a904ef4653b5e52",
-    "https://tramdungchill.vn/blog.html": "590949a920516b5e752a19a4dc926f7c0310797a",
+    "https://tramdungchill.vn/blog.html": "576d6aac7f2f5e1d50a236beba4604e3b8d3cfef",
     "https://tramdungchill.vn/menu.html": "5dbcb6efc1701b1dfe491d45f42370ea3fe04210",
     "https://tramdungchill.vn/dip/san-tau-da-lat.html": "922f438d098c6502054a1ae83a76471504923a55",
     "https://tramdungchill.vn/dip/cau-hon-hen-ho.html": "2e0cd97eeca903513e7d0a57b643d6e97dfc1993",
@@ -18,7 +18,7 @@
     "https://tramdungchill.vn/blog/dac-san-da-lat-mua-ve.html": "c27e58e2023bd38cf0e94b0a6ca85a463c58de79",
     "https://tramdungchill.vn/blog/cam-trai-da-lat.html": "ed83e54e5d3dacfa740c1e44d118ad11e6b217b7",
     "https://tramdungchill.vn/blog/lich-trinh-da-lat-3-ngay-2-dem.html": "ec20fa48ff8dd2e5de335f4967611df0e47dfe38",
-    "https://tramdungchill.vn/blog/da-lat-cho-nguoi-nuoc-ngoai.html": "974588851034b35524166ad5c0629826fc80eb48",
+    "https://tramdungchill.vn/blog/da-lat-cho-nguoi-nuoc-ngoai.html": "05471ce968cbdd4eb87bc6334563265265e1e362",
     "https://tramdungchill.vn/blog/lau-nuong-da-lat-mua-lanh.html": "8171d869c21dade256ef37f4ad5dfd26d5d45a58",
     "https://tramdungchill.vn/blog/quan-nuong-da-lat-view-nha-long.html": "a2c681707e1aff7d5dc38391cb937570cd66ea73",
     "https://tramdungchill.vn/blog/setup-sinh-nhat-mien-phi-da-lat.html": "e79f689d857f745e12e1c47825376bffcd809c0c",
@@ -26,6 +26,6 @@
     "https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html": "31b56404b55e8459afb9ea0d1947244643b06216",
     "https://tramdungchill.vn/blog/an-vat-da-lat-buoi-toi.html": "895411d62851f24ee0bf8a7212e3c1d18d63bef2",
     "https://tramdungchill.vn/blog/an-nuong-da-lat-bao-nhieu-tien.html": "5c808f2cd07c1f1eace942aafc8c910406693dd3",
-    "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html": "7c5e9fcb8c4a31a6f76f2fb10c91ac78dce10e21"
+    "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html": "b95bca16629b728f5e4b90f5950b66b827bbacf5"
   }
 }
