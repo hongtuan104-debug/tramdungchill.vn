@@ -1074,7 +1074,7 @@ const BLOG_ARTICLES = [
     },
     {
         id: "da-lat-cho-nguoi-nuoc-ngoai",
-        title: "Best BBQ Restaurant in Da Lat for Foreign Tourists — Local Guide 2026",
+        title: "BBQ Restaurant in Da Lat for Foreign Tourists — Local Guide 2026",
         category: "Du lịch Đà Lạt",
         date: "2026-04-03",
         image: "assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",

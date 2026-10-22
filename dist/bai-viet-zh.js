@@ -134,7 +134,7 @@ const BLOG_ARTICLES = [
  },
  {
   "id": "da-lat-cho-nguoi-nuoc-ngoai",
-  "title": "大叻最适合外国游客的烧烤餐厅——本地人指南",
+  "title": "大叻适合外国游客的烧烤餐厅——本地人指南",
   "category": "英文",
   "date": "2026-04-03",
   "image": "/assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",

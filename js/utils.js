@@ -227,7 +227,8 @@ function initModalClose() {
     }
 }
 
-function showNotification(message, type = 'success') {
+/* thoiGian (22/10/2026): câu gợi ý mã nước song ngữ ~180 ký tự đọc không kịp trong 4 giây — mặc định giữ 4 giây */
+function showNotification(message, type = 'success', thoiGian = 4000) {
     const existing = document.querySelector('.toast-notification');
     if (existing) existing.remove();
 
@@ -243,6 +244,7 @@ function showNotification(message, type = 'success') {
     const msg = document.createElement('span');
     msg.className = 'toast-msg';
     msg.textContent = message;
+    msg.style.whiteSpace = 'pre-line'; // câu trang Việt kèm dòng tiếng Anh cho khách nước ngoài (so-dien-thoai.js)
     toast.appendChild(icon);
     toast.appendChild(msg);
 
@@ -276,7 +278,7 @@ function showNotification(message, type = 'success') {
     setTimeout(() => {
         toast.style.transform = 'translateX(120%)';
         setTimeout(() => toast.remove(), 400);
-    }, 4000);
+    }, thoiGian);
 }
 
 function setMinDate() {

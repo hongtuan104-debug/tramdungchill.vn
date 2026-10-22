@@ -25,6 +25,7 @@ const DIST = path.join(ROOT, "dist");
 const COMMON_FILES = [
     "components/layout-loader.js",
     "js/utils.js",
+    "js/so-dien-thoai.js",   // kiểm số điện thoại dùng chung: form trang chủ + 4 trang dịp (22/10/2026)
     "js/navbar.js",
     "js/i18n.js",
     "js/scroll-ui.js",

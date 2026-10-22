@@ -134,14 +134,14 @@ const BLOG_ARTICLES = [
  },
  {
   "id": "da-lat-cho-nguoi-nuoc-ngoai",
-  "title": "海外旅行者におすすめのダラットのバーベキュー店 — 地元目線のガイド",
+  "title": "海外旅行者向けのダラットのバーベキュー店 — 地元目線のガイド",
   "category": "外国人旅行者向け",
   "date": "2026-04-03",
   "image": "/assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",
   "imageAlt": "Trạm Dừng Chillの看板がある竹の門でポーズをとるお客様。奥には木のテーブルが並び、赤い旗が見える",
   "badge": "",
   "featured": false,
-  "excerpt": "地元の店主が正直にご案内する、旅行者向けダラットのおすすめBBQガイド。三つの景色を楽しめる食事、写真と価格が分かりやすいメニュー、米ドル換算の実際の価格、予約方法まで。",
+  "excerpt": "地元の店主が正直にご案内する、旅行者向けダラットのBBQガイド。三つの景色を楽しめる食事、写真と価格が分かりやすいメニュー、米ドル換算の実際の価格、予約方法まで。",
   "tags": []
  },
  {

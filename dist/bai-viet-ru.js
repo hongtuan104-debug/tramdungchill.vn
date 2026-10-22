@@ -134,7 +134,7 @@ const BLOG_ARTICLES = [
  },
  {
   "id": "da-lat-cho-nguoi-nuoc-ngoai",
-  "title": "Лучший ресторан барбекю в Далате для иностранных туристов — гид от местных",
+  "title": "Ресторан барбекю в Далате для иностранных туристов — гид от местных",
   "category": "Для иностранцев",
   "date": "2026-04-03",
   "image": "/assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",

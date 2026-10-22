@@ -395,7 +395,7 @@ var UI = {
         home: "Home", menu: "Menu", blog: "Blog", book: "Book a table",
         read: "min read", related: "You might also like", faq: "Frequently asked questions",
         ctaTitle: "Book a table at Trạm Dừng Chill",
-        ctaSub: "Grilled BBQ with sunset and vintage train views — only in Da Lat",
+        ctaSub: "Grilled BBQ with sunset and vintage train views in Da Lat",
         ctaBtn: "Book now →",
         ctaTrust: FACTS.diemDanhGiaGoogle + " stars · " + SO_DANH_GIA_EN + " Google reviews",
         ctaTrustAria: "Read guest reviews",

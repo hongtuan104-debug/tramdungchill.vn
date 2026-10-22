@@ -477,6 +477,9 @@ function sinhTrang(nguon, ma, ngC, chuan) {
     let html = N.lienHeNuocNgoai(kq.html);
     // Ô nhập số điện thoại: ví dụ số theo nước của khách đọc tiếng đó (form trang dịch nhận số quốc tế)
     html = html.split('placeholder="0xxx.xxx.xxx"').join('placeholder="' + VD_SO[ma] + '"');
+    // Link Messenger của trang đích QC tiếng Anh mang mã nguồn ?ref=en_google — bản dịch đổi sang mã theo tiếng
+    // (?ref=zh_web…), kẻo tin nhắn từ 5 bản dịch bị đếm lẫn vào khách đến từ QC (soát chéo 22/10/2026)
+    html = html.replace(/(m\.me\/[A-Za-z0-9._-]+\?ref=)en_google/g, '$1' + ma + '_web');
     // ô chọn ngôn ngữ + đoạn mùa + phông chữ không Latin + chữ JS lúc chạy
     html = html.replace('<!--NGON-NGU-->', N.hopChonNgonNgu(ma, ngC.lienKet));
     html = html.replace('<!--MUA-->', () => mua.doanDauTrang(mua.versHienTai(), undefined, chuMua(ma)) + N.cssPhong(ma).replace(/^(?=.)/, '\n'));

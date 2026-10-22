@@ -349,10 +349,13 @@ var TRANSLATIONS = {
 
     // Notifications
     'notify.required': 'Vui lòng điền đầy đủ thông tin bắt buộc!',
-    'notify.phone': 'Số điện thoại không hợp lệ (cần 10 số)!',
+    // Trang tiếng Việt (js/so-dien-thoai.js tự kèm 1 dòng tiếng Anh cho khách nước ngoài vào trang Việt) — 22/10/2026
+    'notify.phone': 'Số điện thoại chưa đúng (số Việt cần 10 số, đầu 03/05/07/08/09). Số nước ngoài: ghi kèm mã nước, ví dụ +60 17 523 3899.',
     'notify.webhook_fail': 'Lưu đặt bàn tạm lỗi — vui lòng nhắn Zalo để xác nhận!',
     // Chỉ trang tiếng nước ngoài hiện câu này (nhận số quốc tế) — bản dịch sinh từ đây (21/10/2026)
     'notify.phone_intl': 'Số điện thoại chưa đúng — ghi cả mã quốc gia, ví dụ +65 8123 4567.',
+    // Số nội địa nước ngoài không mã nước: form điền sẵn số đã thêm mã nước đoán được — {nuoc} {so} do JS thay (22/10/2026)
+    'notify.phone_goi_y': 'Số này giống số {nuoc} — đã thêm mã nước: {so}. Kiểm tra rồi bấm Gửi lại nhé.',
 
     // Chữ JS gán lúc chạy (21/10/2026): trang dịch lấy bản dịch qua dist/chu-<mã>.js
     'map.iframe': 'Bản đồ Tiệm Nướng Trạm Dừng Chill',
@@ -714,9 +717,10 @@ var TRANSLATIONS = {
 
     // Notifications
     'notify.required': 'Please fill in all required fields!',
-    'notify.phone': 'Invalid phone number (10 digits required)!',
+    'notify.phone': 'Please check your phone number (Vietnamese numbers have 10 digits, starting with 03/05/07/08/09). Foreign number? Add your country code, e.g. +60 17 523 3899.',
     'notify.webhook_fail': 'Booking save failed — please message us on Zalo to confirm!',
     'notify.phone_intl': 'Please check your phone number — include the country code, e.g. +65 8123 4567.',
+    'notify.phone_goi_y': 'This looks like a {nuoc} number — we added the country code: {so}. Please check it and submit again.',
 
     'map.iframe': 'Map of Tiệm Nướng Trạm Dừng Chill',
     'gallery.alt': 'Photo at Trạm Dừng Chill',

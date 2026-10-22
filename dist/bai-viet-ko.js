@@ -134,14 +134,14 @@ const BLOG_ARTICLES = [
  },
  {
   "id": "da-lat-cho-nguoi-nuoc-ngoai",
-  "title": "외국인 여행자를 위한 달랏 베스트 바비큐 식당 — 현지 가이드",
+  "title": "외국인 여행자를 위한 달랏 바비큐 식당 — 현지 가이드",
   "category": "외국인 여행자",
   "date": "2026-04-03",
   "image": "/assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp",
   "imageAlt": "Trạm Dừng Chill 간판이 걸린 대나무 입구에서 포즈를 취한 손님, 안쪽으로 늘어선 나무 테이블과 빨간 깃발",
   "badge": "",
   "featured": false,
-  "excerpt": "현지 주인이 직접 쓴 솔직한 달랏 바비큐 맛집 가이드: 세 가지 뷰를 즐기는 식사, 사진과 가격이 명확한 메뉴, 달러 기준 실제 가격, 예약 방법까지 담았어요.",
+  "excerpt": "현지 주인이 직접 쓴 솔직한 달랏 바비큐 가이드: 세 가지 뷰를 즐기는 식사, 사진과 가격이 명확한 메뉴, 달러 기준 실제 가격, 예약 방법까지 담았어요.",
   "tags": []
  },
  {

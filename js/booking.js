@@ -198,20 +198,28 @@ function initBookingForm() {
             return;
         }
 
-        // Phone validation (Vietnamese: 0xxx or +84xxx or 84xxx)
-        let cleanPhone = data.phone.replace(/[\.\s\-\(\)]/g, '');
-        if (/^00/.test(cleanPhone)) cleanPhone = '+' + cleanPhone.slice(2);
-        if (/^\+84/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(3);
-        if (/^84[0-9]{9}$/.test(cleanPhone)) cleanPhone = '0' + cleanPhone.slice(2);
-        // Khách nước ngoài: số Việt Nam 10 số HOẶC số quốc tế 8–15 chữ số (Singapore chỉ có 8)
-        const soHopLe = /^0[0-9]{9}$/.test(cleanPhone) || (nuocNgoai && /^\+?[1-9][0-9]{7,14}$/.test(cleanPhone));
-        if (!soHopLe) {
-            showNotification(nuocNgoai
-                ? t('notify.phone_intl', 'Số điện thoại chưa đúng — ghi cả mã quốc gia, ví dụ +65 8123 4567.')
-                : t('notify.phone', 'Số điện thoại không hợp lệ (cần 10 số)!'), 'error');
+        /* Số điện thoại (22/10/2026, js/so-dien-thoai.js): số Việt giữ dạng 0… như cũ; số có mã nước giữ "+…";
+           số nội địa nước ngoài không mã nước (Malaysia "0175233899"…) → KHÔNG cho gửi: điền sẵn số đã thêm mã nước
+           đoán được để khách kiểm rồi bấm Gửi lại. Luật cũ coi mọi số "0 + 9 chữ số" là số Việt nên số Malaysia lọt
+           qua — 90 ngày tới 21/10: ~13 đơn khách nước ngoài nhân viên không nhắn được, 10 đơn bị huỷ. */
+        // Bấm đúp (soát chéo 22/10): cú bấm thứ hai tới ngay sau khi form vừa điền số đoán thì bỏ qua — khách chưa kịp xem số
+        if (form.dataset.goiYLuc && Date.now() - Number(form.dataset.goiYLuc) < 1500) return;
+        const kqSo = SoDienThoai.phanTich(data.phone, undefined, lang);
+        if (kqSo.loai === 'sai') {
+            if (kqSo.goiY.length) {
+                form.querySelector('[name="phone"]').value = kqSo.goiY[0].hienThi;
+                form.dataset.goiYLuc = String(Date.now());
+            }
+            showNotification(SoDienThoai.cauBao(kqSo, lang), 'error', 9000);
             markInvalid('phone');
             return;
         }
+        // Số đã ổn: gỡ thông báo lỗi đỏ (9 giây) còn đang hiện, kẻo nó đè lên hộp "đã gửi"
+        const toastLoi = document.querySelector('.toast-notification.toast-error');
+        if (toastLoi) toastLoi.remove();
+        const cleanPhone = kqSo.so;
+        // Apps Script + tin nhắn: số Việt gửi y như khách gõ (như cũ); số quốc tế gửi dạng "+60 175233899" cho dễ đọc
+        if (kqSo.loai === 'quocte') data.phone = kqSo.hienThi;
         // Nhân viên đọc đơn trên Telegram / Sheet: biết ngay khách dùng tiếng gì để nhắn lại cho đúng
         const ghiChu = nuocNgoai ? '[' + lang.toUpperCase() + '] ' + (data.note || '') : (data.note || '');
 
