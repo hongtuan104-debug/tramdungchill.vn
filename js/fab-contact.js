@@ -34,7 +34,10 @@
     function buildZaloUrlWithSource(phoneNumber) {
         let tag = '';
         try {
-            const src = (typeof getSourceForTag === 'function') ? getSourceForTag() : null;
+            let src = (typeof getSourceForTag === 'function') ? getSourceForTag() : null;
+            // Khách từ QC Google sang trang khác trong cùng tab (URL hết tham số, referrer là chính web) → vẫn #google,
+            // khớp mã ref=en_google của link Messenger (tuQuangCaoGoogle nhớ trong phiên)
+            if (src && src.source === 'direct' && tuQuangCaoGoogle()) src = { source: 'google', campaign: '' };
             tag = (typeof buildSourceTag === 'function' && src) ? buildSourceTag(src) : '';
         } catch (e) {}
         const goc = tt('fab.msg', 'Em muốn đặt bàn ở Trạm Dừng Chill');
@@ -54,6 +57,51 @@
         zaloPhone = SITE_CONFIG.contact.zaloNumber || phone;
         waPhone = SITE_CONFIG.contact.whatsapp || waPhone;
         fbUrl = (SITE_CONFIG.social && SITE_CONFIG.social.facebook) || fbUrl;
+    }
+
+    /* Đo tin nhắn từ quảng cáo Google tiếng Anh (23/10/2026). Trang đích QC (bài gốc tiếng Anh) ghi sẵn link
+       Messenger ?ref=en_google. Khách KHÔNG đến từ quảng cáo trong phiên này (không gclid/gbraid/wbraid, không
+       utm_source=google + utm_medium=cpc) → đổi mã thành en_web, để số tin nhắn "từ QC" không lẫn khách tự tìm thấy
+       bài. Trang có link đó thì nút Facebook mở thẳng Messenger cùng mã (trước đây mở trang Facebook — tin nhắn bắt
+       đầu từ đó không đếm được). */
+    const REF_QC = 'ref=en_google';
+    let linkMessenger = null;
+    function tuQuangCaoGoogle() {
+        let co = false;
+        try {
+            const q = new URLSearchParams(window.location.search);
+            co = !!(q.get('gclid') || q.get('gbraid') || q.get('wbraid')) ||
+                ((q.get('utm_source') || '').toLowerCase() === 'google' && (q.get('utm_medium') || '').toLowerCase() === 'cpc');
+        } catch (e) { /* trình duyệt quá cũ không có URLSearchParams */ }
+        // Lưu trữ bị chặn (chế độ riêng tư, trình duyệt trong app) thì vẫn giữ kết quả đọc từ URL ở trên
+        try {
+            if (co) sessionStorage.setItem('tdc_qc_google', '1');
+            else co = sessionStorage.getItem('tdc_qc_google') === '1';
+        } catch (e) { /* bỏ qua */ }
+        return co;
+    }
+    function suaLinkMessenger() {
+        const ds = document.querySelectorAll('a[href*="m.me/"][href*="' + REF_QC + '"]');
+        if (!ds.length) return;
+        const qc = tuQuangCaoGoogle();
+        ds.forEach(function (a) {
+            if (!qc) a.setAttribute('href', a.getAttribute('href').replace(REF_QC, 'ref=en_web'));
+        });
+        linkMessenger = ds[0].getAttribute('href');
+    }
+
+    /* Link WhatsApp viết sẵn trong THÂN BÀI hoặc CHÂN TRANG của trang tiếng nước ngoài (vd mục "How to book a table"):
+       soạn sẵn câu chào + mã nguồn (#google…) giống nút nổi, để NV biết khách đến từ đâu. Chỉ link trỏ đúng số quán và
+       chưa soạn sẵn chữ. CHỈ gán một lần lúc dựng trang, KHÔNG gán lại lúc bấm: nút "Open WhatsApp" của hộp thoại đặt
+       bàn (#modalZaloBtn, booking.js) được ghi link mang nội dung đơn sau khi gửi form — gán lại lúc bấm là đè mất đơn
+       (soát 23/10/2026). Không gắn bộ đếm: trang chính có bộ nghe chung (utils.js initContactTracking) đã đếm link
+       này; trang blog không có bộ nghe chung nên bấm link trong bài không vào GA4 (như link gọi / Messenger trong bài). */
+    function suaLinkWhatsApp() {
+        if (!nuocNgoai) return;
+        document.querySelectorAll('article a[href^="https://wa.me/' + waPhone + '"], footer a[href^="https://wa.me/' + waPhone + '"]').forEach(function (a) {
+            if (a.closest('.fab-contact, .thanh-lien-he, .modal, #zaloQuickBook, #modalZaloBtn') || /[?&]text=/.test(a.getAttribute('href'))) return;
+            a.href = buildZaloUrlWithSource(zaloPhone);
+        });
     }
 
     // 3 link liên hệ (Zalo, Gọi, Facebook). "nguon" là nhãn đo lường: 'fab' (nút nổi) hoặc
@@ -95,7 +143,7 @@
 
         // Facebook
         const fbLink = document.createElement('a');
-        fbLink.href = fbUrl;
+        fbLink.href = linkMessenger || fbUrl;
         fbLink.target = '_blank';
         fbLink.rel = 'noopener';
         fbLink.className = 'fab-option fab-opt-fb';
@@ -162,6 +210,8 @@
         const oldFab = document.getElementById('fabContainer');
         if (oldFab) oldFab.remove();
 
+        suaLinkMessenger();   // trước buildFabDOM: nút Facebook lấy link Messenger đã chốt mã
+        suaLinkWhatsApp();
         const fabEl = buildFabDOM();
         document.body.appendChild(fabEl);
         ganVaoThanh();

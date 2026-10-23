@@ -484,6 +484,7 @@ function sinhTrang(nguon, ma, ngC, chuan) {
     html = html.replace('<!--NGON-NGU-->', N.hopChonNgonNgu(ma, ngC.lienKet));
     html = html.replace('<!--MUA-->', () => mua.doanDauTrang(mua.versHienTai(), undefined, chuMua(ma)) + N.cssPhong(ma).replace(/^(?=.)/, '\n'));
     const theChu = '<script defer src="/dist/chu-' + ma + '.js?v=' + ngC.vChu + '"></script>';
+    html = html.replace(RE_GAN_EN, '');   // bài gốc tiếng Anh đã gắn chu-en.js + utils.js ở lượt trước — xem suaBaiGocTiengAnh
     if (/<script defer src="[^"]*data\/translations\.js[^"]*"><\/script>/.test(html)) {
         html = html.replace(/<script defer src="[^"]*data\/translations\.js[^"]*"><\/script>/, theChu);
     } else {
@@ -666,6 +667,7 @@ function chay(cheDo) {
         const fBai = path.join(ROOT, 'dist', 'bai-viet-' + ma + '.js');
         if (!fs.existsSync(fBai) || fs.readFileSync(fBai, 'utf8') !== baiJs) fs.writeFileSync(fBai, baiJs, 'utf8');
         const vChu = crypto.createHash('md5').update(chuJs).digest('hex').slice(0, 8);
+        theoMa[ma].vChu = vChu;   // bài gốc tiếng Anh cũng nạp chu-en.js (suaBaiGocTiengAnh)
         const vBai = crypto.createHash('md5').update(baiJs).digest('hex').slice(0, 8);
         thieuChu.concat(thieuBai).forEach((k) => baoCao[ma].cauThieu.add(k));
 
@@ -696,7 +698,7 @@ function chay(cheDo) {
         if (!N.RE_HOP.test(s)) continue;
         const lang = N.maTuLang((/<html[^>]*\blang="([^"]+)"/.exec(s) || [])[1]);
         let moi = s.replace(N.RE_HOP, () => N.hopChonNgonNgu(lang, lienKetCua(p, lang, trangDaCo, tapNguon)));
-        if (lang === 'en' && /^blog\//.test(p) && theoMa.en) moi = suaBaiGocTiengAnh(moi, p, theoMa.en.coBanDich);
+        if (lang === 'en' && /^blog\//.test(p) && theoMa.en) moi = suaBaiGocTiengAnh(moi, p, theoMa.en.coBanDich, theoMa.en.vChu);
         if (moi !== s) { fs.writeFileSync(f, moi, 'utf8'); ghiGoc++; }
     }
     const soUrl = boSungSitemap(trangDaCo);
@@ -711,7 +713,14 @@ function chay(cheDo) {
  * dịch: link nội bộ (thẻ <a> trong body, trừ ô chọn ngôn ngữ) trỏ bản /en/ nếu có, liên hệ WhatsApp + số có mã nước.
  * Chạy lại trên kết quả của chính nó không đổi gì (link /en/… không phải trang nguồn → giữ nguyên).
  */
-function suaBaiGocTiengAnh(s, p, coBanDich) {
+// Chữ tiếng Anh lúc chạy + hàm đọc nguồn khách cho bài GỐC tiếng Anh (23/10/2026, soát trang đích QC Google):
+// bài chỉ nạp fab-contact.js nên nút nổi / thanh đặt bàn hiện chữ Việt ("Gọi ngay", "Liên hệ nhanh") và WhatsApp soạn
+// sẵn câu tiếng Việt không có mã nguồn (#google). dist/chu-en.js cho chữ (fab.*, sticky.*), js/utils.js cho
+// getSourceForTag/buildSourceTag. utils.js chỉ khai hàm — bộ đếm bấm chung initContactTracking() không ai gọi ở trang
+// blog ⇒ không đếm hai lần. Đặt TRƯỚC fab-contact.js (cùng defer ⇒ chạy đúng thứ tự). Bản dịch của bài (zh/…) gỡ khối
+// này ra trước khi gắn chu-<mã>.js (sinhTrang), kẻo chu-en.js chạy sau ghi đè TRANSLATIONS của trang dịch.
+const RE_GAN_EN = /<script defer src="\/dist\/chu-en\.js\?v=[^"]*"><\/script>\n<script defer src="\/js\/utils\.js\?v=[^"]*"><\/script>\n/g;
+function suaBaiGocTiengAnh(s, p, coBanDich, vChu) {
     const i = s.search(/<body\b/);
     if (i < 0) return s;
     const ngC = { ma: 'en', urlNguon: N.urlTuDuongDan(p), coBanDich };
@@ -724,7 +733,15 @@ function suaBaiGocTiengAnh(s, p, coBanDich) {
         return r && r.url ? a + r.url.replace(/&/g, '&amp;') + b : m;
     });
     than = than.replace(/<!--HOP-GIU-(\d+)-->/g, (m, k) => hop[+k]);
-    return N.lienHeNuocNgoai(s.slice(0, i) + than);
+    let ra = N.lienHeNuocNgoai(s.slice(0, i) + than).replace(RE_GAN_EN, '');
+    if (vChu) {
+        // mẫu bài đổi thẻ fab-contact.js mà quên chỗ này thì bài tiếng Anh lặng lẽ quay về chữ Việt → dừng build cho thấy ngay
+        if (!/<script defer src="[^"]*js\/fab-contact\.js/.test(ra)) throw new Error('bài gốc tiếng Anh ' + p + ': không thấy thẻ <script defer src="…js/fab-contact.js"> để gắn chu-en.js + utils.js trước nó');
+        const the = '<script defer src="/dist/chu-en.js?v=' + vChu + '"></script>\n' +
+            '<script defer src="/js/utils.js?v=' + (bamFile(path.join(ROOT, 'js', 'utils.js')) || 'dev') + '"></script>\n';
+        ra = ra.replace(/<script defer src="[^"]*js\/fab-contact\.js/, (m) => the + m);
+    }
+    return ra;
 }
 
 /** Link của ô chọn ngôn ngữ cho trang p (tiếng gốc langGoc). Thứ tiếng chưa có bản dịch → trang chủ tiếng đó. */

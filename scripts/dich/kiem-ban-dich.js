@@ -47,16 +47,30 @@ function chuSo(s) {
     }
     return ds;
 }
+/** Số tháng của các tên tháng viết bằng chữ trong câu gốc (tiếng Anh "Sep"/"September", tiếng Việt "tháng Mười"…). */
+const THANG_ANH = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+const THANG_VIET = { 'mười một': 11, 'mười hai': 12, 'giêng': 1, 'chạp': 12, 'một': 1, 'hai': 2, 'ba': 3, 'tư': 4, 'năm': 5,
+    'sáu': 6, 'bảy': 7, 'tám': 8, 'chín': 9, 'mười': 10 };
+function soThangCuaTen(goc) {
+    const ra = [];
+    // Tên tháng tiếng Anh: viết HOA, đủ tên hoặc viết tắt chuẩn — "decide", "deck", "decoration", "may vary", "market" không phải tháng
+    for (const m of String(goc).matchAll(/\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec)\b/g)) ra.push(THANG_ANH[m[1].slice(0, 3).toLowerCase()]);
+    for (const m of String(goc).matchAll(/tháng (mười một|mười hai|giêng|chạp|một|hai|ba|tư|năm|sáu|bảy|tám|chín|mười)/gi)) ra.push(THANG_VIET[m[1].toLowerCase()]);
+    return ra;
+}
 function soKhop(goc, dich) {
     const a = chuSo(goc), b = chuSo(dich);
     const dem = new Map();
     for (const x of a) dem.set(x, (dem.get(x) || 0) + 1);
     const du = [];
-    // Câu gốc viết tháng bằng chữ ("18 Oct 2026", "tháng Mười") → bản dịch được ghi tháng bằng số (2026年10月18日)
-    let thangChu = /\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\b|tháng (giêng|chạp|một|hai|ba|tư|năm|sáu|bảy|tám|chín|mười)/i.test(goc) ? 1 : 0;
+    // Câu gốc viết tháng bằng chữ ("18 Oct 2026", "tháng Mười") → bản dịch được ghi tháng bằng số (2026年10月18日).
+    // Mỗi tên tháng cho phép ĐÚNG số của tháng đó, một lần: "September–October 2026" → 2026年9–10月 (23/10/2026 — trước đó
+    // một câu chỉ được MỘT số tháng bất kỳ, nên bản Trung/Hàn/Nhật phải viết vòng, còn ghi nhầm tháng thì máy không bắt).
+    const thangChu = soThangCuaTen(goc);
     for (const y of b) {
         if (dem.get(y)) { dem.set(y, dem.get(y) - 1); continue; }
-        if (thangChu && /^(0?[1-9]|1[0-2])$/.test(y)) { thangChu--; continue; }
+        const iThang = /^(0?[1-9]|1[0-2])$/.test(y) ? thangChu.indexOf(parseInt(y, 10)) : -1;
+        if (iThang >= 0) { thangChu.splice(iThang, 1); continue; }
         // 95K → 95000 / 95,000
         const k = y.replace(/000$/, '');
         if (k !== y && dem.get(k)) { dem.set(k, dem.get(k) - 1); continue; }

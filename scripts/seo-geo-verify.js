@@ -677,7 +677,9 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     });
     // "95[.,]000" — bài tiếng Việt viết 95.000, bài tiếng Anh viết 95,000
     const TOPICS = {
-        "giá": /95[.,]000/,
+        // Trang đích QC tiếng Anh (23/10/2026) thay khoảng "95,000–300,000đ per person" (lệch số đo: trung vị 304.250đ)
+        // bằng mức chi bình quân đo từ bill thật — câu đó vẫn trả lời "ăn hết bao nhiêu" nên cũng tính là có giá.
+        "giá": /95[.,]000|\d{3}[.,]000đ per person/,
         // Bài tiếng Anh viết KHÔNG DẤU ("111 Huynh Tan Phat") — trước 12/09/2026
         // chúng lọt lưới này nhờ footer còn để tiếng Việt; nay footer bài EN đã dịch
         // nên phải nhận cả hai cách viết, không thì báo thiếu oan.
@@ -725,8 +727,10 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         const ext = [...art.matchAll(/<a\s[^>]*href="(https?:\/\/[^"]+)"[^>]*>/g)]
             .filter((m) => !/rel="[^"]*nofollow/i.test(m[0]))   // nofollow ≠ citation
             .map((m) => m[1])
-            // Kênh của chính quán không phải trích nguồn. m.me = Messenger của quán (mục đặt bàn bài tiếng Anh, 21/10/2026).
-            .filter((u) => !/tramdungchill\.vn|facebook|m\.me\/|instagram|tiktok|youtube|threads|zalo|goo\.gl|google\.com/i.test(u));
+            // Kênh của chính quán không phải trích nguồn. m.me = Messenger của quán (mục đặt bàn bài tiếng Anh, 21/10/2026);
+            // wa.me/84989765070 = WhatsApp của quán, cùng số hotline (dòng WhatsApp mục đặt bàn, 23/10/2026) — chỉ ĐÚNG số
+            // quán, số khác / viết kiểu nội địa vẫn bị bắt như link ngoài.
+            .filter((u) => !/tramdungchill\.vn|facebook|m\.me\/|wa\.me\/84989765070(?!\d)|instagram|tiktok|youtube|threads|zalo|goo\.gl|google\.com/i.test(u));
         if (ext.length) withCite++;
         for (const u of ext) if (!ALLOWED.test(u)) offDomain.push(f.replace(".html", "") + " → " + u.slice(0, 50));
     }

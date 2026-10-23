@@ -109,7 +109,8 @@ const DICH_NGOAI = {
     },
     en: {
       nhan: "Menu",
-      tieuDe: "Tram Dung Chill Menu — Over 70 Dishes, VAT Included",
+      // "40+": thực đơn có 44 món ăn (không tính khăn ướt) + 37 đồ uống — "Over 70 Dishes" sai với chữ "dishes" (đếm 23/10/2026)
+      tieuDe: "Tram Dung Chill Menu — 40+ Dishes, VAT Included",
       alt: "A couple at a wooden table laid with hotpot, meat and seafood platters and salad at Tram Dung Chill, the restaurant's round-window check-in carriage behind them"
     }
   },
