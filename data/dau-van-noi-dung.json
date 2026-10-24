@@ -1,6 +1,6 @@
 {
   "_ghiChu": "Dấu vân phần CHỮ HIỂN THỊ của từng trang trong sitemap. Máy tự ghi — đừng sửa tay. Xem scripts/cap-nhat-lastmod.js.",
-  "capNhatLuc": "2026-10-22",
+  "capNhatLuc": "2026-10-24",
   "trang": {
     "https://tramdungchill.vn/": "aee1201c55f8bcaeb6355f444a904ef4653b5e52",
     "https://tramdungchill.vn/blog.html": "576d6aac7f2f5e1d50a236beba4604e3b8d3cfef",
@@ -26,6 +26,6 @@
     "https://tramdungchill.vn/blog/da-lat-ve-dem-di-dau.html": "31b56404b55e8459afb9ea0d1947244643b06216",
     "https://tramdungchill.vn/blog/an-vat-da-lat-buoi-toi.html": "895411d62851f24ee0bf8a7212e3c1d18d63bef2",
     "https://tramdungchill.vn/blog/an-nuong-da-lat-bao-nhieu-tien.html": "5c808f2cd07c1f1eace942aafc8c910406693dd3",
-    "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html": "b95bca16629b728f5e4b90f5950b66b827bbacf5"
+    "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html": "63e3aa33777e8cd2721c618524e41275f4c7fc88"
   }
 }
