@@ -291,7 +291,9 @@ const PHEP_KIEM = [
   },
   {
     ten: 'Muc chi san "tu N/nguoi" con ghi MUC CU (nguon chuan la tu giaMin)',
-    mau: /(?:[Tt]ừ|[Ff]rom|chỉ từ|bắt đầu từ)\s*(\d{2,3})(?:[.,]000)?\s*(?:đ|₫|K|k|VND)?(?=\s*(?:\/\s*người|mỗi người|một người|per person))/g,
+    // 24/10 23:05 quét rộng còn bắt thêm: "mức 95.000đ/người đã đủ…", "Con số 95K là điểm bắt đầu", "Chill, 95K/người là mức
+    // khởi điểm", "Prices start from just 95,000 VND/person" => them cac tien to + duoi "la muc/la diem", "/person"
+    mau: /(?:[Tt]ừ|[Ff]rom(?: just)?|chỉ từ|bắt đầu từ|[Mm]ức|[Cc]on số|start from(?: just)?|Chill,)\s*(\d{2,3})(?:[.,]000)?\s*(?:đ|₫|K|k|VND)?(?=\s*(?:\/\s*(?:người|person)|mỗi người|một người|per person|là (?:mức|điểm)))/g,
     batBuocCoKhop: false,
     kiemTra: (m) => {
       const cu = (FACTS.giaNguoiCu || []).find((g) => g.min === Number(m[1]) * 1000);

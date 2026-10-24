@@ -41,6 +41,10 @@
     "Nay da co: sua so o day thi luoi chi ra ngay moi cho ghi khac.",
     "24/10/2026: muc chi/nguoi doi 150K-400K => nhom 4 = 600.000d - 1.600.000d; nhom 2 (trang cau hon) = 300.000d - 800.000d."
   ],
+  "_veComboSet": [
+    "Khach le (cap doi, gia dinh, nhom ban): goi mon le, KHONG co combo/set — bai blog nao noi quan co 'combo/set nuong' cho khach le la SAI.",
+    "Doan team building: CO set menu theo ngan sach (dip/team-building.html, 200K-500K/nguoi) — chu xac nhan 24/10/2026, giu nguyen."
+  ],
   "chiPhiNhom4Min": 600000,
   "chiPhiNhom4Max": 1600000,
 
