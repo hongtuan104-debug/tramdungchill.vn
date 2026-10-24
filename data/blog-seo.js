@@ -76,7 +76,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "quan-nuong-da-lat-view-nha-long": {
@@ -114,7 +114,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "setup-sinh-nhat-mien-phi-da-lat": {
@@ -153,7 +153,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "hen-ho-da-lat": {
@@ -192,7 +192,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "an-nuong-da-lat-bao-nhieu-tien": {
@@ -229,7 +229,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -267,7 +267,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "mon-nuong-ngon-nhat-da-lat": {
@@ -306,7 +306,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "lich-trinh-da-lat-3-ngay-2-dem": {
@@ -343,7 +343,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -381,7 +381,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "da-lat-cho-nguoi-nuoc-ngoai": {
@@ -419,7 +419,7 @@ const BLOG_SEO = {
           "a": "Yes — free parking for both motorbikes and cars right at the restaurant. At weekend peak hours you may need to park about 100–200m further away. We open at 15:00, so arriving early makes parking easier; Grab and taxis can drive right up to the door."
         }
       ],
-      "dateModified": "2026-10-22",
+      "dateModified": "2026-10-24",
       "lang": "en",
       "category": "English"
     },
@@ -517,7 +517,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "quan-an-gia-dinh-da-lat": {
@@ -525,7 +525,7 @@ const BLOG_SEO = {
       "title": "Quán Nướng Đà Lạt Cho Gia Đình — Có Người Phụ Trông Bé",
       "excerpt": "Đi ăn nướng ở Đà Lạt cùng con nhỏ mà sợ không xoay xở kịp? Trạm Dừng Chill có nhân viên phụ để mắt tới bé, không gian ngoài trời rộng, khu mái che khi mưa và bãi đỗ ô tô miễn phí.",
       "lang": "vi",
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "body": "<p>Đi ăn nướng cùng con nhỏ luôn là bài toán khó: ba mẹ vừa phải nướng, vừa gắp cho con, vừa canh chừng bé chạy lung tung — cuối bữa thì đồ ăn nguội ngắt còn mình thì chưa kịp ăn miếng nào. <strong>Tiệm Nướng Trạm Dừng Chill</strong> (111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt) giải quyết đúng chỗ đau đó bằng một việc rất đơn giản: <strong>nhân viên phụ để mắt tới bé trong lúc ba mẹ ăn</strong>. Quán đạt 4.8/5 sao với 7.344 lượt đánh giá trên Google Maps (số đọc ngày 18/10/2026), mở cửa 15:00–23:00 mỗi ngày, mức chi 150.000đ–400.000đ một người đã gồm VAT. Ngay số 113 kế bên là <a href=\"https://www.xomleo.vn/\" target=\"_blank\" rel=\"nofollow noopener\">Tiệm Nướng &amp; Chill Xóm Lèo</a> (quán cùng chủ với Trạm Dừng Chill), cũng là quán nướng ngắm tàu nếu cả nhà muốn xem thêm phương án.</p>\n\n<h2>Nhân viên phụ để mắt tới bé trong lúc ba mẹ ăn</h2>\n\n<p>Câu mà nhân viên quán hay nói với khách là: \"Khách ghé tụi em ăn nướng, con cái để tụi em lo.\" Trong thực tế, khi bàn có trẻ nhỏ, nhân viên sẽ phụ để mắt tới bé, chơi cùng bé quanh khu vực bàn để ba mẹ ăn được trọn bữa khi đồ còn nóng.</p>\n<figure class=\"blog-quote\"><blockquote><p>Đầu tiên nói về phục vụ, dù quán rất đông khách nhưng nhân viên cực kỳ chu đáo. Mấy bạn siêu nhiệt tình, mình rất ấn tượng.</p></blockquote><figcaption>— <strong>Quyên Quyên</strong>, đánh giá 5★ trên Google</figcaption></figure>\n<p>Cần nói rõ cho đúng: đây là <strong>sự hỗ trợ của nhân viên phục vụ</strong>, không phải dịch vụ giữ trẻ chuyên nghiệp và quán không có khu vui chơi riêng biệt. Ba mẹ vẫn là người chịu trách nhiệm trông con — nhất là vì bàn nướng dùng than hoa, luôn có lửa và bề mặt nóng. Nhưng chỉ riêng việc có thêm một người lớn để ý giúp cũng đủ đổi hẳn trải nghiệm của một bữa ăn gia đình.</p>\n\n<h2>Không gian ngoài trời rộng, mưa vẫn ăn được</h2>\n<p>Quán có bàn ngoài trời nhìn thung lũng 180°, đủ thoáng để trẻ không bị bí bách như trong phòng kín. Khi trời mưa — chuyện thường xuyên ở Đà Lạt — quán có <strong>khu mái che rộng</strong> vẫn nhìn ra thung lũng và nhà lồng lên đèn, nên kế hoạch của cả nhà không đổ bể vì một cơn mưa bất chợt.</p>\n<img src=\"assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp\" srcset=\"assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat-400w.webp 400w, assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat-800w.webp 800w, assets/images/blog/cong-tron-nha-long-ban-ngay-da-lat.webp 1200w\" sizes=\"(max-width: 800px) calc(100vw - 48px), 752px\" alt=\"Cô gái đứng trong cổng tròn gắn chữ trạm dừng chill giữa hai luống hoa đỏ, phía sau là thung lũng nhà lồng ban ngày\" loading=\"lazy\">\n<p>Đà Lạt nằm ở <a href=\"https://vi.wikipedia.org/wiki/%C4%90%C3%A0_L%E1%BA%A1t\" target=\"_blank\" rel=\"noopener\">độ cao khoảng 1.500m so với mực nước biển</a> với khí hậu miền núi ôn hòa quanh năm, nên ngồi nướng ngoài trời không nóng bức — điều quan trọng khi đi cùng trẻ nhỏ. Bù lại buổi tối khá lạnh: quán có <strong>mền và lò than sưởi</strong> mang tận bàn, chỉ cần báo nhân viên. Trời mưa thì mỗi khách được tặng một áo mưa mang về.</p>\n\n<h2>Ngồi dãy nào thì dễ xoay xở với trẻ nhỏ?</h2>\n<p>Bàn ở quán xếp thành từng dãy, mỗi dãy là một hàng bàn cùng nhìn về một hướng. Có một điểm ba mẹ nên biết trước khi nhắn đặt bàn: <strong>các bàn trong cùng một dãy đều ngắm chung một view</strong>. Không cần giành bằng được bàn đầu dãy — ngồi bàn nào trong dãy đó cũng nhìn ra đúng khung cảnh ấy.</p>\n<p>Nhà có trẻ nhỏ thì quán hay gợi ý <strong>dãy lan can mái che</strong> hoặc <strong>dãy B</strong> ngay kế bên: có mái sẵn, đỡ gió hơn ngồi sát lan can ngoài trời, mà vẫn nhìn bao quát được hoàng hôn và thung lũng nhà lồng. Còn dãy lan can ngoài trời sát đường ray là dãy khách đặt nhiều nhất — cuối tuần và mùa cao điểm <strong>thường kín chỗ trước 2–4 tuần</strong>, nên nếu cả nhà nhất định muốn ngồi sát đường ray thì phải chốt ngày sớm. Đặt trễ mà vẫn muốn cho bé xem tàu thì <strong>dãy G</strong> ngay kế bên, chung một view tàu chạy.</p>\n<p>Đặt bàn ăn bình thường thì <strong>không cần cọc</strong> — cứ điền <a href=\"/#booking\">form đặt bàn trên website</a> hoặc nhắn Zalo 0989.765.070, ghi rõ ngày giờ, số người, nhà có mấy bé và dãy muốn ngồi. Riêng đoàn trên 10 người thì có cọc, nhân viên sẽ báo mức khi bạn chốt lịch.</p>\n\n<h2>Gọi món gì cho trẻ nhỏ?</h2>\n<p>Menu quán hơn 70 món, phần lớn là BBQ nướng tại bàn và lẩu. Với trẻ nhỏ, những món dễ ăn và không cay gồm:</p>\n<ul>\n  <li><strong>Khoai Tây Chiên</strong> (70.000đ) và <strong>Khoai Lang Kén</strong> (70.000đ) — món ăn kèm hầu như bé nào cũng chịu.</li>\n  <li><strong>Cơm Chiên Cao Nguyên</strong> (140.000đ) hoặc <strong>Cơm Chiên Hải Sản</strong> (120.000đ) — chắc bụng cho bé trong lúc ba mẹ còn nướng.</li>\n  <li><strong>Mì Xào Bò</strong> (135.000đ) — dễ ăn, không cay.</li>\n  <li><strong>Bò Kobe Nướng Tảng Phô Mai Trứng Muối</strong> (209.000đ) — món signature của quán, vị béo phô mai hợp khẩu vị trẻ con hơn các món ướp cay.</li>\n  <li><strong>Ba Chỉ Bò Cuộn Kim Châm</strong> (137.000đ) — miếng nhỏ, dễ chia phần.</li>\n</ul>\n<p>Nên tránh nhóm ướp muối ớt như chân gà, cánh gà nướng muối ớt nếu bé không ăn được cay. Phần đồ uống có trà nóng, trà lạnh, soda và các món nước không cồn cho cả nhà. Rau thêm chỉ 20.000đ nếu muốn cân bằng bữa ăn.</p>\n<p>Toàn bộ hơn 70 món và giá nằm ở <a href=\"../menu.html\">thực đơn</a> trên website — nên mở xem trước ở nhà và chốt sẵn một hai món cho bé, để lúc ngồi xuống gọi được một lượt thay vì vừa dỗ con vừa lật menu. Bé lớn ngồi chờ trong lúc ba mẹ nướng thì có WiFi miễn phí phủ toàn quán, kể cả dãy lan can ngoài trời — ngồi dãy nào cũng có sóng, không phải đổi chỗ.</p>\n\n<h2>Nên đến lúc mấy giờ khi đi cùng trẻ nhỏ</h2>\n<p>Quán mở cửa từ <strong>15:00</strong>. Với gia đình có trẻ nhỏ, khung <strong>15:00–17:00</strong> là hợp lý nhất:</p>\n<ul>\n  <li>Quán còn vắng, nhân viên rảnh tay để phụ trông bé và phục vụ kỹ hơn.</li>\n  <li>Trời còn sáng, bé chạy chơi quanh bàn dễ quan sát hơn.</li>\n  <li>Ăn xong sớm, cả nhà về trước khi bé buồn ngủ.</li>\n  <li>Nắng chiều vàng phủ thung lũng, hoàng hôn bắt đầu từ khoảng 16h30.</li>\n</ul>\n<p>Khung <strong>17:30–19:00</strong> quán thường kín khách và không nhận đặt bàn mới, khá ồn và chật để xoay xở với trẻ nhỏ. Nếu muốn cả nhà xem nhà lồng lên đèn (khoảng 18:30) thì nên đến từ 16:00 và ngồi luôn tới lúc đó, thay vì đến đúng giờ cao điểm.</p>\n\n<h2>Tàu lửa chạy ngang — phần thưởng bất ngờ cho trẻ</h2>\n<p>Tuyến tàu du lịch cổ Đà Lạt – Trại Mát chạy ngay dưới chân quán. Với người lớn đó là view; với trẻ con thì đoàn tàu thật chạy qua cách vài chục mét, kèm tiếng còi vang cả thung lũng, thường là thứ bé nhớ lâu nhất trong chuyến đi.</p>\n<img src=\"assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp\" srcset=\"assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-400w.webp 400w, assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-800w.webp 800w, assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp 1200w\" sizes=\"(max-width: 800px) calc(100vw - 48px), 752px\" alt=\"Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng\" loading=\"lazy\">\n<p>Tàu chạy qua quán trong khung <strong>16:30 – 21:25</strong> — mẹo săn tàu ở trang <a href=\"../dip/san-tau-da-lat.html\">quán nướng Đà Lạt view tàu lửa</a>. Nếu muốn bé xem tàu, canh đến trước giờ tàu khoảng 30 phút và đặt bàn trước để chọn chỗ không bị che.</p>\n\n<h2>Sinh nhật cho bé — setup miễn phí</h2>\n<p>Nếu chuyến đi trùng sinh nhật bé, quán tặng phần trang trí bàn tiệc <strong>hoàn toàn miễn phí</strong>: bảng chúc mừng và hoa trang trí bàn. Không tính phí trang trí. Vì quán phải chuẩn bị trước nên có nhận <strong>cọc 200.000đ</strong> khi bạn chốt lịch, và <strong>hoàn lại cho bạn sau khi ăn xong</strong> — đặt bàn ăn bình thường thì không cần cọc. Chỉ cần ghi chú khi đặt bàn hoặc báo trước 1 ngày qua Zalo 0989.765.070, chi tiết ở trang <a href=\"../dip/sinh-nhat.html\">sinh nhật</a>.</p>\n<p>Điểm cộng là backdrop có sẵn: thung lũng lúc hoàng hôn, rồi biển sao nhà lồng khi trời tối — ảnh sinh nhật của bé không cần phông nền dựng thêm.</p>\n\n<h2>Chi phí cho gia đình 4 người</h2>\n<p>Mức chi thường 150.000đ–400.000đ một người, đã gồm VAT. Nhân lên cho gia đình 4 người là khoảng <strong>600.000đ–1.600.000đ</strong> — con số tính theo mức chi mỗi người, không phải giá một mâm cố định. Riêng một nồi lẩu đã từ 300.000đ (Lẩu Gà Lá É), nên bữa có đủ món nướng, lẩu và đồ uống khó xuống tới mức thấp nhất của khoảng này. Quán gọi món lẻ, không bán combo hay set cố định, nên nhà mình trả đúng cho món mình gọi.</p>\n<p>Không có phụ thu bàn view: bàn nhìn xe lửa, bàn ngắm hoàng hôn hay bàn nhìn nhà lồng đều cùng một giá. Quán nhận tiền mặt và chuyển khoản ngân hàng.</p>\n\n<h2>Đường đi và chỗ đỗ xe</h2>\n<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường (Phường 11 cũ, khu Trại Mát), cách trung tâm Đà Lạt — Chợ Đà Lạt và Hồ Xuân Hương — khoảng <strong>7 km, đi xe chừng 20 phút</strong> theo hướng Trại Mát.</p>\n<p>Đi cùng trẻ nhỏ thì ô tô tiện hơn, và quán có <strong>bãi đỗ miễn phí cho cả ô tô con lẫn xe máy</strong> ngay tại quán. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m — thêm một lý do nên đến sớm từ 15:00. Grab và taxi vào được tận nơi.</p>\n\n<h2>Vài điều nên cân nhắc trước khi đi</h2>\n<p>Quán đón được gia đình có trẻ nhỏ, nhưng có mấy điểm ba mẹ nên biết trước: bàn nướng dùng than hoa nên luôn có lửa và mặt vỉ nóng, quán nằm sát tuyến đường sắt đang chạy tàu, và đây là không gian nhà hàng chứ không có khu vui chơi riêng cho trẻ.</p>\n<p>Để công bằng, có mấy điểm ba mẹ nên biết trước:</p>\n<ul>\n  <li><strong>Bàn nướng dùng than hoa</strong> — luôn có lửa và mặt vỉ nóng. Với bé dưới 3 tuổi, nên xếp bé ngồi phía trong, xa bếp.</li>\n  <li><strong>Quán nằm sát tuyến đường sắt đang chạy tàu.</strong> Dãy lan can ngoài trời nhìn thẳng xuống đường ray — đi cùng bé nhỏ thì đừng để bé trèo lan can hay chạy về phía đường tàu, nhất là lúc tàu sắp qua.</li>\n  <li><strong>Quán không có khu vui chơi riêng</strong> cho trẻ. Không gian rộng và thoáng, nhưng là không gian nhà hàng chứ không phải khu trẻ em.</li>\n  <li><strong>Buổi tối Đà Lạt lạnh</strong>, nhất là chỗ ngồi ngoài trời. Nên mang thêm áo ấm cho bé dù quán có mền.</li>\n  <li><strong>Đường về ban đêm</strong> qua khu Trại Mát khá vắng và tối. Nếu cả nhà đi xe máy, nên về trước 21:00.</li>\n</ul>\n\n<h2>Đặt bàn</h2>\n<p>Đặt qua <a href=\"/#booking\">form đặt bàn trên website</a> hoặc gọi/nhắn Zalo <strong>0989.765.070</strong>, quán xác nhận lại trong vòng 15 phút (trong giờ mở cửa). Khi đặt, ghi chú rõ \"đi cùng trẻ nhỏ\" để quán xếp bàn ở vị trí thoáng, xa lối đi lại và tiện cho nhân viên phụ để mắt tới bé.</p>",
       "faq": [
         {
@@ -577,7 +577,7 @@ const BLOG_SEO = {
         { "q": "Nên mua cà phê hạt hay cà phê xay sẵn?", "a": "Nếu ở nhà có máy xay thì mua hạt nguyên sẽ giữ hương lâu hơn hẳn. Cà phê xay sẵn xuống mùi khá nhanh, chỉ nên mua khi bạn dùng hết sớm. Dù mua loại nào cũng nên hỏi ngày rang và bảo quản trong hũ kín, tránh nắng và tủ lạnh ẩm." },
         { "q": "Mua quà xong buổi chiều thì ăn tối ở đâu quanh Trại Mát?", "a": "Khu Trại Mát nằm cùng hướng với vùng trồng dâu và cà phê nên nhiều người mua quà xong ghé luôn khu này ăn tối. Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường mở cửa 15:00–23:00, khoảng 150.000đ–400.000đ mỗi người đã gồm VAT. Đến khoảng 16:30 là vừa lúc tàu lửa cổ bắt đầu chạy qua quán (khung 16:30 – 21:25) và hoàng hôn buông xuống thung lũng và từ 18h30 nhà lồng lên đèn — các mốc giờ này chỉ để tham khảo." }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "cam-trai-da-lat": {
@@ -595,7 +595,7 @@ const BLOG_SEO = {
         { "q": "Nên tự nấu ăn khi cắm trại hay ăn no trước rồi mới vào trại?", "a": "Nếu nhóm ít người và ít kinh nghiệm thì ăn no trước sẽ nhàn hơn nhiều: gió cao nguyên làm than khó cháy, rửa dọn bằng nước lạnh rất cực, mà khuya đói lại không có chỗ mua. Cách phổ biến là ăn tối ở phố lúc chiều, mang theo ít đồ khô và nước nóng để nhâm nhi buổi đêm." },
         { "q": "Đi cắm trại hướng Trại Mát thì ăn tối ở đâu trên đường?", "a": "Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường — từ trung tâm chạy hướng Trại Mát rồi đi tiếp là tới, thuận đường nếu bạn cắm trại phía Trại Mát – Xuân Trường hoặc đi tiếp lên Cầu Đất. Quán mở 15:00–23:00, giá 150.000đ–400.000đ mỗi người đã gồm VAT, hơn 70 món gồm cả đồ ăn lẫn đồ uống, gọi lẻ từng món. Muốn xem đủ ba cảnh thì nên có mặt trước 16:30 và ngồi qua 18h30: tàu lửa cổ chạy dưới chân quán từ khoảng 16:30, hoàng hôn thung lũng từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30. Quán đạt 4,8/5 sao với 7.344 lượt đánh giá trên Google Maps (số đọc ngày 18/10/2026); đi nhóm đông thì nên đặt bàn trước qua website." }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "an-vat-da-lat-buoi-toi": {
@@ -612,7 +612,7 @@ const BLOG_SEO = {
         { "q": "Trạm Dừng Chill ở đâu, mở tới mấy giờ và có món gì?", "a": "Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km (chạy xe chừng 20 phút theo hướng Trại Mát), nên ăn xong về chợ đêm vẫn kịp. Quán mở khung 15:00–23:00, menu hơn 70 món gồm đồ nướng tại bàn, lẩu và đồ uống, giá 150.000đ–400.000đ mỗi người đã gồm VAT." },
         { "q": "Đi ăn vặt chợ đêm Đà Lạt cần chuẩn bị gì?", "a": "Mang áo khoác vì tối phố núi xuống nhiệt nhanh, ngồi ghế nhựa ngoài trời một lúc là lạnh tay. Nên thủ thêm khăn giấy, ít tiền mặt lẻ và đi giày dễ đi bộ vì khu này nhiều dốc. Đi nhóm thì gọi ít phần rồi chia nhau để nếm được nhiều hàng." }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "da-lat-ve-dem-di-dau": {
@@ -629,7 +629,7 @@ const BLOG_SEO = {
         { "q": "Đi hai người thì nên chọn hoạt động nào cho buổi tối?", "a": "Công thức dễ chịu nhất là ăn tối ở chỗ có view thung lũng lên đèn, sau đó về trung tâm đi bộ một vòng hồ Xuân Hương rồi ngồi cà phê nghe nhạc mộc. Nếu là dịp sinh nhật hay kỷ niệm, Trạm Dừng Chill có setup miễn phí (cọc 200.000đ, hoàn lại sau khi ăn) - nhớ báo trước khi đặt bàn để quán chuẩn bị." },
         { "q": "Có cần đặt bàn trước khi đi ăn tối ở Đà Lạt không?", "a": "Cuối tuần và mùa cao điểm thì nên, vì các quán có view hay đông vào giờ ăn tối. Với Trạm Dừng Chill, bạn đặt qua <a href=\"/#booking\">form đặt bàn trên website</a> hoặc gọi 0989.765.070, ghi chú rõ số người và giờ đến. Nếu là dịp sinh nhật hay kỷ niệm, báo luôn lúc đặt để quán chuẩn bị setup miễn phí." }
       ],
-      "dateModified": "2026-10-21",
+      "dateModified": "2026-10-24",
       "lang": "vi"
     },
     "tip-chon-cho-ngoi-quan-nuong": {
