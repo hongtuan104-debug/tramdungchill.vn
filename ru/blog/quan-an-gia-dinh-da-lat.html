@@ -460,8 +460,9 @@
         var chuMua = function (khoa, macDinh) { return (mua && mua[khoa] && mua[khoa][lang]) || (dich && dich[khoa]) || macDinh; };
         // bài khai bookHref (vd bài đích QC tiếng Anh → mục "How to book") thì giữ đích đó; còn lại về form đúng thứ tiếng
         var datBan = "/#booking" !== "/#booking" ? "/#booking" : (lang === "vi" ? "/#booking" : "/" + lang + "/#booking");
-        // Tiếng Anh (bài gốc EN = đích QC Google, và /en/blog/…; 23/10/2026): KHÔNG hứa "15-minute confirmation" — tin nhắn
-        // chỉ được trả lời 15:00–23:00 mà QC chạy từ 08:00. Bỏ qua sticky.sub của chu-en.js: câu đó là bản dịch của
+        // Tiếng Anh (bài gốc EN = đích QC Google, và /en/blog/…; 23/10/2026): KHÔNG hứa xác nhận trong mười lăm phút — tin
+        // nhắn chỉ được trả lời 15:00–23:00 mà QC chạy từ 08:00 (đừng viết lại cụm tiếng Anh cũ vào ghi chú này: bên QC kiểm
+        // trang bằng cách tìm chữ trong mã nguồn). Bỏ qua sticky.sub của chu-en.js: câu đó là bản dịch của
         // "Phản hồi 15 phút", mà máy kiểm bản dịch bắt giữ nguyên chữ số nên không sửa được ở từ điển. Chữ mùa vẫn ưu tiên.
         var phu = en ? ((mua && mua["sticky.sub"] && mua["sticky.sub"].en) || "Free setup • Replies 15:00–23:00 daily")
             : chuMua("sticky.sub", "Бесплатное оформление • Ответ за 15 минут в часы работы");
