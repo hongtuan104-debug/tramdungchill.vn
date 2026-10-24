@@ -15,7 +15,7 @@ const BLOG_ARTICLES = [
         body: `<h2>1. Trạm Dừng Chill — Quán nướng view xe lửa + hoàng hôn</h2>
                             <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
                             <strong>Giờ mở cửa:</strong> 15:00 - 23:00 hàng ngày<br>
-                            <strong>Giá:</strong> 95.000đ - 300.000đ/người</p>
+                            <strong>Giá:</strong> 150.000đ - 400.000đ/người</p>
                             <p>Đây là quán nướng Đà Lạt ngắm trọn 3 view trong một buổi, mở đầu bằng <strong>view ngắm xe lửa chạy ngang</strong> ngay dưới chân quán. Buổi chiều, bạn vừa nướng BBQ vừa ngắm hoàng hôn buông xuống thung lũng. Khi đêm xuống, hàng ngàn nhà lồng đồng loạt lên đèn tạo nên "biển sao" lung linh.</p>
 
                                                         <p><strong>Điểm cộng:</strong> Setup sinh nhật & kỷ niệm MIỄN PHÍ, view 180° thoáng đãng, đặt bàn online xác nhận qua Zalo trong 15 phút (trong giờ mở cửa).</p>
@@ -219,7 +219,7 @@ const BLOG_ARTICLES = [
         excerpt: "Đi <strong>du lịch Đà Lạt cùng gia đình</strong> mà chưa biết ăn đâu? Đây là những quán ăn phù hợp cho cả nhà, từ nướng ngoài trời cho bé vui đến view đẹp cho cả nhà.",
         body: `<h2>1. Trạm Dừng Chill — Nướng BBQ view hoàng hôn cho cả nhà</h2>
                             <p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt<br>
-                            <strong>Giá:</strong> 95.000đ - 300.000đ/người<br>
+                            <strong>Giá:</strong> 150.000đ - 400.000đ/người<br>
                             <strong>Phù hợp:</strong> Gia đình 4-10 người</p>
                             <p>Không gian ngoài trời thoáng đãng, trẻ em có thể thoải mái vui chơi. Bố mẹ vừa nướng BBQ vừa ngắm <strong>hoàng hôn + xe lửa + nhà lồng lên đèn</strong>. Menu đa dạng từ hải sản, thịt bò, gà đến lẩu — ai cũng chọn được món ưa thích.</p>
 
@@ -314,7 +314,7 @@ const BLOG_ARTICLES = [
 
 
 
-                            <p><strong>Menu:</strong> BBQ hải sản, bò nướng, gà nướng, lẩu, đồ uống. Giá từ 95.000đ/người.</p>
+                            <p><strong>Menu:</strong> BBQ hải sản, bò nướng, gà nướng, lẩu, đồ uống. Giá từ 150.000đ/người.</p>
                             <p>👉 <a href="/#booking"><strong>Đặt bàn Trạm Dừng Chill</strong></a> | Hotline: <a href="tel:0989765070">0989.765.070</a></p>
 
                             <h2>Buổi khuya (22:00+): Ăn đêm Đà Lạt</h2>
@@ -333,12 +333,12 @@ const BLOG_ARTICLES = [
         imageAlt: "Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán",
         badge: "",
         featured: false,
-        excerpt: "Muốn ăn <strong>nướng lẩu ở Đà Lạt</strong> mà không lo \"cháy ví\"? Cách chọn quán nướng lẩu theo kiểu tính tiền, cách gọi món để không đội giá, và mức chi tham khảo từ 95.000đ/người.",
+        excerpt: "Muốn ăn <strong>nướng lẩu ở Đà Lạt</strong> mà không lo \"cháy ví\"? Cách chọn quán nướng lẩu theo kiểu tính tiền, cách gọi món để không đội giá, và mức chi tham khảo từ 150.000đ/người.",
         body: `<h2>Nướng kèm lẩu ở Đà Lạt — tiền đội lên ở đâu?</h2>
 <p>Combo nướng và lẩu hợp Đà Lạt là chuyện dễ hiểu: trời lạnh, có nồi nước nóng giữa bàn thì bữa ăn kéo dài được lâu hơn. Nhưng đây cũng là kiểu bữa dễ vỡ ngân sách nhất, vì bạn đang trả tiền cho hai bữa chồng lên nhau. Trước khi chọn quán, nắm ba chỗ hay đội giá: <strong>nồi lẩu tính riêng ngoài đồ nhúng</strong>, <strong>đồ uống</strong>, và <strong>gọi dư vì sợ thiếu</strong>. Kiểm soát được ba chỗ này thì ăn nướng lẩu ở Đà Lạt không hề đắt.</p>
 
 <h2>Trạm Dừng Chill — nướng, lẩu và cảnh từ chiều tới tối</h2>
-<p><strong>Giá:</strong> 95.000đ - 300.000đ/người, đã gồm VAT<br>
+<p><strong>Giá:</strong> 150.000đ - 400.000đ/người, đã gồm VAT<br>
 <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, cách trung tâm khoảng 7 km<br>
 <strong>Giờ mở cửa:</strong> 15:00 - 23:00<br>
 <strong>Cảnh:</strong> tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 (mốc tham khảo)</p>
@@ -376,7 +376,7 @@ const BLOG_ARTICLES = [
 <p>Mùa mưa Đà Lạt kéo dài khoảng tháng 5 đến tháng 10 — nếu định ngồi ngoài trời, hỏi trước quán có phương án khi mưa. Mùa khô cuối năm trời lạnh và khô, ngồi ngoài rất đã nhưng nhớ mang áo ấm; đó cũng là lúc nồi lẩu phát huy hết giá trị. Dịp lễ Tết thì nên hỏi lại giờ mở cửa của bất kỳ quán nào trước khi đi, đừng suy ra từ giờ ngày thường.</p>
 
 <h2>Kết luận</h2>
-<p>"Rẻ" trong ăn nướng lẩu không nằm ở con số trên bảng giá mà nằm ở chỗ bạn có gọi đúng thứ mình ăn hết hay không. Quán tính tiền theo món lẻ cho bạn quyền kiểm soát đó. <a href="/">Trạm Dừng Chill</a> đi theo hướng này, mức chi phổ biến 95.000đ-300.000đ/người đã gồm VAT, và bạn được ngồi nhìn thung lũng từ hoàng hôn tới lúc nhà lồng lên đèn. <a href="/#booking">Đặt bàn ngay</a> để tới sớm chọn được chỗ ưng.</p>`
+<p>"Rẻ" trong ăn nướng lẩu không nằm ở con số trên bảng giá mà nằm ở chỗ bạn có gọi đúng thứ mình ăn hết hay không. Quán tính tiền theo món lẻ cho bạn quyền kiểm soát đó. <a href="/">Trạm Dừng Chill</a> đi theo hướng này, mức chi phổ biến 150.000đ-400.000đ/người đã gồm VAT, và bạn được ngồi nhìn thung lũng từ hoàng hôn tới lúc nhà lồng lên đèn. <a href="/#booking">Đặt bàn ngay</a> để tới sớm chọn được chỗ ưng.</p>`
     },
     {
         id: "team-building-da-lat",
@@ -392,7 +392,7 @@ const BLOG_ARTICLES = [
                             <p>Đà Lạt có khí hậu mát mẻ quanh năm, phong cảnh đẹp và nhiều hoạt động ngoài trời — lý tưởng cho <strong>team building Đà Lạt</strong>. Từ Sài Gòn bay chỉ 50 phút, hoặc đi xe khoảng 6 tiếng, chi phí hợp lý cho cả đoàn.</p>
 
                             <h3>1. Tiệc nướng BBQ ngoài trời — Gắn kết qua bếp lửa</h3>
-                            <p>Không gì phá vỡ khoảng cách đồng nghiệp nhanh bằng cùng nhau nướng thịt! Tại <a href="/">Trạm Dừng Chill</a>, nhóm 20-50 người có thể book riêng khu vực ngoài trời, vừa nướng BBQ vừa ngắm hoàng hôn và xe lửa cổ chạy qua. Giá chỉ từ 95K/người, gọi món lẻ nên nhóm trả đúng cho món mình gọi.</p>
+                            <p>Không gì phá vỡ khoảng cách đồng nghiệp nhanh bằng cùng nhau nướng thịt! Tại <a href="/">Trạm Dừng Chill</a>, nhóm 20-50 người có thể book riêng khu vực ngoài trời, vừa nướng BBQ vừa ngắm hoàng hôn và xe lửa cổ chạy qua. Giá chỉ từ 150K/người, gọi món lẻ nên nhóm trả đúng cho món mình gọi.</p>
 
 
                                                         <h3>2. Trò chơi teamwork giữa đồi thông</h3>
@@ -456,7 +456,7 @@ const BLOG_ARTICLES = [
 
 <h3>1. Nướng BBQ ngoài trời ngắm biển sao nhà lồng</h3>
 <p>Kiểu này chỉ có ở khu ngoại ô, nơi còn nhìn thấy thung lũng. <a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở cửa 15:00–23:00. Ngồi đây có ba thứ để ngắm nối tiếp nhau: tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi biển sao nhà lồng lên đèn từ khoảng 18h30 — đều là mốc tham khảo, tuỳ mùa.</p>
-<p>Đồ ăn: hơn 70 món gọi lẻ, không buffet, không combo cố định, 95.000đ–300.000đ/người đã gồm VAT. Món signature Bò Tảng Nướng Phô Mai Trứng Muối 209K; lẩu có gà lá é 300K, hải sản 320K, cá tầm 320K. Xem trước ở <a href="menu.html">trang menu</a>.</p>
+<p>Đồ ăn: hơn 70 món gọi lẻ, không buffet, không combo cố định, 150.000đ–400.000đ/người đã gồm VAT. Món signature Bò Tảng Nướng Phô Mai Trứng Muối 209K; lẩu có gà lá é 300K, hải sản 320K, cá tầm 320K. Xem trước ở <a href="menu.html">trang menu</a>.</p>
 
 <h3>2. Kiểu quán lẩu trong phố</h3>
 <p>Quanh khu trung tâm và dọc đường Phan Đình Phùng có nhiều quán lẩu, nhiều nơi có ban công nhìn ra phố đêm. <strong>Ưu:</strong> gần chỗ nghỉ, ăn xong đi bộ về được. <strong>Nhược:</strong> không có view thiên nhiên, và giờ cao điểm thì chật. Đi đông nên gọi hỏi trước.</p>
@@ -616,7 +616,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill — nướng than, bia lạnh và ba khoảnh khắc trong một tối</h2>
 <p>Nói trước cho sòng phẳng: <a href="/">Trạm Dừng Chill</a> là quán của tụi em, nên phần này là mô tả chứ không phải bình chọn. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở cửa 15:00–23:00.</p>
-<p>Đồ nhắm gọi lẻ từng món, <strong>không buffet, không combo cố định</strong>, nên nhóm ít người vẫn gọi vừa bụng. Vài món hay đi cùng bia: xúc xích Đức nướng 20K, khoai tây chiên 70K, chả ram tôm đất 95K, chân gà nướng muối ớt 105K, cánh gà nướng muối ớt 130K, bò lúc lắc 160K. Muốn có một món "trục" cho cả bàn thì lấy <strong>bò tảng nướng phô mai trứng muối 209K</strong>; trời lạnh quá thì kéo thêm nồi lẩu — lẩu gà lá é 300K, lẩu hải sản 320K, lẩu cá tầm 320K. Bia có Sài Gòn Lager 19K, Sài Gòn Xanh 26K, Heineken lùn 27K, Tiger Bạc 28K; ai không uống bia thì có rượu mơ, soju hoặc vang chai 750ml 190K–210K. Tính chung khoảng <strong>95.000đ–300.000đ/người, đã gồm VAT</strong>. Cả thực đơn hơn 70 món, xem trước ở <a href="menu.html">trang menu</a> cho dễ tính tiền.</p>
+<p>Đồ nhắm gọi lẻ từng món, <strong>không buffet, không combo cố định</strong>, nên nhóm ít người vẫn gọi vừa bụng. Vài món hay đi cùng bia: xúc xích Đức nướng 20K, khoai tây chiên 70K, chả ram tôm đất 95K, chân gà nướng muối ớt 105K, cánh gà nướng muối ớt 130K, bò lúc lắc 160K. Muốn có một món "trục" cho cả bàn thì lấy <strong>bò tảng nướng phô mai trứng muối 209K</strong>; trời lạnh quá thì kéo thêm nồi lẩu — lẩu gà lá é 300K, lẩu hải sản 320K, lẩu cá tầm 320K. Bia có Sài Gòn Lager 19K, Sài Gòn Xanh 26K, Heineken lùn 27K, Tiger Bạc 28K; ai không uống bia thì có rượu mơ, soju hoặc vang chai 750ml 190K–210K. Tính chung khoảng <strong>150.000đ–400.000đ/người, đã gồm VAT</strong>. Cả thực đơn hơn 70 món, xem trước ở <a href="menu.html">trang menu</a> cho dễ tính tiền.</p>
 <p>Phần view: đoàn tàu cổ tuyến Đà Lạt – Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, nhà lồng lên đèn từ 18h30 — mấy mốc giờ này chỉ để tham khảo, tuỳ mùa và tuỳ thời tiết. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản/QR, đón cả thú cưng, thỉnh thoảng có nghệ sĩ thổi saxophone. Google hiện ghi 4,8/5 với 7.344 lượt đánh giá.</p>
 <img src="assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -642,7 +642,7 @@ const BLOG_ARTICLES = [
 </ul>
 
 <h2>Kết luận</h2>
-<p>Nhậu ở Đà Lạt hay nhất là khi chỗ ngồi hợp với nhóm mình: cần rẻ và vui thì vỉa hè, cần ấm và riêng tư thì trong nhà, cần view thì ra ngoại ô hoặc lên cao. Nếu anh chị muốn kiểu vừa nướng than vừa ngắm hoàng hôn rồi ngắm tàu, thì ghé <a href="/">Trạm Dừng Chill</a>, tính chung từ 95K/người. <a href="/#booking">Đặt bàn trước</a> để tụi em chuẩn bị chỗ — quán không giữ riêng bàn view, nhưng báo sớm thì sắp xếp dễ hơn nhiều.</p>`
+<p>Nhậu ở Đà Lạt hay nhất là khi chỗ ngồi hợp với nhóm mình: cần rẻ và vui thì vỉa hè, cần ấm và riêng tư thì trong nhà, cần view thì ra ngoại ô hoặc lên cao. Nếu anh chị muốn kiểu vừa nướng than vừa ngắm hoàng hôn rồi ngắm tàu, thì ghé <a href="/">Trạm Dừng Chill</a>, tính chung từ 150K/người. <a href="/#booking">Đặt bàn trước</a> để tụi em chuẩn bị chỗ — quán không giữ riêng bàn view, nhưng báo sớm thì sắp xếp dễ hơn nhiều.</p>`
     },
     {
         id: "dac-san-da-lat-mua-ve",
@@ -763,7 +763,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Kết luận</h2>
-                            <p>Trước hoặc sau chuyến camping, hãy ghé <a href="/">Trạm Dừng Chill</a> để "nạp năng lượng" bằng bữa nướng BBQ view đẹp nhất Đà Lạt! Từ 95K/người, no nê và ấm bụng trước khi vào lều. <a href="/#booking">Đặt bàn ngay</a>.</p>`
+                            <p>Trước hoặc sau chuyến camping, hãy ghé <a href="/">Trạm Dừng Chill</a> để "nạp năng lượng" bằng bữa nướng BBQ view đẹp nhất Đà Lạt! Từ 150K/người, no nê và ấm bụng trước khi vào lều. <a href="/#booking">Đặt bàn ngay</a>.</p>`
     },
     {
         id: "quan-cafe-view-dep-da-lat",
@@ -811,7 +811,7 @@ const BLOG_ARTICLES = [
 
 <h2>Sau cà phê thì ăn gì?</h2>
 <p>Cà phê xong buổi chiều thì tối nên đi nướng — trời lạnh mà ngồi bên bếp than là hợp nhất. <a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở từ 15:00 đến 23:00. Nghĩa là bạn có thể lên sớm, gọi đồ uống ngồi ngắm hoàng hôn từ khoảng 16h30, rồi ở lại ăn luôn bữa tối — vừa cà phê chiều vừa dinner trong một chỗ. Trong khung 16h30 – 21h25 có tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán, và từ khoảng 18h30 biển sao nhà lồng dưới thung lũng lên đèn (các mốc giờ đều là tham khảo).</p>
-<p>Menu hơn 70 món, gọi lẻ chứ không buffet, giá 95.000đ–300.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Xem trước ở <a href="menu.html">trang menu</a>.</p>
+<p>Menu hơn 70 món, gọi lẻ chứ không buffet, giá 150.000đ–400.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Xem trước ở <a href="menu.html">trang menu</a>.</p>
 
 <h2>Kết luận</h2>
 <p>Đà Lạt không thiếu quán cà phê đẹp; chọn đúng <em>kiểu</em> và đúng <em>giờ</em> mới là chuyện đáng bận tâm. Và để khép lại một ngày cho trọn, hãy để dành buổi tối cho bữa nướng có view. <a href="/#booking">Đặt bàn Trạm Dừng Chill</a> — quán nhận đặt trước, tuy nhiên không giữ riêng bàn view nên đến sớm một chút vẫn hơn.</p>`
@@ -829,7 +829,7 @@ const BLOG_ARTICLES = [
         body: `<h2>Ngày 1: Khám phá trung tâm Đà Lạt</h2>
                             <p><strong>Sáng:</strong> Đến Đà Lạt, check-in khách sạn. Ăn sáng bánh mì xíu mại hoặc phở gà trên đường Phan Đình Phùng.<br>
                             <strong>Trưa:</strong> Tham quan Dinh Bảo Đại, chụp hình vườn hoa thành phố.<br>
-                            <strong>Chiều-Tối:</strong> Ghé <a href="/">Trạm Dừng Chill</a> từ 16h — nướng BBQ ngắm hoàng hôn, xe lửa cổ chạy qua, rồi biển sao nhà lồng lên đèn. Giá từ 95K/người. <a href="/#booking">Đặt bàn trước</a> để có chỗ đẹp!</p>
+                            <strong>Chiều-Tối:</strong> Ghé <a href="/">Trạm Dừng Chill</a> từ 16h — nướng BBQ ngắm hoàng hôn, xe lửa cổ chạy qua, rồi biển sao nhà lồng lên đèn. Giá từ 150K/người. <a href="/#booking">Đặt bàn trước</a> để có chỗ đẹp!</p>
 
                             <h2>Ngày 2: Ngoại ô & thiên nhiên</h2>
                             <p><strong>Sáng:</strong> Trekking đỉnh Langbiang hoặc tham quan QUE Garden.<br>
@@ -891,7 +891,7 @@ const BLOG_ARTICLES = [
 <p>Bài này không liệt kê tên quán. Thay vào đó nói về hai hướng chọn chỗ và cách xếp giờ giấc, vì thật ra vấn đề của tối hôm đó không phải là "quán nào" mà là "đi thứ tự nào cho khỏi vội".</p>
 
 <h3>Trạm Dừng Chill — cách trung tâm khoảng 7 km</h3>
-<p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách khu trung tâm — nơi có chợ đêm — khoảng 7 km. Đi xe máy hay ô tô con đều được, quán có bãi đỗ miễn phí cho cả hai loại. Mở cửa 15:00-23:00, mức chi 95.000đ-300.000đ mỗi người đã gồm VAT, hơn 70 món gọi lẻ, không buffet và không combo cố định.</p>
+<p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách khu trung tâm — nơi có chợ đêm — khoảng 7 km. Đi xe máy hay ô tô con đều được, quán có bãi đỗ miễn phí cho cả hai loại. Mở cửa 15:00-23:00, mức chi 150.000đ-400.000đ mỗi người đã gồm VAT, hơn 70 món gọi lẻ, không buffet và không combo cố định.</p>
 <p>Cái quán có mà khu trung tâm không có là tầm nhìn: đoàn tàu cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30. Ba mốc này đều là tham khảo, tuỳ mùa và tuỳ hôm. Nếu tối đó bạn định dành thời gian cho chợ đêm, thì phần ăn nướng nên đi sớm.</p>
 <img src="assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -969,7 +969,7 @@ const BLOG_ARTICLES = [
 
 
 
-                            <p><strong>Giá:</strong> 95K-300K/người | <strong>Giờ:</strong> 15:00-23:00<br>
+                            <p><strong>Giá:</strong> 150K-400K/người | <strong>Giờ:</strong> 15:00-23:00<br>
                             <strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt</p>
 
                             <h2>Combo mùa đông hoàn hảo</h2>
@@ -993,7 +993,7 @@ const BLOG_ARTICLES = [
 <p>Bài này không nêu tên quán nào cả. Ở phân khúc bình dân, giá và chất lượng thay đổi rất nhanh — danh sách viết hôm nay ba tháng sau đã sai một nửa. Cái dùng được lâu hơn là biết <strong>có mấy kiểu quán nướng Đà Lạt</strong> trong tầm giá này và cách gọi món.</p>
 
 <h3>Ở Trạm Dừng Chill, 95K/người là mức khởi điểm</h3>
-<p><a href="/">Trạm Dừng Chill</a> có mức chi từ <strong>95.000đ đến 300.000đ mỗi người, đã gồm VAT</strong>. Con số 95K là điểm bắt đầu, tức là có nhóm khách ăn quanh mức đó thật. Quán gọi món lẻ, không buffet, không combo cố định — nghĩa là bạn chủ động được hoá đơn, gọi tới đâu tính tới đó, không bị ép một mức chung.</p>
+<p><a href="/">Trạm Dừng Chill</a> có mức chi từ <strong>150.000đ đến 400.000đ mỗi người, đã gồm VAT</strong>. Con số 95K là điểm bắt đầu, tức là có nhóm khách ăn quanh mức đó thật. Quán gọi món lẻ, không buffet, không combo cố định — nghĩa là bạn chủ động được hoá đơn, gọi tới đâu tính tới đó, không bị ép một mức chung.</p>
 <p>Với tầm tiền này bạn vẫn ngồi trong không gian có đoàn tàu cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và biển sao nhà lồng lên đèn từ 18h30 (đều là mốc tham khảo, tuỳ mùa). Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00-23:00, bãi đỗ miễn phí cho xe máy lẫn ô tô con, WiFi mạnh.</p>
 <p><strong>Cách gọi cho gọn ví:</strong> một món nướng chính, thêm rau và đồ ăn kèm, uống nước bình thường thay vì gọi liên tục đồ uống. Muốn thử món signature <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong> thì đi nhóm rồi chia nhau, phần đó khá đầy đặn.</p>
 <img src="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -1021,7 +1021,7 @@ const BLOG_ARTICLES = [
 <p>Một lưu ý nhỏ về ví tiền: nhiều quán nhỏ ở Đà Lạt chỉ nhận tiền mặt. Trạm Dừng Chill thì nhận chuyển khoản và QR, nhưng nếu bạn đi khảo quán khác thì cứ thủ sẵn ít tiền mặt cho chắc.</p>
 
 <h2>Kết luận</h2>
-<p><strong>Quán nướng Đà Lạt dưới 100K</strong> không hiếm; cái khó là chọn đúng kiểu quán hợp với việc mình định làm tối đó. Nếu muốn vừa giữ ngân sách vừa có khung cảnh, <a href="/">Trạm Dừng Chill</a> bắt đầu từ 95.000đ mỗi người và phần còn lại do bạn quyết. <a href="/#booking">Đặt bàn trước</a> để quán sắp xếp chỗ, nhất là khi đi nhóm đông.</p>`
+<p><strong>Quán nướng Đà Lạt dưới 100K</strong> không hiếm; cái khó là chọn đúng kiểu quán hợp với việc mình định làm tối đó. Nếu muốn vừa giữ ngân sách vừa có khung cảnh, <a href="/">Trạm Dừng Chill</a> bắt đầu từ 150.000đ mỗi người và phần còn lại do bạn quyết. <a href="/#booking">Đặt bàn trước</a> để quán sắp xếp chỗ, nhất là khi đi nhóm đông.</p>`
     },
     {
         id: "buffet-nuong-da-lat",
@@ -1037,7 +1037,7 @@ const BLOG_ARTICLES = [
                             <p>Khác với buffet nướng ở Sài Gòn hay Hà Nội, <strong>buffet nướng Đà Lạt</strong> có lợi thế đặc biệt: thời tiết mát mẻ 18-22°C, ngồi nướng ngoài trời không nóng bức. Nhiều quán còn có view đồi thông, thung lũng hoặc hồ — ăn buffet mà như đi picnic sang chảnh!</p>
 
                             <h2>Buffet tính suất hay gọi món lẻ — khác nhau chỗ nào</h2>
-                            <p><strong>Trạm Dừng Chill</strong> gọi món lẻ, mức chi 95K–300K/người, không làm buffet — bạn trả đúng cho phần mình ăn. Các quán buffet nướng ở Đà Lạt thì tính suất cố định theo đầu người: ăn thả ga nhưng vẫn trả trọn suất dù ăn không hết. Giá và chất lượng mỗi nơi mỗi khác, nên hỏi rõ suất gồm những gì trước khi vào.</p>
+                            <p><strong>Trạm Dừng Chill</strong> gọi món lẻ, mức chi 150K–400K/người, không làm buffet — bạn trả đúng cho phần mình ăn. Các quán buffet nướng ở Đà Lạt thì tính suất cố định theo đầu người: ăn thả ga nhưng vẫn trả trọn suất dù ăn không hết. Giá và chất lượng mỗi nơi mỗi khác, nên hỏi rõ suất gồm những gì trước khi vào.</p>
 
 
 
@@ -1097,7 +1097,7 @@ const BLOG_ARTICLES = [
 
 
 
-                            <p><strong>Price:</strong> 95,000-300,000 VND/person (approx. $4-12 USD)<br>
+                            <p><strong>Price:</strong> 150,000-400,000 VND/person (approx. $4-12 USD)<br>
                             <strong>Hours:</strong> 3:00 PM - 11:00 PM daily<br>
                             <strong>English menu:</strong> Available | <strong>Zalo booking:</strong> Confirmed within 15 minutes during opening hours</p>
 
@@ -1143,7 +1143,7 @@ const BLOG_ARTICLES = [
 <p>Nhưng có một điều cần nói trước: "mở khuya" ở Đà Lạt không giống "mở khuya" ở Sài Gòn hay Hà Nội. Thành phố này ngủ sớm. Nhiều nơi ngừng nhận món khá lâu trước giờ đóng cửa, và mùa vắng khách thì có khi đóng sớm hơn giờ niêm yết. Vì thế bài này không đưa bạn một danh sách tên quán kèm giờ đóng cửa — loại thông tin đó sai rất nhanh. Thay vào đó là cách tự tìm và tự kiểm.</p>
 
 <h3>Trạm Dừng Chill — phục vụ đến 23:00</h3>
-<p><a href="/">Trạm Dừng Chill</a> mở đến 23h hằng đêm, ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km. Từ 18h30, <strong>biển sao nhà lồng</strong> lên đèn, tạo phần nền khá đẹp cho những bức ảnh chụp buổi tối. Menu hơn 70 món gọi lẻ, giá khoảng 95.000đ đến 300.000đ một người đã gồm VAT — đêm lạnh thì gọi đồ nướng kèm một nồi lẩu nóng, gà lá é 300K, hải sản 320K hoặc cá tầm 320K. Xem <a href="menu.html">menu đầy đủ</a>.</p>
+<p><a href="/">Trạm Dừng Chill</a> mở đến 23h hằng đêm, ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km. Từ 18h30, <strong>biển sao nhà lồng</strong> lên đèn, tạo phần nền khá đẹp cho những bức ảnh chụp buổi tối. Menu hơn 70 món gọi lẻ, giá khoảng 150.000đ đến 400.000đ một người đã gồm VAT — đêm lạnh thì gọi đồ nướng kèm một nồi lẩu nóng, gà lá é 300K, hải sản 320K hoặc cá tầm 320K. Xem <a href="menu.html">menu đầy đủ</a>.</p>
 <p><strong>Mẹo canh giờ:</strong> đến khoảng 20h đến 20h30 là vừa đẹp — nhà lồng đã lên đèn, bạn có đủ thời gian ăn thong thả, khoảng 22h30 xong xuôi thì về tới khách sạn vẫn còn sớm. Muốn xem đủ cả ba lớp cảnh thì đến sớm hơn: tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi nhà lồng lên đèn. Đây đều là mốc tham khảo.</p>
 <img src="assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -1196,7 +1196,7 @@ const BLOG_ARTICLES = [
 <h3>Trạm Dừng Chill có gì liên quan tới đồ biển?</h3>
 <p>Nói thẳng trước cho khỏi mất công: <a href="/">Trạm Dừng Chill</a> không phải quán chuyên hải sản. Bên mình là quán nướng than hoa gọi món lẻ, hơn 70 món tính cả đồ ăn lẫn đồ uống, không buffet và không combo cố định. Món signature của quán là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>.</p>
 <p>Phần liên quan tới đồ biển rõ nhất ở đây là <strong>nồi lẩu hải sản 320K</strong> — một trong ba nồi lẩu của quán, cùng với lẩu gà lá é 300K và lẩu cá tầm 320K. Còn cụ thể hôm nay bếp có gì nướng được, bạn cứ mở <a href="menu.html">menu</a> xem trước hoặc hỏi thẳng bạn phục vụ, đừng tin mô tả chép qua chép lại trên mạng.</p>
-<p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt · <strong>Giờ mở cửa:</strong> 15:00-23:00 · <strong>Mức chi:</strong> 95.000đ-300.000đ mỗi người, đã gồm VAT · 4,8 sao với 7.344 lượt đánh giá trên Google.</p>
+<p><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt · <strong>Giờ mở cửa:</strong> 15:00-23:00 · <strong>Mức chi:</strong> 150.000đ-400.000đ mỗi người, đã gồm VAT · 4,8 sao với 7.344 lượt đánh giá trên Google.</p>
 <img src="assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Bốn kiểu quán hải sản nướng thường gặp ở Đà Lạt</h2>
@@ -1241,7 +1241,7 @@ const BLOG_ARTICLES = [
 
 <h3>Trạm Dừng Chill — ngoài trời, cảnh đổi từ chiều tới tối</h3>
 <p><a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00-23:00. Quán là không gian ngoài trời nhìn ra thung lũng nhà lồng: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, tới 18h30 thì biển sao nhà lồng lên đèn. Ba mốc giờ này chỉ là tham khảo, tuỳ hôm trời và tuỳ lịch tàu — nhưng ngồi từ chiều tới tối thì cả nhóm xem được gần như trọn cả ba lớp cảnh mà không phải di chuyển đi đâu.</p>
-<p>Menu hơn 70 món tính cả đồ uống, <strong>gọi món lẻ, không buffet và không có combo cố định</strong>. Với nhóm đông thì cách này lại tiện: gọi từng đợt, ăn hết đợt này gọi tiếp đợt sau, đỡ thừa đồ và ai kén ăn vẫn gọi được món riêng. Món signature là bò tảng nướng phô mai trứng muối 209K. Có ba nồi lẩu cho nhóm muốn thêm nước nóng giữa trời lạnh: gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi phổ biến 95.000đ-300.000đ/người, đã gồm VAT. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR nên chia tiền nhóm cũng nhanh gọn. Trên Google quán đang 4,8 sao với 7.344 lượt đánh giá.</p>
+<p>Menu hơn 70 món tính cả đồ uống, <strong>gọi món lẻ, không buffet và không có combo cố định</strong>. Với nhóm đông thì cách này lại tiện: gọi từng đợt, ăn hết đợt này gọi tiếp đợt sau, đỡ thừa đồ và ai kén ăn vẫn gọi được món riêng. Món signature là bò tảng nướng phô mai trứng muối 209K. Có ba nồi lẩu cho nhóm muốn thêm nước nóng giữa trời lạnh: gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi phổ biến 150.000đ-400.000đ/người, đã gồm VAT. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR nên chia tiền nhóm cũng nhanh gọn. Trên Google quán đang 4,8 sao với 7.344 lượt đánh giá.</p>
 <p><strong>Lưu ý khi đi nhóm:</strong> báo trước số người để quán còn xếp bàn. Quán không nhận giữ bàn view, nên muốn chỗ nhìn thoáng thì cứ đến sớm một chút. Nhóm nào có sinh nhật hay kỷ niệm thì nói trước, quán setup hoa trang trí và bảng chúc mừng miễn phí.</p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p>👉 <a href="/#booking"><strong>Đặt bàn cho nhóm ngay</strong></a></p>
@@ -1317,7 +1317,7 @@ const BLOG_ARTICLES = [
                                                         <p><strong>Combo 5 — Lẩu Kim Chi + nướng Hàn Quốc:</strong> Cho fan K-food — lẩu Kim Chi đậm vị, thịt nướng kiểu Hàn kèm banchan. Set cho 2 người từ 300K.</p>
 
                             <h2>Ở đâu ăn lẩu nướng view đẹp nhất?</h2>
-                            <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn được ăn <strong>lẩu nướng Đà Lạt</strong> với view sương mù phủ thung lũng, đèn nhà lồng lấp lánh xuyên sương. Menu có đầy đủ combo lẩu + nướng từ 95K/người, phục vụ nhóm 2-20 người.</p>
+                            <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn được ăn <strong>lẩu nướng Đà Lạt</strong> với view sương mù phủ thung lũng, đèn nhà lồng lấp lánh xuyên sương. Menu có đầy đủ combo lẩu + nướng từ 150K/người, phục vụ nhóm 2-20 người.</p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -1359,7 +1359,7 @@ const BLOG_ARTICLES = [
 
 <h3>5. Đi hướng ngược lại: khu Xuân Trường – Trại Mát</h3>
 <p>Đây là lựa chọn nhiều người chọn khi muốn đổi view hẳn. <a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km — tức là <strong>ngược hướng với hồ Tuyền Lâm</strong>, nên nếu định ăn tối ở đây thì rời hồ sớm một chút, đi qua trung tâm rồi chạy tiếp về phía Trại Mát.</p>
-<p>Đổi lại quãng đường là một bộ view khác hẳn hồ: hoàng hôn xuống thung lũng từ khoảng 16h30, tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, và biển sao nhà lồng lên đèn từ khoảng 18h30. Ba mốc này là tham khảo, tuỳ mùa và thời tiết. Quán mở 15:00–23:00, hơn 70 món gọi lẻ (không buffet), giá 95.000đ–300.000đ/người đã gồm VAT, hiện 4,8 sao với 7.344 lượt đánh giá Google.</p>
+<p>Đổi lại quãng đường là một bộ view khác hẳn hồ: hoàng hôn xuống thung lũng từ khoảng 16h30, tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, và biển sao nhà lồng lên đèn từ khoảng 18h30. Ba mốc này là tham khảo, tuỳ mùa và thời tiết. Quán mở 15:00–23:00, hơn 70 món gọi lẻ (không buffet), giá 150.000đ–400.000đ/người đã gồm VAT, hiện 4,8 sao với 7.344 lượt đánh giá Google.</p>
 <img src="assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp" alt="Cô gái áo đỏ ngồi bàn ăn ngoài trời lúc hoàng hôn, trên bàn có nồi lẩu, bảng chữ viết tay và bình hoa vàng, phía sau là thung lũng nhà lồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p><strong>Gợi ý lịch trình:</strong> chiều tham quan hồ Tuyền Lâm → rời hồ khoảng 15h30–16h → chạy về hướng Xuân Trường và <a href="/#booking">đặt bàn Trạm Dừng Chill</a> trước để quán chủ động sắp chỗ → ăn nướng và ngắm lần lượt hoàng hôn, tàu lửa, nhà lồng lên đèn.</p>
 
@@ -1426,7 +1426,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Tiệc sinh nhật nhỏ (10 người):</strong> 1-2 triệu (đồ ăn + setup)<br>
                             <strong>Tiệc nhóm bạn (20 người):</strong> 2-4 triệu<br>
                             <strong>Tiệc công ty (30-50 người):</strong> 5-15 triệu tuỳ menu<br>
-                            Tại Trạm Dừng Chill, setup tiệc miễn phí — bạn chỉ trả tiền đồ ăn từ 95K/người!</p>
+                            Tại Trạm Dừng Chill, setup tiệc miễn phí — bạn chỉ trả tiền đồ ăn từ 150K/người!</p>
 
                             <h2>Quy trình đặt tiệc tại Trạm Dừng Chill</h2>
                             <p><strong>Bước 1:</strong> Liên hệ qua <a href="/#booking">form đặt bàn</a> hoặc Zalo, cho biết số người + ngày giờ.<br>
@@ -1452,7 +1452,7 @@ const BLOG_ARTICLES = [
 
 <h3>Kiểu 1: Khu bàn ngoài trời tách nhau — riêng mà vẫn có cảnh</h3>
 <p><a href="/">Trạm Dừng Chill</a> thuộc kiểu này. Quán <strong>không có phòng kín</strong>, mà là không gian ngoài trời với các bàn đặt cách nhau, hướng ra thung lũng nhà lồng. Đổi lại phần "kín", bạn được phần cảnh: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — các mốc giờ đều là tham khảo.</p>
-<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00-23:00. Menu hơn 70 món kể cả đồ uống, gọi món lẻ, không buffet và không combo cố định; món signature là bò tảng nướng phô mai trứng muối 209K, có ba nồi lẩu gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 95.000đ-300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá.</p>
+<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00-23:00. Menu hơn 70 món kể cả đồ uống, gọi món lẻ, không buffet và không combo cố định; món signature là bò tảng nướng phô mai trứng muối 209K, có ba nồi lẩu gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 150.000đ-400.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá.</p>
 <p><strong>Điểm cần biết trước:</strong> vì là không gian mở nên quán không nhận giữ bàn view, ai đến trước ngồi trước. Nếu bạn đang tính chuyện bất ngờ, quán có setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí và bảng chúc mừng — nhắn trước để chuẩn bị. Quán cũng có nhạc sống với nghệ sĩ thổi saxophone, WiFi mạnh, bãi đỗ miễn phí cho xe máy và ô tô con, đón cả thú cưng.</p>
 <img src="assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p>👉 <a href="/#booking"><strong>Nhắn trước khi tới</strong></a></p>
@@ -1690,7 +1690,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Thứ 7 Chiều-Tối — Highlight ẩm thực</h2>
-                            <p><strong>16:30 - Nướng BBQ tại <a href="/">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi đồ nướng hải sản + lẩu cá tầm, mức chi từ 95K/người. <a href="/#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
+                            <p><strong>16:30 - Nướng BBQ tại <a href="/">Trạm Dừng Chill</a>:</strong> Đây là highlight của lịch trình! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Gọi đồ nướng hải sản + lẩu cá tầm, mức chi từ 150K/người. <a href="/#booking">Đặt bàn trước</a> vì thứ 7 rất đông!</p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -1780,7 +1780,7 @@ const BLOG_ARTICLES = [
                             <p>Nằm ở Phường Xuân Trường (Phường 11 cũ), đường Huỳnh Tấn Phát nổi lên như <strong>tuyến phố ẩm thực mới</strong> của Đà Lạt nhờ vị trí trên cao, view thung lũng nhà lồng tuyệt đẹp. Nhiều quán ăn mới mở ở đây tận dụng địa thế để tạo không gian ngoài trời thoáng đãng.</p>
 
                             <h2>Trạm Dừng Chill — Quán nướng BBQ view xe lửa</h2>
-                            <p>Tọa lạc tại 111 Huỳnh Tấn Phát, <a href="/">Trạm Dừng Chill</a> là <strong>quán nướng nổi tiếng nhất</strong> trên con đường này. Điểm đặc biệt: view hoàng hôn, xe lửa chạy ngang, biển sao nhà lồng về đêm. Menu đa dạng từ BBQ hải sản, bò Mỹ đến lẩu nóng. Giá từ 95.000đ/người.</p>
+                            <p>Tọa lạc tại 111 Huỳnh Tấn Phát, <a href="/">Trạm Dừng Chill</a> là <strong>quán nướng nổi tiếng nhất</strong> trên con đường này. Điểm đặc biệt: view hoàng hôn, xe lửa chạy ngang, biển sao nhà lồng về đêm. Menu đa dạng từ BBQ hải sản, bò Mỹ đến lẩu nóng. Giá từ 150.000đ/người.</p>
 <img src="assets/images/blog/cap-doi-bien-cau-hon-da-lat.webp" alt="Cặp đôi đứng giữa vườn hoa cạnh biển “Anh sẽ cầu hôn em ở Đà Lạt”, phía sau là vách gỗ gắn chữ trạm dừng chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -1920,7 +1920,7 @@ const BLOG_ARTICLES = [
         body: `<h2>Trạm Dừng Chill — bàn cho hai người, hoàng hôn và nhà lồng</h2>
 <p><a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km về hướng Trại Mát, mở cửa 15:00–23:00. Điểm hợp với hai người nhất ở đây không phải cái view, mà là chuyện quán <strong>gọi món lẻ</strong> — không buffet, không combo cố định. Hai người không bị ép mua suất cho bốn người rồi ăn không hết, cứ gọi vừa bụng là dừng.</p>
 <p>Nếu đi từ chiều, một buổi tối có thể bắt được ba mốc cảnh nối nhau: tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi biển sao nhà lồng lên đèn từ khoảng 18h30. Các mốc này chỉ để tham khảo, còn phụ thuộc thời tiết — Đà Lạt sương xuống là mất hoàng hôn như chơi. Có những buổi quán có nghệ sĩ thổi saxophone chơi nhạc sống, nhưng không theo lịch cố định nên đừng đi chỉ vì mục đó.</p>
-<p>Đi vì kỷ niệm hay sinh nhật thì báo lúc đặt bàn: quán setup hoa trang trí và bảng chúc mừng miễn phí, chỉ cần nói trước để còn kịp chuẩn bị. Giá chung 95.000đ–300.000đ/người đã gồm VAT, hơn 70 món trong <a href="menu.html">thực đơn</a>.</p>
+<p>Đi vì kỷ niệm hay sinh nhật thì báo lúc đặt bàn: quán setup hoa trang trí và bảng chúc mừng miễn phí, chỉ cần nói trước để còn kịp chuẩn bị. Giá chung 150.000đ–400.000đ/người đã gồm VAT, hơn 70 món trong <a href="menu.html">thực đơn</a>.</p>
 <p>👉 <a href="/#booking">Đặt bàn cho 2 người</a></p>
 <img src="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -2091,7 +2091,7 @@ const BLOG_ARTICLES = [
 </ul>
 
 <h2>Ăn gì khi ngồi nghe nhạc lâu</h2>
-<p>Ngồi nghe nhạc thì bữa ăn nên kéo dài chứ không nên gọn. Kinh nghiệm là gọi rải ra làm hai đợt: đợt đầu vài món nướng ăn ngay, đợt sau thêm một nồi lẩu cho ấm bụng lúc trời lạnh xuống. Ở <a href="/">Trạm Dừng Chill</a> có hơn 70 món gọi lẻ (không buffet, không combo cố định), giá 95.000đ–300.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K; lẩu có ba loại — gà lá é 300K, hải sản 320K, cá tầm 320K. Danh sách đầy đủ ở <a href="menu.html">trang menu</a>.</p>
+<p>Ngồi nghe nhạc thì bữa ăn nên kéo dài chứ không nên gọn. Kinh nghiệm là gọi rải ra làm hai đợt: đợt đầu vài món nướng ăn ngay, đợt sau thêm một nồi lẩu cho ấm bụng lúc trời lạnh xuống. Ở <a href="/">Trạm Dừng Chill</a> có hơn 70 món gọi lẻ (không buffet, không combo cố định), giá 150.000đ–400.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K; lẩu có ba loại — gà lá é 300K, hải sản 320K, cá tầm 320K. Danh sách đầy đủ ở <a href="menu.html">trang menu</a>.</p>
 <p>Nếu đi kỷ niệm hay sinh nhật thì báo trước, quán setup hoa trang trí và bảng chúc mừng miễn phí — nhắn lúc đặt bàn là được.</p>
 
 <h2>Kết luận</h2>
@@ -2109,7 +2109,7 @@ const BLOG_ARTICLES = [
         excerpt: "Tìm <strong>bò nướng Đà Lạt</strong> ngon, thịt tươi, giá hợp lý? Bài này chỉ cách phân biệt các kiểu quán bò nướng ở phố núi, chọn phần thịt nào cho hợp, và nướng thế nào để miếng bò không dai.",
         body: `<h2>Bò nướng ở Trạm Dừng Chill — than hoa, view hoàng hôn</h2>
 <p><a href="/">Trạm Dừng Chill</a> có ba món bò nướng chính: <strong>ba chỉ bò cuộn kim châm 137K, ba chỉ bò nướng muối tiêu 155K và bò tảng nướng phô mai trứng muối 209K</strong>. Ngoài ra còn bò lúc lắc 160K và mì xào bò 135K cho ai muốn ăn no. Thịt thái vừa gắp, nướng trên than hoa ngay tại bàn.</p>
-<p>Quán gọi món lẻ, <strong>không buffet, không set combo cố định</strong> — nên hai người có thể chỉ lấy một món bò cộng một món ăn kèm, không bắt buộc phải mua nguyên phần lớn. Tính chung khoảng 95.000đ–300.000đ/người đã gồm VAT. Địa chỉ 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00. Xem đủ hơn 70 món ở <a href="menu.html">trang menu</a>.</p>
+<p>Quán gọi món lẻ, <strong>không buffet, không set combo cố định</strong> — nên hai người có thể chỉ lấy một món bò cộng một món ăn kèm, không bắt buộc phải mua nguyên phần lớn. Tính chung khoảng 150.000đ–400.000đ/người đã gồm VAT. Địa chỉ 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00. Xem đủ hơn 70 món ở <a href="menu.html">trang menu</a>.</p>
 <p>👉 <a href="/#booking">Đặt bàn thưởng thức bò nướng</a></p>
 <img src="assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -2354,8 +2354,8 @@ const BLOG_ARTICLES = [
         body: `<h2>Tại sao nên chọn combo nướng?</h2>
                             <p>Gọi <strong>combo nướng</strong> thay vì gọi lẻ thường tiết kiệm 15-30% chi phí. Combo đã được quán chọn sẵn các món ăn kèm hợp lý, đủ cho số người — không lo gọi thừa hoặc thiếu.</p>
 
-                            <h2>Trạm Dừng Chill — Combo từ 95K/người</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> có nhiều <strong>combo nướng tiết kiệm</strong>: quán gọi món lẻ chứ không bán combo cố định, mức chi khoảng 95.000đ–300.000đ một người tuỳ món. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
+                            <h2>Trạm Dừng Chill — Combo từ 150K/người</h2>
+                            <p><a href="/">Trạm Dừng Chill</a> có nhiều <strong>combo nướng tiết kiệm</strong>: quán gọi món lẻ chứ không bán combo cố định, mức chi khoảng 150.000đ–400.000đ một người tuỳ món. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
 <img src="assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -2373,7 +2373,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>So sánh giá 5 quán nướng Đà Lạt</h2>
-                            <p><strong>Trạm Dừng Chill:</strong> 95–300K/người, gọi món lẻ nên dễ kiểm soát chi phí — gọi tới đâu trả tới đó. Các quán nướng khác ở Đà Lạt trải rộng nhiều mức giá tuỳ không gian và vị trí; quán khu trung tâm thường nhỉnh hơn quán ngoại ô. Xem menu trước khi đi là cách chắc nhất.</p>
+                            <p><strong>Trạm Dừng Chill:</strong> 150–400K/người, gọi món lẻ nên dễ kiểm soát chi phí — gọi tới đâu trả tới đó. Các quán nướng khác ở Đà Lạt trải rộng nhiều mức giá tuỳ không gian và vị trí; quán khu trung tâm thường nhỉnh hơn quán ngoại ô. Xem menu trước khi đi là cách chắc nhất.</p>
 
 
 
@@ -2386,7 +2386,7 @@ const BLOG_ARTICLES = [
                             <p>Đi nhóm đông để chia combo lớn (rẻ hơn/người). Đến vào ngày thường thay vì cuối tuần. Hỏi quán về <strong>khuyến mãi, voucher</strong> trước khi đặt bàn. Follow fanpage quán để cập nhật ưu đãi.</p>
 
                             <h2>Kết luận</h2>
-                            <p><strong>Combo nướng Đà Lạt</strong> tại <a href="/">Trạm Dừng Chill</a> có giá tốt nhất so với chất lượng và view. Từ 95K/người đã có bữa nướng BBQ ngon + view hoàng hôn. <a href="/#booking">Đặt bàn ngay</a>!</p>`
+                            <p><strong>Combo nướng Đà Lạt</strong> tại <a href="/">Trạm Dừng Chill</a> có giá tốt nhất so với chất lượng và view. Từ 150K/người đã có bữa nướng BBQ ngon + view hoàng hôn. <a href="/#booking">Đặt bàn ngay</a>!</p>`
     },
     {
         id: "quan-an-da-lat-gan-trung-tam",
@@ -2547,7 +2547,7 @@ const BLOG_ARTICLES = [
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường là quán nướng ngoài trời và <strong>đón thú cưng</strong>. Không gian mở nên boss nằm cạnh bàn không vướng lối đi của ai. Quán mở 15:00-23:00, cách trung tâm khoảng 7 km, có bãi đỗ miễn phí cho xe máy và ô tô con — tiện nếu bạn chở pet bằng ô tô.</p>
 <p>👉 <a href="/#booking">Đặt bàn cùng boss</a></p>
 <img src="assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp" alt="Khách tạo dáng ở cổng tre gắn biển Trạm Dừng Chill, bên trong là dãy bàn gỗ và cờ đỏ" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-<p>Menu <a href="menu.html">hơn 70 món</a>, gọi món lẻ, không buffet và không combo cố định, mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; trời lạnh thì có lẩu gà lá é 300K, hải sản 320K hoặc cá tầm 320K. Quán hiện 4,8 sao với 7.344 lượt đánh giá trên Google. Ngoài trời có tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và nhà lồng đèn lên đèn từ 18h30 — mấy mốc này chỉ để tham khảo.</p>
+<p>Menu <a href="menu.html">hơn 70 món</a>, gọi món lẻ, không buffet và không combo cố định, mức chi khoảng 150.000đ-400.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; trời lạnh thì có lẩu gà lá é 300K, hải sản 320K hoặc cá tầm 320K. Quán hiện 4,8 sao với 7.344 lượt đánh giá trên Google. Ngoài trời có tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và nhà lồng đèn lên đèn từ 18h30 — mấy mốc này chỉ để tham khảo.</p>
 
 <h2>2. Các kiểu quán khác thường đón được thú cưng</h2>
 
@@ -2730,7 +2730,7 @@ const BLOG_ARTICLES = [
 <h2>Ở Trạm Dừng Chill có gì</h2>
 <p>Em nói đúng thực tế cho anh chị khỏi tới nơi rồi hụt: <a href="/">Trạm Dừng Chill</a> <strong>không có gà nướng nguyên con</strong>. Phần gà bên em gồm <strong>lẩu gà lá é 300K</strong>, <strong>chân gà nướng muối ớt 105K</strong>, <strong>cánh gà nướng muối ớt 130K</strong> và <strong>cánh gà chiên nước mắm 145K</strong>. Nhóm nào muốn ăn gà lá é đúng nghĩa thì gọi nồi lẩu, còn nhâm nhi vừa nướng vừa ngắm cảnh thì lấy chân gà, cánh gà.</p>
 <img src="assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp" alt="Cô gái áo đỏ đứng bên lan can ngắm hoàng hôn trên thung lũng nhà lồng, cạnh bàn ăn có bảng chữ viết tay và bình hoa vàng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00, gọi món lẻ chứ không buffet, khoảng 95.000đ–300.000đ/người đã gồm VAT. Ngồi từ chiều thì bắt được tàu cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và nhà lồng lên đèn từ 18h30 (giờ tham khảo). Hơn 70 món, xem trước ở <a href="menu.html">trang menu</a>.</p>
+<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00, gọi món lẻ chứ không buffet, khoảng 150.000đ–400.000đ/người đã gồm VAT. Ngồi từ chiều thì bắt được tàu cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và nhà lồng lên đèn từ 18h30 (giờ tham khảo). Hơn 70 món, xem trước ở <a href="menu.html">trang menu</a>.</p>
 <p>👉 <a href="/#booking">Đặt bàn</a></p>
 <img src="assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp" alt="Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -2917,7 +2917,7 @@ const BLOG_ARTICLES = [
 <p>Để bạn khỏi mất công đi rồi thất vọng: <a href="/">Trạm Dừng Chill</a> là quán nướng than hoa kiểu Việt, không phải Korean BBQ. Không banchan, không buffet, không combo cố định. Bên mình gọi món lẻ, hơn 70 món tính cả đồ ăn lẫn đồ uống, bạn xem trước ở <a href="menu.html">menu</a> là biết chính xác có gì.</p>
 <p>Điểm giống Korean BBQ là cái không khí: bếp ngay tại bàn, cả nhóm ngồi quanh vừa nướng vừa nói chuyện, món ra từ từ nên bữa ăn kéo dài. Còn khác là hương vị và cách ướp. Món signature ở đây là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>, cộng thêm ba nồi lẩu — gà lá é 300K, hải sản 320K, cá tầm 320K — rất hợp để đặt giữa bàn cho ấm.</p>
 <img src="assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp" alt="Cặp đôi tựa lan can gỗ lúc hoàng hôn, phía sau là thung lũng nhà lồng dưới trời mây vàng cam" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00-23:00, mức chi 95.000đ-300.000đ mỗi người đã gồm VAT. Khung cảnh có ba mốc tham khảo: tàu cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30. 👉 <a href="/#booking">Đặt bàn ngay</a></p>
+<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00-23:00, mức chi 150.000đ-400.000đ mỗi người đã gồm VAT. Khung cảnh có ba mốc tham khảo: tàu cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30. 👉 <a href="/#booking">Đặt bàn ngay</a></p>
 <img src="assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp" alt="Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Ba dấu hiệu của quán Korean BBQ làm thật</h2>
@@ -3059,7 +3059,7 @@ const BLOG_ARTICLES = [
                             <p>Đi nhóm 6-10 người, chắc chắn có người thích bò, người thích hải sản, người ăn chay, trẻ con thích gà... <strong>Quán có menu đa dạng</strong> giúp mọi người đều hài lòng, không ai phải "nhịn" vì không có món mình thích.</p>
 
                             <h2>Trạm Dừng Chill — Menu hơn 70 món</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> tự hào với <strong>menu hơn 70 món</strong>: BBQ (bò, hải sản, gà, heo), lẩu (gà lá é, hải sản, cá tầm), đồ chiên, rau thêm, đồ uống. Từ 95K/người, combo linh hoạt theo số người. Menu có ảnh minh họa, dễ chọn.</p>
+                            <p><a href="/">Trạm Dừng Chill</a> tự hào với <strong>menu hơn 70 món</strong>: BBQ (bò, hải sản, gà, heo), lẩu (gà lá é, hải sản, cá tầm), đồ chiên, rau thêm, đồ uống. Từ 150K/người, combo linh hoạt theo số người. Menu có ảnh minh họa, dễ chọn.</p>
 <img src="assets/images/blog/cap-doi-vuon-hoa-tram-dung-chill-da-lat.webp" alt="Cặp đôi đứng giữa vườn hoa trước vách gỗ gắn chữ trạm dừng chill, bên cạnh là biển chỉ đường “Anh sẽ cầu hôn em ở Đà Lạt”" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3107,7 +3107,7 @@ const BLOG_ARTICLES = [
 
 <h2>Sườn ở Trạm Dừng Chill</h2>
 <p><a href="/">Trạm Dừng Chill</a> có hai món sườn đi theo hai hướng vị khác nhau trong <a href="menu.html">thực đơn</a>: <strong>Sườn Que Nướng 155K</strong> — kiểu que, nướng than ngay tại bàn, bạn tự canh độ chín; và <strong>Sườn Cay Thái Lan 260K</strong> cho ai thích vị cay chua đậm hơn. Ăn kèm thì có Khoai Tây Chiên 70K và Salad Trộn Dầu Giấm 95K để cân lại độ ngậy.</p>
-<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00–23:00. Gọi món lẻ, không buffet và không combo cố định, giá 95.000đ–300.000đ/người đã gồm VAT — nên bạn gọi đúng thứ mình muốn ăn chứ không phải mua kèm.</p>
+<p>Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00–23:00. Gọi món lẻ, không buffet và không combo cố định, giá 150.000đ–400.000đ/người đã gồm VAT — nên bạn gọi đúng thứ mình muốn ăn chứ không phải mua kèm.</p>
 <img src="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <p>👉 <a href="/#booking">Đặt bàn thưởng thức sườn nướng</a></p>
 <img src="assets/images/blog/ban-tiec-trang-tri-hoang-hon-da-lat.webp" alt="Cô gái áo đỏ ngồi bàn ăn ngoài trời lúc hoàng hôn, trên bàn có nồi lẩu, bảng chữ viết tay và bình hoa vàng, phía sau là thung lũng nhà lồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
@@ -3165,7 +3165,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Ăn gì ở Đà Lạt?</h2>
-                            <p>Sáng: Bánh mì xíu mại, phở gà. Trưa: Bún bò, cơm tấm. Chiều: Cafe, kem bơ. <strong>Tối: Nướng BBQ tại <a href="/">Trạm Dừng Chill</a></strong> — highlight ẩm thực không thể bỏ lỡ! Từ 95K/người, view hoàng hôn + biển sao nhà lồng.</p>
+                            <p>Sáng: Bánh mì xíu mại, phở gà. Trưa: Bún bò, cơm tấm. Chiều: Cafe, kem bơ. <strong>Tối: Nướng BBQ tại <a href="/">Trạm Dừng Chill</a></strong> — highlight ẩm thực không thể bỏ lỡ! Từ 150K/người, view hoàng hôn + biển sao nhà lồng.</p>
 <img src="assets/images/blog/cong-tron-hoang-hon-da-lat.webp" alt="Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3300,7 +3300,7 @@ const BLOG_ARTICLES = [
 <h3>Ăn mực nướng ở Trạm Dừng Chill</h3>
 <p><a href="/">Trạm Dừng Chill</a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường — có <strong>Mực Ướp Sate 160K</strong> trong nhóm món nướng, nướng ngay tại bàn trên than hoa nên khách tự canh được độ chín theo ý mình. Quán gọi món lẻ, không buffet và không combo cố định, nên bạn có thể gọi một phần mực ăn thử rồi tính tiếp.</p>
 <img src="assets/images/blog/cong-tre-tram-dung-chill-da-lat.webp" alt="Khách tạo dáng ở cổng tre gắn biển Trạm Dừng Chill, bên trong là dãy bàn gỗ và cờ đỏ" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-<p>Cùng nhóm hải sản trong <a href="menu.html">menu hơn 70 món</a> còn có <strong>Bạch Tuột Nướng 155K</strong>, <strong>Tôm Nướng Muối Ớt 150K</strong> và <strong>Cá Tầm Nướng 162K</strong>. Nhóm đông muốn có món nóng ăn lâu thì gọi <strong>Lẩu Hải Sản 320K</strong>. Mức chi chung khoảng 95.000đ-300.000đ/người đã gồm VAT; quán mở 15:00-23:00 và hiện có 4,8 sao với 7.344 lượt đánh giá trên Google.</p>
+<p>Cùng nhóm hải sản trong <a href="menu.html">menu hơn 70 món</a> còn có <strong>Bạch Tuột Nướng 155K</strong>, <strong>Tôm Nướng Muối Ớt 150K</strong> và <strong>Cá Tầm Nướng 162K</strong>. Nhóm đông muốn có món nóng ăn lâu thì gọi <strong>Lẩu Hải Sản 320K</strong>. Mức chi chung khoảng 150.000đ-400.000đ/người đã gồm VAT; quán mở 15:00-23:00 và hiện có 4,8 sao với 7.344 lượt đánh giá trên Google.</p>
 <p>👉 <a href="/#booking">Đặt bàn ngay</a></p>
 <img src="assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp" alt="Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -3347,7 +3347,7 @@ const BLOG_ARTICLES = [
                             <p>Ăn nướng BBQ ngon mà lại <strong>tiết kiệm</strong> — tại sao không? Nhiều quán nướng Đà Lạt có chương trình khuyến mãi quanh năm: giảm giá ngày thường, combo deal, free món khi đặt trước. Biết cách săn deal, bạn tiết kiệm đáng kể!</p>
 
                             <h2>Trạm Dừng Chill — Ưu đãi đặc biệt 2026</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> có nhiều <strong>ưu đãi hấp dẫn</strong>: Setup sinh nhật miễn phí, gọi món lẻ với mức chi từ 95K/người. Follow fanpage để cập nhật khuyến mãi mới nhất!</p>
+                            <p><a href="/">Trạm Dừng Chill</a> có nhiều <strong>ưu đãi hấp dẫn</strong>: Setup sinh nhật miễn phí, gọi món lẻ với mức chi từ 150K/người. Follow fanpage để cập nhật khuyến mãi mới nhất!</p>
 <img src="assets/images/blog/cap-doi-bien-cau-hon-da-lat.webp" alt="Cặp đôi đứng giữa vườn hoa cạnh biển “Anh sẽ cầu hôn em ở Đà Lạt”, phía sau là vách gỗ gắn chữ trạm dừng chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -3868,7 +3868,7 @@ const BLOG_ARTICLES = [
 <h2>Các kiểu quán nướng và độ hợp với tháng 9</h2>
 
 <h3>1. Kiểu không gian mở nhìn ra thung lũng</h3>
-<p>Tháng 9 sau mưa trời thường rất trong, mây tan nhanh, nên hoàng hôn nhìn từ chỗ cao lên rất đẹp. Đây là kiểu của <a href="/">Trạm Dừng Chill</a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00. Ngồi đây ngắm được ba thứ nối tiếp: tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ khoảng 18h30 (mốc tham khảo). Hơn 70 món gọi lẻ, không buffet, 95.000đ–300.000đ/người đã gồm VAT. <a href="/#booking">Đặt bàn ngay</a>.</p>
+<p>Tháng 9 sau mưa trời thường rất trong, mây tan nhanh, nên hoàng hôn nhìn từ chỗ cao lên rất đẹp. Đây là kiểu của <a href="/">Trạm Dừng Chill</a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00. Ngồi đây ngắm được ba thứ nối tiếp: tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ khoảng 18h30 (mốc tham khảo). Hơn 70 món gọi lẻ, không buffet, 150.000đ–400.000đ/người đã gồm VAT. <a href="/#booking">Đặt bàn ngay</a>.</p>
 
 <h3>2. Kiểu sân vườn giữa rừng thông</h3>
 <p>Mát và thơm mùi thông, hợp nhóm bạn. <strong>Riêng tháng 9:</strong> đây là kiểu rủi ro nhất nếu quán không có mái che. Trước khi đi, hỏi thẳng một câu: mưa thì ngồi đâu.</p>
@@ -3940,7 +3940,7 @@ const BLOG_ARTICLES = [
 
 <h2>Ngày mưa ở Trạm Dừng Chill</h2>
 <p><a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km về hướng Trại Mát, mở cửa 15:00–23:00. Ngày mưa thì nói thật: hoàng hôn từ khoảng 16h30 coi như mất, tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25 cũng khó ngắm cho đã. Nhưng biển sao nhà lồng lên đèn từ khoảng 18h30 thì mưa hay nắng vẫn sáng, mà nhìn qua màn mưa lại mờ ảo hơn ngày thường. Các mốc giờ này chỉ để tham khảo, không phải lịch cố định.</p>
-<p>Quán gọi món lẻ, không buffet và không combo cố định — hơn 70 món trong <a href="menu.html">thực đơn</a>, giá 95.000đ–300.000đ/người đã gồm VAT. Trời lạnh thì ba nồi lẩu là hợp nhất: lẩu gà lá é 300K, lẩu hải sản 320K, lẩu cá tầm 320K. Muốn có món nướng cho đủ vị thì thêm Bò Tảng Nướng Phô Mai Trứng Muối 209K.</p>
+<p>Quán gọi món lẻ, không buffet và không combo cố định — hơn 70 món trong <a href="menu.html">thực đơn</a>, giá 150.000đ–400.000đ/người đã gồm VAT. Trời lạnh thì ba nồi lẩu là hợp nhất: lẩu gà lá é 300K, lẩu hải sản 320K, lẩu cá tầm 320K. Muốn có món nướng cho đủ vị thì thêm Bò Tảng Nướng Phô Mai Trứng Muối 209K.</p>
 <p>Trước khi đi vào hôm mưa, gọi <strong>0989.765.070</strong> hỏi xem khu nào còn chỗ rồi hãy xuất phát. Bãi đỗ xe máy và ô tô con miễn phí, quán đón cả thú cưng, WiFi mạnh nếu bạn cần ngồi lâu chờ tạnh. <a href="/#booking"><strong>Đặt bàn tại đây</strong></a>.</p>`
     },
     {
@@ -3982,7 +3982,7 @@ const BLOG_ARTICLES = [
 <img src="assets/images/blog/cong-tron-hoang-hon-da-lat.webp" alt="Cô gái đứng giữa cổng tròn gắn chữ đèn trạm dừng chill, hai bên là luống hoa đỏ và cẩm tú cầu, trời hoàng hôn tím hồng phía sau" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Gợi ý gọi món cho hai người</h2>
-<p>Vì bên em gọi lẻ chứ không có set cố định, anh chị tự ghép được. Một cách ghép quen thuộc cho hai người: <strong>bò tảng nướng phô mai trứng muối 209K</strong> làm món chính, thêm <strong>chả ram tôm đất 95K</strong> hoặc <strong>chân gà nướng muối ớt 105K</strong> nhấm nháp, một đĩa <strong>salad trộn dầu giấm 95K</strong> cho đỡ ngán, và nếu muốn nâng ly thì có vang chai 750ml 190K–210K. Trời lạnh thì đổi hướng: một nồi <strong>lẩu gà lá é 300K</strong> ngồi ăn từ từ cũng vừa đủ hai người. Mặt bằng chung khoảng 95.000đ–300.000đ/người đã gồm VAT, còn gọi thêm rượu thì cộng riêng. Cả thực đơn hơn 70 món, xem trước ở <a href="menu.html">trang menu</a>.</p>
+<p>Vì bên em gọi lẻ chứ không có set cố định, anh chị tự ghép được. Một cách ghép quen thuộc cho hai người: <strong>bò tảng nướng phô mai trứng muối 209K</strong> làm món chính, thêm <strong>chả ram tôm đất 95K</strong> hoặc <strong>chân gà nướng muối ớt 105K</strong> nhấm nháp, một đĩa <strong>salad trộn dầu giấm 95K</strong> cho đỡ ngán, và nếu muốn nâng ly thì có vang chai 750ml 190K–210K. Trời lạnh thì đổi hướng: một nồi <strong>lẩu gà lá é 300K</strong> ngồi ăn từ từ cũng vừa đủ hai người. Mặt bằng chung khoảng 150.000đ–400.000đ/người đã gồm VAT, còn gọi thêm rượu thì cộng riêng. Cả thực đơn hơn 70 món, xem trước ở <a href="menu.html">trang menu</a>.</p>
 <p>Đặt trước vài ngày để bên em kịp chuẩn bị hoa và bảng chúc mừng. Tại <a href="/">Trạm Dừng Chill</a>, anh chị chỉ cần báo là kỷ niệm ngày cưới — phần setup hoa trang trí, bảng chúc mừng là <strong>miễn phí</strong>. <a href="/#booking"><strong>Đặt bàn ngay</strong></a> để tụi em sắp xếp chỗ ngồi phù hợp nhất có thể trong hôm đó.</p>`
     },
     {
@@ -4129,7 +4129,7 @@ const BLOG_ARTICLES = [
 <p>Thay vì tự cho mình điểm số, đây là các thông số của <a href="/">Trạm Dừng Chill</a> theo đúng năm tiêu chí ở trên, để bạn đặt cạnh những nơi khác mà so:</p>
 <img src="assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp" alt="Khách ngồi bàn gỗ bên lan can buổi tối, ngay dưới là toa tàu Dalat Plateau Rail Road viền đèn vàng, xa hơn là mái nhà lồng sáng đèn trong thung lũng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 <ul>
-<li><strong>Giá:</strong> khoảng 95.000đ đến 300.000đ một người, đã gồm VAT.</li>
+<li><strong>Giá:</strong> khoảng 150.000đ đến 400.000đ một người, đã gồm VAT.</li>
 <li><strong>View:</strong> tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo.</li>
 <li><strong>Đồ ăn:</strong> hơn 70 món tính cả đồ uống, gọi món lẻ, không buffet và không combo cố định. Món ký tên là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Có ba nồi lẩu: gà lá é 300K, hải sản 320K, cá tầm 320K. Xem <a href="menu.html">menu đầy đủ</a>.</li>
 <li><strong>Dịch vụ:</strong> setup sinh nhật và kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng; nhạc sống với nghệ sĩ thổi saxophone; WiFi mạnh; nhận chuyển khoản và QR.</li>
@@ -4189,7 +4189,7 @@ const BLOG_ARTICLES = [
 
 <h2>Đặt bàn ở Trạm Dừng Chill</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00–23:00. Bạn đặt qua <a href="/#booking">form đặt bàn trên trang chủ</a> hoặc gọi <strong>0989.765.070</strong>.</p>
-<p>Vài thứ nên biết trước để khỏi hiểu nhầm khi gọi điện: quán <strong>gọi món lẻ</strong> với hơn 70 món trong <a href="menu.html">thực đơn</a>, không có buffet và không có combo cố định; giá 95.000đ–300.000đ/người đã gồm VAT; nhận chuyển khoản và quét QR. Bãi đỗ miễn phí cho xe máy và ô tô con, đón thú cưng, WiFi mạnh. Nếu đi vì sinh nhật hay kỷ niệm, báo ngay lúc đặt bàn — quán setup hoa trang trí và bảng chúc mừng miễn phí, nhưng cần thời gian chuẩn bị chứ không làm được lúc bạn vừa bước vào.</p>
+<p>Vài thứ nên biết trước để khỏi hiểu nhầm khi gọi điện: quán <strong>gọi món lẻ</strong> với hơn 70 món trong <a href="menu.html">thực đơn</a>, không có buffet và không có combo cố định; giá 150.000đ–400.000đ/người đã gồm VAT; nhận chuyển khoản và quét QR. Bãi đỗ miễn phí cho xe máy và ô tô con, đón thú cưng, WiFi mạnh. Nếu đi vì sinh nhật hay kỷ niệm, báo ngay lúc đặt bàn — quán setup hoa trang trí và bảng chúc mừng miễn phí, nhưng cần thời gian chuẩn bị chứ không làm được lúc bạn vừa bước vào.</p>
 <p>Ba mốc để canh giờ, đều chỉ là tham khảo: tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ khoảng 18h30.</p>
 
 <h2>Kết luận</h2>
@@ -4255,7 +4255,7 @@ const BLOG_ARTICLES = [
                             <p><strong>8:00 - Bánh mì xíu mại</strong> (25K) — Món sáng huyền thoại Đà Lạt. <strong>9:30 - Cafe Đà Lạt</strong> — Gọi ly Arabica phin nóng, ngồi ngắm sương tan. <strong>11:00 - Hồ Xuân Hương</strong> — Đạp vịt, chụp ảnh hoa. Tổng chi: ~80K/người.</p>
 
                             <h2>Ngày 1 — Chiều tối: Highlight ẩm thực</h2>
-                            <p><strong>15:30 - Nướng BBQ tại <a href="/">Trạm Dừng Chill</a>:</strong> Đây là highlight của chuyến đi! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Set nướng từ 95K/người. <a href="/#booking">Đặt bàn trước</a> vì chiều tối rất đông!</p>
+                            <p><strong>15:30 - Nướng BBQ tại <a href="/">Trạm Dừng Chill</a>:</strong> Đây là highlight của chuyến đi! Đến sớm để bắt trọn <strong>hoàng hôn → xe lửa → biển sao nhà lồng</strong>. Set nướng từ 150K/người. <a href="/#booking">Đặt bàn trước</a> vì chiều tối rất đông!</p>
 <img src="assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4306,7 +4306,7 @@ const BLOG_ARTICLES = [
 <h3>Kiểu nhìn xuống thung lũng nhà lồng</h3>
 <p>Ban ngày là những mái nhà kính xếp lớp, tối đến thì đèn trong nhà lồng bật lên tạo mảng sáng trải dài dưới chân đồi. Đây là cảnh đặc trưng nhất của Đà Lạt, khó thấy ở nơi khác.</p>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, thuộc kiểu này: không gian ngoài trời hướng thẳng ra thung lũng. Cảnh ở đây đi theo trình tự trong một buổi tối — tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi biển sao nhà lồng lên đèn từ 18h30. Tất cả đều là mốc tham khảo, tuỳ thời tiết và tuỳ lịch tàu, nên cứ coi đoạn tàu chạy là phần thưởng thêm chứ đừng canh giờ.</p>
-<p>Quán mở 15:00-23:00, menu hơn 70 món kể cả đồ uống, gọi món lẻ, không buffet và không combo cố định; món signature là bò tảng nướng phô mai trứng muối 209K, ba nồi lẩu gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 95.000đ-300.000đ/người đã gồm VAT, Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá. <strong>Quán không nhận giữ bàn view</strong> — muốn chỗ nhìn thoáng thì đến sớm, ai tới trước ngồi trước. <a href="/#booking">Đặt bàn →</a></p>
+<p>Quán mở 15:00-23:00, menu hơn 70 món kể cả đồ uống, gọi món lẻ, không buffet và không combo cố định; món signature là bò tảng nướng phô mai trứng muối 209K, ba nồi lẩu gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 150.000đ-400.000đ/người đã gồm VAT, Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá. <strong>Quán không nhận giữ bàn view</strong> — muốn chỗ nhìn thoáng thì đến sớm, ai tới trước ngồi trước. <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h3>Kiểu trên đỉnh đồi, nhìn được nhiều hướng</h3>
@@ -4460,7 +4460,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill trong đêm cuối tháng 10</h2>
 <p><a href="/">Trạm Dừng Chill</a> là quán ngoài trời ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00. Tối xuống, nhà lồng lên đèn từ khoảng 18h30 (giờ tham khảo), sương từ thung lũng dâng lên — không cần trang trí gì thì cũng đã đúng tông của đêm này.</p>
-<p>Em nói rõ để anh chị khỏi trông đợi nhầm: quán <strong>không có menu Halloween riêng và không có chương trình giảm giá cho khách hoá trang</strong>. Cái bên em làm được là setup bàn miễn phí cho sinh nhật và kỷ niệm (hoa trang trí, bảng chúc mừng) — nhóm nào có ai sinh nhật đúng dịp thì báo trước, tụi em chuẩn bị. Đồ ăn gọi lẻ, không buffet: bò tảng nướng phô mai trứng muối 209K, hoặc một nồi lẩu cho ấm bụng (gà lá é 300K, hải sản 320K, cá tầm 320K). Khoảng 95.000đ–300.000đ/người đã gồm VAT, hơn 70 món xem ở <a href="menu.html">trang menu</a>. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, nhận chuyển khoản/QR, đón cả thú cưng. <a href="/#booking">Đặt bàn →</a></p>
+<p>Em nói rõ để anh chị khỏi trông đợi nhầm: quán <strong>không có menu Halloween riêng và không có chương trình giảm giá cho khách hoá trang</strong>. Cái bên em làm được là setup bàn miễn phí cho sinh nhật và kỷ niệm (hoa trang trí, bảng chúc mừng) — nhóm nào có ai sinh nhật đúng dịp thì báo trước, tụi em chuẩn bị. Đồ ăn gọi lẻ, không buffet: bò tảng nướng phô mai trứng muối 209K, hoặc một nồi lẩu cho ấm bụng (gà lá é 300K, hải sản 320K, cá tầm 320K). Khoảng 150.000đ–400.000đ/người đã gồm VAT, hơn 70 món xem ở <a href="menu.html">trang menu</a>. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, nhận chuyển khoản/QR, đón cả thú cưng. <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h2>Hoá trang ở xứ lạnh — vài lưu ý rất thật</h2>
@@ -4519,7 +4519,7 @@ const BLOG_ARTICLES = [
 
 <h2>Ăn tôm nướng ở Trạm Dừng Chill</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở 15:00–23:00, nướng than ngay tại bàn nên bạn tự canh độ chín theo đúng mấy mẹo ở trên.</p>
-<p>Phần tôm trong <a href="menu.html">thực đơn</a> có Tôm Nướng Muối Ớt 150K, Tôm Chiên Trứng Muối 160K và Chả Ram Tôm Đất 95K. Muốn thêm hải sản thì có Bạch Tuột Nướng 155K, Mực Ướp Sate 160K, hoặc một nồi Lẩu Hải Sản 320K cho cả bàn. Quán gọi món lẻ, không buffet và không combo cố định, giá 95.000đ–300.000đ/người đã gồm VAT.</p>
+<p>Phần tôm trong <a href="menu.html">thực đơn</a> có Tôm Nướng Muối Ớt 150K, Tôm Chiên Trứng Muối 160K và Chả Ram Tôm Đất 95K. Muốn thêm hải sản thì có Bạch Tuột Nướng 155K, Mực Ướp Sate 160K, hoặc một nồi Lẩu Hải Sản 320K cho cả bàn. Quán gọi món lẻ, không buffet và không combo cố định, giá 150.000đ–400.000đ/người đã gồm VAT.</p>
 <p>Nếu đi buổi chiều tối, ba mốc cảnh đáng canh là tàu lửa cổ Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30 và biển sao nhà lồng lên đèn từ khoảng 18h30 — đều là mốc tham khảo thôi. <a href="/#booking">Đặt bàn tại đây →</a></p>
 
 <h2>Kết luận</h2>
@@ -4563,7 +4563,7 @@ const BLOG_ARTICLES = [
 
 <h2>Nếu bạn muốn chill hơn là hát: nhạc sống thay karaoke</h2>
 <p>Không phải nhóm nào cũng hợp karaoke. Nhiều nhóm muốn nghe được tiếng nhau nói, muốn chụp được ảnh, muốn về mà không khản giọng. <a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường đi theo hướng đó: <strong>nhạc sống với nghệ sĩ thổi saxophone</strong> thay cho dàn karaoke, bàn nướng ngoài trời, mở cửa 15:00-23:00.</p>
-<p>Quán gọi món lẻ, không buffet và không combo cố định, <a href="menu.html">hơn 70 món</a> trong menu để nhóm tự ghép theo khẩu vị. Mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; nhóm đông thì thêm một nồi lẩu cho ấm — gà lá é 300K, hải sản 320K hoặc cá tầm 320K.</p>
+<p>Quán gọi món lẻ, không buffet và không combo cố định, <a href="menu.html">hơn 70 món</a> trong menu để nhóm tự ghép theo khẩu vị. Mức chi khoảng 150.000đ-400.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; nhóm đông thì thêm một nồi lẩu cho ấm — gà lá é 300K, hải sản 320K hoặc cá tầm 320K.</p>
 <p>Quán cách trung tâm khoảng 7 km, có bãi đỗ miễn phí cho xe máy và ô tô con nên nhóm đi nhiều xe vẫn thoải mái. Nếu nhóm đang mừng sinh nhật hay kỷ niệm, quán có setup miễn phí gồm hoa trang trí và bảng chúc mừng — báo trước lúc đặt bàn là được. <a href="/#booking">Đặt bàn →</a></p>
 
 <h2>Vài lưu ý cho nhóm đi hát ở Đà Lạt</h2>
@@ -4645,7 +4645,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Tiết kiệm ăn uống</h2>
-                            <p><strong>Sáng:</strong> Bánh mì xíu mại 25K, cafe phin 20K. <strong>Trưa:</strong> Cơm bình dân 35-45K, phở gà 40K. <strong>Chiều-tối:</strong> Nướng BBQ tại <a href="/">Trạm Dừng Chill</a> từ 95K/người — vừa ăn ngon vừa ngắm hoàng hôn, không cần đi thêm quán khác! <a href="/#booking">Đặt bàn giá tốt →</a></p>
+                            <p><strong>Sáng:</strong> Bánh mì xíu mại 25K, cafe phin 20K. <strong>Trưa:</strong> Cơm bình dân 35-45K, phở gà 40K. <strong>Chiều-tối:</strong> Nướng BBQ tại <a href="/">Trạm Dừng Chill</a> từ 150K/người — vừa ăn ngon vừa ngắm hoàng hôn, không cần đi thêm quán khác! <a href="/#booking">Đặt bàn giá tốt →</a></p>
 <img src="assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4665,7 +4665,7 @@ const BLOG_ARTICLES = [
                             <p>Thuê xe máy 100-150K/ngày. Nhiều địa điểm miễn phí: Hồ Xuân Hương, Quảng trường, chợ đêm, đồi thông, đồi cỏ hồng. Chỉ tốn vé những nơi đáng thử: Langbiang (50K), Thung lũng Tình Yêu (60K).</p>
 
                             <h2>Kết luận</h2>
-                            <p><strong>Du lịch Đà Lạt giá rẻ 2026</strong> hoàn toàn khả thi với 500-700K/ngày/người. Và bữa nướng BBQ tại <a href="/">Trạm Dừng Chill</a> với giá từ 95K sẽ là highlight ẩm thực đáng giá nhất! <a href="/#booking">Đặt bàn →</a></p>`
+                            <p><strong>Du lịch Đà Lạt giá rẻ 2026</strong> hoàn toàn khả thi với 500-700K/ngày/người. Và bữa nướng BBQ tại <a href="/">Trạm Dừng Chill</a> với giá từ 150K sẽ là highlight ẩm thực đáng giá nhất! <a href="/#booking">Đặt bàn →</a></p>`
     },
     {
         id: "quan-nuong-da-lat-giang-sinh",
@@ -4682,7 +4682,7 @@ const BLOG_ARTICLES = [
 
                             <h2>Nướng BBQ đêm Noel tại Trạm Dừng Chill</h2>
                             <p><a href="/">Trạm Dừng Chill</a> là quán nướng <strong>ngoài trời</strong> ở Trại Mát, cách trung tâm khoảng 7 km. Đêm tháng 12 trên này lạnh thật, nên quán có <strong>mền và lò than mang tận bàn</strong> — cứ báo nhân viên. Khoảng 18h30 hàng nghìn nhà lồng dưới thung lũng đồng loạt lên đèn, dân ở đây gọi là "biển sao nhà lồng"; ngồi nướng giữa trời lạnh mà nhìn xuống đúng lúc đó là cảnh đáng đi. Quán còn có nhạc sống saxophone và WiFi miễn phí phủ toàn quán.</p>
-                            <p>Quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bạn trả đúng cho món mình gọi, mức chi 95.000đ–300.000đ một người đã gồm VAT. Muốn ăn mừng dịp gì thì quán trang trí bàn tiệc <strong>miễn phí</strong> (bảng chúc mừng, hoa trang trí); phần trang trí có nhận cọc 200.000đ khi chốt lịch và <strong>hoàn lại sau khi ăn xong</strong>, còn đặt bàn ăn bình thường thì không cần cọc. <a href="/#booking">Đặt bàn đêm Noel →</a></p>
+                            <p>Quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bạn trả đúng cho món mình gọi, mức chi 150.000đ–400.000đ một người đã gồm VAT. Muốn ăn mừng dịp gì thì quán trang trí bàn tiệc <strong>miễn phí</strong> (bảng chúc mừng, hoa trang trí); phần trang trí có nhận cọc 200.000đ khi chốt lịch và <strong>hoàn lại sau khi ăn xong</strong>, còn đặt bàn ăn bình thường thì không cần cọc. <a href="/#booking">Đặt bàn đêm Noel →</a></p>
 <img src="assets/images/blog/cap-doi-vuon-hoa-tram-dung-chill-da-lat.webp" alt="Cặp đôi đứng giữa vườn hoa trước vách gỗ gắn chữ trạm dừng chill, bên cạnh là biển chỉ đường “Anh sẽ cầu hôn em ở Đà Lạt”" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -4785,7 +4785,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill — thông tin để bạn tự đối chiếu</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, cách trung tâm khoảng 7 km, mở cửa 15:00 - 23:00. Quán là không gian ngoài trời nhìn ra thung lũng nhà lồng: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo, tuỳ thời tiết và lịch tàu.</p>
-<p>Menu hơn 70 món tính cả đồ uống, gọi món lẻ, không buffet và không combo cố định. Món signature là bò tảng nướng phô mai trứng muối 209K; phần lẩu có gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 95.000đ - 300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR, đón thú cưng, có nhạc sống với nghệ sĩ thổi saxophone, và setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng nếu báo trước.</p>
+<p>Menu hơn 70 món tính cả đồ uống, gọi món lẻ, không buffet và không combo cố định. Món signature là bò tảng nướng phô mai trứng muối 209K; phần lẩu có gà lá é 300K, hải sản 320K, cá tầm 320K. Mức chi 150.000đ - 400.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá. Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, nhận chuyển khoản và QR, đón thú cưng, có nhạc sống với nghệ sĩ thổi saxophone, và setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng nếu báo trước.</p>
 <p>Những thứ quán <strong>không</strong> có, nói luôn để bạn khỏi mất công: không buffet, không món chay, không nhận tiệc cưới, không giữ bàn view. <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" alt="Toa tàu xám Dalat Plateau Rail Road trên đường ray ngay dưới lan can gỗ của quán, có biển báo giao cắt đường sắt, phía sau là nhà kính và căn nhà hồng" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
@@ -4882,7 +4882,7 @@ const BLOG_ARTICLES = [
 <p>Quán gọi món lẻ hợp hơn quán buffet trong trường hợp này: ba mẹ ăn ít, gọi đúng vài món vừa miệng là đủ, không phải trả tiền suất buffet rồi bỏ dở. Quán buffet còn hay có giới hạn thời gian ngồi, tạo cảm giác bị hối.</p>
 
 <h2>Trạm Dừng Chill soi theo bốn tiêu chí trên</h2>
-<p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00-23:00. Quán là không gian ngoài trời hướng ra thung lũng nhà lồng, có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Menu hơn 70 món kể cả đồ uống, <strong>gọi món lẻ, không buffet, không combo cố định</strong> nên gọi bao nhiêu trả bấy nhiêu, không bị ép suất. Mức chi 95.000đ-300.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá.</p>
+<p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, mở cửa 15:00-23:00. Quán là không gian ngoài trời hướng ra thung lũng nhà lồng, có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Menu hơn 70 món kể cả đồ uống, <strong>gọi món lẻ, không buffet, không combo cố định</strong> nên gọi bao nhiêu trả bấy nhiêu, không bị ép suất. Mức chi 150.000đ-400.000đ/người đã gồm VAT. Google đang ghi nhận 4,8 sao với 7.344 lượt đánh giá.</p>
 <p>Điểm cộng riêng cho chuyến đi cùng ba mẹ là có cái để ngắm chứ không chỉ ngồi ăn: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo. Quán có nhạc sống với nghệ sĩ thổi saxophone. Nếu là dịp mừng thọ hay kỷ niệm ngày cưới của ba mẹ, quán setup hoa trang trí và bảng chúc mừng miễn phí, chỉ cần báo trước.</p>
 <p>Cần nói thẳng vài điểm để bạn cân nhắc: quán là không gian mở nên tối sẽ lạnh, và quán <strong>không nhận giữ bàn view</strong> — muốn chỗ nhìn thoáng thì đến sớm. Quán cũng không có món chay, nếu ba mẹ ăn chay thì nên tính phương án khác.</p>
 <p><a href="/#booking">Đặt bàn cho gia đình →</a></p>
@@ -4970,7 +4970,7 @@ const BLOG_ARTICLES = [
 <h2>Ăn nướng ngắm tàu — chọn chỗ thế nào</h2>
 <h3>Trạm Dừng Chill: đường ray chạy ngay dưới chân quán</h3>
 <p><a href="/">Trạm Dừng Chill</a> nằm ở 111 Huỳnh Tấn Phát, Phường Xuân Trường — đoạn tuyến Đà Lạt - Trại Mát đi qua ngay phía dưới quán. Ngồi trên nhìn xuống, bạn thấy đoàn tàu chạy ngang; thời điểm tham khảo là trong khung 16h30 – 21h25. Trước đó chừng một tiếng là hoàng hôn, và từ 18h30 các nhà lồng quanh thung lũng lên đèn thành "biển sao". Cả ba mốc đều tham khảo, tuỳ mùa và tuỳ hôm.</p>
-<p>Quán mở 15:00-23:00, mức chi 95.000đ-300.000đ mỗi người đã gồm VAT, hơn 70 món gọi lẻ, không buffet. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. <a href="/#booking">Đặt bàn →</a></p>
+<p>Quán mở 15:00-23:00, mức chi 150.000đ-400.000đ mỗi người đã gồm VAT, hơn 70 món gọi lẻ, không buffet. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/co-gai-giua-cam-tu-cau-da-lat.webp" alt="Cô gái đứng giữa khóm cẩm tú cầu xanh tím và hoa đỏ bên hàng rào gỗ ở Trạm Dừng Chill" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 <h3>Các kiểu hàng quán khác dọc tuyến đường ray</h3>
@@ -5047,7 +5047,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Gọi món cho bàn 4 người tại Trạm Dừng Chill</h2>
-                            <p>Tại <a href="/">Trạm Dừng Chill</a>, quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bàn 4 người trả đúng cho món mình gọi, không phải trả cho phần không ăn. Bốn người thường rơi vào khoảng 380K-1.200K tuỳ gọi nhiều hay ít. Khi <a href="/#booking"><strong>đặt bàn</strong></a>, báo trước số người để nhân viên gợi ý mâm hợp khẩu vị và ngân sách.</p>
+                            <p>Tại <a href="/">Trạm Dừng Chill</a>, quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bàn 4 người trả đúng cho món mình gọi, không phải trả cho phần không ăn. Bốn người thường rơi vào khoảng 600K-1.600K tuỳ gọi nhiều hay ít. Khi <a href="/#booking"><strong>đặt bàn</strong></a>, báo trước số người để nhân viên gợi ý mâm hợp khẩu vị và ngân sách.</p>
 
                             <h2>Kết luận</h2>
                             <p><strong>Thực đơn nướng 4 người</strong> lý tưởng từ 400-800K tùy budget. Ở Trạm Dừng Chill bạn cứ <a href="/">gọi lẻ từng món</a> rồi cả bàn dùng chung — vài món nướng cộng một nồi lẩu là vừa. <a href="/#booking">Đặt bàn ngay →</a></p>`
@@ -5122,7 +5122,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Chiều tối (15:30-20:00) — 5 món nướng BBQ</h2>
-                            <p>Highlight của food tour! Ghé <a href="/">Trạm Dừng Chill</a> nướng BBQ ngắm hoàng hôn: <strong>11. Bò Mỹ nướng</strong>. <strong>12. Tôm nướng muối ớt</strong>. <strong>13. Nấm rừng nướng bơ tỏi</strong>. <strong>14. Gà nướng mật ong</strong>. <strong>15. Bắp nướng mỡ hành</strong>. Set từ 95K/người — vừa ăn vừa ngắm view 3 trong 1! <a href="/#booking">Đặt bàn →</a></p>
+                            <p>Highlight của food tour! Ghé <a href="/">Trạm Dừng Chill</a> nướng BBQ ngắm hoàng hôn: <strong>11. Bò Mỹ nướng</strong>. <strong>12. Tôm nướng muối ớt</strong>. <strong>13. Nấm rừng nướng bơ tỏi</strong>. <strong>14. Gà nướng mật ong</strong>. <strong>15. Bắp nướng mỡ hành</strong>. Set từ 150K/người — vừa ăn vừa ngắm view 3 trong 1! <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/cap-doi-ngam-hoang-hon-nha-long-da-lat.webp" alt="Cặp đôi tựa lan can gỗ lúc hoàng hôn, phía sau là thung lũng nhà lồng dưới trời mây vàng cam" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5173,7 +5173,7 @@ const BLOG_ARTICLES = [
 
 <h3>5. Không gian mở nhìn ra thung lũng</h3>
 <p>Không phải sân vườn cây cối, mà là sân bậc thang hướng thẳng ra thung lũng, không có gì che tầm mắt. Đây là kiểu của <a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km. Quán mở 15:00–23:00. Ngồi ở đây có ba mốc để ngắm — tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, và biển sao nhà lồng dưới thung lũng lên đèn từ khoảng 18h30. Ba mốc này là <em>tham khảo</em>, phụ thuộc mùa và thời tiết chứ không phải giờ cố định.</p>
-<p>Về đồ ăn: hơn 70 món gọi lẻ, không buffet, không combo cố định, giá rơi vào 95.000đ–300.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Ai đi đông muốn có nồi lẩu cho ấm thì có ba loại: gà lá é 300K, hải sản 320K, cá tầm 320K. Xem trước ở <a href="menu.html">trang menu</a> rồi <a href="/#booking">đặt bàn →</a></p>
+<p>Về đồ ăn: hơn 70 món gọi lẻ, không buffet, không combo cố định, giá rơi vào 150.000đ–400.000đ/người đã gồm VAT. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Ai đi đông muốn có nồi lẩu cho ấm thì có ba loại: gà lá é 300K, hải sản 320K, cá tầm 320K. Xem trước ở <a href="menu.html">trang menu</a> rồi <a href="/#booking">đặt bàn →</a></p>
 
 <h2>Bốn câu nên hỏi trước khi chốt một quán sân vườn</h2>
 <ul>
@@ -5367,7 +5367,7 @@ const BLOG_ARTICLES = [
 <p><strong>Kiểu sân vườn biệt lập ngoại ô:</strong> yên, riêng tư, chụp ảnh đẹp. Nhược là đi lại xa và phụ thuộc thời tiết. Hỏi trước có mái che dự phòng và chỗ đỗ ô tô không.</p>
 
 <h2>Trạm Dừng Chill — "sang" mà không cần set cố định</h2>
-<p><a href="/">Trạm Dừng Chill</a> không tự nhận là nhà hàng fine dining, nhưng nếu bạn cần một bữa tươm tất cho dịp đặc biệt mà không muốn trả giá phân khúc cao nhất, cách của quán là: gọi món lẻ, tự xếp lấy một bữa đúng ý. Quán không có buffet, không có combo cố định, giá thực tế rơi vào khoảng 95.000đ đến 300.000đ một người và đã gồm VAT.</p>
+<p><a href="/">Trạm Dừng Chill</a> không tự nhận là nhà hàng fine dining, nhưng nếu bạn cần một bữa tươm tất cho dịp đặc biệt mà không muốn trả giá phân khúc cao nhất, cách của quán là: gọi món lẻ, tự xếp lấy một bữa đúng ý. Quán không có buffet, không có combo cố định, giá thực tế rơi vào khoảng 150.000đ đến 400.000đ một người và đã gồm VAT.</p>
 <p>Muốn bữa nhìn "nặng ký" thì gọi Bò Tảng Nướng Phô Mai Trứng Muối 209K làm món chính, thêm Tôm Nướng Muối Ớt 150K, một nồi lẩu cá tầm 320K cho ấm, kèm chai Rượu Vang Classic 750ml 190K. Xem trước <a href="menu.html">menu đầy đủ</a> để tính tiền từ nhà. <a href="/#booking">Đặt bàn →</a></p>
 <p>Phần khiến bữa ăn ở đây khác biệt lại nằm ở thứ không tính tiền được: tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30 — đều là mốc tham khảo. Quán có nhạc sống với nghệ sĩ thổi saxophone, có setup sinh nhật và kỷ niệm miễn phí gồm hoa trang trí và bảng chúc mừng. Trên Google, quán đang ở mức 4,8 sao với 7.344 lượt đánh giá.</p>
 <p>Nói luôn phần quán không có, để bạn khỏi đặt nhầm chỗ: không nhận tiệc cưới, không có món chay, không buffet, không có ưu đãi theo nhóm và không nhận giữ riêng bàn view.</p>
@@ -5466,7 +5466,7 @@ const BLOG_ARTICLES = [
 
 <h2>Trạm Dừng Chill trong lịch trình tháng 3</h2>
 <p><a href="/">Trạm Dừng Chill</a> ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở cửa 15:00-23:00. Quán thuộc nhóm ngoại ô có view: tàu lửa cổ tuyến Đà Lạt - Trại Mát chạy dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, nhà lồng đèn lên đèn từ 18h30 — các mốc này chỉ để tham khảo, còn tùy thời tiết và lịch chạy tàu hôm đó.</p>
-<p>Menu <a href="menu.html">hơn 70 món</a>, gọi món lẻ, không buffet và không combo cố định. Mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; tháng 3 đêm vẫn lạnh nên nhiều nhóm gọi thêm lẩu — gà lá é 300K, hải sản 320K, cá tầm 320K. Quán hiện có 4,8 sao với 7.344 lượt đánh giá trên Google.</p>
+<p>Menu <a href="menu.html">hơn 70 món</a>, gọi món lẻ, không buffet và không combo cố định. Mức chi khoảng 150.000đ-400.000đ/người đã gồm VAT. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>; tháng 3 đêm vẫn lạnh nên nhiều nhóm gọi thêm lẩu — gà lá é 300K, hải sản 320K, cá tầm 320K. Quán hiện có 4,8 sao với 7.344 lượt đánh giá trên Google.</p>
 <p>Quán có bãi đỗ miễn phí cho xe máy và ô tô con, WiFi mạnh, đón thú cưng, và setup sinh nhật/kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng nếu bạn báo trước lúc đặt bàn. Buổi tối có nhạc sống với nghệ sĩ thổi saxophone. <a href="/#booking">Đặt bàn →</a></p>
 
 <h2>Mấy thứ nhỏ nhưng dễ quên khi đi Đà Lạt tháng 3</h2>
@@ -5499,7 +5499,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>Giá tại Trạm Dừng Chill</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> thuộc phân khúc <strong>trung cấp, giá 95-300K/người</strong> — nhưng view thuộc hàng premium! Quán gọi món lẻ, không bán combo hay set cố định — hai người thường khoảng 190-600K, bốn người khoảng 380K-1.200K, tuỳ gọi nhiều hay ít. Giá hợp lý + view xe lửa + hoàng hôn + biển sao = giá trị vượt trội. <a href="/#booking">Xem menu & đặt bàn →</a></p>
+                            <p><a href="/">Trạm Dừng Chill</a> thuộc phân khúc <strong>trung cấp, giá 150-400K/người</strong> — nhưng view thuộc hàng premium! Quán gọi món lẻ, không bán combo hay set cố định — hai người thường khoảng 300-800K, bốn người khoảng 600K-1.600K, tuỳ gọi nhiều hay ít. Giá hợp lý + view xe lửa + hoàng hôn + biển sao = giá trị vượt trội. <a href="/#booking">Xem menu & đặt bàn →</a></p>
 <img src="assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp" alt="Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5518,7 +5518,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Kết luận</h2>
-                            <p><strong>Ăn nướng Đà Lạt 2027</strong> không hề đắt — từ 95K/người đã có bữa nướng ngon view đẹp tại <a href="/">Trạm Dừng Chill</a>! <a href="/#booking">Đặt bàn ngay →</a></p>`
+                            <p><strong>Ăn nướng Đà Lạt 2027</strong> không hề đắt — từ 150K/người đã có bữa nướng ngon view đẹp tại <a href="/">Trạm Dừng Chill</a>! <a href="/#booking">Đặt bàn ngay →</a></p>`
     },
     
     {
@@ -5607,7 +5607,7 @@ const BLOG_ARTICLES = [
 <h2>Khi nào nên để bữa nướng vào buổi tối?</h2>
 <p>Nếu bạn muốn trải nghiệm <strong>hoàng hôn và biển sao nhà lồng</strong> thì bắt buộc phải là chiều tối. Tại <a href="/">Trạm Dừng Chill</a>, ba lớp cảnh nối nhau: tàu lửa cổ tuyến Đà Lạt – Trại Mát chạy ngay dưới chân quán trong khung 16h30 – 21h25, hoàng hôn từ khoảng 16h30, rồi nhà lồng lên đèn từ 18h30. Đây là mốc tham khảo chứ không phải giờ chạy chính xác, nên cứ đến sớm một chút cho chắc.</p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-<p>Menu hơn 70 món gọi lẻ, không buffet, không combo cố định, giá khoảng 95.000đ đến 300.000đ một người đã gồm VAT. Trời lạnh thì thêm một nồi lẩu — gà lá é 300K, hải sản 320K hoặc cá tầm 320K. Xem trước <a href="menu.html">menu đầy đủ</a> để gọi cho nhanh.</p>
+<p>Menu hơn 70 món gọi lẻ, không buffet, không combo cố định, giá khoảng 150.000đ đến 400.000đ một người đã gồm VAT. Trời lạnh thì thêm một nồi lẩu — gà lá é 300K, hải sản 320K hoặc cá tầm 320K. Xem trước <a href="menu.html">menu đầy đủ</a> để gọi cho nhanh.</p>
 
 <h2>Kết luận</h2>
 <p><strong>Quán nướng Đà Lạt mở sớm</strong> có, nhưng ít, và giờ giấc thay đổi thường xuyên hơn bạn tưởng — nên luôn gọi xác nhận trước khi chạy tới. Còn nếu sắp xếp được, hãy để bữa nướng vào chiều tối, đó là lúc Đà Lạt đáng ngồi nhất. <a href="/">Trạm Dừng Chill</a> đón khách từ 15h. <a href="/#booking">Đặt bàn →</a></p>`
@@ -5704,7 +5704,7 @@ const BLOG_ARTICLES = [
 
 <h2>Ở Trạm Dừng Chill thì sao?</h2>
 <p><a href="/">Trạm Dừng Chill</a> — 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt — <strong>nhận chuyển khoản và QR</strong> bên cạnh tiền mặt, nên nhóm bạn có thể chia tiền với nhau rồi một người trả một lần cho gọn.</p>
-<p>Quán mở 15:00-23:00, gọi món lẻ chứ không buffet và không combo cố định, <a href="menu.html">hơn 70 món</a> tính cả đồ uống. Mức chi khoảng 95.000đ-300.000đ/người đã gồm VAT — biết trước khoảng này thì dễ ước lượng số dư cần có trong tài khoản. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>, trời lạnh thì thêm nồi lẩu gà lá é 300K, hải sản 320K hoặc cá tầm 320K.</p>
+<p>Quán mở 15:00-23:00, gọi món lẻ chứ không buffet và không combo cố định, <a href="menu.html">hơn 70 món</a> tính cả đồ uống. Mức chi khoảng 150.000đ-400.000đ/người đã gồm VAT — biết trước khoảng này thì dễ ước lượng số dư cần có trong tài khoản. Món signature là <strong>Bò Tảng Nướng Phô Mai Trứng Muối 209K</strong>, trời lạnh thì thêm nồi lẩu gà lá é 300K, hải sản 320K hoặc cá tầm 320K.</p>
 <p>Quán cách trung tâm khoảng 7 km, có bãi đỗ miễn phí cho xe máy và ô tô con, và có WiFi mạnh — cái này quan trọng thật, vì sóng 4G khu ngoại ô đôi lúc hơi yếu mà chuyển khoản thì cần mạng. <a href="/#booking">Đặt bàn →</a></p>
 
 <h2>Kết luận</h2>
@@ -5807,7 +5807,7 @@ const BLOG_ARTICLES = [
 
 <h2>Ở Trạm Dừng Chill thì kiểm thế nào</h2>
 <p><a href="/">Trạm Dừng Chill</a> nướng than ngay tại bàn, nên phần lớn nguyên liệu được bày ra sống trước mặt bạn — cứ áp mấy mẹo nhìn ở trên vào là biết. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm khoảng 7 km, mở 15:00–23:00.</p>
-<p>Quán gọi món lẻ, không buffet, không combo cố định, nên bạn kiểm soát được chính xác mình ăn bao nhiêu và ăn cái gì. Hơn 70 món kèm giá từng món công khai trong <a href="menu.html">thực đơn</a>, mức 95.000đ–300.000đ/người đã gồm VAT. Muốn gọi theo hướng nhẹ bụng thì có Salad Trộn Dầu Giấm 95K, Rau Thêm 20K, Chân Gà Nướng Muối Ớt 105K, Cá Tầm Nướng 162K, hoặc một nồi Lẩu Gà Lá É 300K cho cả bàn. Có gì cần hỏi về nguồn hàng, cứ hỏi thẳng nhân viên hoặc gọi <strong>0989.765.070</strong>.</p>
+<p>Quán gọi món lẻ, không buffet, không combo cố định, nên bạn kiểm soát được chính xác mình ăn bao nhiêu và ăn cái gì. Hơn 70 món kèm giá từng món công khai trong <a href="menu.html">thực đơn</a>, mức 150.000đ–400.000đ/người đã gồm VAT. Muốn gọi theo hướng nhẹ bụng thì có Salad Trộn Dầu Giấm 95K, Rau Thêm 20K, Chân Gà Nướng Muối Ớt 105K, Cá Tầm Nướng 162K, hoặc một nồi Lẩu Gà Lá É 300K cho cả bàn. Có gì cần hỏi về nguồn hàng, cứ hỏi thẳng nhân viên hoặc gọi <strong>0989.765.070</strong>.</p>
 
 <h2>Kết luận</h2>
 <p>Không ai đi ăn mà mang theo máy xét nghiệm. Nhưng mắt và mũi của bạn đã đủ để loại phần lớn hàng không ổn, và một câu hỏi đúng lúc còn hiệu quả hơn cả trang quảng cáo. Cứ nhìn, cứ hỏi, rồi ăn cho thoải mái. <a href="/#booking">Đặt bàn Trạm Dừng Chill →</a></p>`
@@ -5908,7 +5908,7 @@ const BLOG_ARTICLES = [
 <ul>
 <li><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt — cách trung tâm khoảng 7 km.</li>
 <li><strong>Giờ mở cửa:</strong> 15:00-23:00.</li>
-<li><strong>Mức chi:</strong> 95.000đ-300.000đ mỗi người, đã gồm VAT.</li>
+<li><strong>Mức chi:</strong> 150.000đ-400.000đ mỗi người, đã gồm VAT.</li>
 <li><strong>Menu:</strong> hơn 70 món tính cả đồ uống, gọi lẻ, không buffet, không combo cố định. Món signature là Bò Tảng Nướng Phô Mai Trứng Muối 209K. Ba nồi lẩu gồm gà lá é 300K, hải sản 320K và cá tầm 320K. Xem trước tại <a href="menu.html">menu</a>.</li>
 <li><strong>Đánh giá:</strong> 4,8 sao với 7.344 lượt trên Google.</li>
 <li><strong>Có:</strong> setup sinh nhật và kỷ niệm miễn phí gồm hoa trang trí, bảng chúc mừng; nhạc sống với nghệ sĩ thổi saxophone; WiFi mạnh; đón thú cưng; nhận chuyển khoản và QR; bãi đỗ miễn phí cho xe máy và ô tô con.</li>
@@ -6002,7 +6002,7 @@ const BLOG_ARTICLES = [
                             <p><strong>Sườn non nướng mắc khén</strong> — gia vị đặc trưng Tây Bắc, tạo hương thơm nồng đặc biệt. <strong>Gà ta nướng muối ớt</strong> — da giòn rụm, thịt ngọt chắc, ăn kèm xôi hoặc cơm lam. Hai món này luôn nằm trong top best-seller tại mọi quán nướng Đà Lạt.</p>
 
                             <h2>Thưởng thức tại Trạm Dừng Chill</h2>
-                            <p>Menu nướng tại <a href="/">Trạm Dừng Chill</a> có đủ các món trên, giá từ 95.000đ/người. Điểm khác biệt: bạn vừa nướng vừa ngắm hoàng hôn và xe lửa chạy ngang — trải nghiệm chỉ có tại 111 Huỳnh Tấn Phát, Phường Xuân Trường.</p>
+                            <p>Menu nướng tại <a href="/">Trạm Dừng Chill</a> có đủ các món trên, giá từ 150.000đ/người. Điểm khác biệt: bạn vừa nướng vừa ngắm hoàng hôn và xe lửa chạy ngang — trải nghiệm chỉ có tại 111 Huỳnh Tấn Phát, Phường Xuân Trường.</p>
 <img src="assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp" alt="Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Tip thưởng thức món nướng Đà Lạt</h2>
@@ -6092,15 +6092,15 @@ const BLOG_ARTICLES = [
         imageAlt: "Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán",
         badge: "",
         featured: false,
-        excerpt: "Sinh viên du lịch Đà Lạt muốn ăn nướng ngon mà <strong>giá rẻ</strong>? Đây là danh sách <strong>quán nướng Đà Lạt giá rẻ cho sinh viên</strong> — ăn no, view đẹp, chỉ từ 95K/người.",
+        excerpt: "Sinh viên du lịch Đà Lạt muốn ăn nướng ngon mà <strong>giá rẻ</strong>? Đây là danh sách <strong>quán nướng Đà Lạt giá rẻ cho sinh viên</strong> — ăn no, view đẹp, chỉ từ 150K/người.",
         body: `<h2>Sinh viên Đà Lạt — Ngân sách bao nhiêu là đủ?</h2>
                             <p>Với nhóm sinh viên 4-6 người, ngân sách ăn nướng Đà Lạt lý tưởng khoảng 100-150K/người. Mức này đủ để ăn no các món nướng ngon: thịt bò, hải sản, rau nướng kèm nước uống. Quan trọng là chọn quán niêm yết giá rõ từng món và không phụ thu bàn view, để cả nhóm chủ động gọi vừa túi tiền.</p>
 
                             <h2>Mẹo ăn nướng tiết kiệm tại Đà Lạt</h2>
                             <p><strong>Đi nhóm đông:</strong> Gọi combo chia nhau rẻ hơn gọi riêng. <strong>Đi ngày thường:</strong> Nhiều quán giảm giá ngày thường. <strong>Đặt trước online:</strong> Có khuyến mãi hoặc phần tặng thêm. <strong>Đến sớm:</strong> Một số quán có ưu đãi "happy hour" buổi chiều.</p>
 
-                            <h2>Trạm Dừng Chill — Giá từ 95K, view "xịn sò"</h2>
-                            <p>Tại <a href="/">Trạm Dừng Chill</a>, set nướng bắt đầu từ 95.000đ/người — rất phù hợp cho sinh viên. Quán có bàn nhóm cho 6-10 người, view hoàng hôn và xe lửa cổ chạy ngang. Đặc biệt, quán <strong>không phụ thu</strong> cuối tuần hay dịp lễ.</p>
+                            <h2>Trạm Dừng Chill — Giá từ 150K, view "xịn sò"</h2>
+                            <p>Tại <a href="/">Trạm Dừng Chill</a>, set nướng bắt đầu từ 150.000đ/người — rất phù hợp cho sinh viên. Quán có bàn nhóm cho 6-10 người, view hoàng hôn và xe lửa cổ chạy ngang. Đặc biệt, quán <strong>không phụ thu</strong> cuối tuần hay dịp lễ.</p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Các quán nướng bình dân khác</h2>

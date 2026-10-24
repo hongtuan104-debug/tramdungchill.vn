@@ -153,7 +153,7 @@ const BLOG_ARTICLES = [
   "imageAlt": "晚上在 Trạm Dừng Chill，一群朋友在摆满火锅和烧烤的长木桌旁举杯，身后有客人举起手机拍摄栏杆下亮着灯的车厢，更远处是亮灯的温室大棚",
   "badge": "",
   "featured": false,
-  "excerpt": "在找适合大团体的大叻团建地点？Tiệm Nướng Trạm Dừng Chill 可以把多张桌子拼在一起，有火车 + 日落 + 「星海」景观，人均 95K–300K。",
+  "excerpt": "在找适合大团体的大叻团建地点？Tiệm Nướng Trạm Dừng Chill 可以把多张桌子拼在一起，有火车 + 日落 + 「星海」景观，人均 150K–400K。",
   "tags": []
  },
  {
@@ -201,7 +201,7 @@ const BLOG_ARTICLES = [
   "imageAlt": "身穿红衣的女孩站在栏杆旁看温室大棚山谷上空的日落，旁边的餐桌上有手写字牌和一瓶黄花",
   "badge": "",
   "featured": false,
-  "excerpt": "在 Trạm Dừng Chill（大叻）吃烧烤，人均通常 95,000–300,000 越南盾，已含增值税：70 多道菜明码标价，还能看火车和日落。",
+  "excerpt": "在 Trạm Dừng Chill（大叻）吃烧烤，人均通常 150,000–400,000 越南盾，已含增值税：70 多款菜品和饮品明码标价，还能看火车和日落。",
   "tags": []
  }
 ];

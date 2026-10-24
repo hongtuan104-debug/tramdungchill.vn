@@ -88,7 +88,9 @@ function chiMuc(ma) {
 /* Các cách viết một con số trong bản dịch: "7.344" tiếng Việt có thể thành "7,344" / "7344" / "7 344". */
 function cachViet(so) {
     const ds = [so];
-    if (/^\d{1,3}(\.\d{3})+$/.test(so)) { const tron = so.replace(/\./g, ''); ds.push(so.replace(/\./g, ','), tron, so.replace(/\./g, ' ')); }
+    // tiếng Nga (và Pháp…) ngăn nghìn bằng dấu cách KHÔNG NGẮT "95 000" (U+00A0 / U+202F) — thiếu 2 dạng này thì đổi giá
+    // là bản tiếng Nga không tự suy được (24/10/2026: đổi 95K–300K → 150K–400K, 29 câu tiếng Nga rơi vào "cần dịch")
+    if (/^\d{1,3}(\.\d{3})+$/.test(so)) { const tron = so.replace(/\./g, ''); ds.push(so.replace(/\./g, ','), tron, so.replace(/\./g, ' '), so.replace(/\./g, ' '), so.replace(/\./g, ' ')); }
     if (/^\d+,\d+$/.test(so)) ds.push(so.replace(',', '.'));
     if (/^\d+\.\d+$/.test(so) && !/^\d{1,3}(\.\d{3})+$/.test(so)) ds.push(so.replace('.', ','));
     return ds;
@@ -99,6 +101,8 @@ function doiCung(soCu, dangCu, soMoi) {
     if (dangCu === soCu.replace(/\./g, ',')) return soMoi.replace(/\./g, ',');
     if (dangCu === soCu.replace(/\./g, '')) return soMoi.replace(/\./g, '');
     if (dangCu === soCu.replace(/\./g, ' ')) return soMoi.replace(/\./g, ' ');
+    if (dangCu === soCu.replace(/\./g, ' ')) return soMoi.replace(/\./g, ' ');
+    if (dangCu === soCu.replace(/\./g, ' ')) return soMoi.replace(/\./g, ' ');
     if (dangCu === soCu.replace(',', '.')) return soMoi.replace(',', '.');
     if (dangCu === soCu.replace('.', ',')) return soMoi.replace('.', ',');
     return soMoi;

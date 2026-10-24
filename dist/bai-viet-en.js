@@ -155,7 +155,7 @@ const BLOG_ARTICLES = [
   "imageAlt": "A group of friends raising their glasses at a long wooden table laid with hotpot and grilled food at Trạm Dừng Chill in the evening; behind them, guests hold up phones to photograph an illuminated train carriage below the railing, with the greenhouses lit up further away",
   "badge": "",
   "featured": false,
-  "excerpt": "Looking for a team-building venue in Da Lat for a large group? Tiệm Nướng Trạm Dừng Chill can put many tables together, with a train view + sunset + sea of stars, at 95,000–300,000 VND per person.",
+  "excerpt": "Looking for a team-building venue in Da Lat for a large group? Tiệm Nướng Trạm Dừng Chill can put many tables together, with a train view + sunset + sea of stars, at 150,000–400,000 VND per person.",
   "tags": []
  },
  {
@@ -203,7 +203,7 @@ const BLOG_ARTICLES = [
   "imageAlt": "A girl in red standing by the railing watching the sunset over the greenhouse valley, next to a dining table with a handwritten sign and a vase of yellow flowers",
   "badge": "",
   "featured": false,
-  "excerpt": "BBQ at Trạm Dừng Chill (Da Lat) usually costs 95,000–300,000 VND per person, VAT included: a transparent price list of over 70 dishes, plus train and sunset views.",
+  "excerpt": "BBQ at Trạm Dừng Chill (Da Lat) usually costs 150,000–400,000 VND per person, VAT included: a transparent price list of over 70 menu items, plus train and sunset views.",
   "tags": []
  }
 ];

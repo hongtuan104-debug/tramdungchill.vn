@@ -32,7 +32,7 @@ const SCHEMA_DATA = {
         geo: { latitude: 11.9542027, longitude: 108.4946325 },
         cuisine: ['Vietnamese BBQ', 'Korean BBQ', 'Hotpot', 'Grilled Seafood'],
         hours: { open: '15:00', close: '23:00' },
-        priceRange: '₫95.000 - ₫300.000',
+        priceRange: '₫150.000 - ₫400.000',
         currenciesAccepted: 'VND',
         paymentAccepted: 'Cash, Bank Transfer',
         rating: { value: '4.8', count: '7344', best: '5' },
@@ -71,7 +71,7 @@ const SCHEMA_DATA = {
         },
         {
             question: 'Giá nướng BBQ tại Trạm Dừng Chill bao nhiêu?',
-            answer: 'Giá từ 95.000đ đến 300.000đ/người, đã bao gồm VAT. Menu gồm nướng BBQ, lẩu, hải sản và đồ uống.'
+            answer: 'Giá từ 150.000đ đến 400.000đ/người, đã bao gồm VAT. Menu gồm nướng BBQ, lẩu, hải sản và đồ uống.'
         },
         {
             question: 'Where is Tram Dung Chill BBQ in Da Lat?',

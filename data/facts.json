@@ -7,16 +7,26 @@
     "LUU Y: soMon KHONG khai o day - luoi tu dem tu data/menu-data.js."
   ],
 
-  "capNhatLanCuoi": "2026-10-18",
+  "capNhatLanCuoi": "2026-10-24",
   "_nguonSoDanhGia": "Google Maps - doc truc tiep tren trang dia diem (18/10/2026: 4,8 sao - 7.344 bai danh gia, tong 5 muc sao 6.702+223+121+78+220; 04/09 la 7.060; 24/08 tung thay 7.123 - Google co tia bot review, lay so doc truc tiep ngay cap nhat)",
 
   "soDanhGiaGoogle": 7344,
   "diemDanhGiaGoogle": "4.8",
   "ngayDocSoDanhGia": "2026-10-18",
 
-  "giaMin": 95000,
-  "giaMax": 300000,
-  "priceRangeSchema": "₫95.000 - ₫300.000",
+  "_veGiaNguoi": [
+    "Muc chi/nguoi = tong bill / so khach cua tung ban (bookings.bill_total / so_khach, ban co bill, tu 05/08/2026 khi chuyen han iPOS -> app).",
+    "Do 24/10/2026 tren 17.455 ban (05/08 -> 23/10): 79% ban nam trong 150.000-400.000d, 5% duoi, 16% tren.",
+    "30 ngay gan nhat (24/09 -> 23/10, 5.625 ban): 78% trong 150K-400K; muc CU 95K-300K chi con 48% ban, 51% ban chi TREN 300K.",
+    "Binh quan gia quyen 05/08 -> 22/10: 261.591d/khach (trang dich QC Google tieng Anh ghi 'about 260,000d per person' theo so nay).",
+    "Chu quan chot doi 95K-300K -> 150K-400K ngay 24/10/2026 (ca tieng Viet lan 6 thu tieng). Do lai bang scratchpad khoang-gia.mjs neu menu doi gia."
+  ],
+  "giaNguoiCu": [
+    { "min": 95000, "max": 300000, "den": "2026-10-24" }
+  ],
+  "giaMin": 150000,
+  "giaMax": 400000,
+  "priceRangeSchema": "₫150.000 - ₫400.000",
 
   "_veChiPhiNhom4": [
     "Cau 'Nhom 4 nguoi thuong het khoang ...' xuat hien o 12 cho tren web.",
@@ -28,10 +38,11 @@
     "index.html, translations.js (ca vi lan en), dip/sinh-nhat.html, dip/san-tau-da-lat.html",
     "-> so combo bia 800.000d song them 5 tuan, den 07/09/2026 moi don not.",
     "Song duoc lau vay vi facts.json CHUA co truong nay nen check-facts.js khong canh.",
-    "Nay da co: sua so o day thi luoi chi ra ngay moi cho ghi khac."
+    "Nay da co: sua so o day thi luoi chi ra ngay moi cho ghi khac.",
+    "24/10/2026: muc chi/nguoi doi 150K-400K => nhom 4 = 600.000d - 1.600.000d; nhom 2 (trang cau hon) = 300.000d - 800.000d."
   ],
-  "chiPhiNhom4Min": 380000,
-  "chiPhiNhom4Max": 1200000,
+  "chiPhiNhom4Min": 600000,
+  "chiPhiNhom4Max": 1600000,
 
   "_veSucChua": [
     "Chu quan xac nhan 07/09/2026: 'quan chi co gan 250 ban va khoang 1500 cho'.",

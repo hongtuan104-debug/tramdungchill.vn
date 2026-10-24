@@ -153,7 +153,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn",
     "badge": "",
     "featured": false,
-    "excerpt": "Tìm địa điểm team building Đà Lạt cho nhóm đông? Tiệm Nướng Trạm Dừng Chill kê được nhiều bàn liền nhau, view xe lửa + hoàng hôn + biển sao, giá 95K–300K/người.",
+    "excerpt": "Tìm địa điểm team building Đà Lạt cho nhóm đông? Tiệm Nướng Trạm Dừng Chill kê được nhiều bàn liền nhau, view xe lửa + hoàng hôn + biển sao, giá 150K–400K/người.",
     "tags": []
   },
   {
@@ -201,7 +201,7 @@ const BLOG_ARTICLES = [
     "imageAlt": "Cô gái áo đỏ đứng bên lan can ngắm hoàng hôn trên thung lũng nhà lồng, cạnh bàn ăn có bảng chữ viết tay và bình hoa vàng",
     "badge": "",
     "featured": false,
-    "excerpt": "Ăn nướng ở Trạm Dừng Chill (Đà Lạt) thường hết 95.000đ–300.000đ/người, đã gồm VAT: bảng giá hơn 70 món minh bạch, kèm view xe lửa và hoàng hôn.",
+    "excerpt": "Ăn nướng ở Trạm Dừng Chill (Đà Lạt) thường hết 150.000đ–400.000đ/người, đã gồm VAT: bảng giá hơn 70 món minh bạch, kèm view xe lửa và hoàng hôn.",
     "tags": []
   }
 ];

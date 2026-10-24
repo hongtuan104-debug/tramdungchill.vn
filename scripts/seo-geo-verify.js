@@ -610,6 +610,13 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
                      + " · 0 microdata/data-vocabulary");
 }
 
+// Mức chi/người lấy từ nguồn chuẩn data/facts.json (giaMin–giaMax) — 24/10/2026 đổi 95K–300K → 150K–400K theo số đo bill;
+// trước đó 3 luật dưới ghi cứng "95" nên đổi giá là phải nhớ sửa tay ở đây.
+const GIA_NGUOI = (() => {
+    const f = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "facts.json"), "utf8"));
+    return { min: f.giaMin, max: f.giaMax, nghinMin: String(f.giaMin / 1000) };
+})();
+
 // ── R8. Bộ câu hỏi query fan-out phải có text đọc được trên trang chủ ────
 {
     const s = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
@@ -620,7 +627,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         "địa chỉ": /Huỳnh Tấn Phát/i,
         "khoảng cách trung tâm": /\b7\s*km\b/i,
         "giờ mở cửa": /15:00/,
-        "giá": /95\.000|95,000/,
+        "giá": new RegExp(GIA_NGUOI.nghinMin + "[.,]000"),
         "đặt bàn": /đặt bàn/i,
         "đỗ xe": /đỗ xe|đậu xe|bãi đỗ/i,
         "trẻ em / gia đình": /trẻ nhỏ|trông giúp bé|gia đình/i,
@@ -648,7 +655,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         "địa chỉ": /Huỳnh Tấn Phát/i,
         "khoảng cách": /\b7\s*km\b/i,
         "giờ mở": /15:00/,
-        "giá": /95\.000/,
+        "giá": new RegExp(GIA_NGUOI.nghinMin + "\\.000"),   // giaMin của facts.json, viết kiểu Việt "150.000"
         "đỗ xe": /đỗ xe|đậu xe|bãi đỗ|bãi đậu/i,
         "mái che/mưa": /mái che|trời mưa/i,
         "thanh toán": /chuyển khoản/i,
@@ -675,11 +682,11 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         const m = fs.readFileSync(path.join(dir, f), "utf8").match(/name="robots" content="([^"]+)"/);
         return m && !/noindex/i.test(m[1]);
     });
-    // "95[.,]000" — bài tiếng Việt viết 95.000, bài tiếng Anh viết 95,000
+    // "<giaMin>[.,]000" — bài tiếng Việt viết 150.000, bài tiếng Anh viết 150,000 (số lấy từ facts.json)
     const TOPICS = {
-        // Trang đích QC tiếng Anh (23/10/2026) thay khoảng "95,000–300,000đ per person" (lệch số đo: trung vị 304.250đ)
-        // bằng mức chi bình quân đo từ bill thật — câu đó vẫn trả lời "ăn hết bao nhiêu" nên cũng tính là có giá.
-        "giá": /95[.,]000|\d{3}[.,]000đ per person/,
+        // Trang đích QC tiếng Anh (23/10/2026) ghi mức chi bình quân đo từ bill thật ("about 260,000đ per person") thay
+        // cho khoảng giá — câu đó vẫn trả lời "ăn hết bao nhiêu" nên cũng tính là có giá.
+        "giá": new RegExp(GIA_NGUOI.nghinMin + "[.,]000|\\d{3}[.,]000đ per person"),
         // Bài tiếng Anh viết KHÔNG DẤU ("111 Huynh Tan Phat") — trước 12/09/2026
         // chúng lọt lưới này nhờ footer còn để tiếng Việt; nay footer bài EN đã dịch
         // nên phải nhận cả hai cách viết, không thì báo thiếu oan.
@@ -896,7 +903,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
             if (!/[Gg]iá|price/i.test(c)) continue;
             // bắt "giá từ 29.000đ" / "từ 10K" — con số nhỏ đứng ở vai trò "giá quán"
             const low = c.match(/(?:giá\s+)?từ\s+([0-9]{1,3})(?:[.,]000)?\s*[KkĐđ]/i);
-            if (low && parseInt(low[1], 10) < 95) {
+            if (low && parseInt(low[1], 10) < GIA_NGUOI.min / 1000) {
                 offenders.push(rel(f) + ': "' + low[0] + '"');
             }
         }
@@ -904,7 +911,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
     add("Meta description không khai giá món lẻ thành giá/người",
         offenders.length === 0,
         offenders.length ? offenders.slice(0, 3).join(" | ")
-                         : "mọi meta mô tả dùng mức chi 95.000–300.000đ/người");
+                         : "mọi meta mô tả dùng mức chi " + GIA_NGUOI.min.toLocaleString("vi-VN") + "–" + GIA_NGUOI.max.toLocaleString("vi-VN") + "đ/người");
 }
 
 // ── R8g. Chưa khai chuyện lối vào cho xe lăn trên web ────────────────────

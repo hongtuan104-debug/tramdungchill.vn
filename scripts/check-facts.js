@@ -30,6 +30,9 @@ const ROOT = path.resolve(__dirname, '..');
 const SKIP_DIRS = new Set([
   '.git', 'node_modules', 'dist', 'assets', '.claude',
   'scripts', 'docs', 'plans', 'dev',
+  // data/ban-dich: tu dien dich giu ca cau CU (khoa = cau tieng Viet truoc khi sua) nen doi so o nguon la cau cu
+  // trong tu dien "sai" hang loat (24/10/2026: 500 cho). Khach khong doc tu dien — trang dich /en/ /zh/… van duoc quet.
+  'ban-dich',
 ]);
 // File bo qua: chinh nguon chuan (khop hien nhien, kiem se vo nghia)
 const SKIP_FILES = new Set([path.join('data', 'facts.json')]);
@@ -266,6 +269,33 @@ const PHEP_KIEM = [
       if (min !== FACTS.chiPhiNhom4Min) loi.push(`can duoi ghi ${m[1]}, nguon chuan la ${dinhDangVN(FACTS.chiPhiNhom4Min)}`);
       if (max !== FACTS.chiPhiNhom4Max) loi.push(`can tren ghi ${m[2]}, nguon chuan la ${dinhDangVN(FACTS.chiPhiNhom4Max)}`);
       return loi.length ? loi.join(' · ') : null;
+    },
+  },
+  {
+    // Vi sao co phep nay: khoang "95.000d-300.000d/nguoi" nam o ~140 cho tren web ma KHONG phep nao doi chieu
+    // (giaMin/giaMax trong facts.json khong ai doc). 24/10/2026 chu doi sang 150K-400K theo so do bill => phep nay
+    // bat moi cho con ghi MUC CU (facts.json giaNguoiCu). Chi bat muc cu chu khong bat moi khoang "X-Y/nguoi":
+    // bai so sanh co gia quan KHAC (180.000-250.000d/nguoi, food tour 500-700K) va ngan sach goi team building.
+    // Kieu viet: "95.000đ–300.000đ/người", "95K–300K/người", "95–300K/người", "Từ 95.000đ đến 300.000đ một người",
+    // "95,000–300,000 VND per person"; muc san don "từ 95K/người", "bắt đầu từ 95.000đ mỗi người".
+    ten: 'Muc chi moi nguoi con ghi MUC CU (nguon chuan la giaMin - giaMax)',
+    mau: /(?<![\d.,])(\d{2,3})(?:[.,]000)?\s*(?:đ|₫|K|k|VND)?\s*(?:[-–—]|đến|to)\s*(\d{2,3})(?:[.,]000)?\s*(?:đ|₫|K|k|VND)?(?=\s*(?:\/\s*người|mỗi người|một người|per person|\/khách))/gi,
+    batBuocCoKhop: true,
+    kiemTra: (m) => {
+      const min = Number(m[1]) * 1000, max = Number(m[2]) * 1000;
+      const cu = (FACTS.giaNguoiCu || []).find((g) => g.min === min && g.max === max);
+      return cu
+        ? `ghi ${m[0].trim()} = muc chi CU (truoc ${cu.den}), nguon chuan la ${dinhDangVN(FACTS.giaMin)} - ${dinhDangVN(FACTS.giaMax)}`
+        : null;
+    },
+  },
+  {
+    ten: 'Muc chi san "tu N/nguoi" con ghi MUC CU (nguon chuan la tu giaMin)',
+    mau: /(?:[Tt]ừ|[Ff]rom|chỉ từ|bắt đầu từ)\s*(\d{2,3})(?:[.,]000)?\s*(?:đ|₫|K|k|VND)?(?=\s*(?:\/\s*người|mỗi người|một người|per person))/g,
+    batBuocCoKhop: false,
+    kiemTra: (m) => {
+      const cu = (FACTS.giaNguoiCu || []).find((g) => g.min === Number(m[1]) * 1000);
+      return cu ? `ghi "${m[0].trim()}" = muc san CU (truoc ${cu.den}), nguon chuan la tu ${dinhDangVN(FACTS.giaMin)}` : null;
     },
   },
   {

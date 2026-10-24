@@ -26,7 +26,9 @@
 - **USP chính:** Hoàng hôn 15h, nhà lồng đèn 18h30, bò tảng phô mai trứng muối
   (⚠️ "hoàng hôn 15h" là cách nói nội bộ — 15:00 là giờ mở cửa. Trên web viết: **hoàng hôn từ khoảng 16:30**,
   **tàu chạy qua quán trong khung 16:30 – 21:25** (không ghi giờ từng chuyến) — sếp chốt 14/09/2026, xem bug #25.)
-- **Giá:** 95k - 300k/người (đã VAT). GBP hiển thị bucket "100-300N đ" — đây là
+- **Giá:** 150k - 400k/người (đã VAT) — sếp chốt 24/10/2026 theo số đo bill (17.455 bàn từ 05/08: 79% bàn trong khoảng này;
+  mức cũ 95k–300k thì 51% bàn 30 ngày gần nhất chi VƯỢT 300k). Nguồn chuẩn: `data/facts.json` giaMin/giaMax (+ `giaNguoiCu`
+  để check-facts bắt chỗ còn ghi mức cũ). Nhóm 4 = 600k–1.600k, hai người = 300k–800k. GBP hiển thị bucket "100-300N đ" — đây là
   khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
 - **Phụ thu:** Tết Nguyên đán Mùng 2–Mùng 8 Âm lịch **phụ thu 10%**; Valentine, đêm 24/12, bàn view **không** phụ thu (sếp chốt 14/09/2026).
 - **Xác nhận đặt bàn qua Zalo trong 15 phút:** chỉ trong giờ mở cửa 15:00–23:00 (sếp chốt 14/09/2026).
