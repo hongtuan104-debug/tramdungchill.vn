@@ -193,8 +193,8 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Gợi ý gọi món cho buổi hẹn hò 2 người</h2>
-                            <p>Để buổi date night thêm trọn vẹn, bạn có thể gọi <strong>vài món nướng cho 2 người</strong> tại Trạm Dừng Chill. Set bao gồm các món nướng đặc sắc như bò Mỹ, gà nướng lá é, hải sản tươi sống cùng rau củ nướng. Thêm một phần lẩu nóng hổi để hai người cùng nhúng và trò chuyện — vừa ấm bụng vừa ấm lòng trong tiết trời se lạnh Đà Lạt.</p>
-                            <p>Đừng quên gọi thêm đồ uống đặc biệt như trà đào cam sả hay sinh tố bơ Đà Lạt để hoàn thiện bữa tối lãng mạn.</p>
+                            <p>Để buổi date night thêm trọn vẹn, bạn có thể gọi <strong>vài món nướng cho 2 người</strong> tại Trạm Dừng Chill. Thực đơn nướng có bò, gà và hải sản. Thêm một phần lẩu nóng hổi để hai người cùng nhúng và trò chuyện — vừa ấm bụng vừa ấm lòng trong tiết trời se lạnh Đà Lạt.</p>
+                            <p>Đừng quên gọi thêm đồ uống đặc biệt như trà đào cam sả để hoàn thiện bữa tối lãng mạn.</p>
 
                             <h2>Lịch trình date night hoàn hảo tại Đà Lạt</h2>
                             <p><strong>16:30:</strong> Đến quán sớm, chọn bàn view thung lũng và gọi đồ uống.</p>
@@ -1103,7 +1103,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>What to Order as a Tourist</h2>
-                            <p><strong>Must-try items:</strong> US beef BBQ set, honey-grilled chicken, seafood platter (shrimp, squid, scallops), and hot pot combo. Vegetarian options are available on request. Don't miss the local Da Lat wine — a surprisingly good regional specialty!</p>
+                            <p><strong>Must-try items:</strong> grilled beef, chicken, shrimp and squid, plus hot pot. Vegetarian options are available on request. Don't miss the local Da Lat wine — a surprisingly good regional specialty!</p>
 <img src="assets/images/blog/cong-tron-hoang-hon-da-lat.webp" alt="A woman stands inside the round gate with the lit Tram Dung Chill sign, red flowers and hydrangeas on both sides, a purple-pink sunset behind" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -1295,26 +1295,9 @@ const BLOG_ARTICLES = [
         body: `<h2>Lẩu nướng — Combo hoàn hảo cho Đà Lạt mùa lạnh</h2>
                             <p>Khi nhiệt độ Đà Lạt xuống 15-18°C, không gì tuyệt vời hơn ngồi ngoài trời với <strong>nồi lẩu nóng bốc khói</strong> một bên và <strong>bếp nướng than hồng</strong> một bên. Combo <strong>lẩu nướng Đà Lạt</strong> vừa ấm bụng, vừa thỏa mãn cả hai "phe" — phe thích nướng và phe thích lẩu!</p>
 
-                            <h2>5 Combo lẩu nướng đáng thử nhất</h2>
-                            <p><strong>Combo 1 — Lẩu thái + nướng hải sản:</strong> Nước lẩu tom yum chua cay ấm bụng, kết hợp tôm, mực, sò nướng than hoa. Set cho 2 người từ 280K.</p>
-
-                                                        <p><strong>Combo 2 — Lẩu nấm + nướng bò Mỹ:</strong> Lẩu nấm thanh ngọt cho ai không ăn cay, bò Mỹ nướng medium rare mềm tan. Set cho 2 người từ 350K.</p>
-
-
-
-
-
-
-                            <p><strong>Combo 3 — Lẩu gà lá é + nướng ba chỉ:</strong> Đặc sản Đà Lạt! Gà thả vườn nấu lẩu lá é thơm phức, ba chỉ heo nướng giòn rụm. Set cho 4 người từ 450K.</p>
-                            <p><strong>Combo 4 — Lẩu bò nhúng giấm + nướng combo:</strong> Lẩu bò nhúng giấm chua nhẹ, kết hợp set nướng tổng hợp (bò, gà, xúc xích). Set cho 4 người từ 500K.</p>
+                            <h2>Gợi ý gọi món lẩu nướng ấm bụng</h2>
+                            <p><strong>Lẩu gà lá é + nướng ba chỉ:</strong> Đặc sản Đà Lạt! Gà nấu lẩu lá é thơm phức, ba chỉ heo nướng giòn rụm.</p>
 <img src="assets/images/blog/lau-hai-san-hoang-hon-da-lat.webp" alt="Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
-
-
-
-
-
-
-                                                        <p><strong>Combo 5 — Lẩu Kim Chi + nướng Hàn Quốc:</strong> Cho fan K-food — lẩu Kim Chi đậm vị, thịt nướng kiểu Hàn kèm banchan. Set cho 2 người từ 300K.</p>
 
                             <h2>Ở đâu ăn lẩu nướng view đẹp nhất?</h2>
                             <p>Tại <a href="/">Trạm Dừng Chill</a>, bạn được ăn <strong>lẩu nướng Đà Lạt</strong> với view sương mù phủ thung lũng, đèn nhà lồng lấp lánh xuyên sương. Menu có đầy đủ lẩu + nướng gọi món lẻ, từ 150K/người, phục vụ nhóm 2-20 người.</p>
@@ -2343,19 +2326,16 @@ const BLOG_ARTICLES = [
     },
     {
         id: "combo-nuong-da-lat-tiet-kiem",
-        title: "Combo Nướng Đà Lạt Tiết Kiệm — So Sánh Giá 5 Quán Phổ Biến 2026",
+        title: "Ăn Nướng Đà Lạt Tiết Kiệm — Mẹo Gọi Món Lẻ 2026",
         category: "Quán nướng Đà Lạt",
         date: "2026-06-17",
         image: "assets/images/blog/cap-doi-ban-lau-nuong-da-lat.webp",
         imageAlt: "Cặp đôi ngồi bàn gỗ bày lẩu, khay thịt, hải sản và salad ở Trạm Dừng Chill, phía sau là toa tàu cửa sổ bo tròn của khu check-in trong quán",
         badge: "",
         featured: false,
-        excerpt: "So sánh giá <strong>combo nướng Đà Lạt</strong> tại 5 quán phổ biến nhất 2026. Quán nào ngon, rẻ, view đẹp? Xem bảng giá chi tiết tại đây.",
-        body: `<h2>Tại sao nên chọn combo nướng?</h2>
-                            <p>Gọi <strong>combo nướng</strong> thay vì gọi lẻ thường tiết kiệm 15-30% chi phí. Combo đã được quán chọn sẵn các món ăn kèm hợp lý, đủ cho số người — không lo gọi thừa hoặc thiếu.</p>
-
-                            <h2>Trạm Dừng Chill — Gọi món lẻ từ 150K/người</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> có nhiều <strong>lựa chọn nướng tiết kiệm</strong>: quán gọi món lẻ chứ không bán combo cố định, mức chi khoảng 150.000đ–400.000đ một người tuỳ món. Bao gồm thịt bò, hải sản, rau củ nướng, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
+        excerpt: "Mẹo <strong>ăn nướng Đà Lạt</strong> tiết kiệm: gọi món lẻ chia nhau, đi ngày thường, hỏi quán về khuyến mãi trước khi đặt bàn.",
+        body: `<h2>Trạm Dừng Chill — Gọi món lẻ từ 150K/người</h2>
+                            <p><a href="/">Trạm Dừng Chill</a> có nhiều <strong>lựa chọn nướng tiết kiệm</strong>: quán gọi món lẻ chứ không bán combo cố định, mức chi khoảng 150.000đ–400.000đ một người tuỳ món. Bao gồm thịt bò, hải sản, nước chấm và cơm/mì. Giá đã bao gồm bếp than hoa.</p>
 <img src="assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" alt="Cô gái mặc áo lông trắng nâng khay hải sản bên bàn lẩu nướng ở Trạm Dừng Chill buổi tối, phía sau là thung lũng nhà lồng lấp lánh đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -2372,7 +2352,7 @@ const BLOG_ARTICLES = [
 
 
 
-                                                        <h2>So sánh giá 5 quán nướng Đà Lạt</h2>
+                                                        <h2>So sánh giá quán nướng Đà Lạt</h2>
                             <p><strong>Trạm Dừng Chill:</strong> 150–400K/người, gọi món lẻ nên dễ kiểm soát chi phí — gọi tới đâu trả tới đó. Các quán nướng khác ở Đà Lạt trải rộng nhiều mức giá tuỳ không gian và vị trí; quán khu trung tâm thường nhỉnh hơn quán ngoại ô. Xem menu trước khi đi là cách chắc nhất.</p>
 
 
@@ -3086,7 +3066,7 @@ const BLOG_ARTICLES = [
 
 
                             <h2>Gợi ý cách gọi món cho nhóm đông</h2>
-                            <p>Combo 6-8 người: gọi mix bò + hải sản + gà + rau củ nướng + 1 nồi lẩu. Thêm mì hoặc cơm ăn kèm. Đảm bảo ai cũng có món thích, giá chia đều khoảng 150-200K/người — rất hợp lý!</p>
+                            <p>Nhóm 6-8 người: gọi mix bò + hải sản + gà + 1 nồi lẩu. Thêm mì hoặc cơm ăn kèm. Đảm bảo ai cũng có món thích.</p>
 
                             <h2>Kết luận</h2>
                             <p>Đi nhóm đông? <a href="/">Trạm Dừng Chill</a> với <strong>menu 50+ món</strong> đa dạng sẽ khiến cả nhóm hài lòng. <a href="/#booking">Đặt bàn ngay</a>!</p>`
@@ -5013,9 +4993,9 @@ const BLOG_ARTICLES = [
         imageAlt: "Cô gái mặc áo lông nâng ly bên nồi lẩu và khay hải sản ở Trạm Dừng Chill, trời hoàng hôn cam rực trên thung lũng nhà kính",
         badge: "",
         featured: false,
-        excerpt: "Nhóm 4 người ăn nướng Đà Lạt gọi gì cho vừa ngon vừa tiết kiệm? Đây là gợi ý <strong>thực đơn nướng cho 4 người</strong> từ 400K đến 800K — gọi lẻ từng món, cả bàn dùng chung.",
+        excerpt: "Nhóm 4 người ăn nướng Đà Lạt gọi gì cho vừa ngon vừa tiết kiệm? Đây là gợi ý <strong>thực đơn nướng cho 4 người</strong> — gọi lẻ từng món, cả bàn dùng chung.",
         body: `<h2>Gọi gì cho nhóm 4 người?</h2>
-                            <p>Nhóm 4 người là size phổ biến nhất khi ăn nướng Đà Lạt — 2 cặp đôi, hoặc 4 bạn thân. Gọi đúng <strong>thực đơn nướng cho 4 người</strong> sẽ vừa đủ ăn, không thừa, không thiếu, lại tiết kiệm hơn gọi lẻ.</p>
+                            <p>Nhóm 4 người là size phổ biến nhất khi ăn nướng Đà Lạt — 2 cặp đôi, hoặc 4 bạn thân. Gọi đúng <strong>thực đơn nướng cho 4 người</strong> sẽ vừa đủ ăn, không thừa, không thiếu.</p>
 
                             <h2>Gợi ý tiết kiệm — khoảng 362K (~90K/người)</h2>
                             <p><strong>Ba chỉ bò cuộn kim châm</strong> (137K) + <strong>chân gà nướng muối ớt</strong> (105K) + <strong>khoai lang kén</strong> (70K) + <strong>rau thêm</strong> (20K) + <strong>kim chi</strong> (30K). Đủ no, đủ ngon, cực tiết kiệm!</p>
@@ -5037,8 +5017,8 @@ const BLOG_ARTICLES = [
 
 
 
-                                                        <h2>Set 3: Premium 800K (200K/người)</h2>
-                            <p><strong>Bò Wagyu</strong> + <strong>Tôm hùm baby</strong> (2 con) + <strong>Mực nướng</strong> + <strong>Sườn heo nướng BBQ</strong> + <strong>Set rau nướng Đà Lạt</strong> + <strong>Lẩu hải sản</strong> + <strong>Rượu vang Đà Lạt</strong> (1 chai). Sang trọng mà vẫn hợp lý!</p>
+                                                        <h2>Gợi ý nướng kèm lẩu</h2>
+                            <p><strong>Mực nướng</strong> + <strong>Sườn que nướng</strong> + <strong>Lẩu hải sản</strong> + <strong>Rượu vang Đà Lạt</strong> (1 chai).</p>
 
 
 
@@ -5050,7 +5030,7 @@ const BLOG_ARTICLES = [
                             <p>Tại <a href="/">Trạm Dừng Chill</a>, quán <strong>gọi món lẻ, không bán combo hay set cố định</strong> — bàn 4 người trả đúng cho món mình gọi, không phải trả cho phần không ăn. Bốn người thường rơi vào khoảng 600K-1.600K tuỳ gọi nhiều hay ít. Khi <a href="/#booking"><strong>đặt bàn</strong></a>, báo trước số người để nhân viên gợi ý mâm hợp khẩu vị và ngân sách.</p>
 
                             <h2>Kết luận</h2>
-                            <p><strong>Thực đơn nướng 4 người</strong> lý tưởng từ 400-800K tùy budget. Ở Trạm Dừng Chill bạn cứ <a href="/">gọi lẻ từng món</a> rồi cả bàn dùng chung — vài món nướng cộng một nồi lẩu là vừa. <a href="/#booking">Đặt bàn ngay →</a></p>`
+                            <p>Ở Trạm Dừng Chill bạn cứ <a href="/">gọi lẻ từng món</a> rồi cả bàn dùng chung — vài món nướng cộng một nồi lẩu là vừa. <a href="/#booking">Đặt bàn ngay →</a></p>`
     },
     {
         id: "quan-nuong-da-lat-valentine",
@@ -5556,7 +5536,7 @@ const BLOG_ARTICLES = [
                             <p><strong>5. Bánh Mì Premium Đà Lạt:</strong> Phiên bản cao cấp — bơ Pháp, pate gan ngỗng, 60K/ổ.</p>
 
                             <h2>Bánh mì nướng + Nướng BBQ = Combo hoàn hảo</h2>
-                            <p>Sáng ăn bánh mì nướng than hoa, chiều tối nướng BBQ tại <a href="/">Trạm Dừng Chill</a> — một ngày ẩm thực "nướng" trọn vẹn ở Đà Lạt! Tại Trạm Dừng Chill cũng có <strong>bánh mì nướng bơ tỏi</strong> ăn kèm set nướng — giòn rụm, phết bơ tỏi thơm lừng. <a href="/#booking">Đặt bàn →</a></p>
+                            <p>Sáng ăn bánh mì nướng than hoa, chiều tối nướng BBQ tại <a href="/">Trạm Dừng Chill</a> — một ngày ẩm thực "nướng" trọn vẹn ở Đà Lạt! <a href="/#booking">Đặt bàn →</a></p>
 <img src="assets/images/blog/quan-nuong-da-lat-dong-khach-ve-dem.webp" alt="Khu bàn gỗ đông khách buổi tối dưới chữ đèn trạm dừng chill trên vách gỗ, khách giơ điện thoại chụp toa tàu sáng đèn ngay sát lan can" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -5836,7 +5816,7 @@ const BLOG_ARTICLES = [
 
 
                                                         <h2>What to Order</h2>
-                            <p><strong>Must-try items:</strong> US beef BBQ (85-150K VND), grilled shrimp with salt & chili (85-150K), Da Lat mushroom platter (35-55K), grilled corn with scallion oil (20K), hot pot combo (85-120K). Pair with <strong>Da Lat wine</strong> (80-200K/bottle) for the perfect sunset dinner.</p>
+                            <p><strong>Must-try items:</strong> beef BBQ, grilled shrimp with salt & chili, and hot pot. Pair with <strong>Da Lat wine</strong> for the perfect sunset dinner.</p>
 <img src="assets/images/blog/hai-san-view-nha-long-da-lat-ve-dem.webp" alt="A guest holds up a seafood platter by the hotpot and grill table at Tram Dung Chill at night, the greenhouse valley sparkling with lights behind" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
 
@@ -6282,11 +6262,11 @@ const BLOG_ARTICLES = [
                             <p><strong>An toàn:</strong> Bếp nướng có vách chắn, sàn sạch không trơn. <strong>Menu đa dạng:</strong> Có món cho cả trẻ em và người lớn tuổi. <strong>Chỗ ngồi rộng:</strong> Bàn lớn cho 6-10 người. <strong>Có chỗ đỗ xe:</strong> Tiện cho gia đình tự lái. <strong>View đẹp:</strong> Trẻ em thích ngắm cảnh, chụp ảnh.</p>
 
                             <h2>Trạm Dừng Chill — Quán nướng thân thiện gia đình</h2>
-                            <p><a href="/">Trạm Dừng Chill</a> có bàn nhóm lớn cho gia đình 6-12 người, menu đa dạng từ thịt nướng, hải sản đến rau củ nướng. Trẻ em đặc biệt thích ngắm xe lửa cổ chạy ngang quán — khoảnh khắc thú vị và độc đáo. Quán có chỗ đỗ xe thoải mái.</p>
+                            <p><a href="/">Trạm Dừng Chill</a> có bàn nhóm lớn cho gia đình 6-12 người, menu đa dạng từ thịt nướng đến hải sản. Trẻ em đặc biệt thích ngắm xe lửa cổ chạy ngang quán — khoảnh khắc thú vị và độc đáo. Quán có chỗ đỗ xe thoải mái.</p>
 <img src="assets/images/blog/nhom-ban-an-nuong-da-lat-buoi-toi.webp" alt="Nhóm bạn nâng ly bên bàn gỗ dài bày lẩu và đồ nướng ở Trạm Dừng Chill buổi tối, phía sau khách giơ điện thoại chụp toa tàu sáng đèn dưới lan can, xa hơn là nhà lồng lên đèn" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0">
 
                             <h2>Menu gợi ý cho gia đình 6 người</h2>
-                            <p><strong>Set nướng gia đình:</strong> Bò nướng, sườn heo, gà nướng, hải sản (tôm, mực), rau củ nướng, cơm/xôi. Giá khoảng 600-900K cho 6 người — trung bình 100-150K/người. Trẻ em dưới 5 tuổi thường miễn phí tại đa số quán.</p>
+                            <p><strong>Gọi món lẻ cho gia đình:</strong> Bò nướng, sườn heo, gà nướng, hải sản (tôm, mực), cơm. Trẻ em dưới 5 tuổi thường miễn phí tại đa số quán.</p>
 
                             <h2>Đặt bàn gia đình cuối tuần</h2>
                             <p>Cuối tuần Đà Lạt luôn đông khách. <a href="/#booking"><strong>Đặt bàn trước</strong></a> ít nhất 1 ngày, ghi chú số người và yêu cầu đặc biệt. Hotline: <a href="tel:0989765070">0989.765.070</a>. Giờ mở cửa: 15:00 - 23:00.</p>`
