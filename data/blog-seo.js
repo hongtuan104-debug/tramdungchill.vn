@@ -419,7 +419,7 @@ const BLOG_SEO = {
           "a": "Yes — free parking for both motorbikes and cars right at the restaurant. At weekend peak hours you may need to park about 100–200m further away. We open at 15:00, so arriving early makes parking easier; Grab and taxis can drive right up to the door."
         }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "en",
       "category": "English"
     },
@@ -471,7 +471,7 @@ const BLOG_SEO = {
           "a": "Yes — free parking for both motorbikes and cars right at the restaurant. At weekend peak hours you may need to park about 100–200m further away. We open at 15:00, so arriving early makes parking easier; Grab and taxis can drive right up to the door."
         }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "en",
       "bookHref": "#how-to-book-a-table",
       "category": "English",
