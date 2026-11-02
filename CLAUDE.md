@@ -31,6 +31,8 @@
   để check-facts bắt chỗ còn ghi mức cũ). Nhóm 4 = 600k–1.600k, hai người = 300k–800k. GBP hiển thị bucket "100-300N đ" — đây là
   khoảng Google tự phân loại, không phải số chủ quán đặt, nên KHÔNG cần ép website khớp.
 - **Phụ thu:** Tết Nguyên đán Mùng 2–Mùng 8 Âm lịch **phụ thu 10%**; Valentine, đêm 24/12, bàn view **không** phụ thu (sếp chốt 14/09/2026).
+- **Nghỉ Tết 2027: 30/01 (23 tháng Chạp) → hết 06/02 (Mùng 1), mở lại Mùng 2 = 07/02** (sếp chốt 02/11/2026; `facts.json` → `nghiTet`; web + form đã
+  chặn ngày, xem bug #56). Qua Tết phải gỡ các câu "Tết 2027" (danh sách ở #56). GBP + app đặt bàn chưa biết lịch này — sếp tự cập nhật.
 - **Xác nhận đặt bàn qua Zalo trong 15 phút:** chỉ trong giờ mở cửa 15:00–23:00 (sếp chốt 14/09/2026).
 - **Setup miễn phí (sinh nhật / kỷ niệm / cầu hôn):** bảng chúc mừng / bảng "Marry Me?" + **hoa trang trí — là hoa NHỰA**,
   đừng viết "hoa tươi", đừng hứa bó hoa hồng. **KHÔNG có nến ở setup nào** (sếp chốt 23/09/2026). "Thổi nến" trên bánh kem
@@ -1309,7 +1311,7 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    mốc âm lịch đúng + bảng phủ ≥ 1 năm · dist/mua-*.min.css đã ghép, không trang nào link thẳng · CSS mùa không đổi thuộc tính bố cục của
    phần tử thật, animation chỉ trong no-preference, keyframes chỉ transform/opacity · chữ mùa không có từ cấm · style.css còn luật giấu
    hero · 3 nơi đọc TDC_MUA. Đã bẻ thử 3 kiểu, bắt đủ.
-   ⚠️ Chờ sếp: quán nghỉ ngày nào dịp Tết / giờ có đổi không (thanh đặt bàn hiện KHÔNG nói gì về ngày nghỉ) · quán có trang trí thật
+   ⚠️ Chờ sếp: ~~quán nghỉ ngày nào dịp Tết~~ (xong 02/11/2026, #56: nghỉ 30/01–06/02/2027, thanh Tết đã ghi) · quán có trang trí thật
    không (có ảnh thì thay vài ảnh gallery trong mùa).
 
 49. **Tên phường là "Xuân Trường - Đà Lạt", không phải "Xuân Trường, Đà Lạt"** (sếp Tuấn chốt 29/09/2026). Sau sáp nhập 2025
@@ -1507,6 +1509,26 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    - Nháp gốc + quyết định của sếp: `docs/nhap-chinh-sach-du-lieu.md` (đã đổi trạng thái "ĐÃ ĐĂNG"). Em không phải luật sư — câu
      "Luật Bảo vệ dữ liệu cá nhân năm 2025 (hiệu lực 01/01/2026)" là theo hiểu biết tới 06/2026, sếp nên nhờ người có chuyên môn
      đọc lại mục 7 một lần. Đổi chữ trang này = dịch lại 6 thứ tiếng (#54).
+
+56. **Nghỉ Tết 2027: 30/01 (23 tháng Chạp) → hết 06/02 (Mùng 1), mở lại Mùng 2 (07/02)** — sếp Tuấn chốt 02/11/2026 ("30/1 (23 tết) - 6/2 (m1 tết)
+   nghỉ tết"); "mở lại Mùng 2" là em suy từ khoảng nghỉ + phụ thu Mùng 2–8, sếp chưa nói khác. Nguồn chuẩn: `facts.json` → `nghiTet`.
+   Web trước đó hứa "mở tất cả các ngày, kể cả cuối tuần và lễ" ở 7 FAQ và không nói gì về nghỉ Tết (#48 chờ đúng câu này).
+   Đã sửa 12 chỗ, tất cả mang chữ **"Tết 2027"** để grep gỡ sau Tết:
+   - **Chặn ngày trong form**: `js/booking.js` (sau khối thiếu trường) và script inline 4 trang dịp so chuỗi `YYYY-MM-DD` của ô date với
+     `'2027-01-30'…'2027-02-06'` → toast / alert `notify.nghiTet` + focus ô ngày. `min` của ô date không chặn được khoảng giữa nên phải
+     kiểm lúc gửi. ⚠️ App nhận đơn (app.tramdungchill.vn, repo riêng) và GBP chưa biết lịch nghỉ — việc của sếp.
+   - **Ghi chú 🧧 dưới ô ngày** của 5 form (`booking.form.date.note` vi+en ở trang chủ, chữ cứng ở 4 trang dịp).
+   - **FAQ giờ mở cửa**: index `faq.a2` (HTML + translations vi/en + JSON-LD), menu, duong-di, 4 trang dịp — thêm câu "Riêng Tết 2027…"
+     vào cùng chuỗi nên JSON-LD khớp text luôn (sync-faq-schema.js chạy lại vẫn 54 câu khớp). 2 bài gốc tiếng Anh thêm "(closed for Tết…)".
+     `llms.txt` thêm trong ngoặc.
+   - **Thanh đặt bàn mùa Tết** (`mua-le.json` sticky.sub): "Nghỉ 30/01–06/02 · Mở lại Mùng 2, phụ thu 10% tới Mùng 8" — hiện từ 15 tháng Chạp
+     (22/01/2027) tới Mùng 8 theo cơ chế #48; sau 06/02 vế "nghỉ" là chuyện đã qua, chấp nhận được.
+   - **Dịch**: 9 câu vi + 3 câu en-gốc × 6 thứ tiếng. Mẹo giữ bộ chữ số khớp: không viết "07/02" trong bản dịch khi bản Việt ghi "Mùng 2"
+     (thêm số 07 là bộ kiểm báo lệch) — dùng "2nd day / 初 2 / 2일째 / 2 日目 / 2-го дня / วันที่ 2". Ghép câu Tết vào BẢN DỊCH CŨ của
+     đoạn FAQ (tra `data/ban-dich/<mã>.json` bằng chuỗi con) chứ không dịch lại cả đoạn — giữ giọng đã soát.
+   - ⚠️ **Sau 06/02/2027 (hoặc khi sếp báo lịch Tết sau)**: grep "Tết 2027" + "2027-01-30" + "🧧" rồi gỡ / đổi ngày ở: booking.js,
+     4 trang dịp (script + ghi chú), index.html + translations.js (date.note, faq.a2, notify.nghiTet), menu/duong-di/dip FAQ, blog-seo.js
+     (2 bài EN), llms.txt, mua-le.json, facts.json. Gỡ xong phải dịch lại các câu đổi (R33). Roadmap tuần 4 (Tết 2027) nhớ việc này.
 
 ## Trang tác giả — ĐÃ GỠ 21/10/2026 (cơ chế vẫn còn trong generator)
 ⚠️ **Sếp Tuấn bỏ tên người khỏi web (21/10/2026)** → không bài nào khai `author`, thư mục `tac-gia/` đã xoá,

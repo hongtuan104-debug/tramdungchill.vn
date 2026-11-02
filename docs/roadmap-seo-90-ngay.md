@@ -88,7 +88,7 @@ Ký hiệu người làm: **[Sếp]** cần tài khoản của sếp · **[Em]**
 - [ ] **[Sếp, trả lời tin nhắn]** Dữ kiện cho trang mùa lễ — em không tự nghĩ ra:
       1. Noel có món / chương trình riêng không? Quán có trang trí thật không, có ảnh không?
       2. Tiệc tất niên công ty: nhận tối đa bao nhiêu khách, cọc bao nhiêu, đặt trước mấy ngày?
-      3. Lịch nghỉ Tết + giờ mở cửa các ngày Tết 2027?
+      3. ~~Lịch nghỉ Tết~~ → sếp chốt 02/11: nghỉ 30/01–06/02/2027 (23 Chạp – Mùng 1), mở lại Mùng 2; đã lên web (CLAUDE.md #56). Giờ mở cửa các ngày Tết còn lại: giữ 15:00–23:00 trừ khi sếp nói khác.
       4. 8 câu người dịch phát hiện mâu thuẫn (set menu team building trái "gọi món lẻ", "món nướng rẻ nhất là Chân Gà",
          nước ngọt 12K, "dãy trong nhà", "kín bàn từ 16h", số chưa nguồn, giá Sườn Cay **259K hay 260K** trong bài tiếng Anh…).
          Câu team building cần chốt trước mùa tất niên.

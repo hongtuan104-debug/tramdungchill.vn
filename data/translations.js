@@ -214,6 +214,7 @@ var TRANSLATIONS = {
     'booking.form.phone': 'Zalo hoặc WhatsApp *',
     'booking.form.phone.ph': '0xxx.xxx.xxx',
     'booking.form.date': 'Ngày đến *',
+    'booking.form.date.note': '🧧 Nghỉ Tết từ 30/01 đến hết 06/02/2027 (23 tháng Chạp – Mùng 1); mở lại Mùng 2, phụ thu 10% tới Mùng 8 (13/02).',
     'booking.form.time': 'Giờ đến *',
     'booking.form.time.ph': 'Chọn giờ',
     'booking.form.guests': 'Số khách *',
@@ -299,7 +300,7 @@ var TRANSLATIONS = {
     'faq.q1': 'Trạm Dừng Chill ở đâu, cách trung tâm Đà Lạt bao xa?',
     'faq.a1': 'Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, Lâm Đồng (Phường 11 cũ, khu Trại Mát). Cách trung tâm Đà Lạt — Chợ Đà Lạt và Hồ Xuân Hương — khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Grab và taxi vào được tận nơi.',
     'faq.q2': 'Quán mở cửa mấy giờ?',
-    'faq.a2': 'Mở cửa 15:00 đến 23:00 tất cả các ngày, kể cả cuối tuần và ngày lễ. Đến lúc 15:00 là kịp chọn bàn trước khi hoàng hôn bắt đầu từ khoảng 16:30; tàu lửa cổ chạy qua quán trong khung 16:30 – 21:25 và nhà lồng lên đèn khoảng 18:30.',
+    'faq.a2': 'Mở cửa 15:00 đến 23:00 tất cả các ngày, kể cả cuối tuần và ngày lễ. Riêng Tết 2027 quán nghỉ từ 30/01 đến hết 06/02 (23 tháng Chạp – Mùng 1), mở lại Mùng 2. Đến lúc 15:00 là kịp chọn bàn trước khi hoàng hôn bắt đầu từ khoảng 16:30; tàu lửa cổ chạy qua quán trong khung 16:30 – 21:25 và nhà lồng lên đèn khoảng 18:30.',
     'faq.q3': 'Ăn một người hết khoảng bao nhiêu tiền?',
     'faq.a3': 'Từ 150.000đ đến 400.000đ một người, đã gồm VAT. Nhóm 4 người nhân lên là khoảng 600.000đ – 1.600.000đ. Menu có hơn 70 món gọi lẻ ghi rõ giá, gồm nướng BBQ, lẩu, hải sản và đồ uống. <a href="blog/an-nuong-da-lat-bao-nhieu-tien.html">Xem bảng giá chi tiết theo nhóm →</a>',
     'faq.q4': 'Đặt bàn trước bằng cách nào?',
@@ -351,6 +352,7 @@ var TRANSLATIONS = {
 
     // Notifications
     'notify.required': 'Vui lòng điền đầy đủ thông tin bắt buộc!',
+    'notify.nghiTet': 'Quán nghỉ Tết từ 30/01 đến hết 06/02/2027 (23 tháng Chạp – Mùng 1), mở lại Mùng 2. Bạn chọn ngày khác giúp quán nhé.',
     // Khách Việt gõ sai số — giữ ĐÚNG câu cũ, ngắn, không nhắc số nước ngoài (chủ dặn 22/10: khách Việt không phải ghi gì thêm)
     'notify.phone': 'Số điện thoại không hợp lệ (cần 10 số)!',
     // Trang tiếng Việt, số trông như số NƯỚC NGOÀI mà không đoán được nước (js/so-dien-thoai.js tự kèm 1 dòng tiếng Anh) — 22/10/2026
@@ -589,6 +591,7 @@ var TRANSLATIONS = {
     'booking.form.phone': 'Zalo or WhatsApp *',
     'booking.form.phone.ph': '+84 or 0xxx.xxx.xxx',
     'booking.form.date': 'Date *',
+    'booking.form.date.note': '🧧 Closed for Tết from 30/01 to 06/02/2027 (23rd of the last lunar month to the 1st day of Tết); open again with a 10% surcharge on the 2nd to the 8th day (13/02).',
     'booking.form.time': 'Time *',
     'booking.form.time.ph': 'Select time',
     'booking.form.guests': 'Guests *',
@@ -673,7 +676,7 @@ var TRANSLATIONS = {
     'faq.q1': 'Where is Tram Dung Chill, and how far is it from central Da Lat?',
     'faq.a1': 'We are at 111 Huynh Tan Phat, Xuan Truong - Da Lat Ward, Lam Dong (formerly Ward 11, the Trai Mat area). It is about 7 km from central Da Lat — Da Lat Market and Xuan Huong Lake — roughly a 20-minute drive towards Trai Mat. Grab and taxis can drive right up to the restaurant.',
     'faq.q2': 'What time does the restaurant open?',
-    'faq.a2': 'We open 15:00 to 23:00 every day, including weekends and public holidays. Arriving at 15:00 lets you pick a table before the sunset starts around 16:30; the vintage train passes between 16:30 and 21:25 and the greenhouses light up around 18:30.',
+    'faq.a2': 'We open 15:00 to 23:00 every day, including weekends and public holidays. For Tết 2027 we close from 30/01 to 06/02 (23rd of the last lunar month to the 1st day of Tết) and reopen on the 2nd day. Arriving at 15:00 lets you pick a table before the sunset starts around 16:30; the vintage train passes between 16:30 and 21:25 and the greenhouses light up around 18:30.',
     'faq.q3': 'How much does a meal cost per person?',
     'faq.a3': 'From 150,000₫ to 400,000₫ per person, VAT included. For a group of four that works out to around 600,000₫ – 1,600,000₫. The menu lists over 70 à la carte dishes with clear prices, covering BBQ, hotpot, seafood and drinks. <a href="blog/an-nuong-da-lat-bao-nhieu-tien.html">See the detailed price breakdown →</a>',
     'faq.q4': 'How do I book a table in advance?',
@@ -723,6 +726,7 @@ var TRANSLATIONS = {
 
     // Notifications
     'notify.required': 'Please fill in all required fields!',
+    'notify.nghiTet': 'We are closed for Tết from 30/01 to 06/02/2027 (23rd of the last lunar month to the 1st day of Tết) and reopen on the 2nd day. Please pick another date.',
     'notify.phone': 'Invalid phone number (10 digits required)!',
     'notify.phone_nuoc_ngoai': 'Please check your phone number (Vietnamese numbers have 10 digits, starting with 03/05/07/08/09). Foreign number? Add your country code, e.g. +60 17 523 3899.',
     'notify.webhook_fail': 'Booking save failed — please message us on Zalo to confirm!',

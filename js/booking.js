@@ -198,6 +198,15 @@ function initBookingForm() {
             return;
         }
 
+        /* Nghỉ Tết 2027 (sếp chốt 02/11/2026, facts.json nghiTet): 30/01 (23 tháng Chạp) → hết 06/02 (Mùng 1),
+           mở lại Mùng 2. So chuỗi YYYY-MM-DD của ô date nên không dính múi giờ. 4 trang dịp có khối tương tự
+           trong script inline. Qua Tết thì gỡ khối này hoặc đổi sang ngày của Tết sau. */
+        if (data.date >= '2027-01-30' && data.date <= '2027-02-06') {
+            showNotification(t('notify.nghiTet', 'Quán nghỉ Tết từ 30/01 đến hết 06/02/2027 (23 tháng Chạp – Mùng 1), mở lại Mùng 2. Bạn chọn ngày khác giúp quán nhé.'), 'error', 9000);
+            markInvalid('date');
+            return;
+        }
+
         /* Số điện thoại (22/10/2026, js/so-dien-thoai.js): số Việt giữ dạng 0… như cũ; số có mã nước giữ "+…";
            số nội địa nước ngoài không mã nước (Malaysia "0175233899"…) → KHÔNG cho gửi: điền sẵn số đã thêm mã nước
            đoán được để khách kiểm rồi bấm Gửi lại. Luật cũ coi mọi số "0 + 9 chữ số" là số Việt nên số Malaysia lọt

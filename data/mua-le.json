@@ -18,7 +18,7 @@
     "_ghiChuChu": "Phụ thu Tết 10% từ Mùng 2 đến Mùng 8 Âm lịch — sếp chốt 14/09/2026 (facts.json giaDipLe). Đổi mức phụ thu thì sửa cả facts.json.",
     "chu": {
       "sticky.title": { "vi": "Đặt bàn dịp Tết", "en": "Book for Tết" },
-      "sticky.sub": { "vi": "Mùng 2–8 Tết phụ thu 10%", "en": "10% surcharge, Tết days 2–8" }
+      "sticky.sub": { "vi": "Nghỉ 30/01–06/02 · Mở lại Mùng 2, phụ thu 10% tới Mùng 8", "en": "Closed 30/01–06/02 · Open from day 2, 10% surcharge to day 8" }
     }
   }
 }
