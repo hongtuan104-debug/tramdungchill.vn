@@ -1173,7 +1173,9 @@ try {
         { loc: "/dip/cau-hon-hen-ho.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         { loc: "/dip/sinh-nhat.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
         { loc: "/dip/team-building.html", lastmod: TODAY, changefreq: "monthly", priority: "0.8" },
-        { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" }
+        { loc: "/duong-di/", lastmod: TODAY, changefreq: "monthly", priority: "0.6" },
+        // Chính sách dữ liệu (02/11/2026, CLAUDE.md #55): index được, dịch 6 thứ tiếng như mọi trang trong sitemap.
+        { loc: "/chinh-sach-du-lieu/", lastmod: TODAY, changefreq: "yearly", priority: "0.3" }
         // review-qr.html là noindex,nofollow (trang tiện ích QR) → KHÔNG đưa vào sitemap.
     ].concat(Object.keys(tacGia).sort().map(function (slug) {
         // Trang tác giả index được → phải có trong sitemap (R12 canh cả hai chiều)

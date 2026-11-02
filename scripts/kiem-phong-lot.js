@@ -193,7 +193,7 @@ const want = {
 };
 
 // trang tác giả (tac-gia/) đã gỡ 21/10/2026 (sếp bỏ tên tác giả khỏi web)
-const FILES = ["css/style.css", "index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html"];
+const FILES = ["css/style.css", "index.html", "menu.html", "blog.html", "404.html", "duong-di/index.html", "chinh-sach-du-lieu/index.html"];
 let bad = 0;
 console.log("Bo so size-adjust tinh lai tu phong + chu hien tai:\n");
 

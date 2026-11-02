@@ -117,6 +117,9 @@ function buildFooter(opts) {
         navItem("/#gallery", "nav.gallery", { prefix: prefix, mode: mode, homeHash: "#gallery" }),
         navItem("blog.html", "nav.blog", { prefix: prefix, mode: mode }),
         navItem("/#booking", "nav.booking", { prefix: prefix, mode: mode, homeHash: "#booking" }),
+        // Chính sách dữ liệu (02/11/2026, CLAUDE.md #55): link tuyệt đối để navItem giữ nguyên trên mọi trang;
+        // dich-trang.js tự trỏ sang bản /<mã>/chinh-sach-du-lieu/ ở trang dịch.
+        navItem("/chinh-sach-du-lieu/", "footer.policy", { prefix: prefix, mode: mode }),
         "                </ul>",
         "            </div>",
         '            <div class="footer-nav">',
@@ -168,7 +171,8 @@ const targets = [
     { file: "index.html",          prefix: "",     mode: "i18n", baked: true, home: true },
     { file: "menu.html",           prefix: "",     mode: "i18n", baked: true },
     { file: "blog.html",           prefix: "",     mode: "i18n", baked: true },
-    { file: "duong-di/index.html", prefix: "../",  mode: "i18n", baked: true }
+    { file: "duong-di/index.html", prefix: "../",  mode: "i18n", baked: true },
+    { file: "chinh-sach-du-lieu/index.html", prefix: "../", mode: "i18n", baked: true }
 ];
 
 for (const name of fs.readdirSync(path.join(ROOT, "dip"))) {

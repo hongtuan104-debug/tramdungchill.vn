@@ -240,6 +240,7 @@ var TRANSLATIONS = {
     'modal.fail.desc': 'Hệ thống lưu đơn đang lỗi nên quán <strong>chưa nhận được</strong> đơn của bạn. Bấm nút bên dưới để gửi đơn qua Zalo (tin nhắn đã điền sẵn), hoặc gọi hotline.',
     'modal.fail.zalo': 'Gửi đơn qua Zalo',
     'booking.form.submit': 'Đặt bàn ngay',
+    'booking.form.consent': 'Bấm gửi là bạn đồng ý để Tiệm Nướng Trạm Dừng Chill dùng tên, số điện thoại và thông tin đặt bàn để giữ chỗ và liên hệ xác nhận. <a href="/chinh-sach-du-lieu/">Xem chính sách dữ liệu</a>.',
     'booking.form.loading': 'Đang gửi...',
     'booking.form.hint': 'Miễn phí đặt bàn. Trong giờ mở cửa (15:00–23:00) quán xác nhận qua Zalo trong 15 phút.',
     'booking.form.trust1': '✓ Miễn phí đặt bàn',
@@ -342,6 +343,7 @@ var TRANSLATIONS = {
     'footer.occasion.date': 'Cầu hôn &amp; hẹn hò',
     'footer.occasion.team': 'Team building',
     'footer.occasion.directions': 'Đường đi &amp; bản đồ',
+    'footer.policy': 'Chính sách dữ liệu',
     // Địa chỉ giữ NGUYÊN tiếng Việt ở cả hai ngôn ngữ: đây là NAP (Name-Address-Phone)
     // dùng cho local SEO — Google đối chiếu chuỗi này với Google Business Profile,
     // dịch ra tiếng Anh là tự tạo một biến thể địa chỉ thứ hai.
@@ -613,6 +615,7 @@ var TRANSLATIONS = {
     'modal.fail.desc': 'Our booking system hit an error, so we <strong>have not received</strong> your booking yet. Tap the button below to send it via Zalo (message pre-filled), or call our hotline.',
     'modal.fail.zalo': 'Send via Zalo',
     'booking.form.submit': 'Book now',
+    'booking.form.consent': 'By sending, you agree to let Tiệm Nướng Trạm Dừng Chill use your name, phone number and booking details to hold your table and contact you to confirm. <a href="/chinh-sach-du-lieu/">See our data policy</a>.',
     'booking.form.loading': 'Sending...',
     'booking.form.hint': 'Free booking. During opening hours (15:00–23:00) we confirm via Zalo within 15 minutes.',
     'booking.form.trust1': '✓ Free booking',
@@ -714,6 +717,7 @@ var TRANSLATIONS = {
     'footer.occasion.date': 'Proposals &amp; date nights',
     'footer.occasion.team': 'Team building',
     'footer.occasion.directions': 'Directions &amp; map',
+    'footer.policy': 'Data policy',
     // Giữ nguyên tiếng Việt — xem ghi chú ở bản 'vi'.
     'footer.address': '111 Huynh Tan Phat, Xuan Truong - Da Lat Ward, Lam Dong',
 

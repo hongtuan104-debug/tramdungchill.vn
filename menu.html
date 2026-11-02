@@ -41,7 +41,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=f7e4e956">
+    <link rel="stylesheet" href="dist/style.min.css?v=9d913dba">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1736,6 +1736,7 @@
                         <li><a href="/#gallery" data-home-href="#gallery" data-i18n="nav.gallery">Không gian</a></li>
                         <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                         <li><a href="/#booking" data-home-href="#booking" data-i18n="nav.booking">Đặt bàn</a></li>
+                        <li><a href="/chinh-sach-du-lieu/" data-i18n="footer.policy">Chính sách dữ liệu</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">
@@ -1781,7 +1782,7 @@
 
     <!-- Data Files -->
     <script defer src="data/site-config.js?v=1dc10b01"></script>
-    <script defer src="data/translations.js?v=c87ac088"></script>
+    <script defer src="data/translations.js?v=141be6f0"></script>
     <script defer src="data/menu-data.js?v=3ba3c945"></script>
 
     <!-- Bundled & Minified JS -->

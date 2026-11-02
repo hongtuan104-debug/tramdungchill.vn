@@ -1673,6 +1673,20 @@ a.contact-card:hover { background: rgba(255,255,255,0.1); border-color: var(--go
     line-height: 1.4;
 }
 
+/* Dong dong y du lieu duoi nut gui (02/11/2026, CLAUDE.md #55): "bam gui = dong y", sep chon dong chu thay o tick. */
+.form-dong-y {
+    margin: 12px 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.form-dong-y a {
+    color: var(--gold-on-light);
+    font-weight: 600;
+}
+
 /* ── Đặt nhanh qua Zalo (kênh tắt) + divider + review thật tại form ── */
 .booking-zalo-quick {
     display: flex;

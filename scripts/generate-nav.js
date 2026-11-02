@@ -37,7 +37,9 @@ const targets = [
     { file: "index.html",          page: "index",    prefix: "" },
     { file: "menu.html",           page: "menu",     prefix: "" },
     { file: "blog.html",           page: "blog",     prefix: "" },
-    { file: "duong-di/index.html", page: "duong-di", prefix: "../" }
+    { file: "duong-di/index.html", page: "duong-di", prefix: "../" },
+    // Chính sách dữ liệu (02/11/2026, CLAUDE.md #55): khuôn duong-di, không mục nào trên nav trỏ tới.
+    { file: "chinh-sach-du-lieu/index.html", page: "chinh-sach-du-lieu", prefix: "../" }
 ];
 
 // Trang tác giả (13/09/2026, tac-gia/<slug>.html): vỏ viết tay như duong-di, nav

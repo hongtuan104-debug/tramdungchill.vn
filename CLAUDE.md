@@ -1484,6 +1484,30 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      hứng bớt nhấp tên quán — chỉ GSC (hiển thị theo truy vấn) phân xử được. Thư T10 chưa về (02/11). Quyết định **123 bài noindex**
      (memory `spam-update-2026-08-phoi-nhiem`) vẫn chờ sếp — nay đã có số để chọn A/B/C.
 
+55. **Trang Chính sách dữ liệu `/chinh-sach-du-lieu/` + dòng đồng ý dưới 5 form** (02/11/2026 — sếp "đưa lên hết đi", rồi chốt
+   qua 4 câu hỏi: KHÔNG dùng SĐT khách nhắn khuyến mãi · xin đồng ý bằng dòng chữ "bấm gửi = đồng ý", không ô tick · giữ thông tin
+   đặt bàn 12 tháng · email lienhetramdungchill@tramdungchill.vn, trả lời trong 7 ngày. Chưa có tên hộ kinh doanh / MST → trang
+   ghi tên quán; sếp gửi thì thêm vào mục 1).
+   - **Trang** `chinh-sach-du-lieu/index.html`: vỏ chép y khuôn `duong-di/` (critical CSS phông lót + CHU-NHANH → là bản chép thứ 7,
+     đã thêm vào `FILES` của kiem-phong-lot.js; CSS đồng bộ; preload 8 phông; WebPage + BreadcrumbList viết tay, KHÔNG FAQ).
+     Đăng ký ở 5 chỗ: `generate-nav.js` targets · `generate-footer.js` targets + link `footer.policy` trong cột "Liên kết" (href
+     tuyệt đối `/chinh-sach-du-lieu/` để navItem giữ nguyên, dich-trang tự trỏ bản cùng tiếng) · `generate-blog-pages.js`
+     staticPages (sitemap, yearly, 0.3) · `seo-geo-verify.js` EXPECTED R7c · kiem-phong-lot FILES. Mốc MUA / `?v=` / dns-prefetch
+     do toi-uu-tai-trang tự gắn (quét mọi .html) — không phải làm tay.
+   - **Dòng đồng ý** `<p class="form-dong-y">` ngay dưới nút gửi của 5 form: trang chủ mang `data-i18n="booking.form.consent"`
+     (khoá vi + en trong translations.js, bug #0), 4 trang dịp chữ cứng (team-building đặt trước `.form-hint` vì form đó không có
+     `.form-trust`). CSS `.form-dong-y` cuối khối `.form-trust` trong style.css. Trang chủ + 4 trang dịp bị đóng dấu "Cập nhật" — đúng.
+   - **Dịch 6 thứ tiếng** 37–38 câu/thứ tiếng (trang + dòng đồng ý + nhãn footer), nạp cùng đợt. Trang nước ngoài: "Zalo" → WhatsApp,
+     "nhóm Zalo của nhân viên" → "group chat của đội đặt bàn" (R33 cấm chữ Zalo), địa chỉ giữ tiếng Việt trừ bản Anh, số `+84 989 765 070`
+     (bộ kiểm coi là cùng số với 0989.765.070). Title zh/ja ≤ 32 chữ nên dùng "Trạm Dừng Chill" thay tên đầy đủ.
+   - ⚠️ **Build trên máy khác máy sếp làm 8 file .woff2 đổi byte dù bộ ký tự KHÔNG đổi** (`plans/cong-cu-mua/so-ky-tu.js` báo "mới:
+     không, mất: không" — subset-font ra byte khác giữa hai máy). Đã `git checkout -- assets/fonts/` để khách khỏi tải lại ~115 KB phông
+     vô ích. ⚠️ Làm vậy SAU `bundle-js` thì phải chạy lại `generate-blog-pages.js` thêm MỘT lần: lần đầu nó băm CSS trước khi
+     toi-uu-tai-trang gắn lại `?v=` phông vào CSS → 141 bài trỏ vân tay CSS cũ (máy canh "Link CSS kèm vân tay" bắt được).
+   - Nháp gốc + quyết định của sếp: `docs/nhap-chinh-sach-du-lieu.md` (đã đổi trạng thái "ĐÃ ĐĂNG"). Em không phải luật sư — câu
+     "Luật Bảo vệ dữ liệu cá nhân năm 2025 (hiệu lực 01/01/2026)" là theo hiểu biết tới 06/2026, sếp nên nhờ người có chuyên môn
+     đọc lại mục 7 một lần. Đổi chữ trang này = dịch lại 6 thứ tiếng (#54).
+
 ## Trang tác giả — ĐÃ GỠ 21/10/2026 (cơ chế vẫn còn trong generator)
 ⚠️ **Sếp Tuấn bỏ tên người khỏi web (21/10/2026)** → không bài nào khai `author`, thư mục `tac-gia/` đã xoá,
 mọi bài ký "Đội ngũ Trạm Dừng Chill" + schema author = Restaurant. Phần dưới chỉ để hiểu code còn lại trong
@@ -1652,7 +1676,7 @@ Playfair) trỏ vào phông máy sẵn có kèm `size-adjust`, để lúc phông
 chữ vẫn chiếm đúng bề rộng → **không đổi số dòng → không nhảy layout**.
 Đây mới là thứ chữa CLS; tự chứa phông (31/07) chỉ bỏ được chặng gstatic.
 - Cả 3 khối này **được chép vào critical CSS inline** của `index/menu/blog/404/
-  duong-di` — vì lúc dễ nhảy nhất là lúc CSS async chưa về. Sửa `style.css` mà
+  duong-di/chinh-sach-du-lieu` (6 file từ 02/11/2026, #55) — vì lúc dễ nhảy nhất là lúc CSS async chưa về. Sửa `style.css` mà
   quên 5 file kia là công cốc. (13/09–21/10/2026 có thêm file thứ 6 là trang tác giả, nay đã gỡ.)
 - Bộ số **không được tự nghĩ**: tính từ bảng `cmap`+`hmtx` trong chính file
   `.woff2`, cân theo tần suất ký tự thật của trang (tiếng Việt lệch hẳn tiếng Anh).

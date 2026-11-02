@@ -1,6 +1,6 @@
-# NHÁP chờ sếp duyệt — Chính sách dữ liệu cá nhân + dòng thông báo dưới form
+# Chính sách dữ liệu cá nhân + dòng thông báo dưới form — nháp gốc (đã đăng 02/11/2026)
 
-> **Trạng thái: NHÁP, CHƯA ĐĂNG** (đưa vào git 02/11/2026 theo lệnh push của sếp; vẫn chưa lên web, chờ sếp duyệt chữ). Em Claude soạn 13/09/2026, rà lại 02/10/2026 (checklist #23 E-E-A-T,
+> **Trạng thái: ĐÃ ĐĂNG 02/11/2026** tại https://tramdungchill.vn/chinh-sach-du-lieu/ (sếp chốt cùng ngày: không nhắn khuyến mãi, "bấm gửi = đồng ý", giữ 12 tháng, email lienhetramdungchill@tramdungchill.vn, trả lời 7 ngày; chưa có tên hộ kinh doanh / MST — trang ghi tên quán). Bản dưới là NHÁP GỐC để đối chiếu; chữ đang chạy nằm ở chinh-sach-du-lieu/index.html. Em Claude soạn 13/09/2026, rà lại 02/10/2026 (checklist #23 E-E-A-T,
 > mục 208) từ đúng luồng dữ liệu trong code: `js/booking.js`, `data/site-config.js`, các thẻ
 > tracking trong `index.html` và `templates/blog-post.html`.
 >

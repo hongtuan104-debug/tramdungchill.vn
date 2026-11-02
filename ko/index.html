@@ -112,8 +112,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956"></noscript>
+    <link rel="stylesheet" href="/dist/style.min.css?v=9d913dba" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=9d913dba"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1405,6 +1405,7 @@
                             <span class="btn-text">지금 예약하기</span>
                             <span class="btn-loading" style="display:none">전송 중...</span>
                         </button>
+                        <p class="form-dong-y">보내기를 누르면 Tiệm Nướng Trạm Dừng Chill이 자리를 잡아 두고 확인 연락을 드리기 위해 이름, 전화번호, 예약 정보를 사용하는 데 동의하는 것으로 봐요. <a href="/ko/chinh-sach-du-lieu/">데이터 정책 보기</a>.</p>
                         <ul class="form-trust">
                             <li>✓ 예약 무료</li>
                             <li>✓ 영업시간 내 15분 안에 WhatsApp 또는 SMS로 영어 확인</li>
@@ -1754,6 +1755,7 @@
                         <li><a href="#gallery" data-home-href="#gallery">공간</a></li>
                         <li><a href="/ko/blog.html">블로그</a></li>
                         <li><a href="#booking" data-home-href="#booking">예약</a></li>
+                        <li><a href="/ko/chinh-sach-du-lieu/">데이터 정책</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">

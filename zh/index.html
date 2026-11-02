@@ -112,8 +112,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956"></noscript>
+    <link rel="stylesheet" href="/dist/style.min.css?v=9d913dba" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=9d913dba"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1405,6 +1405,7 @@
                             <span class="btn-text">立即订座</span>
                             <span class="btn-loading" style="display:none">正在发送……</span>
                         </button>
+                        <p class="form-dong-y">点击发送即表示您同意 Tiệm Nướng Trạm Dừng Chill 使用您的姓名、电话号码和预订信息来保留座位并与您联系确认。<a href="/zh/chinh-sach-du-lieu/">查看数据政策</a>。</p>
                         <ul class="form-trust">
                             <li>✓ 免费订座</li>
                             <li>✓ 营业时间内，15 分钟内用英文通过 WhatsApp 或短信确认</li>
@@ -1754,6 +1755,7 @@
                         <li><a href="#gallery" data-home-href="#gallery">空间</a></li>
                         <li><a href="/zh/blog.html">博客</a></li>
                         <li><a href="#booking" data-home-href="#booking">订座</a></li>
+                        <li><a href="/zh/chinh-sach-du-lieu/">数据政策</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">

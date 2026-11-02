@@ -112,8 +112,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956"></noscript>
+    <link rel="stylesheet" href="/dist/style.min.css?v=9d913dba" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=9d913dba"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1405,6 +1405,7 @@
                             <span class="btn-text">今すぐ予約</span>
                             <span class="btn-loading" style="display:none">送信中...</span>
                         </button>
+                        <p class="form-dong-y">送信すると、Tiệm Nướng Trạm Dừng Chill がお席の確保と確認のご連絡のために、お名前・電話番号・予約内容を使用することに同意したものとみなされます。<a href="/ja/chinh-sach-du-lieu/">データポリシーを見る</a>。</p>
                         <ul class="form-trust">
                             <li>✓ 予約無料</li>
                             <li>✓ 営業時間内なら15分以内にWhatsAppまたはSMSで英語にて確認</li>
@@ -1754,6 +1755,7 @@
                         <li><a href="#gallery" data-home-href="#gallery">ギャラリー</a></li>
                         <li><a href="/ja/blog.html">ブログ</a></li>
                         <li><a href="#booking" data-home-href="#booking">予約</a></li>
+                        <li><a href="/ja/chinh-sach-du-lieu/">データポリシー</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">

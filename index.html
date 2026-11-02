@@ -111,8 +111,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="dist/style.min.css?v=f7e4e956" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="dist/style.min.css?v=f7e4e956"></noscript>
+    <link rel="stylesheet" href="dist/style.min.css?v=9d913dba" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="dist/style.min.css?v=9d913dba"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1304,6 +1304,7 @@
                             <span class="btn-text" data-i18n="booking.form.submit">Đặt bàn ngay</span>
                             <span class="btn-loading" style="display:none" data-i18n="booking.form.loading">Đang gửi...</span>
                         </button>
+                        <p class="form-dong-y" data-i18n="booking.form.consent">Bấm gửi là bạn đồng ý để Tiệm Nướng Trạm Dừng Chill dùng tên, số điện thoại và thông tin đặt bàn để giữ chỗ và liên hệ xác nhận. <a href="/chinh-sach-du-lieu/">Xem chính sách dữ liệu</a>.</p>
                         <ul class="form-trust">
                             <li data-i18n="booking.form.trust1">✓ Miễn phí đặt bàn</li>
                             <li data-i18n="booking.form.trust2">✓ Xác nhận qua Zalo trong 15 phút (giờ mở cửa)</li>
@@ -1653,6 +1654,7 @@
                         <li><a href="#gallery" data-home-href="#gallery" data-i18n="nav.gallery">Không gian</a></li>
                         <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
                         <li><a href="#booking" data-home-href="#booking" data-i18n="nav.booking">Đặt bàn</a></li>
+                        <li><a href="/chinh-sach-du-lieu/" data-i18n="footer.policy">Chính sách dữ liệu</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">
@@ -1731,7 +1733,7 @@
     <!-- Data Files -->
     <script defer src="data/site-config.js?v=1dc10b01"></script>
     <script defer src="data/menu-data.js?v=3ba3c945"></script>
-    <script defer src="data/translations.js?v=c87ac088"></script>
+    <script defer src="data/translations.js?v=141be6f0"></script>
 
     <!-- Bundled & Minified JS -->
     <script defer src="dist/common.min.js?v=769dabdb"></script>

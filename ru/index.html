@@ -111,8 +111,8 @@
     <!-- Full CSS — async load (non-render-blocking) -->
     <!-- Chặn transition tới khi CSS đầy đủ áp xong: xem CLAUDE.md bug #21 -->
     <style id="chan-transition">:root:not(.tdc-css) *,:root:not(.tdc-css) *::before,:root:not(.tdc-css) *::after{transition:none!important}</style>
-    <link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
-    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=f7e4e956"></noscript>
+    <link rel="stylesheet" href="/dist/style.min.css?v=9d913dba" media="print" onload="this.media='all';var r=document.documentElement;requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('tdc-css')})})">
+    <noscript><link rel="stylesheet" href="/dist/style.min.css?v=9d913dba"></noscript>
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
@@ -1404,6 +1404,7 @@
                             <span class="btn-text">Забронировать</span>
                             <span class="btn-loading" style="display:none">Отправляем...</span>
                         </button>
+                        <p class="form-dong-y">Нажимая «Отправить», вы разрешаете Tiệm Nướng Trạm Dừng Chill использовать ваше имя, номер телефона и данные брони, чтобы придержать столик и связаться с вами для подтверждения. <a href="/ru/chinh-sach-du-lieu/">Политика обработки данных</a>.</p>
                         <ul class="form-trust">
                             <li>✓ Бронирование бесплатно</li>
                             <li>✓ Подтверждение на английском через WhatsApp или SMS за 15 минут (в часы работы)</li>
@@ -1753,6 +1754,7 @@
                         <li><a href="#gallery" data-home-href="#gallery">Галерея</a></li>
                         <li><a href="/ru/blog.html">Блог</a></li>
                         <li><a href="#booking" data-home-href="#booking">Бронирование</a></li>
+                        <li><a href="/ru/chinh-sach-du-lieu/">Политика данных</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">

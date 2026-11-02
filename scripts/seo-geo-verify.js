@@ -253,6 +253,7 @@ const add = (name, ok, detail) => results.push({ name, ok, detail });
         "menu.html": ["Menu", "BreadcrumbList", "WebPage", "FAQPage"],
         "blog.html": ["CollectionPage", "Blog", "BreadcrumbList"],
         "duong-di/index.html": ["WebPage", "BreadcrumbList", "FAQPage"],
+        "chinh-sach-du-lieu/index.html": ["WebPage", "BreadcrumbList"],
         "dip/san-tau-da-lat.html": ["WebPage", "BreadcrumbList", "FAQPage"],
         "dip/sinh-nhat.html": ["WebPage", "BreadcrumbList", "Service", "FAQPage"],
         "dip/team-building.html": ["WebPage", "BreadcrumbList", "FAQPage"],
