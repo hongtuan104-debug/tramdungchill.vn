@@ -1691,6 +1691,9 @@ file này 21/10/2026 — repo công khai). ⚠️ Mật mã cũ đã lộ trong 
 6. Verify trên https://tramdungchill.vn (cache có thể delay 1-2 phút)
 
 ## Task ưu tiên còn dang dở (chờ sếp chọn A/B/C)
+**Roadmap SEO 90 ngày 26/10/2026 → 24/01/2027:** `docs/roadmap-seo-90-ngay.md` (soạn 24/10/2026, chờ sếp duyệt) —
+mốc xuất phát có số, lịch 13 tuần, việc chỉ sếp làm được. Đọc file đó trước khi đề xuất việc SEO mới.
+
 **P1 (CAO):**
 - ✅ Cài Facebook Pixel — ĐÃ XONG
 - ⏳ Phân tích Facebook Ads / TikTok Ads Manager

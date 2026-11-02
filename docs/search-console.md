@@ -15,7 +15,11 @@ node scripts/kiem-sitemap-live.js   # gọi thật 27 URL trên máy chủ
 
 ## 1. Ba việc cần sếp làm (xếp theo mức đáng làm)
 
-### 1.1 Bật "Enforce HTTPS" trong GitHub Pages — 1 cú bấm 🟢
+### 1.1 Bật "Enforce HTTPS" trong GitHub Pages — ✅ ĐÃ XONG 10/10/2026
+
+> Sếp đã bật. Đo lại cùng ngày: `http://` → 301 → `https://`, giữ nguyên đường dẫn + tham số.
+> Trang Settings → Pages chỉ mở được khi đăng nhập tài khoản chủ `hongtuan104-debug` (cộng tác viên gặp 404).
+> Phần dưới giữ lại để biết vì sao từng phải làm.
 
 Hiện `http://tramdungchill.vn/` trả **200**, không chuyển hướng sang https (đo 18/09/2026).
 Nghĩa là cùng một nội dung đang sống ở hai địa chỉ. Property trong GSC là dạng

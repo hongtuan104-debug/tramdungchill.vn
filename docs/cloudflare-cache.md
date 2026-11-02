@@ -1,181 +1,212 @@
-# Đặt Cloudflare trước GitHub Pages — cache dài + HTTP/3
+# Đặt Cloudflare trước GitHub Pages
 
-> Soạn 06/09/2026, sau khi rà soát mục 124–133 (Cache & Kết nối).
-> Việc này **sếp Tuấn phải tự bấm** (cần tài khoản Cloudflare + quyền đổi
-> nameserver ở iNET). Em Claude làm được phần chuẩn bị cấu hình và verify sau.
+> Soạn 06/09/2026 · **viết lại 06/10/2026** (bản cũ thiếu bản ghi `app`, ghi ngược thứ tự
+> Cache Rules, khuyên SSL "Full (strict)" — xem mục "Năm cái bẫy").
+> Việc bấm **sếp Tuấn tự làm** (cần tài khoản Cloudflare + đăng nhập iNET + GitHub).
+> Sau mỗi giai đoạn chạy **`node scripts/kiem-cloudflare.js`** — nó canh đúng các bẫy dưới đây.
 
-## Vì sao làm
+## Được gì, không được gì
 
-Hai giới hạn của GitHub Pages, không sửa được bằng code:
-
-| Đo được hôm nay | Hiện tại | Sau Cloudflare |
+| | Hiện tại | Sau Cloudflare |
 |---|---|---|
-| `Cache-Control` mọi file | `max-age=600` | tự đặt được, tới 1 năm |
-| HTTP/3 | không (không có `alt-svc`) | có, bật mặc định |
-| TTFB từ VN | 0,28–0,40s (edge Fastly Singapore) | 🟡 ước tính thấp hơn — Cloudflare có PoP tại VN |
+| http → https | ✅ 301 (sếp bật Enforce HTTPS 10/10/2026) | ✅ 301 |
+| HTTP/3 | không | có (tốt cho 4G chập chờn) |
+| JS / CSS / phông có `?v=` | trình duyệt giữ 10 phút (GitHub ép) | giữ 1 năm · hết mục "Use efficient cache lifetimes" của PageSpeed |
+| TTFB trang HTML | 0,13–0,16s từ máy làm việc (Fastly Singapore, đo 06/10) | 🟡 **không hứa nhanh hơn** — HTML cố ý không cho Cloudflare giữ, mỗi lượt vẫn về GitHub; gói Free ở VN có lúc đi qua PoP Singapore/HK |
 
-Bảng TTFB là **ước tính**, không phải cam kết. Đo lại sau khi xong bằng lệnh ở
-cuối tài liệu rồi mới kết luận.
+Nói thẳng: lợi ích ở mức **vừa phải**. Core Web Vitals đã đạt cả điện thoại lẫn máy tính, và
+service worker vốn đã giữ ảnh/JS/CSS cho khách quay lại. Đây là việc tối ưu thêm, không phải chữa cháy.
 
-## Hiện trạng (xác nhận 06/09/2026)
+## Hiện trạng (đo 06/10/2026)
 
 ```
-nameserver   ns1.inet.vn · ns2.inet.vn · ns3.inet.vn     → tên miền ở iNET
-A   tramdungchill.vn      185.199.108-111.153            → 4 IP GitHub Pages
-CNAME www                 hongtuan104-debug.github.io
-chứng chỉ   Let's Encrypt do GitHub cấp, hết hạn 30/10/2026
-www → apex  301, cả http lẫn https
+nameserver   ns1/ns2/ns3.inet.vn                         tên miền ở iNET
+A     @      185.199.108.153 · .109 · .110 · .111      GitHub Pages
+CNAME www    hongtuan104-debug.github.io
+CNAME app    cname.vercel-dns.com                        ← APP NHẬN ĐƠN ĐẶT BÀN (Vercel)
+MX    @      10 mx1.improvmx.com                         chuyển tiếp email (có từ sau 06/10; thấy 10/10/2026)
+TXT / CAA / DNSSEC: không có                             → chuyển rất gọn, 7 bản ghi
+chứng chỉ GitHub   Let's Encrypt, cấp 05/10/2026, hết hạn 03/01/2027
+tên miền     hết hạn 13/12/2026 — gia hạn ở iNET (Cloudflare không nhận đăng ký/chuyển .vn)
 ```
 
 ---
 
-## ⚠️ Ba cái bẫy phải biết TRƯỚC khi bấm
+## ⚠️ Năm cái bẫy
 
-### 1. Cache `sw.js` dài = gạch website, không sửa được từ xa
+### 1. `app` bật mây cam → app nhận đơn hỏng
+`app.tramdungchill.vn` là app nhận đơn đặt bàn chạy trên Vercel, **không phải GitHub**. Vercel
+có chứng chỉ và CDN riêng, không nên đặt sau proxy Cloudflare. Bản ghi này **luôn để mây XÁM
+(DNS only)**. Tài liệu bản cũ không ghi bản ghi này.
 
-Đây là rủi ro nghiêm trọng nhất. Service worker là thứ quyết định khách nhận
-bản nào; nếu chính nó bị cache 1 năm thì khách cũ **không bao giờ** nhận được
-service worker mới, và toàn bộ cơ chế vân tay `?v=` vừa làm ngày 06/09/2026
-thành vô dụng. Tệ hơn: không có cách nào ép từ xa, phải đợi hết hạn.
+### 2. Cloudflare chặn bot AI theo mặc định
+- Từ **15/09/2026**, domain mới thêm vào Cloudflare **mặc định chặn bot AI** (loại Training +
+  Agent) trên những trang Cloudflare tự đoán là "có quảng cáo". Site không hiện quảng cáo nhưng
+  có tag Google Ads; đừng để nó đoán, chọn rõ.
+- **"Managed robots.txt"** chèn lên ĐẦU robots.txt của mình các lệnh `Disallow: /` cho GPTBot,
+  ClaudeBot, Google-Extended, Applebot-Extended, CCBot, Amazonbot, Bytespider, kèm dòng
+  `Content-signal: ai-train=no`.
 
-→ `/sw.js` **bắt buộc** bypass cache. Cùng nhóm: mọi `.html`, `manifest.json`,
-`sitemap.xml`, `robots.txt`.
+Cả hai đi ngược chiến lược hiển thị trên AI Search (CLAUDE.md bug #33, luật R23).
+→ Chọn **Allow / Do not block**, và **tắt** managed robots.txt.
 
-### 2. Gia hạn chứng chỉ có thể gãy khi bật proxy
+### 3. Chứng chỉ GitHub có thể không gia hạn được sau khi bật proxy → chọn SSL **"Full", KHÔNG "Full (strict)"**
+Khi đã bật mây cam, DNS trả IP của Cloudflare chứ không phải IP GitHub, và Cloudflare chuyển
+yêu cầu xác minh của Let's Encrypt sang https. Đã có nhiều người báo GitHub gia hạn được vài
+tháng rồi hỏng ([Let's Encrypt community, 12/2024](https://community.letsencrypt.org/t/fyi-for-github-pages-or-vercel-netlify-with-cloudflare/231054)).
+- **Full (strict)**: Cloudflare đòi chứng chỉ GitHub còn hạn → hết hạn là **cả site sập lỗi 526**.
+  Với chứng chỉ hiện tại, ngày đó là **03/01/2027**, nếu không ai để ý.
+- **Full**: vẫn mã hoá đoạn Cloudflare ↔ GitHub nhưng không đòi chứng chỉ GitHub còn hạn → site
+  **không phụ thuộc** vào việc GitHub gia hạn. Khách luôn thấy chứng chỉ của Cloudflare (Cloudflare tự gia hạn).
+- **Flexible**: tuyệt đối không dùng (bật cùng Enforce HTTPS là trang chuyển hướng vòng tròn).
 
-GitHub Pages gia hạn Let's Encrypt bằng HTTP-01 challenge trên
-`/.well-known/acme-challenge/`. Bật proxy Cloudflare + "Always Use HTTPS" thì
-challenge bị chuyển hướng sang HTTPS và có thể hỏng. Cert hiện tại hết hạn
-**30/10/2026**, GitHub thường gia hạn trước ~30 ngày, tức **khoảng đầu 10/2026**.
+⚠️ Cloudflare mới để mặc định **"Automatic SSL/TLS"**. Thấy GitHub có chứng chỉ hợp lệ, nó sẽ tự
+chọn strict → phải vào **Custom** chọn tay **Full**.
 
-→ Phải có rule cho `/.well-known/*`: bypass cache, **không** ép HTTPS.
-→ Làm sớm (bây giờ) để còn ~3 tuần đệm phát hiện sự cố trước kỳ gia hạn.
-→ Nếu cert vẫn không gia hạn được: tạm tắt proxy (chuyển sang DNS only, mây xám)
-   khoảng 1 giờ cho GitHub gia hạn xong rồi bật lại.
+### 4. Cache `sw.js` dài = gạch website, không sửa được từ xa
+Service worker quyết định khách nhận bản nào. Nếu chính nó bị giữ 1 năm thì khách cũ **không bao
+giờ** nhận bản mới, và không có cách ép từ xa. → `/sw.js`, mọi `.html`, `/`, `manifest.json`,
+`sitemap.xml`, `robots.txt` **không bao giờ cache**.
 
-### 3. Chỉ cache dài thứ CÓ vân tay
-
-Rà soát toàn bộ tham chiếu trong 156 trang (06/09/2026):
-
-| Đường dẫn | Có vân tay | Kết luận |
-|---|---|---|
-| `/dist/*.js` `/dist/*.css` | 100% | cache 1 năm an toàn |
-| `/js/*.js` `/data/*.js` | 100% | cache 1 năm an toàn |
-| `/assets/menu-pages/*` | 100% (30 tham chiếu) | cache 1 năm an toàn |
-| `/assets/images/*` | **0%** (1.098 tham chiếu) | ❌ không cache dài ở trình duyệt |
-| `/assets/fonts/*.woff2` | **0%** (594 tham chiếu) | ❌ không cache dài ở trình duyệt |
-
-Phông đặc biệt dễ nhầm là "không bao giờ đổi": `cat-phong.js` cắt lại phông mỗi
-khi nội dung site thêm chữ mới — CLAUDE.md đã ghi "git status hiện 4 file .woff2
-đổi sau khi build là bình thường". Cache 1 năm ở trình duyệt là khách cũ dính
-phông thiếu glyph.
-
-**Cách xử lý cho nhóm không vân tay:** cho **Edge TTL dài** (Cloudflare giữ, mọi
-khách hưởng tốc độ) nhưng **Browser TTL ngắn** (trình duyệt hỏi lại). Deploy xong
-purge Cloudflare là cả thế giới thấy bản mới ngay.
+### 5. Cache Rules: rule đứng SAU thắng
+Khi nhiều Cache Rule cùng khớp, Cloudflare gộp lại và **giá trị của rule khớp CUỐI cùng thắng**
+([tài liệu Cloudflare](https://developers.cloudflare.com/cache/how-to/cache-rules/order/)).
+Bản cũ của tài liệu này ghi ngược lại. Hai rule bên dưới được viết để **không bao giờ cùng khớp
+một URL**, nên thứ tự không quan trọng. Dù vậy cứ để rule "Không bao giờ cache" ở cuối cho chắc.
 
 ---
 
 ## Các bước
 
-### B1. Thêm site vào Cloudflare
-1. Tạo tài khoản Cloudflare (gói **Free** là đủ).
-2. Add a Site → `tramdungchill.vn` → chọn Free.
-3. Cloudflare tự quét DNS. **Đối chiếu cho đủ** với bảng hiện trạng bên trên —
-   thiếu bản ghi nào thì thêm tay, nhất là bản ghi email nếu có.
-4. Đặt proxy (mây **cam**) cho: 4 bản ghi A của apex, và CNAME `www`.
+Làm theo **hai giai đoạn**: chuyển DNS với mây xám trước (site vẫn chạy thẳng GitHub, không
+gián đoạn giây nào), chứng chỉ Cloudflare sẵn sàng rồi mới bật mây cam.
+Nên làm **buổi sáng** (quán mở 15:00), lúc ít khách đặt bàn.
 
-### B2. Đổi nameserver ở iNET
-Vào trang quản trị tên miền tại iNET, thay `ns1/ns2/ns3.inet.vn` bằng cặp
-nameserver Cloudflare cấp ở bước B1.
+### B0. GitHub: bật Enforce HTTPS — làm TRƯỚC · ✅ ĐÃ XONG 10/10/2026
+GitHub repo → **Settings → Pages** → tick **Enforce HTTPS**.
+Sau khi qua Cloudflare, GitHub không còn thấy IP của mình nên ô này thường bị khoá xám, không bấm
+được nữa. Bật trước để nếu phải quay lại thì http vẫn tự sang https.
+→ Chạy script: mục `http → https` phải ✅.
 
-⏱️ Lan truyền thường 5 phút – 24 giờ. Trong lúc chờ, site vẫn chạy bình thường.
+### B1. Tạo tài khoản + thêm tên miền
+1. Đăng ký tại dash.cloudflare.com, chọn gói **Free**.
+2. **Add a domain** → `tramdungchill.vn` → quét DNS tự động (quick scan).
+3. Gặp màn hỏi về **AI crawlers / AI bots**: chọn **Do not block / Allow**.
+   Gặp ô **robots.txt / Content Signals / "Instruct AI bot traffic with robots.txt"**: **TẮT**.
 
-### B3. SSL/TLS
-- Mode: **Full (strict)** — GitHub Pages có cert hợp lệ nên strict dùng được.
-- Bật "Always Use HTTPS" — **nhưng phải làm B4 trước hoặc cùng lúc.**
-- Giữ nguyên "Enforce HTTPS" bên GitHub Pages.
+### B2. Kiểm bảng DNS — đúng 7 bản ghi, giai đoạn đầu TẤT CẢ mây xám
 
-### B4. Rule chừa đường cho gia hạn cert  ← ĐỪNG BỎ QUA
-Tạo rule cho `/.well-known/*`: **bypass cache** và **không** ép HTTPS.
-Đây là cái chặn bẫy #2.
+| Loại | Tên | Nội dung | Giai đoạn 1 | Giai đoạn 2 (B5) |
+|---|---|---|---|---|
+| A | `@` | `185.199.108.153` | xám | **cam** |
+| A | `@` | `185.199.109.153` | xám | **cam** |
+| A | `@` | `185.199.110.153` | xám | **cam** |
+| A | `@` | `185.199.111.153` | xám | **cam** |
+| CNAME | `www` | `hongtuan104-debug.github.io` | xám | **cam** |
+| CNAME | `app` | `cname.vercel-dns.com` | xám | **xám — mãi mãi** |
+| MX | `@` | `mx1.improvmx.com`, ưu tiên 10 | (MX không có mây) | giữ nguyên — xoá là mất email |
 
-### B5. Cache Rules
+Bản quét thiếu bản ghi nào thì thêm tay. Bản quét bày thêm bản ghi lạ thì **tra DNS thật trước** rồi mới xoá
+(10/10/2026 dòng MX ImprovMX trông lạ nhưng là bản ghi thật ở iNET).
+⚠️ Bản quét tự động để **mọi** bản ghi A/CNAME ở mây CAM — phải gạt tay từng dòng về xám (đã gặp 10/10/2026).
+Trước khi sang B3, **chụp màn hình bảng DNS ở iNET** (để quay lại nếu cần).
 
-Thứ tự quan trọng — rule đứng trước thắng. Đặt đúng thứ tự này:
+### B3. iNET: đổi nameserver
+Trang quản trị tên miền iNET → `tramdungchill.vn` → đổi nameserver: thay `ns1/ns2/ns3.inet.vn`
+bằng **2 nameserver Cloudflare cấp** (dạng `xxx.ns.cloudflare.com`).
+Chờ Cloudflare gửi mail báo domain **Active** (thường vài phút, lâu nhất 24 giờ). Trong lúc chờ,
+site vẫn chạy bình thường vì cả hai bên trả cùng một bộ bản ghi.
+→ Chạy script: mục `Nameserver` phải báo "đã ở Cloudflare".
 
-**Rule 1 — Không bao giờ cache (bẫy #1)**
+### B4. Cài sẵn mọi thứ TRƯỚC khi bật mây cam
+**a. SSL/TLS**
+- SSL/TLS → Overview → **Configure → Custom → Full** (không strict, không Flexible — bẫy #3).
+- SSL/TLS → Edge Certificates: chờ chứng chỉ **Universal** báo **Active**.
+- Cùng trang đó: **Always Use HTTPS = TẮT** (ô này không có ngoại lệ theo đường dẫn; dùng
+  Redirect Rule bên dưới thay thế, theo đúng khuyến nghị của Cloudflare).
+
+**b. Redirect Rule http → https** (Rules → Redirect Rules → Create)
+- Tên: `http sang https`
+- Biểu thức (Edit expression):
+  ```
+  (not ssl and not starts_with(http.request.uri.path, "/.well-known/"))
+  ```
+- Then: **Dynamic** · `concat("https://", http.host, http.request.uri.path)` · **301** ·
+  tick **Preserve query string**.
+- Chừa `/.well-known/` là để GitHub còn cơ hội tự gia hạn chứng chỉ. Gia hạn được thì tốt;
+  không được thì site vẫn chạy nhờ chế độ Full.
+
+**c. Cache Rules** (Caching → Cache Rules → Create rule → Edit expression)
+
+Rule 1 — `Có vân tay — giữ 1 năm`
 ```
-(http.request.uri.path eq "/sw.js")
-or (http.request.uri.path.extension eq "html")
-or (http.request.uri.path eq "/")
-or (http.request.uri.path in {"/manifest.json" "/sitemap.xml" "/robots.txt"})
+(http.request.uri.query contains "v=" and http.request.uri.path.extension in {"js" "css" "webp" "woff2"} and http.request.uri.path ne "/sw.js")
 ```
-→ Bypass cache.
+→ Eligible for cache · Edge TTL: **Ignore cache-control header, 1 year** · Browser TTL:
+**Override origin, 1 year**.
+→ **Status code TTL: Greater than or equal · 400 · No store** (thêm 10/10/2026). Không có dòng này thì
+một lần GitHub trả 404/5xx cho URL có vân tay (vừa push, file chưa lên hết máy chủ) có thể bị giữ ở edge
+cả năm — URL đó hỏng với mọi khách tới khi có người purge tay. `kiem-cloudflare.js` gọi thử một URL
+`?v=` không tồn tại hai lần để canh.
 
-**Rule 2 — Tài sản CÓ vân tay: cache 1 năm**
+Rule 2 — `Không bao giờ cache` (đặt **cuối**)
 ```
-(http.request.uri.query contains "v=" and
- http.request.uri.path.extension in {"js" "css" "webp"})
+(http.request.uri.path eq "/sw.js") or (http.request.uri.path.extension eq "html") or (http.request.uri.path in {"/" "/manifest.json" "/sitemap.xml" "/robots.txt"})
 ```
-→ Edge TTL 1 năm · Browser TTL 1 năm.
-Điều kiện `query contains "v="` là chốt an toàn: không có vân tay thì không
-lọt vào rule này, kể cả file trong `/dist/`.
+→ **Bypass cache**.
 
-**Rule 3 — Ảnh + phông (không vân tay)**
-```
-(starts_with(http.request.uri.path, "/assets/images/"))
-or (starts_with(http.request.uri.path, "/assets/fonts/"))
-```
-→ Edge TTL 1 tháng · **Browser TTL 1 ngày**.
-Edge dài để nhanh, browser ngắn để thay ảnh/phông xong khách nhận được sau khi purge.
+Vì sao chỉ hai rule:
+- **Có vân tay**: 100% JS/CSS (`dist/` `js/` `data/`), 100% phông (26/26 chỗ gọi, có vân tay từ
+  14/09/2026), 100% ảnh trang thực đơn. URL đổi theo nội dung nên giữ 1 năm an toàn. 🟢 Đã kiểm
+  06/10: bộ nhớ đệm của GitHub (Fastly) tính cả `?v=` vào khoá, nên `?v=` mới luôn lấy file mới.
+- **Ảnh `assets/images/` (0/115 chỗ gọi có vân tay)**: cố ý **không** có rule. Để y như GitHub
+  (10 phút), vì service worker đã giữ ảnh kiểu cache-first cho khách quay lại. Thêm rule giữ lâu
+  thì lợi ích nhỏ mà mỗi lần thay ảnh cùng tên phải nhớ purge.
+  → **Không phải thêm bước purge nào vào quy trình sửa code.**
+- Thư mục kiểu `/duong-di/` không có đuôi file nên Cloudflare vốn không giữ.
 
-### B6. Bật HTTP/3
-Speed → Optimization → bật HTTP/3 (QUIC). Thường đã bật sẵn.
+**d. Tắt những thứ Cloudflare tự sửa trang** (gặp ở đâu thì tắt ở đó)
+- **Rocket Loader**: tắt (Speed → Optimization). Nó viết lại thẻ `<script>`, phá thứ tự `defer`
+  và cơ chế hoãn pixel (bug #9, #20).
+- **Speed Brain**: tắt. Nó tải trước trang khi rê chuột, mà HTML mình không cho Cloudflare giữ.
+- **Web Analytics / RUM tự động**: đừng bật. Site đã có RUM riêng gửi GA4 (bug #31); chèn thêm
+  script là đè lên LCP/TBT.
+- **Bot Fight Mode**: để tắt (nó chèn script kiểm tra JS vào trang).
+- **Security → AI bots**: kiểm lại vẫn là **Allow**, managed robots.txt **tắt**.
+
+### B5. Bật mây cam
+Bật **cam** cho 4 bản ghi A + `www`. **`app` giữ xám.** Có hiệu lực sau vài phút.
+→ Chạy script. Mong đợi: 0 ❌. Các mục quan trọng:
+`app … không đi qua proxy` ✅ · `robots.txt y hệt file trong repo` ✅ ·
+`Không giữ lâu: /sw.js` ✅ · `Giữ lâu (có vân tay)` ✅ · `HTML không bị chèn script` ✅ · `HTTP/3` ✅.
+Mở thử trang chủ bằng điện thoại, đặt thử một đơn để chắc app nhận đơn vẫn chạy.
 
 ---
 
-## Sau khi deploy: purge (mục 130)
+## Sau khi xong
 
-Quy trình sửa code trong CLAUDE.md giữ nguyên, **thêm một bước cuối**: purge
-Cloudflare cho những đường dẫn đã đổi.
+- **Quy trình sửa code KHÔNG đổi.** HTML + `sw.js` không cache nên push xong khách vẫn thấy bản
+  mới như cũ. Tài sản có vân tay đổi URL theo nội dung. Ảnh để y như GitHub. Không phải purge gì.
+- **Bản ghi DNS mới** (vd TXT xác minh Domain property Search Console, Bing Webmaster) từ nay
+  **thêm ở Cloudflare**, không thêm ở iNET nữa.
+- **Cập nhật** CLAUDE.md (Stack & Build) + memory `hosting-cdn-thuc-te`: site đã sau Cloudflare.
 
-- Tài sản có vân tay: **không cần purge** — URL đổi theo nội dung.
-- `sw.js`, `.html`: không cache nên cũng không cần.
-- **Ảnh, phông**: đổi thì phải purge, vì không có vân tay.
+### Mốc theo dõi
+| Ngày | Việc |
+|---|---|
+| ngay sau B5 | `node scripts/kiem-cloudflare.js` · đặt thử 1 đơn |
+| ~4 tuần sau | so TTFB/LCP trong GA4 (sự kiện RUM, bug #31) với trước khi chuyển; CrUX cửa sổ 28 ngày mới đổi |
+| **trước 13/12/2026** | **gia hạn tên miền ở iNET** — Cloudflare không gia hạn hộ .vn |
+| ~05/12/2026 | GitHub tới kỳ gia hạn chứng chỉ. Chạy script xem mục `Chứng chỉ gốc GitHub (sau proxy)`. Không gia hạn được thì site vẫn chạy (chế độ Full), chỉ ảnh hưởng tới việc quay lại (mục dưới) |
 
-Purge chọn lọc theo URL, đừng "Purge Everything" cho quen tay — làm thế là vứt
-sạch cache rồi mọi khách chịu lượt tải nguội.
+## Quay lại (rollback)
 
----
+**Nhanh:** chuyển 4 bản ghi A + `www` từ cam → xám, có hiệu lực sau vài phút.
+⚠️ Trước khi làm, chạy script xem **chứng chỉ gốc GitHub còn hạn không**. Bỏ proxy là khách
+gặp thẳng chứng chỉ GitHub; hết hạn thì trình duyệt báo "không an toàn". Nếu đã hết hạn:
+chuyển xám → GitHub Settings → Pages → xoá custom domain → lưu → điền lại `tramdungchill.vn`
+→ chờ GitHub cấp chứng chỉ mới (vài phút tới 1 giờ). Thao tác này làm GitHub tự commit sửa file
+`CNAME` hai lần, nên nhớ `git pull` trước khi push tiếp.
 
-## Verify sau khi xong
-
-```bash
-# 1. max-age đã dài chưa (tài sản có vân tay)
-curl -sSI "https://tramdungchill.vn/dist/common.min.js?v=e8c99505" | grep -i "cache-control\|cf-cache-status"
-
-# 2. sw.js PHẢI không được cache dài  ← quan trọng nhất
-curl -sSI "https://tramdungchill.vn/sw.js" | grep -i "cache-control\|cf-cache-status"
-
-# 3. ảnh: edge dài, browser ngắn
-curl -sSI "https://tramdungchill.vn/assets/images/hero-sunset.webp" | grep -i "cache-control\|cf-cache-status"
-
-# 4. HTTP/3 đã quảng bá chưa
-curl -sSI "https://tramdungchill.vn/" | grep -i "alt-svc"
-
-# 5. TTFB — chạy 3 lần, so với 0,28–0,40s trước khi đổi
-for i in 1 2 3; do curl -sS -o /dev/null -w "TTFB=%{time_starttransfer}s\n" "https://tramdungchill.vn/"; done
-
-# 6. cert vẫn hợp lệ
-echo | openssl s_client -connect tramdungchill.vn:443 -servername tramdungchill.vn 2>/dev/null | openssl x509 -noout -issuer -dates
-```
-
-Mốc cần theo dõi: **đầu 10/2026** — kỳ gia hạn cert đầu tiên sau khi bật proxy.
-Chạy lệnh 6, nếu `notAfter` không lùi ra xa thì làm theo bẫy #2.
-
-## Rollback
-
-Đổi nameserver ở iNET về `ns1/ns2/ns3.inet.vn`. Site quay lại chạy thẳng GitHub
-Pages. Nhanh hơn nữa: tắt proxy (mây cam → xám) từng bản ghi, có hiệu lực trong
-vài giây mà không cần đợi DNS lan truyền.
+**Hẳn:** đổi nameserver ở iNET về `ns1/ns2/ns3.inet.vn`. Đối chiếu bảng DNS ở iNET với ảnh chụp
+ở bước B2.
