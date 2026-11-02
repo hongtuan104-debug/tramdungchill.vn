@@ -1460,6 +1460,30 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
    (luật chỉ bắt thẻ `<script src>` thật — chữ "lazy-tracking" trong chú thích từng làm nó báo nhầm). Bẻ thử 2 kiểu, bắt đủ.
    Chưa làm: Search Console (Apps Script không có dịch vụ sẵn, phải tạo dự án Google Cloud riêng).
 
+54. **Answer-first cho bài index + số GSC tháng 9** (02/11/2026 — sếp gửi chùm bài SEO về AI Mode / NovaVerb / John Mueller rồi "làm đi").
+   - **Answer-first**: AI Mode / AI Overviews trích đoạn nằm ngay dưới tiêu đề mục. Rà bằng mắt 157 mục H2 của 17 bài index:
+     3 mục nhảy thẳng H2 → H3, không có câu dẫn (`da-lat-ve-dem-di-dau` "8 hoạt động", `dac-san-da-lat-mua-ve` "10 đặc sản",
+     `lich-trinh-da-lat-3-ngay-2-dem` "Ngày 1") + 3 mục có đoạn mở nhưng không trả lời tiêu đề (`cam-trai-da-lat` "Năm khu vực"
+     chỉ có câu miễn trừ, `da-lat-mua-nao-dep-nhat` "Mùa nào ăn nướng ngắm tàu" không nói mùa nào, `an-nuong-da-lat-bao-nhieu-tien`
+     "Gọi sao cho tiết kiệm" chỉ có câu dẫn vào danh sách). Chèn 6 đoạn mở (1–2 câu, chỉ dùng dữ kiện đã có trong chính mục đó)
+     vào thân pillar trong `blog-seo.js` — chèn `<p>` MỚI, không sửa câu cũ, để khoá dịch cũ còn nguyên (#25, #42).
+     Mục "so sánh với quán khác" cố ý để nguyên câu dẫn vào bảng: bảng là câu trả lời.
+   - ⚠️ **Sửa chữ bài index = dịch 6 thứ tiếng ngay trong cùng đợt**, không thì R33 đỏ và trang dịch hiện tiếng Việt. Quy trình
+     đã chạy trọn: build → `--xuat` 6 mã → tự dịch (tra `data/ban-dich/<mã>.json` để dùng đúng tên món / địa danh đã chọn:
+     金溪 = Suối Vàng, 斋玛 = Trại Mát, Cầu Đất / Xuân Trường giữ tiếng Việt…) → `--kiem` → `--nap` → `node scripts/dich-trang.js`.
+     Bộ kiểm "còn nhiều chữ tiếng Việt" đếm theo khoảng trắng nên câu tiếng Trung giữ ≥ 3 địa danh Việt là bị chê — dùng tên Hán
+     đã có trong từ điển, đừng chèn dấu cách để lách.
+   - Máy canh **R34**: trong `<article class="blog-post-body">` của bài index, thẻ đầu tiên sau mỗi `</h2>` phải là `<p>` ≥ 15 chữ
+     (bỏ `section.blog-faq`; "Gợi ý cho bạn" + CTA nằm ngoài article). Chỉ đo CẤU TRÚC — đoạn mở có trả lời đúng tiêu đề không là
+     việc đọc bằng mắt; cố ý không thêm luật "câu dẫn vào danh sách" vì "Quán mở cửa từ 15:00… khung 15:00–17:00 là hợp lý nhất:"
+     cũng bị bắt oan. Bẻ thử trên HTML cũ: bắt đúng 3 mục H2 → H3. Sau sửa: 106 mục / 17 bài, ngắn nhất 16 chữ.
+   - **Số GSC tháng 9 đọc từ Gmail 02/11** (thư `sc-noreply` 06/10): **442 lượt nhấp · 8,4K hiển thị** — so T8 793 / 12,9K là
+     **−44% / −35%**. Top trang: chủ 202 (T8 430) · menu 160 (277) · săn tàu 55 (76); truy vấn vẫn toàn tên quán nhưng
+     "tiệm nướng trạm dừng chill" 119 → 58. Google Ads cùng kỳ KHÔNG giảm (lượt nhấp 6.631 → 6.138 → 7.561 T8/T9/T10, chi tiêu tăng).
+     🟡 Nhấp lẫn hiển thị tên quán cùng giảm → nghiêng về nhu cầu giảm (tháng 9 mưa nhiều nhất năm) hơn là mất hạng; PMax có thể
+     hứng bớt nhấp tên quán — chỉ GSC (hiển thị theo truy vấn) phân xử được. Thư T10 chưa về (02/11). Quyết định **123 bài noindex**
+     (memory `spam-update-2026-08-phoi-nhiem`) vẫn chờ sếp — nay đã có số để chọn A/B/C.
+
 ## Trang tác giả — ĐÃ GỠ 21/10/2026 (cơ chế vẫn còn trong generator)
 ⚠️ **Sếp Tuấn bỏ tên người khỏi web (21/10/2026)** → không bài nào khai `author`, thư mục `tac-gia/` đã xoá,
 mọi bài ký "Đội ngũ Trạm Dừng Chill" + schema author = Restaurant. Phần dưới chỉ để hiểu code còn lại trong

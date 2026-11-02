@@ -3113,6 +3113,44 @@ const CAU_AEO = (() => {
                                     : "chưa có thứ tiếng nào được sinh trang"));
 }
 
+// ── R34. Answer-first: mỗi mục H2 trong bài index mở bằng một đoạn văn (02/11/2026, CLAUDE.md #54) ──
+// AI Mode / AI Overviews trích đoạn nằm ngay dưới tiêu đề mục; mục mở bằng H3 / danh sách / bảng thì
+// máy không có câu nào để trích. Luật chỉ đo CẤU TRÚC: thẻ đầu tiên sau </h2> phải là <p> và có ≥ 15 chữ.
+// Đoạn đó có TRẢ LỜI đúng tiêu đề hay không là việc đọc bằng mắt (rà 02/11/2026: 157 mục / 17 bài,
+// 6 mục phải viết thêm câu mở). Bỏ qua khối FAQ (section.blog-faq là H2 + hộp hỏi đáp, không phải mục văn);
+// "Gợi ý cho bạn" và khối CTA nằm NGOÀI <article> nên không lọt vào.
+{
+    const dir = path.join(ROOT, "blog");
+    const indexed = fs.readdirSync(dir).filter((f) => f.endsWith(".html")).filter((f) => {
+        const m = fs.readFileSync(path.join(dir, f), "utf8").match(/name="robots" content="([^"]+)"/);
+        return m && !/noindex/i.test(m[1]);
+    });
+    const chu = (s) => s.replace(/<[^>]+>/g, " ").replace(/&[a-z#0-9]+;/gi, " ").replace(/\s+/g, " ").trim();
+    const loi = [];
+    let tong = 0, ngan = Infinity;
+    for (const f of indexed) {
+        const html = fs.readFileSync(path.join(dir, f), "utf8");
+        const art = ((html.match(/<article class="blog-post-body[^"]*">([\s\S]*?)<\/article>/) || [])[1] || "")
+            .replace(/<section class="blog-faq">[\s\S]*?<\/section>/, "");
+        const re = /<h2[^>]*>([\s\S]*?)<\/h2>/g;
+        let m;
+        while ((m = re.exec(art))) {
+            tong++;
+            const tieuDe = chu(m[1]).slice(0, 50);
+            const sau = art.slice(m.index + m[0].length).replace(/^\s+/, "");
+            const the = ((sau.match(/^<([a-z0-9]+)/i) || [])[1] || "?").toLowerCase();
+            if (the !== "p") { loi.push(f.replace(".html", "") + ": \"" + tieuDe + "\" mở bằng <" + the + ">"); continue; }
+            const tu = chu(sau.split("</p>")[0]).split(" ").filter(Boolean).length;
+            ngan = Math.min(ngan, tu);
+            if (tu < 15) loi.push(f.replace(".html", "") + ": \"" + tieuDe + "\" đoạn mở chỉ " + tu + " chữ");
+        }
+    }
+    add("Answer-first: mọi mục H2 của bài index mở bằng đoạn văn ≥ 15 chữ (không tính FAQ)",
+        tong > 0 && loi.length === 0,
+        loi.length ? loi.slice(0, 4).join(" | ") + (loi.length > 4 ? " … (+" + (loi.length - 4) + ")" : "")
+                   : tong + " mục H2 / " + indexed.length + " bài đều mở bằng đoạn văn, ngắn nhất " + ngan + " chữ");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");
