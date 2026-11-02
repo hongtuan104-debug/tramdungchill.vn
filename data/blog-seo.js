@@ -229,7 +229,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
@@ -343,7 +343,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "vi"
     },
     "da-lat-mua-nao-dep-nhat": {
@@ -381,7 +381,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "vi"
     },
     "da-lat-cho-nguoi-nuoc-ngoai": {
@@ -577,7 +577,7 @@ const BLOG_SEO = {
         { "q": "Nên mua cà phê hạt hay cà phê xay sẵn?", "a": "Nếu ở nhà có máy xay thì mua hạt nguyên sẽ giữ hương lâu hơn hẳn. Cà phê xay sẵn xuống mùi khá nhanh, chỉ nên mua khi bạn dùng hết sớm. Dù mua loại nào cũng nên hỏi ngày rang và bảo quản trong hũ kín, tránh nắng và tủ lạnh ẩm." },
         { "q": "Mua quà xong buổi chiều thì ăn tối ở đâu quanh Trại Mát?", "a": "Khu Trại Mát nằm cùng hướng với vùng trồng dâu và cà phê nên nhiều người mua quà xong ghé luôn khu này ăn tối. Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường mở cửa 15:00–23:00, khoảng 150.000đ–400.000đ mỗi người đã gồm VAT. Đến khoảng 16:30 là vừa lúc tàu lửa cổ bắt đầu chạy qua quán (khung 16:30 – 21:25) và hoàng hôn buông xuống thung lũng và từ 18h30 nhà lồng lên đèn — các mốc giờ này chỉ để tham khảo." }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "vi"
     },
     "cam-trai-da-lat": {
@@ -595,7 +595,7 @@ const BLOG_SEO = {
         { "q": "Nên tự nấu ăn khi cắm trại hay ăn no trước rồi mới vào trại?", "a": "Nếu nhóm ít người và ít kinh nghiệm thì ăn no trước sẽ nhàn hơn nhiều: gió cao nguyên làm than khó cháy, rửa dọn bằng nước lạnh rất cực, mà khuya đói lại không có chỗ mua. Cách phổ biến là ăn tối ở phố lúc chiều, mang theo ít đồ khô và nước nóng để nhâm nhi buổi đêm." },
         { "q": "Đi cắm trại hướng Trại Mát thì ăn tối ở đâu trên đường?", "a": "Tiệm Nướng Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường — từ trung tâm chạy hướng Trại Mát rồi đi tiếp là tới, thuận đường nếu bạn cắm trại phía Trại Mát – Xuân Trường hoặc đi tiếp lên Cầu Đất. Quán mở 15:00–23:00, giá 150.000đ–400.000đ mỗi người đã gồm VAT, hơn 70 món gồm cả đồ ăn lẫn đồ uống, gọi lẻ từng món. Muốn xem đủ ba cảnh thì nên có mặt trước 16:30 và ngồi qua 18h30: tàu lửa cổ chạy dưới chân quán từ khoảng 16:30, hoàng hôn thung lũng từ khoảng 16h30, biển sao nhà lồng lên đèn từ 18h30. Quán đạt 4,8/5 sao với 7.344 lượt đánh giá trên Google Maps (số đọc ngày 18/10/2026); đi nhóm đông thì nên đặt bàn trước qua website." }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "vi"
     },
     "an-vat-da-lat-buoi-toi": {
@@ -629,7 +629,7 @@ const BLOG_SEO = {
         { "q": "Đi hai người thì nên chọn hoạt động nào cho buổi tối?", "a": "Công thức dễ chịu nhất là ăn tối ở chỗ có view thung lũng lên đèn, sau đó về trung tâm đi bộ một vòng hồ Xuân Hương rồi ngồi cà phê nghe nhạc mộc. Nếu là dịp sinh nhật hay kỷ niệm, Trạm Dừng Chill có setup miễn phí (cọc 200.000đ, hoàn lại sau khi ăn) - nhớ báo trước khi đặt bàn để quán chuẩn bị." },
         { "q": "Có cần đặt bàn trước khi đi ăn tối ở Đà Lạt không?", "a": "Cuối tuần và mùa cao điểm thì nên, vì các quán có view hay đông vào giờ ăn tối. Với Trạm Dừng Chill, bạn đặt qua <a href=\"/#booking\">form đặt bàn trên website</a> hoặc gọi 0989.765.070, ghi chú rõ số người và giờ đến. Nếu là dịp sinh nhật hay kỷ niệm, báo luôn lúc đặt để quán chuẩn bị setup miễn phí." }
       ],
-      "dateModified": "2026-10-24",
+      "dateModified": "2026-11-02",
       "lang": "vi"
     },
     "tip-chon-cho-ngoi-quan-nuong": {
