@@ -1530,6 +1530,16 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      4 trang dịp (script + ghi chú), index.html + translations.js (date.note, faq.a2, notify.nghiTet), menu/duong-di/dip FAQ, blog-seo.js
      (2 bài EN), llms.txt, mua-le.json, facts.json. Gỡ xong phải dịch lại các câu đổi (R33). Roadmap tuần 4 (Tết 2027) nhớ việc này.
 
+57. **Nội dung nguyên bản: số đo hóa đơn thật + VideoObject video đường đi** (11/11/2026, sếp "làm đi" sau khi được báo đối thủ
+   có thể đoán lượng khách từ số này). Bài `an-nuong-da-lat-bao-nhieu-tien` thêm mục "Khách thật chi bao nhiêu? Số đo từ 17.455
+   hóa đơn" — số lấy đúng `facts.json` → `_veGiaNguoi`, đo lại thì sửa cả facts.json lẫn mục này (và dịch lại 6 thứ tiếng).
+   - ⚠️ **Đếm hóa đơn thì viết "N hóa đơn", đừng viết "trên/hơn/khoảng N bàn"**: check-facts coi dạng đó là SỨC CHỨA quán
+     (chuẩn 250 bàn). ⚠️ Câu nhắc Tết mà có "không phụ thu / no surcharge" phải kèm "10%" hoặc "Mùng 2–8" — R8r bắt cả bản dịch EN.
+   - Trang Đường đi: khối `VIDEO_JSONLD` **sửa tay** cho YouTube `KaivEzo606E` (kênh @TramDungChill của quán) — số đọc từ trang
+     YouTube công khai (tiêu đề, ngày đăng, `PT0M42S`, ảnh bìa oEmbed). Thay video thì đọc lại. JSON-LD tính vào dấu vân lastmod.
+   - Chưa có lời thoại / lộ trình bằng chữ (việc treo từ #25): phụ đề chỉ có bản tự động, không tải được một cách chính đáng —
+     **chờ sếp gửi lộ trình**. Mô tả video trên YouTube còn ghi "Phường 11 … 67000" (địa chỉ cũ) — sếp tự sửa trong YouTube Studio.
+
 ## Trang tác giả — ĐÃ GỠ 21/10/2026 (cơ chế vẫn còn trong generator)
 ⚠️ **Sếp Tuấn bỏ tên người khỏi web (21/10/2026)** → không bài nào khai `author`, thư mục `tac-gia/` đã xoá,
 mọi bài ký "Đội ngũ Trạm Dừng Chill" + schema author = Restaurant. Phần dưới chỉ để hiểu code còn lại trong
