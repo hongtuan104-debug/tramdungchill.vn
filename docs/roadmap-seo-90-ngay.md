@@ -17,7 +17,8 @@ Web đã tốt về kỹ thuật (hơn 60 luật tự kiểm mỗi lần build).
 2. **Chưa có trang nào bắt mùa lễ.** 0 trang đang lập chỉ mục nhắm Noel / tất niên / Tết. Bốn bài Noel / năm mới / Tết hiện có
    đều noindex, mà 3 bài trong đó còn canonical về bài *setup sinh nhật* (lệch ý định tìm kiếm). Google khám phá trang mới rất chậm
    (~0,9 lượt/ngày), nên trang Noel phải lên web **trước 15/11**.
-3. **Không được để mất web.** Tên miền hết hạn **13/12/2026**, trúng giữa mùa Noel.
+3. ~~**Không được để mất web.** Tên miền hết hạn **13/12/2026**, trúng giữa mùa Noel.~~ → ✅ sếp đã gia hạn 1 năm, hạn mới
+   **13/12/2027** (báo 11/11/2026).
 
 Thêm một việc kỹ thuật em làm được ngay: **INP điện thoại trượt lại** (248ms, ngưỡng 200ms), tệ nhất ở trang Thực đơn (364ms).
 
@@ -80,6 +81,7 @@ Ký hiệu người làm: **[Sếp]** cần tài khoản của sếp · **[Em]**
 **Tuần 2 (02/11 – 08/11)**
 - [ ] **[Em]** Đọc số GSC → đặt 2 mục tiêu ở mục 2; soi từng URL chưa lập chỉ mục; đem quyết định **123 bài noindex**
       (phương án A/B/C để chờ số T9 từ 14/09, nay đã quá hạn) ra hỏi sếp kèm số.
+      → **Dời sau ~10/12** (11/11: core update 11/2026 đang triển khai — xem mục 5).
 - [ ] **[Sếp, ~10 phút]** Bing Webmaster Tools → **Import từ Google Search Console** → gửi `sitemap.xml`.
       (Bing là nguồn dữ liệu của ChatGPT Search và Copilot.)
 - [ ] **[Sếp, ~10 phút]** GSC → thêm **Domain property** `tramdungchill.vn`. ⚠️ Từ 10/10 DNS nằm ở **Cloudflare**
@@ -100,8 +102,8 @@ Ký hiệu người làm: **[Sếp]** cần tài khoản của sếp · **[Em]**
       dịch 6 thứ tiếng). **Hạn lên web: 15/11.** Viết đúng luật quán: hoa nhựa, không nến, đêm 24/12 không phụ thu.
 - [ ] **[Sếp, ~5 phút]** GSC → Kiểm tra URL → **Yêu cầu lập chỉ mục**: trang mới + trang chủ (để Google đọc link mới).
 - [ ] **[Em]** Sửa INP trang Thực đơn theo kết quả tuần 1.
-- [ ] **[Sếp]** Khoảng 13/11 Telegram báo nhắc gia hạn tên miền → **gia hạn ở iNET** (Cloudflare không nhận tên miền .vn).
-      → **[Em]** sửa `HAN_TEN_MIEN` trong `scripts/giam-sat-uptime.js`.
+- [x] **[Sếp]** ~~Khoảng 13/11 Telegram báo nhắc gia hạn tên miền → gia hạn ở iNET~~ → **đã gia hạn 1 năm, hạn mới 13/12/2027**
+      (sếp báo 11/11/2026). → **[Em]** đã sửa `HAN_TEN_MIEN` trong `scripts/giam-sat-uptime.js`.
 
 **Tuần 4 (16/11 – 22/11)**
 - [ ] **[Em]** **Trang mùa lễ #2 — Tết 2027**: nâng bài `dat-ban-quan-nuong-da-lat-tet` (đang noindex) lên lập chỉ mục,
@@ -109,6 +111,8 @@ Ký hiệu người làm: **[Sếp]** cần tài khoản của sếp · **[Em]**
 - [ ] **[Sếp hoặc NV, ~60 phút]** Đo AI lần 1: hỏi 20 câu trong `docs/do-hien-thi-ai/cau-hoi-benchmark.json` trên
       **ChatGPT (cửa sổ ẩn danh)** và **Google (AI Overviews / AI Mode)**, chụp màn hình → em chấm và ghi nhật ký.
 - [ ] **Mốc tháng 1 (~23/11):** em chạy `kiem-crux.js`, đọc `/quan-tri/`, so với mốc xuất phát.
+      ⚠️ Lúc này core update 11/2026 có thể còn đang triển khai → số GSC mốc này **không** dùng để đánh giá tác động
+      của nó; đánh giá ở ~10/12 theo `docs/search-console.md` mục 2.7.
 
 ### Giai đoạn 2 — Mùa Noel (23/11 → 20/12)
 
@@ -154,6 +158,7 @@ Ba bẫy khi đọc số:
 | Thêm thứ tiếng thứ 7 | 148 URL dịch còn chưa được lập chỉ mục. |
 | Chuyển sang GTM, thêm pixel / widget chat | INP đang trượt; thêm script lúc tải là đẩy nó tệ thêm. |
 | Bật proxy Cloudflare (mây cam) từ 01/12 tới hết Tết | Đổi hạ tầng giữa mùa đông khách thì rủi ro lớn hơn lợi. Lợi chính của nó là TTFB, mà TTFB không được tính vào Core Web Vitals. Để sau Tết. |
+| Sửa hàng loạt trang cũ / đổi trạng thái 123 bài noindex từ 10/11 tới ~10/12 | Google đang triển khai core update 11/2026 (bắt đầu 10/11, tới 2 tuần). Sửa lúc thứ hạng đang biến động thì không tách được tác động của mình khỏi tác động của Google. Mốc so + cách đọc: `docs/search-console.md` mục 2.7. |
 | Mua backlink, trả thêm bài PR chỉ để có link | Đo trước hiệu quả 5 bài PR tháng 9 (nguồn `referral`, chiến dịch `pr_*` trong GA4). |
 | Sửa `lastmod` để "giục" Google | Khai man tín hiệu; máy đóng dấu ngày chỉ đổi ngày khi chữ thật sự đổi. |
 
@@ -168,7 +173,7 @@ Ba bẫy khi đọc số:
 | Tuần 2 | Bing Webmaster (Import từ GSC) | 10 phút |
 | Tuần 2 | GSC Domain property (TXT ở **Cloudflare**) + chủ sở hữu thứ 2 | 15 phút |
 | Tuần 2 | Trả lời dữ kiện mùa lễ + 8 câu mâu thuẫn | 15 phút |
-| Tuần 3 | Gia hạn tên miền ở iNET (hạn chót 13/12) | 10 phút |
+| Tuần 3 | ~~Gia hạn tên miền ở iNET~~ ✅ xong (hạn mới 13/12/2027) | — |
 | Tuần 3–4 | Yêu cầu lập chỉ mục 2 trang mùa lễ | 5 phút |
 | Mỗi thứ Hai | Đọc `/quan-tri/` | 10 phút |
 | Cuối mỗi tháng | Gửi em số GSC; đo AI (hoặc giao NV) | 30–60 phút |

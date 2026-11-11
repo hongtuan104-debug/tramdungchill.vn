@@ -52,8 +52,8 @@ const CHU_REPO = 'hongtuan104-debug';
 const TIEN_TO = '[giam-sat]';
 const CHI_THU = process.argv.includes('--thu');
 
-// Đọc ở iNET 06/10/2026. Gia hạn xong thì sửa dòng này, issue nhắc tự đóng.
-const HAN_TEN_MIEN = '2026-12-13';
+// Sếp gia hạn 1 năm (báo 11/11/2026; hạn cũ 13/12/2026). Gia hạn xong thì sửa dòng này, issue nhắc tự đóng.
+const HAN_TEN_MIEN = '2027-12-13';
 const NHAC_TEN_MIEN_TRUOC = 30;
 const NHAC_CHUNG_CHI_DUOI = 20;
 

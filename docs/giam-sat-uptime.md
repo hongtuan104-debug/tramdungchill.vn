@@ -60,7 +60,7 @@ Vì sao từng mục:
 - **Nhắc chứng chỉ**: issue khi còn < 20 ngày (GitHub tự gia hạn từ ~30 ngày, tụt dưới 20 là kẹt).
 - **Nhắc tên miền**: issue khi còn ≤ 30 ngày. Hạn .vn KHÔNG tra tự động được (không RDAP, iNET chặn API)
   → ghi tay ở `HAN_TEN_MIEN` trong `scripts/giam-sat-uptime.js`. **Gia hạn xong thì sửa ngày đó** rồi
-  đẩy lên, issue nhắc tự đóng. Hiện: **13/12/2026** (đọc 06/10/2026) → issue sẽ tự mở ngày 13/11/2026.
+  đẩy lên, issue nhắc tự đóng. Hiện: **13/12/2027** (sếp gia hạn 1 năm, báo 11/11/2026; hạn cũ 13/12/2026) → issue sẽ tự mở ngày 13/11/2027.
 - Không mở/đóng được issue (API lỗi) → workflow cố tình rớt → GitHub gửi mail "workflow failed".
 - Chạy thử trên máy: `node scripts/giam-sat-uptime.js --thu` (chỉ in, không đụng GitHub/Zalo).
 - ⚠️ **Giới hạn**: máy kiểm chạy trên chính GitHub — GitHub sập toàn bộ thì không báo được. Lịch chạy

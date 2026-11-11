@@ -159,6 +159,51 @@ Rà toàn bộ hộp thư 365 ngày (18/09/2026): **0 thư về thao tác thủ 
 bảo mật** cho tramdungchill.vn. Sếp vẫn nên mở GSC xác nhận tận mắt — hai báo cáo này chỉ
 tài khoản có quyền mới xem được, và thư có thể bị lọc.
 
+### 2.7 Core Update tháng 11/2026 — đọc số trước / sau (ghi 11/11/2026)
+
+🟢 Google bắt đầu **"November 2026 core update"** lúc 10:06 ngày 10/11 giờ Thái Bình Dương (≈ 01:06 ngày 11/11
+giờ Việt Nam), áp cho mọi ngôn ngữ, "có thể mất tới 2 tuần" — trang trạng thái
+`status.search.google.com/incidents/WLxcJyC6jMWMfryxsKMc`. Ngày trong GSC tính theo giờ Thái Bình Dương.
+
+| | Kỳ | Ghi chú |
+|---|---|---|
+| Tuần trước | **03/11 – 09/11/2026** (thứ Ba → thứ Hai) | Đã gồm các thay đổi 02/11 (đoạn mở 6 bài, trang chính sách, nghỉ Tết). Nội dung web lúc đó = commit `cb0c94db`. |
+| Tuần sau | 7 ngày, bắt đầu **≥ 7 ngày sau khi Google báo xong** trên trang trạng thái. Xong 24/11 → **01/12 – 07/12** | GSC có đủ số sau ~2 ngày → đọc từ ~10/12. |
+
+GSC giữ số 16 tháng nên tuần mốc không mất, không cần xuất gấp. Đến ngày so: Hiệu suất → Kết quả tìm kiếm →
+Ngày → **So sánh** → Tuỳ chỉnh (2 kỳ trên), loại tìm kiếm Web, bật đủ 4 chỉ số → Xuất → Google Sheets. Một file
+có sẵn 2 cột cho các tab Truy vấn · Trang · Quốc gia · Thiết bị → gửi em.
+
+**Mốc máy đã chụp 11/11** (để nếu tụt thì đã loại được lỗi kỹ thuật lúc bắt đầu):
+`kiem-sitemap-live.js` 180/180 URL trả 200, không chuyển hướng, canonical tự trỏ; http / www → 301 ·
+CrUX cửa sổ 12/10–08/11 (`plans/crux/crux-2026-11-11.json`): điện thoại toàn site LCP 1.975ms · **INP 240ms ❌** ·
+CLS 0,00; trang Thực đơn điện thoại INP 309ms ❌; máy tính đạt. Chạy lại 2 script này trước khi đọc GSC.
+
+**Sự kiện cùng thời gian — đừng đổ hết cho core update:**
+- 21/10: 148 trang dịch 6 thứ tiếng lên web → số theo **quốc gia** đổi vì lý do riêng.
+- 26/10: quảng cáo Google tiếng Anh (không vào GSC, có vào GA4).
+- 01/12: giao diện Noel tự bật (chỉ CSS + chữ thanh đặt bàn do JS gắn, không đổi chữ trang).
+- Tháng 12: mùa Noel / cuối năm, lượng người tìm đổi theo mùa.
+- Trang mùa lễ mới lên web trong khoảng này: loại URL đó khỏi phép so.
+
+**Đọc thế nào** (theo tài liệu core update của Google):
+1. Tách **tên quán** ("trạm dừng chill", "tram dung chill") khỏi **không tên quán**. Truy vấn tên quán gần như luôn
+   đứng đầu nên lượt hiển thị của nó ≈ lượng người tìm. Hiển thị giảm mà vị trí vẫn ~1 → người tìm ít đi, không phải
+   bị hạ hạng. Tên quán tụt **vị trí** → không giống core update, kiểm kỹ thuật / thực thể ngay.
+2. Không tên quán: chỉ xét truy vấn có **≥ 20 lượt hiển thị ở cả hai tuần**. 🟡 Site chỉ ~100 lượt nhấp/tuần (T9
+   442/tháng), phần lớn là tên quán — số nhỏ dao động mạnh. Đọc hiển thị + vị trí, đừng đọc lượt nhấp.
+3. Tụt vài bậc (2 → 4, 5 → 8): không làm gì. Tụt từ top 10 ra ngoài 20 (kiểu 4 → 29): mở trang đó và các trang
+   đang đứng trên nó, xem trang mình còn trả lời đúng điều người tìm cần không — sửa đúng trang đó, không sửa cả loạt.
+4. Không tên quán giảm, tên quán đứng yên → nghiêng về core update. Cả hai cùng giảm → nghiêng về mùa / nhu cầu.
+   Trùng thời điểm chỉ là manh mối để điều tra, chưa phải bằng chứng bị phạt.
+
+**Tạm dừng tới khi đọc xong số (~10/12):**
+- Không đổi trạng thái **123 bài noindex** (mở lập chỉ mục, xoá, gộp).
+- Không sửa hàng loạt title / meta / H1 / URL / link nội bộ (bảng bậc ý định #34, mục Cẩm nang).
+- Dời việc đổi số đánh giá (`normalize-review-count.js` đổi chữ nhiều trang một lượt) trừ khi số lệch nhiều.
+- **Vẫn làm**: sửa sai sự thật (giá, giờ, ngày nghỉ) ngay khi phát hiện · sửa INP (code, không đổi chữ) · 1–2 trang
+  mùa lễ đã lên lịch · gia hạn tên miền · bài đăng GBP. Sửa gì trong khoảng này thì ghi ngày vào danh sách sự kiện ở trên.
+
 ---
 
 ## 3. Phần máy đã kiểm — đạt hết (18/09/2026)

@@ -106,7 +106,7 @@ tiem-nuong-tram-dung-chill/
 - **Giám sát uptime** (19/10/2026): workflow `giam-sat-uptime.yml` + `scripts/giam-sat-uptime.js`, lịch 15 phút nhưng GitHub thực chạy **2,5–5 tiếng/lần** (đo 20/10/2026), kiểm 8 mục
   (3 khuôn trang + robots + sitemap + Apps Script + app + VPS). Hỏng → issue `[giam-sat] Sự cố…` → email + **Telegram**
   (bot RIÊNG tạo bằng @BotFather, secret `TELEGRAM_BOT_TOKEN` — sếp tự cài; người nhận ở `NGUOI_NHAN` — phải bấm Start với bot trước); lên lại tự đóng.
-  ⚠️ **Gia hạn tên miền xong thì sửa `HAN_TEN_MIEN`** trong script (hiện 13/12/2026 — issue nhắc tự mở 13/11).
+  ⚠️ **Gia hạn tên miền xong thì sửa `HAN_TEN_MIEN`** trong script (hiện **13/12/2027** — sếp gia hạn 1 năm, báo 11/11/2026; issue nhắc tự mở 13/11/2027).
   Thêm/đổi mục: sửa `danhSachMuc()`, chạy `--thu`. Chi tiết + lớp UptimeRobot tuỳ chọn: `docs/giam-sat-uptime.md`.
 
 ## Footer — sinh tự động, ĐỪNG sửa HTML tay
@@ -1739,6 +1739,11 @@ file này 21/10/2026 — repo công khai). ⚠️ Mật mã cũ đã lộ trong 
 ## Task ưu tiên còn dang dở (chờ sếp chọn A/B/C)
 **Roadmap SEO 90 ngày 26/10/2026 → 24/01/2027:** `docs/roadmap-seo-90-ngay.md` (soạn 24/10/2026, chờ sếp duyệt) —
 mốc xuất phát có số, lịch 13 tuần, việc chỉ sếp làm được. Đọc file đó trước khi đề xuất việc SEO mới.
+
+⏸ **Core Update 11/2026 — tạm dừng sửa HÀNG LOẠT từ 10/11 tới khi đọc xong số (~10/12/2026)** (ghi 11/11/2026).
+Không đổi trạng thái 123 bài noindex, không sửa hàng loạt title/meta/H1/URL/link nội bộ. Sửa sai sự thật, INP, trang
+mùa lễ đã lên lịch vẫn làm. Mốc so (03/11–09/11 ↔ tuần thứ 2 sau khi Google báo xong), cách đọc, sự kiện cùng lúc:
+`docs/search-console.md` mục 2.7.
 
 **P1 (CAO):**
 - ✅ Cài Facebook Pixel — ĐÃ XONG
