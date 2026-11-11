@@ -229,7 +229,7 @@ const BLOG_SEO = {
           "a": "Trạm Dừng Chill có bãi đỗ miễn phí cho cả xe máy và ô tô con ngay tại quán. Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường, cách trung tâm Đà Lạt khoảng 7 km, đi xe khoảng 20 phút theo hướng Trại Mát. Giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200m. Quán mở từ 15:00 nên đến sớm sẽ đỗ dễ hơn; Grab và taxi vào được tận nơi."
         }
       ],
-      "dateModified": "2026-11-02",
+      "dateModified": "2026-11-11",
       "lang": "vi"
     },
     "lau-nuong-da-lat-mua-lanh": {
