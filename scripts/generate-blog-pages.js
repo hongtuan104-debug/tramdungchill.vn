@@ -380,7 +380,7 @@ var DIEM_VI = String(FACTS.diemDanhGiaGoogle).replace(".", ",");
 // vừa sai accessibility tree vì trang khai lang="en" mà nội dung lại tiếng Việt.
 var UI = {
     vi: {
-        home: "Trang chủ", menu: "Thực đơn", blog: "Blog", book: "Đặt bàn",
+        home: "Trang chủ", experience: "Trải nghiệm", menu: "Thực đơn", gallery: "Không gian", review: "Đánh giá", blog: "Blog", book: "Đặt bàn",
         read: "phút đọc", related: "Gợi ý cho bạn", faq: "Câu hỏi thường gặp",
         ctaTitle: "Đặt Bàn Trạm Dừng Chill",
         ctaSub: "Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt",
@@ -392,7 +392,7 @@ var UI = {
         toc: "Nội dung bài viết"
     },
     en: {
-        home: "Home", menu: "Menu", blog: "Blog", book: "Book a table",
+        home: "Home", experience: "Experience", menu: "Menu", gallery: "Gallery", review: "Reviews", blog: "Blog", book: "Book a table",
         read: "min read", related: "You might also like", faq: "Frequently asked questions",
         ctaTitle: "Book a table at Trạm Dừng Chill",
         ctaSub: "Grilled BBQ with sunset and vintage train views in Da Lat",
@@ -1081,7 +1081,10 @@ try {
                 // Google đọc. Trước đây hardcode "vi" nên 2 bài EN tự mâu thuẫn với
                 // chính hreflang="en" và schema inLanguage="en" của mình.
                 .replace(/{{T_HOME}}/g, ui(article).home)
+                .replace(/{{T_EXPERIENCE}}/g, ui(article).experience)
                 .replace(/{{T_MENU}}/g, ui(article).menu)
+                .replace(/{{T_GALLERY}}/g, ui(article).gallery)
+                .replace(/{{T_REVIEW}}/g, ui(article).review)
                 .replace(/{{T_BLOG}}/g, ui(article).blog)
                 .replace(/{{T_BOOK}}/g, ui(article).book)
                 .replace(/{{T_READ}}/g, ui(article).read)
