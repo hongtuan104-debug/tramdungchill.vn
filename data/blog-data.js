@@ -6432,5 +6432,79 @@ const BLOG_ARTICLES = [
 
                             <h2>Đặt bàn sớm cho mùa hè</h2>
                             <p>Mùa hè là cao điểm du lịch Đà Lạt. <a href="/#booking"><strong>Đặt bàn trước</strong></a> ít nhất 2-3 ngày, đặc biệt cuối tuần. Hotline: <a href="tel:0989765070">0989.765.070</a>. Giờ mở cửa: 15:00 - 23:00 hàng ngày.</p>`
+    },
+    {
+        id: "noel-da-lat-2026-tram-dung-chill",
+        title: "Noel Đà Lạt 2026: Check-in Tuyết Trắng Và Tàu Giáng Sinh",
+        seoTitle: "Noel Đà Lạt 2026: Tàu Giáng Sinh Phủ Tuyết | Trạm Dừng Chill",
+        category: "Trải nghiệm",
+        date: "2026-11-15",
+        image: "assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp",
+        imageAlt: "Tàu Giáng Sinh và cây thông phủ tuyết sáng đèn tại Trạm Dừng Chill Đà Lạt",
+        badge: "Mới",
+        featured: true,
+        excerpt: "Không gian <strong>Noel Đà Lạt 2026</strong> tại Trạm Dừng Chill đã sáng đèn với tàu Giáng Sinh, cây thông phủ tuyết và góc check-in tuyết rơi ngay bên thung lũng nhà lồng.",
+        metaDescription: "Check-in Noel Đà Lạt 2026 tại Trạm Dừng Chill: tàu Giáng Sinh, cây thông phủ tuyết, tuyết rơi và BBQ ngắm thung lũng. Xem ảnh, giờ đẹp và đặt bàn.",
+        body: `<p><strong>TL;DR:</strong> Mùa Noel 2026, Trạm Dừng Chill mang đến một góc Giáng Sinh phủ tuyết với đầu tàu sáng đèn, cây thông lớn và hiệu ứng tuyết rơi để khách chụp ảnh. Bạn nên đến từ khoảng 16:00 để ăn BBQ, ngắm hoàng hôn rồi check-in khi toàn bộ đèn Noel bật sáng.</p>
+
+<p>Noel ở Đà Lạt vốn đã có cái lạnh vừa đủ để người ta muốn quàng khăn, ngồi gần bếp nướng và ở cạnh người thương lâu hơn một chút. Năm nay, Trạm Dừng Chill dựng một chuyến tàu Giáng Sinh ngay giữa không gian nhìn xuống thung lũng nhà lồng. Từ bàn ăn, bạn có thể đi qua ba lớp cảnh trong một buổi: hoàng hôn, tàu Noel phủ tuyết và biển đèn nhà kính khi trời tối.</p>
+
+<figure><img src="assets/images/blog/ban-an-hoang-hon-noel-da-lat.webp" srcset="assets/images/blog/ban-an-hoang-hon-noel-da-lat-400w.webp 400w, assets/images/blog/ban-an-hoang-hon-noel-da-lat-800w.webp 800w, assets/images/blog/ban-an-hoang-hon-noel-da-lat.webp 1200w" sizes="(max-width:800px) calc(100vw - 48px), 752px" alt="Bàn ăn BBQ và đồ uống tại Trạm Dừng Chill trong ánh hoàng hôn trên thung lũng nhà lồng Đà Lạt" loading="lazy"><figcaption>Đến sớm để bắt đầu buổi tối bằng bữa nướng và ánh hoàng hôn trên thung lũng.</figcaption></figure>
+
+<h2>Noel Đà Lạt 2026 có gì tại Trạm Dừng Chill?</h2>
+<p>Điểm nhấn năm nay là mô hình <strong>tàu Giáng Sinh phủ tuyết</strong> mang tên Trạm Dừng Chill. Đầu tàu, đường ray và các toa đều được viền đèn vàng. Bên cạnh là cây thông lớn, những cụm cây phủ tuyết và lối đứng chụp ảnh có hiệu ứng tuyết rơi. Không gian được làm theo tông trắng, xanh và vàng nên ảnh chụp ban đêm vẫn nổi rõ người, cảnh và tên quán.</p>
+
+<figure><img src="assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp" srcset="assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh-400w.webp 400w, assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh-800w.webp 800w, assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp 1200w" sizes="(max-width:800px) calc(100vw - 48px), 752px" alt="Toàn cảnh tàu Giáng Sinh, cây thông và tuyết trắng tại Trạm Dừng Chill Đà Lạt" loading="lazy"><figcaption>Toàn cảnh góc tàu Giáng Sinh khi đèn lên — ảnh bìa đẹp nhất cho bộ hình Noel.</figcaption></figure>
+
+<p>Đây không phải một phông nền nhỏ đặt trong nhà. Khu trang trí nằm ngoài trời và kết nối với đường ray, cây thông cùng cảnh thung lũng phía sau. Vì vậy, ảnh có chiều sâu và vẫn giữ được cảm giác rất Đà Lạt.</p>
+
+<h2>Góc chụp đẹp nhất trong khu tuyết Noel</h2>
+<p>Nếu chỉ có ít thời gian, hãy chụp theo thứ tự dưới đây để có một bộ ảnh đủ toàn cảnh, trung cảnh và chân dung:</p>
+<ol>
+  <li><strong>Toàn cảnh từ trên cao:</strong> lấy trọn đầu tàu, toa tàu, đường ray và cây thông.</li>
+  <li><strong>Đứng cạnh cây thông:</strong> đặt nhân vật vào khoảng trống giữa đầu tàu và cây để cả người lẫn đèn đều nổi bật.</li>
+  <li><strong>Ảnh dưới ô trong lúc tuyết rơi:</strong> hợp với váy sáng màu, khăn đỏ hoặc áo khoác tông trung tính.</li>
+  <li><strong>Ảnh cận cùng tuyết:</strong> dùng chế độ chụp liên tục để bắt khoảnh khắc bông tuyết bay trước ống kính.</li>
+</ol>
+
+<figure><img src="assets/images/blog/check-in-tuyet-noel-da-lat.webp" srcset="assets/images/blog/check-in-tuyet-noel-da-lat-400w.webp 400w, assets/images/blog/check-in-tuyet-noel-da-lat-800w.webp 800w, assets/images/blog/check-in-tuyet-noel-da-lat.webp 1200w" sizes="(max-width:800px) calc(100vw - 48px), 752px" alt="Khách cầm ô check-in dưới tuyết rơi cạnh cây thông Noel tại Trạm Dừng Chill Đà Lạt" loading="lazy"><figcaption>Khăn đỏ và trang phục sáng màu tạo điểm nhấn rõ giữa nền cây thông phủ tuyết.</figcaption></figure>
+
+<h2>Nên đến lúc mấy giờ để vừa ăn ngon vừa có ảnh đẹp?</h2>
+<p>Khung dễ trải nghiệm nhất là từ 16:00 đến sau 18:30: bạn có đủ ánh sáng cho ảnh hoàng hôn, thời gian dùng bữa và nền đèn rực rỡ cho bộ ảnh Noel buổi tối.</p>
+<table>
+<thead><tr><th>Khung giờ</th><th>Trải nghiệm phù hợp</th></tr></thead>
+<tbody>
+<tr><td>15:00–16:00</td><td>Chọn bàn, gọi món và chụp không gian khi còn sáng.</td></tr>
+<tr><td>Từ khoảng 16:30</td><td>Ngắm hoàng hôn; tàu cổ tuyến Đà Lạt – Trại Mát bắt đầu đi qua khu vực quán.</td></tr>
+<tr><td>Từ khoảng 18:30</td><td>Đèn Noel và thung lũng nhà lồng cùng sáng rõ, phù hợp chụp ảnh đêm.</td></tr>
+<tr><td>19:30 trở đi</td><td>Không gian đêm rõ nét; nên đặt bàn trước nếu đi cuối tuần.</td></tr>
+</tbody>
+</table>
+
+<p>Quán mở cửa <strong>15:00–23:00 hằng ngày</strong>. Tàu cổ chạy qua quán trong khung 16:30–21:25; giờ có thể thay đổi theo lịch vận hành. Nếu muốn săn khoảnh khắc tàu thật bên cạnh không gian tàu Noel, xem thêm hướng dẫn <a href="../dip/san-tau-da-lat.html">săn tàu Đà Lạt tại Trạm Dừng Chill</a>.</p>
+
+<figure><img src="assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp" srcset="assets/images/blog/tau-lua-da-lat-sang-den-ve-dem-400w.webp 400w, assets/images/blog/tau-lua-da-lat-sang-den-ve-dem-800w.webp 800w, assets/images/blog/tau-lua-da-lat-sang-den-ve-dem.webp 1200w" sizes="(max-width:800px) calc(100vw - 48px), 752px" alt="Tàu lửa Đà Lạt sáng đèn chạy qua Trạm Dừng Chill vào buổi tối" loading="lazy"><figcaption>Ngoài mô hình tàu Noel, tàu cổ Đà Lạt – Trại Mát vẫn chạy ngang ngay dưới chân quán.</figcaption></figure>
+
+<h2>Một lịch trình Noel gọn trong một buổi tối</h2>
+<p>Trải nghiệm hợp lý nhất là đến khoảng 16:00, chọn bàn nhìn ra thung lũng rồi bắt đầu bữa nướng khi trời còn ánh vàng. Sau hoàng hôn, bạn đi bộ sang khu tàu Noel chụp ảnh lúc đèn vừa lên. Trở lại bàn khi nhà lồng phía dưới sáng thành “biển sao”, gọi thêm món nóng và ngồi lại tới khi thành phố lên đèn.</p>
+
+<p>Nhóm bạn có thể xem trước <a href="../menu.html">thực đơn hơn 70 món</a>. Cặp đôi muốn chuẩn bị một buổi tối riêng có thể tham khảo trang <a href="../dip/cau-hon-hen-ho.html">hẹn hò và cầu hôn ở Đà Lạt</a>. Nếu đi cùng gia đình, bài <a href="quan-an-gia-dinh-da-lat.html">quán nướng Đà Lạt cho gia đình</a> có thêm thông tin chọn chỗ ngồi phù hợp.</p>
+
+<figure><img src="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp" srcset="assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-400w.webp 400w, assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan-800w.webp 800w, assets/images/blog/tau-lua-da-lat-duoi-lan-can-quan.webp 1200w" sizes="(max-width:800px) calc(100vw - 48px), 752px" alt="Toa tàu Đà Lạt chạy dưới lan can bàn ăn tại Trạm Dừng Chill" loading="lazy"><figcaption>Một buổi tối có thể gom đủ BBQ, tàu thật, đèn Noel và thung lũng nhà lồng.</figcaption></figure>
+
+<h2>Đặt bàn cho mùa Giáng Sinh</h2>
+<p>Khu vực view đẹp thường kín nhanh vào cuối tuần và những ngày gần 24/12. Đêm 24/12, quán <strong>không phụ thu</strong>. Mức chi phổ biến là 150.000–400.000đ/người, đã gồm VAT. Quán cách trung tâm Đà Lạt khoảng 7 km và có bãi đỗ xe miễn phí cho xe máy, ô tô con; giờ cao điểm cuối tuần có thể phải đỗ xa hơn khoảng 100–200 m.</p>
+
+<p>Bạn nên <a href="/#booking"><strong>đặt bàn trực tiếp trên website</strong></a>, ghi chú “đi Noel, muốn bàn gần khu check-in” hoặc gọi <a href="tel:0989765070">0989.765.070</a>. Trạm Dừng Chill ở 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt.</p>
+
+<p>Một chiếc khăn ấm, một người đi cùng và một buổi tối không cần vội — vậy là đủ để chuyến tàu Giáng Sinh ở Trạm Dừng Chill trở thành một kỷ niệm đẹp của Noel Đà Lạt 2026.</p>`,
+        _faq: [
+            { q: "Noel Đà Lạt 2026 check-in ở đâu có tuyết và cây thông?", a: "Trạm Dừng Chill tại 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt có khu tàu Giáng Sinh, cây thông phủ tuyết và hiệu ứng tuyết rơi ngoài trời để chụp ảnh." },
+            { q: "Check-in khu Noel tại Trạm Dừng Chill có mất phí không?", a: "Khu Noel là một phần không gian trải nghiệm của quán. Khách đến ăn uống có thể chụp ảnh tại khu tàu Giáng Sinh; nên đặt bàn trước vào cuối tuần và các ngày gần 24/12." },
+            { q: "Nên đến Trạm Dừng Chill lúc mấy giờ để chụp ảnh Noel đẹp?", a: "Nên đến khoảng 16:00 để có ảnh hoàng hôn, dùng bữa rồi chụp khu Noel từ khoảng 18:30 khi đèn trang trí và nhà lồng phía dưới cùng sáng rõ." },
+            { q: "Đêm 24/12 Trạm Dừng Chill có phụ thu không?", a: "Không. Trạm Dừng Chill không phụ thu đêm 24/12 và không phụ thu bàn view. Khách nên đặt sớm vì đây là khung ngày cao điểm." },
+            { q: "Trạm Dừng Chill mở cửa mấy giờ trong mùa Noel?", a: "Quán mở cửa từ 15:00 đến 23:00 hằng ngày tại 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt." },
+            { q: "Có thể vừa ngắm tàu thật vừa check-in tàu Noel không?", a: "Có. Tàu cổ tuyến Đà Lạt – Trại Mát chạy ngang dưới chân quán trong khung 16:30–21:25, còn mô hình tàu Noel nằm trong khu trang trí của quán. Giờ tàu thực tế có thể thay đổi theo lịch vận hành." }
+        ]
     }
 ];

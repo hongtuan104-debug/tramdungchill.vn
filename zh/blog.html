@@ -41,7 +41,7 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="/dist/style.min.css?v=9d913dba">
+    <link rel="stylesheet" href="/dist/style.min.css?v=8004520e">
     <!-- Lop wow trang Blog (chung khuon voi tac-gia/). Phai NGAY SAU style.min.css. Gan 26/09/2026 sau khi co preload
          anh the dau (CLAUDE.md #46): Chrome that 4G cham LCP 2,17 -> 2,34s, sep duyet. -->
     <link rel="stylesheet" href="/dist/wow-blog-ds.min.css?v=abce72ba">
@@ -51,20 +51,20 @@
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
          Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
          Trang này không có ảnh hero → preload thêm phông màn đầu, xem khối dưới (bug #29). -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dancing-script-700-latin.woff2?v=157f06c4">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dancing-script-700-vietnamese.woff2?v=1cfc1ae7">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dancing-script-700-latin.woff2?v=09a15ca8">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/dancing-script-700-vietnamese.woff2?v=90a565b8">
     <!-- Preload phông màn đầu (14/09/2026, CLAUDE.md bug #29): trang nạp CSS đồng bộ mà không preload thì phông chỉ được
          phát hiện SAU khi CSS về → đổi phông sau lần vẽ đầu → chữ xuống dòng lệch (CLS). Menu A/B: CLS 0,104 → 0. -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/inter-latin.woff2?v=d9ce470c">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/inter-latin.woff2?v=8687d71f">
     
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/playfair-latin.woff2?v=bd9fd811">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/playfair-latin.woff2?v=b4cbb2da">
     
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/playfair-italic-latin.woff2?v=83cf3a25">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/playfair-italic-latin.woff2?v=76e36472">
     
     <!-- Ảnh thẻ bài đầu = phần tử LCP ở điện thoại (26/09/2026, CLAUDE.md #46): thẻ do JS chèn, không preload thì
          trên 4G chậm LCP 19,9s. Khối dưới do generator ghi đè theo bài đứng đầu danh sách. -->
     <!-- ANH_THE_DAU:START — sinh bởi scripts/generate-blog-pages.js, ĐỪNG sửa tay -->
-    <link rel="preload" as="image" fetchpriority="high" href="/assets/images/blog/cong-tron-hoang-hon-da-lat.webp" imagesrcset="/assets/images/blog/cong-tron-hoang-hon-da-lat-400w.webp 400w, /assets/images/blog/cong-tron-hoang-hon-da-lat-800w.webp 800w, /assets/images/blog/cong-tron-hoang-hon-da-lat.webp 1200w" imagesizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px">
+    <link rel="preload" as="image" fetchpriority="high" href="/assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp" imagesrcset="/assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh-400w.webp 400w, /assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh-800w.webp 800w, /assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp 1200w" imagesizes="(max-width: 768px) calc(100vw - 40px), (max-width: 1200px) calc(50vw - 40px), 560px">
     <!-- ANH_THE_DAU:END -->
 
     <!-- PAGE_JSONLD:START — WebPage + Breadcrumb, viet tay -->
@@ -296,6 +296,7 @@
                     <h2>Trạm Dừng Chill 博客全部文章</h2>
                     <ul>
                         <!-- BLOG-LINKS:START -->
+                        <li>Noel Đà Lạt 2026: Check-in Tuyết Trắng Và Tàu Giáng Sinh</li>
                         <li><a href="/zh/blog/an-vat-da-lat-buoi-toi.html">大叻夜间小吃——15 种夜市必尝美食，以及如何玩转整晚</a></li>
                         <li><a href="/zh/blog/da-lat-restaurant-train-view-en.html">大叻火车景观餐厅：边用餐边看复古小火车驶过</a></li>
                         <li><a href="/zh/blog/da-lat-ve-dem-di-dau.html">大叻夜晚去哪儿？20 点后值得一试的 8 种活动</a></li>

@@ -41,23 +41,23 @@
     <!-- CSS tải ĐỒNG BỘ (14/09/2026, CLAUDE.md bug #28): critical CSS trang này chỉ có phông lót + nav nên
          tải nền là cả trang xếp lại lúc CSS về — CLS 0,26–0,93 (blog/menu/đường đi). Trang dịp + bài blog vốn
          đồng bộ và chỉ ≤ 0,03. Trang chủ vẫn tải nền vì có critical CSS đầy đủ. -->
-    <link rel="stylesheet" href="dist/style.min.css?v=9d913dba">
+    <link rel="stylesheet" href="dist/style.min.css?v=8004520e">
     <!-- Preload phông tiêu đề H1. Trước 29/08/2026 bốn thẻ này nằm TRONG
          <noscript> nên với mọi khách có JS chúng không chạy: phông chỉ được
          phát hiện sau khi style.min.css (tải async) về, nên đổi phông xảy ra
          rất muộn → cả khối hero xô chỗ, CLS 0,269.
          Trang chủ chỉ preload Dancing Script vì Inter giành băng thông với ảnh hero (LCP).
          Trang menu không có ảnh hero → preload đủ phông màn đầu, xem khối dưới (bug #29). -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=157f06c4">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=1cfc1ae7">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-latin.woff2?v=09a15ca8">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/dancing-script-700-vietnamese.woff2?v=90a565b8">
     <!-- Preload đủ phông hero (14/09/2026, CLAUDE.md bug #29): không preload thì phông chỉ được phát hiện SAU khi CSS về,
          đổi phông sau lần vẽ đầu → đoạn văn Inter xuống dòng lệch vài chữ (Lighthouse CLS 0,104 ở 412px). A/B: CLS → 0, FCP nhanh hơn. -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2?v=d9ce470c">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-vietnamese.woff2?v=ae4cc827">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-latin.woff2?v=bd9fd811">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-vietnamese.woff2?v=0eb30ef7">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-latin.woff2?v=83cf3a25">
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-vietnamese.woff2?v=f5fe5a9c">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-latin.woff2?v=8687d71f">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-vietnamese.woff2?v=f70a6ae0">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-latin.woff2?v=b4cbb2da">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-vietnamese.woff2?v=c7971e13">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-latin.woff2?v=76e36472">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/playfair-italic-vietnamese.woff2?v=7af6f85a">
 
     <!-- Schema.org JSON-LD: Menu (MenuItem + giá) — SINH TỰ ĐỘNG từ data/menu-data.js bởi scripts/generate-menu.js. KHÔNG sửa tay phần giữa marker. -->
     <!-- MENU_JSONLD:START -->
@@ -1782,7 +1782,7 @@
 
     <!-- Data Files -->
     <script defer src="data/site-config.js?v=1dc10b01"></script>
-    <script defer src="data/translations.js?v=d1fb50bd"></script>
+    <script defer src="data/translations.js?v=fcc47601"></script>
     <script defer src="data/menu-data.js?v=3ba3c945"></script>
 
     <!-- Bundled & Minified JS -->

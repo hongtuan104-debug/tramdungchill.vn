@@ -1,6 +1,18 @@
 /* Blog listing data (lightweight — no body). Auto-sinh bởi generate-blog-pages.js — KHÔNG sửa tay. */
 const BLOG_ARTICLES = [
   {
+    "id": "noel-da-lat-2026-tram-dung-chill",
+    "title": "Noel Đà Lạt 2026: Check-in Tuyết Trắng Và Tàu Giáng Sinh",
+    "category": "Trải nghiệm",
+    "date": "2026-11-15",
+    "image": "assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp",
+    "imageAlt": "Tàu Giáng Sinh và cây thông phủ tuyết sáng đèn tại Trạm Dừng Chill Đà Lạt",
+    "badge": "Mới",
+    "featured": true,
+    "excerpt": "Không gian <strong>Noel Đà Lạt 2026</strong> tại Trạm Dừng Chill đã sáng đèn với tàu Giáng Sinh, cây thông phủ tuyết và góc check-in tuyết rơi ngay bên thung lũng nhà lồng.",
+    "tags": []
+  },
+  {
     "id": "an-vat-da-lat-buoi-toi",
     "title": "Ăn Vặt Đà Lạt Buổi Tối — 15 Món Chợ Đêm Nên Thử Và Cách Đi Cho Trọn Tối",
     "category": "Ẩm thực Đà Lạt",
