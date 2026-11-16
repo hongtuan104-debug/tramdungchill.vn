@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog Русский — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-2026-tram-dung-chill",
+  "title": "Рождество в Далате 2026: фотозона с белым снегом и рождественским поездом",
+  "category": "Впечатления",
+  "date": "2026-11-15",
+  "image": "/assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.webp",
+  "imageAlt": "Светящийся в сумерках локомотив рождественского поезда с табличкой Trạm Dừng Chill, девушка в красном рождественском платье у заснеженных ёлок и указателя «Đà Lạt 0 km»",
+  "badge": "Новое",
+  "featured": true,
+  "excerpt": "<strong>Рождество в Далате 2026</strong>: праздничная зона Trạm Dừng Chill уже сияет огнями — рождественский поезд, заснеженная ёлка и фотозона со снегопадом прямо у долины с теплицами.",
+  "tags": []
+ },
+ {
   "id": "an-vat-da-lat-buoi-toi",
   "title": "Уличная еда Далата вечером — 15 блюд ночного рынка, которые стоит попробовать, и как провести вечер на полную",
   "category": "Кухня Далата",

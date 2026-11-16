@@ -50,6 +50,15 @@
 .blog-post-body .anh-nguon{padding:8px 8px 10px}
 .blog-post-body .anh-nguon img{padding:0;background:none;box-shadow:none;border-radius:2px!important}
 .blog-post-body .anh-nguon figcaption{margin-top:8px;padding:0 4px}
+/* anh cua quan co chu thich (bai Noel 2026, them 16/11/2026): <figure class="anh-ngang"> / <figure class="anh-doc">.
+   Figure tran khong co kieu nao -> figcaption hien y nhu chu than bai, dinh lien doan van ke tiep.
+   anh DOC 9:16 (khung cat tu video dien thoai): de tran cot 752px thi moi anh cao ~1.340px tren may tinh, dai hon
+   mot man hinh -> thu ve 420px, canh giua; dien thoai van tran cot. Doi 420px thi doi ca sizes="...420px" cua anh
+   trong data/blog-data.js. */
+.blog-post-body figure.anh-ngang{margin:24px 0}
+.blog-post-body figure.anh-doc{max-width:420px;margin:24px auto}
+.blog-post-body figure.anh-ngang img,.blog-post-body figure.anh-doc img{display:block;width:100%;margin:0}
+.blog-post-body figure.anh-ngang figcaption,.blog-post-body figure.anh-doc figcaption{margin-top:8px;font-size:.9rem;line-height:1.5;color:var(--text-muted);text-align:center}
 /* FAQ = xap ve */
 .blog-post-body .blog-faq-item{position:relative;border:1px solid #E3CFA8;border-radius:6px;padding:16px 22px;margin-bottom:18px;background:linear-gradient(#FFFBF2,#FCF4E4);box-shadow:0 3px 0 -1px #FAF0DE,0 3px 0 0 #E3CFA8,0 6px 0 -2px #F6EAD2,0 6px 0 -1px #E6D5B3,0 14px 20px -16px #5A3C1466}
 .blog-post-body .blog-faq-item h3{margin:0 0 17px -14px}

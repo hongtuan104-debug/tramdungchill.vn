@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog ไทย — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-2026-tram-dung-chill",
+  "title": "คริสต์มาสดาลัด 2026: เช็กอินหิมะขาวและรถไฟคริสต์มาส",
+  "category": "ประสบการณ์",
+  "date": "2026-11-15",
+  "image": "/assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.webp",
+  "imageAlt": "หัวรถจักรคริสต์มาสที่มีป้าย Trạm Dừng Chill เปิดไฟสว่างช่วงโพล้เพล้ หญิงสาวในชุดคริสต์มาสสีแดงยืนข้างต้นสนปกคลุมหิมะและป้ายบอกทาง “Đà Lạt 0 km”",
+  "badge": "ใหม่",
+  "featured": true,
+  "excerpt": "บรรยากาศ<strong>คริสต์มาสดาลัด 2026</strong> ที่ Trạm Dừng Chill เปิดไฟสว่างแล้ว พร้อมรถไฟคริสต์มาส ต้นสนปกคลุมหิมะ และมุมเช็กอินหิมะตก ติดกับหุบเขาโรงเรือน",
+  "tags": []
+ },
+ {
   "id": "an-vat-da-lat-buoi-toi",
   "title": "ของกินเล่นดาลัดยามค่ำ — 15 เมนูตลาดกลางคืนที่ควรลอง และวิธีเที่ยวให้คุ้มทั้งคืน",
   "category": "อาหารดาลัด",

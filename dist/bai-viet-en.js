@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog English — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-2026-tram-dung-chill",
+  "title": "Christmas in Da Lat 2026: Snow Photo Spot and a Christmas Train",
+  "category": "Experience",
+  "date": "2026-11-15",
+  "image": "/assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.webp",
+  "imageAlt": "Lit-up Christmas locomotive bearing the Trạm Dừng Chill sign at dusk, with a girl in a red Christmas dress beside snow-covered pines and a “Da Lat 0 km” signpost",
+  "badge": "New",
+  "featured": true,
+  "excerpt": "The <strong>Christmas in Da Lat 2026</strong> setup at Trạm Dừng Chill is now lit up: a Christmas train, snow-covered pine trees and a falling-snow photo corner right beside the greenhouse valley.",
+  "tags": []
+ },
+ {
   "id": "an-vat-da-lat-buoi-toi",
   "title": "Da Lat Evening Street Food — 15 Night Market Bites to Try and How to Make a Night of It",
   "category": "Da Lat food",

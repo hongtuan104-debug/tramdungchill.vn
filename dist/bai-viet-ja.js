@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog 日本語 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-2026-tram-dung-chill",
+  "title": "ダラットのクリスマス2026：白い雪とクリスマストレインのフォトスポット",
+  "category": "体験",
+  "date": "2026-11-15",
+  "image": "/assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.webp",
+  "imageAlt": "夕暮れに明かりが灯る、Trạm Dừng Chillの看板を掲げたクリスマストレインの機関車。雪化粧したツリーと「Đà Lạt 0 km」の道標のそばに立つ赤いクリスマスドレスの女性",
+  "badge": "新着",
+  "featured": true,
+  "excerpt": "<strong>ダラットのクリスマス2026</strong>、Trạm Dừng Chillのクリスマス空間に明かりが灯りました。ビニールハウスの谷のすぐそばに、クリスマストレイン、雪化粧したツリー、雪が舞うフォトスポットが並んでいます。",
+  "tags": []
+ },
+ {
   "id": "an-vat-da-lat-buoi-toi",
   "title": "ダラットの夜の食べ歩き — ナイトマーケットで試したい15品と、夜を満喫する回り方",
   "category": "ダラットグルメ",

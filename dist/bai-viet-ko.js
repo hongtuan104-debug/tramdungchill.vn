@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog 한국어 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-2026-tram-dung-chill",
+  "title": "달랏 크리스마스 2026: 하얀 눈과 크리스마스 기차 인증샷",
+  "category": "체험",
+  "date": "2026-11-15",
+  "image": "/assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.webp",
+  "imageAlt": "해 질 무렵 불 켜진 Trạm Dừng Chill 표지의 크리스마스 기관차, 눈 덮인 트리와 'Đà Lạt 0 km' 이정표 옆에 선 빨간 크리스마스 원피스 차림의 여성",
+  "badge": "새 글",
+  "featured": true,
+  "excerpt": "Trạm Dừng Chill의 <strong>2026 달랏 크리스마스</strong> 공간에 불이 켜졌어요. 크리스마스 기차와 눈 덮인 트리, 그리고 비닐하우스 계곡 바로 옆에서 눈이 내리는 포토 스폿이 기다리고 있어요.",
+  "tags": []
+ },
+ {
   "id": "an-vat-da-lat-buoi-toi",
   "title": "달랏 저녁 길거리 음식 — 야시장에서 꼭 먹어 볼 15가지와 알찬 저녁 동선",
   "category": "달랏 음식",

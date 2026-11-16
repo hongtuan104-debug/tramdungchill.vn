@@ -61,7 +61,7 @@ const ANH = [
     { goc: "assets/images/blog/cong-tron-hoang-hon-da-lat.webp", khung: "bai" },                         // an-vat-da-lat-buoi-toi
     // Bản BLOG (ngang 1200x800), KHÔNG phải bản gốc cùng tên ở assets/images/ — bản đó là poster hero dọc 1200x1802
     { goc: "assets/images/blog/co-gai-ngam-hoang-hon-nha-long-da-lat.webp", khung: "bai", tam: { "1x1": [0.47, 0.5] } }, // an-nuong-da-lat-bao-nhieu-tien — vuông: giữ người + bảng chữ
-    { goc: "assets/images/blog/noel-da-lat-tram-dung-chill-toan-canh.webp", khung: "bai", tam: { og: [0.5, 0.58], "16x9": [0.5, 0.58], "4x3": [0.5, 0.55], "1x1": [0.5, 0.52] } }, // Noel 2026 — giữ trọn tàu sáng đèn và cây thông
+    { goc: "assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.jpg", khung: "bai", tam: { og: [0.5, 0.5], "16x9": [0.5, 0.5], "4x3": [0.5, 0.5], "1x1": [0.45, 0.5] } }, // Noel 2026 — ảnh bìa ngang 1800×1200 từ bộ Canon chụp 12/11/2026 (16/11 thay ảnh dọc toan-canh): đầu tàu + mẫu + biển "Đà Lạt 0 km"
 ];
 
 const KHUNG = {

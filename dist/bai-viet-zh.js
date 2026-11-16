@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog 中文 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-2026-tram-dung-chill",
+  "title": "大叻圣诞 2026：白雪与圣诞火车打卡",
+  "category": "体验",
+  "date": "2026-11-15",
+  "image": "/assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.webp",
+  "imageAlt": "傍晚亮灯的圣诞火车头挂着 Trạm Dừng Chill 牌子，身穿红色圣诞裙的女孩站在覆雪的圣诞树和「Đà Lạt 0 km」路牌旁",
+  "badge": "新",
+  "featured": true,
+  "excerpt": "Trạm Dừng Chill 的<strong>大叻圣诞 2026</strong>空间已经亮灯：圣诞火车、覆雪的圣诞树，还有就在温室大棚山谷旁的飘雪打卡角落。",
+  "tags": []
+ },
+ {
   "id": "an-vat-da-lat-buoi-toi",
   "title": "大叻夜间小吃——15 种夜市必尝美食，以及如何玩转整晚",
   "category": "大叻美食",

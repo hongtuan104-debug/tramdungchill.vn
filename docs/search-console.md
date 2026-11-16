@@ -185,6 +185,11 @@ CLS 0,00; trang Thực đơn điện thoại INP 309ms ❌; máy tính đạt. C
 - 01/12: giao diện Noel tự bật (chỉ CSS + chữ thanh đặt bàn do JS gắn, không đổi chữ trang).
 - Tháng 12: mùa Noel / cuối năm, lượng người tìm đổi theo mùa.
 - Trang mùa lễ mới lên web trong khoảng này: loại URL đó khỏi phép so.
+- 15/11: bài index mới `blog/noel-da-lat-2026-tram-dung-chill.html` (trang mùa lễ → loại khỏi phép so) + link ở mục
+  Cẩm nang trang chủ + thẻ nổi bật đầu trang Blog. Cùng ngày nav của 141 bài + 102 bài dịch thêm 3 mục (Trải nghiệm /
+  Không gian / Đánh giá) trỏ `/#experience` `/#gallery` `/#review` — Google bỏ phần sau `#` nên coi như link về `/`
+  vốn đã có, không đổi đồ thị link nội bộ.
+- 16/11: bài Noel có thêm 6 bản dịch (`/en/ /zh/ /ko/ /ja/ /ru/ /th/blog/noel-…`) + đổi ảnh bìa sang khổ ngang.
 
 **Đọc thế nào** (theo tài liệu core update của Google):
 1. Tách **tên quán** ("trạm dừng chill", "tram dung chill") khỏi **không tên quán**. Truy vấn tên quán gần như luôn
