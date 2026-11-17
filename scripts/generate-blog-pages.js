@@ -380,7 +380,7 @@ var DIEM_VI = String(FACTS.diemDanhGiaGoogle).replace(".", ",");
 // vừa sai accessibility tree vì trang khai lang="en" mà nội dung lại tiếng Việt.
 var UI = {
     vi: {
-        home: "Trang chủ", experience: "Trải nghiệm", menu: "Thực đơn", gallery: "Không gian", review: "Đánh giá", blog: "Blog", book: "Đặt bàn",
+        home: "Trang chủ", experience: "Trải nghiệm", menu: "Thực đơn", gallery: "Không gian", review: "Đánh giá", blog: "Blog", book: "Đặt bàn", call: "Gọi",
         read: "phút đọc", related: "Gợi ý cho bạn", faq: "Câu hỏi thường gặp",
         ctaTitle: "Đặt Bàn Trạm Dừng Chill",
         ctaSub: "Nướng BBQ view hoàng hôn + xe lửa — trải nghiệm chỉ có tại Đà Lạt",
@@ -392,7 +392,7 @@ var UI = {
         toc: "Nội dung bài viết"
     },
     en: {
-        home: "Home", experience: "Experience", menu: "Menu", gallery: "Gallery", review: "Reviews", blog: "Blog", book: "Book a table",
+        home: "Home", experience: "Experience", menu: "Menu", gallery: "Gallery", review: "Reviews", blog: "Blog", book: "Book a table", call: "Call",
         read: "min read", related: "You might also like", faq: "Frequently asked questions",
         ctaTitle: "Book a table at Trạm Dừng Chill",
         ctaSub: "Grilled BBQ with sunset and vintage train views in Da Lat",
@@ -1087,6 +1087,9 @@ try {
                 .replace(/{{T_REVIEW}}/g, ui(article).review)
                 .replace(/{{T_BLOG}}/g, ui(article).blog)
                 .replace(/{{T_BOOK}}/g, ui(article).book)
+                // Nút gọi trên nav: số điện thoại nằm trong <span> để CSS ẩn đi ở màn ≤1199px (chỉ còn icon, như blog.html).
+                // Trước 17/11/2026 khuôn bài để số trần không có <span> nên điện thoại hiện cả dãy số, nút VI sát chữ logo.
+                .replace(/{{T_CALL}}/g, ui(article).call)
                 .replace(/{{T_READ}}/g, ui(article).read)
                 .replace(/{{T_RELATED}}/g, ui(article).related)
                 .replace(/{{T_CTA_TITLE}}/g, ui(article).ctaTitle)

@@ -190,6 +190,8 @@ CLS 0,00; trang Thực đơn điện thoại INP 309ms ❌; máy tính đạt. C
   Không gian / Đánh giá) trỏ `/#experience` `/#gallery` `/#review` — Google bỏ phần sau `#` nên coi như link về `/`
   vốn đã có, không đổi đồ thị link nội bộ.
 - 16/11: bài Noel có thêm 6 bản dịch (`/en/ /zh/ /ko/ /ja/ /ru/ /th/blog/noel-…`) + đổi ảnh bìa sang khổ ngang.
+- 17/11: 3 ảnh thân bài Noel thay bản chỉnh màu (cùng tên file). Nút gọi trên nav của 142 bài + 106 bài dịch: số
+  điện thoại vào `<span>` + icon + `aria-label` (giống blog.html) để điện thoại chỉ hiện icon. Chữ trang và link không đổi.
 
 **Đọc thế nào** (theo tài liệu core update của Google):
 1. Tách **tên quán** ("trạm dừng chill", "tram dung chill") khỏi **không tên quán**. Truy vấn tên quán gần như luôn
