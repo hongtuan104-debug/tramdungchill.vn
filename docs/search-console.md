@@ -192,6 +192,10 @@ CLS 0,00; trang Thực đơn điện thoại INP 309ms ❌; máy tính đạt. C
 - 16/11: bài Noel có thêm 6 bản dịch (`/en/ /zh/ /ko/ /ja/ /ru/ /th/blog/noel-…`) + đổi ảnh bìa sang khổ ngang.
 - 17/11: 3 ảnh thân bài Noel thay bản chỉnh màu (cùng tên file). Nút gọi trên nav của 142 bài + 106 bài dịch: số
   điện thoại vào `<span>` + icon + `aria-label` (giống blog.html) để điện thoại chỉ hiện icon. Chữ trang và link không đổi.
+- 17/11 (chiều): 3 bài index mùa lễ mới — `noel-da-lat-di-dau-an-gi`, `hen-ho-cau-hon-dem-noel-da-lat`,
+  `noel-da-lat-cung-gia-dinh-tre-nho` (+ 6 bản dịch mỗi bài) — thêm 3 link ở Cẩm nang trang chủ; bài Noel gốc thêm câu
+  "khu Noel mở tới hết 31/12, tối nào cũng bắn pháo hoa", 1 câu hỏi FAQ và link sang 3 bài mới. Cả 4 là trang mùa lễ →
+  loại khỏi phép so.
 
 **Đọc thế nào** (theo tài liệu core update của Google):
 1. Tách **tên quán** ("trạm dừng chill", "tram dung chill") khỏi **không tên quán**. Truy vấn tên quán gần như luôn

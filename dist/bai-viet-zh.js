@@ -1,6 +1,42 @@
 /* Danh sách bài cho trang Blog 中文 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-di-dau-an-gi",
+  "title": "大叻圣诞去哪玩、吃什么？平安夜（24/12）从下午到晚上的行程",
+  "category": "节庆季",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/phao-hoa-dem-noel-tram-dung-chill-da-lat.webp",
+  "imageAlt": "圣诞季的夜空中，Trạm Dừng Chill 的烟花腾空绽放，客人站着举起手机拍摄，下方是圣诞树和黄色灯串",
+  "badge": "新",
+  "featured": false,
+  "excerpt": "<strong>大叻圣诞去哪玩、吃什么？</strong>平安夜（24/12）行程：下午逛教堂，在 Trạm Dừng Chill 看日落和复古小火车，晚上边吃 BBQ 边看温室大棚亮灯，再看烟花、到圣诞火车区拍照。",
+  "tags": []
+ },
+ {
+  "id": "hen-ho-cau-hon-dem-noel-da-lat",
+  "title": "大叻圣诞约会、求婚：最佳时段、双人拍照角落与免费布置",
+  "category": "约会 &amp; 生日",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/coi-xay-gio-xich-du-dem-noel-da-lat.webp",
+  "imageAlt": "夜晚，镶着橙色灯带的木风车和挂着 Trạm Dừng Chill 字样的秋千亮着灯，身穿圣诞裙的女孩坐在秋千上，周围是一排排松树",
+  "badge": "新",
+  "featured": false,
+  "excerpt": "推荐<strong>大叻圣诞约会、求婚</strong>：从日落到温室大棚亮灯的最佳时段、圣诞火车区的双人拍照角落，以及 Trạm Dừng Chill 的免费求婚布置。",
+  "tags": []
+ },
+ {
+  "id": "noel-da-lat-cung-gia-dinh-tre-nho",
+  "title": "带小孩全家过大叻圣诞：到店时间、座位与儿童菜品",
+  "category": "节庆季",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/khu-noel-ban-ngay-tuan-loc-tram-dung-chill-da-lat.webp",
+  "imageAlt": "白天的 Trạm Dừng Chill 圣诞区：圣诞火车头位于一排排覆雪的圣诞树之间，旁边有装饰驯鹿和花，身穿圣诞裙的女孩站在前方的木地板上",
+  "badge": "新",
+  "featured": false,
+  "excerpt": "推荐<strong>带小孩全家过大叻圣诞</strong>：下午到店，让孩子趁天气还暖时看圣诞火车区，坐在有顶棚的那排，为孩子点不辣的菜，在入夜变冷前回去。",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-2026-tram-dung-chill",
   "title": "大叻圣诞 2026：白雪与圣诞火车打卡",
   "category": "体验",

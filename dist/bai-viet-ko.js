@@ -1,6 +1,42 @@
 /* Danh sách bài cho trang Blog 한국어 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-di-dau-an-gi",
+  "title": "달랏 크리스마스, 어디 가고 뭘 먹을까? 12월 24일 크리스마스이브 오후부터 저녁까지 일정",
+  "category": "축제 시즌",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/phao-hoa-dem-noel-tram-dung-chill-da-lat.webp",
+  "imageAlt": "크리스마스 시즌 Trạm Dừng Chill의 밤하늘로 터지는 불꽃놀이, 휴대폰을 들어 촬영하는 손님들, 아래로 트리와 노란 전구 줄",
+  "badge": "새 글",
+  "featured": false,
+  "excerpt": "<strong>달랏 크리스마스, 어디 가고 뭘 먹을까?</strong> 12월 24일 크리스마스이브 일정: 오후엔 성당을 거닐고 Trạm Dừng Chill에서 노을과 옛 기차를 본 뒤, 저녁엔 불이 켜지는 비닐하우스를 바라보며 바비큐를 굽고, 불꽃놀이와 크리스마스 기차 구역 사진 촬영까지 즐겨 보세요.",
+  "tags": []
+ },
+ {
+  "id": "hen-ho-cau-hon-dem-noel-da-lat",
+  "title": "달랏 크리스마스 데이트·프러포즈: 추천 시간, 커플 포토 스폿, 무료 장식",
+  "category": "데이트 &amp; 생일",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/coi-xay-gio-xich-du-dem-noel-da-lat.webp",
+  "imageAlt": "밤에 주황색 조명을 두른 나무 풍차와 Trạm Dừng Chill 글자가 달린 불 켜진 그네, 트리 줄 사이 그네에 앉은 크리스마스 원피스 차림의 여성",
+  "badge": "새 글",
+  "featured": false,
+  "excerpt": "<strong>달랏 크리스마스 데이트·프러포즈</strong> 가이드: 노을부터 비닐하우스에 불이 켜질 때까지의 추천 시간, 크리스마스 기차 구역의 커플 포토 스폿, 그리고 Trạm Dừng Chill의 무료 프러포즈 장식.",
+  "tags": []
+ },
+ {
+  "id": "noel-da-lat-cung-gia-dinh-tre-nho",
+  "title": "어린아이가 있는 가족을 위한 달랏 크리스마스: 방문 시간, 자리, 아이 메뉴",
+  "category": "축제 시즌",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/khu-noel-ban-ngay-tuan-loc-tram-dung-chill-da-lat.webp",
+  "imageAlt": "낮의 Trạm Dừng Chill 크리스마스 구역: 눈 덮인 트리 줄 사이의 크리스마스 기관차, 장식용 순록과 꽃, 앞쪽 나무 바닥에 선 크리스마스 원피스 차림의 여성",
+  "badge": "새 글",
+  "featured": false,
+  "excerpt": "<strong>어린아이가 있는 가족을 위한 달랏 크리스마스</strong> 팁: 날이 아직 따뜻한 오후에 와서 아이에게 크리스마스 기차 구역을 보여 주고, 지붕 있는 줄에 앉아 안 매운 메뉴를 주문한 뒤, 밤이 추워지기 전에 돌아가세요.",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-2026-tram-dung-chill",
   "title": "달랏 크리스마스 2026: 하얀 눈과 크리스마스 기차 인증샷",
   "category": "체험",

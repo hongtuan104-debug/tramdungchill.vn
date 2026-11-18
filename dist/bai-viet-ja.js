@@ -1,6 +1,42 @@
 /* Danh sách bài cho trang Blog 日本語 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-di-dau-an-gi",
+  "title": "ダラットのクリスマス、どこで何を？12月24日午後〜夜のプラン",
+  "category": "ホリデーシーズン",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/phao-hoa-dem-noel-tram-dung-chill-da-lat.webp",
+  "imageAlt": "クリスマスシーズンのTrạm Dừng Chillで夜空に打ち上がる花火と、スマートフォンを掲げて撮影するお客様。下にはツリーと黄色いストリングライト",
+  "badge": "新着",
+  "featured": false,
+  "excerpt": "<strong>ダラットのクリスマス、どこへ行き何を食べる？</strong>12月24日クリスマスイブのプラン：午後は教会めぐり、Trạm Dừng Chillで夕日とレトロ列車を眺め、夜は明かりが灯るビニールハウスを見ながらBBQ、花火を見てクリスマストレインのエリアで記念撮影。",
+  "tags": []
+ },
+ {
+  "id": "hen-ho-cau-hon-dem-noel-da-lat",
+  "title": "ダラットのクリスマスデート＆プロポーズ：時間・ペア写真・無料デコ",
+  "category": "デート＆誕生日",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/coi-xay-gio-xich-du-dem-noel-da-lat.webp",
+  "imageAlt": "オレンジ色のライトで縁取られた木の風車と、Trạm Dừng Chillの文字が付いたブランコが夜に光る様子。ツリーの並びの間でブランコに座るクリスマスドレスの女性",
+  "badge": "新着",
+  "featured": false,
+  "excerpt": "<strong>ダラットのクリスマスにデート・プロポーズ</strong>をするなら：夕日からビニールハウスに明かりが灯るまでのおすすめの時間帯、クリスマストレインのエリアでのカップル写真のアングル、そしてTrạm Dừng Chillの無料プロポーズデコレーション。",
+  "tags": []
+ },
+ {
+  "id": "noel-da-lat-cung-gia-dinh-tre-nho",
+  "title": "子連れでダラットのクリスマス：来店時間・席・子ども向け料理",
+  "category": "ホリデーシーズン",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/khu-noel-ban-ngay-tuan-loc-tram-dung-chill-da-lat.webp",
+  "imageAlt": "昼間のTrạm Dừng Chillのクリスマスエリア。雪化粧したツリーの並びの間にクリスマストレインの機関車、飾りのトナカイと花。手前の木のデッキに立つクリスマスドレスの女性",
+  "badge": "新着",
+  "featured": false,
+  "excerpt": "<strong>子連れ家族でダラットのクリスマス</strong>を楽しむコツ：まだ暖かい午後に来店してお子さまにクリスマストレインのエリアを見せ、屋根付きの列に座り、お子さまには辛くない料理を頼んで、夜が冷え込む前に帰りましょう。",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-2026-tram-dung-chill",
   "title": "ダラットのクリスマス2026：白い雪とクリスマストレインのフォトスポット",
   "category": "体験",

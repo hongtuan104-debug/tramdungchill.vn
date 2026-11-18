@@ -1,6 +1,42 @@
 /* Danh sách bài cho trang Blog English — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "noel-da-lat-di-dau-an-gi",
+  "title": "Christmas in Da Lat: Where to Go, What to Eat and a Christmas Eve (24/12) Plan From Afternoon to Evening",
+  "category": "Festive season",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/phao-hoa-dem-noel-tram-dung-chill-da-lat.webp",
+  "imageAlt": "Fireworks bursting in the night sky at Trạm Dừng Chill during the Christmas season, guests holding up their phones to film, with a pine tree and strings of yellow lights below",
+  "badge": "New",
+  "featured": false,
+  "excerpt": "<strong>Christmas in Da Lat: where to go and what to eat?</strong> Here's a plan for Christmas Eve (24/12): churches in the afternoon, the sunset and the vintage train at Trạm Dừng Chill, then an evening of BBQ as the greenhouses light up, fireworks and photos at the Christmas train area.",
+  "tags": []
+ },
+ {
+  "id": "hen-ho-cau-hon-dem-noel-da-lat",
+  "title": "Dates and Proposals for Christmas in Da Lat: Best Times, Couple Photo Spots and a Free Setup",
+  "category": "Dates &amp; Birthdays",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/coi-xay-gio-xich-du-dem-noel-da-lat.webp",
+  "imageAlt": "A wooden windmill outlined in orange lights and a swing with the lit-up Trạm Dừng Chill lettering at night, with a girl in a Christmas dress sitting on the swing among pine trees",
+  "badge": "New",
+  "featured": false,
+  "excerpt": "Ideas for a <strong>date or proposal at Christmas in Da Lat</strong>: the best time window from sunset until the greenhouses light up, couple photo spots at the Christmas train area and a free proposal setup at Trạm Dừng Chill.",
+  "tags": []
+ },
+ {
+  "id": "noel-da-lat-cung-gia-dinh-tre-nho",
+  "title": "Christmas in Da Lat for Families With Young Children: When to Arrive, Where to Sit and What Kids Can Eat",
+  "category": "Festive season",
+  "date": "2026-11-17",
+  "image": "/assets/images/blog/khu-noel-ban-ngay-tuan-loc-tram-dung-chill-da-lat.webp",
+  "imageAlt": "The Christmas area at Trạm Dừng Chill by day: the Christmas locomotive among snow-covered pines, decorative reindeer and flowers, with a girl in a Christmas dress standing on the wooden deck in front",
+  "badge": "New",
+  "featured": false,
+  "excerpt": "Tips for <strong>Christmas in Da Lat with young children</strong>: come in the afternoon so the kids can see the Christmas train area while it's still warm, sit in a covered row, order non-spicy dishes for the little ones and head back before the night turns cold.",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-2026-tram-dung-chill",
   "title": "Christmas in Da Lat 2026: Snow Photo Spot and a Christmas Train",
   "category": "Experience",

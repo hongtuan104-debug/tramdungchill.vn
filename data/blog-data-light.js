@@ -1,6 +1,42 @@
 /* Blog listing data (lightweight — no body). Auto-sinh bởi generate-blog-pages.js — KHÔNG sửa tay. */
 const BLOG_ARTICLES = [
   {
+    "id": "noel-da-lat-di-dau-an-gi",
+    "title": "Noel Đà Lạt Đi Đâu, Ăn Gì? Lịch Trình Đêm Giáng Sinh 24/12 Từ Chiều Tới Tối",
+    "category": "Mùa lễ hội",
+    "date": "2026-11-17",
+    "image": "assets/images/blog/phao-hoa-dem-noel-tram-dung-chill-da-lat.webp",
+    "imageAlt": "Pháo hoa bắn lên nền trời đêm ở Trạm Dừng Chill mùa Noel, khách đứng giơ điện thoại quay lại, phía dưới là cây thông và dây đèn vàng",
+    "badge": "Mới",
+    "featured": false,
+    "excerpt": "<strong>Noel Đà Lạt đi đâu, ăn gì?</strong> Lịch trình đêm Giáng Sinh 24/12: chiều dạo nhà thờ, hoàng hôn và tàu cổ ở Trạm Dừng Chill, tối nướng BBQ ngắm nhà lồng lên đèn, xem pháo hoa và chụp ảnh ở khu tàu Giáng Sinh.",
+    "tags": []
+  },
+  {
+    "id": "hen-ho-cau-hon-dem-noel-da-lat",
+    "title": "Hẹn Hò, Cầu Hôn Noel Đà Lạt: Giờ Đẹp, Góc Chụp Đôi Và Setup Miễn Phí",
+    "category": "Hẹn hò & Sinh nhật",
+    "date": "2026-11-17",
+    "image": "assets/images/blog/coi-xay-gio-xich-du-dem-noel-da-lat.webp",
+    "imageAlt": "Cối xay gió gỗ viền đèn cam và xích đu gắn chữ Trạm Dừng Chill sáng đèn ban đêm, cô gái mặc váy Noel ngồi trên xích đu giữa hàng thông",
+    "badge": "Mới",
+    "featured": false,
+    "excerpt": "Gợi ý <strong>hẹn hò, cầu hôn Noel Đà Lạt</strong>: khung giờ đẹp từ hoàng hôn tới lúc nhà lồng lên đèn, góc chụp ảnh đôi ở khu tàu Giáng Sinh và setup cầu hôn miễn phí tại Trạm Dừng Chill.",
+    "tags": []
+  },
+  {
+    "id": "noel-da-lat-cung-gia-dinh-tre-nho",
+    "title": "Noel Đà Lạt Cho Gia Đình Có Trẻ Nhỏ: Giờ Đến, Chỗ Ngồi Và Món Cho Bé",
+    "category": "Mùa lễ hội",
+    "date": "2026-11-17",
+    "image": "assets/images/blog/khu-noel-ban-ngay-tuan-loc-tram-dung-chill-da-lat.webp",
+    "imageAlt": "Khu Noel ban ngày ở Trạm Dừng Chill: đầu tàu Giáng Sinh giữa hàng thông phủ tuyết, tuần lộc trang trí và hoa, cô gái mặc váy Noel đứng trên sàn gỗ phía trước",
+    "badge": "Mới",
+    "featured": false,
+    "excerpt": "Gợi ý <strong>Noel Đà Lạt cho gia đình có trẻ nhỏ</strong>: đến buổi chiều để bé xem khu tàu Giáng Sinh khi trời còn ấm, ngồi dãy có mái che, gọi món không cay cho bé và về trước khi đêm xuống lạnh.",
+    "tags": []
+  },
+  {
     "id": "noel-da-lat-2026-tram-dung-chill",
     "title": "Noel Đà Lạt 2026: Check-in Tuyết Trắng Và Tàu Giáng Sinh",
     "category": "Trải nghiệm",
