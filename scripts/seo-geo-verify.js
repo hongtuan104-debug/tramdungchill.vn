@@ -3152,6 +3152,102 @@ const CAU_AEO = (() => {
                    : tong + " mục H2 / " + indexed.length + " bài đều mở bằng đoạn văn, ngắn nhất " + ngan + " chữ");
 }
 
+// ── R35. Thẻ X + schema trang dịch (20/11/2026, CLAUDE.md #58) ──────────────
+// Rà schema toàn sitemap 20/11: validator.schema.org báo 0 lỗi mà vẫn sót 2 thứ nó không kiểm:
+// (a) 42 trang (4 trang dịp + đường đi + chính sách dữ liệu × 7 thứ tiếng) thiếu twitter:card → X không dựng thẻ
+//     ảnh lớn. Chỉ cần twitter:card: thiếu twitter:title/description/image thì X tự lấy og:* (6 trang đó đủ og:*).
+// (b) Service.serviceType trên 24 trang dịp dịch còn tiếng Việt — khoá này không nằm trong KHOA_JSON_DICH của
+//     dich-trang.js nên không ai dịch, mà R33 chỉ soát câu đã trích nên cũng không thấy.
+//     Dấu hiệu của khoá bị bỏ sót: chuỗi trên trang dịch GIỐNG Y chuỗi trên trang tiếng Việt gốc mà còn chữ Việt.
+//     Không quét "còn dấu tiếng Việt" chung chung: bản dịch cố ý giữ tên món kèm giải nghĩa ("bánh căn (mini rice
+//     cakes)", "é leaves"), "à la carte", "café", địa danh "Suối Vàng" — thử 20/11 bắt nhầm 32 chuỗi như vậy.
+//     Bỏ thực thể chung (#restaurant/#website cố ý giữ bản tiếng Việt — dich-trang.js THUC_THE_CHUNG), tên người
+//     (review gốc), và chuỗi chỉ có danh từ riêng (areaServed "Đà Lạt").
+{
+    const N = require("./ngon-ngu");
+    const sm = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+    const trang = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => N.duongDanTuUrl(m[1]));
+    const THUC_THE_CHUNG = /^(Restaurant|LocalBusiness|FoodEstablishment|Organization|WebSite|PostalAddress|GeoCoordinates|Brand|Place)$/;
+    const VN = /[ạảãàáâậầấẩẫăắằặẳẵóòọõỏôộổỗồốơờớợởỡéèẻẹẽêếềệểễúùủũụưứừựửữíìỉĩịýỳỷỹỵđ]/i;
+    const RIENG = /(tiệm nướng )?trạm dừng chill|huỳnh tấn phát|phường xuân trường|xuân trường|đà lạt|lâm đồng|trại mát|xóm lèo/gi;
+    const chuoiSchema = (s, goi) => {
+        for (const m of s.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+            let o;
+            try { o = JSON.parse(m[1]); } catch (e) { continue; }
+            (function duyet(x) {
+                if (Array.isArray(x)) return x.forEach(duyet);
+                if (!x || typeof x !== "object") return;
+                const loai = [].concat(x["@type"] || []);
+                if (loai.some((t) => THUC_THE_CHUNG.test(t))) return;
+                for (const [k, v] of Object.entries(x)) {
+                    if (typeof v === "string") {
+                        if (k[0] === "@" || /^https?:/.test(v) || (loai.includes("Person") && k === "name")) continue;
+                        goi(v, loai.join("/") + "." + k);
+                    } else duyet(v);
+                }
+            })(o);
+        }
+    };
+    const thieuCard = [];
+    const sotViet = [];
+    let soChuoi = 0;
+    for (const p of trang) {
+        const f = path.join(ROOT, p);
+        if (!fs.existsSync(f)) continue;
+        const s = fs.readFileSync(f, "utf8");
+        if (!/<meta name="twitter:card" content="summary(_large_image)?">/.test(s)) thieuCard.push(p);
+        if (!N.laTrangDich(p)) continue;
+        const goc = path.join(ROOT, p.replace(/^[a-z]{2}\//, ""));
+        if (!fs.existsSync(goc)) continue;
+        const tapGoc = new Set();
+        chuoiSchema(fs.readFileSync(goc, "utf8"), (v) => tapGoc.add(v));
+        chuoiSchema(s, (v, cho) => {
+            soChuoi++;
+            if (tapGoc.has(v) && VN.test(v.replace(RIENG, ""))) sotViet.push(p + " " + cho + ": " + v.slice(0, 50));
+        });
+    }
+    add("Thẻ X (twitter:card) đủ mọi trang sitemap · schema trang dịch không sót chữ Việt (ngoài thực thể chung + danh từ riêng)",
+        thieuCard.length === 0 && sotViet.length === 0,
+        thieuCard.length || sotViet.length
+            ? [...thieuCard.slice(0, 3).map((x) => x + ": thiếu twitter:card"), ...sotViet.slice(0, 3)].join(" | ") +
+              " (thiếu thẻ X " + thieuCard.length + " · sót chữ Việt " + sotViet.length + ")"
+            : trang.length + " trang có twitter:card · " + soChuoi + " chuỗi schema trên trang dịch đều đã dịch");
+}
+
+// ── R36. Mọi bài blog đang index có CHỖ để bot ghi ngày sửa (20/11/2026, CLAUDE.md #58) ──
+// cap-nhat-lastmod.js (CI sau mỗi lần push .html) đóng ngày ngược vào nguồn: bài trụ cột → "dateModified" trong khối
+// của nó ở data/blog-seo.js; bài thường → "_dateModified" trong khối ở data/blog-data.js. Thiếu chỗ là script dừng
+// lỗi → bot đứng HẲN (không đóng ngày, không báo IndexNow cho bất kỳ trang nào). Đã xảy ra 15–20/11/2026: 4 bài Noel
+// là bài thường, chưa có ô nào, 5 lần push liền bot đỏ mà không ai thấy. Luật dò bằng ĐÚNG regex ranh giới khối của bot.
+{
+    const sm = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+    const bai =[...sm.matchAll(/<loc>https:\/\/tramdungchill\.vn\/blog\/([^/<]+)\.html<\/loc>/g)].map((m) => m[1]);
+    const khoiTheoMa = (txt, re) => {
+        const moc = [...txt.matchAll(re)].map((m) => ({ ma: m[1], dau: m.index }));
+        const out = {};
+        moc.forEach((k, i) => { out[k.ma] = txt.slice(k.dau, i + 1 < moc.length ? moc[i + 1].dau : txt.length); });
+        return out;
+    };
+    const truCot = khoiTheoMa(fs.readFileSync(path.join(ROOT, "data/blog-seo.js"), "utf8"), /^ {4}"([^"]+)"\s*:\s*\{[ \t]*$/gm);
+    const thuong = khoiTheoMa(fs.readFileSync(path.join(ROOT, "data/blog-data.js"), "utf8"), /^ {4}\{[ \t]*\r?\n {8}id: "([^"]+)",/gm);
+    const loi = [];
+    let soTruCot = 0, soThuong = 0;
+    for (const ma of bai) {
+        if (truCot[ma]) {
+            soTruCot++;
+            if (!/"dateModified"\s*:\s*"\d{4}-\d{2}-\d{2}"/.test(truCot[ma])) loi.push(ma + ": khối trụ cột thiếu \"dateModified\"");
+        } else if (thuong[ma]) {
+            soThuong++;
+            const o = (thuong[ma].match(/"?_dateModified"?\s*:\s*"(\d{4}-\d{2}-\d{2})"/) || [])[1];
+            if (!o) loi.push(ma + ": bài thường thiếu _dateModified trong blog-data.js");
+        } else loi.push(ma + ": không có khối nào trong blog-seo.js lẫn blog-data.js");
+    }
+    add("Mọi bài blog đang index có chỗ cho bot ghi ngày sửa (trụ cột: dateModified · bài thường: _dateModified)",
+        bai.length > 0 && loi.length === 0,
+        loi.length ? loi.slice(0, 4).join(" | ") + (loi.length > 4 ? " … (+" + (loi.length - 4) + ")" : "")
+                   : bai.length + " bài index · " + soTruCot + " trụ cột + " + soThuong + " bài thường đều có ô ngày");
+}
+
 // ── In kết quả ───────────────────────────────────────────────────────────
 console.log("\n🔎 SEO + GEO VERIFY — tramdungchill.vn");
 console.log("   Chuẩn: Google AI optimization guide (10/07/2026)\n");

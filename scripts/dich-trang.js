@@ -207,8 +207,11 @@ function chuanBiNguon0(html, lang) {
 const THUC_THE_CHUNG = new Set(['Restaurant', 'LocalBusiness', 'FoodEstablishment', 'Organization', 'WebSite', 'PostalAddress',
     'GeoCoordinates', 'Brand', 'Place']);
 const ID_THUC_THE = /#(restaurant|website|organization|logo)$/;
+// serviceType thêm 20/11/2026: Service ở 4 trang dịp không phải thực thể chung, mà thiếu khoá này thì 24 trang dịch
+// khai loại dịch vụ bằng tiếng Việt ("Tổ chức tiệc sinh nhật") trong khi name/description cùng node đã dịch.
 const KHOA_JSON_DICH = new Set(['name', 'description', 'headline', 'alternativeHeadline', 'text', 'caption', 'articleSection',
-    'keywords', 'jobTitle', 'abstract', 'disambiguatingDescription', 'reviewBody', 'about', 'category', 'genre', 'slogan']);
+    'keywords', 'jobTitle', 'abstract', 'disambiguatingDescription', 'reviewBody', 'about', 'category', 'genre', 'slogan',
+    'serviceType']);
 function loaiNode(o) {
     const t = o && o['@type'];
     return Array.isArray(t) ? t : (t ? [t] : []);

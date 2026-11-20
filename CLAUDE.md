@@ -1539,6 +1539,22 @@ thật 3 commit liền (chú thích v11 trong `sw.js` tự ghi nhận). Nay:
      YouTube công khai (tiêu đề, ngày đăng, `PT0M42S`, ảnh bìa oEmbed). Thay video thì đọc lại. JSON-LD tính vào dấu vân lastmod.
    - Chưa có lời thoại / lộ trình bằng chữ (việc treo từ #25): phụ đề chỉ có bản tự động, không tải được một cách chính đáng —
      **chờ sếp gửi lộ trình**. Mô tả video trên YouTube còn ghi "Phường 11 … 67000" (địa chỉ cũ) — sếp tự sửa trong YouTube Studio.
+58. **Rà schema toàn sitemap + bot ngày sửa đứng 5 ngày** (20/11/2026 — sếp gửi bài Novaverb "7 loại Schema đúng/sai", rồi "sửa cả 2
+   lỗi luôn rồi push"). validator.schema.org 0 lỗi, R7c/R7e đạt, mà rà nghĩa cả 208 URL vẫn ra 2 lỗi thật:
+   - **42 trang thiếu `twitter:card`** (4 trang dịp + `duong-di/` + `chinh-sach-du-lieu/` × 7 thứ tiếng). Chỉ thêm `twitter:card`:
+     thiếu `twitter:title/description/image` thì X tự lấy `og:*`. ⚠️ Đừng thêm `twitter:title`/`twitter:description` cho "đủ bộ" —
+     dấu vân lastmod tính mọi meta có chữ title/description → 6 trang + 36 bản dịch bị đóng dấu "vừa cập nhật" oan.
+   - **`serviceType` của Service trên 24 trang dịp dịch còn tiếng Việt** — khoá không nằm trong `KHOA_JSON_DICH` (dich-trang.js), đã thêm.
+     Khác với `#restaurant` (mô tả quán, tên Menu, review) trên trang dịch: cái đó CỐ Ý giữ tiếng Việt (bug #11, `THUC_THE_CHUNG`).
+   - Báo nhầm khi rà (đừng "sửa"): 49 câu FAQ "lệch" chỉ khác dấu cách/link; node gốc `CreativeWork` ở trang dịp là validator gán kiểu
+     cho `isPartOf {"@id"}` trơn; tên món tiếng Việt kèm giải nghĩa trong bản dịch là cố ý; headline 112 ký tự — Google đã bỏ trần 110.
+   - **Bot `cap-nhat-lastmod` đỏ từ 15/11 tới 20/11** (5 lần push, không commit ngày, KHÔNG báo IndexNow trang nào): 4 bài Noel là bài
+     THƯỜNG trong `blog-data.js` mà đang index, không có khối pillars → không có chỗ ghi ngày → script `loi()`. Sửa: bài thường khai
+     `_dateModified` trong khối của nó (generator đọc `article._dateModified || article.date`), bot ghi vào đó; trang MỚI vào sitemap
+     đã tự khai ngày thì GIỮ ngày đó, chỉ lập dấu vân + báo IndexNow (bản cũ đóng dấu ngày bot chạy được → 4 bài Noel thành "20/11").
+     → **Thêm bài thường mà cho index thì phải có dòng `_dateModified: "<ngày đăng>",` ngay dưới `date:`.**
+   → Máy canh: **R35** (mọi URL sitemap có `twitter:card` · chuỗi schema trang dịch giống y bản tiếng Việt mà còn chữ Việt = khoá bị
+     bỏ sót) và **R36** (mọi bài index có ô ngày cho bot, dò bằng đúng regex ranh giới khối của bot) trong `seo-geo-verify.js`.
 
 ## Trang tác giả — ĐÃ GỠ 21/10/2026 (cơ chế vẫn còn trong generator)
 ⚠️ **Sếp Tuấn bỏ tên người khỏi web (21/10/2026)** → không bài nào khai `author`, thư mục `tac-gia/` đã xoá,

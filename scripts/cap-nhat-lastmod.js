@@ -7,7 +7,8 @@
  *   2. "dateModified" trong schema JSON-LD của trang
  *   3. dòng chữ "Cập nhật 16/06/2026" hiển thị cho khách đọc
  *   4. "dateModified" trong data/blog-seo.js — NGUỒN mà scripts/generate-blog-pages.js
- *      đọc lại mỗi lần dựng bài
+ *      đọc lại mỗi lần dựng bài (bài thường đang index, không có khối trụ cột — vd 4 bài
+ *      Noel 11/2026: ô `_dateModified` trong khối của bài ở data/blog-data.js)
  * Quên sửa là Google tưởng trang đứng yên. (Ngày 29/07/2026: 12 trang trụ cột
  * khai 16/06 trong khi nội dung đã sửa cuối tháng 7.)
  *
@@ -350,6 +351,54 @@ function kiemNguonSauKhiSua(raMoi, ngayTheoMa, soKhoiCu) {
   return null;
 }
 
+// ─────────────── bài THƯỜNG đang index: đóng ngày vào data/blog-data.js (20/11/2026) ───────────────
+/**
+ * Vì sao: 4 bài Noel (15–17/11/2026) là bài thường trong blog-data.js nhưng đang index — không có khối trong
+ * pillars của blog-seo.js nên không có chỗ ghi ngày → script dừng lỗi, bot đứng 5 ngày liền (không đóng ngày,
+ * không báo IndexNow cho bất kỳ trang nào).
+ * Bài thường tự khai `_dateModified` ngay trong khối của nó (cùng kiểu `_faq`); generate-blog-pages.js dựng
+ * schema + sitemap bằng `article._dateModified || article.date`.
+ * ⚠️ CHỈ cho bài KHÔNG có khối pillars: bài có khối thì generate-blog-pages gán đè `_dateModified = p.dateModified`
+ *    (kể cả khi undefined) — ghi vào blog-data.js là vô nghĩa, nên bài trụ cột thiếu ô vẫn phải báo lỗi như cũ.
+ * Ranh giới khối như ganNgayVaoNguon: mốc = dòng "    {" ngay trên dòng "        id: "<mã>",".
+ */
+const FILE_DATA = path.join(GOC, 'data', 'blog-data.js');
+function ganNgayVaoBlogData(noiDung, ngayTheoMa) {
+  const moc = [...noiDung.matchAll(/^ {4}\{[ \t]*\r?\n {8}id: "([^"]+)",/gm)].map((m) => ({ ma: m[1], dau: m.index }));
+  moc.forEach((k, i) => { k.het = i + 1 < moc.length ? moc[i + 1].dau : noiDung.length; });
+  const thieu = [];
+  const manh = [];
+  let cuoi = 0;
+  for (const k of moc) {
+    if (!ngayTheoMa.has(k.ma)) continue;
+    const khoi = noiDung.slice(k.dau, k.het);
+    if (!/"?_dateModified"?\s*:\s*"\d{4}-\d{2}-\d{2}"/.test(khoi)) { thieu.push(k.ma); continue; }
+    manh.push(noiDung.slice(cuoi, k.dau));
+    manh.push(khoi.replace(/("?_dateModified"?\s*:\s*")\d{4}-\d{2}-\d{2}(")/, `$1${ngayTheoMa.get(k.ma)}$2`));
+    cuoi = k.het;
+  }
+  manh.push(noiDung.slice(cuoi));
+  const coKhoi = new Set(moc.map((k) => k.ma));
+  for (const ma of ngayTheoMa.keys()) if (!coKhoi.has(ma)) thieu.push(ma);
+  return { raMoi: manh.join(''), thieu };
+}
+function kiemBlogDataSauKhiSua(raMoi, ngayTheoMa, soBaiCu) {
+  const hop = {};
+  try {
+    vm.runInNewContext(raMoi + '\n;this.B = BLOG_ARTICLES;', hop);
+  } catch (e) {
+    return `data/blog-data.js sau khi sửa KHÔNG đọc được nữa: ${e.message}`;
+  }
+  const ds = hop.B || [];
+  if (ds.length !== soBaiCu) return `số bài trong blog-data.js đổi từ ${soBaiCu} thành ${ds.length} — sửa hỏng file`;
+  for (const [ma, ngay] of ngayTheoMa) {
+    const bai = ds.find((a) => a.id === ma);
+    if (!bai) return `mất bài ${ma} khỏi blog-data.js sau khi sửa`;
+    if (bai._dateModified !== ngay) return `bài ${ma} đáng lẽ ${ngay} nhưng đọc lại ra ${bai._dateModified}`;
+  }
+  return null;
+}
+
 // ─────────────────────────── dò lịch sử git (--khoi-tao) ───────────────────────────
 function chayGit(doiSoGit) {
   return execFileSync('git', doiSoGit, { cwd: GOC, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
@@ -424,6 +473,7 @@ function main() {
   const ghiSau = [];           // [đường dẫn, nội dung] — chỉ ghi sau khi kiểm xong nguồn
   const urlDaDoi = [];
   const banGhi = [];
+  const trangMoi = [];         // trang mới vào sitemap đã có ngày → không đổi ngày, chỉ báo IndexNow
   let soLech = 0;              // sitemap lệch schema do sửa tay — chỉ vá, không báo IndexNow
 
   for (const t of trang) {
@@ -455,8 +505,16 @@ function main() {
       // Chưa có bảng dấu vân → chỉ lập bảng, KHÔNG đổi ngày hàng loạt.
       lyDo = 'lần đầu lập bảng dấu vân';
     } else if (vanCu[t.loc] !== van) {
-      ngayDat = homNay;
-      lyDo = vanCu[t.loc] ? 'nội dung chữ đã đổi' : 'trang mới vào sitemap';
+      if (vanCu[t.loc] || !t.lastmod) {
+        ngayDat = homNay;
+        lyDo = vanCu[t.loc] ? 'nội dung chữ đã đổi' : 'trang mới vào sitemap, chưa khai ngày';
+      } else {
+        // Trang MỚI đã tự khai ngày (máy tạo bài đóng ngày đăng) → chỉ lập dấu vân, GIỮ ngày đó, vẫn báo IndexNow.
+        // Thêm 20/11/2026: bot hỏng từ 15/11 (4 bài Noel), chạy lại thì bản cũ đóng dấu "20/11" cho bài đăng 15–17/11
+        // — ngày giả 3–5 hôm, và ngày trang mới lẽ ra luôn là ngày nó vào sitemap chứ không phải ngày bot chạy được.
+        lyDo = 'trang mới vào sitemap — lập dấu vân, giữ ngày đang khai';
+        trangMoi.push(t.loc);
+      }
     }
 
     if (ngayDat) {
@@ -501,6 +559,13 @@ function main() {
       banGhi.push(`  ↳  ${duongDanTuUrl(u)}  → ${ngay}   (theo trang gốc)`);
     }
   }
+  // Trang mới giữ ngày + bản dịch của nó: không đổi ngày nhưng vẫn báo IndexNow — có trang mới là tin cần báo.
+  const urlMoi = [];
+  for (const loc of trangMoi) {
+    for (const u of [loc, ...urlDichCua(loc, tapLoc)]) {
+      if (!urlDaDoi.includes(u)) { urlDaDoi.push(u); urlMoi.push(u); }
+    }
+  }
 
   console.log(banGhi.join('\n'));
 
@@ -514,14 +579,21 @@ function main() {
   }
 
   let nguonMoi = null;
+  let dataMoi = null;
+  let soBaiThuong = 0;
   if (ngayNguon.size > 0) {
     const nguonCu = fs.readFileSync(FILE_SEO, 'utf8');
     const soKhoiCu = (nguonCu.match(/^ {4}"[^"]+"\s*:\s*\{[ \t]*$/gm) || []).length;
-    const { raMoi, thieu } = ganNgayVaoNguon(nguonCu, ngayNguon);
+    // Tách bài trụ cột (có khối trong blog-seo.js) với bài thường (chỉ có trong blog-data.js)
+    const coKhoiTruCot = new Set([...nguonCu.matchAll(/^ {4}"([^"]+)"\s*:\s*\{[ \t]*$/gm)].map((m) => m[1]));
+    const ngayTruCot = new Map([...ngayNguon].filter(([ma]) => coKhoiTruCot.has(ma)));
+    const ngayBaiThuong = new Map([...ngayNguon].filter(([ma]) => !coKhoiTruCot.has(ma)));
+    soBaiThuong = ngayBaiThuong.size;
 
+    const { raMoi, thieu } = ganNgayVaoNguon(nguonCu, ngayTruCot);
     if (thieu.length) {
       loi(
-        `${thieu.length} bài đổi ngày nhưng KHÔNG có ô "dateModified" trong data/blog-seo.js: ` +
+        `${thieu.length} bài trụ cột đổi ngày nhưng KHÔNG có ô "dateModified" trong khối của nó ở data/blog-seo.js: ` +
         `${thieu.join(', ')}\n   Thêm ô đó vào khối của bài rồi chạy lại. Bỏ qua là ngày sẽ bị ` +
         'generate-blog-pages.js kéo lùi, không ai thấy. (Chưa ghi file nào.)',
       );
@@ -530,14 +602,33 @@ function main() {
     if (raMoi.length !== nguonCu.length) {
       loi(`sửa data/blog-seo.js làm đổi độ dài file (${nguonCu.length} → ${raMoi.length}) — dừng, chưa ghi file nào.`);
     }
-    const hong = kiemNguonSauKhiSua(raMoi, ngayNguon, soKhoiCu);
+    const hong = kiemNguonSauKhiSua(raMoi, ngayTruCot, soKhoiCu);
     if (hong) loi(`${hong} — dừng, chưa ghi file nào.`);
+    if (ngayTruCot.size > 0) nguonMoi = raMoi;
 
-    nguonMoi = raMoi;
+    if (ngayBaiThuong.size > 0) {
+      const dataCu = fs.readFileSync(FILE_DATA, 'utf8');
+      const soBaiCu = (dataCu.match(/^ {4}\{[ \t]*\r?\n {8}id: "/gm) || []).length;
+      const kq = ganNgayVaoBlogData(dataCu, ngayBaiThuong);
+      if (kq.thieu.length) {
+        loi(
+          `${kq.thieu.length} bài thường (không có khối trụ cột) đổi ngày nhưng KHÔNG có ô "_dateModified" trong ` +
+          `data/blog-data.js: ${kq.thieu.join(', ')}\n   Thêm dòng  _dateModified: "<ngày đăng>",  ngay dưới dòng date: ` +
+          'của bài rồi chạy lại. (Chưa ghi file nào.)',
+        );
+      }
+      if (kq.raMoi.length !== dataCu.length) {
+        loi(`sửa data/blog-data.js làm đổi độ dài file (${dataCu.length} → ${kq.raMoi.length}) — dừng, chưa ghi file nào.`);
+      }
+      const hong2 = kiemBlogDataSauKhiSua(kq.raMoi, ngayBaiThuong, soBaiCu);
+      if (hong2) loi(`${hong2} — dừng, chưa ghi file nào.`);
+      dataMoi = kq.raMoi;
+    }
   }
 
   if (!CHI_XEM) {
     if (nguonMoi !== null) fs.writeFileSync(FILE_SEO, nguonMoi);
+    if (dataMoi !== null) fs.writeFileSync(FILE_DATA, dataMoi);
     for (const [duongDanDay, noiDung] of ghiSau) fs.writeFileSync(duongDanDay, noiDung);
   }
 
@@ -563,16 +654,24 @@ function main() {
 
   console.log('');
   if (ngayNguon.size > 0) {
-    console.log(`📌 Đóng ngày mới vào nguồn data/blog-seo.js cho ${ngayNguon.size} bài — máy tạo bài dựng lại sẽ ra đúng ngày này.`);
+    console.log(`📌 Đóng ngày mới vào nguồn cho ${ngayNguon.size} bài (data/blog-seo.js: ${ngayNguon.size - soBaiThuong} · ` +
+      `data/blog-data.js: ${soBaiThuong}) — máy tạo bài dựng lại sẽ ra đúng ngày này.`);
   }
   if (soLech > 0) {
     console.log(`⚠️  Vá ${soLech} chỗ sitemap lệch schema (do sửa tay). Không báo IndexNow cho mấy chỗ này vì nội dung không đổi.`);
   }
+  const urlDoiNgay = urlDaDoi.filter((u) => !urlMoi.includes(u));
   if (urlDaDoi.length === 0) {
     console.log('✅ Không trang nào đổi nội dung — không đụng ngày.');
   } else {
-    console.log(`✅ ${urlDaDoi.length} trang được đặt lại ngày sửa:`);
-    urlDaDoi.forEach((u) => console.log(`   ${u}`));
+    if (urlDoiNgay.length) {
+      console.log(`✅ ${urlDoiNgay.length} trang được đặt lại ngày sửa:`);
+      urlDoiNgay.forEach((u) => console.log(`   ${u}`));
+    }
+    if (urlMoi.length) {
+      console.log(`🆕 ${urlMoi.length} trang mới vào sitemap — giữ ngày đang khai, chỉ lập dấu vân + báo IndexNow:`);
+      urlMoi.forEach((u) => console.log(`   ${u}`));
+    }
     if (!CHI_XEM) console.log(`\nDanh sách URL ghi ở: ${fileDanhSach}`);
   }
   if (CHI_XEM) console.log('\n(chế độ --kiem-tra: không ghi file nào)');
