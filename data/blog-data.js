@@ -6806,6 +6806,8 @@ const BLOG_ARTICLES = [
     // Cố ý KHÔNG làm "Top N quán" rồi tự xếp mình (chính sách spam 05/2026): bài là bộ tiêu chí tự chấm, phần nói về
     // quán ghi rõ "đây là quán của chúng tôi" và nêu cả điểm chưa hợp. Không nêu tên quán khác.
     // Chưa thêm vào DICH của dln-map.js (đổi thẻ liên quan hàng loạt — chờ hết tạm dừng Core Update ~10/12).
+    // Sếp chốt 26/11/2026 (sau khi đăng): "nước chấm quán tự pha" → dòng "Nước chấm, món kèm" trong bảng tự chấm.
+    // Chưa ai xác nhận: nhân viên có nướng giúp khách không, thịt có nhập mỗi ngày không — đừng viết.
     // ⚠️ Chú thích phải nằm TRÊN dấu "{": bot cap-nhat-lastmod nhận khối bằng dòng "    {" liền trên "        id:".
     {
         id: "quan-nuong-ngon-da-lat",
@@ -6893,7 +6895,7 @@ const BLOG_ARTICLES = [
 <tr><td>Nguyên liệu</td><td>Món nướng mang ra sống trên khay gỗ để bạn nhìn trước, rồi tự nướng tại bàn.</td></tr>
 <tr><td>Vị ướp</td><td>Có món nướng mộc như Ba Chỉ Bò Nướng Muối Tiêu (155K), có món ướp như Vếu Heo Ướp Sate (145K), Mực Ướp Sate (160K).</td></tr>
 <tr><td>Lửa</td><td>Nướng than hoa tại bàn, ngồi ngoài trời.</td></tr>
-<tr><td>Món ăn kèm</td><td>Kim Chi (30K), Rau Thêm (20K), Salad Trộn Dầu Giấm (95K); món bò hợp chấm muối ớt xanh.</td></tr>
+<tr><td>Nước chấm, món kèm</td><td>Nước chấm do quán tự pha, món bò hợp chấm muối ớt xanh; món kèm có Kim Chi (30K), Rau Thêm (20K), Salad Trộn Dầu Giấm (95K).</td></tr>
 <tr><td>Giá</td><td>Thực đơn hơn 70 món ghi giá từng món, đã gồm VAT; khách lẻ gọi món lẻ, không có combo hay set cố định.</td></tr>
 <tr><td>Đánh giá</td><td>4.8/5 sao trên Google với 7.344 lượt đánh giá (số đọc ngày 18/10/2026).</td></tr>
 <tr><td>Chỗ ngồi</td><td>Gần 250 bàn, có cả bàn ngoài trời lẫn dãy bàn mái che khi mưa; lạnh thì báo nhân viên mang mền và lò than sưởi tận bàn.</td></tr>
