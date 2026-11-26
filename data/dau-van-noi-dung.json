@@ -1,9 +1,9 @@
 {
   "_ghiChu": "Dấu vân phần CHỮ HIỂN THỊ của từng trang trong sitemap. Máy tự ghi — đừng sửa tay. Xem scripts/cap-nhat-lastmod.js.",
-  "capNhatLuc": "2026-11-20",
+  "capNhatLuc": "2026-11-26",
   "trang": {
-    "https://tramdungchill.vn/": "a26ea7b2a4f0a396a3487f8d4a9e4d26d72cd753",
-    "https://tramdungchill.vn/blog.html": "b2c058c81066545c8c411a314e8e67e243a4f149",
+    "https://tramdungchill.vn/": "214263dcbaf1fa1008abb0843ceffa987cb58c3d",
+    "https://tramdungchill.vn/blog.html": "96daba095151adfdb6bf7b669d03b32503c5ec34",
     "https://tramdungchill.vn/menu.html": "42e94ffb649250a274eb4373ad6b6f7e050e6312",
     "https://tramdungchill.vn/dip/san-tau-da-lat.html": "26b804f072bda335ee3e83df8503e39c4a088c28",
     "https://tramdungchill.vn/dip/cau-hon-hen-ho.html": "5071bf180df4c0062afef4679319c7956ccaa028",
@@ -31,6 +31,7 @@
     "https://tramdungchill.vn/blog/noel-da-lat-di-dau-an-gi.html": "13d613de6cd9936cffef9819ef4900d28b57863a",
     "https://tramdungchill.vn/blog/hen-ho-cau-hon-dem-noel-da-lat.html": "0aaaefd2ded621a2d05dc3df9727114a74b4018e",
     "https://tramdungchill.vn/blog/noel-da-lat-cung-gia-dinh-tre-nho.html": "73e3ad2898400c1f3ccff281985951a653b8475e",
+    "https://tramdungchill.vn/blog/quan-nuong-ngon-da-lat.html": "7244deecb11c7121a455bd6219e8102c6ca6186c",
     "https://tramdungchill.vn/blog/da-lat-restaurant-train-view-en.html": "eb8b789a60eb8c512b2a77952a6d892cba8ae39f"
   }
 }
