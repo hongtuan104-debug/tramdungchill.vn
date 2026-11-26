@@ -6806,8 +6806,8 @@ const BLOG_ARTICLES = [
     // Cố ý KHÔNG làm "Top N quán" rồi tự xếp mình (chính sách spam 05/2026): bài là bộ tiêu chí tự chấm, phần nói về
     // quán ghi rõ "đây là quán của chúng tôi" và nêu cả điểm chưa hợp. Không nêu tên quán khác.
     // Chưa thêm vào DICH của dln-map.js (đổi thẻ liên quan hàng loạt — chờ hết tạm dừng Core Update ~10/12).
-    // Sếp chốt 26/11/2026 (sau khi đăng): "nước chấm quán tự pha" → dòng "Nước chấm, món kèm" trong bảng tự chấm.
-    // Chưa ai xác nhận: nhân viên có nướng giúp khách không, thịt có nhập mỗi ngày không — đừng viết.
+    // Sếp chốt 26/11/2026 (sau khi đăng): "nước chấm quán tự pha" → dòng "Nước chấm, món kèm" trong bảng tự chấm;
+    // "thịt nhập mỗi ngày" → dòng "Nguyên liệu". Chưa ai xác nhận: nhân viên có nướng giúp khách không — đừng viết.
     // ⚠️ Chú thích phải nằm TRÊN dấu "{": bot cap-nhat-lastmod nhận khối bằng dòng "    {" liền trên "        id:".
     {
         id: "quan-nuong-ngon-da-lat",
@@ -6892,7 +6892,7 @@ const BLOG_ARTICLES = [
 <table>
 <thead><tr><th scope="col">Dấu hiệu</th><th scope="col">Ở Trạm Dừng Chill</th></tr></thead>
 <tbody>
-<tr><td>Nguyên liệu</td><td>Món nướng mang ra sống trên khay gỗ để bạn nhìn trước, rồi tự nướng tại bàn.</td></tr>
+<tr><td>Nguyên liệu</td><td>Thịt nhập mỗi ngày; món nướng mang ra sống trên khay gỗ để bạn nhìn trước, rồi tự nướng tại bàn.</td></tr>
 <tr><td>Vị ướp</td><td>Có món nướng mộc như Ba Chỉ Bò Nướng Muối Tiêu (155K), có món ướp như Vếu Heo Ướp Sate (145K), Mực Ướp Sate (160K).</td></tr>
 <tr><td>Lửa</td><td>Nướng than hoa tại bàn, ngồi ngoài trời.</td></tr>
 <tr><td>Nước chấm, món kèm</td><td>Nước chấm do quán tự pha, món bò hợp chấm muối ớt xanh; món kèm có Kim Chi (30K), Rau Thêm (20K), Salad Trộn Dầu Giấm (95K).</td></tr>
