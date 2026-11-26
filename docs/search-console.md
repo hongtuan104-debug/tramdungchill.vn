@@ -196,6 +196,11 @@ CLS 0,00; trang Thực đơn điện thoại INP 309ms ❌; máy tính đạt. C
   `noel-da-lat-cung-gia-dinh-tre-nho` (+ 6 bản dịch mỗi bài) — thêm 3 link ở Cẩm nang trang chủ; bài Noel gốc thêm câu
   "khu Noel mở tới hết 31/12, tối nào cũng bắn pháo hoa", 1 câu hỏi FAQ và link sang 3 bài mới. Cả 4 là trang mùa lễ →
   loại khỏi phép so.
+- 26/11: bài index mới `blog/quan-nuong-ngon-da-lat.html` (+ 6 bản dịch) — sếp bảo làm và push ngay trong đợt tạm dừng.
+  KHÔNG phải trang mùa lễ: nhắm cụm "quán/tiệm nướng ngon Đà Lạt" (Keyword Planner ~1.000 lượt/tháng), sát từ khoá của
+  trang chủ ("quán nướng đà lạt" 2.900, "tiệm nướng đà lạt" 1.600). Thêm 1 link ở Cẩm nang trang chủ; 3 bài noindex đổi
+  1 thẻ gợi ý do máy tự cân lại. Khi so: loại URL này khỏi phép so, và nếu trang chủ tụt hạng cho 2 từ gốc thì xem bài
+  này có đang hiện thay trang chủ không (tiền lệ 02/08: `top-quan-nuong-da-lat` giành từ với trang chủ → dồn canonical về "/").
 
 **Đọc thế nào** (theo tài liệu core update của Google):
 1. Tách **tên quán** ("trạm dừng chill", "tram dung chill") khỏi **không tên quán**. Truy vấn tên quán gần như luôn

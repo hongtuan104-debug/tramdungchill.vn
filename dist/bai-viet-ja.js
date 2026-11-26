@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog 日本語 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "quan-nuong-ngon-da-lat",
+  "title": "ダラットのおいしいバーベキュー店：注文前に良い店を見分ける7つのポイント",
+  "category": "ダラットのBBQ店",
+  "date": "2026-11-26",
+  "image": "/assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp",
+  "imageAlt": "丸い木のまな板の上に扇形に並べられた生の豚バラ肉の薄切り。ピンク色の赤身に白い脂が入り、そばには飾り切りしたトマトの花、きゅうり、輪切り唐辛子の小皿、緑色のつけだれの小皿",
+  "badge": "新着",
+  "featured": false,
+  "excerpt": "<strong>ダラットのおいしいバーベキュー店</strong>はどう見分ける？バーベキュー店を営む人が見る7つのポイント：新鮮な肉、ほどよい下味、熱い炭、つけだれ、明確な価格、Googleのレビュー、寒さに合った席。Trạm Dừng Chillの自己採点も載せています。",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-di-dau-an-gi",
   "title": "ダラットのクリスマス、どこで何を？12月24日午後〜夜のプラン",
   "category": "ホリデーシーズン",

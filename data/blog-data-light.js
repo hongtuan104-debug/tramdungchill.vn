@@ -1,6 +1,18 @@
 /* Blog listing data (lightweight — no body). Auto-sinh bởi generate-blog-pages.js — KHÔNG sửa tay. */
 const BLOG_ARTICLES = [
   {
+    "id": "quan-nuong-ngon-da-lat",
+    "title": "Quán Nướng Ngon Đà Lạt: 7 Dấu Hiệu Nhận Ra Tiệm Nướng Ngon Trước Khi Gọi Món",
+    "category": "Quán nướng Đà Lạt",
+    "date": "2026-11-26",
+    "image": "assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp",
+    "imageAlt": "Những lát ba chỉ heo sống xếp hình quạt trên thớt gỗ tròn, thớ thịt đỏ hồng xen mỡ trắng, cạnh đó là hoa cà chua tỉa, khúc dưa leo, chén ớt cắt lát và chén nước chấm xanh",
+    "badge": "Mới",
+    "featured": false,
+    "excerpt": "<strong>Quán nướng ngon Đà Lạt</strong> nhận ra thế nào? 7 dấu hiệu người làm tiệm nướng nhìn vào: thịt tươi, ướp vừa, than nóng, nước chấm, giá rõ, đánh giá Google và chỗ ngồi hợp trời lạnh, kèm phần Trạm Dừng Chill tự chấm.",
+    "tags": []
+  },
+  {
     "id": "noel-da-lat-di-dau-an-gi",
     "title": "Noel Đà Lạt Đi Đâu, Ăn Gì? Lịch Trình Đêm Giáng Sinh 24/12 Từ Chiều Tới Tối",
     "category": "Mùa lễ hội",

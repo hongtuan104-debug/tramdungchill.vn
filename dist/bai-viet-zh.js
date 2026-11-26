@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog 中文 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "quan-nuong-ngon-da-lat",
+  "title": "大叻好吃的烧烤店：点菜前就能认出好烧烤店的 7 个迹象",
+  "category": "大叻烧烤店",
+  "date": "2026-11-26",
+  "image": "/assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp",
+  "imageAlt": "几片生猪五花在圆形木砧板上摆成扇形，粉红的瘦肉间夹着白色肥肉，旁边是雕成花的番茄、几段黄瓜、一小碗辣椒片和一小碗绿色蘸料",
+  "badge": "新",
+  "featured": false,
+  "excerpt": "<strong>大叻好吃的烧烤店</strong>怎么认出来？开烧烤店的人会看这 7 个迹象：肉新鲜、腌得适度、炭火够旺、蘸料、价格清楚、Google 评价，以及适合冷天的座位，另附 Trạm Dừng Chill 的自评。",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-di-dau-an-gi",
   "title": "大叻圣诞去哪玩、吃什么？平安夜（24/12）从下午到晚上的行程",
   "category": "节庆季",

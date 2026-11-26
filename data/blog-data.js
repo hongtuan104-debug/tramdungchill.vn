@@ -6798,5 +6798,159 @@ const BLOG_ARTICLES = [
             { q: "Buổi tối ngồi ngoài trời có lạnh cho bé không?", a: "Có, buổi tối Đà Lạt khá lạnh. Nên mang áo ấm cho bé và ngồi dãy có mái che; quán có mền và lò than sưởi mang tận bàn, chỉ cần báo nhân viên." },
             { q: "Quán có khu vui chơi cho trẻ em không?", a: "Không. Quán không có khu vui chơi riêng; nhân viên phụ để mắt tới bé trong lúc ba mẹ ăn, nhưng ba mẹ vẫn là người trông con." }
         ]
+    },
+    // 26/11/2026 — sếp Tuấn: "làm 1 bài về từ khóa quán nướng hoặc tiệm nướng ngon Đà Lạt".
+    // Keyword Planner (TK Ads 7323054144, VN, tiếng Việt, TB 11/2025–10/2026): quán nướng ngon đà lạt 480 ·
+    // quán nướng ngon ở đà lạt 260 · tiệm nướng ngon đà lạt 110 · quán nướng đà lạt ngon 110 · quán nướng ngon nhất
+    // đà lạt 40. Từ gốc "quán nướng đà lạt" (2.900) / "tiệm nướng đà lạt" (1.600) để TRANG CHỦ giữ — bài này nhắm đuôi "ngon".
+    // Cố ý KHÔNG làm "Top N quán" rồi tự xếp mình (chính sách spam 05/2026): bài là bộ tiêu chí tự chấm, phần nói về
+    // quán ghi rõ "đây là quán của chúng tôi" và nêu cả điểm chưa hợp. Không nêu tên quán khác.
+    // Chưa thêm vào DICH của dln-map.js (đổi thẻ liên quan hàng loạt — chờ hết tạm dừng Core Update ~10/12).
+    // ⚠️ Chú thích phải nằm TRÊN dấu "{": bot cap-nhat-lastmod nhận khối bằng dòng "    {" liền trên "        id:".
+    {
+        id: "quan-nuong-ngon-da-lat",
+        title: "Quán Nướng Ngon Đà Lạt: 7 Dấu Hiệu Nhận Ra Tiệm Nướng Ngon Trước Khi Gọi Món",
+        seoTitle: "Quán Nướng Ngon Đà Lạt: 7 Cách Nhận Biết | Trạm Dừng Chill",
+        category: "Quán nướng Đà Lạt",
+        date: "2026-11-26",
+        _dateModified: "2026-11-26",
+        image: "assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp",
+        imageAlt: "Những lát ba chỉ heo sống xếp hình quạt trên thớt gỗ tròn, thớ thịt đỏ hồng xen mỡ trắng, cạnh đó là hoa cà chua tỉa, khúc dưa leo, chén ớt cắt lát và chén nước chấm xanh",
+        badge: "Mới",
+        featured: false,
+        excerpt: "<strong>Quán nướng ngon Đà Lạt</strong> nhận ra thế nào? 7 dấu hiệu người làm tiệm nướng nhìn vào: thịt tươi, ướp vừa, than nóng, nước chấm, giá rõ, đánh giá Google và chỗ ngồi hợp trời lạnh, kèm phần Trạm Dừng Chill tự chấm.",
+        metaDescription: "Quán nướng ngon Đà Lạt nhận ra thế nào? 7 dấu hiệu từ người làm tiệm nướng: thịt tươi, ướp vừa, than nóng, giá rõ, chỗ ngồi ấm. Kèm gợi ý gọi món và đặt bàn.",
+        body: `<p><strong>TL;DR:</strong> Một quán nướng ngon ở Đà Lạt thường lộ ra qua 7 dấu hiệu nhìn được ngay tại bàn: thịt sống tươi và ráo, ướp vừa đủ, than đủ nóng và vỉ sạch, nước chấm có bản sắc, thực đơn ghi giá rõ, đánh giá Google gần đây ổn định, và chỗ ngồi chống được cái lạnh về đêm. Trạm Dừng Chill (111 Huỳnh Tấn Phát, cách trung tâm khoảng 7 km) là quán nướng than hoa tại bàn ngoài trời, mức chi phổ biến 150.000đ–400.000đ một người đã gồm VAT. Đó là quán của chúng tôi, nên phần tự chấm ở cuối bài ghi cả những điểm có thể chưa hợp với bạn.</p>
+
+<p>Gõ "quán nướng ngon Đà Lạt" lên Google, bạn sẽ gặp rất nhiều danh sách "top quán" do nhiều trang tổng hợp, mỗi trang một kiểu. Quán ăn thì mở thêm, đóng bớt, đổi giá liên tục, nên danh sách viết từ vài năm trước rất dễ lệch với thực tế. Bài này đi theo hướng khác: chúng tôi là người làm tiệm nướng ở Đà Lạt, nên chia sẻ những dấu hiệu người trong nghề nhìn vào để biết một quán có ngon hay không. Bạn mang 7 dấu hiệu này tới quán nào cũng dùng được, kể cả quán của chúng tôi.</p>
+
+<h2>Quán nướng ngon ở Đà Lạt là quán như thế nào?</h2>
+
+<p>Quán nướng ngon ở Đà Lạt là quán làm tốt cả phần ăn lẫn phần ngồi: thịt tươi, ướp vừa, lửa than đủ nóng để thịt chín nhanh mà không cháy, và chỗ ngồi đủ ấm để bạn ăn thong thả giữa tiết trời se lạnh.</p>
+
+<p>Phần ngồi ở Đà Lạt quan trọng hơn nhiều thành phố khác. Theo bảng khí hậu trên <a href="https://vi.wikipedia.org/wiki/%C4%90%C3%A0_L%E1%BA%A1t" target="_blank" rel="noopener">Wikipedia</a>, mùa khô (tháng 11 – tháng 4) đêm trung bình chỉ khoảng 11–14°C, lạnh nhất vào tháng 1. Ngồi quanh bếp than giữa cái lạnh ấy là thứ làm nên tiếng của món nướng Đà Lạt, nhưng cũng có nghĩa là một bữa ngon có thể hỏng chỉ vì gió lùa, mưa tạt hay thịt nguội nhanh trên đĩa.</p>
+
+<h2>7 dấu hiệu nhận ra tiệm nướng ngon trước khi gọi món</h2>
+
+<p>Bảy dấu hiệu dưới đây đều nhìn, ngửi hoặc hỏi được ngay trong mười phút đầu ngồi vào bàn, trước khi bạn quyết định gọi thêm món.</p>
+
+<h3>1. Thịt sống nhìn tươi, ráo, mỡ trắng</h3>
+
+<p>Đồ nướng là món ăn lộ nguyên liệu rõ nhất: thịt mang ra bàn còn sống, bạn nhìn thấy trước khi nếm. Thịt tươi có màu đỏ hồng đều, mặt thịt ráo, không rỉ nước đục; phần mỡ trắng hoặc trắng ngà, không ngả vàng sẫm. Thịt có mùi lạ, mặt thịt nhớt hay thâm xám ở mép là lúc nên hỏi lại quán trước khi cho lên vỉ.</p>
+
+<h3>2. Ướp vừa đủ, có món để nguyên vị</h3>
+
+<p>Sốt ướp quá đậm, quá ngọt có thể che bớt mùi của miếng thịt kém tươi, nên một quán tự tin vào nguyên liệu thường có vài món chỉ nêm muối tiêu để bạn ăn ra vị thịt. Món ướp sẵn vẫn ngon, miễn vị ướp thấm vào thớ thịt chứ không chỉ là một lớp sốt phủ bên ngoài.</p>
+
+<p>Ướp đúng cách còn có lợi cho sức khỏe. Bài <a href="https://vnexpress.net/giam-doc-to-tu-mon-nuong-2262726.html" target="_blank" rel="noopener">"Giảm độc tố từ món nướng"</a> trên VnExpress (2006) dẫn lời giáo sư Mark G. Knize, Phòng thí nghiệm quốc gia Lawrence Livermore (Mỹ): tẩm hoặc ướp thực phẩm với nước sốt trước khi nướng có thể làm giảm hơn 95% nguy cơ phát sinh HCA, nhóm chất sinh ra khi thịt được nướng ở nhiệt độ cao. Bài báo gợi ý ướp trước khoảng 20–30 phút.</p>
+
+<h3>3. Than đủ nóng, vỉ sạch, thịt không cháy đen</h3>
+
+<p>Than hoa đủ nóng làm mặt thịt se lại nhanh, giữ được nước bên trong; than yếu thì thịt chín lâu, khô và dễ dính vỉ. Vỉ đã bám cháy đen nên được thay, vì phần cháy dính lại làm món sau đắng và khét. Cũng bài báo trên khuyên thường xuyên trở món nướng để thịt chín đều, và bỏ những phần bị cháy sém vì đó là phần chứa nhiều độc tố nhất. Thấy vỉ đã đen, bạn cứ hỏi nhân viên có đổi vỉ được không.</p>
+
+<figure class="anh-doc"><img src="assets/images/blog/vi-nuong-than-tom-thit-sot-cam-da-lat-800w.webp" srcset="assets/images/blog/vi-nuong-than-tom-thit-sot-cam-da-lat-400w.webp 400w, assets/images/blog/vi-nuong-than-tom-thit-sot-cam-da-lat-800w.webp 800w" sizes="(max-width:500px) calc(100vw - 48px), 420px" alt="Đũa gắp miếng thịt nướng vừa chấm vào chén giấy bạc đựng sốt màu cam đặt trên vỉ, quanh đó là tôm, thịt ướp và bắp đang nướng trên bếp than" loading="lazy"><figcaption>Tôm, thịt ướp và bắp trên vỉ than: trở đều tay để thịt chín mà không cháy sém.</figcaption></figure>
+
+<h3>4. Nước chấm có bản sắc, rau ăn kèm tươi</h3>
+
+<p>Cùng một miếng thịt, nước chấm quyết định nửa phần ấn tượng. Quán nướng ngon thường có ít nhất một loại nước chấm riêng, pha để làm nổi vị thịt chứ không lấn át nó, chẳng hạn muối ớt xanh chua cay cho bò và hải sản. Rau sống, dưa leo, kim chi ăn kèm cũng phải giòn và sạch, vì đó là phần giúp bạn ăn nhiều món nướng mà không ngán.</p>
+
+<h3>5. Thực đơn ghi giá rõ ràng</h3>
+
+<p>Món ngon mà tính tiền mập mờ thì bữa ăn vẫn để lại vị đắng. Trước khi gọi, hãy xem thực đơn có ghi giá từng món không, giá đã gồm VAT chưa, món tính theo phần hay theo cân, và quán tính theo suất buffet hay gọi lẻ. Buffet thì trả trọn suất dù ăn không hết; gọi lẻ thì gọi bao nhiêu trả bấy nhiêu.</p>
+
+<h3>6. Đánh giá Google: đọc bài mới nhất, đừng chỉ nhìn điểm</h3>
+
+<p>Điểm sao trung bình cho biết quán ổn hay không, còn số lượt đánh giá cho biết điểm đó đáng tin tới đâu: một quán điểm cao nhưng chỉ vài chục lượt đánh giá dao động mạnh hơn nhiều so với quán có vài nghìn lượt. Trên Google Maps, hãy sắp xếp đánh giá theo "Mới nhất" để biết dạo này quán ra sao, rồi đọc vài đánh giá 1–2 sao xem khách phàn nàn chuyện gì và quán trả lời thế nào.</p>
+
+<h3>7. Chỗ ngồi hợp thời tiết Đà Lạt</h3>
+
+<p>Ở Đà Lạt, chỗ ngồi ảnh hưởng tới vị món ăn nhiều hơn bạn nghĩ: gió lạnh làm thịt nguội nhanh, mưa chiều có thể làm bữa ăn ngoài trời dừng giữa chừng. Quán nướng hợp với Đà Lạt nên có khu mái che khi mưa, có cách giữ ấm cho khách ngồi ngoài trời, và đủ thoáng để khói than không ám vào tóc, áo.</p>
+
+<h2>Các kiểu quán nướng ở Đà Lạt: kiểu nào hợp với bạn?</h2>
+
+<p>Đà Lạt có nhiều kiểu quán nướng, mỗi kiểu ngon theo một cách riêng: nướng ngói, nướng đá, buffet nướng, BBQ kiểu Hàn và quán nướng than hoa ngoài trời ở ven đô. Chọn đúng kiểu hợp với nhóm mình quan trọng không kém chọn đúng quán.</p>
+
+<table>
+<thead><tr><th scope="col">Kiểu quán</th><th scope="col">Ngon ở chỗ</th><th scope="col">Nên lưu ý</th></tr></thead>
+<tbody>
+<tr><td>Nướng ngói</td><td>Thịt đặt trên miếng ngói đất nung hơ trên than, chín đều, ít bị lửa táp trực tiếp</td><td>Hỏi trước quán có thay ngói khi ngói đã bám cháy không</td></tr>
+<tr><td>Nướng đá</td><td>Thịt chín áp trên phiến đá nóng, mỡ chảy ra ngoài nên ăn đỡ ngấy</td><td>Đá nguội dần trong bữa, nên hỏi quán có thay đá nóng không</td></tr>
+<tr><td>Buffet nướng</td><td>Ăn bao nhiêu tùy sức, hợp nhóm ăn khỏe</td><td>Trả trọn suất dù ăn không hết; xem món nào nằm ngoài suất</td></tr>
+<tr><td>BBQ kiểu Hàn</td><td>Thịt thái lát mỏng, chín nhanh, ăn kèm kim chi và rau cuốn</td><td>Thường ngồi trong nhà, ít cảnh để ngắm</td></tr>
+<tr><td>Nướng than hoa ngoài trời ở ven đô</td><td>Không khí se lạnh, view thung lũng, hoàng hôn</td><td>Xa trung tâm hơn, tối lạnh, giờ cao điểm cần đặt bàn</td></tr>
+</tbody>
+</table>
+
+<p>Bài này cố ý không lập bảng xếp hạng quán khác. Quán ăn ở Đà Lạt mở thêm, đóng cửa, đổi chủ và đổi giá khá thường xuyên, nên chúng tôi nghĩ có ích hơn là đưa bạn bộ tiêu chí để tự chấm khi tới nơi, kể cả khi chấm chính quán của chúng tôi.</p>
+
+<h2>Trạm Dừng Chill tự chấm theo 7 dấu hiệu</h2>
+
+<p><a href="/">Tiệm Nướng Trạm Dừng Chill</a> là quán của chúng tôi, nên phần này là lời tự giới thiệu: dưới đây là những gì bạn sẽ gặp khi tới, kèm cả những điểm có thể chưa hợp với bạn.</p>
+
+<table>
+<thead><tr><th scope="col">Dấu hiệu</th><th scope="col">Ở Trạm Dừng Chill</th></tr></thead>
+<tbody>
+<tr><td>Nguyên liệu</td><td>Món nướng mang ra sống trên khay gỗ để bạn nhìn trước, rồi tự nướng tại bàn.</td></tr>
+<tr><td>Vị ướp</td><td>Có món nướng mộc như Ba Chỉ Bò Nướng Muối Tiêu (155K), có món ướp như Vếu Heo Ướp Sate (145K), Mực Ướp Sate (160K).</td></tr>
+<tr><td>Lửa</td><td>Nướng than hoa tại bàn, ngồi ngoài trời.</td></tr>
+<tr><td>Món ăn kèm</td><td>Kim Chi (30K), Rau Thêm (20K), Salad Trộn Dầu Giấm (95K); món bò hợp chấm muối ớt xanh.</td></tr>
+<tr><td>Giá</td><td>Thực đơn hơn 70 món ghi giá từng món, đã gồm VAT; khách lẻ gọi món lẻ, không có combo hay set cố định.</td></tr>
+<tr><td>Đánh giá</td><td>4.8/5 sao trên Google với 7.344 lượt đánh giá (số đọc ngày 18/10/2026).</td></tr>
+<tr><td>Chỗ ngồi</td><td>Gần 250 bàn, có cả bàn ngoài trời lẫn dãy bàn mái che khi mưa; lạnh thì báo nhân viên mang mền và lò than sưởi tận bàn.</td></tr>
+</tbody>
+</table>
+
+<p>Về giá, chúng tôi có số đo từ hóa đơn thật thay vì ước lượng. Theo hóa đơn của chính quán, 79% bàn chi từ 150.000đ đến 400.000đ cho mỗi người, và bình quân mỗi khách chi 261.591đ. Tỉ lệ này tính trên 17.455 hóa đơn từ 05/08 đến 23/10/2026, đã gồm VAT và đồ uống; cách đo chi tiết nằm trong bài <a href="an-nuong-da-lat-bao-nhieu-tien.html">ăn nướng Đà Lạt bao nhiêu tiền</a>.</p>
+
+<p>Những điểm có thể chưa hợp với bạn:</p>
+
+<ul>
+  <li><strong>Xa trung tâm:</strong> quán cách trung tâm khoảng 7 km, xa hơn các quán nướng trong phố.</li>
+  <li><strong>Giờ cao điểm:</strong> khung 17:30–19:00 quán thường kín khách, tới giờ đó mà chưa đặt bàn thì khó chọn chỗ.</li>
+  <li><strong>Trời lạnh:</strong> ngồi ngoài trời buổi tối khá lạnh, nhớ mang áo ấm.</li>
+  <li><strong>Tự nướng:</strong> bạn tự nướng tại bàn; ai chỉ muốn món chín sẵn thì có nhóm món lai rai, cơm chiên, mì xào và lẩu.</li>
+  <li><strong>Không giao hàng:</strong> quán chỉ phục vụ tại chỗ.</li>
+</ul>
+
+<p>Bù lại là phần cảnh: hoàng hôn từ khoảng 16:30, tàu cổ Đà Lạt – Trại Mát chạy qua quán trong khung 16:30 – 21:25, và nhà lồng dưới thung lũng lên đèn từ khoảng 18:30. Xem thêm bài <a href="nuong-bbq-ngam-xe-lua.html">nướng BBQ ngắm tàu lửa</a> và <a href="quan-nuong-da-lat-view-nha-long.html">quán nướng view nhà lồng</a>.</p>
+
+<h2>Lần đầu tới Trạm Dừng Chill nên gọi món gì?</h2>
+
+<p>Lần đầu tới, cách gọi dễ nhất cho hai người là một món bò, một món heo hoặc hải sản, một món ăn kèm và đồ uống, rồi gọi thêm khi đã nướng hết khay đầu.</p>
+
+<ul>
+  <li><strong>Bò Kobe Nướng Tảng Phô Mai Trứng Muối (209K):</strong> món đặc trưng của quán.</li>
+  <li><strong>Ba Chỉ Bò Cuộn Nấm Kim Châm (137K):</strong> món nằm trong mục Best Seller của thực đơn.</li>
+  <li><strong>Vếu Heo Ướp Sate (145K)</strong> hoặc <strong>Tôm Nướng Muối Ớt (150K)</strong> cho người thích vị đậm.</li>
+  <li><strong>Lẩu Gà Lá É (300K):</strong> cho nhóm đông muốn thêm một nồi nóng giữa bàn.</li>
+  <li><strong>Trà Gừng Táo Đỏ Mật Ong (39K):</strong> ấm tay những tối lạnh.</li>
+</ul>
+
+<figure class="anh-ngang"><img src="assets/images/blog/ba-chi-bo-cuon-nam-kim-cham-tiem-nuong-da-lat.webp" srcset="assets/images/blog/ba-chi-bo-cuon-nam-kim-cham-tiem-nuong-da-lat-400w.webp 400w, assets/images/blog/ba-chi-bo-cuon-nam-kim-cham-tiem-nuong-da-lat-800w.webp 800w, assets/images/blog/ba-chi-bo-cuon-nam-kim-cham-tiem-nuong-da-lat.webp 1200w" sizes="(max-width:800px) calc(100vw - 48px), 752px" alt="Khay gỗ dài xếp những cuộn ba chỉ quấn nấm kim châm phết sốt đỏ, cạnh khoanh hành tây, ớt chuông và bí đỏ; bên phải là dĩa salad rưới sốt mayonnaise, bên trái là bắp cắt khúc và thịt ướp" loading="lazy"><figcaption>Ba chỉ cuộn nấm kim châm bày cùng rau củ và salad, chờ lên vỉ.</figcaption></figure>
+
+<p>Chi tiết từng nhóm món nằm trong bài <a href="mon-nuong-ngon-nhat-da-lat.html">món nướng ngon nhất Đà Lạt</a>, còn giá đầy đủ xem ở <a href="../menu.html">thực đơn hơn 70 món</a>. Trời lạnh mà muốn thêm nồi nóng thì có bài <a href="lau-nuong-da-lat-mua-lanh.html">lẩu nướng Đà Lạt mùa lạnh</a>.</p>
+
+<h2>Nên đi ăn nướng giờ nào và đặt bàn ra sao?</h2>
+
+<p>Giờ đẹp để ăn nướng ngoài trời ở Đà Lạt là tới trong khung 15:00–17:00: vừa kịp chọn bàn, nướng dưới hoàng hôn từ khoảng 16:30 và ngồi lại tới khi nhà lồng lên đèn khoảng 18:30.</p>
+
+<ul>
+  <li><strong>Giờ mở cửa:</strong> 15:00–23:00.</li>
+  <li><strong>Tàu cổ:</strong> chạy qua quán trong khung 16:30 – 21:25; giờ tàu thực tế có thể thay đổi theo lịch vận hành.</li>
+  <li><strong>Đặt bàn:</strong> <a href="/#booking">đặt trực tiếp trên website</a> hoặc gọi <a href="tel:0989765070">0989.765.070</a>. Quán xác nhận qua Zalo trong khoảng 15 phút nếu bạn đặt trong giờ mở cửa 15:00–23:00; đặt ngoài giờ thì quán xác nhận khi mở cửa.</li>
+  <li><strong>Cọc:</strong> bàn ăn bình thường không cần cọc; đoàn trên 10 người thì nhân viên báo mức cọc khi xác nhận.</li>
+  <li><strong>Đỗ xe:</strong> bãi đỗ xe miễn phí cho xe máy và ô tô con.</li>
+  <li><strong>Địa chỉ:</strong> 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, cách trung tâm khoảng 7 km. Xem <a href="../duong-di/">đường đi có video chỉ đường</a>.</li>
+</ul>
+
+<p>Quán nướng ngon không cần là quán đứng đầu một danh sách nào. Chỉ cần thịt tươi, lửa đủ nóng, nước chấm vừa miệng và một chỗ ngồi đủ ấm giữa trời Đà Lạt se lạnh, bữa nướng tối nay đã đáng nhớ.</p>`,
+        _faq: [
+            { q: "Quán nướng ngon ở Đà Lạt thường có đặc điểm gì?", a: "Thịt sống mang ra bàn tươi và ráo, ướp vừa đủ, than đủ nóng và vỉ sạch, nước chấm có bản sắc, thực đơn ghi giá rõ, đánh giá Google gần đây ổn định, và chỗ ngồi có mái che, có cách giữ ấm cho khách ngồi ngoài trời." },
+            { q: "Ăn nướng ở Đà Lạt hết bao nhiêu tiền một người?", a: "Tùy kiểu quán. Ở Trạm Dừng Chill, mức chi phổ biến là 150.000đ–400.000đ một người, đã gồm VAT; theo hóa đơn của quán, bình quân mỗi khách chi 261.591đ, gồm cả đồ uống." },
+            { q: "Nên chọn quán nướng trong trung tâm hay ở ven đô Đà Lạt?", a: "Quán trong trung tâm gần, tiện đi bộ và dạo chợ đêm sau bữa ăn. Quán ven đô xa hơn nhưng thoáng, có view thung lũng và hoàng hôn; nên đi sớm, mang áo ấm và đặt bàn trước giờ cao điểm." },
+            { q: "Ăn đồ nướng thế nào cho đỡ hại sức khỏe?", a: "Ướp thịt trước khi nướng, trở thịt thường xuyên cho chín đều và bỏ phần cháy sém. Theo một bài trên VnExpress dẫn lời giáo sư Mark G. Knize, ướp với nước sốt trước khi nướng có thể giảm hơn 95% nguy cơ phát sinh HCA." },
+            { q: "Trạm Dừng Chill ở đâu, mở cửa mấy giờ?", a: "Quán ở 111 Huỳnh Tấn Phát, Phường Xuân Trường - Đà Lạt, cách trung tâm khoảng 7 km, mở cửa 15:00–23:00. Quán có bãi đỗ xe miễn phí cho xe máy và ô tô con." },
+            { q: "Đi ăn nướng ở Đà Lạt có cần đặt bàn trước không?", a: "Nên đặt trước nếu đi vào khung 17:30–19:00, vì đây là giờ quán thường kín khách. Đặt trên website hoặc gọi 0989.765.070; bàn ăn bình thường không cần cọc." }
+        ]
     }
 ];

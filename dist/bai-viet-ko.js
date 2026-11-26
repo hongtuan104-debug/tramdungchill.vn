@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog 한국어 — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "quan-nuong-ngon-da-lat",
+  "title": "달랏 바비큐 맛집: 7가지 신호로 주문 전에 알아보는 법",
+  "category": "달랏 바비큐 식당",
+  "date": "2026-11-26",
+  "image": "/assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp",
+  "imageAlt": "둥근 나무 도마 위에 부채꼴로 놓인 생삼겹살 조각들, 붉은 분홍빛 살결에 하얀 지방이 섞여 있고, 옆에 토마토를 깎아 만든 꽃, 오이 토막, 썬 고추 종지와 초록색 소스 종지",
+  "badge": "새 글",
+  "featured": false,
+  "excerpt": "<strong>달랏 바비큐 맛집</strong>은 어떻게 알아볼까요? 바비큐 식당을 운영하는 사람이 보는 7가지 신호, 곧 신선한 고기, 알맞은 양념, 뜨거운 숯불, 소스, 명확한 가격, Google 리뷰, 추운 날씨에 맞는 자리를 정리하고 Trạm Dừng Chill의 자체 평가도 함께 담았어요.",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-di-dau-an-gi",
   "title": "달랏 크리스마스, 어디 가고 뭘 먹을까? 12월 24일 크리스마스이브 오후부터 저녁까지 일정",
   "category": "축제 시즌",

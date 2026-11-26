@@ -1,6 +1,18 @@
 /* Danh sách bài cho trang Blog English — sinh bởi scripts/dich-trang.js. ĐỪNG sửa tay. */
 const BLOG_ARTICLES = [
  {
+  "id": "quan-nuong-ngon-da-lat",
+  "title": "Good BBQ Restaurants in Da Lat: 7 Signs to Spot a Great Grill House Before You Order",
+  "category": "Da Lat BBQ restaurants",
+  "date": "2026-11-26",
+  "image": "/assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp",
+  "imageAlt": "Slices of raw pork belly fanned out on a round wooden board, pinkish-red meat streaked with white fat, beside a carved tomato flower, a piece of cucumber, a dish of sliced chili and a dish of green dipping sauce",
+  "badge": "New",
+  "featured": false,
+  "excerpt": "<strong>Good BBQ restaurants in Da Lat</strong>: how do you spot one? 7 signs that people who run a grill house look for: fresh meat, a balanced marinade, hot charcoal, dipping sauces, clear prices, Google reviews and seating that suits the cold, plus how Trạm Dừng Chill scores itself.",
+  "tags": []
+ },
+ {
   "id": "noel-da-lat-di-dau-an-gi",
   "title": "Christmas in Da Lat: Where to Go, What to Eat and a Christmas Eve (24/12) Plan From Afternoon to Evening",
   "category": "Festive season",

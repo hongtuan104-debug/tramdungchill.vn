@@ -64,6 +64,7 @@ const ANH = [
     { goc: "assets/images/blog/tau-giang-sinh-tram-dung-chill-da-lat.jpg", khung: "bai", tam: { og: [0.5, 0.5], "16x9": [0.5, 0.5], "4x3": [0.5, 0.5], "1x1": [0.45, 0.5] } }, // Noel 2026 — ảnh bìa ngang 1800×1200 từ bộ Canon chụp 12/11/2026 (16/11 thay ảnh dọc toan-canh): đầu tàu + mẫu + biển "Đà Lạt 0 km"
     { goc: "assets/images/blog/phao-hoa-dem-noel-tram-dung-chill-da-lat.jpg", khung: "bai", tam: { og: [0.5, 0.42], "16x9": [0.5, 0.45], "4x3": [0.6, 0.5], "1x1": [0.6, 0.5] } }, // noel-da-lat-di-dau-an-gi (17/11/2026) — giữ pháo hoa lệch phải
     { goc: "assets/images/blog/coi-xay-gio-xich-du-dem-noel-da-lat.jpg", khung: "bai", tam: [0.5, 0.5] },   // hen-ho-cau-hon-dem-noel-da-lat — vuông: giữ cả cối xay gió lẫn xích đu
+    { goc: "assets/images/blog/ba-chi-heo-tuoi-thot-go-tiem-nuong-da-lat.webp", khung: "bai", tam: { "1x1": [0.55, 0.5] } }, // quan-nuong-ngon-da-lat (26/11/2026) — vuông: giữ cả thớt thịt
     { goc: "assets/images/blog/khu-noel-ban-ngay-tuan-loc-tram-dung-chill-da-lat.jpg", khung: "bai", tam: { og: [0.5, 0.5], "16x9": [0.5, 0.5], "4x3": [0.45, 0.5], "1x1": [0.4, 0.5] } }, // noel-da-lat-cung-gia-dinh-tre-nho — vuông: giữ cả đầu tàu lẫn người
 ];
 
